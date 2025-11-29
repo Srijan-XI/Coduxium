@@ -1,37 +1,76 @@
-# Static Site — Repository Info
+# 🌐 DevSphere — Static Site Repository Info
 
-A lightweight, modern web interface to explore the **DevSphere** repository without visiting GitHub.
+A lightweight, modern, and feature-rich web interface to explore the **DevSphere** repository. This static site provides a comprehensive guide to languages, frameworks, databases, and tools with a premium user experience.
 
-## Features
+## ✨ Features
 
-- 🎨 **Dark/Light theme** with smooth toggle
-- 🔍 **Search & filter** by language, framework, database, or tool
-- 📊 **Live stats** (languages, frameworks, databases, DevOps tools)
-- 🔗 **Direct links** to install guides, questions, intros, and docs
-- 📱 **Fully responsive** (desktop, tablet, mobile)
+### 🎨 UI & UX
+- **Dark/Light Theme**: Smooth toggle with persistent preference (LocalStorage).
+- **Responsive Design**: Fully optimized for desktop, tablet, and mobile.
+- **Animations**: Smooth transitions, hover effects, and page animations.
+- **Scroll-to-Top**: Floating button for easy navigation on long pages.
+- **Breadcrumb Navigation**: Automatic path detection with smart emoji icons.
 
-## How to Run Locally
+### 🔍 Search & Navigation
+- **Real-time Search**: Instant search across languages, frameworks, databases, and tools.
+- **Keyboard Navigation**: Full keyboard support for search results.
+- **Direct Links**: Quick access to install guides, documentation, and intros.
+
+### 💻 Developer Tools
+- **Syntax Highlighting**: Supports 13+ languages (Python, JS, Java, C++, etc.) via Highlight.js.
+- **Code Themes**: 6 beautiful themes (VS Dark, Monokai, GitHub, Dracula, Nord, Atom One Dark).
+- **Copy-to-Clipboard**: One-click copy for all code blocks.
+- **Icon Library**: 70+ technology icons with emojis and colors.
+
+### 📊 Live Stats
+- **Dashboard**: Overview of available languages, frameworks, databases, and DevOps tools.
+
+## 🚀 How to Run Locally
 
 ### Option 1: Python HTTP Server
+Run this command in the project root:
 ```powershell
-cd "p:\Install and Learn DevLangs\site"
 python -m http.server 5500
 ```
 Open: `http://localhost:5500`
 
 ### Option 2: Node.js `serve`
+Run this command in the project root:
 ```powershell
-cd "p:\Install and Learn DevLangs\site"
 npx serve -l 5500
 ```
 Open: `http://localhost:5500`
 
 ### Option 3: Open Directly
-Simply double-click `index.html` to open in your browser. Some relative links may require a server.
+Simply double-click `index.html` to open in your browser. Note: Some features like relative links or local storage might behave differently depending on browser security settings for local files.
 
-## Optional: Configure GitHub Links
+## 📂 Project Structure
 
-To enable the "Download ZIP", "GitHub Repo", and "Issues" links, add this snippet in `index.html` **before** `<script src="app.js"></script>`:
+- `index.html` — Main entry point.
+- `main.css` — Global styles and layout.
+- `app.js` — Core logic for rendering and state management.
+- `components/` — Modular components:
+  - `breadcrumb/` — Navigation path logic.
+  - `search/` — Search engine and UI.
+  - `theme-switch/` — Dark/light mode toggle.
+  - `scroll-to-top/` — Scroll behavior.
+  - `code-highlighter/` — Syntax highlighting and copy functionality.
+  - `icons/` — Icon library and assets.
+  - `animations.css` — Global animation definitions.
+- `pages/` — Content pages for each technology.
+- `docpages/` — General documentation pages.
+
+## 🛠️ Technologies
+
+- **Core**: Vanilla HTML5, CSS3, JavaScript (ES6+).
+- **Styling**: CSS Grid, Flexbox, CSS Variables.
+- **Fonts**: Inter (Google Fonts).
+- **External Libs**: Highlight.js (CDN) for syntax highlighting.
+- **Storage**: LocalStorage for user preferences.
+
+## ⚙️ Configuration
+
+To enable GitHub specific links (Download ZIP, Repo, Issues), ensure the `repoConfig` is set in `index.html`:
 
 ```html
 <script>
@@ -42,19 +81,6 @@ To enable the "Download ZIP", "GitHub Repo", and "Issues" links, add this snippe
 </script>
 ```
 
-## Structure
-
-- `index.html` — Main page structure
-- `main.css` — Styling (dark/light theme, responsive grid)
-- `app.js` — Rendering, search/filter, theme toggle, relative path handling
-
-## Technologies
-
-- Vanilla HTML/CSS/JavaScript
-- CSS Grid & Flexbox
-- Inter font (Google Fonts)
-- LocalStorage for theme persistence
-
 ---
 
-**Enjoy exploring the repository!** 🚀
+**Enjoy exploring DevSphere!** 🚀
