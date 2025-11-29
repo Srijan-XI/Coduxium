@@ -22,8 +22,8 @@ Automatically generates breadcrumb navigation based on the current URL path.
 <div id="breadcrumb" class="breadcrumb-container"></div>
 
 <!-- Include the files -->
-<link rel="stylesheet" href="path/to/components/breadcrumb.css">
-<script src="path/to/components/breadcrumb.js"></script>
+<link rel="stylesheet" href="path/to/components/breadcrumb/breadcrumb.css">
+<script src="path/to/components/breadcrumb/breadcrumb.js"></script>
 ```
 
 **Example Output:**
@@ -46,8 +46,8 @@ Dark/Light mode toggle with localStorage persistence and CSS variables.
 
 **Usage:**
 ```html
-<link rel="stylesheet" href="path/to/components/theme-switcher.css">
-<script src="path/to/components/theme-switcher.js"></script>
+<link rel="stylesheet" href="path/to/components/theme-switch/theme-switcher.css">
+<script src="path/to/components/theme-switch/theme-switcher.js"></script>
 ```
 
 **CSS Variables:**
@@ -91,8 +91,8 @@ Real-time search across all documentation and resources.
   <div id="search-results"></div>
 </div>
 
-<link rel="stylesheet" href="path/to/components/search.css">
-<script src="path/to/components/search.js"></script>
+<link rel="stylesheet" href="path/to/components/search/search.css">
+<script src="path/to/components/search/search.js"></script>
 ```
 
 **Keyboard Shortcuts:**
@@ -115,8 +115,8 @@ Floating button that appears after scrolling down, enables smooth scroll to top.
 
 **Usage:**
 ```html
-<link rel="stylesheet" href="path/to/components/scroll-to-top.css">
-<script src="path/to/components/scroll-to-top.js"></script>
+<link rel="stylesheet" href="path/to/components/scroll-to-top/scroll-to-top.css">
+<script src="path/to/components/scroll-to-top/scroll-to-top.js"></script>
 ```
 
 **Options:**
@@ -147,8 +147,8 @@ def hello():
     print("Hello, World!")
 </code></pre>
 
-<link rel="stylesheet" href="path/to/components/code-highlighter.css">
-<script src="path/to/components/code-highlighter.js"></script>
+<link rel="stylesheet" href="path/to/components/code-highlighter/code-highlighter.css">
+<script src="path/to/components/code-highlighter/code-highlighter.js"></script>
 ```
 
 **Supported Languages:**
@@ -218,11 +218,11 @@ Pre-built CSS animations for smooth transitions and effects.
   <link rel="stylesheet" href="path/to/main.css">
   
   <!-- Component Styles -->
-  <link rel="stylesheet" href="path/to/components/breadcrumb.css">
-  <link rel="stylesheet" href="path/to/components/theme-switcher.css">
-  <link rel="stylesheet" href="path/to/components/search.css">
-  <link rel="stylesheet" href="path/to/components/scroll-to-top.css">
-  <link rel="stylesheet" href="path/to/components/code-highlighter.css">
+  <link rel="stylesheet" href="path/to/components/breadcrumb/breadcrumb.css">
+  <link rel="stylesheet" href="path/to/components/theme-switch/theme-switcher.css">
+  <link rel="stylesheet" href="path/to/components/search/search.css">
+  <link rel="stylesheet" href="path/to/components/scroll-to-top/scroll-to-top.css">
+  <link rel="stylesheet" href="path/to/components/code-highlighter/code-highlighter.css">
   <link rel="stylesheet" href="path/to/components/animations.css">
 </head>
 <body>
@@ -232,11 +232,11 @@ Pre-built CSS animations for smooth transitions and effects.
   <!-- Your content here -->
   
   <!-- Component Scripts -->
-  <script src="path/to/components/breadcrumb.js"></script>
-  <script src="path/to/components/theme-switcher.js"></script>
-  <script src="path/to/components/search.js"></script>
-  <script src="path/to/components/scroll-to-top.js"></script>
-  <script src="path/to/components/code-highlighter.js"></script>
+  <script src="path/to/components/breadcrumb/breadcrumb.js"></script>
+  <script src="path/to/components/theme-switch/theme-switcher.js"></script>
+  <script src="path/to/components/search/search.js"></script>
+  <script src="path/to/components/scroll-to-top/scroll-to-top.js"></script>
+  <script src="path/to/components/code-highlighter/code-highlighter.js"></script>
 </body>
 </html>
 ```
@@ -249,26 +249,26 @@ Pre-built CSS animations for smooth transitions and effects.
 
 **Root level** (`index.html`):
 ```html
-<link rel="stylesheet" href="components/breadcrumb.css">
-<script src="components/breadcrumb.js"></script>
+<link rel="stylesheet" href="components/breadcrumb/breadcrumb.css">
+<script src="components/breadcrumb/breadcrumb.js"></script>
 ```
 
 **One level deep** (`pages/about.html`):
 ```html
-<link rel="stylesheet" href="../components/breadcrumb.css">
-<script src="../components/breadcrumb.js"></script>
+<link rel="stylesheet" href="../components/breadcrumb/breadcrumb.css">
+<script src="../components/breadcrumb/breadcrumb.js"></script>
 ```
 
 **Two levels deep** (`pages/Languages/languages.html`):
 ```html
-<link rel="stylesheet" href="../../components/breadcrumb.css">
-<script src="../../components/breadcrumb.js"></script>
+<link rel="stylesheet" href="../../components/breadcrumb/breadcrumb.css">
+<script src="../../components/breadcrumb/breadcrumb.js"></script>
 ```
 
 **Three levels deep** (`pages/Languages/Python/intro.html`):
 ```html
-<link rel="stylesheet" href="../../../components/breadcrumb.css">
-<script src="../../../components/breadcrumb.js"></script>
+<link rel="stylesheet" href="../../../components/breadcrumb/breadcrumb.css">
+<script src="../../../components/breadcrumb/breadcrumb.js"></script>
 ```
 
 ---

@@ -32,6 +32,7 @@
     nav a:hover{color:#e1e4e8;border-color:#8b5cf6;text-decoration:none}
     footer{margin-top:3.5rem;text-align:center;font-size:.8rem;color:#8b92a0}
   </style>
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 <body>
   <div class="wrap">
@@ -45,6 +46,7 @@
         <span class="badge">AGGREGATION</span>
       </div>
       <nav>
+        <a href="../../../index.html">🏠 Home</a>
         <a href="#model">Data Model</a>
         <a href="#queries">Queries</a>
         <a href="#aggregation">Aggregation</a>
@@ -131,5 +133,6 @@ db.articles.createIndex({ content: "text" })</code><button class="copy-btn" data
       a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});});
     });
   </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 </html>

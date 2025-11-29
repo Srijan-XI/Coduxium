@@ -61,6 +61,7 @@
     .copy-feedback { position:fixed; bottom:1.2rem; right:1.2rem; background:#10b981; color:#fff; padding:.6rem .9rem; font-size:.8rem; border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,.4); opacity:0; transform:translateY(10px); transition:.35s; }
     .copy-feedback.show { opacity:1; transform:translateY(0); }
   </style>
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 <body>
   <div class="page-wrapper">
@@ -75,6 +76,7 @@
         <span class="badge">FLEXIBLE</span>
       </div>
       <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
         <a href="#what-is">What is PHP?</a>
         <a href="#why-use">Why Use It</a>
         <a href="#core-concepts">Core Concepts</a>
@@ -143,7 +145,8 @@ echo "Hello, DevSphere!";
     &lt;h1&gt;&lt;?php echo "Welcome to PHP!"; ?&gt;&lt;/h1&gt;
     &lt;p&gt;Current date: &lt;?php echo date("Y-m-d"); ?&gt;&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code><button class="copy-btn" data-copy="<!DOCTYPE html>\n<html>\n<body>\n    <h1><?php echo \"Welcome to PHP!\"; ?></h1>\n    <p>Current date: <?php echo date(\"Y-m-d\"); ?></p>\n</body>\n</html>">COPY</button></pre>
+&lt;/html&gt;</code><button class="copy-btn" data-copy="<!DOCTYPE html>\n<html>\n<body>\n    <h1><?php echo \"Welcome to PHP!\"; ?></h1>\n    <p>Current date: <?php echo date(\"Y-m-d\"); ?></p>\n  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>\n</html>">COPY</button></pre>
       
       <h3>Variables & Data Types</h3>
       <pre><code>&lt;?php
@@ -303,5 +306,6 @@ php artisan serve</code><button class="copy-btn" data-copy="composer create-proj
       });
     });
   </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 </html>

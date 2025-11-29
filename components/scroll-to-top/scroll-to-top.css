@@ -1,4 +1,8 @@
 /* Scroll-to-Top Button Styles */
+:root {
+	--accent-primary: var(--primary, #8b5cf6);
+	--accent-hover: var(--primary-hover, #a78bfa);
+}
 
 .scroll-to-top {
 	position: fixed;

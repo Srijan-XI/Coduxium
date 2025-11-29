@@ -34,6 +34,7 @@
 		.copy-feedback { position:fixed; bottom:1.2rem; right:1.2rem; background:#10b981; color:#fff; padding:.6rem .9rem; font-size:.8rem; border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,.4); opacity:0; transform:translateY(10px); transition:.35s; }
 		.copy-feedback.show { opacity:1; transform:translateY(0); }
 	</style>
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 <body>
 	<div class="page-wrapper">
@@ -47,6 +48,7 @@
 				<span class="badge">INNODB</span>
 			</div>
 			<nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
 				<a href="#what">What is MySQL</a>
 				<a href="#concepts">Core Concepts</a>
 				<a href="#queries">SQL Examples</a>
@@ -140,5 +142,6 @@ DELETE FROM users WHERE email='ada@example.com';</code><button class="copy-btn" 
 			a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'}); });
 		});
 	</script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 </html>
