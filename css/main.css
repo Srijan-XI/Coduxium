@@ -1,7 +1,7 @@
 /* ===================================
-   Imports
+   Imports of watermark
    =================================== */
-@import url('watermark/watermark.css');
+@import url('../watermark/watermark.css');
 
 /* ===================================
    Theme Variables

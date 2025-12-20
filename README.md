@@ -23,7 +23,13 @@ A lightweight, modern, and feature-rich web interface to explore the **DevSphere
 - **Icon Library**: 70+ technology icons with emojis and colors.
 
 ### 📊 Live Stats
-- **Dashboard**: Overview of available languages, frameworks, databases, and DevOps tools.
+- **Dashboard**: Overview of available languages, frameworks, databases, DevOps tools, and Linux distros.
+- **15 Linux Distributions**: Comprehensive guides for Arch, Debian, Red Hat families, and more.
+
+### 🎨 Design Elements
+- **Brutalist Watermark**: Interactive shield-icon watermark on all pages.
+- **Glassmorphism Effects**: Modern frosted glass UI elements.
+- **Premium Animations**: Smooth transitions, hover effects, and micro-interactions.
 
 ## 🚀 How to Run Locally
 
@@ -57,7 +63,23 @@ Simply double-click `index.html` to open in your browser. Note: Some features li
   - `code-highlighter/` — Syntax highlighting and copy functionality.
   - `icons/` — Icon library and assets.
   - `animations.css` — Global animation definitions.
-- `pages/` — Content pages for each technology.
+- `watermark/` — Brutalist watermark component:
+  - `watermark.css` — Watermark styling.
+  - `watermark.js` — Auto-inject watermark on all pages.
+- `pages/` — Content pages for each technology:
+  - `Languages/` — Programming languages guides.
+  - `Framework/` — Web frameworks documentation.
+  - `Database/` — Database systems info.
+  - `Testing/` — Testing frameworks.
+  - `Devop&API/` — DevOps tools and APIs.
+  - `Linux/` — Linux distributions and guides:
+    - Core pages: `linux.html`, `kernel.html`, `filesystem.html`, `install.html`, `commands.html`
+    - `Arch/` — Arch Linux, BlackArch, Garuda, RedArch
+    - `Debian/` — Ubuntu, Kali, Linux Mint, ParrotSec
+    - `RedHat/` — Fedora, RHEL, CentOS, Oracle Linux
+    - `Gentoo/` — Gentoo Linux
+    - `Slackware/` — Slackware Linux
+  - `Resources/` — Additional resources and tools.
 - `docpages/` — General documentation pages.
 
 ## 🛠️ Technologies
