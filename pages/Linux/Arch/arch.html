@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arch Linux - The KISS Principle</title>
+    <link rel="stylesheet" href="../../../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --arch-blue: #1793d1;
+            --arch-dark: #333333;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0f1419;
+            color: #e1e4e8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(23, 147, 209, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--arch-blue);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--arch-blue);
+        }
+
+        .cmd-block {
+            background: #0d1117;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--arch-blue);
+            font-family: 'Courier New', monospace;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>Arch Linux</h1>
+        <p class="text-xl text-gray-400">Keep It Simple, Stupid (KISS)</p>
+    </div>
+
+    <main class="card-grid">
+        <section class="info-card">
+            <h2>📜 Philosophy</h2>
+            <p>Arch Linux is an independently developed, x86-64 general-purpose GNU/Linux distribution that strives to
+                provide the latest stable versions of most software by following a rolling-release model.</p>
+        </section>
+
+        <section class="info-card">
+            <h2>📦 Package Management</h2>
+            <p>Pacman is the package manager of Arch. It serves as the main pillar of the system, managing packages from
+                the repositories and building them from source.</p>
+            <div class="cmd-block">
+                # Update System<br>
+                sudo pacman -Syu<br><br>
+                # Install Package<br>
+                sudo pacman -S firefox
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2>🛠️ Key Features</h2>
+            <ul style="list-style-type: disc; padding-left: 20px; margin-top: 10px;">
+                <li>Rolling Release Model</li>
+                <li>minimalist design</li>
+                <li>Arch User Repository (AUR)</li>
+                <li>Systemd init system</li>
+            </ul>
+        </section>
+
+        <section class="info-card">
+            <h2>🔗 Related Distributions</h2>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <a href="BlackArch/blackarch.html"
+                    style="color: var(--arch-blue); text-decoration: none; border: 1px solid var(--arch-blue); padding: 5px 15px; border-radius: 20px;">BlackArch</a>
+                <a href="Garuda/garuda.html"
+                    style="color: var(--arch-blue); text-decoration: none; border: 1px solid var(--arch-blue); padding: 5px 15px; border-radius: 20px;">Garuda</a>
+                <a href="RedArch/redarch.html"
+                    style="color: var(--arch-blue); text-decoration: none; border: 1px solid var(--arch-blue); padding: 5px 15px; border-radius: 20px;">RedArch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid #30363d; margin-top: 40px;">
+        <a href="../../linux.html" style="color: var(--arch-blue); text-decoration: none;">← Back to Linux Home</a>
+    </footer>
+</body>
+
+</html>

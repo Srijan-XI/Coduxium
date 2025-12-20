@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Red Hat Enterprise Linux — DevSphere</title>
+    <link rel="stylesheet" href="../../../../main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --rhel-red: #ee0000;
+            --rhel-dark: #cc0000;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: radial-gradient(circle at top, rgba(238, 0, 0, 0.15), transparent 50%);
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+        }
+
+        .hero-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--rhel-red), var(--rhel-dark));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: var(--surface-2);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--rhel-red);
+            box-shadow: 0 10px 30px rgba(238, 0, 0, 0.2);
+        }
+
+        .info-card h3 {
+            color: var(--rhel-red);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🏢</span>
+                <div>
+                    <h1><a href="../../../../index.html">DevSphere</a></h1>
+                    <p class="sub">Red Hat Enterprise Linux</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <section class="hero-section">
+                <h2>Red Hat Enterprise Linux</h2>
+                <p class="intro">The industry-leading enterprise Linux distribution with professional support,
+                    stability, and security for mission-critical workloads.</p>
+            </section>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📋 Overview</h3>
+                    <p><strong>Base:</strong> Fedora (upstream)</p>
+                    <p><strong>Package Manager:</strong> DNF/YUM</p>
+                    <p><strong>Desktop:</strong> GNOME</p>
+                    <p><strong>Target:</strong> Enterprise Servers</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔧 Package Management</h3>
+                    <p>Uses DNF (Dandified YUM).</p>
+                    <pre><code>sudo dnf update
+sudo dnf install package-name</code></pre>
+                </div>
+
+                <div class="info-card">
+                    <h3>✨ Key Features</h3>
+                    <ul>
+                        <li>Long-term support (10 years)</li>
+                        <li>Professional support</li>
+                        <li>Security certifications</li>
+                        <li>Stability & reliability</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🎯 Use Cases</h3>
+                    <ul>
+                        <li>Enterprise servers</li>
+                        <li>Cloud infrastructure</li>
+                        <li>Mission-critical applications</li>
+                        <li>Containerization (OpenShift)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔗 Resources</h3>
+                    <p><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"
+                            target="_blank">Official Website</a></p>
+                    <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/"
+                            target="_blank">Documentation</a></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🌐 Sibling Distros</h3>
+                    <p><a href="../Fedora/fedora.html">Fedora</a></p>
+                    <p><a href="../CentOS/centos.html">CentOS</a></p>
+                    <p><a href="../Oracle/oracle.html">Oracle Linux</a></p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>DevSphere © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+</body>
+
+</html>

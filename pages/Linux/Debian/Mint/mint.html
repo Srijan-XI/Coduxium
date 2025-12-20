@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linux Mint — DevSphere</title>
+    <link rel="stylesheet" href="../../../../main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --mint-green: #87cf3e;
+            --mint-dark: #5e8c2f;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: radial-gradient(circle at top, rgba(135, 207, 62, 0.15), transparent 50%);
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+        }
+
+        .hero-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--mint-green), var(--mint-dark));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: var(--surface-2);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--mint-green);
+            box-shadow: 0 10px 30px rgba(135, 207, 62, 0.2);
+        }
+
+        .info-card h3 {
+            color: var(--mint-green);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🍃</span>
+                <div>
+                    <h1><a href="../../../../index.html">DevSphere</a></h1>
+                    <p class="sub">Linux Mint</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <section class="hero-section">
+                <h2>Linux Mint</h2>
+                <p class="intro">A user-friendly Ubuntu-based distribution perfect for beginners transitioning from
+                    Windows. Elegant, modern, and comfortable.</p>
+            </section>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📋 Overview</h3>
+                    <p><strong>Base:</strong> Ubuntu/Debian</p>
+                    <p><strong>Package Manager:</strong> APT</p>
+                    <p><strong>Desktop:</strong> Cinnamon, MATE, Xfce</p>
+                    <p><strong>Target:</strong> Desktop & Beginners</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔧 Package Management</h3>
+                    <p>Uses APT package manager with Software Manager GUI.</p>
+                    <pre><code>sudo apt update
+sudo apt install package-name</code></pre>
+                </div>
+
+                <div class="info-card">
+                    <h3>✨ Key Features</h3>
+                    <ul>
+                        <li>Elegant Cinnamon DE</li>
+                        <li>Pre-installed multimedia codecs</li>
+                        <li>Windows-like interface</li>
+                        <li>Excellent hardware support</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🎯 Use Cases</h3>
+                    <ul>
+                        <li>Desktop replacement</li>
+                        <li>Beginner-friendly Linux</li>
+                        <li>Daily computing</li>
+                        <li>Multimedia workstation</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔗 Resources</h3>
+                    <p><a href="https://linuxmint.com/" target="_blank">Official Website</a></p>
+                    <p><a href="https://linuxmint.com/documentation.php" target="_blank">Documentation</a></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🌐 Sibling Distros</h3>
+                    <p><a href="../Ubuntu/ubuntu.html">Ubuntu</a></p>
+                    <p><a href="../Kali/kali.html">Kali Linux</a></p>
+                    <p><a href="../ParrotSec/parrotsec.html">ParrotSec</a></p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>DevSphere © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+</body>
+
+</html>

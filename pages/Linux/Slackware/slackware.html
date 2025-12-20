@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slackware Linux — DevSphere</title>
+    <link rel="stylesheet" href="../../../main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --slack-blue: #3b5998;
+            --slack-light: #4c6fb1;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: radial-gradient(circle at top, rgba(59, 89, 152, 0.15), transparent 50%);
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+        }
+
+        .hero-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--slack-blue), var(--slack-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: var(--surface-2);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--slack-blue);
+            box-shadow: 0 10px 30px rgba(59, 89, 152, 0.2);
+        }
+
+        .info-card h3 {
+            color: var(--slack-blue);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">⚙️</span>
+                <div>
+                    <h1><a href="../../../index.html">DevSphere</a></h1>
+                    <p class="sub">Slackware Linux</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <section class="hero-section">
+                <h2>Slackware Linux</h2>
+                <p class="intro">The oldest surviving Linux distribution (since 1993). Emphasizes simplicity, stability,
+                    and UNIX-like principles with manual configuration.</p>
+            </section>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📋 Overview</h3>
+                    <p><strong>Base:</strong> Independent</p>
+                    <p><strong>Package Manager:</strong> pkgtools</p>
+                    <p><strong>Desktop:</strong> KDE, Xfce</p>
+                    <p><strong>Target:</strong> Advanced Users & Servers</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔧 Package Management</h3>
+                    <p>Uses pkgtools - no dependency resolution!</p>
+                    <pre><code>installpkg package.tgz
+upgradepkg package.tgz
+removepkg package</code></pre>
+                </div>
+
+                <div class="info-card">
+                    <h3>✨ Key Features</h3>
+                    <ul>
+                        <li>Oldest distribution (1993)</li>
+                        <li>UNIX philosophy</li>
+                        <li>No automatic dependency handling</li>
+                        <li>Stable & conservative</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🎯 Use Cases</h3>
+                    <ul>
+                        <li>Learning UNIX principles</li>
+                        <li>Stable servers</li>
+                        <li>Manual system control</li>
+                        <li>Educational purposes</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔗 Resources</h3>
+                    <p><a href="http://www.slackware.com/" target="_blank">Official Website</a></p>
+                    <p><a href="http://docs.slackware.com/" target="_blank">Documentation</a></p>
+                    <p><a href="https://slackbook.org/" target="_blank">Slackbook</a></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📚 Philosophy</h3>
+                    <p><strong>"Keep it Simple"</strong></p>
+                    <p>No graphical configuration tools. Edit config files manually to truly understand your system.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>DevSphere © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+</body>
+
+</html>

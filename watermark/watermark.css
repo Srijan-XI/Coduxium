@@ -1,0 +1,201 @@
+/* ===================================
+   Brutalist Watermark Component
+   =================================== */
+
+.watermark-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    pointer-events: auto;
+}
+
+.brutalist-watermark {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 169px;
+    height: 60px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border: 3px solid #fff;
+    outline: 3px solid #000;
+    box-shadow: 6px 6px 0 #00a4ef;
+    transition: all 0.1s ease-out;
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.brutalist-watermark::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.8),
+            transparent);
+    z-index: 1;
+    transition: none;
+    opacity: 0;
+}
+
+@keyframes watermarkSlide {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.brutalist-watermark:hover::before {
+    opacity: 1;
+    animation: watermarkSlide 2s infinite;
+}
+
+.brutalist-watermark:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 #000;
+    background-color: #000;
+    color: #fff;
+}
+
+.brutalist-watermark:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0 #00a4ef;
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+}
+
+.watermark-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease-out;
+    position: relative;
+    z-index: 2;
+}
+
+.watermark-logo svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    transition: all 0.2s ease-out;
+}
+
+.brutalist-watermark:hover .watermark-logo {
+    transform: rotate(-10deg) scale(1.15);
+}
+
+.brutalist-watermark:hover .watermark-logo svg {
+    stroke: #00a4ef;
+    filter: drop-shadow(0 0 4px rgba(0, 164, 239, 0.6));
+}
+
+.brutalist-watermark:active .watermark-logo {
+    transform: rotate(10deg) scale(0.9);
+}
+
+.brutalist-watermark:active .watermark-logo svg {
+    stroke: #000;
+}
+
+body.light .brutalist-watermark .watermark-logo svg {
+    stroke: #000;
+}
+
+body.light .brutalist-watermark:hover .watermark-logo svg {
+    stroke: #00a4ef;
+}
+
+body.light .brutalist-watermark:active .watermark-logo svg {
+    stroke: #fff;
+}
+
+.watermark-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    transition: transform 0.2s ease-out;
+    position: relative;
+    z-index: 2;
+}
+
+.brutalist-watermark:hover .watermark-text {
+    transform: skew(-5deg);
+}
+
+.brutalist-watermark:active .watermark-text {
+    transform: skew(5deg);
+}
+
+.watermark-text span:first-child {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.watermark-text span:last-child {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/* Light theme adjustments */
+body.light .brutalist-watermark {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+    outline-color: #fff;
+}
+
+body.light .brutalist-watermark:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+body.light .brutalist-watermark:active {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Mobile responsive */
+@media (max-width: 580px) {
+    .watermark-container {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .brutalist-watermark {
+        width: 140px;
+        height: 50px;
+        padding: 0 12px;
+    }
+
+    .watermark-logo {
+        width: 22px;
+        height: 22px;
+        margin-right: 6px;
+    }
+
+    .watermark-text span:first-child {
+        font-size: 9px;
+    }
+
+    .watermark-text span:last-child {
+        font-size: 14px;
+    }
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,16 +89,19 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 box-shadow: 0 0 0 4px var(--bg), 0 0 20px rgba(16, 185, 129, 0.5);
             }
+
             50% {
                 transform: scale(1.1);
                 box-shadow: 0 0 0 4px var(--bg), 0 0 30px rgba(16, 185, 129, 0.8);
             }
         }
-        
+
 
         .version-header {
             font-size: 1.875rem;
@@ -165,7 +169,7 @@
             letter-spacing: 0.5px;
         }
 
-        
+
 
         .badge-added {
             background: var(--ok);
@@ -249,7 +253,7 @@
         .changelog-ul .sub-list li::before {
             display: none;
         }
-        
+
 
         .legend-section {
             margin-top: 48px;
@@ -339,8 +343,9 @@
             }
         }
     </style>
-  <link rel="stylesheet" href="../components/scroll-to-top/scroll-to-top.css">
+    <link rel="stylesheet" href="../components/scroll-to-top/scroll-to-top.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -395,14 +400,17 @@
 
     <footer>
         <div class="container">
-            <p>&copy; DevSphere. Licensed under <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>.</p>
+            <p>&copy; DevSphere. Licensed under <a
+                    href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/blob/main/LICENSE" target="_blank"
+                    rel="noopener noreferrer">MIT License</a>.</p>
             <div class="footer-links">
                 <a href="../index.html">Home</a>
                 <a href="community.html">Community</a>
                 <a href="languages.html">Languages</a>
                 <a href="frameworks.html">Frameworks</a>
                 <a href="databases.html">Databases</a>
-                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
             </div>
         </div>
     </footer>
@@ -422,6 +430,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Kotlin programming language guide
 - Interactive coding challenges
 - Video tutorials for installation
+
+## [1.3.0] - 2025-12-21
+
+### Added
+- **Linux Ecosystem** complete documentation section
+- **Core Concepts** including Kernel Overview, Filesystem Hierarchy (FHS), and Permissions
+- **Installation Guide** covering Bare Metal, Virtual Machines, and WSL
+- **Command Cheat Sheet** for file operations, system management, and package managers
+- **Distro Families** detailed pages for Arch, Debian, Red Hat, Gentoo, and Slackware
+- **Distribution Guides** for specific distros:
+  - Arch Family: Arch Linux, BlackArch, Garuda, RedArch
+  - Debian Family: Ubuntu, Kali Linux, Linux Mint, ParrotSec
+  - Red Hat Family: Fedora, RHEL, CentOS, Oracle Linux
+  - Gentoo & Slackware guides
+- **Resources** added Linux learning paths and roadmap links
+- **Tools** updated with Linux-specific development tools
 
 ## [1.2.0] - 2025-11-13
 
@@ -506,7 +530,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Usage examples and starter scripts
 - Troubleshooting guides
 `;
-        
+
         function renderChangelog() {
             const container = document.getElementById('changelog-container');
             const lines = changelogMarkdown.split('\n');
@@ -530,7 +554,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
                         const versionHeader = document.createElement('h2');
                         versionHeader.className = 'version-header';
-                        
+
                         const versionText = versionMatch[1];
                         const dateText = versionMatch[3] ? versionMatch[3].trim() : '';
 
@@ -547,7 +571,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
                 else if (line.startsWith('### ')) {
                     const categoryName = line.substring(4).trim();
                     const categoryId = categoryName.toLowerCase().replace(/\s/g, '-');
-                    
+
                     if (currentVersionDiv) {
                         currentCategoryDiv = document.createElement('div');
                         currentCategoryDiv.className = 'category-section';
@@ -557,7 +581,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
                         categoryHeader.className = 'category-header';
 
                         let categoryBadgeClass = 'badge-default';
-                        
+
                         // Set colors for standard categories
                         if (categoryId === 'added') { categoryBadgeClass = 'badge-added'; }
                         else if (categoryId === 'changed') { categoryBadgeClass = 'badge-changed'; }
@@ -565,7 +589,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
                         else if (categoryId === 'planned') { categoryBadgeClass = 'badge-planned'; }
                         else if (categoryId === 'fixed') { categoryBadgeClass = 'badge-fixed'; }
                         else if (categoryId === 'removed') { categoryBadgeClass = 'badge-removed'; }
-                        
+
                         categoryHeader.innerHTML = `
                             <span class="category-badge ${categoryBadgeClass}">
                                 ${categoryName}
@@ -584,8 +608,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
                     let content = line.substring(2).trim();
 
                     // Handle nested lists/descriptions (special logic for Docker/JS questions)
-                    if (content.startsWith('Core concepts (') || 
-                        content.startsWith('Architecture and ') || 
+                    if (content.startsWith('Core concepts (') ||
+                        content.startsWith('Architecture and ') ||
                         content.startsWith('Installation instructions for ') ||
                         content.startsWith('Complete command reference (') ||
                         content.startsWith('Dockerfile examples and ') ||
@@ -596,8 +620,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
                         content.startsWith('Q1-Q5: Beginner (') ||
                         content.startsWith('Q6-Q12: Intermediate (') ||
                         content.startsWith('Q13-Q20: Advanced (') ||
-                        content.startsWith('Q21-Q25: Expert (')) 
-                    {
+                        content.startsWith('Q21-Q25: Expert (')) {
                         // Append to the previous list item's content as a sub-point
                         if (currentList.lastElementChild) {
                             let subList = currentList.lastElementChild.querySelector('.sub-list');
@@ -623,7 +646,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
                                 </div>
                             `;
                         } else if (content.startsWith('Updated ')) {
-                             // Handle updated counts/info
+                            // Handle updated counts/info
                             listItem.innerHTML = `<div style="color: var(--muted); font-style: italic;">${content.replace(/`/g, '')}</div>`;
                         }
                         else {
@@ -668,6 +691,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
         document.addEventListener('DOMContentLoaded', renderChangelog);
     </script>
-  <script src="../components/scroll-to-top/scroll-to-top.js"></script>
+    <script src="../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
+
 </html>

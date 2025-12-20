@@ -51,30 +51,48 @@
 		{ type: 'testing', name: 'JTest', intro: 'Testing/JTest/intro.html', folder: 'Testing/JTest' }
 	];
 
-  const quickLinks = [
-    { label: 'Contact', url: 'docpages/contact.html' },
-    { label: 'Quickstart', url: 'docpages/quickstart.html' },
-    { label: 'Documentation', url: 'docpages/documentation.html' },
-    { label: 'Community', url: 'Guidelines/community.html' },
-    { label: 'Resources', url: 'pages/Resources/Resources.html' },
-    { label: 'FAQ', url: 'docpages/FAQ.html' },
-    { label: 'Changelog', url: 'pages/changelog.html' },
-    { label: 'Security', url: 'Guidelines/SecurityPolicy.html' },
-    { label: 'License', url: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/blob/main/LICENSE' },
-	{ label: 'Notes', url: 'pages/Resources/notes.html' },
-	{ label: 'Projects', url: 'pages/Resources/projects.html' },
-	{ label: 'Tools', url: 'pages/Resources/tools.html' },
-  ];
+	const linuxDistros = [
+		{ type: 'linux', name: 'Linux Overview', intro: 'Linux/linux.html', folder: 'Linux' },
+		{ type: 'linux', name: 'Arch Linux', intro: 'Linux/Arch/arch.html', folder: 'Linux/Arch' },
+		{ type: 'linux', name: 'BlackArch', intro: 'Linux/Arch/BlackArch/blackarch.html', folder: 'Linux/Arch/BlackArch' },
+		{ type: 'linux', name: 'Garuda Linux', intro: 'Linux/Arch/Garuda/garuda.html', folder: 'Linux/Arch/Garuda' },
+		{ type: 'linux', name: 'RedArch', intro: 'Linux/Arch/RedArch/redarch.html', folder: 'Linux/Arch/RedArch' },
+		{ type: 'linux', name: 'Ubuntu', intro: 'Linux/Debian/Ubuntu/ubuntu.html', folder: 'Linux/Debian/Ubuntu' },
+		{ type: 'linux', name: 'Kali Linux', intro: 'Linux/Debian/Kali/kali.html', folder: 'Linux/Debian/Kali' },
+		{ type: 'linux', name: 'Linux Mint', intro: 'Linux/Debian/Mint/mint.html', folder: 'Linux/Debian/Mint' },
+		{ type: 'linux', name: 'ParrotSec', intro: 'Linux/Debian/ParrotSec/parrotsec.html', folder: 'Linux/Debian/ParrotSec' },
+		{ type: 'linux', name: 'Fedora', intro: 'Linux/RedHat/Fedora/fedora.html', folder: 'Linux/RedHat/Fedora' },
+		{ type: 'linux', name: 'RHEL', intro: 'Linux/RedHat/RHEL/rhel.html', folder: 'Linux/RedHat/RHEL' },
+		{ type: 'linux', name: 'CentOS', intro: 'Linux/RedHat/CentOS/centos.html', folder: 'Linux/RedHat/CentOS' },
+		{ type: 'linux', name: 'Oracle Linux', intro: 'Linux/RedHat/Oracle/oracle.html', folder: 'Linux/RedHat/Oracle' },
+		{ type: 'linux', name: 'Gentoo', intro: 'Linux/Gentoo/gentoo.html', folder: 'Linux/Gentoo' },
+		{ type: 'linux', name: 'Slackware', intro: 'Linux/Slackware/slackware.html', folder: 'Linux/Slackware' }
+	];
 
-	const allItems = [...languages, ...frameworks, ...databases, ...tools, ...testingTools];
+	const quickLinks = [
+		{ label: 'Contact', url: 'docpages/contact.html' },
+		{ label: 'Quickstart', url: 'docpages/quickstart.html' },
+		{ label: 'Documentation', url: 'docpages/documentation.html' },
+		{ label: 'Community', url: 'Guidelines/community.html' },
+		{ label: 'Resources', url: 'pages/Resources/Resources.html' },
+		{ label: 'FAQ', url: 'docpages/FAQ.html' },
+		{ label: 'Changelog', url: 'pages/changelog.html' },
+		{ label: 'Security', url: 'Guidelines/SecurityPolicy.html' },
+		{ label: 'License', url: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/blob/main/LICENSE' },
+		{ label: 'Notes', url: 'pages/Resources/notes.html' },
+		{ label: 'Projects', url: 'pages/Resources/projects.html' },
+		{ label: 'Tools', url: 'pages/Resources/tools.html' },
+	];
+
+	const allItems = [...languages, ...frameworks, ...databases, ...tools, ...testingTools, ...linuxDistros];
 
 	// --- Utilities ---
 	const byId = (id) => document.getElementById(id);
-	const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-	const el = (tag, className, attrs={}) => {
+	const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+	const el = (tag, className, attrs = {}) => {
 		const e = document.createElement(tag);
 		if (className) e.className = className;
-		for (const [k,v] of Object.entries(attrs)) e.setAttribute(k,v);
+		for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
 		return e;
 	};
 	const encodePath = (parts) => parts.map(encodeURIComponent).join('/');
@@ -90,33 +108,34 @@
 			{ label: 'Frameworks', num: String(frameworks.length) },
 			{ label: 'Databases', num: String(databases.length) },
 			{ label: 'DevOps Tools', num: String(tools.length) },
-			{ label: 'Testing', num: String(testingTools.length) }
+			{ label: 'Testing', num: String(testingTools.length) },
+			{ label: 'Linux Distros', num: String(linuxDistros.length) }
 		];
 		for (const st of stats) {
-			const card = el('div','stat');
-			const num = el('div','num'); num.textContent = st.num;
-			const lab = el('div','label'); lab.textContent = st.label;
+			const card = el('div', 'stat');
+			const num = el('div', 'num'); num.textContent = st.num;
+			const lab = el('div', 'label'); lab.textContent = st.label;
 			card.append(num, lab);
 			s.append(card);
 		}
 	}
 
 	function typeBadge(t) {
-		const b = el('span','badge');
+		const b = el('span', 'badge');
 		b.textContent = t.charAt(0).toUpperCase() + t.slice(1);
 		return b;
 	}
 
 	function cardFor(item) {
-		const c = el('div','card');
+		const c = el('div', 'card');
 		c.dataset.type = item.type;
 
-		const title = el('div','title');
+		const title = el('div', 'title');
 		title.textContent = item.name;
-		const meta = el('div','meta');
+		const meta = el('div', 'meta');
 		meta.append(typeBadge(item.type));
 
-		const links = el('div','links');
+		const links = el('div', 'links');
 
 		// Language-specific
 		if (item.type === 'language') {
@@ -132,8 +151,8 @@
 			}
 		}
 
-		// Frameworks / Databases / Tools / Testing: intro link
-		if ((item.type === 'framework' || item.type === 'database' || item.type === 'tool' || item.type === 'testing') && item.intro) {
+		// Frameworks / Databases / Tools / Testing / Linux: intro link
+		if ((item.type === 'framework' || item.type === 'database' || item.type === 'tool' || item.type === 'testing' || item.type === 'linux') && item.intro) {
 			const iA = el('a', null, { href: `pages/${item.intro}`, target: '_blank', rel: 'noopener' });
 			iA.textContent = 'Intro';
 			links.append(iA);
@@ -149,16 +168,16 @@
 		list.forEach(item => wrap.append(cardFor(item)));
 	}
 
-  function renderQuickLinks() {
-    const wrap = byId('links');
-    wrap.innerHTML = '';
-    quickLinks.forEach(q => {
-      const href = q.url || rel(q.path);
-      const a = el('a', null, { href: href, target: '_blank', rel: 'noopener' });
-      a.textContent = q.label;
-      wrap.append(a);
-    });
-  }	// --- Interactions ---
+	function renderQuickLinks() {
+		const wrap = byId('links');
+		wrap.innerHTML = '';
+		quickLinks.forEach(q => {
+			const href = q.url || rel(q.path);
+			const a = el('a', null, { href: href, target: '_blank', rel: 'noopener' });
+			a.textContent = q.label;
+			wrap.append(a);
+		});
+	}	// --- Interactions ---
 	function setupSearchAndFilters() {
 		const search = byId('search');
 		const chips = $$('.chip');
@@ -210,10 +229,10 @@
 		const aDisclaimerRepo = byId('disclaimer-repo-link');
 		const meta = byId('meta');
 
-		if (cfg.zipUrl) aZip.href = cfg.zipUrl; else { aZip.href = '#'; aZip.setAttribute('aria-disabled','true'); aZip.classList.add('disabled'); }
+		if (cfg.zipUrl) aZip.href = cfg.zipUrl; else { aZip.href = '#'; aZip.setAttribute('aria-disabled', 'true'); aZip.classList.add('disabled'); }
 		if (cfg.repoUrl) {
 			aRepo.href = cfg.repoUrl;
-			aIssues.href = `${cfg.repoUrl.replace(/\/$/,'')}/issues`;
+			aIssues.href = `${cfg.repoUrl.replace(/\/$/, '')}/issues`;
 			if (aDisclaimerRepo) aDisclaimerRepo.href = cfg.repoUrl;
 		} else {
 			aRepo.href = '#';
@@ -224,7 +243,7 @@
 	}
 
 	// --- Init ---
-	function init(){
+	function init() {
 		renderStats();
 		renderCards();
 		renderQuickLinks();

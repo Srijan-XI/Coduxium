@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garuda Linux - Performance & Aesthetics</title>
+    <link rel="stylesheet" href="../../../../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --garuda-orange: #ff3333;
+            --garuda-purple: #c200fb;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0d0e15;
+            color: #e1e4e8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(194, 0, 251, 0.2) 0%, rgba(255, 51, 51, 0.1) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: -webkit-linear-gradient(45deg, #ff3333, #c200fb);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: #1a1b26;
+            border: 1px solid #2f334d;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(194, 0, 251, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>Garuda Linux</h1>
+        <p class="text-xl">Arch Linux made easy, beautiful, and fast.</p>
+    </div>
+
+    <main class="card-grid">
+        <section class="info-card">
+            <h2>🦅 Overview</h2>
+            <p>Garuda Linux is an Arch-based Rolling Release distro that focuses on performance and ease of use. It uses
+                the Zen Kernel and BTRFS file system by default.</p>
+        </section>
+
+        <section class="info-card">
+            <h2>🎮 Gaming Specs</h2>
+            <p>Known for its "Dragonized" gaming edition, Garuda comes pre-configured with gaming tools (Steam, Lutris,
+                GameMode) and optimized drivers.</p>
+        </section>
+
+        <section class="info-card">
+            <h2>💾 BTRFS & Snapper</h2>
+            <p>Automatic snapshots before every update ensure you can always roll back your system if something breaks.
+                A true lifesaver for rolling release users.</p>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid #2f334d;">
+        <a href="../arch.html" style="color: #c200fb; text-decoration: none;">← Back to Arch Family</a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linux & Distros — DevSphere</title>
+    <link rel="stylesheet" href="../../main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/scroll-to-top/scroll-to-top.css">
+    <style>
+        /* Premium Linux Page Styles */
+        :root {
+            --linux-gradient: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-hover-border: var(--primary);
+        }
+
+        body.light {
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-border: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section Enhancement */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: radial-gradient(circle at top right, rgba(255, 94, 98, 0.1), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 40%);
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero-section h2 {
+            font-size: 3rem;
+            background: var(--linux-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .intro {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        /* Family Grid Layout */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Interactive Cards */
+        .family-card {
+            background: var(--surface-2);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .family-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--card-accent, var(--primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .family-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
+            border-color: var(--card-accent, var(--primary));
+        }
+
+        .family-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .family-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .family-icon {
+            font-size: 2.5rem;
+            background: var(--surface-1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .family-title h4 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: var(--text-1);
+        }
+
+        .family-title small {
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 0.2rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .distro-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .distro-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: var(--surface-1);
+            border-radius: var(--radius-md);
+            transition: background 0.2s;
+        }
+
+        .distro-item:hover {
+            background: var(--surface-3);
+        }
+
+        .distro-badge {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2rem;
+            background: var(--surface-3);
+            color: var(--text-1);
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        /* Core Docs Section - Make them pop */
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .path-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .path-card {
+            background: var(--surface-2);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .path-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .path-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .lang-resources {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            gap: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Custom Accents for Families */
+        .arch-family {
+            --card-accent: #1793d1;
+        }
+
+        .debian-family {
+            --card-accent: #d70a53;
+        }
+
+        .redhat-family {
+            --card-accent: #ee0000;
+        }
+
+        .gentoo-family {
+            --card-accent: #54487a;
+        }
+
+        .slack-family {
+            --card-accent: #4c4c4c;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <style>
+        /* ... existing styles ... */
+
+        /* Layout for Sidebar */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+                /* Hide sidebar on mobile for now, or make it a dropdown */
+            }
+        }
+
+        .sidebar {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-size: 1rem;
+            color: var(--text-2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 1.5rem 0 0.5rem;
+            font-weight: 600;
+        }
+
+        .sidebar h3:first-child {
+            margin-top: 0;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-1);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            background: var(--surface-3);
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .nav-link.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Adjustments for main content width */
+        .content-page {
+            width: 100%;
+            min-width: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../index.html">DevSphere</a></h1>
+                    <p class="sub">Linux Ecosystem</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-layout" style="padding: 40px 0;">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <h3>Core Docs</h3>
+            <a href="linux.html" class="nav-link active">🐧 Linux Overview</a>
+            <a href="kernel.html" class="nav-link">⚙️ Kernel</a>
+            <a href="filesystem.html" class="nav-link">📂 Filesystem</a>
+            <a href="install.html" class="nav-link">💿 Installation</a>
+            <a href="commands.html" class="nav-link">💻 Commands</a>
+
+            <h3>Arch Family</h3>
+            <a href="Arch/arch.html" class="nav-link">🏹 Arch Linux</a>
+            <a href="Arch/BlackArch/blackarch.html" class="nav-link">🏴‍☠️ BlackArch</a>
+            <a href="Arch/Garuda/garuda.html" class="nav-link">🦅 Garuda</a>
+            <a href="Arch/RedArch/redarch.html" class="nav-link">🛡️ RedArch</a>
+
+            <h3>Debian Family</h3>
+            <a href="Debian/Ubuntu/ubuntu.html" class="nav-link">🟠 Ubuntu</a>
+            <a href="Debian/Kali/kali.html" class="nav-link">🐉 Kali Linux</a>
+            <a href="Debian/Mint/mint.html" class="nav-link">🍃 Linux Mint</a>
+            <a href="Debian/ParrotSec/parrotsec.html" class="nav-link">🦜 ParrotSec</a>
+
+            <h3>Red Hat Family</h3>
+            <a href="RedHat/Fedora/fedora.html" class="nav-link">🎩 Fedora</a>
+            <a href="RedHat/RHEL/rhel.html" class="nav-link">🏢 RHEL</a>
+            <a href="RedHat/CentOS/centos.html" class="nav-link">🖥️ CentOS</a>
+            <a href="RedHat/Oracle/oracle.html" class="nav-link">🔴 Oracle Linux</a>
+
+            <h3>Others</h3>
+            <a href="Gentoo/gentoo.html" class="nav-link">💜 Gentoo</a>
+            <a href="Slackware/slackware.html" class="nav-link">⚙️ Slackware</a>
+        </aside>
+
+        <article class="content-page">
+            <section class="hero-section">
+                <h2>Linux Operating System</h2>
+                <p class="intro">A comprehensive guide to the Linux kernel, installation methods, and major distribution
+                    families. Explore the open-source world tailored for developers, servers, and power users.</p>
+
+                <div class="path-grid">
+                    <div class="path-card core-docs">
+                        <h3>📑 Core Concepts</h3>
+                        <p>Understand the Linux kernel (not a complete OS by itself) vs. Distributions. Learn about
+                            filesystems, init systems, and package managers.</p>
+                        <div class="lang-resources">
+                            <a href="kernel.html" class="btn small">Kernel Overview</a>
+                            <a href="filesystem.html" class="btn ghost small">File Systems</a>
+                        </div>
+                    </div>
+                    <div class="path-card core-docs">
+                        <h3>🛠️ Installation & Commands</h3>
+                        <p>Guides for Bare Metal, VM, and WSL installation. Comprehensive cheat sheet for system
+                            management and terminal commands.</p>
+                        <div class="lang-resources">
+                            <a href="install.html" class="btn small">Install Guide</a>
+                            <a href="commands.html" class="btn ghost small">Command Cheat Sheet</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Distribution Families</h3>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; color: var(--text-2);">Linux
+                    distributions are categorized into families based on their package management and lineage. Choose
+                    the one that fits your needs.</p>
+
+                <div class="family-grid">
+                    <!-- Arch Family -->
+                    <div class="family-card arch-family">
+                        <div class="family-header">
+                            <span class="family-icon">🏹</span>
+                            <div class="family-title">
+                                <h4>Arch Family</h4>
+                                <small>Pacman • Rolling</small>
+                            </div>
+                        </div>
+                        <p><strong>Philosophy:</strong> Simplicity, DIY, Power-user centric.</p>
+                        <ul class="distro-list">
+                            <li class="distro-item">
+                                <a href="Arch/arch.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Arch
+                                        Linux</strong> <span>Base</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="Arch/BlackArch/blackarch.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>BlackArch</strong>
+                                    <span class="distro-badge">Security</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="Arch/Garuda/garuda.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Garuda</strong>
+                                    <span class="distro-badge">Performance</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="Arch/RedArch/redarch.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>RedArch</strong>
+                                    <span class="distro-badge">Tools</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Debian Family -->
+                    <div class="family-card debian-family">
+                        <div class="family-header">
+                            <span class="family-icon">🌀</span>
+                            <div class="family-title">
+                                <h4>Debian Family</h4>
+                                <small>APT • Stable</small>
+                            </div>
+                        </div>
+                        <p><strong>Philosophy:</strong> Stability, Free Software, User-friendly derivatives.</p>
+                        <ul class="distro-list">
+                            <li class="distro-item">
+                                <a href="Debian/Ubuntu/ubuntu.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Ubuntu</strong>
+                                    <span>Popular</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="Debian/Kali/kali.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Kali
+                                        Linux</strong> <span class="distro-badge">Security</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="Debian/Mint/mint.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Linux
+                                        Mint</strong> <span class="distro-badge">Beginner</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="Debian/ParrotSec/parrotsec.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>ParrotSec</strong>
+                                    <span class="distro-badge">Privacy</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Red Hat Family -->
+                    <div class="family-card redhat-family">
+                        <div class="family-header">
+                            <span class="family-icon">🎩</span>
+                            <div class="family-title">
+                                <h4>Red Hat Family</h4>
+                                <small>DNF/RPM • Enterprise</small>
+                            </div>
+                        </div>
+                        <p><strong>Philosophy:</strong> Corporate standards, Innovation, Stability.</p>
+                        <ul class="distro-list">
+                            <li class="distro-item">
+                                <a href="RedHat/Fedora/fedora.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Fedora</strong>
+                                    <span>Innovation</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="RedHat/RHEL/rhel.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>RHEL</strong>
+                                    <span class="distro-badge">Enterprise</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="RedHat/CentOS/centos.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>CentOS</strong>
+                                    <span>Server</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <a href="RedHat/Oracle/oracle.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Oracle</strong>
+                                    <span>Stable</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Gentoo Family -->
+                    <div class="family-card gentoo-family">
+                        <div class="family-header">
+                            <span class="family-icon">💜</span>
+                            <div class="family-title">
+                                <h4>Gentoo Family</h4>
+                                <small>Portage • Source</small>
+                            </div>
+                        </div>
+                        <p><strong>Philosophy:</strong> Optimization, Choice, Compile-everything.</p>
+                        <ul class="distro-list">
+                            <li class="distro-item">
+                                <a href="Gentoo/gentoo.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Gentoo</strong>
+                                    <span>Configurable</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <strong>USE Flags</strong> <span>Granular</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Slackware Family -->
+                    <div class="family-card slack-family">
+                        <div class="family-header">
+                            <span class="family-icon">⚙️</span>
+                            <div class="family-title">
+                                <h4>Slackware Family</h4>
+                                <small>pkgtools • UNIX-like</small>
+                            </div>
+                        </div>
+                        <p><strong>Philosophy:</strong> Stability, Simplicity, No dependency resolution.</p>
+                        <ul class="distro-list">
+                            <li class="distro-item">
+                                <a href="Slackware/slackware.html"
+                                    style="text-decoration: none; color: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center;"><strong>Slackware</strong>
+                                    <span>Oldest</span></a>
+                            </li>
+                            <li class="distro-item">
+                                <strong>Manual</strong> <span>Hands-on</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lang-section" style="margin-top: 3rem;">
+                <h3>🎓 Learning Path & Resources</h3>
+                <p>Start your Linux journey with these recommendations based on your goals.</p>
+                <div class="path-grid">
+                    <div class="path-card beginner-path">
+                        <h4>Beginner / Desktop</h4>
+                        <p>Ubuntu → Linux Mint → Fedora</p>
+                    </div>
+                    <div class="path-card sysadmin-path">
+                        <h4>SysAdmin / Server</h4>
+                        <p>CentOS/Rocky → Debian → RHEL</p>
+                    </div>
+                    <div class="path-card ethical-path">
+                        <h4>Ethical Hacking</h4>
+                        <p>Kali Linux → ParrotSec → BlackArch</p>
+                    </div>
+                    <div class="path-card poweruser-path">
+                        <h4>Power User</h4>
+                        <p>Arch → Gentoo → Linux From Scratch</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>DevSphere © 2025</small>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linux Kernel Overview — DevSphere</title>
+    <link rel="stylesheet" href="../../main.css" />
+    <link rel="stylesheet" href="../../components/code-highlighter/code-highlighter.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/scroll-to-top/scroll-to-top.css">
+    <style>
+        .diagram-container {
+            background: var(--surface-2);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .layer {
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: var(--radius-md);
+            font-weight: bold;
+        }
+
+        .layer.user {
+            background: #3b82f633;
+            border: 1px solid #3b82f6;
+            color: var(--text-1);
+        }
+
+        .layer.kernel {
+            background: #ef444433;
+            border: 1px solid #ef4444;
+            color: var(--text-1);
+        }
+
+        .layer.hardware {
+            background: #22c55e33;
+            border: 1px solid #22c55e;
+            color: var(--text-1);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--surface-2);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">⚙️</span>
+                <div>
+                    <h1>DevSphere</h1>
+                    <p class="sub">Linux Kernel</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>What is the Linux Kernel?</h2>
+            <p class="intro">The kernel is the core interface between a computer's hardware and its processes. It
+                communicates between the 2, managing resources as efficiently as possible.</p>
+
+            <div class="diagram-container">
+                <div class="layer user">Applications (User Space)</div>
+                <div style="font-size: 1.5rem;">⬇️ ⬆️ System Calls</div>
+                <div class="layer kernel">
+                    LINUX KERNEL
+                    <div
+                        style="font-size: 0.9em; font-weight: normal; margin-top: 0.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <span>Process Scheduler</span>
+                        <span>Memory Manager</span>
+                        <span>VFS (File System)</span>
+                        <span>Network Stack</span>
+                        <span>Device Drivers</span>
+                    </div>
+                </div>
+                <div style="font-size: 1.5rem;">⬇️ ⬆️</div>
+                <div class="layer hardware">Hardware (CPU, RAM, Disk, Network)</div>
+            </div>
+
+            <section>
+                <h3>Core Responsibilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🧠 Memory Management</h4>
+                        <p>Keeps track of how much memory is used and by what. Handles virtual memory mapping and
+                            swapping.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Process Management</h4>
+                        <p>Determines which process can use the CPU, when, and for how long. Handles process creation
+                            and termination.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔌 Device Drivers</h4>
+                        <p>Acts as an interpreter between the hardware and software. Vast majority of kernel code is
+                            drivers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🛡️ System Calls & Security</h4>
+                        <p>Receives requests from processes for service (like opening a file) and checks permissions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top: 3rem;">
+                <h3>Monolithic vs Microkernel</h3>
+                <p>Linux is a <strong>Monolithic Kernel</strong>. This means the entire operating system runs in kernel
+                    space. This differs from microkernels (like Minix) where services run in user space.</p>
+                <ul>
+                    <li><strong>Pros:</strong> High performance, direct access to hardware.</li>
+                    <li><strong>Cons:</strong> A crash in a driver can crash the whole system (though modern Linux is
+                        very robust).</li>
+                </ul>
+            </section>
+
+            <section style="margin-top: 3rem;">
+                <h3>Kernel Modules</h3>
+                <p>Though monolithic, Linux is modular. You can load and unload code (modules) on the fly without
+                    rebooting.</p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># List loaded modules
+lsmod
+
+# Load a module
+sudo modprobe name_of_module
+
+# Remove a module
+sudo modprobe -r name_of_module</code></pre>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>DevSphere © 2025</small>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../components/scroll-to-top/scroll-to-top.js"></script>
+    <script src="../../components/code-highlighter/code-highlighter.js"></script>
+</body>
+
+</html>

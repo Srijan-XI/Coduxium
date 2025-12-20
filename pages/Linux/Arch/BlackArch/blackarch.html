@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackArch Linux - Penetration Testing</title>
+    <link rel="stylesheet" href="../../../../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ba-red: #cc0000;
+            --ba-dark: #000000;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #050505;
+            color: #d1d1d1;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(204, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--ba-red);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--ba-red);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>BlackArch Linux</h1>
+        <p class="text-xl">The Arch Linux-based penetration testing distribution.</p>
+    </div>
+
+    <main class="card-grid">
+        <section class="info-card">
+            <h2>🐱‍💻 Overview</h2>
+            <p>BlackArch is intended for penetration testers and security researchers. The repository contains 2800+
+                tools that can be installed individually or in groups.</p>
+        </section>
+
+        <section class="info-card">
+            <h2>⚙️ Installation</h2>
+            <p>Can be installed as a complete ISO or added as an unofficial user repository to an existing Arch Linux
+                installation.</p>
+            <div
+                style="background: #222; padding: 10px; border-left: 3px solid var(--ba-red); font-family: monospace; margin-top: 10px;">
+                # Add repo to pacman.conf<br>
+                [blackarch]<br>
+                SigLevel = Optional TrustAll<br>
+                Server = https://blackarch.org/blackarch/$repo/os/$arch
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2>🛡️ Tool Categories</h2>
+            <ul style="list-style: disc; margin-left: 20px; margin-top: 10px;">
+                <li>Reconnaissance</li>
+                <li>Web App Analysis</li>
+                <li>Exploitation</li>
+                <li>Sniffing & Spoofing</li>
+                <li>Forensics</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid #333;">
+        <a href="../arch.html" style="color: var(--ba-red); text-decoration: none;">← Back to Arch Family</a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fedora Linux - Innovative & Cutting Edge</title>
+    <link rel="stylesheet" href="../../../../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --fedora-blue: #0B57A4;
+            /* Standard Fedora Blue */
+            --fedora-dark: #2C3E50;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #f0f3f6;
+            /* Fedora usually cleaner, lighter feel initially, but let's stick to dark mode mostly to match site */
+            background: #0f1419;
+            color: #e1e4e8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0B57A4 0%, #294172 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .info-card:hover {
+            border-color: var(--fedora-blue);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>Fedora Linux</h1>
+        <p class="text-xl" style="color: #cadff5;">Innovative, Free, and Open Source. The upstream for RHEL.</p>
+    </div>
+
+    <main class="card-grid">
+        <section class="info-card">
+            <h2>🚀 Upstream & Cutting Edge</h2>
+            <p>Fedora is the upstream source for Red Hat Enterprise Linux (RHEL). It tests new technologies (like
+                PipeWire, Wayland, systemd) before they reach the enterprise market.</p>
+        </section>
+
+        <section class="info-card">
+            <h2>📦 RPM & DNF</h2>
+            <p>Uses the RPM package format and the DNF package manager. Known for its speed and dependency resolution.
+            </p>
+            <div
+                style="background: #0d1117; padding: 10px; border-left: 3px solid var(--fedora-blue); font-family: monospace; margin-top: 10px;">
+                sudo dnf update<br>
+                sudo dnf install gnome-tweaks
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2>🖥️ Fedora Workstation</h2>
+            <p>The polished desktop edition, usually featuring the purest GNOME experience available out-of-the-box.</p>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px;">
+        <a href="../../linux.html" style="color: var(--fedora-blue); text-decoration: none;">← Back to Linux Home</a>
+    </footer>
+</body>
+
+</html>

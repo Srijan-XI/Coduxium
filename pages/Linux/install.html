@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linux Installation Guide — DevSphere</title>
+    <link rel="stylesheet" href="../../main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/scroll-to-top/scroll-to-top.css">
+    <style>
+        .step-card {
+            background: var(--surface-2);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .wsl-box {
+            background: linear-gradient(135deg, #0e1e36 0%, #000000 100%);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            color: white;
+            margin-top: 1rem;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💿</span>
+                <div>
+                    <h1>DevSphere</h1>
+                    <p class="sub">Installation Guide</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>How to Install Linux</h2>
+            <p class="intro">You can install Linux as your main OS, alongside Windows (Dual Boot), in a Virtual Machine,
+                or via WSL. This guide covers the general process for most distributions.</p>
+
+            <section>
+                <h3>Method 1: The "Real" Installation</h3>
+                <p>Best for performance and full hardware access.</p>
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Download the ISO</h4>
+                    <p>Go to the official website of your chosen distro (e.g., Ubuntu, Fedora, Linux Mint) and download
+                        the ISO image file.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Create Bootable Media</h4>
+                    <p>You need a USB drive (8GB+). Use software to "burn" the ISO to the USB.</p>
+                    <ul>
+                        <li><strong>Windows:</strong> Use Rufus or BalenaEtcher.</li>
+                        <li><strong>macOS/Linux:</strong> Use BalenaEtcher or `dd` command.</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Boot from USB</h4>
+                    <p>Plug the USB into your PC. Restart and press the Boot Menu key (F12, F2, Esc, or Del) depending
+                        on your PC brand. Select the USB drive.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Install</h4>
+                    <p>Follow the on-screen wizard.</p>
+                    <ul>
+                        <li><strong>Partitions:</strong> "Erase disk and install" is easiest. "Something else" for
+                            manual partitioning (usually separate `/` and `/home`).</li>
+                        <li><strong>User Setup:</strong> Create your username and password.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section style="margin-top: 4rem;">
+                <h3>Method 2: Virtual Machine (Safe & Easy)</h3>
+                <p>Run Linux inside Windows/macOS. No risk of breaking your main system.</p>
+                <ol>
+                    <li>Download <strong>VirtualBox</strong> or <strong>VMware Workstation Player</strong>.</li>
+                    <li>Create a "New Virtual Machine".</li>
+                    <li>Select the downloaded Linux ISO.</li>
+                    <li>Allocate RAM (4GB+) and Disk Space (20GB+).</li>
+                    <li>Start the VM and follow the installer.</li>
+                </ol>
+            </section>
+
+            <section style="margin-top: 4rem;">
+                <h3>Method 3: Windows Subsystem for Linux (WSL)</h3>
+                <div class="wsl-box">
+                    <h4>🚀 The Developer's Choice</h4>
+                    <p>Run a real Linux kernel directly on Windows without a VM.</p>
+                    <br>
+                    <p><strong>1. Open PowerShell (Admin)</strong></p>
+                    <code
+                        style="background: rgba(255,255,255,0.1); padding: 0.5rem; display: block; margin: 0.5rem 0;">wsl --install</code>
+                    <p><strong>2. Reboot</strong> your computer.</p>
+                    <p><strong>3. Open "Ubuntu"</strong> from start menu and set your username.</p>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>DevSphere © 2025</small>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

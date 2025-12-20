@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu - Linux for Human Beings</title>
+    <link rel="stylesheet" href="../../../../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ubuntu-orange: #E95420;
+            --ubuntu-aubergine: #77216F;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #111;
+            color: #f0f0f0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--ubuntu-aubergine) 0%, var(--ubuntu-orange) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: #1d1d1d;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: var(--ubuntu-orange);
+            transform: translateY(-5px);
+        }
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--ubuntu-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>Ubuntu</h1>
+        <p class="text-xl">The world's most popular open source operating system.</p>
+    </div>
+
+    <main class="card-grid">
+        <section class="info-card">
+            <h2>🌍 Overview</h2>
+            <p>Ubuntu is a Debian-based distribution composed mostly of free and open-source software. It is arguably
+                the most popular distro for servers and beginners alike.</p>
+        </section>
+
+        <section class="info-card">
+            <h2>📦 APT & Snap</h2>
+            <p>Ubuntu uses apt for debian packages and Snap for universal app distribution. This hybrid approach ensures
+                you have access to almost any software.</p>
+            <div
+                style="background: #000; padding: 10px; font-family: monospace; margin-top: 10px; border-left: 3px solid var(--ubuntu-orange);">
+                sudo apt update<br>
+                sudo apt install git<br>
+                sudo snap install code --classic
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2>🔗 Variants (Flavors)</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li>🖥️ <a href="#" class="btn-link">Kubuntu</a> (KDE Plasma)</li>
+                <li>🐀 <a href="#" class="btn-link">Xubuntu</a> (XFCE)</li>
+                <li>🐦 <a href="#" class="btn-link">Lubuntu</a> (LXQt)</li>
+                <li>🎨 <a href="#" class="btn-link">Ubuntu Studio</a> (Multimedia)</li>
+            </ul>
+        </section>
+
+        <section class="info-card">
+            <h2>Related in Debian Family</h2>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <a href="../Kali/kali.html" class="btn-link"
+                    style="border: 1px solid #333; padding: 5px 15px; border-radius: 20px;">Kali Linux</a>
+                <a href="../Mint/mint.html" class="btn-link"
+                    style="border: 1px solid #333; padding: 5px 15px; border-radius: 20px;">Linux Mint</a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid #333;">
+        <a href="../../linux.html" style="color: var(--ubuntu-orange); text-decoration: none;">← Back to Linux Home</a>
+    </footer>
+</body>
+
+</html>

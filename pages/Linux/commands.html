@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linux Command Cheat Sheet — DevSphere</title>
+    <link rel="stylesheet" href="../../main.css" />
+    <link rel="stylesheet" href="../../components/code-highlighter/code-highlighter.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/scroll-to-top/scroll-to-top.css">
+    <style>
+        .cmd-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .cmd-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: var(--surface-2);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .cmd-table th,
+        .cmd-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cmd-table th {
+            background: var(--surface-3);
+            font-weight: 600;
+        }
+
+        .cmd-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-snip {
+            font-family: monospace;
+            color: var(--primary);
+            background: var(--surface-3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">⌨️</span>
+                <div>
+                    <h1>DevSphere</h1>
+                    <p class="sub">Command Cheat Sheet</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>Essential Linux Commands</h2>
+            <p class="intro">Master the terminal with these essential commands. <code>sudo</code> typically requires
+                admin privileges.</p>
+
+            <div class="cmd-group">
+                <h3>📂 File Operations</h3>
+                <table class="cmd-table">
+                    <thead>
+                        <tr>
+                            <th width="30%">Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-snip">ls -la</span></td>
+                            <td>List all files (including hidden) with details.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">cd directory</span></td>
+                            <td>Change directory. Use <code>cd ..</code> to go back one level.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">cp source dest</span></td>
+                            <td>Copy a file. Use <code>cp -r</code> for folders.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">mv source dest</span></td>
+                            <td>Move or rename a file.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">rm file</span></td>
+                            <td>Remove a file. <strong>Dangerous:</strong> <code>rm -rf folder</code> deletes a folder.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">mkdir folder</span></td>
+                            <td>Create a new directory.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">touch file</span></td>
+                            <td>Create an empty file.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">cat file</span></td>
+                            <td>Display file content.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">grep "text" file</span></td>
+                            <td>Search for text inside a file.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cmd-group">
+                <h3>⚡ System Info & Management</h3>
+                <table class="cmd-table">
+                    <thead>
+                        <tr>
+                            <th width="30%">Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-snip">sudo</span></td>
+                            <td>Run command as superuser (admin).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">top / htop</span></td>
+                            <td>Monitor real-time system processes and resource usage.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">df -h</span></td>
+                            <td>Check disk space usage.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">free -h</span></td>
+                            <td>Check RAM usage.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">uname -a</span></td>
+                            <td>Show kernel and system information.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">systemctl status service</span></td>
+                            <td>Check status of a service (e.g., nginx, sshd).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">shutdown now</span></td>
+                            <td>Turn off the computer immediately.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cmd-group">
+                <h3>📦 Package Management</h3>
+                <p>Commands depend on your distribution.</p>
+                <table class="cmd-table">
+                    <thead>
+                        <tr>
+                            <th>Family</th>
+                            <th>Update</th>
+                            <th>Install</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Debian/Ubuntu</strong></td>
+                            <td><span class="code-snip">apt update && apt upgrade</span></td>
+                            <td><span class="code-snip">apt install pkg</span></td>
+                            <td><span class="code-snip">apt remove pkg</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fedora/RHEL</strong></td>
+                            <td><span class="code-snip">dnf upgrade</span></td>
+                            <td><span class="code-snip">dnf install pkg</span></td>
+                            <td><span class="code-snip">dnf remove pkg</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arch Linux</strong></td>
+                            <td><span class="code-snip">pacman -Syu</span></td>
+                            <td><span class="code-snip">pacman -S pkg</span></td>
+                            <td><span class="code-snip">pacman -Rns pkg</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cmd-group">
+                <h3>🔒 Permissions</h3>
+                <table class="cmd-table">
+                    <tbody>
+                        <tr>
+                            <td><span class="code-snip">chmod +x file</span></td>
+                            <td>Make file executable.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">chmod 777 file</span></td>
+                            <td>Give everyone read, write, and execute permissions (Risky!).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-snip">chown user:group file</span></td>
+                            <td>Change file ownership.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>DevSphere © 2025</small>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../components/scroll-to-top/scroll-to-top.js"></script>
+    <script src="../../components/code-highlighter/code-highlighter.js"></script>
+</body>
+
+</html>

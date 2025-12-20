@@ -1,4 +1,9 @@
 /* ===================================
+   Imports
+   =================================== */
+@import url('watermark/watermark.css');
+
+/* ===================================
    Theme Variables
    =================================== */
 :root {
@@ -364,7 +369,7 @@ h3 {
   border-radius: 10px;
   background: var(--card2);
   border: 1px solid var(--border);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-size: 22px;
 }
 
@@ -482,11 +487,11 @@ h3 {
   .hero {
     grid-template-columns: 1fr;
   }
-  
+
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
+
   .links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -500,7 +505,7 @@ h3 {
   .grid {
     grid-template-columns: 1fr;
   }
-  
+
   .links {
     grid-template-columns: 1fr;
   }
@@ -508,6 +513,7 @@ h3 {
   .footer-top {
     grid-template-columns: 1fr;
   }
+
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
@@ -757,21 +763,22 @@ body.light .site-footer {
 }
 
 @media (max-width: 768px) {
+
   .feature-grid,
   .path-grid,
   .guide-grid,
   .comparison-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .lang-resources {
     flex-direction: column;
   }
-  
+
   .selection-table {
     font-size: 14px;
   }
-  
+
   .selection-table th,
   .selection-table td {
     padding: 8px;
@@ -1057,11 +1064,11 @@ body.light .site-footer {
   .contribution-types {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .step {
     flex-direction: column;
   }
-  
+
   .standards-grid,
   .become-contributor,
   .contribution-stats {
@@ -1167,5 +1174,3 @@ body.light .site-footer {
   border-left: 4px solid var(--primary);
   margin-bottom: 32px;
 }
-
-
