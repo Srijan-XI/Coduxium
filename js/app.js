@@ -70,14 +70,14 @@
 	];
 
 	const quickLinks = [
-		{ label: 'Contact', url: 'docpages/contact.html' },
-		{ label: 'Quickstart', url: 'docpages/quickstart.html' },
-		{ label: 'Documentation', url: 'docpages/documentation.html' },
-		{ label: 'Community', url: 'Guidelines/community.html' },
+		{ label: 'Contact', url: 'docpages/Contact/contact.html' },
+		{ label: 'Quickstart', url: 'docpages/QuickStart/quickstart.html' },
+		{ label: 'Documentation', url: 'docpages/Documentation/documentation.html' },
+		{ label: 'Community', url: 'Guidelines/Community/community.html' },
 		{ label: 'Resources', url: 'pages/Resources/Resources.html' },
-		{ label: 'FAQ', url: 'docpages/FAQ.html' },
+		{ label: 'FAQ', url: 'docpages/FAQ/FAQ.html' },
 		{ label: 'Changelog', url: 'pages/changelog.html' },
-		{ label: 'Security', url: 'Guidelines/SecurityPolicy.html' },
+		{ label: 'Security', url: 'Guidelines/Security Policy/SecurityPolicy.html' },
 		{ label: 'License', url: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/blob/main/LICENSE' },
 		{ label: 'Notes', url: 'pages/Resources/notes.html' },
 		{ label: 'Projects', url: 'pages/Resources/projects.html' },
