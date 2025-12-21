@@ -8,177 +8,8 @@
     <link rel="stylesheet" href="../../css/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0e14;
-            --text: #e1e4e8;
-            --muted: #8b92a0;
-            --card: #161b22;
-            --card2: #0d1117;
-            --border: #30363d;
-            --primary: #8b5cf6;
-            --primary-hover: #a78bfa;
-            --warn: #f59e0b;
-        }
+    <link rel = "stylesheet" href="tools.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0a0e14 0%, #1a1f2e 50%, #0f1419 100%);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .tool-card {
-            background: var(--card) !important;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-        }
-
-        .tool-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-            border-color: var(--primary);
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary);
-            color: white;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-            transition: all 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.6);
-        }
-
-        .tools-nav {
-            background: var(--card);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem;
-            margin-bottom: 2rem;
-            border-radius: 0.5rem;
-        }
-
-        .tools-nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .tools-nav-links {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .tools-nav-link {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            background: var(--card2);
-            border-radius: 0.375rem;
-            border: 1px solid var(--border);
-            transition: all 0.2s;
-        }
-
-        .tools-nav-link:hover {
-            border-color: var(--primary);
-        }
-
-        .tools-nav-label {
-            color: var(--muted);
-            font-size: 0.875rem;
-        }
-
-        .tools-header {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tools-heading {
-            color: var(--text);
-        }
-
-        .tools-heading-accent {
-            color: var(--primary);
-        }
-
-        .tools-description {
-            color: var(--muted);
-        }
-
-        .section-title {
-            color: var(--primary-hover);
-        }
-
-        .tool-card-border {
-            border-top: 4px solid var(--primary);
-        }
-
-        .tool-card-border-green {
-            border-top: 4px solid #10b981;
-        }
-
-        .tool-card-border-red {
-            border-top: 4px solid #ef4444;
-        }
-
-        .tool-card-border-orange {
-            border-top: 4px solid var(--warn);
-        }
-
-        .tool-card-border-cyan {
-            border-top: 4px solid #06b6d4;
-        }
-
-        .tool-card-border-pink {
-            border-top: 4px solid #ec4899;
-        }
-
-        .tool-card-border-indigo {
-            border-top: 4px solid #6366f1;
-        }
-
-        .tools-footer {
-            border-top: 1px solid var(--border);
-        }
-
-        .tools-footer-text {
-            color: var(--muted);
-            margin-bottom: 1rem;
-        }
-
-        .tool-card h3 {
-            color: var(--text);
-        }
-
-        .tool-card p {
-            color: var(--muted);
-        }
-    </style>
     <link rel="stylesheet" href="../../components/scroll-to-top/scroll-to-top.css">
 </head>
 
@@ -189,7 +20,7 @@
         <div class="max-w-6xl mx-auto tools-nav-inner">
             <div class="tools-nav-links">
                 <a href="../../index.html" class="tools-nav-link">← Home</a>
-                <a href="Resources.html" class="tools-nav-link">Resources</a>
+                <a href="../Resources/Resources.html" class="tools-nav-link">Resources</a>
             </div>
             <div class="tools-nav-label">DevSphere Toolkit</div>
         </div>
@@ -734,15 +565,15 @@
                         style="color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s;"
                         onmouseover="this.style.color='var(--primary)'"
                         onmouseout="this.style.color='var(--muted)'">Home</a>
-                    <a href="Resources.html"
+                    <a href="../Resources/Resources.html"
                         style="color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s;"
                         onmouseover="this.style.color='var(--primary)'"
                         onmouseout="this.style.color='var(--muted)'">Resources</a>
-                    <a href="notes.html"
+                    <a href="../notes/notes.html"
                         style="color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s;"
                         onmouseover="this.style.color='var(--primary)'"
                         onmouseout="this.style.color='var(--muted)'">Notes</a>
-                    <a href="projects.html"
+                    <a href="../projects/projects.html"
                         style="color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s;"
                         onmouseover="this.style.color='var(--primary)'"
                         onmouseout="this.style.color='var(--muted)'">Projects</a>
@@ -773,17 +604,7 @@
         🏠 Home
     </a>
 
-    <script>
-        // Show/hide back to top button
-        window.addEventListener('scroll', function () {
-            const backToTop = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-    </script>
+    <script src="tools.js"> </script>
 
     <script src="../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>

@@ -74,14 +74,14 @@
 		{ label: 'Quickstart', url: 'docpages/QuickStart/quickstart.html' },
 		{ label: 'Documentation', url: 'docpages/Documentation/documentation.html' },
 		{ label: 'Community', url: 'Guidelines/Community/community.html' },
-		{ label: 'Resources', url: 'pages/Resources/Resources.html' },
+		{ label: 'Resources', url: 'pagex/Resources/Resources.html' },
 		{ label: 'FAQ', url: 'docpages/FAQ/FAQ.html' },
 		{ label: 'Changelog', url: 'pages/changelog.html' },
 		{ label: 'Security', url: 'Guidelines/Security Policy/SecurityPolicy.html' },
 		{ label: 'License', url: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/blob/main/LICENSE' },
-		{ label: 'Notes', url: 'pages/Resources/notes.html' },
-		{ label: 'Projects', url: 'pages/Resources/projects.html' },
-		{ label: 'Tools', url: 'pages/Resources/tools.html' },
+		{ label: 'Notes', url: 'pagex/notes/notes.html' },
+		{ label: 'Projects', url: 'pagex/projects/projects.html' },
+		{ label: 'Tools', url: 'pagex/tools/tools.html' },
 	];
 
 	const allItems = [...languages, ...frameworks, ...databases, ...tools, ...testingTools, ...linuxDistros];
