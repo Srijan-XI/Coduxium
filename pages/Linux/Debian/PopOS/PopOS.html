@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop!_OS - Complete Guide | Coduxium XI</title>
+    <meta name="description"
+        content="Complete Pop!_OS guide - Ubuntu-based distribution optimized for creators, developers, and gamers">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Pop!_OS</a></h1>
+                    <p class="sub">Your OS. Your Way.</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🚀</span>
+                <span>Power & Performance</span>
+            </div>
+            <h1 class="hero-title">Pop!_OS</h1>
+            <p class="hero-description">
+                An Ubuntu-based Linux distribution developed by System76. Pop!_OS is designed for creators, developers,
+                and gamers with excellent hardware support, productivity features, and gaming performance.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Ubuntu LTS</li>
+                    <li><strong>Package Manager:</strong> APT + Flatpak</li>
+                    <li><strong>Desktop:</strong> COSMIC (GNOME-based, custom)</li>
+                    <li><strong>Release Model:</strong> Follows Ubuntu LTS cycle</li>
+                    <li><strong>Target Users:</strong> Developers, creators, gamers, professionals</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎮</span>
+                    <h4>Gaming Ready</h4>
+                    <p>NVIDIA/AMD drivers pre-installed, excellent gaming performance</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Auto-Tiling</h4>
+                    <p>Automatic window tiling for productivity boost</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔧</span>
+                    <h4>Developer Tools</h4>
+                    <p>Pre-configured development environment out of the box</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💻</span>
+                    <h4>System76 Hardware</h4>
+                    <p>Optimized for System76 computers, works great on any PC</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Pop!_OS?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Pop!_OS is a free and open-source Linux distribution developed by System76, a computer manufacturer
+                    specializing in Linux hardware. While based on Ubuntu, Pop!_OS includes significant customizations
+                    and improvements focused on productivity, gaming, and professional workflows. It features the COSMIC
+                    desktop environment (a heavily customized GNOME), automatic window tiling, and excellent hardware
+                    support especially for NVIDIA graphics cards.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li><strong>COSMIC Desktop:</strong> Custom GNOME-based desktop with productivity enhancements</li>
+                    <li><strong>Auto-Tiling:</strong> Keyboard-driven window management for power users</li>
+                    <li><strong>Graphics Switching:</strong> Easy switching between integrated and discrete GPUs</li>
+                    <li><strong>Pop!_Shop:</strong> Curated app store with Flatpak and Debian packages</li>
+                    <li><strong>Recovery Partition:</strong> Built-in recovery and refresh capabilities</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Pop!_OS?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Perfect for Gaming</h4>
+                        <p>Best Linux gaming experience with pre-installed drivers and Steam support</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Productivity Focused</h4>
+                        <p>Auto-tiling and keyboard shortcuts boost workflow efficiency</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Just Works</h4>
+                        <p>Excellent hardware support, especially for modern laptops and GPUs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download from: <a href="https://pop.system76.com/" target="_blank">pop.system76.com</a><br><br>
+                        Choose: NVIDIA (for NVIDIA GPUs) or Intel/AMD version<br>
+                        File size: ~2.5GB
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=pop-os.iso of=/dev/sdX bs=4M status=progress
+
+# Or use Popsicle (Pop!_OS USB Creator)
+# Or Etcher, Rufus</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS/UEFI (F2/F12/Del)<br>
+                        4. Select USB as boot device<br>
+                        5. Choose "Try or Install Pop!_OS"
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Install Pop!_OS</h4>
+                    <p class="command-desc">
+                        1. Select language<br>
+                        2. Choose keyboard layout<br>
+                        3. Select installation type (Clean/Custom)<br>
+                        4. Configure disk encryption (optional)<br>
+                        5. Create user account<br>
+                        6. Wait for installation<br>
+                        7. Reboot and enjoy!
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 2 GHz dual-core or better (64-bit)</li>
+                    <li><strong>RAM:</strong> 4GB minimum (8GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB minimum (50GB+ recommended)</li>
+                    <li><strong>GPU:</strong> Intel, AMD, or NVIDIA (separate ISO for NVIDIA)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo apt update
+sudo apt full-upgrade -y</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install via APT</h4>
+                        <pre><code class="language-bash">sudo apt install package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install via Flatpak</h4>
+                        <pre><code class="language-bash">flatpak install flathub app-name
+
+# Or use Pop!_Shop (GUI)</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo apt remove package-name
+sudo apt autoremove</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Features</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Auto-Tiling</h4>
+                        <p class="command-desc">
+                            Enable: Super + Y<br>
+                            Navigate: Super + Arrow Keys<br>
+                            Move windows: Super + Shift + Arrow Keys
+                        </p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Graphics Switching</h4>
+                        <pre><code class="language-bash"># Switch to NVIDIA
+system76-power graphics nvidia
+
+# Switch to integrated
+system76-power graphics integrated
+
+# Hybrid mode
+system76-power graphics hybrid</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Pop!_Shop</h4>
+                        <p class="command-desc">
+                            Activities → Pop!_Shop<br>
+                            Browse apps, games, and developer tools<br>
+                            Supports both APT and Flatpak
+                        </p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Recovery Mode</h4>
+                        <p class="command-desc">
+                            Hold Space at boot → Recovery<br>
+                            Refresh OS (keeps /home)<br>
+                            Reinstall from recovery partition
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Gaming Setup</h4>
+                    <pre><code class="language-bash"># Install Steam
+sudo apt install steam
+
+# Install Lutris (game manager)
+sudo apt install lutris
+
+# Install GameMode
+sudo apt install gamemode
+
+# Enable Proton in Steam settings
+# Settings → Steam Play → Enable for all titles</code></pre>
+                    <p class="command-desc">Complete gaming environment setup</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Development Environment</h4>
+                    <pre><code class="language-bash"># Install build tools
+sudo apt install build-essential git
+
+# Install languages
+sudo apt install python3-pip nodejs npm
+
+# Install VS Code
+flatpak install flathub com.visualstudio.code
+
+# Install Docker
+sudo apt install docker.io
+sudo usermod -aG docker $USER</code></pre>
+                    <p class="command-desc">Set up complete dev environment</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>COSMIC Customization</h4>
+                    <pre><code class="language-bash"># Install GNOME Extensions
+sudo apt install gnome-shell-extensions
+
+# Install Extension Manager
+flatpak install flathub com.mattjakeman.ExtensionManager
+
+# Customize appearance
+Settings → Appearance</code></pre>
+                    <p class="command-desc">Customize desktop environment</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>System76 Power Management</h4>
+                    <pre><code class="language-bash"># Check power profile
+system76-power profile
+
+# Set performance mode
+sudo system76-power profile performance
+
+# Set battery mode
+sudo system76-power profile battery
+
+# Set balanced mode
+sudo system76-power profile balanced</code></pre>
+                    <p class="command-desc">Optimize power and performance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update System</strong></td>
+                            <td><code>sudo apt update && sudo apt full-upgrade</code></td>
+                            <td>Update all packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Package</strong></td>
+                            <td><code>sudo apt install package</code></td>
+                            <td>Install via APT</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Flatpak</strong></td>
+                            <td><code>flatpak install flathub app</code></td>
+                            <td>Install via Flatpak</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Toggle Auto-Tiling</strong></td>
+                            <td><code>Super + Y</code></td>
+                            <td>Enable/disable window tiling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Switch Graphics</strong></td>
+                            <td><code>system76-power graphics nvidia</code></td>
+                            <td>Switch to NVIDIA GPU</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power Profile</strong></td>
+                            <td><code>system76-power profile performance</code></td>
+                            <td>Set performance mode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Refresh OS</strong></td>
+                            <td><code>Hold Space at boot → Recovery</code></td>
+                            <td>Reinstall while keeping /home</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System Info</strong></td>
+                            <td><code>neofetch</code></td>
+                            <td>Display system information</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Check GPU</strong></td>
+                            <td><code>nvidia-smi</code> or <code>glxinfo | grep OpenGL</code></td>
+                            <td>Check graphics card info</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Firmware Update</strong></td>
+                            <td><code>sudo system76-firmware-cli schedule</code></td>
+                            <td>Update System76 firmware</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://pop.system76.com/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Pop!_OS homepage</p>
+                </a>
+                <a href="https://support.system76.com/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>System76 support docs</p>
+                </a>
+                <a href="https://www.reddit.com/r/pop_os/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community</h4>
+                    <p>Pop!_OS subreddit</p>
+                </a>
+                <a href="https://github.com/pop-os" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>GitHub repositories</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Download Pop!_OS (NVIDIA or Intel/AMD version)</li>
+                    <li>Try auto-tiling feature (Super + Y)</li>
+                    <li>Explore Pop!_Shop for apps and games</li>
+                    <li>Set up development environment</li>
+                    <li>Join the Pop!_OS community</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Ubuntu/ubuntu.html" class="next-step-card">
+                    <span class="step-icon">🟠</span>
+                    <h4>Ubuntu</h4>
+                    <p>Base distribution for Pop!_OS</p>
+                </a>
+                <a href="../Mint/mint.html" class="next-step-card">
+                    <span class="step-icon">🍃</span>
+                    <h4>Linux Mint</h4>
+                    <p>Another Ubuntu-based distro</p>
+                </a>
+                <a href="../Zorin/Zorin.html" class="next-step-card">
+                    <span class="step-icon">⚡</span>
+                    <h4>Zorin OS</h4>
+                    <p>Ubuntu-based with Windows-like UI</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

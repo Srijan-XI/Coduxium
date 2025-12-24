@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete guide to Git - Distributed version control system for tracking changes in source code during software development with powerful branching and merging." />
+  <meta name="keywords"
+    content="Git, Version Control, DVCS, GitHub, GitLab, Branching, Merging, Rebase, Source Control" />
+  <title>Git Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Git Complete Guide</h1>
+      <p class="subtitle">Distributed version control for individuals and teams. Stage, commit, branch, and collaborate
+        confidently.</p>
+      <div class="badge-row">
+        <span class="badge">DVCS</span>
+        <span class="badge">BRANCHES</span>
+        <span class="badge">MERGE</span>
+        <span class="badge">REBASE</span>
+        <span class="badge">COLLABORATION</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Pro Tip:</strong> Commit early and often with meaningful messages. Use
+        conventional commits (feat:, fix:, docs:) for better project history and automated changelogs.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Git?</h3>
+      <p>Git is a free and open-source distributed version control system designed to handle everything from small to
+        very large projects with speed and efficiency. Created by Linus Torvalds in 2005, Git has become the de facto
+        standard for version control, used by millions of developers worldwide.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🌿 Branching</strong> — Lightweight, fast branch creation and switching</div>
+        <div class="topic"><strong>🔄 Distributed</strong> — Every developer has full project history</div>
+        <div class="topic"><strong>⚡ Performance</strong> — Optimized for speed and efficiency</div>
+        <div class="topic"><strong>🔒 Data Integrity</strong> — Checksum everything with SHA-1</div>
+        <div class="topic"><strong>🎯 Staging Area</strong> — Fine-grained control over commits</div>
+        <div class="topic"><strong>📌 Tags</strong> — Mark release points and important commits</div>
+        <div class="topic"><strong>🔙 History Rewriting</strong> — Clean up commits before sharing</div>
+        <div class="topic"><strong>🤝 Collaboration</strong> — Merge, rebase, and resolve conflicts</div>
+      </div>
+
+      <h3>Why Choose Git?</h3>
+      <ul>
+        <li><strong>Industry Standard:</strong> Used by virtually every major tech company and open-source project.</li>
+        <li><strong>Distributed:</strong> Work offline, commit locally, and sync when ready. No single point of failure.
+        </li>
+        <li><strong>Fast & Efficient:</strong> Operations are performed locally, making them lightning fast.</li>
+        <li><strong>Powerful Branching:</strong> Create branches in seconds, switch instantly, and merge effortlessly.
+        </li>
+        <li><strong>Data Integrity:</strong> Cryptographic hashing ensures your code history is tamper-proof.</li>
+        <li><strong>Open Source:</strong> Free forever with a vibrant community and extensive tooling ecosystem.</li>
+      </ul>
+
+      <h3>Use Cases</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>💻 Software Development</strong> — Track code changes and collaborate</div>
+        <div class="topic"><strong>📚 Documentation</strong> — Version control for docs and wikis</div>
+        <div class="topic"><strong>⚙️ Configuration Management</strong> — Track infrastructure as code</div>
+        <div class="topic"><strong>🎨 Design Files</strong> — Version graphics and creative assets</div>
+        <div class="topic"><strong>📊 Data Science</strong> — Version datasets and notebooks</div>
+        <div class="topic"><strong>✍️ Writing</strong> — Books, articles, research papers</div>
+      </div>
+
+      <h3>Git Workflow Concepts</h3>
+      <ul>
+        <li><strong>Working Directory:</strong> Your local files where you make changes</li>
+        <li><strong>Staging Area (Index):</strong> Where you prepare commits</li>
+        <li><strong>Repository (.git):</strong> Where Git stores project history</li>
+        <li><strong>Remote Repository:</strong> Shared repository (GitHub, GitLab, Bitbucket)</li>
+        <li><strong>Branch:</strong> Independent line of development</li>
+        <li><strong>HEAD:</strong> Pointer to current branch/commit</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Important:</strong> Git stores snapshots, not differences. This makes
+        operations like branching and merging extremely fast compared to older version control systems.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Get started with Git by installing it on your system and configuring your identity.</p>
+
+      <!-- Windows Installation -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation</h3>
+
+        <h4>Option 1 — winget (Recommended)</h4>
+        <pre><code># Install Git
+winget install -e --id Git.Git
+
+# Verify installation
+git --version</code><button class="copy-btn" data-copy="winget install -e --id Git.Git">COPY</button></pre>
+
+        <h4>Option 2 — Official Installer</h4>
+        <div class="step"><span class="n">1</span> Download from <a href="https://git-scm.com/download/win"
+            target="_blank" rel="noopener noreferrer">git-scm.com</a></div>
+        <div class="step"><span class="n">2</span> Run the installer</div>
+        <div class="step"><span class="n">3</span> Use recommended settings (includes Git Bash)</div>
+        <div class="step"><span class="n">4</span> Choose default editor (VS Code recommended)</div>
+      </div>
+
+      <!-- macOS Installation -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation</h3>
+
+        <h4>Option 1 — Homebrew (Recommended)</h4>
+        <pre><code># Install Git
+brew install git
+
+# Verify installation
+git --version</code><button class="copy-btn" data-copy="brew install git">COPY</button></pre>
+
+        <h4>Option 2 — Xcode Command Line Tools</h4>
+        <pre><code># Install Xcode CLT (includes Git)
+xcode-select --install
+
+# Verify
+git --version</code><button class="copy-btn" data-copy="xcode-select --install">COPY</button></pre>
+      </div>
+
+      <!-- Linux Installation -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation</h3>
+
+        <h4>Debian/Ubuntu</h4>
+        <pre><code># Update and install
+sudo apt update
+sudo apt install -y git
+
+# Verify
+git --version</code><button class="copy-btn" data-copy="sudo apt install -y git">COPY</button></pre>
+
+        <h4>RHEL/CentOS/Fedora</h4>
+        <pre><code># Install Git
+sudo dnf install -y git
+
+# Verify
+git --version</code><button class="copy-btn" data-copy="sudo dnf install -y git">COPY</button></pre>
+
+        <h4>Arch Linux</h4>
+        <pre><code># Install Git
+sudo pacman -S git
+
+# Verify
+git --version</code><button class="copy-btn" data-copy="sudo pacman -S git">COPY</button></pre>
+      </div>
+
+      <!-- Configuration -->
+      <div id="config" class="subsection">
+        <h3>Initial Configuration</h3>
+
+        <h4>Set Your Identity</h4>
+        <pre><code># Set your name (required)
+git config --global user.name "Your Name"
+
+# Set your email (required)
+git config --global user.email "your.email@example.com"
+
+# View configuration
+git config --list
+
+# View specific setting
+git config user.name</code><button class="copy-btn" data-copy='git config --global user.name "Your Name"'>COPY</button></pre>
+
+        <h4>Configure Default Editor</h4>
+        <pre><code># VS Code
+git config --global core.editor "code --wait"
+
+# Vim
+git config --global core.editor "vim"
+
+# Nano
+git config --global core.editor "nano"
+
+# Sublime Text
+git config --global core.editor "subl -n -w"</code><button class="copy-btn" data-copy='git config --global core.editor "code --wait"'>COPY</button></pre>
+
+        <h4>Set Default Branch Name</h4>
+        <pre><code># Use 'main' instead of 'master'
+git config --global init.defaultBranch main</code><button class="copy-btn" data-copy='git config --global init.defaultBranch main'>COPY</button></pre>
+
+        <h4>Useful Aliases</h4>
+        <pre><code># Short status
+git config --global alias.st status
+
+# Short log
+git config --global alias.lg "log --oneline --graph --all"
+
+# Undo last commit
+git config --global alias.undo "reset HEAD~1"
+
+# View aliases
+git config --global --get-regexp alias</code><button class="copy-btn" data-copy='git config --global alias.st status'>COPY</button></pre>
+      </div>
+
+      <!-- SSH Keys -->
+      <div id="ssh-keys" class="subsection">
+        <h3>SSH Keys for GitHub/GitLab</h3>
+
+        <h4>Generate SSH Key</h4>
+        <pre><code># Generate new SSH key
+ssh-keygen -t ed25519 -C "your.email@example.com"
+
+# For older systems without ed25519
+ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
+
+# Press Enter to accept default location (~/.ssh/id_ed25519)
+# Enter passphrase (recommended but optional)</code><button class="copy-btn" data-copy='ssh-keygen -t ed25519 -C "your.email@example.com"'>COPY</button></pre>
+
+        <h4>Add SSH Key to SSH Agent</h4>
+        <pre><code># Start SSH agent
+eval "$(ssh-agent -s)"
+
+# Add private key
+ssh-add ~/.ssh/id_ed25519</code><button class="copy-btn" data-copy='ssh-add ~/.ssh/id_ed25519'>COPY</button></pre>
+
+        <h4>Add Public Key to GitHub</h4>
+        <pre><code># Copy public key to clipboard
+
+# macOS
+pbcopy < ~/.ssh/id_ed25519.pub
+
+# Linux (with xclip)
+xclip -selection clipboard < ~/.ssh/id_ed25519.pub
+
+# Windows (Git Bash)
+cat ~/.ssh/id_ed25519.pub | clip
+
+# Or just display it
+cat ~/.ssh/id_ed25519.pub</code><button class="copy-btn" data-copy="cat ~/.ssh/id_ed25519.pub">COPY</button></pre>
+
+        <p>Then go to GitHub → Settings → SSH and GPG keys → New SSH key → Paste and save</p>
+
+        <h4>Test SSH Connection</h4>
+        <pre><code># Test GitHub connection
+ssh -T git@github.com
+
+# Test GitLab connection
+ssh -T git@gitlab.com</code><button class="copy-btn" data-copy="ssh -T git@github.com">COPY</button></pre>
+      </div>
+
+      <!-- Verification -->
+      <div id="verify-config" class="subsection">
+        <h3>Verify Setup</h3>
+        <pre><code># Check Git version
+git --version
+
+# View all configuration
+git config --list --show-origin
+
+# Check user settings
+git config user.name
+git config user.email
+
+# Test creating a repository
+mkdir test-repo
+cd test-repo
+git init
+git status</code><button class="copy-btn" data-copy="git config --list">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <p>Master essential Git commands and workflows for effective version control.</p>
+
+      <!-- Getting Started -->
+      <div id="getting-started" class="subsection">
+        <h3>Getting Started</h3>
+
+        <h4>Initialize a Repository</h4>
+        <pre><code># Create new repository
+git init
+
+# Create and initialize in one step
+git init my-project
+cd my-project</code><button class="copy-btn" data-copy="git init">COPY</button></pre>
+
+        <h4>Clone Existing Repository</h4>
+        <pre><code># Clone via HTTPS
+git clone https://github.com/username/repo.git
+
+# Clone via SSH
+git clone git@github.com:username/repo.git
+
+# Clone to specific folder
+git clone https://github.com/username/repo.git my-folder
+
+# Clone specific branch
+git clone -b develop https://github.com/username/repo.git</code><button class="copy-btn" data-copy="git clone https://github.com/username/repo.git">COPY</button></pre>
+      </div>
+
+      <!-- Basic Workflow -->
+      <div id="basic-workflow" class="subsection">
+        <h3>Basic Workflow</h3>
+
+        <h4>Check Status</h4>
+        <pre><code># View working tree status
+git status
+
+# Short status
+git status -s</code><button class="copy-btn" data-copy="git status">COPY</button></pre>
+
+        <h4>Stage Changes</h4>
+        <pre><code># Stage specific file
+git add filename.txt
+
+# Stage all changes in current directory
+git add .
+
+# Stage all changes in repository
+git add -A
+
+# Stage interactively (choose hunks)
+git add -p filename.txt
+
+# Stage all modified files (not new files)
+git add -u</code><button class="copy-btn" data-copy="git add .">COPY</button></pre>
+
+        <h4>Commit Changes</h4>
+        <pre><code># Commit with message
+git commit -m "Add login feature"
+
+# Commit with multi-line message
+git commit -m "Add login feature" -m "- Email validation\n- Password hashing\n- Session management"
+
+# Stage and commit in one step
+git commit -am "Fix bug in user auth"
+
+# Amend last commit
+git commit --amend -m "Corrected commit message"
+
+# Amend without changing message
+git commit --amend --no-edit</code><button class="copy-btn" data-copy='git commit -m "Your message"'>COPY</button></pre>
+
+        <h4>View History</h4>
+        <pre><code># View commit history
+git log
+
+# One line per commit
+git log --oneline
+
+# Graph view
+git log --oneline --graph --all
+
+# Last N commits
+git log -5
+
+# Show changes in commits
+git log -p
+
+# Pretty format
+git log --pretty=format:"%h - %an, %ar : %s"
+
+# Filter by author
+git log --author="John"
+
+# Filter by date
+git log --since="2 weeks ago"
+git log --after="2025-01-01" --before="2025-12-31"</code><button class="copy-btn" data-copy="git log --oneline --graph">COPY</button></pre>
+      </div>
+
+      <!-- Branching -->
+      <div id="branching" class="subsection">
+        <h3>Branching & Merging</h3>
+
+        <h4>Branch Operations</h4>
+        <pre><code># List branches
+git branch
+
+# List all branches (including remote)
+git branch -a
+
+# Create new branch
+git branch feature/login
+
+# Switch to branch
+git checkout feature/login
+
+# Create and switch in one step
+git checkout -b feature/login
+
+# Modern way (Git 2.23+)
+git switch feature/login
+git switch -c feature/new-feature
+
+# Rename branch
+git branch -m old-name new-name
+
+# Delete branch
+git branch -d feature/login
+
+# Force delete unmerged branch
+git branch -D feature/login</code><button class="copy-btn" data-copy="git checkout -b feature/new-feature">COPY</button></pre>
+
+        <h4>Merging</h4>
+        <pre><code># Merge branch into current
+git checkout main
+git merge feature/login
+
+# Merge with commit message
+git merge feature/login -m "Merge login feature"
+
+# Merge without fast-forward
+git merge --no-ff feature/login
+
+# Abort merge
+git merge --abort
+
+# Continue after resolving conflicts
+git merge --continue</code><button class="copy-btn" data-copy="git merge feature/branch">COPY</button></pre>
+
+        <h4>Rebase</h4>
+        <pre><code># Rebase current branch onto main
+git checkout feature/login
+git rebase main
+
+# Interactive rebase (last 5 commits)
+git rebase -i HEAD~5
+
+# Continue after resolving conflicts
+git rebase--continue
+
+# Skip commit during rebase
+git rebase --skip
+
+# Abort rebase
+git rebase --abort</code><button class="copy-btn" data-copy="git rebase main">COPY</button></pre>
+      </div>
+
+      <!-- Remote Operations -->
+      <div id="remote-ops" class="subsection">
+        <h3>Remote Repositories</h3>
+
+        <h4>Managing Remotes</h4>
+        <pre><code># View remotes
+git remote -v
+
+# Add remote
+git remote add origin https://github.com/username/repo.git
+
+# Change remote URL
+git remote set-url origin git@github.com:username/repo.git
+
+# Remove remote
+git remote remove origin
+
+# Rename remote
+git remote rename origin upstream</code><button class="copy-btn" data-copy="git remote -v">COPY</button></pre>
+
+        <h4>Fetching & Pulling</h4>
+        <pre><code># Fetch from remote (doesn't merge)
+git fetch origin
+
+# Fetch all remotes
+git fetch --all
+
+# Pull (fetch + merge)
+git pull
+
+# Pull with rebase
+git pull --rebase
+
+# Pull specific branch
+git pull origin main</code><button class="copy-btn" data-copy="git pull origin main">COPY</button></pre>
+
+        <h4>Pushing</h4>
+        <pre><code># Push to remote
+git push origin main
+
+# Push and set upstream
+git push -u origin feature/login
+
+# Push all branches
+git push --all
+
+# Push tags
+git push --tags
+
+# Force push (dangerous!)
+git push --force
+
+# Safer force push
+git push --force-with-lease
+
+# Delete remote branch
+git push origin --delete feature/old-branch</code><button class="copy-btn" data-copy="git push origin main">COPY</button></pre>
+      </div>
+
+      -- Undoing Changes -->
+      <div id="undoing" class="subsection">
+        <h3>Undoing Changes</h3>
+
+        <h4>Discard Changes</h4>
+        <pre><code># Discard changes in working directory
+git restore filename.txt
+
+# Discard all changes
+git restore .
+
+# Unstage file (keep changes)
+git restore --staged filename.txt
+
+# Old way (still works)
+git checkout -- filename.txt</code><button class="copy-btn" data-copy="git restore filename.txt">COPY</button></pre>
+
+        <h4>Reset Commits</h4>
+        <pre><code># Undo last commit (keep changes staged)
+git reset --soft HEAD~1
+
+# Undo last commit (keep changes unstaged)
+git reset HEAD~1
+git reset --mixed HEAD~1
+
+# Undo last commit (discard changes)
+git reset --hard HEAD~1
+
+# Reset to specific commit
+git reset --hard abc123
+
+# Reset specific file
+git reset HEAD filename.txt</code><button class="copy-btn" data-copy="git reset --soft HEAD~1">COPY</button></pre>
+
+        <h4>Revert Commits</h4>
+        <pre><code># Create new commit that undoes changes
+git revert HEAD
+
+# Revert specific commit
+git revert abc123
+
+# Revert without committing
+git revert --no-commit HEAD</code><button class="copy-btn" data-copy="git revert HEAD">COPY</button></pre>
+      </div>
+
+      <!-- Stashing -->
+      <div id="stashing" class="subsection">
+        <h3>Stashing Changes</h3>
+        <pre><code># Stash changes
+git stash
+
+# Stash with message
+git stash save "Work in progress on login"
+
+# List stashes
+git stash list
+
+# Apply latest stash
+git stash apply
+
+# Apply specific stash
+git stash apply stash@{2}
+
+# Apply and remove stash
+git stash pop
+
+# Show stash contents
+git stash show -p
+
+# Delete stash
+git stash drop stash@{0}
+
+# Delete all stashes
+git stash clear</code><button class="copy-btn" data-copy="git stash">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Tags</h3>
+      <pre><code># Create lightweight tag
+git tag v1.0.0
+
+# Create annotated tag
+git tag -a v1.0.0 -m "Release version 1.0.0"
+
+# Tag specific commit
+git tag -a v1.0.0 abc123
+
+# List tags
+git tag
+
+# Show tag info
+git show v1.0.0
+
+# Push tags
+git push origin v1.0.0
+git push origin --tags
+
+# Delete tag
+git tag -d v1.0.0
+git push origin --delete v1.0.0</code><button class="copy-btn" data-copy="git tag -a v1.0.0 -m 'Release version 1.0.0'">COPY</button></pre>
+
+      <h3>Cherry-Pick</h3>
+      <pre><code># Apply specific commit to current branch
+git cherry-pick abc123
+
+# Cherry-pick multiple commits
+git cherry-pick abc123 def456
+
+# Cherry-pick without committing
+git cherry-pick --no-commit abc123</code><button class="copy-btn" data-copy="git cherry-pick abc123">COPY</button></pre>
+
+      <h3>Bisect (Find Bugs)</h3>
+      <pre><code># Start bisect
+git bisect start
+
+# Mark current as bad
+git bisect bad
+
+# Mark known good commit
+git bisect good abc123
+
+# Git will checkout middle commit
+# Test and mark as good or bad
+git bisect good  # or
+git bisect bad
+
+# Repeat until bug is found
+
+# Reset after done
+git bisect reset</code><button class="copy-btn" data-copy="git bisect start">COPY</button></pre>
+
+      <h3>Submodules</h3>
+      <pre><code># Add submodule
+git submodule add https://github.com/user/repo.git path/to/submodule
+
+# Initialize submodules after clone
+git submodule init
+git submodule update
+
+# Or in one step
+git submodule update --init --recursive
+
+# Update submodules
+git submodule update --remote
+
+# Remove submodule
+git submodule deinit path/to/submodule
+git rm path/to/submodule</code><button class="copy-btn" data-copy="git submodule add URL path">COPY</button></pre>
+
+      <h3>Hooks</h3>
+      <pre><code># Hooks are scripts in .git/hooks/
+# Example: pre-commit hook
+
+# Create pre-commit hook
+cat > .git/hooks/pre-commit << 'EOF'
+#!/bin/sh
+# Run tests before commit
+npm test
+EOF
+
+# Make executable
+chmod +x .git/hooks/pre-commit
+
+# Common hooks:
+# - pre-commit: Before commit
+# - pre-push: Before push
+# - post-merge: After merge
+# - commit-msg: Validate commit message</code><button class="copy-btn" data-copy="Git Hooks">COPY</button></pre>
+
+      <h3>.gitignore</h3>
+      <pre><code># Create .gitignore file
+cat > .gitignore << 'EOF'
+# Dependencies
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.local
+
+# Build outputs
+dist/
+build/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sw*
+EOF
+
+# gitignore templates: github.com/github/gitignore</code><button class="copy-btn" data-copy=".gitignore">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Practice Daily</strong> — Use Git for all your projects, even
+        personal ones</div>
+      <div class="step"><span class="n">2</span><strong>Learn Branching Strategies</strong> — Git Flow, GitHub Flow, or
+        Trunk-Based Development</div>
+      <div class="step"><span class="n">3</span><strong>Master Conflicts</strong> — Practice resolving merge conflicts
+      </div>
+      <div class="step"><span class="n">4</span><strong>Write Good Commits</strong> — Follow conventional commits
+        specification</div>
+      <div class="step"><span class="n">5</span><strong>Explore GitHub/GitLab</strong> — Learn pull requests, code
+        reviews, CI/CD</div>
+      <div class="step"><span class="n">6</span><strong>Use GUI Tools</strong> — Try GitKraken, Sourcetree, or built-in
+        IDE Git</div>
+      <div class="step"><span class="n">7</span><strong>Contribute to Open Source</strong> — Practice collaboration on
+        real projects</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Official Git
+            Documentation</a></li>
+        <li>📚 <a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreferrer">Pro Git Book
+            (Free)</a></li>
+        <li>🎮 <a href="https://learngitbranching.js.org/" target="_blank" rel="noopener noreferrer">Learn Git Branching
+            (Interactive)</a></li>
+        <li>📝 <a href="https://www.conventionalcommits.org/" target="_blank" rel="noopener noreferrer">Conventional
+            Commits</a></li>
+        <li>🔧 <a href="https://github.com/github/gitignore" target="_blank" rel="noopener noreferrer">gitignore
+            Templates</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Security Tools — Coduxium XI</title>
+    <meta name="description"
+        content="Essential cybersecurity and penetration testing tools - Scapy, OpenVAS, Burp Suite, OWASP ZAP, YARA, Radare2.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Security & Penetration Testing Tools</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔒 Security & Penetration Testing Tools</h2>
+            <p class="intro">Comprehensive guide to essential cybersecurity tools for penetration testing, vulnerability
+                assessment, and security research.</p>
+
+            <section class="framework-section">
+                <h3>🐍 Scapy</h3>
+                <div class="badge-group">
+                    <span class="badge">Packet Manipulation</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Network Security</span>
+                </div>
+                <p>Scapy is a powerful Python-based interactive packet manipulation program and library. It can forge or
+                    decode packets, send them on the wire, capture them, and match requests and replies.</p>
+
+                <h4>Key Features</h4>
+                <ul>
+                    <li>Create, send, and capture network packets</li>
+                    <li>Protocol fuzzing and network discovery</li>
+                    <li>Packet sniffing and analysis</li>
+                    <li>Custom protocol implementation</li>
+                </ul>
+
+                <h4>Basic Usage</h4>
+                <pre><code>from scapy.all import *
+
+# Send ICMP ping
+send(IP(dst="8.8.8.8")/ICMP())
+
+# Sniff packets
+packets = sniff(count=10)
+
+# ARP scan
+ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.1.0/24"),
+                  timeout=2)</code></pre>
+
+                <div class="lang-resources">
+                    <a href="https://scapy.net/" target="_blank" class="btn">Scapy Docs</a>
+                </div>
+            </section>
+
+            <section class="framework-section">
+                <h3>🔍 OpenVAS</h3>
+                <div class="badge-group">
+                    <span class="badge">Vulnerability Scanner</span>
+                    <span class="badge">Open Source</span>
+                    <span class="badge">Network Security</span>
+                </div>
+                <p>OpenVAS (Open Vulnerability Assessment System) is a full-featured vulnerability scanner with
+                    thousands of vulnerability tests to identify security issues in networks and systems.</p>
+
+                <h4>Key Features</h4>
+                <ul>
+                    <li>70,000+ vulnerability tests (NVTs)</li>
+                    <li>Comprehensive scan configurations</li>
+                    <li>Detailed reporting and remediation advice</li>
+                    <li>Continuous vulnerability management</li>
+                </ul>
+
+                <h4>Common Use Cases</h4>
+                <ul>
+                    <li>Regular vulnerability assessments</li>
+                    <li>Compliance scanning (PCI-DSS, HIPAA)</li>
+                    <li>Network security auditing</li>
+                    <li>Patch management verification</li>
+                </ul>
+
+                <div class="lang-resources">
+                    <a href="https://www.openvas.org/" target="_blank" class="btn">OpenVAS Website</a>
+                </div>
+            </section>
+
+            <section class="framework-section">
+                <h3>🔥 Burp Suite</h3>
+                <div class="badge-group">
+                    <span class="badge">Web Security</span>
+                    <span class="badge">Proxy</span>
+                    <span class="badge">Penetration Testing</span>
+                </div>
+                <p>Burp Suite is an integrated platform for performing security testing of web applications. It's the
+                    industry standard for web app penetration testing.</p>
+
+                <h4>Key Features</h4>
+                <ul>
+                    <li><strong>Proxy</strong> — Intercept and modify HTTP/HTTPS traffic</li>
+                    <li><strong>Scanner</strong> — Automated vulnerability detection</li>
+                    <li><strong>Intruder</strong> — Automated customized attacks</li>
+                    <li><strong>Repeater</strong> — Modify and resend requests</li>
+                    <li><strong>Sequencer</strong> — Test randomness of session tokens</li>
+                    <li><strong>Decoder</strong> — Encode/decode data</li>
+                </ul>
+
+                <h4>Common Attacks</h4>
+                <ul>
+                    <li>SQL Injection testing</li>
+                    <li>XSS (Cross-Site Scripting)</li>
+                    <li>CSRF (Cross-Site Request Forgery)</li>
+                    <li>Authentication bypass</li>
+                </ul>
+
+                <div class="lang-resources">
+                    <a href="https://portswigger.net/burp" target="_blank" class="btn">Burp Suite</a>
+                </div>
+            </section>
+
+            <section class="framework-section">
+                <h3>⚡ OWASP ZAP</h3>
+                <div class="badge-group">
+                    <span class="badge">Web App Security</span>
+                    <span class="badge">OWASP</span>
+                    <span class="badge">Free & Open Source</span>
+                </div>
+                <p>OWASP Zed Attack Proxy (ZAP) is a free, open-source penetration testing tool for finding
+                    vulnerabilities in web applications.</p>
+
+                <h4>Key Features</h4>
+                <ul>
+                    <li>Automated scanner for common vulnerabilities</li>
+                    <li>Intercepting proxy for manual testing</li>
+                    <li>Active and passive scanning modes</li>
+                    <li>REST API for CI/CD integration</li>
+                    <li>Extensive marketplace of add-ons</li>
+                </ul>
+
+                <h4>Integration</h4>
+                <pre><code># Run ZAP in daemon mode
+zap.sh -daemon -port 8080 -config api.key=your-api-key
+
+# Automated scan via API
+zap-cli quick-scan http://target-site.com</code></pre>
+
+                <div class="lang-resources">
+                    <a href="https://www.zaproxy.org/" target="_blank" class="btn">OWASP ZAP</a>
+                </div>
+            </section>
+
+            <section class="framework-section">
+                <h3>🎯 YARA</h3>
+                <div class="badge-group">
+                    <span class="badge">Malware Detection</span>
+                    <span class="badge">Pattern Matching</span>
+                    <span class="badge">Threat Hunting</span>
+                </div>
+                <p>YARA is a tool for identifying and classifying malware samples based on textual or binary patterns.
+                    It's the pattern matching Swiss Army knife for security researchers.</p>
+
+                <h4>Key Features</h4>
+                <ul>
+                    <li>Pattern-based malware identification</li>
+                    <li>Custom rule creation</li>
+                    <li>Fast file scanning</li>
+                    <li>Integration with security tools</li>
+                </ul>
+
+                <h4>Example YARA Rule</h4>
+                <pre><code>rule SuspiciousPowerShell
+{
+    meta:
+        description = "Detects suspicious PowerShell"
+        author = "Security Team"
+    
+    strings:
+        $s1 = "Invoke-Expression" nocase
+        $s2 = "DownloadString" nocase
+        $s3 = "hidden" nocase
+    
+    condition:
+        2 of ($s*)
+}</code></pre>
+
+                <div class="lang-resources">
+                    <a href="https://virustotal.github.io/yara/" target="_blank" class="btn">YARA Docs</a>
+                </div>
+            </section>
+
+            <section class="framework-section">
+                <h3>🔧 Radare2</h3>
+                <div class="badge-group">
+                    <span class="badge">Reverse Engineering</span>
+                    <span class="badge">Binary Analysis</span>
+                    <span class="badge">Disassembler</span>
+                </div>
+                <p>Radare2 is a portable reversing framework for binary analysis, disassembly, debugging, and
+                    exploiting. It's a complete toolkit for reverse engineers.</p>
+
+                <h4>Key Features</h4>
+                <ul>
+                    <li>Multi-architecture disassembler</li>
+                    <li>Debugger with GDB remote support</li>
+                    <li>Binary diffing and patching</li>
+                    <li>Scripting with r2pipe</li>
+                    <li>Graph visualization</li>
+                </ul>
+
+                <h4>Basic Commands</h4>
+                <pre><code># Analyze binary
+r2 -A binary
+
+# Show functions
+afl
+
+# Disassemble function
+pdf @ main
+
+# Set breakpoint
+db 0x08048400
+
+# Continue execution
+dc</code></pre>
+
+                <div class="lang-resources">
+                    <a href="https://rada.re/" target="_blank" class="btn">Radare2</a>
+                </div>
+            </section>
+
+            <section class="framework-section">
+                <h3>🛡️ Best Practices</h3>
+                <ul>
+                    <li><strong>Authorization</strong> — Always get written permission before testing</li>
+                    <li><strong>Scope</strong> — Stay within defined testing boundaries</li>
+                    <li><strong>Documentation</strong> — Record all findings and actions</li>
+                    <li><strong>Responsible Disclosure</strong> — Report vulnerabilities ethically</li>
+                    <li><strong>Legal Compliance</strong> — Understand laws in your jurisdiction</li>
+                    <li><strong>Tool Updates</strong> — Keep tools updated for latest signatures</li>
+                    <li><strong>Lab Environment</strong> — Practice in isolated test environments</li>
+                    <li><strong>Continuous Learning</strong> — Stay updated on latest threats</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -4,9 +4,9 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>DevSphere </title>
+	<title>Coduxium XI - Modern Developer Hub</title>
 	<meta name="description"
-		content="Browse the DevSphere repository info without visiting GitHub. Languages, questions, frameworks, tools, and docs in one place." />
+		content="Your comprehensive developer resource hub. Learn, explore, and master 15+ programming languages, 17+ frameworks, and cutting-edge tools." />
 	<link rel="stylesheet" href="css/main.css" />
 	<link rel="stylesheet" href="popup message/popup.css" />
 	<!-- Component Styles -->
@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="components/animations.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,15 +25,13 @@
 			<div class="brand">
 				<span class="logo">💻</span>
 				<div>
-					<h1>DevSphere</h1>
-					<p class="sub">Sphere of Information</p>
-					<p class="sub">Learn, install, and practice across 12 languages, 6 frameworks, 5 databases, 5 DevOps
-						tools & 2 testing frameworks</p>
+					<h1>Coduxium XI</h1>
+					<p class="sub">Your Developer Hub</p>
 				</div>
 			</div>
 
 			<div class="header-actions">
-				<a id="btn-download" class="btn primary" target="_blank" rel="noopener">Download ZIP</a>
+				<a id="btn-download" class="btn primary" target="_blank" rel="noopener">⬇ Download</a>
 				<button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
 			</div>
 		</div>
@@ -61,43 +59,72 @@
 	</div>
 
 	<main class="container">
-		<section class="hero">
-			<div class="hero-text">
-				<h2>Repository Overview</h2>
-				<p>Explore 12 languages, 6 frameworks, 5 databases, 5 DevOps tools, and 2 testing frameworks from this
-					repo — no GitHub visit required.</p>
-				<div class="hero-actions">
-					<a href="pages/about.html" class="btn">About</a>
-					<a href="pages/Languages/languages.html" class="btn">Languages</a>
-					<a href="pages/Framework/frameworks.html" class="btn">Frameworks</a>
-					<a href="pages/Database/databases.html" class="btn">Databases</a>
-					<a href="pages/Linux/linux.html" class="btn">Linux</a>
+		<!-- Modern Hero Section -->
+		<section class="modern-hero">
+			<div class="hero-content">
+				<div class="hero-badge">
+					<span class="pulse-dot"></span>
+					<span>20 Languages • 25 Frameworks • 9 DevOps Tools • 8 Dev Tools • 100+ Resources</span>
 				</div>
+
+				<h1 class="hero-title">Master Development,<br>One Resource at a Time</h1>
+
+				<p class="hero-description">
+					Your comprehensive developer resource hub. Explore curated learning paths, installation guides,
+					and practice resources for modern programming languages, frameworks, and tools.
+				</p>
+
+				<div class="hero-cta">
+					<a href="pages/Languages/languages.html" class="cta-primary">
+						<span>🚀</span>
+						<span>Explore Languages</span>
+					</a>
+					<a href="pagex/Resources/Resources.html" class="cta-secondary">
+						<span>📚</span>
+						<span>Browse Resources</span>
+					</a>
+					<a href="pagex/tools/tools.html" class="cta-secondary">
+						<span>🛠️</span>
+						<span>Developer Tools</span>
+					</a>
+				</div>
+
+				<!-- Stats Showcase -->
+				<div class="stats-showcase" id="stats"></div>
 			</div>
-			<div class="stats" id="stats"></div>
 		</section>
 
-		<section class="controls">
-			<input id="search" class="input" type="search" placeholder="Search languages, frameworks, tools…" />
-			<div class="filters">
-				<button class="chip active" data-filter="all">All</button>
-				<button class="chip" data-filter="language">Languages</button>
-				<button class="chip" data-filter="framework">Frameworks</button>
-				<button class="chip" data-filter="database">Databases</button>
-				<button class="chip" data-filter="linux">Linux</button>
-				<button class="chip" data-filter="tool">DevOps</button>
-				<button class="chip" data-filter="testing">Testing</button>
+		<!-- Search & Filter Section -->
+		<section class="search-section">
+			<h2 class="section-title">Find Your Next Technology</h2>
+
+			<div class="search-container">
+				<span class="search-icon">🔍</span>
+				<input id="search" class="search-input" type="search"
+					placeholder="Search languages, frameworks, databases, tools..." />
+			</div>
+
+			<div class="filter-chips">
+				<button class="filter-chip active" data-filter="all">All</button>
+				<button class="filter-chip" data-filter="language">Languages</button>
+				<button class="filter-chip" data-filter="framework">Frameworks</button>
+				<button class="filter-chip" data-filter="database">Databases</button>
+				<button class="filter-chip" data-filter="linux">Linux</button>
+				<button class="filter-chip" data-filter="tool">DevOps</button>
+				<button class="filter-chip" data-filter="dev-tool">Dev Tools</button>
+				<button class="filter-chip" data-filter="testing">Testing</button>
 			</div>
 		</section>
 
+		<!-- Content Section -->
 		<section>
-			<h3>Content</h3>
-			<div id="cards" class="grid"></div>
+			<div id="cards" class="content-grid"></div>
 		</section>
 
-		<section>
-			<h3>Quick Links</h3>
-			<div id="links" class="links"></div>
+		<!-- Quick Links Section -->
+		<section class="quick-links-section">
+			<h2 class="section-title">Quick Access</h2>
+			<div id="links" class="links-grid"></div>
 		</section>
 	</main>
 
@@ -107,7 +134,7 @@
 			<div class="footer-brand">
 				<div class="logo-mark">💻</div>
 				<div>
-					<h4>DevSphere</h4>
+					<h4>Coduxium XI</h4>
 					<p class="footer-desc">Learn, install, and practice across languages, frameworks, databases, DevOps
 						tools, and testing frameworks — all in one place.</p>
 				</div>
@@ -120,7 +147,7 @@
 					<li><a href="pages/Framework/frameworks.html">Frameworks</a></li>
 					<li><a href="pages/Database/databases.html">Databases</a></li>
 					<li><a href="pages/Linux/linux.html">Linux</a></li>
-					<li><a href="pages/about.html">About</a></li>
+					<li><a href="docpages/about/about.html">About</a></li>
 				</ul>
 			</div>
 
@@ -129,7 +156,7 @@
 				<ul class="footer-list">
 					<li><a id="repo-link" target="_blank" rel="noopener">GitHub Repo</a></li>
 					<li><a id="issues-link" target="_blank" rel="noopener">Issues</a></li>
-					<li><a href="pages/changelog.html">Changelog</a></li>
+					<li><a href="docpages/changelog/changelog.html">Changelog</a></li>
 					<li><a href="docpages/Documentation/documentation.html">Docs</a></li>
 				</ul>
 			</div>
@@ -157,8 +184,8 @@
 
 	<script>
 		window.repoConfig = {
-			repoUrl: "https://github.com/Srijan-XI/Install-and-Learn-DevLangs",
-			zipUrl: "https://github.com/Srijan-XI/Install-and-Learn-DevLangs/archive/refs/heads/main.zip"
+			repoUrl: "https://github.com/Srijan-XI/RunexisForge",
+			zipUrl: "https://github.com/Srijan-XI/RunexisForge/archive/refs/heads/main.zip"
 		};
 	</script>
 	<!-- Component Scripts -->
@@ -169,6 +196,8 @@
 	<script src="components/code-highlighter/code-highlighter.js"></script>
 	<script src="popup message/popup.js"></script>
 	<script src="watermark/watermark.js"></script>
+
+
 </body>
 
 </html>

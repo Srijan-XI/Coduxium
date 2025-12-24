@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>XML — Coduxium XI</title>
+    <meta name="description" content="XML - Extensible Markup Language for structured data and configuration.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>XML (Extensible Markup Language)</h1>
+            <p class="subtitle">Structured markup language for storing and transporting data with self-descriptive tags.</p>
+            <div class="badge-row">
+                <span class="badge">MARKUP</span>
+                <span class="badge">DATA FORMAT</span>
+                <span class="badge">CONFIG</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#syntax">Syntax</a>
+                <a href="#usage">Usage</a>
+            </nav>
+        </header>
+
+        <section id="overview" class="card accent">
+            <h2>📄 Overview</h2>
+            <p>XML (Extensible Markup Language) is a markup language that defines rules for encoding documents in a format that is both human-readable and machine-readable. It's widely used in enterprise applications, configuration files, and data exchange.</p>
+
+            <h3>Common Use Cases</h3>
+            <ul>
+                <li><strong>Configuration Files</strong> — Maven pom.xml, Spring beans</li>
+                <li><strong>SOAP Web Services</strong> — Message format</li>
+                <li><strong>Office Documents</strong> — .docx, .xlsx formats</li>
+                <li><strong>RSS/Atom Feeds</strong> — Content syndication</li>
+                <li><strong>Android Layouts</strong> — UI definitions</li>
+            </ul>
+        </section>
+
+        <section id="syntax" class="card">
+            <h2>📖 XML Syntax</h2>
+
+            <h3>Basic Structure</h3>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+    &lt;element&gt;Value&lt;/element&gt;
+    &lt;empty /&gt;
+&lt;/root&gt;</code></pre>
+
+            <h3>Elements and Attributes</h3>
+            <pre><code>&lt;?xml version="1.0"?&gt;
+&lt;person id="123" active="true"&gt;
+    &lt;name&gt;John Doe&lt;/name&gt;
+    &lt;age&gt;30&lt;/age&gt;
+    &lt;email&gt;john@example.com&lt;/email&gt;
+&lt;/person&gt;</code></pre>
+
+            <h3>Nested Elements</h3>
+            <pre><code>&lt;?xml version="1.0"?&gt;
+&lt;company&gt;
+    &lt;name&gt;Tech Corp&lt;/name&gt;
+    &lt;employees&gt;
+        &lt;employee id="1"&gt;
+            &lt;name&gt;John&lt;/name&gt;
+            &lt;title&gt;Developer&lt;/title&gt;
+        &lt;/employee&gt;
+        &lt;employee id="2"&gt;
+            &lt;name&gt;Jane&lt;/name&gt;
+            &lt;title&gt;Manager&lt;/title&gt;
+        &lt;/employee&gt;
+    &lt;/employees&gt;
+&lt;/company&gt;</code></pre>
+
+            <h3>CDATA Sections</h3>
+            <pre><code>&lt;script&gt;
+    &lt;![CDATA[
+        function greeting() {
+            if (x &lt; 10) {
+                return "Hello";
+            }
+        }
+    ]]&gt;
+&lt;/script&gt;</code></pre>
+
+            <h3>Comments</h3>
+            <pre><code>&lt;!-- This is a comment --&gt;
+&lt;element&gt;
+    &lt;!-- Multi-line
+         comment --&gt;
+    &lt;value&gt;text&lt;/value&gt;
+&lt;/element&gt;</code></pre>
+
+            <h3>Namespaces</h3>
+            <pre><code>&lt;?xml version="1.0"?&gt;
+&lt;root xmlns:h="http://www.w3.org/TR/html4/"
+      xmlns:f="https://www.example.com/furniture"&gt;
+    &lt;h:table&gt;
+        &lt;h:tr&gt;
+            &lt;h:td&gt;Cell&lt;/h:td&gt;
+        &lt;/h:tr&gt;
+    &lt;/h:table&gt;
+    &lt;f:table&gt;
+        &lt;f:name&gt;Dining Table&lt;/f:name&gt;
+    &lt;/f:table&gt;
+&lt;/root&gt;</code></pre>
+        </section>
+
+        <section id="usage" class="card accent">
+            <h2>💼 Real-World Examples</h2>
+
+            <h3>Maven pom.xml</h3>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    
+    &lt;groupId&gt;com.example&lt;/groupId&gt;
+    &lt;artifactId&gt;myapp&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+            &lt;version&gt;3.2.0&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;</code></pre>
+
+            <h3>Spring Configuration</h3>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"&gt;
+    
+    &lt;bean id="dataSource" 
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"&gt;
+        &lt;property name="driverClassName" value="com.mysql.jdbc.Driver"/&gt;
+        &lt;property name="url" value="jdbc:mysql://localhost:3306/mydb"/&gt;
+        &lt;property name="username" value="root"/&gt;
+        &lt;property name="password" value="password"/&gt;
+    &lt;/bean&gt;
+    
+&lt;/beans&gt;</code></pre>
+
+            <h3>Android Layout</h3>
+            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"&gt;
+    
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" /&gt;
+    
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click Me" /&gt;
+    
+&lt;/LinearLayout&gt;</code></pre>
+
+            <h3>RSS Feed</h3>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;rss version="2.0"&gt;
+    &lt;channel&gt;
+        &lt;title&gt;My Blog&lt;/title&gt;
+        &lt;link&gt;https://example.com&lt;/link&gt;
+        &lt;description&gt;Latest posts&lt;/description&gt;
+        
+        &lt;item&gt;
+            &lt;title&gt;First Post&lt;/title&gt;
+            &lt;link&gt;https://example.com/post/1&lt;/link&gt;
+            &lt;description&gt;This is my first post&lt;/description&gt;
+            &lt;pubDate&gt;Mon, 01 Jan 2025 00:00:00 GMT&lt;/pubDate&gt;
+        &lt;/item&gt;
+    &lt;/channel&gt;
+&lt;/rss&gt;</code></pre>
+
+            <h3>Parsing XML</h3>
+            <pre><code>// JavaScript
+const parser = new DOMParser();
+const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+const name = xmlDoc.getElementsByTagName("name")[0].textContent;
+
+// Python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('file.xml')
+root = tree.getroot()
+
+for child in root:
+    print(child.tag, child.attrib, child.text)
+
+# Java
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+
+DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+DocumentBuilder builder = factory.newDocumentBuilder();
+Document doc = builder.parse(new File("file.xml"));
+
+# C#
+using System.Xml;
+
+XmlDocument doc = new XmlDocument();
+doc.Load("file.xml");
+XmlNode node = doc.SelectSingleNode("/root/element");</code></pre>
+
+            <h3>Best Practices</h3>
+            <ul>
+                <li>✅ Use meaningful element names</li>
+                <li>✅ Proper indentation for readability</li>
+                <li>✅ Close all tags properly</li>
+                <li>✅ Use attributes for metadata</li>
+                <li>✅ Validate with XSD schemas</li>
+                <li>❌ Avoid deeply nested structures</li>
+                <li>❌ Don't use special characters without escaping</li>
+            </ul>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.w3.org/XML/" target="_blank">XML Spec</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

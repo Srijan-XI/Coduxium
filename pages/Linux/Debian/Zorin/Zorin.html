@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zorin OS - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Zorin OS guide - beginner-friendly Ubuntu-based distribution with a Windows-like desktop experience">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Zorin OS</a></h1>
+                    <p class="sub">Ubuntu-based Windows alternative</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🔷</span>
+                <span>Beginner Friendly</span>
+            </div>
+            <h1 class="hero-title">Zorin OS</h1>
+            <p class="hero-description">A polished Ubuntu-based Linux distribution designed to feel familiar to Windows and macOS users, with an easy on-ramp for new Linux users.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Ubuntu</li>
+                    <li><strong>Package Manager:</strong> APT (deb packages)</li>
+                    <li><strong>Desktop:</strong> GNOME-based (with Zorin customization)</li>
+                    <li><strong>Release Model:</strong> Stable releases</li>
+                    <li><strong>Target Users:</strong> Beginners, Windows switchers</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card"><span class="feature-icon">🪟</span><h4>Familiar Layouts</h4><p>Desktop layouts that feel like Windows.</p></div>
+                <div class="feature-card"><span class="feature-icon">🎨</span><h4>Polished UI</h4><p>Clean, modern theme and defaults.</p></div>
+                <div class="feature-card"><span class="feature-icon">🧩</span><h4>Ubuntu Ecosystem</h4><p>Huge app availability via APT/Flatpak.</p></div>
+                <div class="feature-card"><span class="feature-icon">🔒</span><h4>Privacy Friendly</h4><p>No forced telemetry; user control first.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>What is Zorin OS?</h3></div>
+                <p style="line-height: 1.8; margin: 20px 0;">Zorin OS is an Ubuntu-based distribution built for people who want a smooth transition to Linux. It focuses on a familiar desktop experience, sensible defaults, and a curated set of tools to get productive quickly.</p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Windows-like desktop layouts</li>
+                    <li>Easy software installation via app store and APT</li>
+                    <li>Good hardware support through Ubuntu base</li>
+                    <li>Optional gaming support (Steam/Proton)</li>
+                    <li>Strong usability focus for new Linux users</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Zorin OS?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card"><span class="practice-num">1</span><h4>Easy Switch</h4><p>Minimal learning curve if you come from Windows.</p></div>
+                    <div class="practice-card"><span class="practice-num">2</span><h4>Stable Base</h4><p>Ubuntu base provides stability and wide compatibility.</p></div>
+                    <div class="practice-card"><span class="practice-num">3</span><h4>Good Defaults</h4><p>Polished out-of-the-box desktop experience.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Step 1: Download</h4><p class="command-desc">Download from: <a href="https://zorin.com/os/download/" target="_blank">https://zorin.com/os/download/</a></p></div>
+                <div class="command-card"><h4>Step 2: Create Bootable USB</h4><pre><code class="language-bash"># Windows: Use Rufus
+# macOS/Linux: Use Etcher
+
+# Linux (dd example)
+sudo dd if=zorin.iso of=/dev/sdX bs=4M status=progress && sync</code></pre></div>
+                <div class="command-card"><h4>Step 3: Boot Live Session</h4><p class="command-desc">Boot from USB and test Wi‑Fi, audio, and graphics before installing.</p></div>
+                <div class="command-card"><h4>Step 4: Install</h4><p class="command-desc">Run the installer, choose disk options (dual boot or erase disk), and complete setup.</p></div>
+            </div>
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit recommended</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB+ recommended</li>
+                    <li><strong>GPU:</strong> Any compatible with your desktop</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Update System</h4><pre><code class="language-bash">sudo apt update
+sudo apt upgrade</code></pre></div>
+                    <div class="command-card"><h4>Install Software</h4><pre><code class="language-bash">sudo apt install package-name</code></pre></div>
+                    <div class="command-card"><h4>Remove Software</h4><pre><code class="language-bash">sudo apt remove package-name
+sudo apt autoremove</code></pre></div>
+                    <div class="command-card"><h4>Search</h4><pre><code class="language-bash">apt search keyword</code></pre></div>
+                </div>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Drivers</h4><p class="command-desc">Use built-in “Additional Drivers” for NVIDIA/Wi‑Fi if needed.</p></div>
+                    <div class="command-card"><h4>Backups</h4><p class="command-desc">Enable automatic backups (external drive or cloud).</p></div>
+                    <div class="command-card"><h4>Updates</h4><p class="command-desc">Keep security updates enabled and run upgrades regularly.</p></div>
+                    <div class="command-card"><h4>App Sources</h4><p class="command-desc">Prefer official repos/Flatpak; be cautious with random PPAs.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Flatpak Setup</h4><pre><code class="language-bash">sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code></pre><p class="command-desc">Install and configure Flatpak apps via Flathub.</p></div>
+                <div class="command-card"><h4>Firewall (UFW)</h4><pre><code class="language-bash">sudo apt install ufw
+sudo ufw enable
+sudo ufw status</code></pre><p class="command-desc">Simple firewall management.</p></div>
+                <div class="command-card"><h4>System Logs</h4><pre><code class="language-bash">journalctl -xe</code></pre><p class="command-desc">Debug services and boot issues.</p></div>
+                <div class="command-card"><h4>Gaming (Steam)</h4><pre><code class="language-bash">sudo apt install steam
+# In Steam: enable Proton for games</code></pre><p class="command-desc">Optional gaming stack setup.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead><tr><th>Task</th><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Update index</strong></td><td><code>sudo apt update</code></td><td>Refresh package lists</td></tr>
+                        <tr><td><strong>Upgrade</strong></td><td><code>sudo apt upgrade</code></td><td>Upgrade installed packages</td></tr>
+                        <tr><td><strong>Full upgrade</strong></td><td><code>sudo apt full-upgrade</code></td><td>Handle dependency changes</td></tr>
+                        <tr><td><strong>Install</strong></td><td><code>sudo apt install pkg</code></td><td>Install software</td></tr>
+                        <tr><td><strong>Remove</strong></td><td><code>sudo apt remove pkg</code></td><td>Remove software</td></tr>
+                        <tr><td><strong>Autoremove</strong></td><td><code>sudo apt autoremove</code></td><td>Remove unused deps</td></tr>
+                        <tr><td><strong>Search</strong></td><td><code>apt search keyword</code></td><td>Search repos</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Filesystem usage</td></tr>
+                        <tr><td><strong>IP info</strong></td><td><code>ip a</code></td><td>Network interfaces</td></tr>
+                        <tr><td><strong>Logs</strong></td><td><code>journalctl -xe</code></td><td>Troubleshoot issues</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="https://zorin.com/" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Official Website</h4><p>Zorin homepage</p></a>
+                <a href="https://help.zorin.com/" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Help Center</h4><p>Docs and FAQs</p></a>
+                <a href="https://forum.zorin.com/" target="_blank" class="next-step-card"><span class="step-icon">💬</span><h4>Community</h4><p>Forum support</p></a>
+                <a href="https://github.com/ZorinOS" target="_blank" class="next-step-card"><span class="step-icon">💻</span><h4>GitHub</h4><p>Open source projects</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Run updates and enable automatic security updates</li>
+                    <li>Install your daily apps (browser, office, media)</li>
+                    <li>Configure backups</li>
+                    <li>Enable firewall (UFW) if you use public networks</li>
+                    <li>Try Steam/Proton if you game</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Ubuntu/ubuntu.html" class="next-step-card"><span class="step-icon">🟠</span><h4>Ubuntu</h4><p>Upstream base distro</p></a>
+                <a href="../Mint/mint.html" class="next-step-card"><span class="step-icon">🌿</span><h4>Linux Mint</h4><p>Popular beginner desktop</p></a>
+                <a href="../PopOS/PopOS.html" class="next-step-card"><span class="step-icon">🚀</span><h4>Pop!_OS</h4><p>Ubuntu-based productivity</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

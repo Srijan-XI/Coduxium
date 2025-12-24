@@ -1,9 +1,9 @@
 /**
- * DevSphere Icon Library
+ * Coduxium XI Icon Library
  * Extended icon set for all technologies
  */
 
-const DevSphereIcons = {
+const Coduxium XIIcons = {
 	// Programming Languages
 	languages: {
 		python: { emoji: '🐍', color: '#3776AB', name: 'Python' },
@@ -110,12 +110,12 @@ function getIcon(tech, category = null) {
 	const normalizedTech = tech.toLowerCase().replace(/\s+/g, '-');
 	
 	// If category is specified, search only in that category
-	if (category && DevSphereIcons[category]) {
-		return DevSphereIcons[category][normalizedTech] || { emoji: '📄', color: '#6B7280', name: tech };
+	if (category && Coduxium XIIcons[category]) {
+		return Coduxium XIIcons[category][normalizedTech] || { emoji: '📄', color: '#6B7280', name: tech };
 	}
 	
 	// Search across all categories
-	for (const cat of Object.values(DevSphereIcons)) {
+	for (const cat of Object.values(Coduxium XIIcons)) {
 		if (cat[normalizedTech]) {
 			return cat[normalizedTech];
 		}
@@ -172,7 +172,7 @@ function createIconWithLabel(tech, category = null) {
  * @returns {object} Object of all icons in category
  */
 function getIconsByCategory(category) {
-	return DevSphereIcons[category] || {};
+	return Coduxium XIIcons[category] || {};
 }
 
 /**
@@ -184,7 +184,7 @@ function searchIcons(query) {
 	const results = [];
 	const lowerQuery = query.toLowerCase();
 	
-	for (const [category, icons] of Object.entries(DevSphereIcons)) {
+	for (const [category, icons] of Object.entries(Coduxium XIIcons)) {
 		for (const [key, icon] of Object.entries(icons)) {
 			if (icon.name.toLowerCase().includes(lowerQuery) || key.includes(lowerQuery)) {
 				results.push({ ...icon, key, category });
@@ -198,7 +198,7 @@ function searchIcons(query) {
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
 	module.exports = {
-		DevSphereIcons,
+		Coduxium XIIcons,
 		getIcon,
 		createIcon,
 		createIconWithLabel,

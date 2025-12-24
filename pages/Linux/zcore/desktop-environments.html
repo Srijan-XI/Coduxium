@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Environments & Window Managers - Complete Guide</title>
+    <meta name="description"
+        content="Learn Linux desktop environments and window managers: GNOME, KDE, XFCE, Wayland vs X11, display managers, and install commands.">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Desktop Environments</a></h1>
+                    <p class="sub">Pick a Linux UI that fits your workflow</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🖥️</span>
+                <span>Core Linux Topic</span>
+            </div>
+            <h1 class="hero-title">Desktop Environments & Window Managers</h1>
+            <p class="hero-description">
+                Understand how Linux desktops work: Desktop Environment (DE) vs Window Manager (WM), display managers,
+                and the choice between Wayland and X11.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">DE</span>
+                    <span class="stat-label">Full desktop suite</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">WM</span>
+                    <span class="stat-label">Window handling only</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">DM</span>
+                    <span class="stat-label">Login/session selector</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Concepts -->
+        <section class="content-section">
+            <h2>🧩 Core Concepts</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏙️</div>
+                    <h3>Desktop Environment (DE)</h3>
+                    <p>A complete UI suite: panels, settings, file manager, notifications, and default apps.</p>
+                    <div class="example-box">
+                        <strong>Examples:</strong>
+                        <ul>
+                            <li>GNOME</li>
+                            <li>KDE Plasma</li>
+                            <li>XFCE</li>
+                            <li>Cinnamon</li>
+                            <li>MATE</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🪟</div>
+                    <h3>Window Manager (WM)</h3>
+                    <p>Controls window placement and behavior. Often paired with separate bars/launchers.</p>
+                    <div class="example-box">
+                        <strong>Examples:</strong>
+                        <ul>
+                            <li>i3</li>
+                            <li>sway (Wayland)</li>
+                            <li>Openbox</li>
+                            <li>awesome</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔑</div>
+                    <h3>Display Manager (DM)</h3>
+                    <p>Graphical login that starts the chosen session (GNOME, Plasma, i3, etc.).</p>
+                    <div class="example-box">
+                        <strong>Common DMs:</strong>
+                        <ul>
+                            <li>GDM</li>
+                            <li>SDDM</li>
+                            <li>LightDM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wayland vs X11 -->
+        <section class="content-section">
+            <h2>🧭 Wayland vs X11</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Wayland</th>
+                            <th>X11</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Security model</strong></td>
+                            <td>Stronger isolation for apps by default</td>
+                            <td>More permissive; legacy model</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compatibility</strong></td>
+                            <td>Great for modern DEs; legacy apps via XWayland</td>
+                            <td>Maximum legacy compatibility</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fractional scaling</strong></td>
+                            <td>Typically better on modern DEs</td>
+                            <td>Varies; sometimes more fiddly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remote desktop</strong></td>
+                            <td>Improving; DE-specific solutions</td>
+                            <td>Mature ecosystem</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <h3>✅ Practical takeaway</h3>
+                <p>
+                    If your distro defaults to Wayland (common on modern GNOME), try it first. If you hit driver/app
+                    issues, switch the session to X11 from your login screen.
+                </p>
+            </div>
+        </section>
+
+        <!-- Install / Switch Desktop -->
+        <section class="content-section">
+            <h2>📦 Install & Switch Desktops</h2>
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Debian/Ubuntu (APT)</h4>
+                    <pre><code>sudo apt update
+sudo apt install gnome-shell gdm3
+# or
+sudo apt install kde-standard sddm
+# or
+sudo apt install xfce4 lightdm</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Fedora (DNF)</h4>
+                    <pre><code>sudo dnf group list --available
+sudo dnf group install "KDE Plasma Workspaces"
+# or
+sudo dnf group install "XFCE Desktop"</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Arch (Pacman)</h4>
+                    <pre><code>sudo pacman -Syu
+sudo pacman -S plasma sddm
+# or
+sudo pacman -S gnome gdm
+# or
+sudo pacman -S xfce4 lightdm lightdm-gtk-greeter</code></pre>
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Switch sessions</h3>
+                <p>After install, enable your display manager and pick the session at login.</p>
+                <pre><code># Enable a display manager
+sudo systemctl enable --now gdm
+# or
+sudo systemctl enable --now sddm
+# or
+sudo systemctl enable --now lightdm</code></pre>
+            </div>
+        </section>
+
+        <!-- Choosing the Right Desktop -->
+        <section class="content-section">
+            <h2>🎯 Choosing the Right Desktop</h2>
+            <div class="best-practices-grid">
+                <div class="practice-card">
+                    <h4>Performance-first</h4>
+                    <p>XFCE / MATE are often lighter and great for older hardware or VMs.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Customization-first</h4>
+                    <p>KDE Plasma offers deep customization for workflow and appearance.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Simplicity-first</h4>
+                    <p>GNOME is clean and consistent; best if you like minimal UI.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Tiling workflows</h4>
+                    <p>Try i3/sway if you want keyboard-driven window management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>🚀 Next Steps</h2>
+            <div class="next-steps-grid">
+                <a href="package-management.html" class="next-step-card">
+                    <span class="step-icon">📦</span>
+                    <h4>Package Management</h4>
+                    <p>Install, update, and manage software safely</p>
+                </a>
+                <a href="security.html" class="next-step-card">
+                    <span class="step-icon">🔐</span>
+                    <h4>Linux Security</h4>
+                    <p>Hardening basics for desktop and server</p>
+                </a>
+                <a href="troubleshooting.html" class="next-step-card">
+                    <span class="step-icon">🧰</span>
+                    <h4>Troubleshooting</h4>
+                    <p>Debug common desktop and driver issues</p>
+                </a>
+                <a href="../linux.html" class="next-step-card">
+                    <span class="step-icon">🐧</span>
+                    <h4>Linux Hub</h4>
+                    <p>Back to Linux main page</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../../Languages/languages.html">Languages</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

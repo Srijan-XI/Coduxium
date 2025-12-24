@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tauri — Coduxium XI</title>
+    <meta name="description"
+        content="Master Tauri - Build smaller, faster, and more secure desktop applications with web technologies.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Tauri Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🦀 Tauri</h2>
+            <p class="intro">Build smaller, faster, and more secure desktop applications with a web frontend powered by
+                Rust.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Desktop Apps</span>
+                    <span class="badge">Rust</span>
+                    <span class="badge">Web Technologies</span>
+                    <span class="badge">Cross-Platform</span>
+                </div>
+                <p>Tauri is a framework for building tiny, fast binaries for all major desktop platforms. Developers can
+                    integrate any front-end framework that compiles to HTML, JS, and CSS with a Rust-powered backend.
+                </p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Small Bundle Size</strong> — Apps as small as 600KB</li>
+                    <li><strong>Security First</strong> — Rust backend with sandboxing</li>
+                    <li><strong>Cross-Platform</strong> — Windows, macOS, Linux</li>
+                    <li><strong>Any Frontend</strong> — React, Vue, Svelte, vanilla JS</li>
+                    <li><strong>Native OS APIs</strong> — Access system resources safely</li>
+                    <li><strong>Custom Window Chrome</strong> — Fully customizable UI</li>
+                    <li><strong>Update System</strong> — Built-in auto-updater</li>
+                    <li><strong>Mobile Support</strong> — iOS and Android (beta)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Cross-platform desktop applications</li>
+                    <li>System utilities and tools</li>
+                    <li>Database management GUIs</li>
+                    <li>Code editors and IDEs</li>
+                    <li>Media players and editors</li>
+                    <li>Chat and communication apps</li>
+                    <li>Developer tools and dashboards</li>
+                    <li>Productivity applications</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Create a Tauri app:</p>
+                <pre><code># Install Tauri CLI
+npm install -g @tauri-apps/cli
+
+# Create new project
+npm create tauri-app@latest
+
+# Or with existing frontend
+cd my-frontend-project
+npm install --save-dev @tauri-apps/cli
+npm tauri init
+
+# Development
+npm tauri dev
+
+# Build for production
+npm tauri build</code></pre>
+
+                <p>Basic Rust command:</p>
+                <pre><code>// src-tauri/src/main.rs
+#[tauri::command]
+fn greet(name: &str) -> String {
+    format!("Hello, {}!", name)
+}
+
+fn main() {
+    tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![greet])
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
+}
+
+// Frontend (JavaScript)
+import { invoke } from '@tauri-apps/api/tauri'
+
+const result = await invoke('greet', { name: 'World' })
+console.log(result)  // "Hello, World!"</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use content security policy for security</li>
+                    <li>Minimize frontend bundle size</li>
+                    <li>Leverage Rust for performance-critical code</li>
+                    <li>Implement proper error handling</li>
+                    <li>Use Tauri's built-in updater</li>
+                    <li>Test on all target platforms</li>
+                    <li>Follow Tauri security best practices</li>
+                    <li>Use TypeScript for type safety</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://tauri.app/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://tauri.app/v1/guides/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/tauri-apps/tauri" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

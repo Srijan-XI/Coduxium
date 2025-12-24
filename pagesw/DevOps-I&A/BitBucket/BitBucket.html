@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete guide to Bitbucket - Git repository management with built-in CI/CD Pipelines, integrated with Jira and Confluence." />
+  <meta name="keywords"
+    content="Bitbucket, Git, Version Control, Pull Requests, Pipelines, CI/CD, Jira, Confluence, Atlassian" />
+  <title>Bitbucket Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Bitbucket Complete Guide</h1>
+      <p class="subtitle">Professional Git repository management with integrated CI/CD Pipelines and seamless Atlassian ecosystem integration.</p>
+      <div class="badge-row">
+        <span class="badge">REPOSITORIES</span>
+        <span class="badge">PIPELINES</span>
+        <span class="badge">PULL REQUESTS</span>
+        <span class="badge">JIRA</span>
+        <span class="badge">CI/CD</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#pipelines">Pipelines</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Pro Tip:</strong> Bitbucket Pipelines offers 50 build minutes/month for free and seamlessly integrates with Jira for issue tracking!</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Bitbucket?</h3>
+      <p>Bitbucket is a Git-based code hosting and collaboration platform by Atlassian. It provides unlimited private repositories, built-in CI/CD with Bitbucket Pipelines, and tight integration with Jira and Confluence for complete project management. Bitbucket is particularly popular among enterprise teams already using Atlassian products.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>📦 Unlimited Private Repos</strong> — Free for teams up to 5 users</div>
+        <div class="topic"><strong>🔄 Bitbucket Pipelines</strong> — Built-in CI/CD with YAML configuration</div>
+        <div class="topic"><strong>🔀 Pull Requests</strong> — Code review with inline comments</div>
+        <div class="topic"><strong>🎯 Jira Integration</strong> — Link commits, branches, and PRs to Jira issues</div>
+        <div class="topic"><strong>📝 Confluence Integration</strong> — Documentation alongside code</div>
+        <div class="topic"><strong>🔒 Branch Permissions</strong> — Fine-grained access control</div>
+        <div class="topic"><strong>📊 Insights</strong> — Code review metrics and analytics</div>
+        <div class="topic"><strong>🐳 Docker Support</strong> — Build with Docker in Pipelines</div>
+      </div>
+
+      <h3>Why Choose Bitbucket?</h3>
+      <ul>
+        <li><strong>Atlassian Ecosystem:</strong> Seamless integration with Jira, Confluence, and Trello.</li>
+        <li><strong>Unlimited Private Repos:</strong> Free for small teams (up to 5 users).</li>
+        <li><strong>Built-in CI/CD:</strong> Bitbucket Pipelines included with every repository.</li>
+        <li><strong>Enterprise Features:</strong> IP whitelisting, merge checks, deployment tracking.</li>
+        <li><strong>Monorepo Support:</strong> Good for large codebases and monolithic repositories.</li>
+        <li><strong>Flexible Pricing:</strong> Pay for what you use with pipeline minutes.</li>
+      </ul>
+
+      <h3>Use Cases</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>💼 Enterprise Teams</strong> — Atlassian stack users</div>
+        <div class="topic"><strong>🔒 Private Projects</strong> — Unlimited private repositories</div>
+        <div class="topic"><strong>🔄 CI/CD Workflows</strong> — Integrated pipeline automation</div>
+        <div class="topic"><strong>🎯 Agile Development</strong> — Jira issue tracking integration</div>
+      </div>
+    </section>
+
+    <!-- ==================== INSTALLATION SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>🛠️ Installation & Setup</h2>
+
+      <h3>Create Bitbucket Account</h3>
+      <div class="step"><span class="n">1</span> Go to <a href="https://bitbucket.org" target="_blank">bitbucket.org</a></div>
+      <div class="step"><span class="n">2</span> Click "Get started for free"</div>
+      <div class="step"><span class="n">3</span> Sign up with email or continue with Google/Microsoft</div>
+      <div class="step"><span class="n">4</span> Create a workspace (team name)</div>
+      <div class="step"><span class="n">5</span> Verify your email address</div>
+
+      <h3>Pricing Tiers</h3>
+      <ul>
+        <li><strong>Free:</strong> Up to 5 users, unlimited private repos, 50 build minutes/month</li>
+        <li><strong>Standard ($3/user/month):</strong> Up to 100 users, 2,500 build minutes/month</li>
+        <li><strong>Premium ($6/user/month):</strong> Unlimited users, deployment permissions, IP whitelisting</li>
+      </ul>
+
+      <h3>SSH Key Setup</h3>
+      <pre><code># Generate SSH key
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Start SSH agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# Copy public key
+cat ~/.ssh/id_ed25519.pub
+
+# Add to Bitbucket:
+# Personal settings → SSH keys → Add key
+
+# Test connection
+ssh -T git@bitbucket.org</code></pre>
+
+      <h3>App Passwords (HTTPS)</h3>
+      <pre><code># For HTTPS authentication, create app password:
+# Personal settings → App passwords → Create app password
+# Give it a label and select permissions
+
+# Use when cloning/pushing:
+git clone https://YOUR_USERNAME@bitbucket.org/workspace/repo.git
+# Password: [paste app password]
+
+# Save credentials
+git config --global credential.helper store</code></pre>
+
+      <h3>Git Configuration</h3>
+      <pre><code>git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+# Set default branch name
+git config --global init.defaultBranch main</code></pre>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card">
+      <h2>📖 User Guide</h2>
+
+      <h3>Creating Repositories</h3>
+      <pre><code># Create repository via web UI:
+# Workspace → Repositories → Create repository
+
+# Clone repository
+git clone git@bitbucket.org:workspace/repo-name.git
+cd repo-name
+
+# Create files and push
+echo "# My Project" > README.md
+git add README.md
+git commit -m "Initial commit"
+git push -u origin main</code></pre>
+
+      <h3>Branches and Pull Requests</h3>
+      <pre><code># Create feature branch
+git checkout -b feature/new-feature
+
+# Make changes and commit
+git add .
+git commit -m "feat: add new feature"
+git push -u origin feature/new-feature
+
+# Create pull request:
+# Repository → Pull requests → Create pull request
+# Select source (feature/new-feature) and destination (main)
+# Add reviewers and description
+
+# Merge pull request:
+# Review changes → Approve → Merge</code></pre>
+
+      <h3>Jira Integration</h3>
+      <pre><code># Link commits to Jira issues by including issue key:
+git commit -m "PROJ-123 Fix login bug"
+
+# Create branch from Jira:
+git checkout -b feature/PROJ-123-add-feature
+
+# View linked commits in Jira issue
+# Automatically transition issues with smart commits:
+git commit -m "PROJ-123 #done Fixed login bug"
+# Possible actions: #comment, #time, #done, #in-progress</code></pre>
+
+      <h3>Code Review</h3>
+      <pre><code># Request reviewers on pull request
+# Add inline comments on specific lines
+# Use tasks to track action items
+
+# Require approvals before merge:
+# Repository settings → Branch permissions → Add rule
+# Require X approvals before merge
+
+# Default reviewers:
+# Repository settings → Default reviewers
+# Add users who should review all PRs</code></pre>
+    </section>
+
+    <!-- ==================== PIPELINES SECTION ==================== -->
+    <section id="pipelines" class="card accent">
+      <h2>🔄 Bitbucket Pipelines</h2>
+
+      <h3>Basic Pipeline Configuration</h3>
+      <p>Create <code>bitbucket-pipelines.yml</code> in repository root:</p>
+      <pre><code># bitbucket-pipelines.yml
+image: node:20
+
+pipelines:
+  default:
+    - step:
+        name: Build and Test
+        caches:
+          - node
+        script:
+          - npm ci
+          - npm run lint
+          - npm test
+          - npm run build
+        artifacts:
+          - dist/**</code></pre>
+
+      <h3>Branch-Specific Pipelines</h3>
+      <pre><code>image: node:20
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Test
+          script:
+            - npm ci
+            - npm test
+      - step:
+          name: Build
+          script:
+            - npm run build
+      - step:
+          name: Deploy to Production
+          deployment: production
+          script:
+            - ./deploy.sh production
+    
+    develop:
+      - step:
+          name: Deploy to Staging
+          deployment: staging
+          script:
+            - ./deploy.sh staging
+  
+  pull-requests:
+    '**':
+      - step:
+          name: PR Validation
+          script:
+            - npm ci
+            - npm run lint
+            - npm test</code></pre>
+
+      <h3>Docker Build Pipeline</h3>
+      <pre><code>image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - step:
+        name: Build Docker Image
+        services:
+          - docker
+        script:
+          - export IMAGE_NAME="myapp:${BITBUCKET_COMMIT}"
+          - docker build -t $IMAGE_NAME .
+          - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          - docker tag $IMAGE_NAME $DOCKER_USERNAME/myapp:latest
+          - docker push $DOCKER_USERNAME/myapp:latest
+          - docker push $IMAGE_NAME
+
+definitions:
+  services:
+    docker:
+      memory: 2048</code></pre>
+
+      <h3>Multi-Stage Pipeline</h3>
+      <pre><code>image: node:20
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Lint
+            script:
+              - npm ci
+              - npm run lint
+        - step:
+            name: Test
+            script:
+              - npm ci
+              - npm test
+        - step:
+            name: Security Scan
+            script:
+              - npm audit
+    - step:
+        name: Build
+        script:
+          - npm run build
+        artifacts:
+          - dist/**
+    - step:
+        name: Deploy
+        deployment: production
+        trigger: manual
+        script:
+          - ./deploy.sh</code></pre>
+
+      <h3>Deployment Environments</h3>
+      <pre><code>image: node:20
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Build
+          script:
+            - npm ci
+            - npm run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to Staging
+          deployment: staging
+          script:
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                S3_BUCKET: 'staging-bucket'
+                LOCAL_PATH: 'dist'
+      - step:
+          name: Deploy to Production
+          deployment: production
+          trigger: manual  # Require manual approval
+          script:
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                S3_BUCKET: 'production-bucket'
+                LOCAL_PATH: 'dist'</code></pre>
+
+      <h3>Using Pipes (Pre-built Actions)</h3>
+      <pre><code>image: node:20
+
+pipelines:
+  default:
+    - step:
+        name: Deploy to AWS
+        script:
+          # AWS S3 Deploy Pipe
+          - pipe: atlassian/aws-s3-deploy:1.1.0
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_KEY
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET
+              S3_BUCKET: 'my-bucket'
+              LOCAL_PATH: 'dist'
+          
+          # Slack Notification Pipe
+          - pipe: atlassian/slack-notify:2.0.0
+            variables:
+              WEBHOOK_URL: $SLACK_WEBHOOK
+              MESSAGE: 'Deployment completed!'
+
+# Popular pipes:
+# - atlassian/aws-elasticbeanstalk-deploy
+# - atlassian/aws-lambda-deploy
+# - atlassian/heroku-deploy
+# - atlassian/azure-web-apps-deploy
+# - atlassian/google-cloud-run-deploy</code></pre>
+
+      <h3>Pipeline Variables and Secrets</h3>
+      <pre><code># Add variables in Repository settings → Pipelines → Repository variables
+# Access in pipeline:
+
+pipelines:
+  default:
+    - step:
+        script:
+          - echo "Deploying to $DEPLOY_SERVER"
+          - echo "Using API key: $API_KEY"  # Secured variable
+          - ./deploy.sh
+
+# Deployment variables (environment-specific):
+# Repository settings → Deployments → [Environment] → Variables</code></pre>
+
+      <h3>Caching Dependencies</h3>
+      <pre><code>image: node:20
+
+definitions:
+  caches:
+    npm-cache: ~/.npm
+    
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+          - npm-cache
+        script:
+          - npm ci
+          - npm test
+
+# Available default caches:
+# - node
+# - docker
+# - gradle
+# - maven
+# - composer
+# - pip</code></pre>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Branch Permissions</h3>
+      <pre><code># Repository settings → Branch permissions → Add rule
+
+# Example: Protect main branch
+Branch: main
+Write access: Nobody (except merge)
+Merge via pull request: Enabled
+Require approvals: 2
+Require passing builds: Enabled
+Require tasks to be resolved: Enabled</code></pre>
+
+      <h3>Merge Strategies</h3>
+      <pre><code># Repository settings → Merge strategies
+
+# Available strategies:
+# 1. Merge commit - Preserves complete history
+# 2. Squash - Combines all commits into one
+# 3. Fast-forward - Linear history (no merge commits)
+
+# Set default merge strategy or allow reviewers to choose</code></pre>
+
+      <h3>Webhooks</h3>
+      <pre><code># Repository settings → Webhooks → Add webhook
+
+# Trigger events:
+# - Repository push
+# - Pull request created/updated/merged
+# - Pull request comment created
+# - Build status changed
+
+# Example: Trigger Jenkins build
+URL: https://jenkins.example.com/bitbucket-hook/
+Events: Repository push</code></pre>
+
+      <h3>Downloads (Release Files)</h3>
+      <pre><code># Upload release files to Downloads section
+# Repository → Downloads → Add files
+
+# Access download URL:
+https://bitbucket.org/workspace/repo/downloads/
+
+# Automate in pipeline:
+pipelines:
+  tags:
+    'v*':
+      - step:
+          name: Create Release
+          script:
+            - npm run build
+            - zip -r release-${BITBUCKET_TAG}.zip dist/
+            - curl -X POST -u "${BB_AUTH_STRING}" \
+              "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/downloads" \
+              --form files=@"release-${BITBUCKET_TAG}.zip"</code></pre>
+
+      <h3>Issue Tracker</h3>
+      <pre><code># Enable in Repository settings → Issue tracker
+
+# Create issues directly in Bitbucket
+# Link issues to commits:
+git commit -m "Fix #42 - Resolve login bug"
+
+# Close issues with commits:
+git commit -m "Fixes #42 #43 - Fix multiple bugs"</code></pre>
+
+      <h3>Wiki</h3>
+      <pre><code># Enable wiki in Repository settings → Wiki
+
+# Clone wiki repository:
+git clone git@bitbucket.org:workspace/repo.git/wiki
+
+# Edit markdown files
+# Push changes to update wiki</code></pre>
+
+      <h3>Repository Access Tokens</h3>
+      <pre><code># Repository settings → Access tokens → Create token
+# Use for read-only or write access without user credentials
+
+# Clone with access token:
+git clone https://x-token-auth:${ACCESS_TOKEN}@bitbucket.org/workspace/repo.git
+
+# Use in CI/CD:
+pipelines:
+  default:
+    - step:
+        script:
+          - git clone https://x-token-auth:${REPO_TOKEN}@bitbucket.org/workspace/other-repo.git</code></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>📌 Next Steps</h2>
+
+      <h3>Official Resources</h3>
+      <ul>
+        <li>📘 <a href="https://support.atlassian.com/bitbucket-cloud/" target="_blank">Bitbucket Cloud Documentation</a></li>
+        <li>🔄 <a href="https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/" target="_blank">Bitbucket Pipelines Guide</a></li>
+        <li>🎯 <a href="https://confluence.atlassian.com/bitbucket/jira-issues-in-bitbucket-cloud-221449746.html" target="_blank">Jira Integration Guide</a></li>
+        <li>🔌 <a href="https://bitbucket.org/product/features/pipelines/integrations" target="_blank">Pipelines Integrations</a></li>
+      </ul>
+
+      <h3>Community and Support</h3>
+      <ul>
+        <li>💬 <a href="https://community.atlassian.com/t5/Bitbucket/ct-p/bitbucket" target="_blank">Atlassian Community</a></li>
+        <li>🐦 <a href="https://twitter.com/bitbucket" target="_blank">@Bitbucket on Twitter</a></li>
+        <li>📺 <a href="https://www.youtube.com/c/Atlassian" target="_blank">Atlassian YouTube Channel</a></li>
+      </ul>
+
+      <h3>Learning Path</h3>
+      <ol>
+        <li>✅ Create Bitbucket account and workspace</li>
+        <li>📦 Create your first repository</li>
+        <li>🔑 Set up SSH keys or app passwords</li>
+        <li>🔄 Create a pull request and practice code review</li>
+        <li>⚙️ Set up your first Bitbucket Pipeline</li>
+        <li>🎯 Integrate with Jira for issue tracking</li>
+        <li>🔒 Configure branch permissions</li>
+        <li>🚀 Deploy to production using Pipelines</li>
+        <li>📊 Explore merge insights and analytics</li>
+      </ol>
+
+      <div class="info-box"><strong>🎯 Challenge:</strong> Create a complete CI/CD pipeline with automated testing, Docker builds, and deployment to staging and production environments!</div>
+    </section>
+
+    <footer class="page-footer">
+      <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../docpages/about/about.html">About</a>
+        <a href="https://bitbucket.org/" target="_blank">Bitbucket</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../../components/theme-switch/theme-switcher.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+  <script src="../../../components/code-highlighter/code-highlighter.js"></script>
+</body>
+
+</html>

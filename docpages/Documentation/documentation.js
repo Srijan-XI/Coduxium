@@ -1,17 +1,32 @@
 const docContent = `# 📖 Documentation Index
 
-Welcome to the complete documentation for DevSphere!
+Welcome to the complete documentation for Coduxium XI!
+
+---
+
+## � What's Available
+
+### Quick Summary
+
+Coduxium XI provides comprehensive resources for learning and mastering:
+
+- **20 Programming Languages** (from beginner to advanced)
+- **25 Frameworks** (Angular, Next.js, React, Django, Flask, Spring Boot, etc.)
+- **11 Databases** (MySQL, PostgreSQL, MongoDB, Redis, DynamoDB, etc.)
+- **9 DevOps Tools** (Docker, Kubernetes, Jenkins, Terraform, Ansible, etc.)
+- **8 Development Tools** (Postman, Vite, Vitest, YAML, TOML, JSON, XML, CSV)
+- **Cloud Platforms** (AWS, Azure, GCP, DigitalOcean)
+- **Operating Systems** (Linux distributions, Windows, macOS, iOS, Android)
+- **DevSecOps & Security Tools** (AquaSecurity, SonarQube, Snyk, HashiCorp Vault, Metasploit)
+- **Data Engineering & AI/ML** (Apache Spark, Apache Kafka, CUDA, HuggingFace, NumPy, Pandas)
+- **131+ Practice Questions** across all languages
+- **Installation Guides** for Windows, macOS, and Linux
+- **Best Practices** and coding conventions
+- **Project Templates** to get started quickly
 
 ---
 
 ## 📚 Core Documentation
-
-### Summary
-- **10 Programming Languages**: Python, Java, C/C++, PHP, R, Rust, Go, JavaScript, TypeScript, SQL
-- **131+ Practice Questions**: Beginner to Expert levels
-- **DevOps Tools**: Docker containerization guide
-- **Framework Guides**: Node.js, Express.js, Next.js
-- **Database Guides**: MySQL, PostgreSQL, MongoDB, Redis, DynamoDB
 
 ### Getting Started
 - **[QUICKSTART](quickstart.html)** - Get up and running in 5 minutes
@@ -77,6 +92,18 @@ Welcome to the complete documentation for DevSphere!
 - **Practice**: \`Golang/questions/\` (10 questions)
 - **Topics**: Basics, Concurrency, Structs, File Operations
 
+### Swift 🍎
+- **Location**: \`/swift/\`
+- **Installation**: \`swift/swift.html\`
+- **Topics**: iOS/macOS development, SwiftUI, Swift Playgrounds, Xcode basics, Optionals, Protocols
+- **Frameworks**: SwiftUI, UIKit, Combine, CoreData
+
+### Kotlin 🤖
+- **Location**: \`/kotlin/\`
+- **Installation**: \`kotlin/kotlin.html\`
+- **Topics**: Android development, Kotlin coroutines, Null safety, Extension functions, Data classes
+- **Frameworks**: JetBrains IntelliJ, Android Studio, Kotlin Multiplatform
+
 ### JavaScript 🟨
 - **Location**: \`/JavaScript/\`
 - **Installation**: \`JavaScript/install&usage.md\`
@@ -109,6 +136,18 @@ Welcome to the complete documentation for DevSphere!
   - **DynamoDB**: \`SQL/DynamoDB/\` (Introduction & AWS Guide)
 - **Topics**: SELECT, JOIN, Aggregate Functions, Subqueries, Transactions
 
+### Bash 💻
+- **Location**: \`/Bash/\`
+- **Installation**: \`Bash/Bash.html\`
+- **Practice**: \`Bash/Questions/\` (10 questions)
+- **Topics**: Shell scripting, File operations, Pipes, Variables, Loops, Functions
+
+### KQL (Kusto Query Language) 📊
+- **Location**: \`/Kql/\`
+- **Installation**: \`Kql/Kql.html\`
+- **Practice**: \`Kql/Questions/\` (10 questions)
+- **Topics**: Log analytics, Azure Monitor, Data exploration, Query optimization
+
 ### Docker 🐳
 - **Location**: \`/Docker/\`
 - **Introduction**: \`Docker/intro.md\`
@@ -116,7 +155,166 @@ Welcome to the complete documentation for DevSphere!
 
 ---
 
-## 🔧 GitHub Templates
+## ⛏️ Development Tools
+
+### Overview
+Essential development tools for modern software development:
+
+### Postman 📮
+- **Location**: \`/DevelopmentTools/Postman/\`
+- **Topics**: API Testing, REST APIs, Collections, Environment Variables, Automated Testing
+
+### Vite ⚡
+- **Location**: \`/DevelopmentTools/Vite/\`
+- **Topics**: Fast Build Tool, Dev Server, Hot Module Replacement, Production Builds, Plugin System
+
+### Vitest 🧪
+- **Location**: \`/DevelopmentTools/Vitest/\`
+- **Topics**: Unit Testing, Integration Testing, Vite-Native Testing, Mock Functions, Coverage Reports
+
+### Data Formats 📄
+- **YAML**: \`/DevelopmentTools/YAML/\` - Human-readable data serialization
+- **TOML**: \`/DevelopmentTools/TOML/\` - Configuration file format
+- **JSON**: \`/DevelopmentTools/JSON/\` - JavaScript Object Notation
+- **XML**: \`/DevelopmentTools/XML/\` - Extensible Markup Language
+- **CSV**: \`/DevelopmentTools/CSV/\` - Comma-Separated Values
+
+---
+
+## 🔐 DevSecOps & Security Tools
+
+### Overview
+Security-focused tools for DevSecOps practices:
+
+### AquaSecurity 🌊
+- **Location**: \`/DevSecOps&SecurityTools/AquaSecurity/\`
+- **Topics**: Container Security, Vulnerability Scanning, Runtime Protection, Compliance
+
+### SonarQube 📊
+- **Location**: \`/DevSecOps&SecurityTools/SonarQube/\`
+- **Topics**: Code Quality, Security Vulnerabilities, Code Smells, Technical Debt, Continuous Inspection
+
+### Snyk 🛡️
+- **Location**: \`/DevSecOps&SecurityTools/Snuk/\`
+- **Topics**: Dependency Scanning, Container Scanning, IaC Security, License Compliance
+
+### HashiCorp Vault 🔒
+- **Location**: \`/DevSecOps&SecurityTools/HashiCorpVault/\`
+- **Topics**: Secret Management, Encryption, Dynamic Secrets, Access Control
+
+### Metasploit 🎯
+- **Location**: \`/DevSecOps&SecurityTools/metasploit/\`
+- **Topics**: Penetration Testing, Exploit Development, Vulnerability Assessment, Security Auditing
+
+---
+
+## 🤖 Data Engineering, AI & ML
+
+### AI/ML Libraries
+
+### PyTorch 🔥
+- **Location**: \`/DE-AI-ML/pytorch/\`
+- **Topics**: Deep Learning, Neural Networks, Tensors, GPU Acceleration, Model Training
+
+### TensorFlow 🧠
+- **Location**: \`/DE-AI-ML/tensorflow/\`
+- **Topics**: Machine Learning, Keras API, TensorBoard, Model Deployment, TPU Support
+
+### CUDA ⚙️
+- **Location**: \`/DE-AI-ML/cuda/\`
+- **Topics**: GPU Programming, Parallel Computing, Performance Optimization, NVIDIA Toolkit
+
+### Scikit-learn 📈
+- **Location**: \`/DE-AI-ML/scikit-learn/\`
+- **Topics**: Machine Learning Algorithms, Classification, Regression, Clustering, Model Selection
+
+### Hugging Face 🤗
+- **Location**: \`/DE-AI-ML/huggingface/\`
+- **Topics**: Transformers, NLP Models, Model Hub, Datasets, Tokenizers
+
+### LangChain 🔗
+- **Location**: \`/DE-AI-ML/langchain/\`
+- **Topics**: LLM Applications, Chains, Agents, Memory, Vector Stores
+
+### Apache Spark ⚡
+- **Location**: \`/DE-AI-ML/apache-spark/\`
+- **Topics**: Big Data Processing, Distributed Computing, DataFrames, Spark SQL, MLlib
+
+### Apache Kafka 📨
+- **Location**: \`/DE-AI-ML/apache-kafka/\`
+- **Topics**: Event Streaming, Message Queues, Producers, Consumers, Stream Processing
+
+### Data Processing Libraries
+
+### NumPy 🔢
+- **Location**: \`/DE-AI-ML/numpy/\`
+- **Topics**: Array Operations, Mathematical Functions, Linear Algebra, Scientific Computing
+
+### Pandas 🐼
+- **Location**: \`/DE-AI-ML/pandas/\`
+- **Topics**: Data Analysis, DataFrames, Data Manipulation, Time Series, Data Cleaning
+
+---
+
+## 🎮 Game Engines
+
+### Godot 🎮
+- **Location**: \`/GameEngines/godot/\`
+- **Topics**: 2D/3D Game Development, GDScript, Nodes, Scenes, Animation
+
+### Unity 🎯
+- **Location**: \`/GameEngines/unity/\`
+- **Topics**: C# Scripting, Physics, Animation, UI, Cross-Platform Development
+
+### Unreal Engine 🚀
+- **Location**: \`/GameEngines/unreal-engine/\`
+- **Topics**: Blueprint, C++, Rendering, VR/AR, Cinematics
+
+---
+
+## ☁️ Cloud Platforms
+
+Comprehensive guides for major cloud service providers:
+
+### Amazon Web Services (AWS)
+- **Location**: \`/CloudS/AWS/\`
+- **Topics**: EC2, S3, Lambda, RDS, DynamoDB, CloudFormation, IAM
+
+### Microsoft Azure
+- **Location**: \`/CloudS/Azure/\`
+- **Topics**: Virtual Machines, Blob Storage, Azure Functions, SQL Database, App Services
+
+### Google Cloud Platform (GCP)
+- **Location**: \`/CloudS/GCP/\`
+- **Topics**: Compute Engine, Cloud Storage, Cloud Functions, BigQuery, Kubernetes Engine
+
+### DigitalOcean
+- **Location**: \`/CloudS/DO/\`
+- **Topics**: Droplets, Spaces, App Platform, Managed Databases, Kubernetes
+
+---
+
+## 💻 Operating Systems
+
+### Windows
+- **Location**: \`/OS/Windows/\`
+- **Topics**: PowerShell, WSL, Package Management, System Administration
+
+### macOS
+- **Location**: \`/OS/macOS/\`
+- **Topics**: Terminal, Homebrew, Unix Tools, Development Environment
+
+### iOS
+- **Location**: \`/OS/iOS/\`
+- **Topics**: Swift Development, Xcode, App Distribution, iOS SDK
+
+### Android
+- **Location**: \`/OS/Android/\`
+- **Topics**: Android Studio, Kotlin, Jetpack Compose, App Publishing
+
+---
+
+## �🔧 GitHub Templates
 
 ### Issue Templates
 - **[Bug Report](.github/ISSUE_TEMPLATE/bug_report.md)** - Report bugs or errors
@@ -337,258 +535,258 @@ Found something unclear? Documentation improvements are always welcome!
 
 ---
 
-**Last Updated**: November 13, 2025
+**Last Updated**: December 24, 2025
 
 [⬆ Back to README](../README.md)
 `;
-        
-        // --- Helper Function for Link Replacements ---
-        function replaceLinks(htmlString) {
-            // Mapping for the HTML files we created earlier to ensure navigation works
-            const fileMap = {
-                'index.html': '../index.html', 
-                'quickstart.html': 'quickstart.html',
-                'resources.html': '../pages/Resources/Resources.html',
-                'changelog.html': '../pages/changelog.html',
-                'README.md': '../README.md',
-                'FAQ.md': 'FAQ.html',
-                'QUICKSTART.md': 'quickstart.html',
-                'RESOURCES.md': '../pages/Resources/Resources.html',
-                'CHANGELOG.md': '../pages/changelog.html'
-            };
 
-            // Regular expression to find Markdown links: [Text](Target)
-            const linkRegex = /\[(.*?)\]\((.*?)\)/g;
+// --- Helper Function for Link Replacements ---
+function replaceLinks(htmlString) {
+    // Mapping for the HTML files we created earlier to ensure navigation works
+    const fileMap = {
+        'index.html': '../index.html',
+        'quickstart.html': 'quickstart.html',
+        'resources.html': '../pages/Resources/Resources.html',
+        'changelog.html': '../pages/changelog.html',
+        'README.md': '../README.md',
+        'FAQ.md': 'FAQ.html',
+        'QUICKSTART.md': 'quickstart.html',
+        'RESOURCES.md': '../pages/Resources/Resources.html',
+        'CHANGELOG.md': '../pages/changelog.html'
+    };
 
-            return htmlString.replace(linkRegex, (match, text, target) => {
+    // Regular expression to find Markdown links: [Text](Target)
+    const linkRegex = /\[(.*?)\]\((.*?)\)/g;
+
+    return htmlString.replace(linkRegex, (match, text, target) => {
+        let href = target;
+        const isExternal = target.startsWith('http') || target.startsWith('#');
+
+        // Check if the target is one of our internal file names (case-insensitive and with/without .md/.html)
+        const filenameMatch = target.match(/([a-zA-Z0-9_-]+)(\.md|\.html)?$/i);
+        if (filenameMatch) {
+            const cleanName = filenameMatch[1].toLowerCase();
+            if (cleanName === 'faq') href = fileMap['FAQ.md'];
+            else if (cleanName === 'quickstart') href = fileMap['QUICKSTART.md'];
+            else if (cleanName === 'resources') href = fileMap['RESOURCES.md'];
+            else if (cleanName === 'changelog') href = fileMap['CHANGELOG.md'];
+            else if (cleanName === 'readme') href = fileMap['README.md'];
+        }
+
+        const targetAttr = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+        return `<a href="${href}" ${targetAttr}>${text}</a>`;
+    });
+}
+
+
+// --- Core Rendering Logic ---
+function renderDocumentation() {
+    const container = document.getElementById('doc-content');
+    const sidebarNav = document.getElementById('sidebar-nav');
+    const lines = docContent.split('\n');
+    let currentSectionDiv = null;
+    let currentSubSectionDiv = null;
+    let currentList = null;
+    let inList = false;
+
+    sidebarNav.innerHTML = '';
+    container.innerHTML = '';
+
+    let currentNavSection = null;
+
+    lines.forEach(line => {
+        line = line.trim();
+        if (!line || line.startsWith('---') || line.startsWith('# 📖 Documentation Index')) return;
+
+        // 1. Major Section Header (H2)
+        if (line.startsWith('## ')) {
+            const sectionTitle = line.substring(3).trim();
+            const sectionId = sectionTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+            // Create Main Section Element
+            currentSectionDiv = document.createElement('section');
+            currentSectionDiv.id = sectionId;
+            currentSectionDiv.className = 'doc-section';
+
+            const titleHeader = document.createElement('h2');
+            titleHeader.textContent = sectionTitle;
+            currentSectionDiv.appendChild(titleHeader);
+            container.appendChild(currentSectionDiv);
+
+            // Add to Sidebar Navigation
+            currentNavSection = document.createElement('div');
+            currentNavSection.className = 'nav-section';
+            const navHeader = document.createElement('h3');
+            navHeader.textContent = sectionTitle.replace(/[^a-zA-Z\s]/g, '').trim();
+            currentNavSection.appendChild(navHeader);
+            const navList = document.createElement('ul');
+            navList.className = 'nav-list';
+            currentNavSection.appendChild(navList);
+            sidebarNav.appendChild(currentNavSection);
+
+            currentSubSectionDiv = null;
+            currentList = null;
+            inList = false;
+        }
+        // 2. Sub-Section Header (H3)
+        else if (line.startsWith('### ')) {
+            const subSectionTitle = line.substring(4).trim();
+            const subSectionId = subSectionTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+            if (currentSectionDiv) {
+                currentSubSectionDiv = document.createElement('div');
+
+                const subTitleHeader = document.createElement('h3');
+                subTitleHeader.id = subSectionId;
+                subTitleHeader.textContent = subSectionTitle;
+                currentSubSectionDiv.appendChild(subTitleHeader);
+                currentSectionDiv.appendChild(currentSubSectionDiv);
+
+                currentList = null;
+                inList = false;
+
+                // Add to Sidebar Nav Sub-list
+                if (currentNavSection) {
+                    const navItem = document.createElement('li');
+                    const navLink = document.createElement('a');
+                    navLink.href = `#${subSectionId}`;
+                    navLink.className = 'nav-link';
+                    navLink.textContent = subSectionTitle.replace(/[^a-zA-Z\s]/g, '').trim();
+                    navItem.appendChild(navLink);
+                    currentNavSection.querySelector('ul').appendChild(navItem);
+                }
+            }
+        }
+        // 3. Table/List Content (Handles complex content, assuming most is lists/tables)
+        else if (currentSubSectionDiv && (line.startsWith('- ') || line.startsWith('|'))) {
+            // Check if it's a list item
+            if (line.startsWith('- ')) {
+                if (!currentList || currentList.tagName !== 'UL') {
+                    currentList = document.createElement('ul');
+                    currentList.style.listStyle = 'disc';
+                    currentList.style.marginLeft = '1.5rem';
+                    currentSubSectionDiv.appendChild(currentList);
+                }
+
+                const listItem = document.createElement('li');
+                let content = line.substring(2).trim();
+
+                // Process bold text and links within the list item
+                content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                listItem.innerHTML = replaceLinks(content);
+
+                currentList.appendChild(listItem);
+                inList = true;
+            }
+            // Check if it's a Markdown table line
+            else if (line.startsWith('|')) {
+                if (currentList && currentList.tagName === 'UL') {
+                    currentList = null; // Exit list mode if a table starts
+                }
+
+                // Use a simple rendering for the table
+                let tableDiv = currentSubSectionDiv.querySelector('.doc-table-container');
+                if (!tableDiv) {
+                    tableDiv = document.createElement('div');
+                    tableDiv.className = 'doc-table-container';
+                    const table = document.createElement('table');
+                    tableDiv.appendChild(table);
+                    currentSubSectionDiv.appendChild(tableDiv);
+                }
+                const table = tableDiv.querySelector('table');
+
+                const cells = line.split('|').map(c => c.trim()).filter(c => c.length > 0);
+
+                if (cells.length > 0) {
+                    // Check if it's the header/separator line
+                    const isSeparator = cells.every(cell => cell.startsWith('---') || cell.startsWith(':'));
+
+                    if (isSeparator) return; // Skip separator line
+
+                    const row = table.insertRow();
+                    cells.forEach((cell, index) => {
+                        const cellElement = table.rows.length === 1 ? document.createElement('th') : row.insertCell();
+                        cellElement.innerHTML = cell;
+                        if (table.rows.length === 1) { // It's the header row
+                            row.appendChild(cellElement);
+                        }
+                    });
+                }
+            }
+        }
+        // 4. Regular Paragraphs (usually links or examples)
+        else if (currentSubSectionDiv) {
+            // Exit list mode
+            if (inList) {
+                currentList = null;
+                inList = false;
+            }
+
+            const p = document.createElement('p');
+
+            // Handle list of links like 'I Want To...' or Quick Links
+            const linkListMatch = line.match(/^(\d+\.\s*|[\-\*]\s*)?\[(.*?)\]\((.*?)\)(.*)/);
+            if (linkListMatch) {
+                const [, prefix, text, target, suffix] = linkListMatch;
+
+                // Check for common internal links and simplify presentation
+                let displayText = prefix || '';
                 let href = target;
-                const isExternal = target.startsWith('http') || target.startsWith('#');
-                
-                // Check if the target is one of our internal file names (case-insensitive and with/without .md/.html)
-                const filenameMatch = target.match(/([a-zA-Z0-9_-]+)(\.md|\.html)?$/i);
-                if (filenameMatch) {
-                    const cleanName = filenameMatch[1].toLowerCase();
-                    if (cleanName === 'faq') href = fileMap['FAQ.md'];
-                    else if (cleanName === 'quickstart') href = fileMap['QUICKSTART.md'];
-                    else if (cleanName === 'resources') href = fileMap['RESOURCES.md'];
-                    else if (cleanName === 'changelog') href = fileMap['CHANGELOG.md'];
-                    else if (cleanName === 'readme') href = fileMap['README.md'];
+                const isInternalDoc = target.endsWith('.md') || target.endsWith('.html');
+
+                if (isInternalDoc) {
+                    // Use the replaceLinks logic for internal mapping
+                    const linkHtml = replaceLinks(`[${text}](${target})`);
+                    p.innerHTML = `${displayText}${linkHtml} ${suffix.trim()}`;
+                } else {
+                    // External or path link
+                    p.innerHTML = `${displayText}<a href="${target}" target="_blank" rel="noopener noreferrer">${text}</a> ${suffix.trim()}`;
                 }
-                
-                const targetAttr = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
-                return `<a href="${href}" ${targetAttr}>${text}</a>`;
-            });
+
+                currentSubSectionDiv.appendChild(p);
+
+            } else if (line.startsWith('**Examples**') || line.startsWith('**Topics**') || line.startsWith('**Levels**')) {
+                // Bold introduction lines
+                p.innerHTML = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                currentSubSectionDiv.appendChild(p);
+            }
+            else {
+                // General text
+                p.innerHTML = replaceLinks(line);
+                currentSubSectionDiv.appendChild(p);
+            }
         }
+    });
+}
 
+// --- Interactivity and Scroll Logic ---
+function setupScrollSpy() {
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-        // --- Core Rendering Logic ---
-        function renderDocumentation() {
-            const container = document.getElementById('doc-content');
-            const sidebarNav = document.getElementById('sidebar-nav');
-            const lines = docContent.split('\n');
-            let currentSectionDiv = null;
-            let currentSubSectionDiv = null;
-            let currentList = null;
-            let inList = false;
-            
-            sidebarNav.innerHTML = '';
-            container.innerHTML = '';
-
-            let currentNavSection = null;
-
-            lines.forEach(line => {
-                line = line.trim();
-                if (!line || line.startsWith('---') || line.startsWith('# 📖 Documentation Index')) return;
-
-                // 1. Major Section Header (H2)
-                if (line.startsWith('## ')) {
-                    const sectionTitle = line.substring(3).trim();
-                    const sectionId = sectionTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-
-                    // Create Main Section Element
-                    currentSectionDiv = document.createElement('section');
-                    currentSectionDiv.id = sectionId;
-                    currentSectionDiv.className = 'doc-section';
-                    
-                    const titleHeader = document.createElement('h2');
-                    titleHeader.textContent = sectionTitle;
-                    currentSectionDiv.appendChild(titleHeader);
-                    container.appendChild(currentSectionDiv);
-
-                    // Add to Sidebar Navigation
-                    currentNavSection = document.createElement('div');
-                    currentNavSection.className = 'nav-section';
-                    const navHeader = document.createElement('h3');
-                    navHeader.textContent = sectionTitle.replace(/[^a-zA-Z\s]/g, '').trim();
-                    currentNavSection.appendChild(navHeader);
-                    const navList = document.createElement('ul');
-                    navList.className = 'nav-list';
-                    currentNavSection.appendChild(navList);
-                    sidebarNav.appendChild(currentNavSection);
-
-                    currentSubSectionDiv = null;
-                    currentList = null;
-                    inList = false;
-                }
-                // 2. Sub-Section Header (H3)
-                else if (line.startsWith('### ')) {
-                    const subSectionTitle = line.substring(4).trim();
-                    const subSectionId = subSectionTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-                    
-                    if (currentSectionDiv) {
-                        currentSubSectionDiv = document.createElement('div');
-                        
-                        const subTitleHeader = document.createElement('h3');
-                        subTitleHeader.id = subSectionId;
-                        subTitleHeader.textContent = subSectionTitle;
-                        currentSubSectionDiv.appendChild(subTitleHeader);
-                        currentSectionDiv.appendChild(currentSubSectionDiv);
-
-                        currentList = null;
-                        inList = false;
-                        
-                        // Add to Sidebar Nav Sub-list
-                        if (currentNavSection) {
-                            const navItem = document.createElement('li');
-                            const navLink = document.createElement('a');
-                            navLink.href = `#${subSectionId}`;
-                            navLink.className = 'nav-link';
-                            navLink.textContent = subSectionTitle.replace(/[^a-zA-Z\s]/g, '').trim();
-                            navItem.appendChild(navLink);
-                            currentNavSection.querySelector('ul').appendChild(navItem);
-                        }
-                    }
-                }
-                // 3. Table/List Content (Handles complex content, assuming most is lists/tables)
-                else if (currentSubSectionDiv && (line.startsWith('- ') || line.startsWith('|'))) {
-                    // Check if it's a list item
-                    if (line.startsWith('- ')) {
-                        if (!currentList || currentList.tagName !== 'UL') {
-                            currentList = document.createElement('ul');
-                            currentList.style.listStyle = 'disc';
-                            currentList.style.marginLeft = '1.5rem';
-                            currentSubSectionDiv.appendChild(currentList);
-                        }
-                        
-                        const listItem = document.createElement('li');
-                        let content = line.substring(2).trim();
-
-                        // Process bold text and links within the list item
-                        content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                        listItem.innerHTML = replaceLinks(content);
-                        
-                        currentList.appendChild(listItem);
-                        inList = true;
-                    }
-                    // Check if it's a Markdown table line
-                    else if (line.startsWith('|')) {
-                        if (currentList && currentList.tagName === 'UL') {
-                            currentList = null; // Exit list mode if a table starts
-                        }
-                        
-                        // Use a simple rendering for the table
-                        let tableDiv = currentSubSectionDiv.querySelector('.doc-table-container');
-                        if (!tableDiv) {
-                            tableDiv = document.createElement('div');
-                            tableDiv.className = 'doc-table-container';
-                            const table = document.createElement('table');
-                            tableDiv.appendChild(table);
-                            currentSubSectionDiv.appendChild(tableDiv);
-                        }
-                        const table = tableDiv.querySelector('table');
-                        
-                        const cells = line.split('|').map(c => c.trim()).filter(c => c.length > 0);
-
-                        if (cells.length > 0) {
-                            // Check if it's the header/separator line
-                            const isSeparator = cells.every(cell => cell.startsWith('---') || cell.startsWith(':'));
-                            
-                            if (isSeparator) return; // Skip separator line
-
-                            const row = table.insertRow();
-                            cells.forEach((cell, index) => {
-                                const cellElement = table.rows.length === 1 ? document.createElement('th') : row.insertCell();
-                                cellElement.innerHTML = cell;
-                                if (table.rows.length === 1) { // It's the header row
-                                    row.appendChild(cellElement);
-                                }
-                            });
-                        }
-                    }
-                } 
-                // 4. Regular Paragraphs (usually links or examples)
-                else if (currentSubSectionDiv) {
-                    // Exit list mode
-                    if (inList) {
-                        currentList = null;
-                        inList = false;
-                    }
-
-                    const p = document.createElement('p');
-                    
-                    // Handle list of links like 'I Want To...' or Quick Links
-                    const linkListMatch = line.match(/^(\d+\.\s*|[\-\*]\s*)?\[(.*?)\]\((.*?)\)(.*)/);
-                    if (linkListMatch) {
-                        const [, prefix, text, target, suffix] = linkListMatch;
-                        
-                        // Check for common internal links and simplify presentation
-                        let displayText = prefix || '';
-                        let href = target;
-                        const isInternalDoc = target.endsWith('.md') || target.endsWith('.html');
-                        
-                        if (isInternalDoc) {
-                             // Use the replaceLinks logic for internal mapping
-                             const linkHtml = replaceLinks(`[${text}](${target})`);
-                             p.innerHTML = `${displayText}${linkHtml} ${suffix.trim()}`;
-                        } else {
-                            // External or path link
-                            p.innerHTML = `${displayText}<a href="${target}" target="_blank" rel="noopener noreferrer">${text}</a> ${suffix.trim()}`;
-                        }
-                        
-                        currentSubSectionDiv.appendChild(p);
-                        
-                    } else if (line.startsWith('**Examples**') || line.startsWith('**Topics**') || line.startsWith('**Levels**')) {
-                        // Bold introduction lines
-                        p.innerHTML = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                        currentSubSectionDiv.appendChild(p);
-                    }
-                    else {
-                        // General text
-                        p.innerHTML = replaceLinks(line);
-                        currentSubSectionDiv.appendChild(p);
-                    }
-                }
-            });
-        }
-        
-        // --- Interactivity and Scroll Logic ---
-        function setupScrollSpy() {
-            const sections = document.querySelectorAll('main section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const targetId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${targetId}`) {
-                                link.classList.add('active');
-                            }
-                        });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetId = entry.target.id;
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.classList.add('active');
                     }
                 });
-            }, {
-                rootMargin: "0px 0px -75% 0px", // Highlight link when section is near the top
-                threshold: 0
-            });
+            }
+        });
+    }, {
+        rootMargin: "0px 0px -75% 0px", // Highlight link when section is near the top
+        threshold: 0
+    });
 
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        }
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+}
 
-        window.onload = () => {
-            renderDocumentation();
-            setupScrollSpy();
-        };
+window.onload = () => {
+    renderDocumentation();
+    setupScrollSpy();
+};

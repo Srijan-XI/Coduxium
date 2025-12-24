@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apache Spark — Coduxium XI</title>
+    <meta name="description" content="Master Apache Spark - Unified analytics engine for large-scale data processing.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Apache Spark</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>⚡ Apache Spark</h2>
+            <p class="intro">Unified analytics engine for large-scale data processing with built-in modules for SQL,
+                streaming, ML, and graph processing.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Big Data</span>
+                    <span class="badge">Distributed Computing</span>
+                    <span class="badge">Scala/Python</span>
+                    <span class="badge">Analytics</span>
+                </div>
+                <p>Apache Spark is an open-source unified analytics engine for large-scale data processing. It provides
+                    high-level APIs in Java, Scala, Python and R, and an optimized engine that supports general
+                    execution graphs.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>In-Memory Computing</strong> — 100x faster than Hadoop MapReduce</li>
+                    <li><strong>Unified Engine</strong> — Batch, streaming, SQL, ML, graph processing</li>
+                    <li><strong>Multi-Language APIs</strong> — Scala, Java, Python, R, SQL</li>
+                    <li><strong>Spark SQL</strong> — Structured data processing</li>
+                    <li><strong>MLlib</strong> — Scalable machine learning library</li>
+                    <li><strong>Spark Streaming</strong> — Real-time stream processing</li>
+                    <li><strong>GraphX</strong> — Graph computation</li>
+                    <li><strong>Scalable</strong> — From single machine to thousands of nodes</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Large-scale data processing and ETL</li>
+                    <li>Real-time stream processing</li>
+                    <li>Machine learning at scale</li>
+                    <li>Interactive data analysis</li>
+                    <li>Graph processing and analysis</li>
+                    <li>Log and event analysis</li>
+                    <li>Recommendation systems</li>
+                    <li>Fraud detection</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Spark with PySpark:</p>
+                <pre><code>pip install pyspark</code></pre>
+
+                <p>Basic Spark example:</p>
+                <pre><code>from pyspark.sql import SparkSession
+
+# Create Spark session
+spark = SparkSession.builder \
+    .appName("MyApp") \
+    .getOrCreate()
+
+# Read data
+df = spark.read.csv("data.csv", header=True, inferSchema=True)
+
+# Process data
+result = df.filter(df.age > 21) \
+           .groupBy("city") \
+           .count()
+
+# Show results
+result.show()
+
+# Stop Spark
+spark.stop()</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use DataFrames instead of RDDs for better optimization</li>
+                    <li>Partition data appropriately</li>
+                    <li>Cache frequently accessed data</li>
+                    <li>Avoid shuffles when possible</li>
+                    <li>Use broadcast variables for small lookup tables</li>
+                    <li>Monitor with Spark UI</li>
+                    <li>Tune memory and executor configurations</li>
+                    <li>Use columnar file formats like Parquet</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://spark.apache.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://spark.apache.org/docs/latest/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/apache/spark" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

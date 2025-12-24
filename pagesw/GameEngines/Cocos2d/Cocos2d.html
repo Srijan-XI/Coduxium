@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cocos2d — Coduxium XI</title>
+    <meta name="description" content="Cocos2d - Popular 2D game development framework family.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Cocos2d Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎮 Cocos2d</h2>
+            <p class="intro">Family of open-source frameworks for building 2D games and interactive applications.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">2D</span>
+                    <span class="badge">MOBILE</span>
+                    <span class="badge">CROSS-PLATFORM</span>
+                    <span class="badge">OPEN SOURCE</span>
+                </div>
+                <p>Cocos2d is a family of open-source software frameworks for building cross-platform games and apps. The most popular variants are Cocos2d-x (C++), Cocos Creator (JavaScript/TypeScript), and the original Cocos2d (Python).</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Cocos2d Variants</h3>
+                <ul>
+                    <li><strong>Cocos2d-x</strong> — C++ framework for mobile and desktop games</li>
+                    <li><strong>Cocos Creator</strong> — Visual editor with JavaScript/TypeScript scripting</li>
+                    <li><strong>Cocos2d</strong> — Original Python framework for iOS</li>
+                    <li><strong>Cocos2d-js</strong> — JavaScript framework (merged into Creator)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Cross-Platform</strong> — iOS, Android, Windows, macOS, Linux, Web</li>
+                    <li><strong>Performance</strong> — Optimized for mobile devices</li>
+                    <li><strong>Visual Editor</strong> — Cocos Creator provides intuitive UI</li>
+                    <li><strong>Animation</strong> — Timeline animation system</li>
+                    <li><strong>Physics</strong> — Integrated physics engines</li>
+                    <li><strong>Rich UI</strong> — Complete UI widget system</li>
+                    <li><strong>Particle System</strong> — Built-in particle effects</li>
+                    <li><strong>Audio</strong> — Multi-channel audio support</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Cocos Creator Installation</h3>
+                <pre><code># Download Cocos Creator from official website
+# https://www.cocos.com/en/creator/download
+
+# Or install via npm for Cocos2d-js
+npm install -g cocos2d-js
+
+# Create new project
+cocos new MyGame -l js</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Simple Scene Example (Cocos Creator)</h3>
+                <pre><code>// TypeScript component example
+const { ccclass, property } = cc._decorator;
+
+@ccclass
+export default class Player extends cc.Component {
+    @property(cc.Float)
+    speed: number = 200;
+
+    onLoad() {
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, 
+            this.onKeyDown, this);
+    }
+
+    onKeyDown(event) {
+        switch(event.keyCode) {
+            case cc.macro.KEY.left:
+                this.node.x -= this.speed;
+                break;
+            case cc.macro.KEY.right:
+                this.node.x += this.speed;
+                break;
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Notable Games</h3>
+                <ul>
+                    <li><strong>Badland</strong> — Award-winning mobile game</li>
+                    <li><strong>Fishing Joy</strong> — Popular casual game</li>
+                    <li><strong>Monster Strike</strong> — Top-grossing mobile game</li>
+                    <li><strong>Hundreds</strong> — Puzzle game</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing</h3>
+                <div class="info-box">
+                    <strong>Free & Open Source:</strong> Cocos2d-x and Cocos Creator are completely free with MIT license. No royalties or subscription fees.
+                </div>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.cocos.com/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.cocos.com/" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://www.cocos.com/en/creator/learn" target="_blank">Tutorials</a></li>
+                    <li>💬 <a href="https://discuss.cocos2d-x.org/" target="_blank">Community Forum</a></li>
+                    <li>📦 <a href="https://github.com/cocos2d/cocos2d-x" target="_blank">GitHub - Cocos2d-x</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.cocos.com/" target="_blank">Cocos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

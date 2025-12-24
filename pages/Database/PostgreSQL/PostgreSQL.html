@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="Complete guide to PostgreSQL - An advanced open-source relational database with powerful features, strong standards compliance, and extensibility." />
+	<meta name="keywords" content="PostgreSQL, Postgres, SQL, Database, Relational, ACID, JSONB, MVCC, Extensions" />
+	<title>PostgreSQL Complete Guide | Coduxium XI</title>
+	<link rel="stylesheet" href="../../../css/main.css">
+	<link rel="stylesheet" href="../database-common.css">
+	<link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+	<div class="page-wrapper">
+		<header class="page-header">
+			<h1>PostgreSQL Complete Guide</h1>
+			<p class="subtitle">An advanced open-source relational database with powerful features and strong standards
+				compliance.</p>
+			<div class="badge-row">
+				<span class="badge">RELATIONAL</span>
+				<span class="badge">ACID</span>
+				<span class="badge">JSONB</span>
+				<span class="badge">MVCC</span>
+				<span class="badge">EXTENSIONS</span>
+			</div>
+			<nav class="section-nav">
+				<a href="../../../index.html">🏠 Home</a>
+				<a href="#introduction">Introduction</a>
+				<a href="#installation">Installation & Setup</a>
+				<a href="#user-guide">User Guide</a>
+				<a href="#advanced">Advanced Features</a>
+				<a href="#next-steps">Next Steps</a>
+			</nav>
+			<div class="info-box"><strong>💡 Pro Tip:</strong> PostgreSQL's extensibility allows you to add custom data
+				types, functions, and operators. Explore extensions like PostGIS for geospatial data and pg_trgm for
+				fuzzy text search.</div>
+		</header>
+
+		<!-- ==================== INTRODUCTION SECTION ==================== -->
+		<section id="introduction" class="card accent">
+			<h2>📚 Introduction</h2>
+
+			<h3>What is PostgreSQL?</h3>
+			<p>PostgreSQL (often called "Postgres") is a powerful, open-source object-relational database system with
+				over 35 years of active development. Known for its reliability, data integrity, and correctness,
+				PostgreSQL has earned a strong reputation for architecture that has proven scalability, extensibility,
+				and adherence to SQL standards.</p>
+
+			<h3>Key Features</h3>
+			<div class="topic-grid">
+				<div class="topic"><strong>🔒 ACID Compliant</strong> — Full transaction support with data integrity
+				</div>
+				<div class="topic"><strong>🎯 MVCC</strong> — Multi-Version Concurrency Control for consistent reads
+				</div>
+				<div class="topic"><strong>📊 Advanced Indexing</strong> — B-tree, Hash, GiST, GIN, BRIN, Bloom filters
+				</div>
+				<div class="topic"><strong>🔌 Extensible</strong> — Custom data types, functions, operators, and
+					extensions</div>
+				<div class="topic"><strong>📄 JSONB Support</strong> — Efficient binary JSON storage and indexing</div>
+				<div class="topic"><strong>🌐 Standards Compliant</strong> — Excellent SQL standards conformance</div>
+				<div class="topic"><strong>🔍 Full-Text Search</strong> — Built-in text search capabilities</div>
+				<div class="topic"><strong>🗺️ Geospatial</strong> — PostGIS extension for geographic data</div>
+			</div>
+
+			<h3>Why Choose PostgreSQL?</h3>
+			<ul>
+				<li><strong>Data Integrity:</strong> Comprehensive support for foreign keys, check constraints, and
+					triggers ensures data consistency.</li>
+				<li><strong>Concurrency:</strong> MVCC allows readers to never block writers and vice versa, enabling
+					high concurrency workloads.</li>
+				<li><strong>Extensibility:</strong> Add custom data types, operators, index types, and procedural
+					languages without modifying core code.</li>
+				<li><strong>Rich Data Types:</strong> Arrays, hstore, JSONB, geometric types, network addresses, UUID,
+					and more out of the box.</li>
+				<li><strong>Advanced Features:</strong> Common Table Expressions (CTEs), window functions, lateral
+					joins, materialized views, and sophisticated query planner.</li>
+				<li><strong>Community & Ecosystem:</strong> Vibrant open-source community, extensive documentation, and
+					commercial support available.</li>
+			</ul>
+
+			<h3>Use Cases</h3>
+			<div class="topic-grid">
+				<div class="topic"><strong>🌐 Web Applications</strong> — Django, Ruby on Rails, Node.js backends</div>
+				<div class="topic"><strong>📊 Data Warehousing</strong> — Analytics, OLAP, business intelligence</div>
+				<div class="topic"><strong>🗺️ GIS Applications</strong> — Location-based services with PostGIS</div>
+				<div class="topic"><strong>📱 Mobile Backends</strong> — RESTful APIs, GraphQL services</div>
+				<div class="topic"><strong>💼 Enterprise Systems</strong> — ERP, CRM, financial applications</div>
+				<div class="topic"><strong>🔬 Scientific Data</strong> — Research databases, genomics, astronomy</div>
+			</div>
+
+			<h3>PostgreSQL vs Other Databases</h3>
+			<ul>
+				<li><strong>vs MySQL:</strong> Better standards compliance, more advanced features (CTEs, window
+					functions), superior handling of concurrent writes</li>
+				<li><strong>vs Oracle:</strong> Open-source alternative with similar capabilities, no licensing costs,
+					better extensibility</li>
+				<li><strong>vs MongoDB:</strong> Structured data with schema enforcement, ACID transactions, but also
+					supports JSON (JSONB)</li>
+			</ul>
+
+			<div class="info-box warning"><strong>⚠️ Important:</strong> PostgreSQL follows strict SQL standards and is
+				case-sensitive in identifiers when quoted. Use lowercase for table/column names unless you have specific
+				requirements.</div>
+		</section>
+
+		<!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+		<section id="installation" class="card">
+			<h2>⚙️ Installation & Setup</h2>
+			<p>Get started with PostgreSQL by installing the database server and client tools on your platform.</p>
+
+			<!-- Windows Installation -->
+			<div id="windows-install" class="subsection">
+				<h3>Windows Installation</h3>
+
+				<h4>Option 1 — EDB Installer (Recommended)</h4>
+				<div class="step"><span class="n">1</span> Download PostgreSQL from <a
+						href="https://www.postgresql.org/download/windows/" target="_blank"
+						rel="noopener noreferrer">PostgreSQL Downloads</a></div>
+				<div class="step"><span class="n">2</span> Run the installer and choose components: PostgreSQL Server,
+					pgAdmin, Command Line Tools</div>
+				<div class="step"><span class="n">3</span> Set the password for the postgres superuser</div>
+				<div class="step"><span class="n">4</span> Choose port (default: 5432)</div>
+				<div class="step"><span class="n">5</span> Select locale (default/C for best performance)</div>
+
+				<h4>Option 2 — winget</h4>
+				<pre><code># Install PostgreSQL
+winget install PostgreSQL.PostgreSQL
+
+# Verify installation
+psql --version
+
+# Connect to PostgreSQL (will prompt for password)
+psql -U postgres</code><button class="copy-btn" data-copy="winget install PostgreSQL.PostgreSQL">COPY</button></pre>
+
+				<h4>Option 3 — Chocolatey</h4>
+				<pre><code># Install PostgreSQL
+choco install postgresql
+
+# Verify installation
+psql --version</code><button class="copy-btn" data-copy="choco install postgresql">COPY</button></pre>
+			</div>
+
+			<!-- macOS Installation -->
+			<div id="macos-install" class="subsection">
+				<h3>macOS Installation</h3>
+				<pre><code># Install PostgreSQL using Homebrew
+brew install postgresql@16
+
+# Start PostgreSQL service
+brew services start postgresql@16
+
+# Verify service is running
+brew services list
+
+# Connect to PostgreSQL
+psql postgres
+
+# Stop service
+brew services stop postgresql@16
+
+# Alternative: Postgres.app (GUI application)
+# Download from https://postgresapp.com/</code><button class="copy-btn" data-copy="brew install postgresql@16">COPY</button></pre>
+			</div>
+
+			<!-- Linux Installation -->
+			<div id="linux-install" class="subsection">
+				<h3>Linux Installation</h3>
+
+				<h4>Ubuntu/Debian</h4>
+				<pre><code># Add PostgreSQL repository
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+# Update package list
+sudo apt update
+
+# Install PostgreSQL (replace 16 with your desired version)
+sudo apt install postgresql-16 postgresql-contrib-16
+
+# Start service
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+# Check status
+sudo systemctl status postgresql
+
+# Switch to postgres user and access database
+sudo -u postgres psql</code><button class="copy-btn" data-copy="sudo apt install postgresql postgresql-contrib">COPY</button></pre>
+
+				<h4>RHEL/CentOS/Fedora</h4>
+				<pre><code># Install PostgreSQL repository
+sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
+# Disable built-in PostgreSQL module (if any)
+sudo dnf -qy module disable postgresql
+
+# Install PostgreSQL
+sudo dnf install -y postgresql16-server postgresql16-contrib
+
+# Initialize database
+sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
+
+# Start and enable service
+sudo systemctl enable postgresql-16
+sudo systemctl start postgresql-16
+
+# Check status
+sudo systemctl status postgresql-16
+
+# Access PostgreSQL
+sudo -u postgres psql</code><button class="copy-btn" data-copy="sudo dnf install postgresql-server postgresql-contrib">COPY</button></pre>
+			</div>
+
+			<!-- Docker Installation -->
+			<div id="docker-install" class="subsection">
+				<h3>Docker Installation</h3>
+				<pre><code># Run PostgreSQL with password
+docker run -d \
+  --name postgres \
+  -p 5432:5432 \
+  -e POSTGRES_PASSWORD=StrongP@ssw0rd \
+  -e POSTGRES_DB=myapp \
+  -e POSTGRES_USER=appuser \
+  -v postgres_data:/var/lib/postgresql/data \
+  postgres:16
+
+# Access PostgreSQL Shell
+docker exec -it postgres psql -U appuser -d myapp
+
+# Access as superuser
+docker exec -it postgres psql -U postgres
+
+# View logs
+docker logs postgres
+
+# Stop and remove
+docker stop postgres && docker rm postgres</code><button class="copy-btn" data-copy="docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=StrongP@ssw0rd postgres:16">COPY</button></pre>
+			</div>
+
+			<!-- Initial Configuration -->
+			<div id="initial-config" class="subsection">
+				<h3>Initial Configuration & Security</h3>
+
+				<h4>Create Role and Database</h4>
+				<pre><code># Connect to PostgreSQL
+psql -U postgres
+
+-- Create new role with login
+CREATE ROLE appuser WITH LOGIN PASSWORD 'StrongP@ssw0rd';
+
+-- Create database owned by user
+CREATE DATABASE myapp OWNER appuser;
+
+-- Grant privileges
+GRANT ALL PRIVILEGES ON DATABASE myapp TO appuser;
+
+-- Connect to new database
+\c myapp
+
+-- Grant schema privileges
+GRANT ALL ON SCHEMA public TO appuser;
+
+-- List all roles
+\du
+
+-- List all databases
+\l
+
+-- Exit
+\q</code><button class="copy-btn" data-copy="CREATE ROLE appuser WITH LOGIN PASSWORD 'StrongP@ssw0rd';">COPY</button></pre>
+
+				<h4>Configure Authentication (pg_hba.conf)</h4>
+				<pre><code># Edit PostgreSQL authentication config
+# Ubuntu/Debian: /etc/postgresql/16/main/pg_hba.conf
+# RHEL/CentOS: /var/lib/pgsql/16/data/pg_hba.conf
+# macOS (Homebrew): /usr/local/var/postgresql@16/pg_hba.conf
+
+# Add/modify authentication rules:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# Local connections
+local   all             postgres                                peer
+local   all             all                                     md5
+
+# IPv4 local connections
+host    all             all             127.0.0.1/32            md5
+
+# IPv6 local connections
+host    all             all             ::1/128                 md5
+
+# Allow remote connections (specific IP)
+host    all             all             192.168.1.0/24          md5
+
+# Restart PostgreSQL after changes
+sudo systemctl restart postgresql</code><button class="copy-btn" data-copy="pg_hba.conf configuration">COPY</button></pre>
+
+				<h4>Enable Remote Connections (postgresql.conf)</h4>
+				<pre><code># Edit PostgreSQL configuration
+# Ubuntu/Debian: /etc/postgresql/16/main/postgresql.conf
+# RHEL/CentOS: /var/lib/pgsql/16/data/postgresql.conf
+# macOS (Homebrew): /usr/local/var/postgresql@16/postgresql.conf
+
+# Find and change:
+listen_addresses = '*'          # Listen on all interfaces
+# listen_addresses = 'localhost'  # Default (local only)
+
+max_connections = 100           # Adjust based on your needs
+shared_buffers = 256MB          # 25% of RAM is a good start
+effective_cache_size = 1GB      # 50-75% of RAM
+
+# Restart service
+sudo systemctl restart postgresql</code><button class="copy-btn" data-copy="listen_addresses = '*'">COPY</button></pre>
+			</div>
+
+			<!-- Verification -->
+			<div id="verify-install" class="subsection">
+				<h3>Verify Installation</h3>
+				<pre><code># Check PostgreSQL version
+psql --version
+postgres --version
+
+# Connect to database
+psql -U appuser -h localhost -p 5432 -d myapp
+
+# Inside psql:
+
+-- Show current user
+SELECT current_user;
+
+-- Show current database
+SELECT current_database();
+
+-- Show PostgreSQL version
+SELECT version();
+
+-- Create test table
+CREATE TABLE test (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Insert test data
+INSERT INTO test (name) VALUES ('Ada Lovelace');
+
+-- Query data
+SELECT * FROM test;
+
+-- List all tables
+\dt
+
+-- Describe table structure
+\d test
+
+-- Exit
+\q</code><button class="copy-btn" data-copy="psql -U appuser -d myapp">COPY</button></pre>
+			</div>
+		</section>
+
+		<!-- ==================== USER GUIDE SECTION ==================== -->
+		<section id="user-guide" class="card accent">
+			<h2>📖 User Guide</h2>
+			<p>Learn essential PostgreSQL operations and best practices for building robust applications.</p>
+
+			<!-- Database & Table Operations -->
+			<div id="db-operations" class="subsection">
+				<h3>Database & Table Operations</h3>
+
+				<h4>Database Management</h4>
+				<pre><code>-- Create database
+CREATE DATABASE myapp 
+  WITH OWNER = appuser
+  ENCODING = 'UTF8'
+  LC_COLLATE = 'en_US.UTF-8'
+  LC_CTYPE = 'en_US.UTF-8';
+
+-- List databases
+\l
+
+-- Connect to database
+\c myapp
+
+-- Show current database
+SELECT current_database();
+
+-- Drop database
+DROP DATABASE IF EXISTS old_database;</code><button class="copy-btn" data-copy="CREATE DATABASE myapp OWNER appuser;">COPY</button></pre>
+
+				<h4>Create Tables</h4>
+				<pre><code>-- Create users table
+CREATE TABLE users (
+  id BIGSERIAL PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now(),
+  is_active BOOLEAN DEFAULT true
+);
+
+-- Create indexes
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_username ON users(username);
+CREATE INDEX idx_users_created_at ON users(created_at);
+
+-- Create orders table with foreign key
+CREATE TABLE orders (
+  id BIGSERIAL PRIMARY KEY,
+  user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  order_number VARCHAR(50) NOT NULL UNIQUE,
+  total NUMERIC(10, 2) NOT NULL,
+  status VARCHAR(20) DEFAULT 'pending' 
+    CHECK (status IN ('pending', 'processing', 'completed', 'cancelled')),
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE INDEX idx_orders_user_id ON users(id);
+CREATE INDEX idx_orders_status ON orders(status);
+CREATE INDEX idx_orders_created_at ON orders(created_at);
+
+-- Show table structure
+\d users
+
+-- Show all tables
+\dt
+
+-- Show table with indexes
+\d+ users</code><button class="copy-btn" data-copy="CREATE TABLE users (id BIGSERIAL PRIMARY KEY, email TEXT UNIQUE);">COPY</button></pre>
+			</div>
+
+			<!-- CRUD Operations -->
+			<div id="crud-ops" class="subsection">
+				<h3>CRUD Operations</h3>
+
+				<h4>INSERT - Create Data</h4>
+				<pre><code>-- Insert single row
+INSERT INTO users (email, username, password_hash, first_name, last_name)
+VALUES ('ada@example.com', 'ada_lovelace', 'hashed_password', 'Ada', 'Lovelace');
+
+-- Insert and return data
+INSERT INTO users (email, username, password_hash)
+VALUES ('grace@example.com', 'grace', 'hashed_pwd')
+RETURNING id, email, created_at;
+
+-- Insert multiple rows
+INSERT INTO users (email, username, password_hash, first_name, last_name) VALUES
+  ('alan@example.com', 'alan_turing', 'hash', 'Alan', 'Turing'),
+  ('margaret@example.com', 'margaret', 'hash', 'Margaret', 'Hamilton');
+
+-- Upsert (insert or update on conflict)
+INSERT INTO users (email, username, password_hash)
+VALUES ('ada@example.com', 'ada_lovelace', 'new_hash')
+ON CONFLICT (email) 
+DO UPDATE SET password_hash = EXCLUDED.password_hash, updated_at = now();</code><button class="copy-btn" data-copy='INSERT INTO users (email, username) VALUES (...)'>COPY</button></pre>
+
+				<h4>SELECT - Read Data</h4>
+				<pre><code>-- Basic select
+SELECT * FROM users;
+
+-- Select specific columns
+SELECT id, email, username, created_at FROM users;
+
+-- WHERE conditions
+SELECT * FROM users WHERE is_active = true;
+SELECT * FROM users WHERE created_at >= '2025-01-01';
+SELECT * FROM users WHERE first_name LIKE 'A%';
+SELECT * FROM users WHERE email ILIKE '%@example.com';  -- Case-insensitive
+
+-- Complex conditions
+SELECT * FROM users 
+WHERE is_active = true 
+  AND created_at >= '2025-01-01'
+  AND (first_name = 'Ada' OR last_name = 'Lovelace');
+
+-- ORDER BY and LIMIT
+SELECT * FROM users 
+ORDER BY created_at DESC 
+LIMIT 10;
+
+-- Pagination with OFFSET
+SELECT * FROM users 
+ORDER BY id 
+LIMIT 20 OFFSET 40;
+
+-- DISTINCT
+SELECT DISTINCT status FROM orders;
+
+-- Aggregate functions
+SELECT COUNT(*) FROM users;
+SELECT COUNT(*) FILTER (WHERE is_active = true) as active_count FROM users;
+SELECT AVG(total), SUM(total), MIN(total), MAX(total) FROM orders;
+
+-- GROUP BY
+SELECT status, COUNT(*) as count, SUM(total) as revenue
+FROM orders
+GROUP BY status;
+
+-- GROUP BY with HAVING
+SELECT user_id, COUNT(*) as order_count, SUM(total) as total_spent
+FROM orders
+GROUP BY user_id
+HAVING COUNT(*) >= 5
+ORDER BY total_spent DESC;</code><button class="copy-btn" data-copy="SELECT * FROM users WHERE email='ada@example.com';">COPY</button></pre>
+
+				<h4>UPDATE - Modify Data</h4>
+				<pre><code>-- Update single record
+UPDATE users 
+SET first_name = 'Ada Augusta', updated_at = now()
+WHERE email = 'ada@example.com';
+
+-- Update with RETURNING
+UPDATE users 
+SET is_active = false
+WHERE created_at < '2020-01-01'
+RETURNING id, email;
+
+-- Update with calculation
+UPDATE orders
+SET total = total * 1.10
+WHERE status = 'pending';
+
+-- Update with subquery
+UPDATE users
+SET last_order_date = (
+  SELECT MAX(created_at) 
+  FROM orders 
+  WHERE orders.user_id = users.id
+);</code><button class="copy-btn" data-copy="UPDATE users SET first_name='Ada' WHERE email='ada@example.com';">COPY</button></pre>
+
+				<h4>DELETE - Remove Data</h4>
+				<pre><code>-- Delete specific records
+DELETE FROM users WHERE email = 'ada@example.com';
+
+-- Delete with RETURNING
+DELETE FROM orders 
+WHERE status = 'cancelled' AND created_at < '2024-01-01'
+RETURNING id, order_number;
+
+-- Delete all records
+DELETE FROM temp_table;
+
+-- TRUNCATE (faster)
+TRUNCATE TABLE temp_table;</code><button class="copy-btn" data-copy="DELETE FROM users WHERE email='ada@example.com';">COPY</button></pre>
+			</div>
+
+			<!-- Advanced Queries -->
+			<div id="advanced-queries" class="subsection">
+				<h3>Advanced Queries</h3>
+
+				<h4>Joins</h4>
+				<pre><code>-- INNER JOIN
+SELECT u.username, u.email, o.order_number, o.total, o.created_at
+FROM users u
+INNER JOIN orders o ON u.id = o.user_id
+WHERE o.status = 'completed'
+ORDER BY o.created_at DESC;
+
+-- LEFT JOIN
+SELECT u.username, COUNT(o.id) as order_count, COALESCE(SUM(o.total), 0) as total_spent
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+GROUP BY u.id, u.username
+ORDER BY total_spent DESC;</code><button class="copy-btn" data-copy="SELECT u.*, o.* FROM users u JOIN orders o ON u.id = o.user_id;">COPY</button></pre>
+
+				<h4>Common Table Expressions (CTEs)</h4>
+				<pre><code>-- Basic CTE
+WITH active_users AS (
+  SELECT id, username, email
+  FROM users
+  WHERE is_active = true
+)
+SELECT * FROM active_users WHERE username LIKE 'a%';
+
+-- Multiple CTEs
+WITH 
+  recent_orders AS (
+    SELECT * FROM orders WHERE created_at >= now() - interval '30 days'
+  ),
+  order_stats AS (
+    SELECT user_id, COUNT(*) as order_count, SUM(total) as total_spent
+    FROM recent_orders
+    GROUP BY user_id
+  )
+SELECT u.username, os.order_count, os.total_spent
+FROM users u
+JOIN order_stats os ON u.id = os.user_id
+ORDER BY os.total_spent DESC;
+
+-- Recursive CTE (organizational hierarchy)
+WITH RECURSIVE org_chart AS (
+  SELECT id, name, manager_id, 1 as level
+  FROM employees
+  WHERE manager_id IS NULL
+  
+  UNION ALL
+  
+  SELECT e.id, e.name, e.manager_id, oc.level + 1
+  FROM employees e
+  JOIN org_chart oc ON e.manager_id = oc.id
+)
+SELECT * FROM org_chart ORDER BY level, name;</code><button class="copy-btn" data-copy="WITH active_users AS (...) SELECT * FROM active_users;">COPY</button></pre>
+
+				<h4>Window Functions</h4>
+				<pre><code>-- Row number
+SELECT id, name, created_at,
+  ROW_NUMBER() OVER (ORDER BY created_at DESC) as row_num
+FROM users;
+
+-- Rank with partitioning
+SELECT 
+  user_id,
+  order_number,
+  total,
+  created_at,
+  RANK() OVER (PARTITION BY user_id ORDER BY total DESC) as rank_in_user_orders
+FROM orders;
+
+-- Running total
+SELECT 
+  created_at::date as date,
+  total,
+  SUM(total) OVER (ORDER BY created_at) as running_total
+FROM orders
+ORDER BY created_at;
+
+-- Moving average
+SELECT 
+  created_at::date as date,
+  total,
+  AVG(total) OVER (
+    ORDER BY created_at 
+    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+  ) as moving_avg_7days
+FROM orders;</code><button class="copy-btn" data-copy="Window Functions">COPY</button></pre>
+			</div>
+
+			<!-- Indexing -->
+			<div id="indexing" class="subsection">
+				<h3>Indexing Strategies</h3>
+				<pre><code>-- B-tree index (default, general purpose)
+CREATE INDEX idx_users_email ON users(email);
+
+-- Unique index
+CREATE UNIQUE INDEX idx_order_number ON orders(order_number);
+
+-- Composite index
+CREATE INDEX idx_orders_user_status ON orders(user_id, status, created_at);
+
+-- Partial index (conditional)
+CREATE INDEX idx_active_users ON users(email) WHERE is_active = true;
+
+-- Expression index
+CREATE INDEX idx_lower_email ON users(LOWER(email));
+
+-- GIN index for JSONB
+CREATE INDEX idx_data_gin ON products USING GIN (attributes);
+
+-- GiST index for full-text search
+CREATE INDEX idx_articles_fts ON articles USING GiST (to_tsvector('english', content));
+
+-- BRIN index (for very large tables with natural ordering)
+CREATE INDEX idx_logs_created_brin ON logs USING BRIN (created_at);
+
+-- Show indexes
+\di
+
+-- Analyze query performance
+EXPLAIN SELECT * FROM users WHERE email = 'ada@example.com';
+EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'ada@example.com';
+
+-- Drop index
+DROP INDEX idx_users_email;</code><button class="copy-btn" data-copy="CREATE INDEX idx_email ON users(email);">COPY</button></pre>
+			</div>
+		</section>
+
+		<!-- ==================== ADVANCED FEATURES SECTION ==================== -->
+		<section id="advanced" class="card">
+			<h2>🚀 Advanced Features</h2>
+
+			<h3>JSONB Data Type</h3>
+			<pre><code>-- Create table with JSONB
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  attributes JSONB
+);
+
+-- Insert JSON data
+INSERT INTO products (name, attributes) VALUES
+  ('Laptop', '{"brand": "Dell", "cpu": "i7", "ram": "16GB"}'),
+  ('Phone', '{"brand": "Apple", "model": "iPhone 15", "storage": "256GB"}');
+
+-- Query JSON data
+SELECT name, attributes->>'brand' as brand FROM products;
+SELECT name, attributes->'cpu' as cpu FROM products;
+
+-- Query nested JSON
+SELECT name FROM products WHERE attributes @> '{"brand": "Apple"}';
+
+-- Update JSON
+UPDATE products 
+SET attributes = attributes || '{"price": 999.99}'::jsonb 
+WHERE id = 1;
+
+-- Create GIN index on JSONB
+CREATE INDEX idx_attributes ON products USING GIN (attributes);</code><button class="copy-btn" data-copy="JSONB example">COPY</button></pre>
+
+			<h3>Full-Text Search</h3>
+			<pre><code>-- Create table for articles
+CREATE TABLE articles (
+  id SERIAL PRIMARY KEY,
+  title TEXT,
+  content TEXT,
+  search_vector tsvector
+);
+
+-- Populate search vector
+UPDATE articles 
+SET search_vector = to_tsvector('english', coalesce(title, '') || ' ' || coalesce(content, ''));
+
+-- Create GIN index
+CREATE INDEX idx_search_vector ON articles USING GIN (search_vector);
+
+-- Search articles
+SELECT id, title, ts_rank(search_vector, query) as rank
+FROM articles, 
+     to_tsquery('english', 'postgresql & database') as query
+WHERE search_vector @@ query
+ORDER BY rank DESC;</code><button class="copy-btn" data-copy="Full-text search">COPY</button></pre>
+
+			<h3>Transactions & Isolation Levels</h3>
+			<pre><code>-- Basic transaction
+BEGIN;
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+COMMIT;
+
+-- Rollback on error
+BEGIN;
+INSERT INTO orders (user_id, total) VALUES (1, 99.99);
+-- If error occurs:
+ROLLBACK;
+
+-- Savepoints
+BEGIN;
+INSERT INTO logs (message) VALUES ('Step 1');
+SAVEPOINT step1;
+INSERT INTO logs (message) VALUES ('Step 2');
+ROLLBACK TO step1;
+COMMIT;
+
+-- Isolation levels
+BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+-- Your queries here
+COMMIT;</code><button class="copy-btn" data-copy="BEGIN; ... COMMIT;">COPY</button></pre>
+
+			<h3>Extensions</h3>
+			<pre><code>-- List available extensions
+SELECT * FROM pg_available_extensions;
+
+-- Install extension
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";   -- UUID generation
+CREATE EXTENSION IF NOT EXISTS pg_trgm;       -- Fuzzy text search
+CREATE EXTENSION IF NOT EXISTS hstore;        -- Key-value storage
+CREATE EXTENSION IF NOT EXISTS postgis;       -- Geospatial data
+
+-- Use UUID
+CREATE TABLE events (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Fuzzy text search with pg_trgm
+CREATE INDEX idx_name_trgm ON users USING GIN (name gin_trgm_ops);
+SELECT * FROM users WHERE name % 'Aada';  -- Finds similar names</code><button class="copy-btn" data-copy="CREATE EXTENSION">COPY</button></pre>
+
+			<h3>Views & Materialized Views</h3>
+			<pre><code>-- Create view
+CREATE VIEW active_users_summary AS
+SELECT 
+  id,
+  username,
+  email,
+  created_at,
+  (SELECT COUNT(*) FROM orders WHERE user_id = users.id) as order_count
+FROM users
+WHERE is_active = true;
+
+-- Query view
+SELECT * FROM active_users_summary WHERE order_count > 5;
+
+-- Materialized view (cached results)
+CREATE MATERIALIZED VIEW monthly_sales AS
+SELECT 
+  date_trunc('month', created_at) as month,
+  SUM(total) as total_sales,
+  COUNT(*) as order_count
+FROM orders
+WHERE status = 'completed'
+GROUP BY date_trunc('month', created_at);
+
+-- Refresh materialized view
+REFRESH MATERIALIZED VIEW monthly_sales;
+
+-- Create index on materialized view
+CREATE INDEX idx_monthly_sales_month ON monthly_sales(month);</code><button class="copy-btn" data-copy="CREATE VIEW">COPY</button></pre>
+
+			<h3>Functions & Triggers</h3>
+			<pre><code>-- Create function
+CREATE OR REPLACE FUNCTION update_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = now();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create trigger
+CREATE TRIGGER trigger_update_users
+BEFORE UPDATE ON users
+FOR EACH ROW
+EXECUTE FUNCTION update_updated_at();
+
+-- Test trigger
+UPDATE users SET first_name = 'Ada' WHERE id = 1;
+-- updated_at will be automatically set</code><button class="copy-btn" data-copy="CREATE FUNCTION">COPY</button></pre>
+		</section>
+
+		<!-- ==================== NEXT STEPS SECTION ==================== -->
+		<section id="next-steps" class="card accent">
+			<h2>🎯 Next Steps</h2>
+			<div class="step"><span class="n">1</span><strong>Design Your Schema</strong> — Plan tables, relationships,
+				and constraints</div>
+			<div class="step"><span class="n">2</span><strong>Create Appropriate Indexes</strong> — Choose index types
+				based on query patterns</div>
+			<div class="step"><span class="n">3</span><strong>Use EXPLAIN ANALYZE</strong> — Optimize query performance
+			</div>
+			<div class="step"><span class="n">4</span><strong>Set Up Backups</strong> — Configure pg_dump or continuous
+				archiving</div>
+			<div class="step"><span class="n">5</span><strong>Monitor Performance</strong> — Use pg_stat_statements and
+				monitoring tools</div>
+			<div class="step"><span class="n">6</span><strong>Configure Replication</strong> — Set up streaming
+				replication for HA</div>
+			<div class="step"><span class="n">7</span><strong>Explore Extensions</strong> — PostGIS, pg_trgm,
+				TimescaleDB, etc.</div>
+
+			<h3>📚 Additional Resources</h3>
+			<ul>
+				<li>📖 <a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener noreferrer">Official
+						PostgreSQL Documentation</a></li>
+				<li>🛠️ <a href="https://www.pgadmin.org/" target="_blank" rel="noopener noreferrer">pgAdmin (GUI
+						Tool)</a></li>
+				<li>🗺️ <a href="https://postgis.net/" target="_blank" rel="noopener noreferrer">PostGIS (Geospatial
+						Extension)</a></li>
+				<li>📊 <a href="https://www.timescale.com/" target="_blank" rel="noopener noreferrer">TimescaleDB
+						(Time-series Extension)</a></li>
+				<li>💡 <a href="https://www.postgresqltutorial.com/" target="_blank"
+						rel="noopener noreferrer">PostgreSQL Tutorial</a></li>
+			</ul>
+		</section>
+
+		<footer>
+			<p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+		</footer>
+	</div>
+
+	<div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+	<script src="../database-common.js"></script>
+	<script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

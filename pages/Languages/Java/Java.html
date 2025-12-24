@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete Java guide - Enterprise programming language with JVM, Spring, Android development, and robust ecosystem." />
+  <meta name="keywords" content="Java, JVM, Spring Boot, Android, Enterprise, OOP, Programming" />
+  <title>Java Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>☕ Java Complete Guide</h1>
+      <p class="subtitle">Write once, run anywhere – master enterprise-grade development with Java.</p>
+      <div class="badge-row">
+        <span class="badge">OOP</span>
+        <span class="badge">CROSS-PLATFORM</span>
+        <span class="badge">JVM</span>
+        <span class="badge">ENTERPRISE</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Platform Independence:</strong> Java bytecode runs on any device with a JVM –
+        desktop, mobile, cloud, or embedded systems.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Java?</h3>
+      <p><strong>Java</strong> is a class-based, object-oriented programming language designed for portability and
+        reliability. Created by Sun Microsystems (now Oracle) in 1995, Java powers billions of devices worldwide – from
+        Android apps to enterprise backends, big data platforms to microservices.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>☕ Object-Oriented</strong> — Everything is an object</div>
+        <div class="topic"><strong>🌐 Platform Independent</strong> — Write once, run anywhere</div>
+        <div class="topic"><strong>🗑️ Garbage Collection</strong> — Automatic memory management</div>
+        <div class="topic"><strong>🔒 Strongly Typed</strong> — Type safety at compile time</div>
+        <div class="topic"><strong>📚 Rich Standard Library</strong> — Comprehensive built-in APIs</div>
+        <div class="topic"><strong>🧵 Multithreading</strong> — Native concurrency support</div>
+        <div class="topic"><strong>🔐 Security</strong> — Built-in security features</div>
+        <div class="topic"><strong>⚡ Performance</strong> — JIT compilation optimization</div>
+      </div>
+
+      <h3>Why Choose Java?</h3>
+      <ul>
+        <li><strong>Portability:</strong> JVM enables cross-platform development</li>
+        <li><strong>Enterprise Ready:</strong> Powers major financial and e-commerce systems</li>
+        <li><strong>Android Development:</strong> Primary language for Android apps</li>
+        <li><strong>Rich Ecosystem:</strong> Maven, Gradle, Spring, Hibernate</li>
+        <li><strong>Job Market:</strong> High demand in enterprise sector</li>
+        <li><strong>Mature & Stable:</strong> 25+ years of proven reliability</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Note:</strong> Java requires JDK (Java Development Kit) for development
+        or JRE (Java Runtime Environment) for running Java applications.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Install the Java Development Kit (JDK) to start developing Java applications.</p>
+
+      <!-- Windows Installation -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation</h3>
+
+        <h4>Option 1: Eclipse Temurin (OpenJDK - Recommended)</h4>
+        <div class="step"><span class="n">1</span>
+          <div><strong>Download</strong>
+            <p>Visit <a href="https://adoptium.net/" target="_blank">adoptium.net</a> and download Eclipse Temurin (free
+              OpenJDK)</p>
+          </div>
+        </div>
+        <div class="step"><span class="n">2</span>
+          <div><strong>Install</strong>
+            <p>Run the .msi installer, check "Add to PATH" and "Set JAVA_HOME"</p>
+          </div>
+        </div>
+        <div class="step"><span class="n">3</span>
+          <div><strong>Verify</strong>
+            <pre><code>java --version
+javac --version</code><button class="copy-btn" data-copy="java --version">COPY</button></pre>
+          </div>
+        </div>
+
+        <h4>Option 2: Oracle JDK</h4>
+        <p>Download from <a href="https://www.oracle.com/java/technologies/downloads/"
+            target="_blank">oracle.com/java</a> (requires license for production use)</p>
+      </div>
+
+      <!-- macOS Installation -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation</h3>
+
+        <h4>Using Homebrew</h4>
+        <pre><code># Install OpenJDK
+brew install openjdk@21
+
+# Symlink for system Java
+sudo ln -sfn $(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk \
+  /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+
+# Set JAVA_HOME (add to ~/.zshrc)
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Reload shell
+source ~/.zshrc
+
+# Verify
+java --version</code><button class="copy-btn" data-copy="brew install openjdk@21">COPY</button></pre>
+      </div>
+
+      <!-- Linux Installation -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation</h3>
+
+        <h4>Ubuntu/Debian</h4>
+        <pre><code>sudo apt update
+sudo apt install openjdk-21-jdk -y
+
+# Verify
+java --version
+javac --version</code><button class="copy-btn" data-copy="sudo apt install openjdk-21-jdk -y">COPY</button></pre>
+
+        <h4>Fedora/RHEL</h4>
+        <pre><code>sudo dnf install java-21-openjdk-devel -y</code><button class="copy-btn" data-copy="sudo dnf install java-21-openjdk-devel -y">COPY</button></pre>
+
+        <h4>Arch Linux</h4>
+        <pre><code>sudo pacman -S jdk-openjdk</code><button class="copy-btn" data-copy="sudo pacman -S jdk-openjdk">COPY</button></pre>
+      </div>
+
+      <!-- First Program -->
+      <div id="first-program" class="subsection">
+        <h3>Your First Java Program</h3>
+        <pre><code>// HelloWorld.java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, Coduxium XI!");
+    }
+}
+
+// Compile
+javac HelloWorld.java
+
+// Run
+java HelloWorld</code><button class="copy-btn" data-copy="javac HelloWorld.java && java HelloWorld">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Variables & Data Types</h3>
+        <pre><code>// Primitive types
+int age = 30;
+double price = 99.99;
+boolean isActive = true;
+char grade = 'A';
+long bigNumber = 1234567890L;
+
+// Reference types
+String name = "Alice";
+Integer boxedInt = 42;  // Wrapper class
+
+// Constants
+final double PI = 3.14159;</code><button class="copy-btn" data-copy="int age = 30;\nString name = \"Alice\";">COPY</button></pre>
+
+        <h3>Classes & Objects</h3>
+        <pre><code>public class Person {
+    // Fields
+    private String name;
+    private int age;
+    
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Methods
+    public void introduce() {
+        System.out.println("Hi, I'm " + name);
+    }
+    
+    // Getters & Setters
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+// Usage
+Person person = new Person("Alice", 30);
+person.introduce();</code><button class="copy-btn" data-copy="Person person = new Person(\"Alice\", 30);">COPY</button></pre>
+
+        <h3>Collections</h3>
+        <pre><code>import java.util.*;
+
+// ArrayList
+List<String> languages = new ArrayList<>();
+languages.add("Java");
+languages.add("Python");
+languages.add("Go");
+
+// HashMap
+Map<String, Integer> scores = new HashMap<>();
+scores.put("Alice", 95);
+scores.put("Bob", 87);
+
+// Iteration
+for (String lang : languages) {
+    System.out.println(lang);
+}
+
+// Stream API (Java 8+)
+languages.stream()
+    .filter(l -> l.startsWith("J"))
+    .forEach(System.out::println);</code><button class="copy-btn" data-copy="List<String> list = new ArrayList<>();\nlist.add(\"Java\");">COPY</button></pre>
+
+        <h3>Inheritance & Polymorphism</h3>
+        <pre><code>// Parent class
+public class Animal {
+    public void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+// Child class
+public class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+    
+    public void fetch() {
+        System.out.println("Fetching...");
+    }
+}
+
+// Usage
+Animal myDog = new Dog();
+myDog.makeSound();  // Woof!</code><button class="copy-btn" data-copy="class Dog extends Animal { }">COPY</button></pre>
+
+        <h3>Interfaces</h3>
+        <pre><code>// Interface
+public interface Drawable {
+    void draw();  // Abstract method
+    
+    default void describe() {  // Default method (Java 8+)
+        System.out.println("This is drawable");
+    }
+}
+
+// Implementation
+public class Circle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing circle");
+    }
+}
+
+Circle circle = new Circle();
+circle.draw();</code><button class="copy-btn" data-copy="public interface Drawable { void draw(); }">COPY</button></pre>
+
+        <h3>Exception Handling</h3>
+        <pre><code>try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.err.println("Cannot divide by zero!");
+} finally {
+    System.out.println("Cleanup");
+}
+
+// Multi-catch (Java 7+)
+try {
+    // Code
+} catch (IOException | SQLException e) {
+    e.printStackTrace();
+}
+
+// Try-with-resources (Java 7+)
+try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+    String line = br.readLine();
+} catch (IOException e) {
+    e.printStackTrace();
+}</code><button class="copy-btn" data-copy="try { } catch (Exception e) { e.printStackTrace(); }">COPY</button></pre>
+
+        <h3>Lambda Expressions (Java 8+)</h3>
+        <pre><code>// Before Java 8
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+names.forEach(new Consumer<String>() {
+    public void accept(String name) {
+        System.out.println(name);
+    }
+});
+
+// With Lambda
+names.forEach(name -> System.out.println(name));
+
+// Method reference
+names.forEach(System.out::println);
+
+// Functional interface
+Runnable task = () -> System.out.println("Running...");
+new Thread(task).start();</code><button class="copy-btn" data-copy="list.forEach(item -> System.out.println(item));">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Build Tools</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>Maven</strong>XML-based dependency management</div>
+        <div class="package-item"><strong>Gradle</strong>Flexible build automation</div>
+      </div>
+
+      <h3>Popular Frameworks</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>Spring Boot</strong>Microservices & web apps</div>
+        <div class="package-item"><strong>Hibernate</strong>ORM framework</div>
+        <div class="package-item"><strong>Quarkus</strong>Cloud-native Java</div>
+        <div class="package-item"><strong>Micronaut</strong>Lightweight microservices</div>
+      </div>
+
+      <h3>Maven Project Setup</h3>
+      <pre><code># Create new Maven project
+mvn archetype:generate -DgroupId=com.example -DartifactId=myapp \
+  -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+cd myapp
+
+# Build project
+mvn clean install
+
+# Run
+java -cp target/myapp-1.0-SNAPSHOT.jar com.example.App</code><button class="copy-btn" data-copy="mvn clean install">COPY</button></pre>
+
+      <h3>Stream API</h3>
+      <pre><code>List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+// Filter and sum
+int sum = numbers.stream()
+    .filter(n -> n % 2 == 0)
+    .mapToInt(Integer::intValue)
+    .sum();
+
+System.out.println("Sum of evens: " + sum);</code><button class="copy-btn" data-copy="list.stream().filter(n -> n > 0).collect(Collectors.toList())">COPY</button></pre>
+
+      <h3>Modern Java Features</h3>
+      <pre><code>// Records (Java 14+)
+public record Point(int x, int y) { }
+Point p = new Point(10, 20);
+
+// Pattern Matching (Java 16+)
+if (obj instanceof String s) {
+    System.out.println(s.toUpperCase());
+}
+
+// Text Blocks (Java 15+)
+String json = """
+    {
+        "name": "Coduxium XI",
+        "type": "Education"
+    }
+    """;</code><button class="copy-btn" data-copy="public record Point(int x, int y) { }">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Learn OOP Principles</strong> — Encapsulation, inheritance,
+        polymorphism</div>
+      <div class="step"><span class="n">2</span><strong>Master Collections</strong> — Lists, maps, sets, streams</div>
+      <div class="step"><span class="n">3</span><strong>Spring Framework</strong> — Build enterprise applications</div>
+      <div class="step"><span class="n">4</span><strong>Android Development</strong> — Create mobile apps</div>
+      <div class="step"><span class="n">5</span><strong>Testing</strong> — JUnit, Mockito for unit testing</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://docs.oracle.com/en/java/" target="_blank">Official Java Documentation</a></li>
+        <li>📘 <a href="https://spring.io/guides" target="_blank">Spring Framework Guides</a></li>
+        <li>🎓 <a href="https://www.baeldung.com/" target="_blank">Baeldung Java Tutorials</a></li>
+        <li>⚡ <a href="https://openjdk.org/" target="_blank">OpenJDK Project</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

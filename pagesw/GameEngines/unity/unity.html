@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Unity — Coduxium XI</title>
+    <meta name="description"
+        content="Master Unity - The world's leading platform for creating and operating real-time 3D content.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Unity Game Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎮 Unity</h2>
+            <p class="intro">The world's leading platform for creating and operating real-time 3D (RT3D) content.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Development</span>
+                    <span class="badge">3D/2D</span>
+                    <span class="badge">C#</span>
+                    <span class="badge">Cross-Platform</span>
+                </div>
+                <p>Unity is a powerful cross-platform game engine used to create 2D, 3D, VR, and AR games and
+                    applications. It supports over 25 platforms and provides a comprehensive set of tools for game
+                    development, from graphics to physics to scripting.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Cross-Platform</strong> — Deploy to PC, console, mobile, web, VR/AR</li>
+                    <li><strong>Visual Editor</strong> — Intuitive scene and game object editor</li>
+                    <li><strong>C# Scripting</strong> — Powerful and beginner-friendly</li>
+                    <li><strong>Asset Store</strong> — Thousands of ready-to-use assets</li>
+                    <li><strong>Physics Engine</strong> — Built-in 2D and 3D physics</li>
+                    <li><strong>Animation System</strong> — Advanced character and object animation</li>
+                    <li><strong>Rendering Pipeline</strong> — URP, HDRP for stunning graphics</li>
+                    <li><strong>Networking</strong> — Multiplayer with Netcode and Mirror</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>3D and 2D game development</li>
+                    <li>Mobile gaming (iOS and Android)</li>
+                    <li>Virtual Reality (VR) experiences</li>
+                    <li>Augmented Reality (AR) applications</li>
+                    <li>Architectural visualization</li>
+                    <li>Training simulations</li>
+                    <li>Interactive product configurators</li>
+                    <li>Film and animation production</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Unity Ecosystem</h3>
+                <ul>
+                    <li><strong>Unity Editor</strong> — Main development environment</li>
+                    <li><strong>Unity Asset Store</strong> — Marketplace for assets and tools</li>
+                    <li><strong>Unity Learn</strong> — Educational resources and tutorials</li>
+                    <li><strong>Unity Cloud Build</strong> — Automated build service</li>
+                    <li><strong>Unity Analytics</strong> — Game analytics and insights</li>
+                    <li><strong>Unity Ads</strong> — Monetization platform</li>
+                    <li><strong>Unity Collaborate</strong> — Version control and collaboration</li>
+                    <li><strong>Cinemachine</strong> — Advanced camera system</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Game Objects & Components</h4>
+                <ul>
+                    <li><strong>GameObjects</strong> — Everything in Unity is a GameObject</li>
+                    <li><strong>Components</strong> — Attached to GameObjects for functionality</li>
+                    <li><strong>Prefabs</strong> — Reusable GameObject templates</li>
+                    <li><strong>Scenes</strong> — Containers for game content</li>
+                </ul>
+
+                <h4>Scripting</h4>
+                <ul>
+                    <li>MonoBehaviour lifecycle (Start, Update, FixedUpdate)</li>
+                    <li>Event functions and callbacks</li>
+                    <li>Coroutines for time-based actions</li>
+                    <li>Input handling and player controls</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Unity Hub and create a project:</p>
+                <pre><code># Download Unity Hub from unity.com
+# Install Unity Editor version through Hub
+# Create New Project > 3D/2D Template</code></pre>
+
+                <p>Basic C# script example:</p>
+                <pre><code>using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour
+{
+    public float speed = 5.0f;
+    
+    void Start()
+    {
+        Debug.Log("Player initialized");
+    }
+    
+    void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
+        transform.Translate(movement * speed * Time.deltaTime);
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use the Universal Render Pipeline (URP) for better performance</li>
+                    <li>Optimize with object pooling for frequently spawned objects</li>
+                    <li>Use prefabs for reusable game elements</li>
+                    <li>Implement proper state management</li>
+                    <li>Profile regularly with Unity Profiler</li>
+                    <li>Follow naming conventions for organization</li>
+                    <li>Use layers and tags for object categorization</li>
+                    <li>Test on target platforms frequently</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://unity.com/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.unity3d.com/" target="_blank" class="btn">Documentation</a>
+                <a href="https://learn.unity.com/" target="_blank" class="btn">Unity Learn</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

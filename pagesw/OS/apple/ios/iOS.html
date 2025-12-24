@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iOS — Coduxium XI</title>
+    <meta name="description" content="iOS - Apple's mobile operating system for iPhone and iPod touch.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">iOS</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>📱 iOS</h2>
+            <p class="intro">Apple's mobile operating system powering iPhone, iPad (as iPadOS), and iPod touch with seamless ecosystem integration.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">MOBILE</span>
+                    <span class="badge">TOUCH</span>
+                    <span class="badge">SECURE</span>
+                    <span class="badge">ECOSYSTEM</span>
+                </div>
+                <p>iOS is Apple's mobile operating system, first introduced in 2007 with the original iPhone. Built on a Unix-like foundation similar to macOS, iOS prioritizes security, privacy, performance, and seamless integration across the Apple ecosystem.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Major iOS Versions</h3>
+                <ul>
+                    <li><strong>iOS 1.0</strong> (2007) — Original iPhone OS, revolutionary multi-touch interface</li>
+                    <li><strong>iOS 2.0</strong> (2008) — App Store launched, third-party apps</li>
+                    <li><strong>iOS 3.0</strong> (2009) — Copy/paste, MMS, push notifications</li>
+                    <li><strong>iOS 4.0</strong> (2010) — Multitasking, folders, FaceTime</li>
+                    <li><strong>iOS 5.0</strong> (2011) — iCloud, Notification Center, iMessage</li>
+                    <li><strong>iOS 6.0</strong> (2012) — Apple Maps (controversial), Passbook</li>
+                    <li><strong>iOS 7.0</strong> (2013) — Complete redesign, flat UI, Control Center</li>
+                    <li><strong>iOS 8.0</strong> (2014) — Continuity, extensibility, widgets</li>
+                    <li><strong>iOS 9.0</strong> (2015) — iPad multitasking, Low Power Mode</li>
+                    <li><strong>iOS 10.0</strong> (2016) — Redesigned Messages, HomeKit</li>
+                    <li><strong>iOS 11.0</strong> (2017) — Files app, ARKit, drag & drop on iPad</li>
+                    <li><strong>iOS 12.0</strong> (2018) — Screen Time, Performance focus</li>
+                    <li><strong>iOS 13.0</strong> (2019) — Dark Mode, Sign in with Apple</li>
+                    <li><strong>iPadOS 13.1</strong> (2019) — iPad gets separate OS</li>
+                    <li><strong>iOS 14.0</strong> (2020) — Widgets on home screen, App Library, App Clips</li>
+                    <li><strong>iOS 15.0</strong> (2021) — Focus modes, Live Text, SharePlay</li>
+                    <li><strong>iOS 16.0</strong> (2022) — Lock Screen customization, Live Activities</li>
+                    <li><strong>iOS 17.0</strong> (2023) — Contact Posters, StandBy mode, NameDrop</li>
+                    <li><strong>iOS 18.0</strong> (2024) — Apple Intelligence, RCS messaging, customization</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Touch Interface:</strong> Multi-touch gestures, haptic feedback</li>
+                    <li><strong>Face ID/Touch ID:</strong> Biometric authentication</li>
+                    <li><strong>App Store:</strong> Curated app marketplace with 1.8M+ apps</li>
+                    <li><strong>iMessage:</strong> Rich messaging with end-to-end encryption</li>
+                    <li><strong>FaceTime:</strong> Video and audio calling</li>
+                    <li><strong>Siri:</strong> Intelligent voice assistant</li>
+                    <li><strong>Apple Pay:</strong> Contactless payments</li>
+                    <li><strong>Health:</strong> Comprehensive health and fitness tracking</li>
+                    <li><strong>Privacy:</strong> App Tracking Transparency, Privacy Labels</li>
+                    <li><strong>Continuity:</strong> Handoff, Universal Clipboard, AirDrop</li>
+                    <li><strong>ARKit:</strong> Augmented reality framework</li>
+                    <li><strong>Focus Modes:</strong> Customizable notification filters</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>iOS Development with Swift</h3>
+                <pre><code>import UIKit
+
+// Simple View Controller
+class ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Create a label
+        let label = UILabel()
+        label.text = "Hello, iOS!"
+        label.textAlignment = .center
+        label.frame = CGRect(x: 50, y: 200, width: 300, height: 50)
+        view.addSubview(label)
+        
+        // Create a button
+        let button = UIButton(type: .system)
+        button.setTitle("Tap Me", for: .normal)
+        button.frame = CGRect(x: 100, y: 300, width: 200, height: 50)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        view.addSubview(button)
+    }
+    
+    @objc func buttonTapped() {
+        print("Button was tapped!")
+        let alert = UIAlertController(
+            title: "Alert",
+            message: "Button tapped!",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>SwiftUI - Modern UI Framework</h3>
+                <pre><code>import SwiftUI
+
+// Simple SwiftUI View
+struct ContentView: View {
+    @State private var count = 0
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Counter: \(count)")
+                .font(.largeTitle)
+                .foregroundColor(.blue)
+            
+            Button(action: {
+                count += 1
+            }) {
+                Text("Increment")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            
+            Button("Reset") {
+                count = 0
+            }
+            .buttonStyle(.bordered)
+        }
+        .padding()
+    }
+}
+
+// List with navigation
+struct ListView: View {
+    let items = ["Item 1", "Item 2", "Item 3"]
+    
+    var body: some View {
+        NavigationView {
+            List(items, id: \.self) { item in
+                NavigationLink(destination: Text(item)) {
+                    Text(item)
+                }
+            }
+            .navigationTitle("Items")
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core iOS Frameworks</h3>
+                <pre><code>// UIKit - UI Framework
+import UIKit
+
+// Core Data - Data persistence
+import CoreData
+
+// Core Location - GPS and location
+import CoreLocation
+let locationManager = CLLocationManager()
+locationManager.requestWhenInUseAuthorization()
+
+// AVFoundation - Audio/Video
+import AVFoundation
+let player = AVPlayer(url: videoURL)
+
+// UserNotifications - Local notifications
+import UserNotifications
+UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
+
+// Network - URLSession
+let url = URL(string: "https://api.example.com/data")!
+let task = URLSession.shared.dataTask(with: url) { data, response, error in
+    // Handle response
+}
+task.resume()
+
+// Combine - Reactive programming
+import Combine
+let publisher = URLSession.shared.dataTaskPublisher(for: url)
+
+// StoreKit - In-app purchases
+import StoreKit
+
+// HealthKit - Health data
+import HealthKit</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>App Lifecycle</h3>
+                <pre><code>import UIKit
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication,
+                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // App launched
+        print("App launched")
+        return true
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        // App about to become inactive
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // App in background
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // App returning from background
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // App became active
+    }
+}
+
+// SwiftUI App Lifecycle
+@main
+struct MyApp: App {
+    @Environment(\.scenePhase) var scenePhase
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            switch newPhase {
+            case .active:
+                print("App is active")
+            case .inactive:
+                print("App is inactive")
+            case .background:
+                print("App is in background")
+            @unknown default:
+                break
+            }
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Push Notifications</h3>
+                <pre><code>import UserNotifications
+
+// Request permission
+UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+    if granted {
+        DispatchQueue.main.async {
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+}
+
+// Handle device token
+func application(_ application: UIApplication,
+                didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+    print("Device Token: \(token)")
+}
+
+// Local notification
+let content = UNMutableNotificationContent()
+content.title = "Reminder"
+content.body = "Don't forget your task!"
+content.sound = .default
+
+let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+UNUserNotificationCenter.current().add(request)</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Data Example</h3>
+                <pre><code>import CoreData
+
+// Define entity in .xcdatamodeld
+// Person: name (String), age (Int16)
+
+// Fetch data
+func fetchPeople() -> [Person] {
+    let context = persistentContainer.viewContext
+    let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+    
+    do {
+        let people = try context.fetch(fetchRequest)
+        return people
+    } catch {
+        print("Fetch failed: \(error)")
+        return []
+    }
+}
+
+// Save data
+func savePerson(name: String, age: Int16) {
+    let context = persistentContainer.viewContext
+    let person = Person(context: context)
+    person.name = name
+    person.age = age
+    
+    do {
+        try context.save()
+    } catch {
+        print("Save failed: \(error)")
+    }
+}
+
+// Delete data
+func deletePerson(_ person: Person) {
+    let context = persistentContainer.viewContext
+    context.delete(person)
+    
+    do {
+        try context.save()
+    } catch {
+        print("Delete failed: \(error)")
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Privacy & Security</h3>
+                <ul>
+                    <li><strong>App Tracking Transparency:</strong> Users must opt-in to tracking</li>
+                    <li><strong>Privacy Labels:</strong> App Store displays privacy practices</li>
+                    <li><strong>Data Encryption:</strong> End-to-end encryption for iMessage, FaceTime</li>
+                    <li><strong>Secure Enclave:</strong> Hardware-based key management</li>
+                    <li><strong>App Sandbox:</strong> Apps run in isolated environments</li>
+                    <li><strong>Code Signing:</strong> All apps must be signed by Apple</li>
+                    <li><strong>Privacy Report:</strong> Track app tracking and permissions</li>
+                    <li><strong>On-Device Processing:</strong> Siri, Photos analysis happen locally</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Testing & Debugging</h3>
+                <pre><code>// XCTest - Unit testing
+import XCTest
+
+class MyTests: XCTestCase {
+    
+    func testExample() {
+        let result = 2 + 2
+        XCTAssertEqual(result, 4, "Math should work")
+    }
+    
+    func testAsyncOperation() async throws {
+        let data = try await fetchData()
+        XCTAssertNotNil(data)
+    }
+}
+
+// UI Testing
+class UITests: XCTestCase {
+    
+    func testButtonTap() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let button = app.buttons["MyButton"]
+        XCTAssertTrue(button.exists)
+        button.tap()
+        
+        XCTAssertTrue(app.alerts["Success"].exists)
+    }
+}
+
+// Debug printing
+print("Debug message")
+debugPrint(object)
+
+// Breakpoints with actions
+// Set breakpoint, right-click → Edit Breakpoint → Add Action</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Device Support (iOS 18)</h3>
+                <ul>
+                    <li>iPhone 16, 16 Plus, 16 Pro, 16 Pro Max</li>
+                    <li>iPhone 15, 15 Plus, 15 Pro, 15 Pro Max</li>
+                    <li>iPhone 14, 14 Plus, 14 Pro, 14 Pro Max</li>
+                    <li>iPhone 13, 13 mini, 13 Pro, 13 Pro Max</li>
+                    <li>iPhone 12, 12 mini, 12 Pro, 12 Pro Max</li>
+                    <li>iPhone 11, 11 Pro, 11 Pro Max</li>
+                    <li>iPhone XS, XS Max, XR</li>
+                    <li>iPhone SE (2nd generation or later)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>App Store Submission</h3>
+                <pre><code># Xcode steps
+1. Archive your app (Product → Archive)
+2. Validate the archive
+3. Distribute to App Store Connect
+4. Complete App Store metadata
+5. Submit for review
+
+# App Store Connect requirements
+- App icon (1024x1024)
+- Screenshots for all device sizes
+- App description
+- Keywords
+- Privacy policy URL
+- Support URL
+- Age rating
+- Pricing and availability
+
+# Review process
+- Typical review time: 24-48 hours
+- Must comply with App Store Review Guidelines
+- May require privacy justifications for permissions</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.apple.com/ios/" target="_blank">iOS Official Page</a></li>
+                    <li>📚 <a href="https://developer.apple.com/documentation/" target="_blank">Apple Developer Documentation</a></li>
+                    <li>💻 <a href="https://developer.apple.com/swift/" target="_blank">Swift Programming Language</a></li>
+                    <li>🎓 <a href="https://developer.apple.com/tutorials/swiftui" target="_blank">SwiftUI Tutorials</a></li>
+                    <li>📱 <a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank">Human Interface Guidelines</a></li>
+                    <li>🔐 <a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank">App Store Review Guidelines</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.apple.com/ios/" target="_blank">iOS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

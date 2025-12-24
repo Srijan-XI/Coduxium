@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DigitalOcean — Coduxium XI</title>
+    <meta name="description" content="DigitalOcean - Developer-friendly cloud platform with simple pricing and excellent documentation.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">DigitalOcean</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>☁️ DigitalOcean</h2>
+            <p class="intro">Developer-friendly cloud computing platform with simplicity, transparency, and predictable pricing.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">CLOUD</span>
+                    <span class="badge">DEVELOPER</span>
+                    <span class="badge">SIMPLE</span>
+                    <span class="badge">AFFORDABLE</span>
+                </div>
+                <p>DigitalOcean is a cloud infrastructure provider focused on simplifying cloud computing for developers, startups, and SMBs. Known for its simple pricing, excellent documentation, and developer-centric approach.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Products</h3>
+                <ul>
+                    <li><strong>Droplets</strong> — Virtual machines (VPS)</li>
+                    <li><strong>Kubernetes (DOKS)</strong> — Managed Kubernetes service</li>
+                    <li><strong>App Platform</strong> — PaaS for deploying apps from Git</li>
+                    <li><strong>Spaces</strong> — S3-compatible object storage</li>
+                    <li><strong>Managed Databases</strong> — PostgreSQL, MySQL, Redis, MongoDB</li>
+                    <li><strong>Load Balancers</strong> — High availability traffic distribution</li>
+                    <li><strong>Volumes</strong> — Block storage for Droplets</li>
+                    <li><strong>VPC</strong> — Virtual Private Cloud networking</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>doctl CLI Installation</h3>
+                <pre><code># macOS
+brew install doctl
+
+# Linux (snap)
+sudo snap install doctl
+
+# Windows (scoop)
+scoop install doctl
+
+# Manual installation
+# Download from: https://github.com/digitalocean/doctl/releases
+
+# Authenticate
+doctl auth init
+# Enter your API token
+
+# Verify authentication
+doctl account get
+
+# List regions
+doctl compute region list</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Droplet Management</h3>
+                <pre><code># Create Droplet
+doctl compute droplet create my-droplet \
+    --region nyc3 \
+    --size s-1vcpu-1gb \
+    --image ubuntu-22-04-x64 \
+    --ssh-keys YOUR_SSH_KEY_ID
+
+# List Droplets
+doctl compute droplet list
+
+# Get Droplet info
+doctl compute droplet get DROPLET_ID
+
+# Power on/off
+doctl compute droplet-action power-on DROPLET_ID
+doctl compute droplet-action power-off DROPLET_ID
+
+# Reboot Droplet
+doctl compute droplet-action reboot DROPLET_ID
+
+# Resize Droplet
+doctl compute droplet-action resize DROPLET_ID --size s-2vcpu-4gb
+
+# Delete Droplet
+doctl compute droplet delete DROPLET_ID
+
+# SSH into Droplet
+doctl compute ssh DROPLET_ID</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Spaces (Object Storage) Operations</h3>
+                <pre><code># Install s3cmd for Spaces
+sudo apt-get install s3cmd  # Linux
+brew install s3cmd          # macOS
+
+# Configure s3cmd for Spaces
+s3cmd --configure
+# Access Key: YOUR_ACCESS_KEY
+# Secret Key: YOUR_SECRET_KEY
+# S3 Endpoint: nyc3.digitaloceanspaces.com
+
+# Create Space (bucket)
+s3cmd mb s3://my-space-name
+
+# List Spaces
+s3cmd ls
+
+# Upload file
+s3cmd put local-file.txt s3://my-space-name/
+
+# Download file
+s3cmd get s3://my-space-name/file.txt ./
+
+# Sync directory
+s3cmd sync ./local-folder/ s3://my-space-name/folder/
+
+# List objects
+s3cmd ls s3://my-space-name/
+
+# Delete object
+s3cmd del s3://my-space-name/file.txt
+
+# Make object public
+s3cmd setacl s3://my-space-name/file.txt --acl-public</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Kubernetes (DOKS)</h3>
+                <pre><code># Create Kubernetes cluster
+doctl kubernetes cluster create my-cluster \
+    --region nyc3 \
+    --version 1.28.2-do.0 \
+    --node-pool "name=worker-pool;size=s-2vcpu-4gb;count=3"
+
+# List clusters
+doctl kubernetes cluster list
+
+# Get kubeconfig
+doctl kubernetes cluster kubeconfig save my-cluster
+
+# Scale node pool
+doctl kubernetes cluster node-pool update my-cluster worker-pool \
+    --count 5
+
+# Upgrade cluster
+doctl kubernetes cluster upgrade my-cluster --version 1.29.0-do.0
+
+# Delete cluster
+doctl kubernetes cluster delete my-cluster</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>App Platform Deployment</h3>
+                <pre><code># app.yaml - App Platform spec
+name: my-app
+services:
+  - name: web
+    github:
+      repo: username/my-repo
+      branch: main
+      deploy_on_push: true
+    build_command: npm install
+    run_command: npm start
+    environment_slug: node-js
+    instance_size_slug: basic-xxs
+    instance_count: 1
+    http_port: 3000
+    routes:
+      - path: /
+    envs:
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        value: ${db.DATABASE_URL}
+
+databases:
+  - name: db
+    engine: PG
+    version: "14"
+
+# Deploy app
+doctl apps create --spec app.yaml
+
+# List apps
+doctl apps list
+
+# Get app info
+doctl apps get APP_ID
+
+# Update app
+doctl apps update APP_ID --spec app.yaml
+
+# Delete app
+doctl apps delete APP_ID</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>DigitalOcean API Example (Python)</h3>
+                <pre><code>import requests
+
+# API Configuration
+API_TOKEN = "your-api-token"
+BASE_URL = "https://api.digitalocean.com/v2"
+headers = {
+    "Authorization": f"Bearer {API_TOKEN}",
+    "Content-Type": "application/json"
+}
+
+# List Droplets
+response = requests.get(f"{BASE_URL}/droplets", headers=headers)
+droplets = response.json()['droplets']
+for droplet in droplets:
+    print(f"Name: {droplet['name']}, IP: {droplet['networks']['v4'][0]['ip_address']}")
+
+# Create Droplet
+droplet_data = {
+    "name": "my-droplet",
+    "region": "nyc3",
+    "size": "s-1vcpu-1gb",
+    "image": "ubuntu-22-04-x64",
+    "ssh_keys": ["YOUR_SSH_KEY_ID"],
+    "backups": False,
+    "ipv6": True,
+    "monitoring": True
+}
+response = requests.post(f"{BASE_URL}/droplets", json=droplet_data, headers=headers)
+print(response.json())
+
+# Delete Droplet
+droplet_id = "12345678"
+response = requests.delete(f"{BASE_URL}/droplets/{droplet_id}", headers=headers)
+print(f"Deleted: {response.status_code == 204}")</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Managed Database Example</h3>
+                <pre><code># Create managed PostgreSQL database
+doctl databases create my-postgres-db \
+    --engine pg \
+    --region nyc3 \
+    --size db-s-1vcpu-1gb \
+    --version 14
+
+# List databases
+doctl databases list
+
+# Get connection details
+doctl databases connection my-postgres-db
+
+# Create database user
+doctl databases user create my-postgres-db new-user
+
+# Create new database
+doctl databases db create my-postgres-db new-database
+
+# Get database info
+doctl databases get my-postgres-db
+
+# Resize database
+doctl databases resize my-postgres-db --size db-s-2vcpu-4gb
+
+# Connection string format
+postgresql://username:password@host:port/database?sslmode=require</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing Highlights</h3>
+                <ul>
+                    <li><strong>Droplets</strong> — Starting at $4/month (512MB RAM, 10GB SSD)</li>
+                    <li><strong>Predictable Pricing</strong> — No hidden costs or surprise bills</li>
+                    <li><strong>Bandwidth</strong> — Generous free outbound transfer included</li>
+                    <li><strong>Free Credits</strong> — $200 credit for new users (terms apply)</li>
+                    <li><strong>Hourly Billing</strong> — Pay only for what you use</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Data Centers</h3>
+                <ul>
+                    <li><strong>15 Regions</strong> — North America, Europe, Asia, Australia</li>
+                    <li><strong>NYC</strong> — New York City (nyc1, nyc3)</li>
+                    <li><strong>SFO</strong> — San Francisco (sfo3)</li>
+                    <li><strong>AMS</strong> — Amsterdam (ams3)</li>
+                    <li><strong>SGP</strong> — Singapore (sgp1)</li>
+                    <li><strong>LON</strong> — London (lon1)</li>
+                    <li><strong>FRA</strong> — Frankfurt (fra1)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Differentiators</h3>
+                <ul>
+                    <li><strong>Simplicity</strong> — Intuitive UI and straightforward products</li>
+                    <li><strong>Documentation</strong> — Extensive tutorials and guides</li>
+                    <li><strong>Community</strong> — Active community and Q&A platform</li>
+                    <li><strong>Transparent Pricing</strong> — Clear, predictable costs</li>
+                    <li><strong>Developer Focus</strong> — Built for developers, by developers</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Enable monitoring on all Droplets</li>
+                    <li>Use SSH keys instead of passwords</li>
+                    <li>Implement regular backups (automated or manual)</li>
+                    <li>Use VPC for private networking</li>
+                    <li>Enable Cloud Firewalls for security</li>
+                    <li>Tag resources for better organization</li>
+                    <li>Use Spaces for static content and CDN</li>
+                    <li>Monitor resource usage with built-in metrics</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.digitalocean.com/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.digitalocean.com/" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://www.digitalocean.com/community/tutorials" target="_blank">Community Tutorials</a></li>
+                    <li>💬 <a href="https://www.digitalocean.com/community/questions" target="_blank">Q&A Community</a></li>
+                    <li>📦 <a href="https://github.com/digitalocean" target="_blank">GitHub - DigitalOcean</a></li>
+                    <li>🎥 <a href="https://www.youtube.com/c/Digitalocean" target="_blank">YouTube Channel</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.digitalocean.com/" target="_blank">DigitalOcean</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete guide to Redis - An in-memory data structure store used as a database, cache, message broker, and streaming engine with lightning-fast performance." />
+  <meta name="keywords" content="Redis, In-Memory, Cache, Key-Value, NoSQL, Pub/Sub, Streams, Data Structures" />
+  <title>Redis Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Redis Complete Guide</h1>
+      <p class="subtitle">An in-memory data structure store used as a database, cache, message broker, and streaming
+        engine.</p>
+      <div class="badge-row">
+        <span class="badge">IN-MEMORY</span>
+        <span class="badge">KEY-VALUE</span>
+        <span class="badge">PUB/SUB</span>
+        <span class="badge">STREAMS</span>
+        <span class="badge">PERSISTENCE</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Features</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Pro Tip:</strong> Redis excels when used strategically - as a cache layer,
+        session store, or real-time analytics engine. Choose the right data structure for your use case to maximize
+        performance.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Redis?</h3>
+      <p>Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that can be used as a
+        database, cache, message broker, and streaming engine. Known for its exceptional performance, Redis delivers
+        sub-millisecond response times enabling millions of requests per second for real-time applications in gaming,
+        fintech, ad-tech, social media, and IoT.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>⚡ Blazing Fast</strong> — Sub-millisecond latency, millions of ops/sec</div>
+        <div class="topic"><strong>🔧 Rich Data Structures</strong> — Strings, Lists, Sets, Hashes, Sorted Sets, Streams
+        </div>
+        <div class="topic"><strong>💾 Persistence Options</strong> — RDB snapshots and AOF logging</div>
+        <div class="topic"><strong>🔄 Replication</strong> — Master-replica replication for high availability</div>
+        <div class="topic"><strong>📡 Pub/Sub</strong> — Message broadcasting and channels</div>
+        <div class="topic"><strong>🌊 Streams</strong> — Append-only log for event sourcing</div>
+        <div class="topic"><strong>⏰ Expiration & TTL</strong> — Automatic key expiration</div>
+        <div class="topic"><strong>🔒 Transactions</strong> — MULTI/EXEC for atomic operations</div>
+      </div>
+
+      <h3>Why Choose Redis?</h3>
+      <ul>
+        <li><strong>Performance:</strong> All data resides in memory, providing ultra-low latency for both reads and
+          writes.</li>
+        <li><strong>Versatility:</strong> Beyond simple key-value storage, Redis supports complex data structures
+          enabling sophisticated use cases.</li>
+        <li><strong>Simplicity:</strong> Easy to deploy, manage, and scale with a straightforward command set.</li>
+        <li><strong>Reliability:</strong> Persistence options, replication, and Redis Sentinel for automatic failover
+          ensure data durability.</li>
+        <li><strong>Scalability:</strong> Redis Cluster provides automatic partitioning across multiple nodes.</li>
+        <li><strong>Ecosystem:</strong> Extensive client libraries for all major programming languages and active
+          community support.</li>
+      </ul>
+
+      <h3>Use Cases</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🔥 Caching</strong> — Database query results, API responses, session data</div>
+        <div class="topic"><strong>🔐 Session Store</strong> — User sessions for web applications</div>
+        <div class="topic"><strong>📊 Real-Time Analytics</strong> — Leaderboards, counters, metrics</div>
+        <div class="topic"><strong>⏱️ Rate Limiting</strong> — API rate limiting with expiration</div>
+        <div class="topic"><strong>📬 Message Queue</strong> — Task queues, job processing</div>
+        <div class="topic"><strong>🎮 Gaming</strong> — Leaderboards, player state, matchmaking</div>
+        <div class="topic"><strong>🔔 Notifications</strong> — Real-time pub/sub messaging</div>
+        <div class="topic"><strong>🌐 Geospatial</strong> — Location-based services</div>
+      </div>
+
+      <h3>Redis Data Structures</h3>
+      <ul>
+        <li><strong>Strings:</strong> Binary-safe strings, integers, bitmaps (max 512MB)</li>
+        <li><strong>Lists:</strong> Linked lists for queues and stacks (LPUSH, RPOP, etc.)</li>
+        <li><strong>Sets:</strong> Unordered collections of unique strings with set operations</li>
+        <li><strong>Hashes:</strong> Field-value pairs, perfect for objects</li>
+        <li><strong>Sorted Sets:</strong> Sets with scores for rankings and leaderboards</li>
+        <li><strong>Streams:</strong> Append-only logs for event sourcing and message queues</li>
+        <li><strong>HyperLogLog:</strong> Probabilistic data structure for cardinality estimation</li>
+        <li><strong>Geospatial:</strong> Store and query coordinates</li>
+        <li><strong>Bitmaps & Bitfields:</strong> Efficient bit-level operations</li>
+      </ul>
+
+      <h3>Persistence Models</h3>
+      <ul>
+        <li><strong>RDB (Redis Database):</strong> Point-in-time snapshots at specified intervals</li>
+        <li><strong>AOF (Append Only File):</strong> Log of every write operation for durability</li>
+        <li><strong>Hybrid:</strong> Combine both for best of both worlds</li>
+        <li><strong>No Persistence:</strong> Pure cache mode for maximum performance</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Important:</strong> Redis is single-threaded (for command execution)
+        which ensures simplicity and atomic operations. Use Redis for what it does best - fast in-memory operations -
+        and combine with persistent databases for long-term storage.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Get started with Redis on your platform. Redis is available for Linux, macOS, and can run on Windows via WSL2
+        or Docker.</p>
+
+      <!-- Windows Installation -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation</h3>
+        <div class="info-box"><strong>📌 Note:</strong> Redis does not officially support Windows. Use WSL2
+          (recommended) or Docker for development.</div>
+
+        <h4>Option 1 — WSL2 (Recommended)</h4>
+        <pre><code># Install WSL2 with Ubuntu
+wsl --install -d Ubuntu
+
+# Start WSL2
+wsl
+
+# Inside WSL2, update packages
+sudo apt update
+
+# Install Redis
+sudo apt install redis-server
+
+# Configure Redis to use systemd
+sudo sed -i 's/^supervised no/supervised systemd/' /etc/redis/redis.conf
+
+# Start Redis service
+sudo systemctl enable redis-server
+sudo systemctl start redis-server
+
+# Check status
+sudo systemctl status redis-server
+
+# Test connection
+redis-cli ping
+# Should return: PONG</code><button class="copy-btn" data-copy="sudo apt install redis-server">COPY</button></pre>
+
+        <h4>Option 2 — Docker (Alternative)</h4>
+        <pre><code># Pull and run Redis
+docker run -d --name redis -p 6379:6379 redis:7-alpine
+
+# Connect to Redis CLI
+docker exec -it redis redis-cli
+
+# View logs
+docker logs redis</code><button class="copy-btn" data-copy="docker run -d --name redis -p 6379:6379 redis:7-alpine">COPY</button></pre>
+      </div>
+
+      <!-- macOS Installation -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation</h3>
+        <pre><code># Install Redis using Homebrew
+brew install redis
+
+# Start Redis as a service
+brew services start redis
+
+# Verify service is running
+brew services list
+
+# Stop service
+brew services stop redis
+
+# Run Redis in foreground (for testing)
+redis-server /usr/local/etc/redis.conf
+
+# Connect to Redis CLI
+redis-cli
+
+# Test connection
+redis-cli ping
+# Should return: PONG</code><button class="copy-btn" data-copy="brew install redis">COPY</button></pre>
+      </div>
+
+      <!-- Linux Installation -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation</h3>
+
+        <h4>Ubuntu/Debian</h4>
+        <pre><code># Update package index
+sudo apt update
+
+# Install Redis
+sudo apt install redis-server
+
+# Configure supervised mode for systemd
+sudo sed -i 's/^supervised no/supervised systemd/' /etc/redis/redis.conf
+
+# Restart Redis
+sudo systemctl restart redis-server
+
+# Enable Redis to start on boot
+sudo systemctl enable redis-server
+
+# Check status
+sudo systemctl status redis-server
+
+# Test connection
+redis-cli ping</code><button class="copy-btn" data-copy="sudo apt install redis-server">COPY</button></pre>
+
+        <h4>RHEL/CentOS/Fedora</h4>
+        <pre><code># Install Redis
+sudo dnf install redis
+
+# Start and enable service
+sudo systemctl start redis
+sudo systemctl enable redis
+
+# Check status
+sudo systemctl status redis
+
+# Test connection
+redis-cli ping</code><button class="copy-btn" data-copy="sudo dnf install redis">COPY</button></pre>
+
+        <h4>Build from Source</h4>
+        <pre><code># Install dependencies
+sudo apt install build-essential tcl
+
+# Download latest stable Redis
+wget https://download.redis.io/redis-stable.tar.gz
+tar xzf redis-stable.tar.gz
+cd redis-stable
+
+# Build Redis
+make
+
+# Run tests (optional)
+make test
+
+# Install Redis
+sudo make install
+
+# Start Redis server
+redis-server
+
+# In another terminal, test
+redis-cli ping</code><button class="copy-btn" data-copy="make && sudo make install">COPY</button></pre>
+      </div>
+
+      <!-- Docker Installation -->
+      <div id="docker-install" class="subsection">
+        <h3>Docker Installation (All Platforms)</h3>
+        <pre><code># Run Redis with persistence
+docker run -d \
+  --name redis \
+  -p 6379:6379 \
+  -v redis_data:/data \
+  redis:7-alpine redis-server --appendonly yes
+
+# Run with password protection
+docker run -d \
+  --name redis \
+  -p 6379:6379 \
+  -v redis_data:/data \
+  redis:7-alpine redis-server --requirepass StrongP@ssw0rd
+
+# Run with custom config
+docker run -d \
+  --name redis \
+  -p 6379:6379 \
+  -v $(pwd)/redis.conf:/usr/local/etc/redis/redis.conf \
+  -v redis_data:/data \
+  redis:7-alpine redis-server /usr/local/etc/redis/redis.conf
+
+# Access Redis CLI
+docker exec -it redis redis-cli
+
+# With password
+docker exec -it redis redis-cli -a StrongP@ssw0rd
+
+# Stop and remove
+docker stop redis && docker rm redis</code><button class="copy-btn" data-copy="docker run -d --name redis -p 6379:6379 redis:7-alpine">COPY</button></pre>
+      </div>
+
+      <!-- Configuration -->
+      <div id="configuration" class="subsection">
+        <h3>Configuration & Security</h3>
+
+        <h4>Basic Configuration (redis.conf)</h4>
+        <pre><code># Bind to specific interface
+bind 127.0.0.1 ::1      # Localhost only (default, secure)
+# bind 0.0.0.0          # All interfaces (development only)
+
+# Port
+port 6379
+
+# Password protection (highly recommended)
+requirepass StrongP@ssw0rd
+
+# Maximum memory
+maxmemory 256mb
+maxmemory-policy allkeys-lru  # Eviction policy
+
+# Persistence - RDB
+save 900 1              # Save after 900 sec if 1 key changed
+save 300 10             # Save after 300 sec if 10 keys changed
+save 60 10000           # Save after 60 sec if 10000 keys changed
+
+# Persistence - AOF
+appendonly yes
+appendfilename "appendonly.aof"
+appendfsync everysec    # fsync every second (balanced)
+
+# Logging
+loglevel notice
+logfile /var/log/redis/redis-server.log
+
+# After editing, restart Redis
+sudo systemctl restart redis-server</code><button class="copy-btn" data-copy="requirepass StrongP@ssw0rd">COPY</button></pre>
+
+        <h4>Connect with Password</h4>
+        <pre><code># Connect and authenticate
+redis-cli
+127.0.0.1:6379> AUTH StrongP@ssw0rd
+
+# Or provide password in connection
+redis-cli -a StrongP@ssw0rd
+
+# Connection string for applications
+redis://default:StrongP@ssw0rd@localhost:6379</code><button class="copy-btn" data-copy="redis-cli -a password">COPY</button></pre>
+      </div>
+
+      <!-- Verification -->
+      <div id="verify-install" class="subsection">
+        <h3>Verify Installation</h3>
+        <pre><code># Check Redis version
+redis-server --version
+redis-cli --version
+
+# Connect to Redis
+redis-cli
+
+# Test connection
+127.0.0.1:6379> PING
+PONG
+
+# Get server info
+127.0.0.1:6379> INFO server
+127.0.0.1:6379> INFO stats
+
+# Set and get a key
+127.0.0.1:6379> SET test "Hello Redis"
+OK
+127.0.0.1:6379> GET test
+"Hello Redis"
+
+# Delete key
+127.0.0.1:6379> DEL test
+(integer) 1
+
+# Check all keys
+127.0.0.1:6379> KEYS *
+
+# Exit
+127.0.0.1:6379> EXIT</code><button class="copy-btn" data-copy="redis-cli ping">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <p>Learn essential Redis commands and patterns for building high-performance applications.</p>
+
+      <!-- Strings -->
+      <div id="strings" class="subsection">
+        <h3>Strings - Basic Key-Value Operations</h3>
+        <pre><code># Set a key
+SET user:1:name "Ada Lovelace"
+SET user:1:email "ada@example.com"
+
+# Get a key
+GET user:1:name
+# Returns: "Ada Lovelace"
+
+# Set with expiration (in seconds)
+SETEX session:abc123 3600 "user_data"  # Expires in 1 hour
+SET cache:key "value" EX 300           # Alternative syntax
+
+# Set if not exists
+SETNX user:1:name "Grace Hopper"
+# Returns: 0 (key already exists)
+
+# Set multiple keys at once
+MSET user:2:name "Alan Turing" user:2:email "alan@example.com"
+
+# Get multiple keys
+MGET user:1:name user:2:name
+
+# Increment/Decrement (atomic)
+SET visits:homepage 0
+INCR visits:homepage       # Returns: 1
+INCR visits:homepage       # Returns: 2
+INCRBY visits:homepage 10  # Returns: 12
+DECR visits:homepage       # Returns: 11
+
+# Append to string
+SET greeting "Hello"
+APPEND greeting " World"
+GET greeting
+# Returns: "Hello World"
+
+# Get string length
+STRLEN greeting
+# Returns: 11
+
+# Delete key
+DEL user:1:name
+
+# Check if key exists
+EXISTS user:1:email
+# Returns: 1 (exists) or 0 (doesn't exist)
+
+# Set expiration on existing key
+EXPIRE user:1:email 3600
+
+# Check time to live
+TTL user:1:email
+# Returns: seconds remaining or -1 (no expiration) or -2 (doesn't exist)
+
+# Remove expiration
+PERSIST user:1:email</code><button class="copy-btn" data-copy='SET user:1 "Ada"'>COPY</button></pre>
+      </div>
+
+      <!-- Lists -->
+      <div id="lists" class="subsection">
+        <h3>Lists - Ordered Collections</h3>
+        <pre><code># Push to list (left/right)
+LPUSH tasks "task3"    # Add to beginning
+LPUSH tasks "task2"
+LPUSH tasks "task1"
+RPUSH tasks "task4"    # Add to end
+
+# View list (0 to -1 means all elements)
+LRANGE tasks 0 -1
+# Returns: ["task1", "task2", "task3", "task4"]
+
+# Get list length
+LLEN tasks
+
+# Pop from list
+LPOP tasks             # Remove and return first element
+RPOP tasks             # Remove and return last element
+
+# Blocking pop (wait for element)
+BLPOP tasks 30         # Wait 30 seconds for element
+BRPOP tasks 0          # Wait indefinitely
+
+# Get element by index
+LINDEX tasks 0         # First element
+LINDEX tasks -1        # Last element
+
+# Set element at index
+LSET tasks 0 "updated_task"
+
+# Remove elements
+LREM tasks 1 "task2"   # Remove first occurrence
+
+# Trim list to specified range
+LTRIM tasks 0 99       # Keep first 100 elements
+
+# Use case: Task Queue
+LPUSH queue:jobs '{"task": "send_email", "user_id": 123}'
+RPOP queue:jobs        # Process oldest job</code><button class="copy-btn" data-copy="LPUSH tasks 'build' 'test' 'deploy'">COPY</button></pre>
+      </div>
+
+      <!-- Sets -->
+      <div id="sets" class="subsection">
+        <h3>Sets - Unique Unordered Collections</h3>
+        <pre><code># Add members to set
+SADD tags:article1 "redis" "database" "nosql"
+SADD tags:article2 "redis" "cache" "performance"
+
+# Get all members
+SMEMBERS tags:article1
+
+# Check if member exists
+SISMEMBER tags:article1 "redis"
+# Returns: 1 (yes) or 0 (no)
+
+# Remove member
+SREM tags:article1 "nosql"
+
+# Get set size
+SCARD tags:article1
+
+# Set operations
+# Union (tags in either article)
+SUNION tags:article1 tags:article2
+
+# Intersection (common tags)
+SINTER tags:article1 tags:article2
+
+# Difference (tags in article1 but not article2)
+SDIFF tags:article1 tags:article2
+
+# Random member
+SRANDMEMBER tags:article1      # Get random member
+SPOP tags:article1             # Remove and return random member
+
+# Use case: Unique visitors
+SADD visitors:2025-12-23 "user:123" "user:456"
+SCARD visitors:2025-12-23      # Count unique visitors</code><button class="copy-btn" data-copy="SADD tags devops db cache">COPY</button></pre>
+      </div>
+
+      <!-- Hashes -->
+      <div id="hashes" class="subsection">
+        <h3>Hashes - Field-Value Pairs (Objects)</h3>
+        <pre><code># Set hash fields
+HSET user:1 name "Ada Lovelace"
+HSET user:1 email "ada@example.com"
+HSET user:1 age 30
+
+# Set multiple fields at once
+HMSET user:2 name "Grace Hopper" email "grace@example.com" age 85
+
+# Get field value
+HGET user:1 name
+
+# Get multiple fields
+HMGET user:1 name email
+
+# Get all fields and values
+HGETALL user:1
+# Returns: ["name", "Ada Lovelace", "email", "ada@example.com", "age", "30"]
+
+# Get all field names
+HKEYS user:1
+
+# Get all values
+HVALS user:1
+
+# Check if field exists
+HEXISTS user:1 name
+
+# Delete field
+HDEL user:1 age
+
+# Get number of fields
+HLEN user:1
+
+# Increment field value
+HINCRBY user:1 login_count 1
+
+# Use case: Session storage
+HMSET session:abc123 user_id 1 username "ada" last_seen 1703350000
+EXPIRE session:abc123 3600
+HGETALL session:abc123</code><button class="copy-btn" data-copy='HSET user:1 name "Ada" role "admin"'>COPY</button></pre>
+      </div>
+
+      <!-- Sorted Sets -->
+      <div id="sorted-sets" class="subsection">
+        <h3>Sorted Sets - Ordered by Score</h3>
+        <pre><code># Add members with scores
+ZADD leaderboard 100 "player1"
+ZADD leaderboard 85 "player2"
+ZADD leaderboard 92 "player3"
+
+# Add multiple at once
+ZADD leaderboard 78 "player4" 95 "player5"
+
+# Get members by rank (lowest to highest score)
+ZRANGE leaderboard 0 -1
+
+# Get members with scores
+ZRANGE leaderboard 0 -1 WITHSCORES
+
+# Get top 3 (highest scores)
+ZREVRANGE leaderboard 0 2 WITHSCORES
+
+# Get score of member
+ZSCORE leaderboard "player1"
+
+# Get rank of member (0-based)
+ZRANK leaderboard "player1"        # Ascending
+ZREVRANK leaderboard "player1"     # Descending (for leaderboards)
+
+# Increment score
+ZINCRBY leaderboard 5 "player1"    # Add 5 points
+
+# Count members in score range
+ZCOUNT leaderboard 80 100
+
+# Get members by score range
+ZRANGEBYSCORE leaderboard 80 100
+
+# Remove member
+ZREM leaderboard "player4"
+
+# Remove by rank range
+ZREMRANGEBYRANK leaderboard 0 0    # Remove lowest
+
+# Remove by score range
+ZREMRANGEBYSCORE leaderboard 0 70  # Remove all below 70
+
+# Get sorted set size
+ZCARD leaderboard
+
+# Use case: Real-time leaderboard
+ZADD game:leaderboard 15420 "user:123" 12890 "user:456"
+ZREVRANGE game:leaderboard 0 9 WITHSCORES  # Top 10 players</code><button class="copy-btn" data-copy='ZADD leaderboard 100 "Ada" 80 "Bob"'>COPY</button></pre>
+      </div>
+
+      <!-- Common Patterns -->
+      <div id="patterns" class="subsection">
+        <h3>Common Patterns & Use Cases</h3>
+
+        <h4>1. Caching Pattern</h4>
+        <pre><code># Cache database query result
+SET cache:user:123 '{"id":123,"name":"Ada"}' EX 300
+
+# In application:
+# 1. Check Redis cache
+# 2. If miss, query database
+# 3. Store result in Redis with expiration
+GET cache:user:123
+# If null, fetch from DB and:
+SET cache:user:123 '{"data":"..."}' EX 300</code><button class="copy-btn" data-copy="Caching Pattern">COPY</button></pre>
+
+        <h4>2. Rate Limiting</h4>
+        <pre><code># Simple rate limiter (10 requests per minute)
+SET rate:user:123:2025-12-23-22 0 EX 60 NX
+INCR rate:user:123:2025-12-23-22
+GET rate:user:123:2025-12-23-22
+
+# In application:
+# count = INCR rate:user:{id}:{current_minute}
+# if count > 10: reject request</code><button class="copy-btn" data-copy="Rate Limiting">COPY</button></pre>
+
+        <h4>3. Session Storage</h4>
+        <pre><code># Store session data
+HMSET session:abc123 \
+  user_id 1 \
+  username "ada" \
+  role "admin" \
+  created_at 1703350000
+
+# Set expiration (30 minutes)
+EXPIRE session:abc123 1800
+
+# Extend session on activity
+EXPIRE session:abc123 1800</code><button class="copy-btn" data-copy="Session Storage">COPY</button></pre>
+
+        <h4>4. Counters & Analytics</h4>
+        <pre><code># Page views counter
+INCR pageviews:homepage
+INCR pageviews:about
+
+# Unique visitors (using sets)
+SADD visitors:2025-12-23 "user:123"
+SADD visitors:2025-12-23 "user:456"
+SCARD visitors:2025-12-23  # Count unique visitors</code><button class="copy-btn" data-copy="Counters">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED FEATURES SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Features</h2>
+
+      <h3>Pub/Sub - Messaging</h3>
+      <pre><code># Subscribe to channel (in one client)
+SUBSCRIBE notifications
+
+# Publish message (in another client)
+PUBLISH notifications "New message from Ada"
+
+# Pattern subscribe (wildcard)
+PSUBSCRIBE user:*:notifications
+
+# Publish to pattern
+PUBLISH user:123:notifications "You have a new follower"
+
+# Unsubscribe
+UNSUBSCRIBE notifications</code><button class="copy-btn" data-copy="PUBLISH notifications 'message'">COPY</button></pre>
+
+      <h3>Streams - Event Sourcing</h3>
+      <pre><code># Add entry to stream
+XADD events:clickstream * user_id 123 action "view" page "homepage"
+
+# Add with explicit ID
+XADD events:clickstream 1703350000000-0 event "purchase" amount 99.99
+
+# Read stream entries
+XRANGE events:clickstream - +       # All entries
+XRANGE events:clickstream - + COUNT 10  # First 10
+
+# Read new entries (blocking)
+XREAD BLOCK 0 STREAMS events:clickstream $
+
+# Consumer groups
+XGROUP CREATE events:clickstream analytics $ MKSTREAM
+XREADGROUP GROUP analytics consumer1 STREAMS events:clickstream >
+
+# Get stream length
+XLEN events:clickstream</code><button class="copy-btn" data-copy="XADD events * user 123">COPY</button></pre>
+
+      <h3>Transactions</h3>
+      <pre><code># Basic transaction
+MULTI
+SET key1 "value1"
+SET key2 "value2"
+INCR counter
+EXEC
+
+# Transaction with watch (optimistic locking)
+WATCH balance:user1
+GET balance:user1
+# Check if balance is sufficient
+MULTI
+DECRBY balance:user1 100
+INCRBY balance:user2 100
+EXEC
+
+# Discard transaction
+MULTI
+SET key "value"
+DISCARD  # Cancel transaction</code><button class="copy-btn" data-copy="MULTI ... EXEC">COPY</button></pre>
+
+      <h3>Lua Scripting</h3>
+      <pre><code># Execute Lua script
+EVAL "return redis.call('SET', KEYS[1], ARGV[1])" 1 mykey "myvalue"
+
+# Atomic rate limiter script
+EVAL "
+  local key = KEYS[1]
+  local limit = tonumber(ARGV[1])
+  local current = tonumber(redis.call('GET', key) or '0')
+  if current + 1 > limit then
+    return 0
+  else
+    redis.call('INCR', key)
+    redis.call('EXPIRE', key, 60)
+    return 1
+  end
+" 1 rate:user:123 10
+
+# Load script and use SHA
+SCRIPT LOAD "return redis.call('GET', KEYS[1])"
+# Returns SHA: abc123...
+EVALSHA abc123... 1 mykey</code><button class="copy-btn" data-copy="Lua Scripting">COPY</button></pre>
+
+      <h3>Geospatial</h3>
+      <pre><code># Add locations
+GEOADD locations 13.361389 38.115556 "Palermo"
+GEOADD locations 15.087269 37.502669 "Catania"
+
+# Get distance
+GEODIST locations "Palermo" "Catania" km
+
+# Find nearby locations
+GEORADIUS locations 15 37 100 km WITHDIST
+
+# Get coordinates
+GEOPOS locations "Palermo"</code><button class="copy-btn" data-copy="GEOADD locations ...">COPY</button></pre>
+
+      <h3>Persistence & Backup</h3>
+      <pre><code># Manual save (RDB snapshot)
+SAVE        # Blocking
+BGSAVE      # Background (non-blocking)
+
+# Get last save time
+LASTSAVE
+
+# AOF rewrite
+BGREWRITEAOF
+
+# Check persistence status
+INFO persistence
+
+# Disable persistence (cache mode)
+# In redis.conf:
+# save ""
+# appendonly no</code><button class="copy-btn" data-copy="BGSAVE">COPY</button></pre>
+
+      <h3>Monitoring & Debugging</h3>
+      <pre><code># Monitor all commands in real-time
+MONITOR
+
+# Get server statistics
+INFO
+INFO stats
+INFO memory
+INFO replication
+
+# Slow query log
+SLOWLOG GET 10
+
+# Client list
+CLIENT LIST
+
+# Memory usage of key
+MEMORY USAGE user:123
+
+# Key expiration debug
+DEBUG OBJECT mykey</code><button class="copy-btn" data-copy="INFO stats">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Choose Use Case</strong> — Identify where Redis adds value
+        (caching, sessions, queues)</div>
+      <div class="step"><span class="n">2</span><strong>Select Data Structures</strong> — Pick appropriate data types
+        for your needs</div>
+      <div class="step"><span class="n">3</span><strong>Configure Persistence</strong> — Set up RDB and/or AOF based on
+        durability needs</div>
+      <div class="step"><span class="n">4</span><strong>Implement Security</strong> — Set password, restrict network
+        access</div>
+      <div class="step"><span class="n">5</span><strong>Set Up Monitoring</strong> — Track memory usage, hit rates, slow
+        queries</div>
+      <div class="step"><span class="n">6</span><strong>Plan for HA</strong> — Configure replication and Redis Sentinel
+      </div>
+      <div class="step"><span class="n">7</span><strong>Consider Scaling</strong> — Explore Redis Cluster for horizontal
+        scaling</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://redis.io/docs/" target="_blank" rel="noopener noreferrer">Official Redis
+            Documentation</a></li>
+        <li>🎓 <a href="https://university.redis.com/" target="_blank" rel="noopener noreferrer">Redis University (Free
+            Courses)</a></li>
+        <li>🛠️ <a href="https://redis.io/insight/" target="_blank" rel="noopener noreferrer">RedisInsight (GUI
+            Tool)</a></li>
+        <li>☁️ <a href="https://redis.com/redis-enterprise-cloud/" target="_blank" rel="noopener noreferrer">Redis Cloud
+            (Managed Service)</a></li>
+        <li>💡 <a href="https://redis.io/commands/" target="_blank" rel="noopener noreferrer">Redis Command
+            Reference</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

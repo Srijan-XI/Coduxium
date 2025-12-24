@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amazon Web Services (AWS) — Coduxium XI</title>
+    <meta name="description" content="AWS - Comprehensive cloud computing platform by Amazon.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Amazon Web Services</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>☁️ Amazon Web Services (AWS)</h2>
+            <p class="intro">World's most comprehensive and widely adopted cloud platform with over 200 services.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">CLOUD</span>
+                    <span class="badge">INFRASTRUCTURE</span>
+                    <span class="badge">GLOBAL</span>
+                    <span class="badge">SCALABLE</span>
+                </div>
+                <p>Amazon Web Services (AWS) is a comprehensive cloud computing platform offering over 200 fully featured services from data centers globally. It powers millions of customers including startups, enterprises, and government agencies.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Services</h3>
+                <ul>
+                    <li><strong>EC2 (Elastic Compute Cloud)</strong> — Virtual servers in the cloud</li>
+                    <li><strong>S3 (Simple Storage Service)</strong> — Object storage with 99.999999999% durability</li>
+                    <li><strong>RDS (Relational Database Service)</strong> — Managed relational databases</li>
+                    <li><strong>Lambda</strong> — Serverless compute service</li>
+                    <li><strong>VPC (Virtual Private Cloud)</strong> — Isolated cloud network</li>
+                    <li><strong>CloudFront</strong> — Content delivery network (CDN)</li>
+                    <li><strong>DynamoDB</strong> — NoSQL database service</li>
+                    <li><strong>ECS/EKS</strong> — Container orchestration (Docker/Kubernetes)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>AWS CLI Installation</h3>
+                <pre><code># Windows (using MSI installer)
+# Download from: https://aws.amazon.com/cli/
+
+# macOS
+brew install awscli
+
+# Linux
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Verify installation
+aws --version
+
+# Configure AWS CLI
+aws configure
+# AWS Access Key ID: YOUR_ACCESS_KEY
+# AWS Secret Access Key: YOUR_SECRET_KEY
+# Default region name: us-east-1
+# Default output format: json</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>EC2 Instance Management</h3>
+                <pre><code># List all EC2 instances
+aws ec2 describe-instances
+
+# Launch a new instance
+aws ec2 run-instances \
+    --image-id ami-0c55b159cbfafe1f0 \
+    --instance-type t2.micro \
+    --key-name MyKeyPair \
+    --security-groups my-sg \
+    --count 1
+
+# Stop an instance
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+
+# Start an instance
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+
+# Terminate an instance
+aws ec2 terminate-instances --instance-ids i-1234567890abcdef0</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>S3 Operations</h3>
+                <pre><code># Create a bucket
+aws s3 mb s3://my-bucket-name
+
+# List all buckets
+aws s3 ls
+
+# Upload a file
+aws s3 cp myfile.txt s3://my-bucket-name/
+
+# Download a file
+aws s3 cp s3://my-bucket-name/myfile.txt ./
+
+# Sync directory to S3
+aws s3 sync ./local-folder s3://my-bucket-name/folder/
+
+# Delete a file
+aws s3 rm s3://my-bucket-name/myfile.txt
+
+# Delete bucket
+aws s3 rb s3://my-bucket-name --force</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Lambda Function Example</h3>
+                <pre><code># Node.js Lambda function
+exports.handler = async (event) => {
+    console.log('Event:', JSON.stringify(event, null, 2));
+    
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify({
+            message: 'Hello from Lambda!',
+            input: event
+        })
+    };
+    
+    return response;
+};
+
+# Python Lambda function
+import json
+
+def lambda_handler(event, context):
+    print("Event:", json.dumps(event))
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps({
+            'message': 'Hello from Lambda!',
+            'input': event
+        })
+    }
+
+# Deploy Lambda with AWS CLI
+aws lambda create-function \
+    --function-name MyFunction \
+    --runtime nodejs18.x \
+    --role arn:aws:iam::123456789012:role/lambda-role \
+    --handler index.handler \
+    --zip-file fileb://function.zip</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>AWS SDK Example (Python - Boto3)</h3>
+                <pre><code>import boto3
+
+# Create S3 client
+s3 = boto3.client('s3')
+
+# Upload file
+s3.upload_file('local-file.txt', 'my-bucket', 'remote-file.txt')
+
+# Download file
+s3.download_file('my-bucket', 'remote-file.txt', 'downloaded-file.txt')
+
+# List objects
+response = s3.list_objects_v2(Bucket='my-bucket')
+for obj in response.get('Contents', []):
+    print(obj['Key'])
+
+# EC2 operations
+ec2 = boto3.resource('ec2')
+
+# Launch instance
+instances = ec2.create_instances(
+    ImageId='ami-0c55b159cbfafe1f0',
+    MinCount=1,
+    MaxCount=1,
+    InstanceType='t2.micro',
+    KeyName='MyKeyPair'
+)
+
+# DynamoDB operations
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('Users')
+
+# Put item
+table.put_item(
+    Item={
+        'userId': '123',
+        'name': 'John Doe',
+        'email': 'john@example.com'
+    }
+)
+
+# Get item
+response = table.get_item(Key={'userId': '123'})
+print(response['Item'])</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>CloudFormation Template Example</h3>
+                <pre><code>AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Simple EC2 instance with S3 bucket'
+
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: my-application-bucket
+      VersioningConfiguration:
+        Status: Enabled
+
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0c55b159cbfafe1f0
+      KeyName: MyKeyPair
+      SecurityGroups:
+        - !Ref MySecurityGroup
+
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH and HTTP
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+Outputs:
+  InstanceId:
+    Description: Instance ID
+    Value: !Ref MyEC2Instance
+  BucketName:
+    Description: S3 Bucket Name
+    Value: !Ref MyS3Bucket</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing Model</h3>
+                <ul>
+                    <li><strong>Pay-as-you-go</strong> — Pay only for what you use</li>
+                    <li><strong>Save when you commit</strong> — Reserved instances up to 72% savings</li>
+                    <li><strong>Free Tier</strong> — 750 hours of t2.micro EC2, 5GB S3, and more</li>
+                    <li><strong>Spot Instances</strong> — Up to 90% discount for flexible workloads</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Global Infrastructure</h3>
+                <ul>
+                    <li><strong>33 Regions</strong> — Geographic areas worldwide</li>
+                    <li><strong>105 Availability Zones</strong> — Isolated data centers</li>
+                    <li><strong>600+ Edge Locations</strong> — For CloudFront CDN</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Enable MFA for root account and IAM users</li>
+                    <li>Follow the principle of least privilege for IAM</li>
+                    <li>Enable CloudTrail for audit logging</li>
+                    <li>Use encryption for data at rest and in transit</li>
+                    <li>Tag resources for cost tracking</li>
+                    <li>Use Auto Scaling for high availability</li>
+                    <li>Implement backup and disaster recovery</li>
+                    <li>Monitor with CloudWatch</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://aws.amazon.com/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.aws.amazon.com/" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://aws.amazon.com/training/" target="_blank">Training & Certification</a></li>
+                    <li>💬 <a href="https://forums.aws.amazon.com/" target="_blank">Community Forums</a></li>
+                    <li>📦 <a href="https://github.com/aws" target="_blank">GitHub - AWS</a></li>
+                    <li>🎥 <a href="https://www.youtube.com/user/AmazonWebServices" target="_blank">YouTube Channel</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://aws.amazon.com/" target="_blank">AWS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

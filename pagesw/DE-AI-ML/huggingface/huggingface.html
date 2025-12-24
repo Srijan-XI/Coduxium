@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hugging Face Transformers — Coduxium XI</title>
+    <meta name="description" content="Master Hugging Face - State-of-the-art NLP library with pre-trained models.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Hugging Face Transformers</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🤗 Hugging Face Transformers</h2>
+            <p class="intro">State-of-the-art Natural Language Processing library with thousands of pre-trained models.
+            </p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">NLP</span>
+                    <span class="badge">Transformers</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Pre-trained Models</span>
+                </div>
+                <p>Hugging Face Transformers provides thousands of pre-trained models for Natural Language Processing,
+                    Computer Vision, and Audio tasks. It's the go-to library for working with transformer architectures
+                    like BERT, GPT, T5, and more.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Model Hub</strong> — 100,000+ pre-trained models</li>
+                    <li><strong>Multi-Framework Support</strong> — PyTorch, TensorFlow, JAX</li>
+                    <li><strong>Pipelines</strong> — Simple interface for common tasks</li>
+                    <li><strong>AutoModels</strong> — Automatic model selection</li>
+                    <li><strong>Tokenizers</strong> — Fast tokenization library</li>
+                    <li><strong>Datasets</strong> — Integrated dataset library</li>
+                    <li><strong>Fine-Tuning</strong> — Easy transfer learning</li>
+                    <li><strong>ONNX Export</strong> — Production deployment</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Text classification and sentiment analysis</li>
+                    <li>Question answering systems</li>
+                    <li>Text generation (GPT models)</li>
+                    <li>Named entity recognition (NER)</li>
+                    <li>Machine translation</li>
+                    <li>Text summarization</li>
+                    <li>Image classification and object detection</li>
+                    <li>Speech recognition and generation</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Popular Models</h3>
+                <ul>
+                    <li><strong>BERT</strong> — Bidirectional encoder representations</li>
+                    <li><strong>GPT-2/GPT-3</strong> — Generative pre-trained transformers</li>
+                    <li><strong>T5</strong> — Text-to-text transfer transformer</li>
+                    <li><strong>RoBERTa</strong> — Robustly optimized BERT</li>
+                    <li><strong>BART</strong> — Denoising autoencoder</li>
+                    <li><strong>DistilBERT</strong> — Lightweight BERT variant</li>
+                    <li><strong>LLaMA/Mistral</strong> — Open-source LLMs</li>
+                    <li><strong>CLIP/ViT</strong> — Vision transformers</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Transformers:</p>
+                <pre><code>pip install transformers
+pip install datasets  # Optional but recommended</code></pre>
+
+                <p>Using pipelines for quick inference:</p>
+                <pre><code>from transformers import pipeline
+
+# Sentiment analysis
+classifier = pipeline("sentiment-analysis")
+result = classifier("I love Hugging Face!")
+
+# Text generation
+generator = pipeline("text-generation", model="gpt2")
+result = generator("Hello, I'm a language model")
+
+# Question answering
+qa = pipeline("question-answering")
+result = qa(
+    question="What is NLP?",
+    context="NLP is Natural Language Processing"
+)</code></pre>
+
+                <p>Fine-tuning a model:</p>
+                <pre><code>from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import Trainer, TrainingArguments
+
+# Load model and tokenizer
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased")
+
+# Prepare training arguments and trainer
+training_args = TrainingArguments(output_dir="./results")
+trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset)
+
+# Fine-tune
+trainer.train()</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use pipelines for quick prototyping</li>
+                    <li>Leverage AutoClasses for flexibility</li>
+                    <li>Fine-tune on domain-specific data</li>
+                    <li>Use mixed precision training for efficiency</li>
+                    <li>Implement proper data preprocessing</li>
+                    <li>Monitor validation metrics during training</li>
+                    <li>Use model quantization for deployment</li>
+                    <li>Explore the Hub for community models</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://huggingface.co/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://huggingface.co/docs/transformers" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/huggingface/transformers" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>React — Coduxium XI</title>
+    <meta name="description"
+        content="Master React - The library for building user interfaces with components and hooks.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">React Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>⚛️ React</h2>
+            <p class="intro">A JavaScript library for building user interfaces with reusable components and declarative
+                code.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Frontend</span>
+                    <span class="badge">Component-Based</span>
+                    <span class="badge">Virtual DOM</span>
+                    <span class="badge">JavaScript/TypeScript</span>
+                </div>
+                <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It
+                    lets you compose complex UIs from small and isolated pieces of code called "components". React makes
+                    it painless to create interactive UIs with a component-based architecture.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Component-Based Architecture</strong> — Build encapsulated components that manage their
+                        own state</li>
+                    <li><strong>Virtual DOM</strong> — Efficient rendering through intelligent diffing algorithm</li>
+                    <li><strong>React Hooks</strong> — Use state and lifecycle features without classes</li>
+                    <li><strong>JSX Syntax</strong> — Write HTML-like code in JavaScript for better readability</li>
+                    <li><strong>One-Way Data Flow</strong> — Predictable state management and debugging</li>
+                    <li><strong>Rich Ecosystem</strong> — Massive community with extensive libraries and tools</li>
+                    <li><strong>React Server Components</strong> — Server-side rendering capabilities</li>
+                    <li><strong>Concurrent Mode</strong> — Improved performance for complex applications</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Single Page Applications (SPAs)</li>
+                    <li>Progressive Web Apps (PWAs)</li>
+                    <li>Mobile applications with React Native</li>
+                    <li>Complex dashboards and admin panels</li>
+                    <li>E-commerce websites</li>
+                    <li>Social media platforms</li>
+                    <li>Real-time data visualization</li>
+                    <li>Content management systems</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Popular React Frameworks & Tools</h3>
+                <ul>
+                    <li><strong>Next.js</strong> — Production-ready React framework with SSR/SSG</li>
+                    <li><strong>Remix</strong> — Full-stack React framework</li>
+                    <li><strong>Gatsby</strong> — Static site generator for React</li>
+                    <li><strong>Create React App</strong> — Official starter template</li>
+                    <li><strong>Vite</strong> — Modern build tool with fast HMR</li>
+                    <li><strong>Redux/Zustand</strong> — State management libraries</li>
+                    <li><strong>React Router</strong> — Routing library for SPAs</li>
+                    <li><strong>Material-UI/Chakra UI</strong> — Component libraries</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Components</h4>
+                <ul>
+                    <li>Functional components with hooks</li>
+                    <li>Props for passing data</li>
+                    <li>State management with useState</li>
+                    <li>Side effects with useEffect</li>
+                </ul>
+
+                <h4>Hooks</h4>
+                <ul>
+                    <li><code>useState</code> — State management</li>
+                    <li><code>useEffect</code> — Side effects and lifecycle</li>
+                    <li><code>useContext</code> — Context API for global state</li>
+                    <li><code>useReducer</code> — Complex state logic</li>
+                    <li><code>useMemo/useCallback</code> — Performance optimization</li>
+                    <li>Custom hooks for reusable logic</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Create a new React app with Vite (recommended):</p>
+                <pre><code>npm create vite@latest my-app -- --template react
+cd my-app
+npm install
+npm run dev</code></pre>
+
+                <p>Or with Create React App:</p>
+                <pre><code>npx create-react-app my-app
+cd my-app
+npm start</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Keep components small and focused</li>
+                    <li>Use functional components with hooks</li>
+                    <li>Implement proper key props for lists</li>
+                    <li>Avoid prop drilling with Context API</li>
+                    <li>Use TypeScript for type safety</li>
+                    <li>Implement code splitting and lazy loading</li>
+                    <li>Follow accessibility guidelines (a11y)</li>
+                    <li>Write tests with React Testing Library</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://react.dev/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://react.dev/learn" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/facebook/react" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

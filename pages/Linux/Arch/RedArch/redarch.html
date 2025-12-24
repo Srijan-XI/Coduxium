@@ -1,134 +1,211 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RedArch Linux — DevSphere</title>
-    <link rel="stylesheet" href="../../../../css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --redarch-red: #ff3333;
-            --redarch-dark: #cc0000;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedArch - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete RedArch guide - Arch-based security distribution aimed at red team workflows">
 
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: radial-gradient(circle at top, rgba(255, 51, 51, 0.15), transparent 50%);
-            border-radius: var(--radius-lg);
-            margin-bottom: 3rem;
-        }
-
-        .hero-section h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--redarch-red), var(--redarch-dark));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .info-card {
-            background: var(--surface-2);
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--redarch-red);
-            box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2);
-        }
-
-        .info-card h3 {
-            color: var(--redarch-red);
-            margin-bottom: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 
-<body>
+<body class="linux-page">
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
-                <span class="logo">🛡️</span>
+                <span class="logo">🐧</span>
                 <div>
-                    <h1><a href="../../../../index.html">DevSphere</a></h1>
-                    <p class="sub">RedArch Linux</p>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">RedArch</a></h1>
+                    <p class="sub">Arch-based offensive security distro</p>
                 </div>
             </div>
             <div class="header-actions">
-                <a href="../arch.html" class="btn">← Back to Arch</a>
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
                 <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
             </div>
         </div>
     </header>
 
     <main class="container" style="padding: 40px 0;">
-        <article class="content-page">
-            <section class="hero-section">
-                <h2>RedArch Linux</h2>
-                <p class="intro">An Arch-based penetration testing distribution with a focus on red team operations and
-                    offensive security tools.</p>
-            </section>
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🛡️</span>
+                <span>Red Team</span>
+            </div>
+            <h1 class="hero-title">RedArch</h1>
+            <p class="hero-description">An Arch-based penetration testing distribution that focuses on red team operations and offensive security tooling.</p>
+        </section>
 
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>📋 Overview</h3>
-                    <p><strong>Base:</strong> Arch Linux</p>
-                    <p><strong>Package Manager:</strong> Pacman</p>
-                    <p><strong>Desktop:</strong> Various</p>
-                    <p><strong>Target:</strong> Red Team Operations</p>
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Arch Linux</li>
+                    <li><strong>Package Manager:</strong> Pacman (+ AUR)</li>
+                    <li><strong>Desktop:</strong> Varies</li>
+                    <li><strong>Release Model:</strong> Rolling</li>
+                    <li><strong>Target Users:</strong> Red teamers, pentesters</li>
+                </ul>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card"><span class="feature-icon">🧰</span><h4>Offensive Toolkit</h4><p>Common red team tooling and workflows.</p></div>
+                <div class="feature-card"><span class="feature-icon">🔄</span><h4>Rolling Base</h4><p>Arch packages and rapid updates.</p></div>
+                <div class="feature-card"><span class="feature-icon">🧱</span><h4>Customizable</h4><p>Build minimal or full desktop setups.</p></div>
+                <div class="feature-card"><span class="feature-icon">🧪</span><h4>Lab Friendly</h4><p>Works well with VMs, snapshots, and test labs.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>What is RedArch?</h3></div>
+                <p style="line-height: 1.8; margin: 20px 0;">RedArch is an Arch-based security distribution intended for penetration testing and red team operations. It builds on Arch's package ecosystem and supports typical security tooling setups.</p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Arch base and Pacman workflow</li>
+                    <li>Security and red team focus</li>
+                    <li>Rolling updates</li>
+                    <li>Flexible desktop choices</li>
+                    <li>Works well in VM/lab environments</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose RedArch?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card"><span class="practice-num">1</span><h4>Arch Ecosystem</h4><p>Use Pacman + AUR for fast access to packages.</p></div>
+                    <div class="practice-card"><span class="practice-num">2</span><h4>Security Focus</h4><p>Designed for offensive security workflows.</p></div>
+                    <div class="practice-card"><span class="practice-num">3</span><h4>Build Your Setup</h4><p>Keep it minimal or configure a full desktop stack.</p></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="info-card">
-                    <h3>🔧 Package Management</h3>
-                    <p>Uses Pacman with AUR support.</p>
-                    <pre><code>sudo pacman -Syu
-sudo pacman -S package-name</code></pre>
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Step 1: Download</h4><p class="command-desc">If an official download is available, verify checksums and use the project site. If not, consider Arch + selected tools instead.</p></div>
+                <div class="command-card"><h4>Step 2: Create Bootable USB</h4><pre><code class="language-bash"># Linux
+sudo dd if=redarch.iso of=/dev/sdX bs=4M status=progress && sync</code></pre></div>
+                <div class="command-card"><h4>Step 3: Boot from USB</h4><p class="command-desc">Boot the live environment and ensure network and graphics are working.</p></div>
+                <div class="command-card"><h4>Step 4: Install</h4><p class="command-desc">Use the installer (if provided) or install on top of Arch using Pacman and configured repositories.</p></div>
+            </div>
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB+ recommended</li>
+                    <li><strong>GPU:</strong> Any compatible with your desktop</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Update System</h4><pre><code class="language-bash">sudo pacman -Syu</code></pre></div>
+                    <div class="command-card"><h4>Install Package</h4><pre><code class="language-bash">sudo pacman -S package-name</code></pre></div>
+                    <div class="command-card"><h4>Remove Package</h4><pre><code class="language-bash">sudo pacman -Rns package-name</code></pre></div>
+                    <div class="command-card"><h4>Search Package</h4><pre><code class="language-bash">pacman -Ss keyword</code></pre></div>
                 </div>
-
-                <div class="info-card">
-                    <h3>✨ Key Features</h3>
-                    <ul>
-                        <li>Red team toolkit</li>
-                        <li>Rolling release</li>
-                        <li>Offensive security tools</li>
-                        <li>Customizable environment</li>
-                    </ul>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Network Basics</h4><p class="command-desc">Verify IP, DNS, and routing before testing.</p></div>
+                    <div class="command-card"><h4>Isolation</h4><p class="command-desc">Use VM snapshots to roll back after experiments.</p></div>
+                    <div class="command-card"><h4>Logging</h4><p class="command-desc">Keep notes and evidence for repeatable results.</p></div>
+                    <div class="command-card"><h4>Updates</h4><p class="command-desc">Update frequently to avoid large upgrade jumps.</p></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="info-card">
-                    <h3>🎯 Use Cases</h3>
-                    <ul>
-                        <li>Penetration testing</li>
-                        <li>Red team operations</li>
-                        <li>Security assessments</li>
-                        <li>Vulnerability research</li>
-                    </ul>
-                </div>
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Service Management</h4><pre><code class="language-bash">sudo systemctl status
+sudo systemctl enable --now sshd</code></pre><p class="command-desc">Enable SSH for lab use.</p></div>
+                <div class="command-card"><h4>Packet Inspection</h4><pre><code class="language-bash">ip a
+ss -tulpn</code></pre><p class="command-desc">Quick visibility into interfaces and services.</p></div>
+                <div class="command-card"><h4>Repository Hygiene</h4><pre><code class="language-bash">pacman -Qm
+pacman -Qdtq</code></pre><p class="command-desc">Audit foreign/orphan packages.</p></div>
+                <div class="command-card"><h4>Container Tooling</h4><pre><code class="language-bash">docker ps
+podman ps</code></pre><p class="command-desc">Keep toolchains isolated.</p></div>
+            </div>
+        </section>
 
-                <div class="info-card">
-                    <h3>🔗 Resources</h3>
-                    <p><a href="https://archlinux.org/" target="_blank">Arch Linux Base</a></p>
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table"><table>
+                    <thead><tr><th>Task</th><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Update system</strong></td><td><code>sudo pacman -Syu</code></td><td>Upgrade packages</td></tr>
+                        <tr><td><strong>Search packages</strong></td><td><code>pacman -Ss keyword</code></td><td>Search repos</td></tr>
+                        <tr><td><strong>Install package</strong></td><td><code>sudo pacman -S pkg</code></td><td>Install software</td></tr>
+                        <tr><td><strong>Remove package</strong></td><td><code>sudo pacman -Rns pkg</code></td><td>Remove + deps</td></tr>
+                        <tr><td><strong>List installed</strong></td><td><code>pacman -Qe</code></td><td>Explicit packages</td></tr>
+                        <tr><td><strong>List foreign</strong></td><td><code>pacman -Qm</code></td><td>Non-repo packages</td></tr>
+                        <tr><td><strong>IP addresses</strong></td><td><code>ip a</code></td><td>Interfaces</td></tr>
+                        <tr><td><strong>Open ports</strong></td><td><code>ss -tulpn</code></td><td>Listening services</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Filesystem usage</td></tr>
+                        <tr><td><strong>Logs</strong></td><td><code>journalctl -xe</code></td><td>Debug issues</td></tr>
+                    </tbody>
+                </table></div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="https://archlinux.org/" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Arch Base</h4><p>Arch Linux website</p></a>
+                <a href="https://wiki.archlinux.org/" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Arch Wiki</h4><p>Best-in-class Linux docs</p></a>
+                <a href="https://github.com/" target="_blank" class="next-step-card"><span class="step-icon">💬</span><h4>Community</h4><p>Use project community channels</p></a>
+                <a href="https://github.com/" target="_blank" class="next-step-card"><span class="step-icon">💻</span><h4>Source Code</h4><p>Project repositories (if available)</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;"><strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Build a VM lab and take snapshots</li>
+                    <li>Install only needed tools and keep notes</li>
+                    <li>Keep system updated and stable</li>
+                    <li>Use isolated environments for tests</li>
+                    <li>Review OPSEC before engagements</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../../Debian/Kali/kali.html" class="next-step-card"><span class="step-icon">🐉</span><h4>Kali Linux</h4><p>Popular security distro</p></a>
+                <a href="../BlackArch/blackarch.html" class="next-step-card"><span class="step-icon">🐱‍💻</span><h4>BlackArch</h4><p>Arch-based security repo</p></a>
+                <a href="../arch.html" class="next-step-card"><span class="step-icon">🏗️</span><h4>Arch Linux</h4><p>Upstream base distro</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
                     <p><a href="https://wiki.archlinux.org/" target="_blank">Arch Wiki</a></p>
                 </div>
 
@@ -144,7 +221,7 @@ sudo pacman -S package-name</code></pre>
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <small>DevSphere © 2025</small>
+            <small>Coduxium XI © 2025</small>
             <div class="footer-links">
                 <a href="../../../../index.html">Home</a>
                 <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tails - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Tails guide - Privacy-focused amnesic live OS that routes traffic through Tor">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Tails</a></h1>
+                    <p class="sub">Amnesic Tor-based live OS</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🔒</span>
+                <span>Privacy & Anonymity</span>
+            </div>
+            <h1 class="hero-title">Tails</h1>
+            <p class="hero-description">
+                A privacy-focused live operating system that routes all internet traffic through Tor and is designed to leave no trace on the computer you use.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Debian</li>
+                    <li><strong>Package Manager:</strong> APT (limited; designed for live use)</li>
+                    <li><strong>Desktop:</strong> GNOME</li>
+                    <li><strong>Release Model:</strong> Stable releases</li>
+                    <li><strong>Target Users:</strong> Privacy-conscious users, journalists, activists</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🌐</span>
+                    <h4>Tor by Default</h4>
+                    <p>All connections are forced through Tor; non-Tor traffic is blocked.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🧼</span>
+                    <h4>Amnesic Design</h4>
+                    <p>No traces left behind after shutdown by default.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💾</span>
+                    <h4>Portable Live USB</h4>
+                    <p>Run from USB on many computers without installing.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h4>Crypto Tools</h4>
+                    <p>Includes tools for encrypted communication and file safety.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Tails?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Tails (The Amnesic Incognito Live System) is a Debian-based live operating system aimed at preserving privacy and anonymity. It is designed to be used from a USB stick and routes internet connections through Tor, while trying not to leave traces on the host computer.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Tor Browser with security levels</li>
+                    <li>Amnesic shutdown (no traces by default)</li>
+                    <li>Optional encrypted persistent storage</li>
+                    <li>Encrypted communication tools (e.g., email with OpenPGP)</li>
+                    <li>Built-in tools for safer file handling</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Tails?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Stay Anonymous</h4>
+                        <p>Use Tor for browsing and communications in a privacy-focused environment.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Portable Security</h4>
+                        <p>Carry a secure environment on a USB stick for use on many machines.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Leave No Trace</h4>
+                        <p>Amnesic design reduces local traces after shutdown by default.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download Tails from: <a href="https://tails.net/install/" target="_blank">https://tails.net/install/</a>
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Recommended: follow the official installer instructions
+
+# Linux (example with dd)
+sudo dd if=tails-amd64.img of=/dev/sdX bs=16M status=progress && sync
+
+# Or use: Etcher, Rufus, Ventoy</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Use boot menu (F12/ESC/F2 varies)<br>
+                        4. Select USB to launch Tails
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: First Boot Setup</h4>
+                    <p class="command-desc">
+                        Configure language/keyboard, optional admin password, and Tor bridges if needed, then start Tails.
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit compatible</li>
+                    <li><strong>RAM:</strong> 2GB minimum (more recommended)</li>
+                    <li><strong>Storage:</strong> 8GB USB minimum</li>
+                    <li><strong>GPU:</strong> Any compatible with GNOME</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash"># Tails updates are primarily done by updating to a new release
+# Follow the in-app updater / official docs</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Install Package (Temporary)</h4>
+                        <pre><code class="language-bash"># Requires setting an admin password at boot
+sudo apt update
+sudo apt install package-name</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo apt remove package-name</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">apt search keyword</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Persistent Storage</h4>
+                        <p class="command-desc">Optionally enable encrypted persistence for selected data and settings.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Tor Browser</h4>
+                        <p class="command-desc">Use appropriate security level and avoid mixing anonymous and personal identities.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Secure Communication</h4>
+                        <p class="command-desc">Use included tools (e.g., email with OpenPGP) for safer messaging.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Tor Bridges</h4>
+                        <p class="command-desc">If Tor is blocked, configure bridges during startup.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Admin Password</h4>
+                    <pre><code class="language-bash"># Set at boot:
+# Welcome screen → Additional Settings → Administration Password
+
+# Enables sudo for the session</code></pre>
+                    <p class="command-desc">Admin password is temporary and resets after shutdown.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Additional Software</h4>
+                    <pre><code class="language-bash">sudo apt update
+sudo apt install package-name</code></pre>
+                    <p class="command-desc">Persist installed packages only if persistence is enabled and configured.</p>
+                </div>
+                <div class="command-card">
+                    <h4>MAC Address Spoofing</h4>
+                    <pre><code class="language-bash"># Tails attempts MAC address spoofing automatically
+# Check logs in the system log if troubleshooting</code></pre>
+                    <p class="command-desc">Helps reduce tracking via hardware identifiers.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Tor Bridges</h4>
+                    <pre><code class="language-bash"># Configure at boot if Tor is censored
+# Use built-in bridges or request from torproject.org</code></pre>
+                    <p class="command-desc">Useful when Tor access is restricted.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update package lists</strong></td>
+                            <td><code>sudo apt update</code></td>
+                            <td>Refresh APT metadata (requires admin password)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install package</strong></td>
+                            <td><code>sudo apt install package-name</code></td>
+                            <td>Install software for the session (or persist if configured)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Check network</strong></td>
+                            <td><code>nmcli</code></td>
+                            <td>Inspect network connections</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disk usage</strong></td>
+                            <td><code>df -h</code></td>
+                            <td>Check filesystem usage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System info</strong></td>
+                            <td><code>uname -a</code></td>
+                            <td>Show kernel and system information</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search packages</strong></td>
+                            <td><code>apt search keyword</code></td>
+                            <td>Find packages (installations are session-based unless persisted)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remove package</strong></td>
+                            <td><code>sudo apt remove package-name</code></td>
+                            <td>Remove software from the session</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tor check</strong></td>
+                            <td><code>torsocks curl https://check.torproject.org/api/ip</code></td>
+                            <td>Verify traffic can go through Tor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>View logs</strong></td>
+                            <td><code>journalctl -xe</code></td>
+                            <td>Investigate system issues during a session</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List USB devices</strong></td>
+                            <td><code>lsusb</code></td>
+                            <td>Check attached USB devices</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://tails.net/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Tails homepage</p>
+                </a>
+                <a href="https://tails.net/doc/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official docs and guides</p>
+                </a>
+                <a href="https://tails.net/support/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Support</h4>
+                    <p>Help and troubleshooting</p>
+                </a>
+                <a href="https://gitlab.tails.boum.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>GitLab project</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Boot Tails and configure your startup settings</li>
+                    <li>Enable encrypted persistent storage (optional)</li>
+                    <li>Learn Tor Browser security levels</li>
+                    <li>Practice good operational security (OpSec)</li>
+                    <li>Read official documentation and warnings</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../../Qubes/Qubes.html" class="next-step-card">
+                    <span class="step-icon">🔐</span>
+                    <h4>Qubes OS</h4>
+                    <p>Isolation-focused security OS</p>
+                </a>
+                <a href="../ParrotSec/parrotsec.html" class="next-step-card">
+                    <span class="step-icon">🦜</span>
+                    <h4>Parrot Security</h4>
+                    <p>Security & privacy toolkit</p>
+                </a>
+                <a href="../Kali/kali.html" class="next-step-card">
+                    <span class="step-icon">🛠️</span>
+                    <h4>Kali Linux</h4>
+                    <p>Penetration testing distro</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

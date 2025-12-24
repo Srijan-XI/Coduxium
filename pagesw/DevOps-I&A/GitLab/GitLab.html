@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete guide to GitLab - DevOps platform with built-in CI/CD, container registry, and complete DevSecOps lifecycle." />
+  <meta name="keywords"
+    content="GitLab, Git, CI/CD, DevOps, Version Control, Container Registry, Kubernetes, Pipeline, Merge Requests" />
+  <title>GitLab Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>GitLab Complete Guide</h1>
+      <p class="subtitle">All-in-one DevOps platform with built-in CI/CD, source control, and complete software development lifecycle management.</p>
+      <div class="badge-row">
+        <span class="badge">CI/CD</span>
+        <span class="badge">REPOSITORIES</span>
+        <span class="badge">MERGE REQUESTS</span>
+        <span class="badge">PIPELINES</span>
+        <span class="badge">DEVOPS</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#cicd">CI/CD Pipelines</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Pro Tip:</strong> GitLab's built-in CI/CD is one of its strongest features. Start with Auto DevOps to get CI/CD pipelines with zero configuration!</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is GitLab?</h3>
+      <p>GitLab is a complete DevOps platform delivered as a single application. It provides Git repository management, issue tracking, code review, CI/CD pipelines, container registry, and more - all in one unified interface. Unlike other tools that require multiple integrations, GitLab provides the entire DevSecOps lifecycle out of the box.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>📦 Source Code Management</strong> — Git repositories with powerful merge requests</div>
+        <div class="topic"><strong>🔄 CI/CD Pipelines</strong> — Built-in continuous integration and deployment</div>
+        <div class="topic"><strong>🐛 Issue Tracking</strong> — Advanced issue boards and planning tools</div>
+        <div class="topic"><strong>📦 Container Registry</strong> — Built-in Docker container registry</div>
+        <div class="topic"><strong>🔒 Security Scanning</strong> — SAST, DAST, dependency scanning</div>
+        <div class="topic"><strong>☸️ Kubernetes Integration</strong> — Native k8s deployment support</div>
+        <div class="topic"><strong>📊 Analytics</strong> — DevOps metrics and insights</div>
+        <div class="topic"><strong>🤝 Collaboration</strong> — Code review, wikis, snippets</div>
+      </div>
+
+      <h3>Why Choose GitLab?</h3>
+      <ul>
+        <li><strong>All-in-One Platform:</strong> Complete DevOps lifecycle in a single application.</li>
+        <li><strong>Built-in CI/CD:</strong> No need for separate CI/CD tools like Jenkins or CircleCI.</li>
+        <li><strong>Self-Hosted Option:</strong> Full control with GitLab CE (Community Edition) or EE (Enterprise Edition).</li>
+        <li><strong>Auto DevOps:</strong> Automatic CI/CD configuration for standard applications.</li>
+        <li><strong>Powerful Merge Requests:</strong> Advanced code review with inline comments and approvals.</li>
+        <li><strong>Kubernetes Native:</strong> First-class support for Kubernetes deployments.</li>
+      </ul>
+
+      <h3>Use Cases</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>💻 Software Development</strong> — Full DevOps lifecycle</div>
+        <div class="topic"><strong>🔄 CI/CD Automation</strong> — Automated testing and deployment</div>
+        <div class="topic"><strong>🔒 DevSecOps</strong> — Integrated security scanning</div>
+        <div class="topic"><strong>☁️ Cloud Native</strong> — Kubernetes and container workflows</div>
+      </div>
+    </section>
+
+    <!-- ==================== INSTALLATION SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>🛠️ Installation & Setup</h2>
+
+      <h3>GitLab Account Setup</h3>
+      <p>Choose between GitLab.com (cloud-hosted) or self-hosted GitLab.</p>
+
+      <h4>GitLab.com (Cloud)</h4>
+      <pre><code># Create free account at gitlab.com
+# Features: Unlimited public/private repos, 400 CI/CD minutes/month (free tier)
+
+# Access via: https://gitlab.com
+</code></pre>
+
+      <h4>Install GitLab Runner (for CI/CD)</h4>
+      <pre><code># Linux (Debian/Ubuntu)
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+sudo apt-get install gitlab-runner
+
+# macOS
+brew install gitlab-runner
+
+# Windows (PowerShell as Administrator)
+New-Item -ItemType Directory -Force -Path "C:\GitLab-Runner"
+cd C:\GitLab-Runner
+Invoke-WebRequest -Uri "https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-windows-amd64.exe" -OutFile "gitlab-runner.exe"
+.\gitlab-runner.exe install
+.\gitlab-runner.exe start
+
+# Register runner
+gitlab-runner register
+# Follow prompts: enter GitLab URL, token (from Settings > CI/CD > Runners)
+</code></pre>
+
+      <h4>Install GitLab CLI (glab)</h4>
+      <pre><code># macOS
+brew install glab
+
+# Windows
+winget install -e --id GLab.GLab
+
+# Linux
+# Download from: https://gitlab.com/gitlab-org/cli/-/releases
+
+# Authenticate
+glab auth login
+</code></pre>
+
+      <h3>SSH Key Setup</h3>
+      <pre><code># Generate SSH key
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Start SSH agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# Copy public key
+cat ~/.ssh/id_ed25519.pub
+
+# Add to GitLab: Profile > Preferences > SSH Keys
+</code></pre>
+
+      <h3>Git Configuration</h3>
+      <pre><code># Configure Git
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+# Set GitLab as default remote
+git remote add origin git@gitlab.com:username/repo.git
+</code></pre>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card">
+      <h2>📖 User Guide</h2>
+
+      <h3>Creating and Managing Repositories</h3>
+      <pre><code># Create new project via CLI
+glab repo create my-project --public
+
+# Clone repository
+git clone git@gitlab.com:username/my-project.git
+cd my-project
+
+# Create and push first commit
+echo "# My Project" > README.md
+git add README.md
+git commit -m "Initial commit"
+git push -u origin main
+</code></pre>
+
+      <h3>Branches and Merge Requests</h3>
+      <pre><code># Create feature branch
+git checkout -b feature/new-feature
+
+# Make changes and commit
+git add .
+git commit -m "feat: add new feature"
+git push -u origin feature/new-feature
+
+# Create merge request via CLI
+glab mr create --fill --yes
+
+# Or create via web: Project > Merge Requests > New merge request
+
+# Review and merge
+glab mr view
+glab mr merge
+</code></pre>
+
+      <h3>Issues and Boards</h3>
+      <pre><code># Create issue
+glab issue create --title "Bug: fix login error" --description "Users cannot login" --label bug
+
+# List issues
+glab issue list
+
+# Close issue
+glab issue close 123
+
+# Create issue board: Project > Issues > Boards
+</code></pre>
+
+      <h3>Container Registry</h3>
+      <pre><code># Login to GitLab container registry
+docker login registry.gitlab.com -u your-username
+
+# Build and tag image
+docker build -t registry.gitlab.com/username/project/app:latest .
+
+# Push to registry
+docker push registry.gitlab.com/username/project/app:latest
+
+# Pull image
+docker pull registry.gitlab.com/username/project/app:latest
+</code></pre>
+    </section>
+
+    <!-- ==================== CI/CD PIPELINES SECTION ==================== -->
+    <section id="cicd" class="card accent">
+      <h2>🔄 CI/CD Pipelines</h2>
+
+      <h3>Basic .gitlab-ci.yml</h3>
+      <p>GitLab CI/CD uses <code>.gitlab-ci.yml</code> file in the repository root to define pipelines.</p>
+      <pre><code># .gitlab-ci.yml - Basic Pipeline
+stages:
+  - build
+  - test
+  - deploy
+
+build-job:
+  stage: build
+  script:
+    - echo "Building the application..."
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+test-job:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - npm test
+  coverage: '/Coverage: \d+\.\d+%/'
+
+deploy-job:
+  stage: deploy
+  script:
+    - echo "Deploying application..."
+    - ./deploy.sh
+  only:
+    - main
+</code></pre>
+
+      <h3>Node.js CI/CD Pipeline</h3>
+      <pre><code>image: node:20
+
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install:
+  stage: install
+  script:
+    - npm ci
+
+test:
+  stage: test
+  script:
+    - npm run test
+    - npm run lint
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+
+deploy:production:
+  stage: deploy
+  script:
+    - npm run deploy
+  environment:
+    name: production
+    url: https://myapp.com
+  only:
+    - main
+</code></pre>
+
+      <h3>Docker Build Pipeline</h3>
+      <pre><code>stages:
+  - build
+  - test
+  - release
+
+variables:
+  DOCKER_DRIVER: overlay2
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+
+test:
+  stage: test
+  image: $IMAGE_TAG
+  script:
+    - npm test
+
+release:
+  stage: release
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker pull $IMAGE_TAG
+    - docker tag $IMAGE_TAG $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - main
+</code></pre>
+
+      <h3>Multi-Stage Pipeline with Environments</h3>
+      <pre><code>stages:
+  - build
+  - test
+  - staging
+  - production
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+test:
+  stage: test
+  script:
+    - npm test
+
+deploy:staging:
+  stage: staging
+  script:
+    - ./deploy.sh staging
+  environment:
+    name: staging
+    url: https://staging.myapp.com
+  only:
+    - develop
+
+deploy:production:
+  stage: production
+  script:
+    - ./deploy.sh production
+  environment:
+    name: production
+    url: https://myapp.com
+  when: manual  # Requires manual approval
+  only:
+    - main
+</code></pre>
+
+      <h3>Pipeline Variables and Secrets</h3>
+      <pre><code># Define in Settings > CI/CD > Variables
+# Access in pipeline:
+
+deploy:
+  script:
+    - echo "Deploying to $DEPLOY_SERVER"
+    - echo "Using API key: $API_KEY"  # Masked variable
+    - kubectl config use-context $KUBE_CONTEXT
+
+# Protected variables (only available on protected branches)
+# File variables (mount as files)
+# Masked variables (hidden in logs)
+</code></pre>
+
+      <h3>Auto DevOps</h3>
+      <pre><code># Enable Auto DevOps in Settings > CI/CD > Auto DevOps
+# GitLab automatically:
+# - Builds Docker images
+# - Runs tests
+# - Performs security scanning
+# - Deploys to Kubernetes
+# - Sets up monitoring
+
+# No .gitlab-ci.yml needed for standard apps!
+
+# Customize by adding .gitlab-ci.yml with only specific jobs
+include:
+  - template: Auto-DevOps.gitlab-ci.yml
+
+# Override specific jobs
+test:
+  script:
+    - npm test -- --custom-flag
+</code></pre>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>GitLab Runner Configuration</h3>
+      <pre><code># config.toml for GitLab Runner
+concurrent = 4
+
+[[runners]]
+  name = "docker-runner"
+  url = "https://gitlab.com/"
+  token = "your-runner-token"
+  executor = "docker"
+  [runners.docker]
+    image = "node:20"
+    privileged = false
+    volumes = ["/cache"]
+  [runners.cache]
+    Type = "s3"
+    Shared = true
+</code></pre>
+
+      <h3>Kubernetes Deployment</h3>
+      <pre><code># Deploy to Kubernetes cluster
+deploy:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  script:
+    - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
+    - kubectl config set-credentials admin --token="$KUBE_TOKEN"
+    - kubectl config set-context default --cluster=k8s --user=admin
+    - kubectl config use-context default
+    - kubectl apply -f k8s/deployment.yaml
+    - kubectl rollout status deployment/myapp
+  environment:
+    name: production
+    kubernetes:
+      namespace: production
+</code></pre>
+
+      <h3>Security Scanning</h3>
+      <pre><code>include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+  - template: Security/Container-Scanning.gitlab-ci.yml
+  - template: Security/DAST.gitlab-ci.yml
+
+# SAST (Static Application Security Testing)
+# Scans source code for vulnerabilities
+
+# Dependency Scanning
+# Checks for vulnerable dependencies
+
+# Container Scanning
+# Scans Docker images
+
+# DAST (Dynamic Application Security Testing)
+# Tests running application
+
+# View results in: Security & Compliance > Vulnerability Report
+</code></pre>
+
+      <h3>Code Quality and Coverage</h3>
+      <pre><code>include:
+  - template: Code-Quality.gitlab-ci.yml
+
+test:
+  script:
+    - npm test -- --coverage
+  coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+
+# View coverage in MR diff
+# See code quality degradation in MRs
+</code></pre>
+
+      <h3>GitLab Pages</h3>
+      <pre><code>pages:
+  stage: deploy
+  script:
+    - npm run build
+    - mv dist public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+
+# Site will be available at: https://username.gitlab.io/repo-name
+</code></pre>
+
+      <h3>Scheduled Pipelines (Cron Jobs)</h3>
+      <pre><code># Create in CI/CD > Schedules
+# Or define in pipeline:
+
+nightly-build:
+  script:
+    - npm run build
+  only:
+    - schedules
+
+# Use variables to distinguish scheduled runs
+cleanup:
+  script:
+    - ./cleanup.sh
+  only:
+    variables:
+      - $CI_PIPELINE_SOURCE == "schedule"
+</code></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>📌 Next Steps</h2>
+
+      <h3>Official Resources</h3>
+      <ul>
+        <li>📘 <a href="https://docs.gitlab.com/" target="_blank">Official GitLab Documentation</a></li>
+        <li>🎓 <a href="https://about.gitlab.com/learn/" target="_blank">GitLab Learning Paths</a></li>
+        <li>🔄 <a href="https://docs.gitlab.com/ee/ci/" target="_blank">GitLab CI/CD Documentation</a></li>
+        <li>📦 <a href="https://docs.gitlab.com/ee/user/packages/container_registry/" target="_blank">Container Registry Docs</a></li>
+        <li>☸️ <a href="https://docs.gitlab.com/ee/user/project/clusters/deploy_to_cluster.html" target="_blank">Kubernetes Integration</a></li>
+      </ul>
+
+      <h3>Community and Support</h3>
+      <ul>
+        <li>💬 <a href="https://forum.gitlab.com/" target="_blank">GitLab Forum</a></li>
+        <li>🐦 <a href="https://twitter.com/gitlab" target="_blank">@GitLab on Twitter</a></li>
+        <li>📺 <a href="https://www.youtube.com/gitlab" target="_blank">GitLab YouTube Channel</a></li>
+        <li>📝 <a href="https://about.gitlab.com/blog/" target="_blank">GitLab Blog</a></li>
+      </ul>
+
+      <h3>Learning Path</h3>
+      <ol>
+        <li>✅ Create GitLab account and set up SSH keys</li>
+        <li>📦 Create your first project and push code</li>
+        <li>🔄 Set up basic CI/CD pipeline with .gitlab-ci.yml</li>
+        <li>🐛 Use Issues and Boards for project management</li>
+        <li>🔀 Practice merge requests and code review</li>
+        <li>🐳 Build and push Docker images to GitLab Registry</li>
+        <li>☸️ Deploy to Kubernetes using GitLab CI/CD</li>
+        <li>🔒 Enable security scanning for your projects</li>
+        <li>🤖 Explore Auto DevOps for zero-config CI/CD</li>
+      </ol>
+
+      <div class="info-box"><strong>🎯 Challenge:</strong> Create a full CI/CD pipeline that builds, tests, containerizes, and deploys your application to a Kubernetes cluster using GitLab!</div>
+    </section>
+
+    <footer class="page-footer">
+      <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../docpages/about/about.html">About</a>
+        <a href="https://gitlab.com/" target="_blank">GitLab</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../../components/theme-switch/theme-switcher.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+  <script src="../../../components/code-highlighter/code-highlighter.js"></script>
+</body>
+
+</html>

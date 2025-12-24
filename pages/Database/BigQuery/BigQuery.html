@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Google BigQuery guide - Learn SQL queries, data warehousing, and best practices for serverless analytics." />
+    <meta name="keywords" content="BigQuery, Google Cloud, Data Warehouse, SQL, Analytics, Serverless, GCP" />
+    <title>Google BigQuery Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../database-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🔍 Google BigQuery Complete Guide</h1>
+            <p class="subtitle">Serverless, highly scalable, and cost-effective multi-cloud data warehouse.</p>
+            <div class="badge-row">
+                <span class="badge">SERVERLESS</span>
+                <span class="badge">PETABYTE-SCALE</span>
+                <span class="badge">REAL-TIME ANALYTICS</span>
+                <span class="badge">ML BUILT-IN</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Getting Started</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Google Scale:</strong> BigQuery can scan terabytes in seconds and petabytes
+                in minutes using Google's infrastructure.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Google BigQuery?</h3>
+            <p><strong>Google BigQuery</strong> is a fully managed, serverless data warehouse that enables scalable
+                analysis over petabytes of data. It's a Platform as a Service (PaaS) that supports queries using ANSI
+                SQL. BigQuery is designed to process read-only (SELECT) queries on huge datasets, making it ideal for
+                analytics and business intelligence.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🚀 Serverless</strong> — No infrastructure management</div>
+                <div class="topic"><strong>⚡ Fast</strong> — Scan TB in seconds</div>
+                <div class="topic"><strong>📊 Standard SQL</strong> — ANSI SQL 2011 compliant</div>
+                <div class="topic"><strong>🤖 ML Built-in</strong> — BigQuery ML for predictions</div>
+                <div class="topic"><strong>🌐 Multi-Cloud</strong> — Query across clouds</div>
+                <div class="topic"><strong>💰 Cost-Effective</strong> — Pay per query</div>
+                <div class="topic"><strong>🔄 Real-Time</strong> — Streaming inserts</div>
+                <div class="topic"><strong>🔒 Secure</strong> — Encryption at rest & transit</div>
+            </div>
+
+            <h3>Why Choose BigQuery?</h3>
+            <ul>
+                <li><strong>No Ops:</strong> Zero infrastructure management</li>
+                <li><strong>Speed:</strong> Massively parallel query execution</li>
+                <li><strong>Scalability:</strong> Automatically scales to petabytes</li>
+                <li><strong>Standard SQL:</strong> Familiar query language</li>
+                <li><strong>Integration:</strong> Works with Google Cloud ecosystem</li>
+                <li><strong>Machine Learning:</strong> Build ML models with SQL</li>
+            </ul>
+
+            <h3>Common Use Cases</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>Analytics</strong>Business intelligence, reporting</div>
+                <div class="package-item"><strong>Log Analysis</strong>Application & system logs</div>
+                <div class="package-item"><strong>Data Warehouse</strong>Centralized data repository</div>
+                <div class="package-item"><strong>Real-Time Dashboards</strong>Live data visualization</div>
+                <div class="package-item"><strong>Machine Learning</strong>Predictive analytics</div>
+                <div class="package-item"><strong>IoT Analytics</strong>Device data processing</div>
+            </div>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> BigQuery offers a free tier with 1 TB of queries per
+                month and 10 GB storage.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Getting Started</h2>
+            <p>BigQuery is cloud-based - access through Google Cloud Console or CLI.</p>
+
+            <div id="setup" class="subsection">
+                <h3>Setup Google Cloud Account</h3>
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Create GCP Account</strong>
+                        <p>Visit <a href="https://cloud.google.com/" target="_blank">cloud.google.com</a> and sign up
+                            for free tier ($300 credit).</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Create Project</strong>
+                        <p>In Google Cloud Console, create a new project.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Enable BigQuery API</strong>
+                        <p>Navigate to APIs & Services > Enable APIs > Enable BigQuery API.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">4</span>
+                    <div><strong>Access BigQuery</strong>
+                        <p>Go to BigQuery in the navigation menu or visit <a
+                                href="https://console.cloud.google.com/bigquery"
+                                target="_blank">console.cloud.google.com/bigquery</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cli-setup" class="subsection">
+                <h3>Install gcloud CLI (Optional)</h3>
+                <pre><code># Install gcloud SDK
+# Download from https://cloud.google.com/sdk/docs/install
+
+# Initialize
+gcloud init
+
+# Set project
+gcloud config set project YOUR_PROJECT_ID
+
+# Run BigQuery query from CLI
+bq query --use_legacy_sql=false \
+  'SELECT name, COUNT(*) as count FROM `bigquery-public-data.usa_names.usa_1910_2013` GROUP BY name ORDER BY count DESC LIMIT 10'</code><button class="copy-btn" data-copy="gcloud init">COPY</button></pre>
+            </div>
+
+            <div id="first-query" class="subsection">
+                <h3>Run First Query</h3>
+                <pre><code>-- Query public dataset
+SELECT 
+  name,
+  SUM(number) as total
+FROM `bigquery-public-data.usa_names.usa_1910_2013`
+WHERE gender = 'F'
+GROUP BY name
+ORDER BY total DESC
+LIMIT 10;</code><button class="copy-btn" data-copy="SELECT name, SUM(number)">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Create Dataset & Table</h3>
+                <pre><code>-- Create dataset (in Console or via query)
+-- Console: Click "CREATE DATASET"
+
+-- Create table
+CREATE TABLE my_dataset.customers (
+  customer_id INT64,
+  first_name STRING,
+  last_name STRING,
+  email STRING,
+  created_at TIMESTAMP
+);
+
+-- Create table from query
+CREATE TABLE my_dataset.high_value_customers AS
+SELECT *
+FROM my_dataset.customers
+WHERE total_purchases > 10000;
+
+-- Create external table (data in Cloud Storage)
+CREATE EXTERNAL TABLE my_dataset.external_data
+OPTIONS (
+  format = 'CSV',
+  uris = ['gs://mybucket/data/*.csv'],
+  skip_leading_rows = 1
+);</code><button class="copy-btn" data-copy="CREATE TABLE my_dataset.customers">COPY</button></pre>
+
+                <h3>Load Data</h3>
+                <pre><code>-- Load from Cloud Storage
+LOAD DATA INTO my_dataset.customers
+FROM FILES (
+  format = 'CSV',
+  uris = ['gs://my bucket/customers.csv']
+);
+
+-- Insert data
+INSERT INTO my_dataset.customers (customer_id, first_name, last_name, email)
+VALUES (1, 'John', 'Doe', 'john@example.com');
+
+-- Insert from SELECT
+INSERT INTO my_dataset.customer_backup
+SELECT * FROM my_dataset.customers;
+
+-- Streaming inserts (via API/SDK)
+-- Use tabledata.insertAll API method</code><button class="copy-btn" data-copy="LOAD DATA INTO">COPY</button></pre>
+
+                <h3>Query Data</h3>
+                <pre><code>-- Basic SELECT
+SELECT * FROM my_dataset.customers LIMIT 100;
+
+-- WHERE clause with functions
+SELECT 
+  first_name,
+  last_name,
+  email
+FROM my_dataset.customers
+WHERE DATE(created_at) = CURRENT_DATE()
+  AND email LIKE '%@gmail.com';
+
+-- Joins
+SELECT 
+  c.first_name,
+  c.last_name,
+  COUNT(o.order_id) as order_count,
+  SUM(o.total_amount) as total_spent
+FROM my_dataset.customers c
+LEFT JOIN my_dataset.orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.first_name, c.last_name
+ORDER BY total_spent DESC;</code><button class="copy-btn" data-copy="SELECT * FROM my_dataset.customers">COPY</button></pre>
+
+                <h3>Aggregations & Window Functions</h3>
+                <pre><code>-- Aggregations
+SELECT 
+  DATE_TRUNC(order_date, MONTH) as month,
+  COUNT(*) as total_orders,
+  SUM(amount) as total_revenue,
+  AVG(amount) as avg_order_value
+FROM my_dataset.orders
+GROUP BY month
+ORDER BY month DESC;
+
+-- Window functions
+SELECT 
+  customer_id,
+  order_date,
+  amount,
+  SUM(amount) OVER (
+    PARTITION BY customer_id 
+    ORDER BY order_date
+    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+  ) as running_total,
+  ROW_NUMBER() OVER (
+    PARTITION BY customer_id 
+    ORDER BY amount DESC
+  ) as purchase_rank
+FROM my_dataset.orders;
+
+-- QUALIFY (filter window function results)
+SELECT 
+  customer_id,
+  order_date,
+  amount
+FROM my_dataset.orders
+QUALIFY ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) = 1;</code><button class="copy-btn" data-copy="SUM(amount) OVER">COPY</button></pre>
+
+                <h3>Arrays & Structs</h3>
+                <pre><code>-- Create table with array
+CREATE TABLE my_dataset.users (
+  user_id INT64,
+  name STRING,
+  tags ARRAY<STRING>
+);
+
+-- Insert with array
+INSERT INTO my_dataset.users VALUES
+  (1, 'Alice', ['active', 'premium']),
+  (2, 'Bob', ['active']);
+
+-- Query array
+SELECT 
+  user_id,
+  name,
+  tag
+FROM my_dataset.users,
+UNNEST(tags) as tag
+WHERE tag = 'premium';
+
+-- Struct example
+CREATE TABLE my_dataset.orders (
+  order_id INT64,
+  customer STRUCT<
+    id INT64,
+    name STRING,
+    email STRING
+  >,
+  order_date DATE
+);
+
+-- Query struct
+SELECT 
+  order_id,
+  customer.name,
+  customer.email
+FROM my_dataset.orders;</code><button class="copy-btn" data-copy="UNNEST(tags)">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Partitioning & Clustering</h3>
+            <pre><code>-- Partition by date
+CREATE TABLE my_dataset.events
+PARTITION BY DATE(event_timestamp)
+AS
+SELECT * FROM my_dataset.raw_events;
+
+-- Partition by integer range
+CREATE TABLE my_dataset.customers
+PARTITION BY RANGE_BUCKET(customer_id, GENERATE_ARRAY(0, 100000, 10000))
+AS
+SELECT * FROM my_dataset.all_customers;
+
+-- Clustering (for better query performance)
+CREATE TABLE my_dataset.events
+PARTITION BY DATE(event_timestamp)
+CLUSTER BY user_id, event_type
+AS
+SELECT * FROM my_dataset.raw_events;</code><button class="copy-btn" data-copy="PARTITION BY DATE">COPY</button></pre>
+
+            <h3>BigQuery ML</h3>
+            <pre><code>-- Create linear regression model
+CREATE OR REPLACE MODEL my_dataset.sales_forecast
+OPTIONS(
+  model_type='LINEAR_REG',
+  input_label_cols=['sales']
+) AS
+SELECT
+  date,
+  temperature,
+  day_of_week,
+  sales
+FROM my_dataset.historical_sales;
+
+-- Make predictions
+SELECT
+  *
+FROM ML.PREDICT(MODEL my_dataset.sales_forecast,
+  (SELECT date, temperature, day_of_week FROM my_dataset.future_dates)
+);
+
+-- Evaluate model
+SELECT
+  *
+FROM ML.EVALUATE(MODEL my_dataset.sales_forecast,
+  (SELECT * FROM my_dataset.test_data)
+);</code><button class="copy-btn" data-copy="CREATE OR REPLACE MODEL">COPY</button></pre>
+
+            <h3>Scheduled Queries</h3>
+            <pre><code>-- Create scheduled query (in Console)
+-- 1. Write your query
+-- 2. Click "Schedule" button
+-- 3. Set frequency (daily, weekly, etc.)
+-- 4. Set destination table
+
+-- Example query to schedule
+INSERT INTO my_dataset.daily_summary
+SELECT 
+  CURRENT_DATE() as report_date,
+  COUNT(*) as total_orders,
+  SUM(amount) as total_revenue
+FROM my_dataset.orders
+WHERE DATE(order_date) = CURRENT_DATE();</code><button class="copy-btn" data-copy="INSERT INTO my_dataset.daily_summary">COPY</button></pre>
+
+            <h3>Application Integration</h3>
+            <pre><code>// Node.js (@google-cloud/bigquery)
+const {BigQuery} = require('@google-cloud/bigquery');
+
+const bigquery = new BigQuery({
+  projectId: 'your-project-id',
+});
+
+// Query
+async function query() {
+  const sqlQuery = `
+    SELECT name, COUNT(*) as count
+    FROM \`bigquery-public-data.usa_names.usa_1910_2013\`
+    GROUP BY name
+    ORDER BY count DESC
+    LIMIT 10
+  `;
+
+  const [rows] = await bigquery.query(sqlQuery);
+  console.log('Rows:', rows);
+}
+
+// Python (google-cloud-bigquery)
+from google.cloud import bigquery
+
+client = bigquery.Client(project='your-project-id')
+
+query = """
+    SELECT name, COUNT(*) as count
+    FROM `bigquery-public-data.usa_names.usa_1910_2013`
+    GROUP BY name
+    ORDER BY count DESC
+    LIMIT 10
+"""
+
+results = client.query(query)
+
+for row in results:
+    print(f"{row.name}: {row.count}")</code><button class="copy-btn" data-copy="const {BigQuery} = require">COPY</button></pre>
+
+            <h3>Cost Optimization</h3>
+            <pre><code>-- Estimate query cost
+-- Dry run to see bytes processed
+bq query --use_legacy_sql=false --dry_run 'SELECT * FROM my_dataset.large_table'
+
+-- Use partitioned tables (scan less data)
+SELECT *
+FROM my_dataset.events
+WHERE DATE(event_timestamp) = '2024-01-15'  -- Partition filter
+
+-- Use clustering
+-- Avoid SELECT *
+SELECT specific_column1, specific_column2
+FROM my_dataset.table;
+
+-- Use materialized views
+CREATE MATERIALIZED VIEW my_dataset.daily_stats AS
+SELECT 
+  DATE(created_at) as date,
+  COUNT(*) as count
+FROM my_dataset.events
+GROUP BY date;</code><button class="copy-btn" data-copy="--dry_run">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master SQL</strong> — Standard SQL, window functions</div>
+            <div class="step"><span class="n">2</span><strong>Optimize Queries</strong> — Partitioning, clustering</div>
+            <div class="step"><span class="n">3</span><strong>BigQuery ML</strong> — Build ML models with SQL</div>
+            <div class="step"><span class="n">4</span><strong>Data Pipeline</strong> — ETL with Dataflow/Cloud Functions
+            </div>
+            <div class="step"><span class="n">5</span><strong>Cost Management</strong> — Monitor and optimize spending
+            </div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://cloud.google.com/bigquery/docs" target="_blank">Official BigQuery
+                        Documentation</a></li>
+                <li>🎓 <a href="https://cloud.google.com/bigquery/docs/tutorials" target="_blank">BigQuery Tutorials</a>
+                </li>
+                <li>📘 <a href="https://cloud.google.com/bigquery/public-data" target="_blank">Public Datasets</a></li>
+                <li>💻 <a href="https://cloud.google.com/bigquery/docs/bigquery-ml-intro" target="_blank">BigQuery ML
+                        Guide</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,8 +1,8 @@
-# DevSphere Components Documentation
+# Coduxium XI Components Documentation
 
 ## 📦 Components Overview
 
-This folder contains reusable UI components that enhance the DevSphere experience with modern features.
+This folder contains reusable UI components that enhance the Coduxium XI experience with modern features.
 
 ## 🎨 Available Components
 
@@ -212,7 +212,7 @@ Pre-built CSS animations for smooth transitions and effects.
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Page - DevSphere</title>
+  <title>My Page - Coduxium XI</title>
   
   <!-- Main CSS -->
   <link rel="stylesheet" href="path/to/main.css">
@@ -379,7 +379,7 @@ All components follow accessibility best practices:
 
 ## 📄 License
 
-These components are part of the DevSphere project and follow the same license as the main repository.
+These components are part of the Coduxium XI project and follow the same license as the main repository.
 
 ---
 

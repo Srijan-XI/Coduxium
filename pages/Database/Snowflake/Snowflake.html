@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <parameter name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Snowflake guide - Learn SQL queries, data warehousing, and best practices for cloud data platform." />
+    <meta name="keywords" content="Snowflake, Cloud Data Warehouse, SQL, Data Platform, Analytics, BigData" />
+    <title>Snowflake Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../database-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>❄️ Snowflake Complete Guide</h1>
+            <p class="subtitle">The cloud data platform - built for the cloud, delivered as a service.</p>
+            <div class="badge-row">
+                <span class="badge">CLOUD DATA WAREHOUSE</span>
+                <span class="badge">SCALABLE</span>
+                <span class="badge">ZERO MANAGEMENT</span>
+                <span class="badge">MULTI-CLOUD</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Getting Started</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Industry Leader:</strong> Snowflake powers data analytics for Capital One,
+                Adobe, Netflix, and thousands of enterprises.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Snowflake?</h3>
+            <p><strong>Snowflake</strong> is a cloud-native data platform delivered as a Software-as-a-Service (SaaS).
+                It provides a data warehouse that is faster, easier to use, and more flexible than traditional
+                offerings. Snowflake enables data storage, processing, and analytics solutions that are faster and
+                easier to use than traditional data warehouses.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>☁️ Cloud-Native</strong> — Built for cloud from scratch</div>
+                <div class="topic"><strong>⚡ Instant Scaling</strong> — Elastic compute & storage</div>
+                <div class="topic"><strong>🔄 Zero Management</strong> — No infrastructure to manage</div>
+                <div class="topic"><strong>🌐 Multi-Cloud</strong> — AWS, Azure, GCP</div>
+                <div class="topic"><strong>📊 Data Sharing</strong> — Secure data collaboration</div>
+                <div class="topic"><strong>⏱️ Time Travel</strong> — Query historical data</div>
+                <div class="topic"><strong>🔒 Security</strong> — End-to-end encryption</div>
+                <div class="topic"><strong>💰 Pay-per-Use</strong> — Only pay for what you use</div>
+            </div>
+
+            <h3>Why Choose Snowflake?</h3>
+            <ul>
+                <li><strong>No Infrastructure:</strong> Fully managed, no servers to maintain</li>
+                <li><strong>Scalability:</strong> Automatically scales compute and storage independently</li>
+                <li><strong>Performance:</strong> Fast queries on massive datasets</li>
+                <li><strong>Concurrency:</strong> Multiple users/workloads without performance degradation</li>
+                <li><strong>Data Sharing:</strong> Share live data securely across organizations</li>
+                <li><strong>Multi-Cloud:</strong> Consistent experience across cloud providers</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> Snowflake is a paid cloud service. Free trial
+                available with $400 credit.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Getting Started</h2>
+            <p>Snowflake is cloud-based, so there's no installation - just sign up and start using.</p>
+
+            <div id="signup" class="subsection">
+                <h3>Sign Up for Free Trial</h3>
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Visit Snowflake</strong>
+                        <p>Go to <a href="https://signup.snowflake.com/" target="_blank">signup.snowflake.com</a></p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Choose Cloud Provider</strong>
+                        <p>Select AWS, Azure, or Google Cloud, and choose your region.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Create Account</strong>
+                        <p>Fill in your details and activate your account via email.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">4</span>
+                    <div><strong>Access Web UI</strong>
+                        <p>Login at https://[account_name].snowflakecomputing.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="snowsql" class="subsection">
+                <h3>Install SnowSQL CLI (Optional)</h3>
+                <pre><code># Download from Snowflake website or use package manager
+
+# macOS (Homebrew)
+brew install --cask snowflake-snowsql
+
+# Linux (download installer)
+curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/[version]/linux_x86_64/snowsql-[version]-linux_x86_64.bash
+bash snowsql-[version]-linux_x86_64.bash
+
+# Connect
+snowsql -a [account_name] -u [username]</code><button class="copy-btn" data-copy="snowsql -a">COPY</button></pre>
+            </div>
+
+            <div id="first-setup" class="subsection">
+                <h3>Initial Setup</h3>
+                <pre><code>-- Create warehouse (compute resource)
+CREATE WAREHOUSE dev_wh WITH
+  WAREHOUSE_SIZE = 'X-SMALL'
+  AUTO_SUSPEND = 300
+  AUTO_RESUME = TRUE;
+
+-- Create database
+CREATE DATABASE my_database;
+
+-- Create schema
+CREATE SCHEMA my_schema;
+
+-- Use context
+USE WAREHOUSE dev_wh;
+USE DATABASE my_database;
+USE SCHEMA my_schema;</code><button class="copy-btn" data-copy="CREATE WAREHOUSE dev_wh">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Create Tables</h3>
+                <pre><code>-- Create table
+CREATE TABLE customers (
+    customer_id NUMBER AUTOINCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    created_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+-- Create table from SELECT
+CREATE TABLE high_value_customers AS
+SELECT * FROM customers WHERE total_purchases > 10000;
+
+-- Show tables
+SHOW TABLES;</code><button class="copy-btn" data-copy="CREATE TABLE customers">COPY</button></pre>
+
+                <h3>Load Data</h3>
+                <pre><code>-- Create stage (location for files)
+CREATE STAGE my_stage;
+
+-- Upload file via SnowSQL
+PUT file:///path/to/data.csv @my_stage;
+
+-- Copy data from stage
+COPY INTO customers
+FROM @my_stage/data.csv
+FILE_FORMAT = (TYPE = 'CSV' FIELD_OPTIONALLY_ENCLOSED_BY = '"' SKIP_HEADER = 1);
+
+-- Load from S3
+COPY INTO customers
+FROM 's3://mybucket/data/'
+CREDENTIALS = (AWS_KEY_ID='...' AWS_SECRET_KEY='...')
+FILE_FORMAT = (TYPE = 'CSV');
+
+-- Load from Azure Blob
+COPY INTO customers
+FROM 'azure://myaccount.blob.core.windows.net/container/data/'
+CREDENTIALS = (AZURE_SAS_TOKEN='...')
+FILE_FORMAT = (TYPE = 'CSV');</code><button class="copy-btn" data-copy="COPY INTO customers">COPY</button></pre>
+
+                <h3>Query Data</h3>
+                <pre><code>-- Standard SELECT
+SELECT * FROM customers LIMIT 10;
+
+-- Filtering
+SELECT first_name, last_name, email
+FROM customers
+WHERE created_at > '2024-01-01'
+ORDER BY last_name;
+
+-- Joins
+SELECT c.first_name, c.last_name, o.order_date, o.total_amount
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.order_date >= DATEADD(day, -30, CURRENT_DATE());
+
+-- Aggregations
+SELECT 
+    DATE_TRUNC('month', order_date) as month,
+    COUNT(*) as order_count,
+    SUM(total_amount) as revenue
+FROM orders
+GROUP BY month
+ORDER BY month DESC;</code><button class="copy-btn" data-copy="SELECT * FROM customers">COPY</button></pre>
+
+                <h3>Time Travel</h3>
+                <pre><code>-- Query data as it was 1 hour ago
+SELECT * FROM customers AT(OFFSET => -3600);
+
+-- Query data at specific timestamp
+SELECT * FROM customers AT(TIMESTAMP => '2024-01-15 10:00:00'::TIMESTAMP);
+
+-- Before statement (query before a DELETE/UPDATE)
+SELECT * FROM customers BEFORE(STATEMENT => '01a3b2c4-...');
+
+-- Undrop table (within retention period)
+UNDROP TABLE customers;
+
+-- Clone table (zero-copy clone)
+CREATE TABLE customers_backup CLONE customers;</code><button class="copy-btn" data-copy="AT(OFFSET => -3600)">COPY</button></pre>
+
+                <h3>Semi-Structured Data (JSON, Parquet)</h3>
+                <pre><code>-- Create table with VARIANT column
+CREATE TABLE events (
+    event_id NUMBER,
+    event_data VARIANT
+);
+
+-- Insert JSON
+INSERT INTO events SELECT 1, PARSE_JSON('{"user": "alice", "action": "login"}');
+
+-- Query JSON
+SELECT 
+    event_data:user::STRING as user,
+    event_data:action::STRING as action
+FROM events;
+
+-- Flatten nested arrays
+SELECT 
+    value:name::STRING as product_name,
+    value:price::NUMBER as price
+FROM events,
+LATERAL FLATTEN(input => event_data:products);</code><button class="copy-btn" data-copy="PARSE_JSON">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Warehouse Management</h3>
+            <pre><code>-- Create multi-cluster warehouse
+CREATE WAREHOUSE analytics_wh WITH
+  WAREHOUSE_SIZE = 'LARGE'
+  MIN_CLUSTER_COUNT = 1
+  MAX_CLUSTER_COUNT = 5
+  AUTO_SUSPEND = 60
+  AUTO_RESUME = TRUE;
+
+-- Resize warehouse
+ALTER WAREHOUSE dev_wh SET WAREHOUSE_SIZE = 'MEDIUM';
+
+-- Suspend/Resume
+ALTER WAREHOUSE dev_wh SUSPEND;
+ALTER WAREHOUSE dev_wh RESUME;
+
+-- Drop warehouse
+DROP WAREHOUSE dev_wh;</code><button class="copy-btn" data-copy="CREATE WAREHOUSE analytics_wh">COPY</button></pre>
+
+            <h3>Data Sharing</h3>
+            <pre><code>-- Create share
+CREATE SHARE sales_data;
+
+-- Grant access to database/schema
+GRANT USAGE ON DATABASE sales_db TO SHARE sales_data;
+GRANT USAGE ON SCHEMA sales_db.public TO SHARE sales_data;
+GRANT SELECT ON TABLE sales_db.public.orders TO SHARE sales_data;
+
+-- Add consumer account
+ALTER SHARE sales_data ADD ACCOUNTS = xyz12345;
+
+-- Consumer: Create database from share
+CREATE DATABASE shared_sales FROM SHARE provider_account.sales_data;</code><button class="copy-btn" data-copy="CREATE SHARE">COPY</button></pre>
+
+            <h3>Streams & Tasks (CDC)</h3>
+            <pre><code>-- Create stream (captures changes)
+CREATE STREAM customer_stream ON TABLE customers;
+
+-- View changes
+SELECT * FROM customer_stream;
+
+-- Create task (scheduled job)
+CREATE TASK process_changes
+  WAREHOUSE = dev_wh
+  SCHEDULE = '5 MINUTE'
+WHEN
+  SYSTEM$STREAM_HAS_DATA('customer_stream')
+AS
+  INSERT INTO customer_history
+  SELECT * FROM customer_stream;
+
+-- Start task
+ALTER TASK process_changes RESUME;
+
+-- Stop task
+ALTER TASK process_changes SUSPEND;</code><button class="copy-btn" data-copy="CREATE STREAM">COPY</button></pre>
+
+            <h3>Application Integration</h3>
+            <pre><code>// Node.js (snowflake-sdk)
+const snowflake = require('snowflake-sdk');
+
+const connection = snowflake.createConnection({
+  account: 'your_account',
+  username: 'your_username',
+  password: 'your_password',
+  warehouse: 'dev_wh',
+  database: 'my_database',
+  schema: 'my_schema'
+});
+
+connection.connect((err, conn) => {
+  if (err) {
+    console.error('Unable to connect:', err.message);
+  } else {
+    connection.execute({
+      sqlText: 'SELECT * FROM customers LIMIT 10',
+      complete: (err, stmt, rows) => {
+        console.log(rows);
+      }
+    });
+  }
+});
+
+// Python (snowflake-connector-python)
+import snowflake.connector
+
+conn = snowflake.connector.connect(
+    user='your_username',
+    password='your_password',
+    account='your_account',
+    warehouse='dev_wh',
+    database='my_database',
+    schema='my_schema'
+)
+
+cur = conn.cursor()
+cur.execute('SELECT * FROM customers LIMIT 10')
+rows = cur.fetchall()
+
+conn.close()</code><button class="copy-btn" data-copy="snowflake.createConnection">COPY</button></pre>
+
+            <h3>Performance Optimization</h3>
+            <pre><code>-- Clustering keys (for large tables)
+ALTER TABLE large_table CLUSTER BY (date_column, category);
+
+-- Materialized views
+CREATE MATERIALIZED VIEW daily_sales AS
+SELECT 
+    DATE_TRUNC('day', order_date) as day,
+    SUM(amount) as total_sales
+FROM orders
+GROUP BY day;
+
+-- Query profile (analyze performance)
+-- Run in Web UI: View > Query Profile</code><button class="copy-btn" data-copy="CLUSTER BY">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master SQL</strong> — Advanced queries, window functions
+            </div>
+            <div class="step"><span class="n">2</span><strong>Data Loading</strong> — ETL/ELT pipelines</div>
+            <div class="step"><span class="n">3</span><strong>Semi-Structured Data</strong> — JSON, Parquet, Avro</div>
+            <div class="step"><span class="n">4</span><strong>Automation</strong> — Streams, tasks, procedures</div>
+            <div class="step"><span class="n">5</span><strong>Optimize Costs</strong> — Warehouse sizing, resource
+                monitors</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://docs.snowflake.com/" target="_blank">Official Snowflake Documentation</a></li>
+                <li>🎓 <a href="https://learn.snowflake.com/" target="_blank">Snowflake University (Free Training)</a>
+                </li>
+                <li>📘 <a href="https://community.snowflake.com/" target="_blank">Snowflake Community</a></li>
+                <li>💻 <a href="https://quickstarts.snowflake.com/" target="_blank">Snowflake Quickstarts</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -13,6 +13,50 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Interactive coding challenges
 - Video tutorials for installation
 
+## [2.1.0] - 2025-12-24
+
+### Fixed
+- **Critical Path Inconsistencies**: Fixed 20+ broken links across the site
+  - DevOps tools paths corrected from \`Devop&Tools/\` to \`DevOps-I&A/\`
+  - AI/ML libraries paths corrected from \`AIMLLIB/\` to \`DE-AI-ML/\`
+  - Data processing paths corrected from \`DataProcessing/\` to \`DE-AI-ML/\`
+  - Security tools paths corrected from \`Security/\` to \`DevSecOps&SecurityTools/\`
+- **Theme Manager Bug**: Fixed variable name inconsistency (\`Coduxium XIThemeManager\` → \`CoduxiumXIThemeManager\`) that caused duplicate theme initialization
+
+### Added
+- **Development Tools Category** (8 tools):
+  - Postman (moved from DevOps)
+  - Vite - Modern frontend build tool
+  - Vitest - Fast unit testing framework
+  - YAML - Data serialization format
+  - TOML - Configuration file format
+  - JSON - JavaScript Object Notation
+  - XML - Extensible Markup Language
+  - CSV - Comma-Separated Values
+- **DevOps Tools Expansion**:
+  - GitLab with CI/CD pipelines
+  - Ansible for automation
+- **AI/ML Libraries Expansion**:
+  - Apache Spark for big data processing
+  - Apache Kafka for event streaming
+- **DevSecOps Tools**:
+  - AquaSecurity for container security
+  - SonarQube for code quality
+  - Snyk for dependency scanning
+  - HashiCorp Vault for secrets management
+- **Operating Systems Pages**:
+  - Windows (versions 95 through 11)
+  - macOS (15 major versions)
+  - iOS (versions 1.0 through 18.0)
+  - Android (versions Cupcake through 15)
+
+### Changed
+- Updated dashboard statistics to include Development Tools count (11 categories total)
+- Reorganized rendering logic to properly handle \`dev-tool\` type
+- Updated search index to include all new categories
+- Enhanced stats showcase with comprehensive technology counts
+- Updated README.md with accurate folder structure and statistics
+
 ## [1.3.0] - 2025-12-21
 
 ### Added

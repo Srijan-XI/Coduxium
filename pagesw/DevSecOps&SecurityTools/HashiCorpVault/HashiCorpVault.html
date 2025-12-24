@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HashiCorp Vault — Coduxium XI</title>
+    <meta name="description" content="HashiCorp Vault - Secrets management and data protection platform.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">HashiCorp Vault</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔐 HashiCorp Vault</h2>
+            <p class="intro">Centralized secrets management platform for securing, storing, and controlling access to sensitive data.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">SECRETS</span>
+                    <span class="badge">SECURITY</span>
+                    <span class="badge">ENCRYPTION</span>
+                    <span class="badge">DEVSECOPS</span>
+                </div>
+                <p>HashiCorp Vault is a tool for securely accessing secrets. It provides a unified interface to any secret, while providing tight access control and recording a detailed audit log. Vault handles API keys, passwords, certificates, encryption keys, and more.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Secret Storage</strong> — Encrypted storage for arbitrary key-value secrets</li>
+                    <li><strong>Dynamic Secrets</strong> — Generate secrets on-demand for services</li>
+                    <li><strong>Data Encryption</strong> — Encrypt/decrypt data without storing it</li>
+                    <li><strong>Leasing & Renewal</strong> — Automatic secret rotation and revocation</li>
+                    <li><strong>Revocation</strong> — Built-in support for secret revocation</li>
+                    <li><strong>Access Control</strong> — Fine-grained policies with ACLs</li>
+                    <li><strong>Audit Logging</strong> — Detailed logs of all Vault operations</li>
+                    <li><strong>Multiple Auth Methods</strong> — LDAP, Kubernetes, JWT, GitHub, and more</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Installation</h3>
+                <pre><code># macOS
+brew tap hashicorp/tap
+brew install hashicorp/tap/vault
+
+# Linux (Ubuntu/Debian)
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install vault
+
+# Docker
+docker pull hashicorp/vault
+
+# Verify installation
+vault --version</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Starting Vault (Dev Mode)</h3>
+                <pre><code># Start Vault in dev mode (NOT for production)
+vault server -dev
+
+# Output shows:
+# Root Token: hvs.xxxxxxxxxxxxx
+# Unseal Key: (not needed in dev mode)
+# Vault Address: http://127.0.0.1:8200
+
+# In another terminal, set environment variables
+export VAULT_ADDR='http://127.0.0.1:8200'
+export VAULT_TOKEN='hvs.xxxxxxxxxxxxx'
+
+# Check server status
+vault status</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Basic Secret Operations</h3>
+                <pre><code># Enable KV secrets engine (v2)
+vault secrets enable -path=secret kv-v2
+
+# Write a secret
+vault kv put secret/myapp/config \
+    username="admin" \
+    password="super-secret"
+
+# Read a secret
+vault kv get secret/myapp/config
+
+# Read specific field
+vault kv get -field=password secret/myapp/config
+
+# List secrets
+vault kv list secret/myapp
+
+# Delete secret
+vault kv delete secret/myapp/config
+
+# Metadata operations
+vault kv metadata get secret/myapp/config
+vault kv metadata delete secret/myapp/config</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Dynamic Secrets - Database</h3>
+                <pre><code># Enable database secrets engine
+vault secrets enable database
+
+# Configure PostgreSQL connection
+vault write database/config/postgresql \
+    plugin_name=postgresql-database-plugin \
+    allowed_roles="readonly" \
+    connection_url="postgresql://{{username}}:{{password}}@localhost:5432/mydb?sslmode=disable" \
+    username="vault" \
+    password="vault-password"
+
+# Create a role
+vault write database/roles/readonly \
+    db_name=postgresql \
+    creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; \
+        GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";" \
+    default_ttl="1h" \
+    max_ttl="24h"
+
+# Generate credentials
+vault read database/creds/readonly
+
+# Output:
+# Key            Value
+# lease_id       database/creds/readonly/xxxxx
+# username       v-root-readonly-xxxxx
+# password       A1a-xxxxxxxxxxxxx</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Encryption as a Service</h3>
+                <pre><code># Enable transit secrets engine
+vault secrets enable transit
+
+# Create encryption key
+vault write -f transit/keys/my-key
+
+# Encrypt data
+vault write transit/encrypt/my-key plaintext=$(echo "secret data" | base64)
+# Returns: ciphertext:v1:xxxxxxxxxxxxx
+
+# Decrypt data
+vault write transit/decrypt/my-key ciphertext="v1:xxxxxxxxxxxxx"
+# Returns base64 encoded plaintext
+
+# Rotate encryption key
+vault write -f transit/keys/my-key/rotate
+
+# Rewrap data with new key version
+vault write transit/rewrap/my-key ciphertext="v1:xxxxxxxxxxxxx"</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Access Policies</h3>
+                <pre><code># Create policy file: app-policy.hcl
+path "secret/data/myapp/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+path "database/creds/readonly" {
+  capabilities = ["read"]
+}
+
+path "transit/encrypt/my-key" {
+  capabilities = ["update"]
+}
+
+path "transit/decrypt/my-key" {
+  capabilities = ["update"]
+}
+
+# Write policy to Vault
+vault policy write app-policy app-policy.hcl
+
+# List policies
+vault policy list
+
+# Read policy
+vault policy read app-policy
+
+# Create token with policy
+vault token create -policy=app-policy</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Authentication Methods</h3>
+                <pre><code># Enable AppRole authentication
+vault auth enable approle
+
+# Create AppRole
+vault write auth/approle/role/my-app \
+    secret_id_ttl=24h \
+    token_num_uses=10 \
+    token_ttl=20m \
+    token_max_ttl=30m \
+    secret_id_num_uses=40 \
+    policies="app-policy"
+
+# Get Role ID
+vault read auth/approle/role/my-app/role-id
+
+# Generate Secret ID
+vault write -f auth/approle/role/my-app/secret-id
+
+# Login with AppRole
+vault write auth/approle/login \
+    role_id="xxxxx" \
+    secret_id="xxxxx"
+
+# Kubernetes authentication
+vault auth enable kubernetes
+
+vault write auth/kubernetes/config \
+    kubernetes_host="https://kubernetes.default.svc:443" \
+    kubernetes_ca_cert=@ca.crt \
+    token_reviewer_jwt="reviewer-service-account-token"
+
+vault write auth/kubernetes/role/myapp \
+    bound_service_account_names=myapp \
+    bound_service_account_namespaces=default \
+    policies=app-policy \
+    ttl=24h</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Vault in Docker Compose</h3>
+                <pre><code>version: '3.8'
+
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: myroot
+      VAULT_DEV_LISTEN_ADDRESS: 0.0.0.0:8200
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - ./vault/data:/vault/data
+      - ./vault/logs:/vault/logs
+      - ./vault/config:/vault/config
+    command: server -dev
+
+  app:
+    image: myapp:latest
+    environment:
+      VAULT_ADDR: http://vault:8200
+      VAULT_TOKEN: myroot
+    depends_on:
+      - vault</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Vault Agent for Auto-Auth</h3>
+                <pre><code># vault-agent.hcl
+vault {
+  address = "http://127.0.0.1:8200"
+}
+
+auto_auth {
+  method {
+    type = "approle"
+    config = {
+      role_id_file_path = "/etc/vault/role-id"
+      secret_id_file_path = "/etc/vault/secret-id"
+    }
+  }
+
+  sink {
+    type = "file"
+    config = {
+      path = "/tmp/vault-token"
+    }
+  }
+}
+
+template {
+  source      = "/etc/vault/config.tpl"
+  destination = "/etc/myapp/config.json"
+}
+
+# config.tpl
+{
+  "database": {
+    {{ with secret "database/creds/readonly" }}
+    "username": "{{ .Data.username }}",
+    "password": "{{ .Data.password }}"
+    {{ end }}
+  }
+}
+
+# Run Vault Agent
+vault agent -config=vault-agent.hcl</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Python SDK Example</h3>
+                <pre><code>import hvac
+
+# Initialize client
+client = hvac.Client(
+    url='http://127.0.0.1:8200',
+    token='hvs.xxxxxxxxxxxxx'
+)
+
+# Check if authenticated
+print(client.is_authenticated())
+
+# Write secret
+client.secrets.kv.v2.create_or_update_secret(
+    path='myapp/config',
+    secret=dict(username='admin', password='secret123')
+)
+
+# Read secret
+secret = client.secrets.kv.v2.read_secret_version(path='myapp/config')
+print(secret['data']['data']['password'])
+
+# Dynamic secrets - database
+db_creds = client.secrets.database.generate_credentials(name='readonly')
+print(f"Username: {db_creds['data']['username']}")
+print(f"Password: {db_creds['data']['password']}")
+
+# Encryption
+plaintext = b"secret data"
+encrypt_response = client.secrets.transit.encrypt_data(
+    name='my-key',
+    plaintext=plaintext
+)
+ciphertext = encrypt_response['data']['ciphertext']
+
+# Decryption
+decrypt_response = client.secrets.transit.decrypt_data(
+    name='my-key',
+    ciphertext=ciphertext
+)
+decrypted = decrypt_response['data']['plaintext']</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Kubernetes Integration</h3>
+                <pre><code># Vault Injector via Annotations
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-inject-secret-config: "secret/data/myapp/config"
+        vault.hashicorp.com/agent-inject-template-config: |
+          {{- with secret "secret/data/myapp/config" -}}
+          export DB_USER="{{ .Data.data.username }}"
+          export DB_PASS="{{ .Data.data.password }}"
+          {{- end }}
+    spec:
+      serviceAccountName: myapp
+      containers:
+      - name: myapp
+        image: myapp:latest</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Editions & Pricing</h3>
+                <ul>
+                    <li><strong>Open Source</strong> — Free, community supported, MPL 2.0 license</li>
+                    <li><strong>HCP Vault</strong> — Managed service, pay-as-you-go</li>
+                    <li><strong>Vault Enterprise</strong> — Advanced features, disaster recovery, HSM support</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Never use dev mode in production</li>
+                    <li>Always enable audit logging</li>
+                    <li>Use least privilege for policies</li>
+                    <li>Rotate secrets regularly</li>
+                    <li>Enable TLS for all communications</li>
+                    <li>Use dynamic secrets where possible</li>
+                    <li>Implement proper unsealing strategy</li>
+                    <li>Monitor Vault metrics and logs</li>
+                    <li>Regular backup of Vault data</li>
+                    <li>Use namespaces for multi-tenancy (Enterprise)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.vaultproject.io/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://developer.hashicorp.com/vault" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://learn.hashicorp.com/vault" target="_blank">HashiCorp Learn</a></li>
+                    <li>💬 <a href="https://discuss.hashicorp.com/c/vault/" target="_blank">Community Forum</a></li>
+                    <li>📦 <a href="https://github.com/hashicorp/vault" target="_blank">GitHub Repository</a></li>
+                    <li>🎥 <a href="https://www.youtube.com/c/HashiCorp" target="_blank">YouTube Channel</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.vaultproject.io/" target="_blank">HashiCorp Vault</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

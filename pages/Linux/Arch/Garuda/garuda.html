@@ -4,90 +4,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garuda Linux - Performance & Aesthetics</title>
+    <title>Garuda Linux - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Garuda Linux guide - performance-focused Arch-based distro with Btrfs snapshots and gaming-friendly defaults">
+
     <link rel="stylesheet" href="../../../../css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --garuda-orange: #ff3333;
-            --garuda-purple: #c200fb;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #0d0e15;
-            color: #e1e4e8;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, rgba(194, 0, 251, 0.2) 0%, rgba(255, 51, 51, 0.1) 100%);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: -webkit-linear-gradient(45deg, #ff3333, #c200fb);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            background: #1a1b26;
-            border: 1px solid #2f334d;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(194, 0, 251, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 
-<body>
-    <div class="hero">
-        <h1>Garuda Linux</h1>
-        <p class="text-xl">Arch Linux made easy, beautiful, and fast.</p>
-    </div>
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Garuda Linux</a></h1>
+                    <p class="sub">Arch made fast and friendly</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
 
-    <main class="card-grid">
-        <section class="info-card">
-            <h2>🦅 Overview</h2>
-            <p>Garuda Linux is an Arch-based Rolling Release distro that focuses on performance and ease of use. It uses
-                the Zen Kernel and BTRFS file system by default.</p>
+    <main class="container" style="padding: 40px 0;">
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🦅</span>
+                <span>Performance & Snapshots</span>
+            </div>
+            <h1 class="hero-title">Garuda Linux</h1>
+            <p class="hero-description">A performance-oriented Arch-based distribution with Btrfs snapshots, gamer-friendly tooling, and polished desktop editions.</p>
         </section>
 
-        <section class="info-card">
-            <h2>🎮 Gaming Specs</h2>
-            <p>Known for its "Dragonized" gaming edition, Garuda comes pre-configured with gaming tools (Steam, Lutris,
-                GameMode) and optimized drivers.</p>
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Arch Linux</li>
+                    <li><strong>Package Manager:</strong> Pacman (+ AUR)</li>
+                    <li><strong>Desktop:</strong> KDE (common), others available</li>
+                    <li><strong>Release Model:</strong> Rolling</li>
+                    <li><strong>Target Users:</strong> Desktop users, gamers, tinkerers</li>
+                </ul>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card"><span class="feature-icon">💾</span><h4>Btrfs + Snapshots</h4><p>Rollback-friendly updates using snapshot tooling.</p></div>
+                <div class="feature-card"><span class="feature-icon">🎮</span><h4>Gaming-Friendly</h4><p>Steam/Lutris tooling is easy to set up.</p></div>
+                <div class="feature-card"><span class="feature-icon">⚡</span><h4>Performance Focus</h4><p>Defaults aimed at responsive desktop usage.</p></div>
+                <div class="feature-card"><span class="feature-icon">🧩</span><h4>Many Editions</h4><p>Pick the desktop environment you prefer.</p></div>
+            </div>
         </section>
 
-        <section class="info-card">
-            <h2>💾 BTRFS & Snapper</h2>
-            <p>Automatic snapshots before every update ensure you can always roll back your system if something breaks.
-                A true lifesaver for rolling release users.</p>
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>What is Garuda Linux?</h3></div>
+                <p style="line-height: 1.8; margin: 20px 0;">Garuda is an Arch-based rolling-release distribution designed to be approachable for desktop users while keeping the power of the Arch ecosystem. It often ships with Btrfs snapshots to make rolling updates safer.</p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Arch base with rolling updates</li>
+                    <li>Btrfs snapshots for rollback</li>
+                    <li>Desktop-first experience</li>
+                    <li>Gaming setup support</li>
+                    <li>Multiple desktop editions</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Garuda Linux?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card"><span class="practice-num">1</span><h4>Safer Rolling Updates</h4><p>Snapshots help recover quickly if an update breaks something.</p></div>
+                    <div class="practice-card"><span class="practice-num">2</span><h4>Great Desktop UX</h4><p>Focus on polish and a ready-to-use desktop.</p></div>
+                    <div class="practice-card"><span class="practice-num">3</span><h4>Arch Ecosystem</h4><p>Access Pacman repos and community packages (AUR).</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Step 1: Download</h4><p class="command-desc">Download from: <a href="https://garudalinux.org/downloads" target="_blank">https://garudalinux.org/downloads</a></p></div>
+                <div class="command-card"><h4>Step 2: Create Bootable USB</h4><pre><code class="language-bash"># Linux
+sudo dd if=garuda.iso of=/dev/sdX bs=4M status=progress && sync
+
+# Or use: Etcher, Rufus, Ventoy</code></pre></div>
+                <div class="command-card"><h4>Step 3: Boot from USB</h4><p class="command-desc">Boot the live environment and verify graphics/network.</p></div>
+                <div class="command-card"><h4>Step 4: Install</h4><p class="command-desc">Run the graphical installer, choose Btrfs (recommended by Garuda), and complete the install.</p></div>
+            </div>
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit</li>
+                    <li><strong>RAM:</strong> 4GB minimum (8GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 30GB+ recommended</li>
+                    <li><strong>GPU:</strong> Any modern GPU; proprietary drivers optional</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Update System</h4><pre><code class="language-bash">sudo pacman -Syu</code></pre></div>
+                    <div class="command-card"><h4>Install Package</h4><pre><code class="language-bash">sudo pacman -S package-name</code></pre></div>
+                    <div class="command-card"><h4>Remove Package</h4><pre><code class="language-bash">sudo pacman -Rns package-name</code></pre></div>
+                    <div class="command-card"><h4>Search Package</h4><pre><code class="language-bash">pacman -Ss keyword</code></pre></div>
+                </div>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Manage Snapshots</h4><p class="command-desc">Use the included snapshot tools to roll back if needed.</p></div>
+                    <div class="command-card"><h4>Gaming Setup</h4><p class="command-desc">Install Steam/Proton and drivers for your GPU.</p></div>
+                    <div class="command-card"><h4>Drivers</h4><p class="command-desc">Install appropriate NVIDIA/AMD drivers via repos.</p></div>
+                    <div class="command-card"><h4>Backups</h4><p class="command-desc">Keep backups even if you use snapshots.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Btrfs Subvolumes</h4><pre><code class="language-bash">sudo btrfs subvolume list /
+sudo btrfs filesystem df /</code></pre><p class="command-desc">Inspect Btrfs layout and usage.</p></div>
+                <div class="command-card"><h4>Snapshots</h4><pre><code class="language-bash"># Tooling varies by edition
+# Check installed snapshot tools and docs</code></pre><p class="command-desc">Use snapshots before major upgrades.</p></div>
+                <div class="command-card"><h4>GPU Info</h4><pre><code class="language-bash">lspci | grep -i vga
+glxinfo | head</code></pre><p class="command-desc">Quick GPU detection and OpenGL check.</p></div>
+                <div class="command-card"><h4>Gaming Performance</h4><pre><code class="language-bash">mangohud %command%
+gamemoderun %command%</code></pre><p class="command-desc">Optional tools to monitor and optimize games.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead><tr><th>Task</th><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Update system</strong></td><td><code>sudo pacman -Syu</code></td><td>Upgrade packages</td></tr>
+                        <tr><td><strong>Install package</strong></td><td><code>sudo pacman -S pkg</code></td><td>Install software</td></tr>
+                        <tr><td><strong>Remove package</strong></td><td><code>sudo pacman -Rns pkg</code></td><td>Remove package + deps</td></tr>
+                        <tr><td><strong>Search</strong></td><td><code>pacman -Ss keyword</code></td><td>Search repos</td></tr>
+                        <tr><td><strong>List installed</strong></td><td><code>pacman -Qe</code></td><td>Explicit packages</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Filesystem usage</td></tr>
+                        <tr><td><strong>Top processes</strong></td><td><code>top</code></td><td>Process monitor</td></tr>
+                        <tr><td><strong>GPU PCI</strong></td><td><code>lspci | grep -i vga</code></td><td>Detect GPU</td></tr>
+                        <tr><td><strong>Network</strong></td><td><code>ip a</code></td><td>Interfaces</td></tr>
+                        <tr><td><strong>Logs</strong></td><td><code>journalctl -xe</code></td><td>Troubleshoot issues</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="https://garudalinux.org/" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Official Website</h4><p>Garuda Linux homepage</p></a>
+                <a href="https://wiki.garudalinux.org/" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Documentation</h4><p>Wiki and guides</p></a>
+                <a href="https://forum.garudalinux.org/" target="_blank" class="next-step-card"><span class="step-icon">💬</span><h4>Community</h4><p>Forum support</p></a>
+                <a href="https://github.com/garuda-linux" target="_blank" class="next-step-card"><span class="step-icon">💻</span><h4>Source Code</h4><p>Garuda on GitHub</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Enable snapshots and learn rollback flow</li>
+                    <li>Install GPU drivers and gaming tools</li>
+                    <li>Keep a regular backup strategy</li>
+                    <li>Update frequently to reduce upgrade jumps</li>
+                    <li>Use AUR carefully (review PKGBUILDs)</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../arch.html" class="next-step-card"><span class="step-icon">🏗️</span><h4>Arch Linux</h4><p>Upstream base distro</p></a>
+                <a href="../SteamOS/SteamOS.html" class="next-step-card"><span class="step-icon">🎮</span><h4>SteamOS</h4><p>Valve gaming distro</p></a>
+                <a href="../../Debian/Ubuntu/ubuntu.html" class="next-step-card"><span class="step-icon">🟠</span><h4>Ubuntu</h4><p>Popular desktop distro</p></a>
+            </div>
         </section>
     </main>
 
-    <footer style="text-align: center; padding: 40px; border-top: 1px solid #2f334d;">
-        <a href="../arch.html" style="color: #c200fb; text-decoration: none;">← Back to Arch Family</a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
     </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 
 </html>

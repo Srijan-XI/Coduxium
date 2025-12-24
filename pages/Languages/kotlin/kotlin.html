@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Kotlin guide - Modern JVM language for Android development with concise, safe, and interoperable code." />
+    <meta name="keywords" content="Kotlin, Android, JVM, Mobile Development, Jetpack Compose, Coroutines" />
+    <title>Kotlin Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../language-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🎯 Kotlin Complete Guide</h1>
+            <p class="subtitle">Modern, concise, and safe - the preferred language for Android development.</p>
+            <div class="badge-row">
+                <span class="badge">ANDROID</span>
+                <span class="badge">JVM</span>
+                <span class="badge">MODERN</span>
+                <span class="badge">CONCISE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Official Android Language:</strong> Google announced Kotlin as the
+                preferred language for Android app development in 2019.</div>
+        </header>
+
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Kotlin?</h3>
+            <p><strong>Kotlin</strong> is a modern, statically-typed programming language that runs on the JVM.
+                Developed by JetBrains and officially supported by Google for Android, Kotlin offers concise syntax,
+                null safety, and full Java interoperability.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>📱 Android First</strong> — Official Android language</div>
+                <div class="topic"><strong>🛡️ Null Safety</strong> — No more NullPointerException</div>
+                <div class="topic"><strong>📝 Concise</strong> — Less boilerplate than Java</div>
+                <div class="topic"><strong>🔄 Coroutines</strong> — Simple async programming</div>
+                <div class="topic"><strong>♻️ Java Compatible</strong> — Use Java libraries</div>
+                <div class="topic"><strong>🎯 Modern</strong> — Functional programming support</div>
+            </div>
+
+            <h3>Why Choose Kotlin?</h3>
+            <ul>
+                <li><strong>Android Development:</strong> Google's preferred language</li>
+                <li><strong>Safety:</strong> Null safety prevents common bugs</li>
+                <li><strong>Productivity:</strong> Write less code, do more</li>
+                <li><strong>Interoperable:</strong> Use existing Java code</li>
+            </ul>
+        </section>
+
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+
+            <div class="subsection">
+                <h3>Install Kotlin</h3>
+                <pre><code># Using SDKMAN
+sdk install kotlin
+
+# macOS
+brew install kotlin
+
+# Verify
+kotlin -version</code><button class="copy-btn" data-copy="kotlin -version">COPY</button></pre>
+
+                <h3>Android Studio (Recommended)</h3>
+                <p>Download Android Studio from <a href="https://developer.android.com/studio"
+                        target="_blank">developer.android.com/studio</a> - Kotlin support is built-in.</p>
+
+                <h3>Your First Kotlin Program</h3>
+                <pre><code>// Main.kt
+fun main() {
+    println("Hello, Kotlin!")
+}
+
+// Compile and run
+kotlinc Main.kt -include-runtime -d main.jar
+java -jar main.jar</code><button class="copy-btn" data-copy='fun main() { println("Hello, Kotlin!") }'>COPY</button></pre>
+            </div>
+        </section>
+
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Variables & Types</h3>
+                <pre><code>fun main() {
+    // Immutable (val)
+    val name: String name = "Alice"
+    val age = 30  // Type inference
+    
+    // Mutable (var)
+    var count = 0
+    count = 1
+    
+    // Null safety
+    var nullable: String? = null
+    nullable = "value"
+    
+    // Safe call
+    println(nullable?.length)
+    
+    // Elvis operator
+    val length = nullable?.length ?: 0
+}</code><button class="copy-btn" data-copy='val name = "Alice"\nvar count = 0'>COPY</button></pre>
+
+                <h3>Functions</h3>
+                <pre><code>// Basic function
+fun greet(name: String): String {
+    return "Hello, $name!"
+}
+
+// Expression body
+fun add(a: Int, b: Int) = a + b
+
+// Default parameters
+fun power(base: Int, exponent: Int = 2) = 
+    Math.pow(base.toDouble(), exponent.toDouble())
+
+// Named arguments
+greet(name = "Alice")
+
+// Extension function
+fun String.exclaim() = "$this!"
+println("Hello".exclaim())  // Hello!</code><button class="copy-btn" data-copy="fun greet(name: String) = \"Hello, $name!\"">COPY</button></pre>
+
+                <h3>Classes & Objects</h3>
+                <pre><code>// Data class
+data class Person(
+    val name: String,
+    val age: Int
+)
+
+// Regular class
+class Rectangle(val width: Int, val height: Int) {
+    fun area() = width * height
+}
+
+// Object (singleton)
+object Config {
+    const val API_KEY = "abc123"
+}
+
+// Usage
+val person = Person("Alice", 30)
+val rect = Rectangle(10, 20)
+println(rect.area())</code><button class="copy-btn" data-copy="data class Person(val name: String, val age: Int)">COPY</button></pre>
+
+                <h3>Collections</h3>
+                <pre><code>// Lists
+val numbers = listOf(1, 2, 3, 4, 5)
+val mutableList = mutableListOf("a", "b", "c")
+
+// Map
+val map = mapOf(
+    "name" to "Alice",
+    "age" to 30
+)
+
+// Filter
+val evens = numbers.filter { it % 2 == 0 }
+
+// Map
+val squared = numbers.map { it * it }
+
+// Reduce
+val sum = numbers.reduce { acc, n -> acc + n }</code><button class="copy-btn" data-copy="val numbers = listOf(1, 2, 3)\nval evens = numbers.filter { it % 2 == 0 }">COPY</button></pre>
+
+                <h3>When Expression</h3>
+                <pre><code>fun describe(x: Any) = when (x) {
+    1 -> "One"
+    in 2..10 -> "Between 2 and 10"
+    is String -> "It's a string"
+    else -> "Something else"
+}
+
+// As statement
+when (score) {
+    in 90..100 -> println("A")
+    in 80..89 -> println("B")
+    else -> println("C")
+}</code><button class="copy-btn" data-copy="when (x) { 1 -> \"One\"\n else -> \"Other\" }">COPY</button></pre>
+            </div>
+        </section>
+
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Coroutines</h3>
+            <pre><code>import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    launch {
+        delay(1000L)
+        println("World!")
+    }
+    println("Hello,")
+}
+
+// Async/await
+suspend fun fetchData(): String {
+    delay(1000)
+    return "Data"
+}
+
+val result = async { fetchData() }
+println(result.await())</code><button class="copy-btn" data-copy="Coroutines example">COPY</button></pre>
+
+            <h3>Android Development</h3>
+            <pre><code>// Jetpack Compose
+@Composable
+fun Greeting(name: String) {
+    Text(text = "Hello, $name!")
+}
+
+// ViewModel
+class MyViewModel : ViewModel() {
+    private val _data = MutableLiveData<String>()
+    val data: LiveData<String> = _data
+    
+    fun loadData() {
+        viewModelScope.launch {
+            _data.value = fetchData()
+        }
+    }
+}</code><button class="copy-btn" data-copy="Android Compose example">COPY</button></pre>
+        </section>
+
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Coroutines</strong> — Async programming</div>
+            <div class="step"><span class="n">2</span><strong>Learn Jetpack Compose</strong> — Modern Android UI</div>
+            <div class="step"><span class="n">3</span><strong>Build Android Apps</strong> — Mobile development</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://kotlinlang.org/docs/" target="_blank">Official Kotlin Docs</a></li>
+                <li>📱 <a href="https://developer.android.com/kotlin" target="_blank">Android Kotlin Guide</a></li>
+                <li>🎓 <a href="https://play.kotlinlang.org/" target="_blank">Kotlin Playground</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../Database/database-common.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aqua Security — Coduxium XI</title>
+    <meta name="description" content="Aqua Security - Cloud-native security platform for containers and serverless.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Aqua Security</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔒 Aqua Security</h2>
+            <p class="intro">Cloud-native application protection platform (CNAPP) for securing containers, Kubernetes, and serverless.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">DEVSECOPS</span>
+                    <span class="badge">CONTAINERS</span>
+                    <span class="badge">KUBERNETES</span>
+                    <span class="badge">CNAPP</span>
+                </div>
+                <p>Aqua Security provides end-to-end security for cloud-native applications, from development to production. It offers vulnerability scanning, runtime protection, compliance, and security policy enforcement for containers, Kubernetes, and serverless workloads.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Image Scanning</strong> — Vulnerability detection in container images</li>
+                    <li><strong>Runtime Protection</strong> — Detect and prevent threats at runtime</li>
+                    <li><strong>Kubernetes Security</strong> — RBAC, network policies, admission control</li>
+                    <li><strong>Compliance</strong> — CIS benchmarks, PCI-DSS, HIPAA compliance</li>
+                    <li><strong>Serverless Security</strong> — AWS Lambda, Azure Functions protection</li>
+                    <li><strong>SBOM Generation</strong> — Software Bill of Materials</li>
+                    <li><strong>Secrets Management</strong> — Detect exposed secrets in images</li>
+                    <li><strong>CI/CD Integration</strong> — Shift-left security in pipelines</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Aqua Trivy - Open Source Scanner</h3>
+                <pre><code># Install Trivy
+# macOS
+brew install trivy
+
+# Linux
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update
+sudo apt-get install trivy
+
+# Container
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image alpine:3.18
+
+# Verify installation
+trivy --version</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Scanning Container Images</h3>
+                <pre><code># Scan Docker image
+trivy image nginx:latest
+
+# Scan with severity filter
+trivy image --severity HIGH,CRITICAL nginx:latest
+
+# Output as JSON
+trivy image --format json --output results.json nginx:latest
+
+# Scan specific vulnerabilities
+trivy image --vuln-type os,library nginx:latest
+
+# Scan local image
+docker build -t myapp:latest .
+trivy image myapp:latest
+
+# Scan image from tar file
+trivy image --input image.tar
+
+# Ignore unfixed vulnerabilities
+trivy image --ignore-unfixed nginx:latest
+
+# Exit on severity
+trivy image --exit-code 1 --severity CRITICAL nginx:latest</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Filesystem Scanning</h3>
+                <pre><code># Scan filesystem
+trivy fs /path/to/project
+
+# Scan for secrets
+trivy fs --scanners secret /path/to/project
+
+# Scan for misconfigurations
+trivy fs --scanners config /path/to/project
+
+# Scan Terraform
+trivy config terraform/
+
+# Scan Kubernetes manifests
+trivy config k8s-manifests/
+
+# Scan Docker Compose
+trivy config docker-compose.yml
+
+# Generate SBOM
+trivy image --format cyclonedx --output sbom.json nginx:latest</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>CI/CD Integration - GitHub Actions</h3>
+                <pre><code>name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  trivy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t myapp:${{ github.sha }} .
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'myapp:${{ github.sha }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Fail on high vulnerabilities
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'myapp:${{ github.sha }}'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GitLab CI Integration</h3>
+                <pre><code>stages:
+  - build
+  - security
+
+build:
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+
+trivy-scan:
+  stage: security
+  image: aquasec/trivy:latest
+  script:
+    - trivy image --exit-code 0 --no-progress --format json -o trivy-report.json $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - trivy image --exit-code 1 --severity CRITICAL --no-progress $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  artifacts:
+    reports:
+      container_scanning: trivy-report.json
+  allow_failure: false</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Kubernetes Admission Controller</h3>
+                <pre><code># Install Aqua Starboard Operator (deprecated, use Trivy Operator)
+kubectl apply -f https://raw.githubusercontent.com/aquasecurity/trivy-operator/main/deploy/static/trivy-operator.yaml
+
+# Install Trivy Operator with Helm
+helm repo add aqua https://aquasecurity.github.io/helm-charts/
+helm install trivy-operator aqua/trivy-operator \
+  --namespace trivy-system \
+  --create-namespace
+
+# Check vulnerability reports
+kubectl get vulnerabilityreports --all-namespaces
+
+# Check config audit reports
+kubectl get configauditreports --all-namespaces
+
+# Get detailed report
+kubectl get vulnerabilityreport -n default -o yaml</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Aqua Policy Example</h3>
+                <pre><code># aqua-policy.yaml - Runtime policy
+apiVersion: aquasecurity.github.io/v1alpha1
+kind: RuntimePolicy
+metadata:
+  name: block-privilege-escalation
+spec:
+  scope:
+    - workload: deployment
+      namespace: production
+  controls:
+    - name: prevent-privilege-escalation
+      action: block
+      settings:
+        allowPrivilegeEscalation: false
+    - name: block-root-user
+      action: block
+      settings:
+        runAsNonRoot: true
+    - name: readonly-root-filesystem
+      action: alert
+      settings:
+        readOnlyRootFilesystem: true</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Scan images in CI/CD before deployment</li>
+                    <li>Use minimal base images (Alpine, Distroless)</li>
+                    <li>Keep images updated regularly</li>
+                    <li>Implement image signing and verification</li>
+                    <li>Use private registries with access control</li>
+                    <li>Enable runtime protection in production</li>
+                    <li>Monitor for compliance violations</li>
+                    <li>Automate remediation workflows</li>
+                    <li>Regular security audits and reports</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Aqua Platform Components</h3>
+                <ul>
+                    <li><strong>Aqua Server</strong> — Central management console</li>
+                    <li><strong>Aqua Gateway</strong> — Communication hub for enforcers</li>
+                    <li><strong>Aqua Enforcer</strong> — Runtime protection agent</li>
+                    <li><strong>Aqua Scanner</strong> — Image scanning service</li>
+                    <li><strong>Trivy</strong> — Open-source vulnerability scanner</li>
+                    <li><strong>Tracee</strong> — Runtime security and forensics</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing</h3>
+                <ul>
+                    <li><strong>Trivy</strong> — Free and open source (Apache 2.0)</li>
+                    <li><strong>Aqua Platform</strong> — Enterprise pricing based on nodes/workloads</li>
+                    <li><strong>Free Trial</strong> — 30-day trial available</li>
+                    <li><strong>SaaS or Self-Hosted</strong> — Flexible deployment options</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.aquasec.com/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.aquasec.com/" target="_blank">Documentation</a></li>
+                    <li>🔍 <a href="https://github.com/aquasecurity/trivy" target="_blank">Trivy GitHub</a></li>
+                    <li>🎓 <a href="https://www.aquasec.com/resources/" target="_blank">Resources & Learning</a></li>
+                    <li>💬 <a href="https://slack.aquasec.com/" target="_blank">Community Slack</a></li>
+                    <li>📦 <a href="https://github.com/aquasecurity" target="_blank">GitHub - Aqua Security</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.aquasec.com/" target="_blank">Aqua Security</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

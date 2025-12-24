@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete PHP guide - Server-side scripting language powering WordPress, Laravel, and millions of websites worldwide." />
+  <meta name="keywords" content="PHP, Web Development, Laravel, WordPress, Backend, Server-Side" />
+  <title>PHP Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>🐘 PHP Complete Guide</h1>
+      <p class="subtitle">Server-side scripting for dynamic web applications - from WordPress to Laravel.</p>
+      <div class="badge-row">
+        <span class="badge">SERVER-SIDE</span>
+        <span class="badge">DYNAMIC WEB</span>
+        <span class="badge">POPULAR</span>
+        <span class="badge">EASY</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Web Standard:</strong> PHP powers 77% of all websites with a known server-side
+        language, including Facebook, WordPress, and Wikipedia.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is PHP?</h3>
+      <p><strong>PHP</strong> (Hypertext Preprocessor) is a popular server-side scripting language designed for web
+        development. Created in 1994, PHP is embedded in HTML and powers major platforms like WordPress, Drupal, and
+        Laravel applications.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🌐 Web-Focused</strong> — Built for web development</div>
+        <div class="topic"><strong>📝 Easy Syntax</strong> — Similar to C, Java, Perl</div>
+        <div class="topic"><strong>🔌 Database Integration</strong> — MySQL, PostgreSQL, MongoDB</div>
+        <div class="topic"><strong>🆓 Open Source</strong> — Free and widely supported</div>
+        <div class="topic"><strong>🚀 Fast Development</strong> — Rapid prototyping</div>
+        <div class="topic"><strong>📦 Rich Ecosystem</strong> — Composer, frameworks</div>
+      </div>
+
+      <h3>Why Choose PHP?</h3>
+      <ul>
+        <li><strong>Ubiquitous:</strong> Runs on almost all web hosts</li>
+        <li><strong>WordPress:</strong> Powers 43% of all websites</li>
+        <li><strong>Laravel:</strong> Modern, elegant PHP framework</li>
+        <li><strong>Easy to Learn:</strong> Great for beginners</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+
+      <div class="subsection">
+        <h3>Windows - XAMPP (Recommended)</h3>
+        <pre><code># Download XAMPP from apachefriends.org
+# Includes Apache, PHP, MySQL
+
+# Or use Laragon
+# Download from laragon.org</code><button class="copy-btn" data-copy="XAMPP Installation">COPY</button></pre>
+
+        <h3>macOS</h3>
+        <pre><code># Using Homebrew
+brew install php
+
+# Verify
+php --version
+
+# Start built-in server
+php -S localhost:8000</code><button class="copy-btn" data-copy="brew install php">COPY</button></pre>
+
+        <h3>Linux</h3>
+        <pre><code># Ubuntu/Debian
+sudo apt update
+sudo apt install php php-cli php-mysql
+
+# Fedora
+sudo dnf install php php-cli php-mysqlnd
+
+# Verify
+php --version</code><button class="copy-btn" data-copy="sudo apt install php php-cli php-mysql">COPY</button></pre>
+
+        <h3>Your First PHP Program</h3>
+        <pre><code>&lt;?php
+// index.php
+echo "Hello, PHP!";
+
+// Run with built-in server
+php -S localhost:8000
+
+// Visit: http://localhost:8000</code><button class="copy-btn" data-copy="php -S localhost:8000">COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Basic Syntax</h3>
+        <pre><code>&lt;?php
+// Variables
+$name = "Alice";
+$age = 30;
+$price = 99.99;
+
+// Echo/Print
+echo "Hello, $name";
+print "Age: $age";
+
+// Concatenation
+$greeting = "Hello, " . $name;
+
+// Arrays
+$fruits = ["apple", "banana", "cherry"];
+$person = [
+    "name" => "Alice",
+    "age" => 30
+];
+
+echo $fruits[0]; // apple
+echo $person["name"]; // Alice
+?&gt;</code><button class="copy-btn" data-copy='$name = "Alice";\necho "Hello, $name";'>COPY</button></pre>
+
+        <h3>Functions</h3>
+        <pre><code>&lt;?php
+function greet($name) {
+    return "Hello, $name!";
+}
+
+echo greet("Alice");
+
+// Default parameters
+function power($base, $exponent = 2) {
+    return pow($base, $exponent);
+}
+
+// Arrow functions (PHP 7.4+)
+$multiply = fn($a, $b) => $a * $b;
+?&gt;</code><button class="copy-btn" data-copy="function greet($name) {\n    return \"Hello, $name!\";\n}">COPY</button></pre>
+
+        <h3>Classes & Objects</h3>
+        <pre><code>&lt;?php
+class Person {
+    private $name;
+    private $age;
+    
+    public function __construct($name, $age) {
+        $this->name = $name;
+        $this->age = $age;
+    }
+    
+    public function greet() {
+        return "Hi, I'm {$this->name}";
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+}
+
+$person = new Person("Alice", 30);
+echo $person->greet();
+?&gt;</code><button class="copy-btn" data-copy="class Person { }">COPY</button></pre>
+
+        <h3>Database (MySQL)</h3>
+        <pre><code>&lt;?php
+// PDO (recommended)
+$pdo = new PDO("mysql:host=localhost;dbname=mydb", "user", "password");
+
+// Fetch data
+$stmt = $pdo->query("SELECT * FROM users");
+while ($row = $stmt->fetch()) {
+    echo $row['name'];
+}
+
+// Prepared statements (safe)
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->execute([$userId]);
+$user = $stmt->fetch();
+?&gt;</code><button class="copy-btn" data-copy="PDO database example">COPY</button></pre>
+
+        <h3>Forms & Superglobals</h3>
+        <pre><code>&lt;?php
+// GET
+$name = $_GET['name'] ?? 'Guest';
+
+// POST
+$email = $_POST['email'] ?? '';
+
+// SERVER
+$method = $_SERVER['REQUEST_METHOD'];
+
+// Form handling
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = htmlspecialchars($_POST['name']);
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+}
+?&gt;</code><button class="copy-btn" data-copy="$name = $_POST['name'];">COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Composer (Package Manager)</h3>
+      <pre><code># Install Composer (composer.getcomposer.org)
+
+# Initialize project
+composer init
+
+# Install package
+composer require monolog/monolog
+
+# Autoload
+require 'vendor/autoload.php';</code><button class="copy-btn" data-copy="composer require package/name">COPY</button></pre>
+
+      <h3>Popular Frameworks</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>Laravel</strong>Modern, elegant framework</div>
+        <div class="package-item"><strong>Symfony</strong>Enterprise framework</div>
+        <div class="package-item"><strong>CodeIgniter</strong>Lightweight framework</div>
+        <div class="package-item"><strong>WordPress</strong>CMS platform</div>
+      </div>
+
+      <h3>Laravel Quick Start</h3>
+      <pre><code># Install Laravel
+composer create-project laravel/laravel my-app
+
+# Serve application
+cd my-app
+php artisan serve
+
+# Visit: http://localhost:8000</code><button class="copy-btn" data-copy="composer create-project laravel/laravel my-app">COPY</button></pre>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Learn Laravel</strong> — Modern PHP development</div>
+      <div class="step"><span class="n">2</span><strong>Master PDO</strong> — Secure database access</div>
+      <div class="step"><span class="n">3</span><strong>Security Best Practices</strong> — SQL injection, XSS prevention
+      </div>
+      <div class="step"><span class="n">4</span><strong>Build Projects</strong> — CMS, APIs, web apps</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://www.php.net/manual/en/" target="_blank">Official PHP Manual</a></li>
+        <li>📘 <a href="https://laravel.com/docs" target="_blank">Laravel Documentation</a></li>
+        <li>🎓 <a href="https://phptherightway.com/" target="_blank">PHP: The Right Way</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 /* Database Pages Common JavaScript */
-/* DevSphere Database Documentation - Shared JS */
+/* Coduxium XI Database Documentation - Shared JS */
 
 (function() {
   'use strict';

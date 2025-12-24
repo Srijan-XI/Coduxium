@@ -1,0 +1,222 @@
+/* Language Pages Common Styles */
+/* Shared styling for all language documentation pages */
+
+/* This file provides consistent styling across all language guides */
+/* Used by: Python, JavaScript, Java, Bash, and all other language pages */
+
+/* Base variables and utilities are inherited from main.css */
+
+/* Page-specific enhancements */
+.subsection {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.subsection h3 {
+    color: #f59e0b;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.subsection h4 {
+    color: #e1e4e8;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+/* Step indicators for installation guides */
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
+}
+
+.step:hover {
+    border-color: #8b5cf6;
+}
+
+.step .n {
+    background: #8b5cf6;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.step strong {
+    color: #e1e4e8;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+/* Code examples styling */
+code {
+    font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+    background: #0d1117;
+    padding: 0.2em 0.4em;
+    border-radius: 0.3em;
+    border: 1px solid #30363d;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+/* Language-specific badges */
+.version-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* Syntax highlighting hints */
+.syntax-note {
+    background: #0d1117;
+    border-left: 3px solid #10b981;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Performance tips */
+.perf-tip {
+    background: #0d1117;
+    border-left: 3px solid #f59e0b;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Comparison tables */
+.comparison-table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #30363d;
+}
+
+.comparison-table th {
+    background: #161b22;
+    color: #8b5cf6;
+    font-weight: 600;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:hover {
+    background: #161b22;
+}
+
+/* Package/dependency listings */
+.package-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.package-item {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.package-item:hover {
+    border-color: #8b5cf6;
+    transform: translateY(-2px);
+}
+
+.package-item strong {
+    color: #8b5cf6;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+/* Resource links */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.resource-card {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.resource-card:hover {
+    border-color: #8b5cf6;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+}
+
+.resource-card h4 {
+    color: #8b5cf6;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.resource-card p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #8b92a0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .package-list {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        flex-direction: column;
+    }
+}

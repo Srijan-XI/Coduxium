@@ -4,115 +4,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubuntu - Linux for Human Beings</title>
+    <title>Ubuntu - Complete Guide | Coduxium XI</title>
+    <meta name="description"
+        content="Complete Ubuntu guide - The most popular Linux desktop distribution with ease of use and community support">
+
     <link rel="stylesheet" href="../../../../css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --ubuntu-orange: #E95420;
-            --ubuntu-aubergine: #77216F;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #111;
-            color: #f0f0f0;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--ubuntu-aubergine) 0%, var(--ubuntu-orange) 100%);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            background: #1d1d1d;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            border-color: var(--ubuntu-orange);
-            transform: translateY(-5px);
-        }
-
-        .btn-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--ubuntu-orange);
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 
-<body>
-    <div class="hero">
-        <h1>Ubuntu</h1>
-        <p class="text-xl">The world's most popular open source operating system.</p>
-    </div>
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Ubuntu</a></h1>
+                    <p class="sub">Linux for Human Beings</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
 
-    <main class="card-grid">
-        <section class="info-card">
-            <h2>🌍 Overview</h2>
-            <p>Ubuntu is a Debian-based distribution composed mostly of free and open-source software. It is arguably
-                the most popular distro for servers and beginners alike.</p>
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🟠</span>
+                <span>Most Popular Desktop Linux</span>
+            </div>
+            <h1 class="hero-title">Ubuntu</h1>
+            <p class="hero-description">
+                The world's most popular Linux desktop distribution. Ubuntu combines powerful features with an
+                easy-to-use interface, making Linux accessible to everyone.
+            </p>
         </section>
 
-        <section class="info-card">
-            <h2>📦 APT & Snap</h2>
-            <p>Ubuntu uses apt for debian packages and Snap for universal app distribution. This hybrid approach ensures
-                you have access to almost any software.</p>
-            <div
-                style="background: #000; padding: 10px; font-family: monospace; margin-top: 10px; border-left: 3px solid var(--ubuntu-orange);">
-                sudo apt update<br>
-                sudo apt install git<br>
-                sudo snap install code --classic
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Debian</li>
+                    <li><strong>Package Manager:</strong> APT (Advanced Package Tool)</li>
+                    <li><strong>Desktop:</strong> GNOME (default), KDE, Xfce variants available</li>
+                    <li><strong>Release Model:</strong> 6-month releases + LTS every 2 years</li>
+                    <li><strong>Target Users:</strong> Everyone - beginners to professionals</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h4>User Friendly</h4>
+                    <p>Beautiful GNOME desktop with intuitive interface for all users</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h4>Regular Updates</h4>
+                    <p>New version every 6 months, LTS versions get 5 years of support</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📦</span>
+                    <h4>Huge Repository</h4>
+                    <p>Thousands of packages available through APT and Snap Store</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌍</span>
+                    <h4>Massive Community</h4>
+                    <p>Largest Linux community with extensive documentation and support</p>
+                </div>
             </div>
         </section>
 
-        <section class="info-card">
-            <h2>🔗 Variants (Flavors)</h2>
-            <ul style="list-style: none; padding: 0;">
-                <li>🖥️ <a href="#" class="btn-link">Kubuntu</a> (KDE Plasma)</li>
-                <li>🐀 <a href="#" class="btn-link">Xubuntu</a> (XFCE)</li>
-                <li>🐦 <a href="#" class="btn-link">Lubuntu</a> (LXQt)</li>
-                <li>🎨 <a href="#" class="btn-link">Ubuntu Studio</a> (Multimedia)</li>
-            </ul>
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Ubuntu?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Ubuntu is a Debian-based Linux distribution developed by Canonical Ltd. Since its launch in 2004,
+                    Ubuntu has become the most widely used Linux distribution for desktops and is also popular for
+                    servers and cloud deployments. The name "Ubuntu" comes from an African philosophy meaning "humanity
+                    towards others." Ubuntu emphasizes ease of use, regular releases, and a strong community focus.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li><strong>Modern GNOME Desktop:</strong> Beautiful, intuitive interface with excellent usability
+                    </li>
+                    <li><strong>LTS Releases:</strong> Long Term Support versions receive 5 years of updates</li>
+                    <li><strong>Snap Packages:</strong> Universal package format with automatic updates and sandboxing
+                    </li>
+                    <li><strong>Ubuntu Software:</strong> Easy-to-use app store for discovering and installing software
+                    </li>
+                    <li><strong>Hardware Compatibility:</strong> Excellent out-of-the-box support for most hardware</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Ubuntu?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Perfect for Beginners</h4>
+                        <p>Most beginner-friendly Linux distro with excellent documentation and community support</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Professional Ready</h4>
+                        <p>Used by developers, enterprises, and professionals worldwide for serious work</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Ecosystem Leader</h4>
+                        <p>Largest package repository, most software is tested on Ubuntu first</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="info-card">
-            <h2>Related in Debian Family</h2>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
-                <a href="../Kali/kali.html" class="btn-link"
-                    style="border: 1px solid #333; padding: 5px 15px; border-radius: 20px;">Kali Linux</a>
-                <a href="../Mint/mint.html" class="btn-link"
-                    style="border: 1px solid #333; padding: 5px 15px; border-radius: 20px;">Linux Mint</a>
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download Ubuntu from: <a href="https://ubuntu.com/download/desktop"
+                            target="_blank">ubuntu.com/download</a><br><br>
+                        Choose: Ubuntu Desktop (latest) or Ubuntu LTS (long-term support)<br>
+                        File size: ~3-4GB
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=ubuntu.iso of=/dev/sdX bs=4M status=progress
+
+# Or use: Etcher, Rufus (Windows), Ventoy</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS/UEFI (F2/F12/Del)<br>
+                        4. Select USB as boot device<br>
+                        5. Choose "Try or Install Ubuntu"
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Install Ubuntu</h4>
+                    <p class="command-desc">
+                        1. Click "Install Ubuntu"<br>
+                        2. Choose language and keyboard<br>
+                        3. Select "Normal installation"<br>
+                        4. Choose disk partitioning<br>
+                        5. Create user account<br>
+                        6. Wait for installation<br>
+                        7. Restart and enjoy!
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 2 GHz dual-core or better</li>
+                    <li><strong>RAM:</strong> 4GB minimum (8GB recommended)</li>
+                    <li><strong>Storage:</strong> 25GB minimum (50GB+ recommended)</li>
+                    <li><strong>GPU:</strong> Graphics card with 1024x768 resolution</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management with APT</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo apt update
+sudo apt upgrade -y</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">sudo apt install package-name
+
+# Install multiple packages
+sudo apt install firefox vlc gimp</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo apt remove package-name
+
+# Remove with config files
+sudo apt purge package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">apt search keyword
+apt show package-name  # Details</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Ubuntu Software Center</h4>
+                        <p class="command-desc">Click "Show Applications" → "Ubuntu Software" to browse and install apps
+                            graphically</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Snap Packages</h4>
+                        <pre><code class="language-bash">snap install package-name
+snap find keyword</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>System Settings</h4>
+                        <p class="command-desc">Access Settings from top-right menu to configure display, network,
+                            users, and more</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>File Manager (Nautilus)</h4>
+                        <p class="command-desc">Press Super key → type "Files" or click Files icon in dock</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Enable Additional Drivers</h4>
+                    <pre><code class="language-bash"># Open driver manager
+software-properties-gtk
+
+# Or via command line
+ubuntu-drivers devices
+sudo ubuntu-drivers autoinstall</code></pre>
+                    <p class="command-desc">Install proprietary drivers for NVIDIA, Wi-Fi, etc.</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Add PPAs (Personal Package Archives)</h4>
+                    <pre><code class="language-bash"># Add PPA
+sudo add-apt-repository ppa:user/ppa-name
+sudo apt update
+
+# Remove PPA
+sudo add-apt-repository --remove ppa:user/ppa-name</code></pre>
+                    <p class="command-desc">Access additional software repositories</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>System Cleanup</h4>
+                    <pre><code class="language-bash"># Remove unused packages
+sudo apt autoremove
+
+# Clean package cache
+sudo apt clean
+
+# Remove old kernels (careful!)
+sudo apt remove --purge $(dpkg -l 'linux-*' | grep ^ii | awk '{print $2}' | grep -v `uname -r`)</code></pre>
+                    <p class="command-desc">Free up disk space</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Install Development Tools</h4>
+                    <pre><code class="language-bash"># Build essentials
+sudo apt install build-essential git
+
+# Programming languages
+sudo apt install python3-pip nodejs npm
+
+# IDEs
+sudo snap install code --classic  # VS Code
+sudo snap install pycharm-community --classic</code></pre>
+                    <p class="command-desc">Set up development environment</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update System</strong></td>
+                            <td><code>sudo apt update && sudo apt upgrade</code></td>
+                            <td>Update package list and upgrade all packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Software</strong></td>
+                            <td><code>sudo apt install package</code></td>
+                            <td>Install a new package</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remove Software</strong></td>
+                            <td><code>sudo apt remove package</code></td>
+                            <td>Uninstall a package</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search Packages</strong></td>
+                            <td><code>apt search keyword</code></td>
+                            <td>Search for available packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clean System</strong></td>
+                            <td><code>sudo apt autoremove && sudo apt clean</code></td>
+                            <td>Remove unused packages and cache</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System Info</strong></td>
+                            <td><code>lsb_release -a</code></td>
+                            <td>Show Ubuntu version information</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disk Usage</strong></td>
+                            <td><code>df -h</code></td>
+                            <td>Check disk space usage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Running Processes</strong></td>
+                            <td><code>top</code> or <code>htop</code></td>
+                            <td>Monitor system processes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Network Info</strong></td>
+                            <td><code>ip addr</code> or <code>ifconfig</code></td>
+                            <td>Show network configuration</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Restart Services</strong></td>
+                            <td><code>sudo systemctl restart service-name</code></td>
+                            <td>Restart a system service</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://ubuntu.com/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Ubuntu homepage</p>
+                </a>
+                <a href="https://help.ubuntu.com/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official Ubuntu documentation</p>
+                </a>
+                <a href="https://askubuntu.com/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Ask Ubuntu</h4>
+                    <p>Community Q&A forum</p>
+                </a>
+                <a href="https://github.com/ubuntu" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>GitHub repositories</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Download Ubuntu LTS for stability or latest for newest features</li>
+                    <li>Try Ubuntu in Live Mode before installing</li>
+                    <li>Explore the Ubuntu Software Center</li>
+                    <li>Join the Ubuntu community forums</li>
+                    <li>Customize your desktop with GNOME Extensions</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Mint/mint.html" class="next-step-card">
+                    <span class="step-icon">🍃</span>
+                    <h4>Linux Mint</h4>
+                    <p>Ubuntu-based with Cinnamon desktop</p>
+                </a>
+                <a href="../PopOS/PopOS.html" class="next-step-card">
+                    <span class="step-icon">🟣</span>
+                    <h4>Pop!_OS</h4>
+                    <p>Ubuntu-based by System76</p>
+                </a>
+                <a href="../Zorin/Zorin.html" class="next-step-card">
+                    <span class="step-icon">⚡</span>
+                    <h4>Zorin OS</h4>
+                    <p>Ubuntu-based, Windows-like interface</p>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer style="text-align: center; padding: 40px; border-top: 1px solid #333;">
-        <a href="../../linux.html" style="color: var(--ubuntu-orange); text-decoration: none;">← Back to Linux Home</a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
     </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 
 </html>

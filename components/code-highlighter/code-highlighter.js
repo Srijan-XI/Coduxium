@@ -1,20 +1,20 @@
 /**
- * DevSphere Code Syntax Highlighter
+ * Coduxium XI Code Syntax Highlighter
  * Uses Highlight.js for syntax highlighting with theme support
  */
 
 class CodeHighlighter {
 	constructor(options = {}) {
-		this.themes = {
-			'vs-dark': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css',
-			'monokai': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css',
-			'github': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css',
-			'dracula': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dracula.min.css',
-			'nord': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css',
-			'atom-one-dark': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css'
-		};
+		this.themes = [
+			'vs-dark',
+			'monokai',
+			'github',
+			'dracula',
+			'nord',
+			'atom-one-dark'
+		];
 		
-		this.currentTheme = localStorage.getItem('devSphereCodeTheme') || 'vs-dark';
+		this.currentTheme = localStorage.getItem('Coduxium XICodeTheme') || 'vs-dark';
 		
 		this.init();
 	}
@@ -69,21 +69,17 @@ class CodeHighlighter {
 	}
 
 	loadTheme(themeName) {
-		// Remove existing theme
-		const existing = document.getElementById('hljs-theme');
-		if (existing) {
-			existing.remove();
-		}
-		
-		// Add new theme
-		const link = document.createElement('link');
-		link.id = 'hljs-theme';
-		link.rel = 'stylesheet';
-		link.href = this.themes[themeName] || this.themes['vs-dark'];
-		document.head.appendChild(link);
-		
-		this.currentTheme = themeName;
-		localStorage.setItem('devSphereCodeTheme', themeName);
+		// Theme CSS is shipped locally in code-highlighter.css.
+		// We keep the selector + preference for UX, but we don't fetch remote stylesheets.
+		this.currentTheme = this.themes.includes(themeName) ? themeName : 'vs-dark';
+		localStorage.setItem('Coduxium XICodeTheme', this.currentTheme);
+
+		// Apply a root class so CSS can switch token colors without CDN assets.
+		const root = document.documentElement;
+		[...root.classList]
+			.filter(c => c.startsWith('hljs-theme-'))
+			.forEach(c => root.classList.remove(c));
+		root.classList.add(`hljs-theme-${this.currentTheme}`);
 	}
 
 	highlightAll() {
@@ -166,7 +162,7 @@ class CodeHighlighter {
 				Code Theme
 			</button>
 			<div class="theme-selector-dropdown">
-				${Object.keys(this.themes).map(theme => `
+				${this.themes.map(theme => `
 					<button class="theme-option ${theme === this.currentTheme ? 'active' : ''}" data-theme="${theme}">
 						${this.formatThemeName(theme)}
 					</button>

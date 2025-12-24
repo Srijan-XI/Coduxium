@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Streamlit — Coduxium XI</title>
+    <meta name="description" content="Master Streamlit - Turn Python scripts into shareable web apps in minutes.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Streamlit</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎈 Streamlit</h2>
+            <p class="intro">The fastest way to build and share data apps - turn Python scripts into shareable web
+                applications in minutes.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Data Apps</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Web Framework</span>
+                    <span class="badge">Rapid Development</span>
+                </div>
+                <p>Streamlit is an open-source Python library that makes it easy to create and share custom web apps for
+                    machine learning and data science. Build beautiful data apps in pure Python without frontend
+                    experience.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Pure Python</strong> — No HTML, CSS, or JavaScript required</li>
+                    <li><strong>Instant Updates</strong> — See changes in real-time</li>
+                    <li><strong>Interactive Widgets</strong> — Sliders, buttons, text inputs, etc.</li>
+                    <li><strong>Data Visualization</strong> — Built-in support for charts</li>
+                    <li><strong>Caching</strong> — Speed up apps with @st.cache decorator</li>
+                    <li><strong>Deployment</strong> — Easy deployment to Streamlit Cloud</li>
+                    <li><strong>File Operations</strong> — Upload and download files easily</li>
+                    <li><strong>Customization</strong> — Themes and custom components</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Machine learning model demos</li>
+                    <li>Data exploration dashboards</li>
+                    <li>Interactive reports</li>
+                    <li>Internal tools and prototypes</li>
+                    <li>Data science portfolio projects</li>
+                    <li>Business intelligence applications</li>
+                    <li>A/B testing tools</li>
+                    <li>Data validation interfaces</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Streamlit:</p>
+                <pre><code>pip install streamlit</code></pre>
+
+                <p>Create a simple app (app.py):</p>
+                <pre><code>import streamlit as st
+import pandas as pd
+import numpy as np
+
+st.title('My First Streamlit App')
+
+st.write('Hello, Streamlit!')
+
+# Create a dataframe
+df = pd.DataFrame({
+    'Column A': [1, 2, 3, 4],
+    'Column B': [10, 20, 30, 40]
+})
+
+st.write('Here is a dataframe:')
+st.dataframe(df)
+
+# Add widgets
+x = st.slider('Select a value', 0, 100)
+st.write(f'You selected: {x}')
+
+# Plotting
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c']
+)
+st.line_chart(chart_data)</code></pre>
+
+                <p>Run the app:</p>
+                <pre><code>streamlit run app.py</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use @st.cache_data for data loading functions</li>
+                    <li>Organize code with st.sidebar for controls</li>
+                    <li>Use st.columns for layout</li>
+                    <li>Implement session state for complex interactions</li>
+                    <li>Add loading spinners for long operations</li>
+                    <li>Use st.form to group inputs together</li>
+                    <li>Deploy to Streamlit Cloud for easy sharing</li>
+                    <li>Add error handling with try/except blocks</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://streamlit.io/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.streamlit.io/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/streamlit/streamlit" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

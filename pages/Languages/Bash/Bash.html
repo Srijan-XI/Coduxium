@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="Complete Bash guide - Master shell scripting, automation, and command-line tools for Linux, macOS, and Unix systems." />
+	<meta name="keywords" content="Bash, Shell Scripting, Linux, Unix, Automation, CLI, DevOps" />
+	<title>Bash Complete Guide | Coduxium XI</title>
+	<link rel="stylesheet" href="../../../css/main.css">
+	<link rel="stylesheet" href="../../Database/database-common.css">
+	<link rel="stylesheet" href="../language-common.css">
+	<link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+	<div class="page-wrapper">
+		<header class="page-header">
+			<h1>🖥️ Bash Complete Guide</h1>
+			<p class="subtitle">Learn the Bourne Again SHell – scripting, automation, and command-line mastery.</p>
+			<div class="badge-row">
+				<span class="badge">UNIX</span>
+				<span class="badge">AUTOMATION</span>
+				<span class="badge">SCRIPTING</span>
+				<span class="badge">CLI</span>
+			</div>
+			<nav class="section-nav">
+				<a href="../../../index.html">🏠 Home</a>
+				<a href="#introduction">Introduction</a>
+				<a href="#installation">Installation & Setup</a>
+				<a href="#user-guide">User Guide</a>
+				<a href="#advanced">Advanced Topics</a>
+				<a href="#next-steps">Next Steps</a>
+			</nav>
+			<div class="info-box"><strong>💡 Pro Tip:</strong> Bash excels at quick automation, gluing together existing
+				tools and piping data between them.</div>
+		</header>
+
+		<!-- ==================== INTRODUCTION SECTION ==================== -->
+		<section id="introduction" class="card accent">
+			<h2>📚 Introduction</h2>
+
+			<h3>What is Bash?</h3>
+			<p><strong>Bash</strong> (Bourne Again SHell) is a command processor and scripting language widely used on
+				Linux, macOS, and Unix-like systems. It lets you run commands interactively or automate tasks with
+				scripts. Bash serves as the default shell for many distributions and underpins countless deployment
+				pipelines, build scripts, and system maintenance routines.</p>
+
+			<h3>Key Features</h3>
+			<div class="topic-grid">
+				<div class="topic"><strong>📝 Text-Driven</strong> — Plain-text input and output</div>
+				<div class="topic"><strong>🔗 Composable</strong> — Pipes, redirection, chaining</div>
+				<div class="topic"><strong>🌍 Portable</strong> — Runs across POSIX environments</div>
+				<div class="topic"><strong>🔧 Extensible</strong> — Integrate with grep, awk, sed, jq</div>
+				<div class="topic"><strong>⚡ Lightweight</strong> — No heavy runtime needed</div>
+				<div class="topic"><strong>🤖 Automation</strong> — Perfect for DevOps tasks</div>
+			</div>
+
+			<h3>Why Choose Bash?</h3>
+			<ul>
+				<li><strong>Universal:</strong> Available on virtually all Unix-like systems</li>
+				<li><strong>Quick Iteration:</strong> No compile step, instant feedback</li>
+				<li><strong>System Integration:</strong> Direct access to OS commands and utilities</li>
+				<li><strong>CI/CD Essential:</strong> Build and deployment scripts</li>
+				<li><strong>Glue Language:</strong> Combine powerful tools efficiently</li>
+			</ul>
+
+			<div class="info-box warning"><strong>⚠️ Note:</strong> Bash is not ideal for large-scale application
+				logic—prefer Python, Go, or Node.js for complex modules.</div>
+		</section>
+
+		<!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+		<section id="installation" class="card">
+			<h2>⚙️ Installation & Setup</h2>
+
+			<!-- Windows -->
+			<div id="windows-install" class="subsection">
+				<h3>Windows Installation</h3>
+
+				<h4>Option 1: Git Bash (Quick)</h4>
+				<div class="step"><span class="n">1</span>
+					<div><strong>Download</strong>
+						<p>Get Git for Windows from <a href="https://git-scm.com/download/win"
+								target="_blank">git-scm.com</a></p>
+					</div>
+				</div>
+				<div class="step"><span class="n">2</span>
+					<div><strong>Install</strong>
+						<p>Choose "Git Bash Here" context menu option</p>
+					</div>
+				</div>
+				<div class="step"><span class="n">3</span>
+					<div><strong>Launch</strong>
+						<p>Open Git Bash from Start Menu</p>
+					</div>
+				</div>
+
+				<h4>Option 2: WSL (Windows Subsystem for Linux)</h4>
+				<pre><code># Install WSL (PowerShell as Admin)
+wsl --install
+
+# Reboot when prompted
+# Launch Ubuntu and create user
+
+# Update packages
+sudo apt update && sudo apt upgrade -y</code><button class="copy-btn" data-copy="wsl --install">COPY</button></pre>
+			</div>
+
+			<!-- macOS -->
+			<div id="macos-install" class="subsection">
+				<h3>macOS Installation</h3>
+				<p>macOS ships with Bash (older version) and Zsh as default shell. You can install a newer Bash using
+					Homebrew.</p>
+
+				<pre><code># Install Homebrew if missing
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install latest Bash
+brew install bash
+
+# Add new shell to allowed list
+echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
+
+# Change default shell (optional)
+chsh -s /opt/homebrew/bin/bash
+
+# Verify
+bash --version</code><button class="copy-btn" data-copy="brew install bash">COPY</button></pre>
+			</div>
+
+			<!-- Linux -->
+			<div id="linux-install" class="subsection">
+				<h3>Linux Installation / Update</h3>
+				<p>Most Linux distributions include Bash by default.</p>
+
+				<pre><code># Debian/Ubuntu
+sudo apt update
+sudo apt install --reinstall bash
+
+# Fedora
+sudo dnf install bash
+
+# Arch
+sudo pacman -S bash
+
+# Verify
+bash --version</code><button class="copy-btn" data-copy="bash --version">COPY</button></pre>
+			</div>
+		</section>
+
+		<!-- ==================== USER GUIDE SECTION ==================== -->
+		<section id="user-guide" class="card accent">
+			<h2>📖 User Guide</h2>
+
+			<div class="subsection">
+				<h3>Variables</h3>
+				<pre><code># Variable assignment (no spaces around =)
+NAME="Coduxium XI"
+COUNT=42
+
+# Using variables
+echo "Hello $NAME"
+echo "Count: ${COUNT}"
+
+# Command substitution
+TODAY=$(date +%Y-%m-%d)
+FILES=$(ls -1 | wc -l)
+
+# Environment variables
+export PATH="$PATH:/usr/local/bin"
+echo $HOME
+echo $USER</code><button class="copy-btn" data-copy='NAME="Coduxium XI"\necho "Hello $NAME"'>COPY</button></pre>
+
+				<h3>Conditionals</h3>
+				<pre><code># If statement
+VALUE=42
+if [ "$VALUE" -gt 10 ]; then
+    echo "High"
+elif [ "$VALUE" -eq 10 ]; then
+    echo "Equal"
+else
+    echo "Low"
+fi
+
+# Test operators
+if [ -f "file.txt" ]; then
+    echo "File exists"
+fi
+
+if [ -d "directory" ]; then
+    echo "Directory exists"
+fi
+
+# String comparison
+if [ "$NAME" = "Alice" ]; then
+    echo "Hello Alice"
+fi
+
+# Modern test syntax
+if [[ $VALUE > 10 && $NAME == "Alice" ]]; then
+    echo "Both conditions true"
+fi</code><button class="copy-btn" data-copy='if [ "$VALUE" -gt 10 ]; then\n    echo "High"\nfi'>COPY</button></pre>
+
+				<h3>Loops</h3>
+				<pre><code># For loop
+for f in *.log; do
+    echo "Processing $f"
+    grep ERROR "$f" >> errors.txt
+done
+
+# For loop with range
+for i in {1..5}; do
+    echo "Number: $i"
+done
+
+# While loop
+COUNT=0
+while [ $COUNT -lt 5 ]; do
+    echo $COUNT
+    ((COUNT++))
+done
+
+# Read file line by line
+while IFS= read -r line; do
+    echo "Line: $line"
+done < file.txt</code><button class="copy-btn" data-copy='for f in *.log; do\n    echo "Processing $f"\ndone'>COPY</button></pre>
+
+				<h3>Functions</h3>
+				<pre><code># Function definition
+greet() {
+    local name=$1
+    echo "Hi, $name"
+}
+
+# Call function
+greet "Scripter"
+
+# Function with return value
+add() {
+    local sum=$(( $1 + $2 ))
+    echo $sum
+}
+
+result=$(add 5 3)
+echo "Result: $result"
+
+# Function with multiple parameters
+process_file() {
+    local input=$1
+    local output=$2
+    
+    if [ ! -f "$input" ]; then
+        echo "Error: Input file not found"
+        return 1
+    fi
+    
+    cat "$input" > "$output"
+    echo "Processed: $input -> $output"
+}</code><button class="copy-btn" data-copy='greet() {\n    echo "Hi, $1"\n}\ngreet "Alice"'>COPY</button></pre>
+
+				<h3>Arrays</h3>
+				<pre><code># Array declaration
+servers=(app01 app02 db01)
+
+# Access elements
+echo ${servers[0]}      # First element
+echo ${servers[@]}      # All elements
+echo ${#servers[@]}     # Array length
+
+# Iterate over array
+for s in "${servers[@]}"; do
+    echo "Deploying to $s"
+done
+
+# Add to array
+servers+=(web01)
+
+# Associative array (Bash 4+)
+declare -A config
+config[host]="localhost"
+config[port]="8080"
+
+echo ${config[host]}</code><button class="copy-btn" data-copy='servers=(app01 app02 db01)\nfor s in "${servers[@]}"; do\n    echo $s\ndone'>COPY</button></pre>
+
+				<h3>Input/Output & Redirection</h3>
+				<pre><code># Output redirection
+echo "Hello" > file.txt        # Overwrite
+echo "World" >> file.txt       # Append
+
+# Error redirection
+command 2> errors.log          # Redirect stderr
+command &> all.log             # Redirect both stdout and stderr
+
+# Input redirection
+wc -l < file.txt
+
+# Pipes
+cat file.txt | grep "pattern" | sort | uniq
+
+# Here document
+cat << EOF > config.txt
+host: localhost
+port: 8080
+EOF
+
+# Here string
+grep "error" <<< "$LOG_OUTPUT"</code><button class="copy-btn" data-copy='echo "Hello" > file.txt\ncat file.txt | grep "pattern"'>COPY</button></pre>
+
+				<h3>String Manipulation</h3>
+				<pre><code># String length
+NAME="Alice"
+echo ${#NAME}              # 5
+
+# Substring
+TEXT="Hello World"
+echo ${TEXT:0:5}           # Hello
+echo ${TEXT:6}             # World
+
+# Replace
+echo ${TEXT/World/Bash}    # Hello Bash
+echo ${TEXT//o/0}          # Hell0 W0rld (replace all)
+
+# Remove prefix/suffix
+FILE="document.pdf"
+echo ${FILE%.pdf}          # document
+echo ${FILE#*.}            # pdf
+
+# Uppercase/lowercase
+echo ${NAME^^}             # ALICE
+echo ${NAME,,}             # alice</code><button class="copy-btn" data-copy='TEXT="Hello World"\necho ${TEXT:0:5}'>COPY</button></pre>
+			</div>
+		</section>
+
+		<!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+		<section id="advanced" class="card">
+			<h2>🚀 Advanced Topics</h2>
+
+			<h3>Command Examples</h3>
+			<pre><code># Find largest files
+du -ah . | sort -hr | head -n 10
+
+# JSON field extraction with jq
+curl -s https://api.github.com/repos/OWNER/REPO | jq -r '.stargazers_count'
+
+# Watch log growth
+watch -n 2 "tail -n 20 app.log"
+
+# Find and replace in multiple files
+find . -name "*.txt" -exec sed -i 's/old/new/g' {} \;
+
+# Archive and compress
+tar -czf backup.tar.gz /path/to/directory
+
+# Process CSV
+awk -F',' '{print $1, $3}' data.csv</code><button class="copy-btn" data-copy='du -ah . | sort -hr | head -n 10'>COPY</button></pre>
+
+			<h3>Safer Scripts</h3>
+			<pre><code>#!/usr/bin/env bash
+
+# Strict mode
+set -Eeuo pipefail
+
+# -e: Exit on error
+# -E: Inherit ERR trap
+# -u: Error on undefined variable
+# -o pipefail: Pipe fails if any command fails
+
+# Error handling
+trap 'echo "Error on line $LINENO"' ERR
+
+# Cleanup on exit
+cleanup() {
+    echo "Cleaning up..."
+    rm -f /tmp/tempfile
+}
+trap cleanup EXIT
+
+# Script logic here
+echo "Script running..."</code><button class="copy-btn" data-copy='#!/usr/bin/env bash\nset -Eeuo pipefail'>COPY</button></pre>
+
+			<h3>Best Practices</h3>
+			<ul>
+				<li>Always quote variables: <code>"$VAR"</code></li>
+				<li>Use <code>#!/usr/bin/env bash</code> shebang</li>
+				<li>Enable strict mode with <code>set -Eeuo pipefail</code></li>
+				<li>Prefer <code>$(command)</code> over backticks</li>
+				<li>Use shellcheck for linting</li>
+				<li>Document parameters and environment variables</li>
+				<li>Keep scripts modular with functions</li>
+			</ul>
+		</section>
+
+		<!-- ==================== NEXT STEPS SECTION ==================== -->
+		<section id="next-steps" class="card accent">
+			<h2>🎯 Next Steps</h2>
+			<div class="step"><span class="n">1</span><strong>Master Core Tools</strong> — grep, awk, sed, find</div>
+			<div class="step"><span class="n">2</span><strong>Learn I/O Redirection</strong> — >, >>, <, 2>, |</div>
+			<div class="step"><span class="n">3</span><strong>Write Automation Scripts</strong> — CI/CD, backups,
+				deployment</div>
+			<div class="step"><span class="n">4</span><strong>Use Version Control</strong> — Store scripts in Git</div>
+			<div class="step"><span class="n">5</span><strong>Practice Security</strong> — Validate inputs, use absolute
+				paths</div>
+
+			<h3>📚 Additional Resources</h3>
+			<ul>
+				<li>📖 <a href="https://www.gnu.org/software/bash/manual/" target="_blank">Official Bash Manual</a></li>
+				<li>📘 <a href="https://mywiki.wooledge.org/BashGuide" target="_blank">Bash Guide (Wooledge)</a></li>
+				<li>🔧 <a href="https://www.shellcheck.net/" target="_blank">ShellCheck - Bash Linter</a></li>
+				<li>📚 <a href="https://explainshell.com/" target="_blank">Explain Shell Commands</a></li>
+			</ul>
+		</section>
+
+		<footer>
+			<p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+		</footer>
+	</div>
+
+	<div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+	<script src="../../Database/database-common.js"></script>
+	<script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

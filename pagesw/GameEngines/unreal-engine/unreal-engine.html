@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Unreal Engine — Coduxium XI</title>
+    <meta name="description"
+        content="Master Unreal Engine - The world's most advanced real-time 3D creation tool for photoreal visuals and immersive experiences.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Unreal Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎮 Unreal Engine</h2>
+            <p class="intro">The world's most open and advanced real-time 3D creation tool for photoreal visuals and
+                immersive experiences.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Engine</span>
+                    <span class="badge">3D</span>
+                    <span class="badge">C++</span>
+                    <span class="badge">Epic Games</span>
+                </div>
+                <p>Unreal Engine is a complete suite of development tools for creating high-fidelity games, interactive
+                    experiences, and visualizations. Used by AAA game studios, architects, automotive designers, and
+                    filmmakers.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Nanite</strong> — Virtualized geometry for film-quality assets</li>
+                    <li><strong>Lumen</strong> — Dynamic global illumination system</li>
+                    <li><strong>Blueprints</strong> — Visual scripting system</li>
+                    <li><strong>MetaHuman Creator</strong> — Realistic digital humans</li>
+                    <li><strong>C++ Source</strong> — Full engine source code access</li>
+                    <li><strong>Cross-Platform</strong> — Deploy to PC, console, mobile, VR/AR</li>
+                    <li><strong>Marketplace</strong> — Thousands of assets and plugins</li>
+                    <li><strong>Photorealistic Rendering</strong> — Film-quality visuals</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>AAA game development</li>
+                    <li>Virtual reality and AR applications</li>
+                    <li>Architectural visualization</li>
+                    <li>Film and TV production (virtual production)</li>
+                    <li>Automotive design visualization</li>
+                    <li>Training and simulation</li>
+                    <li>Live events and broadcasts</li>
+                    <li>Digital twins and enterprise visualization</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Download and install:</p>
+                <pre><code># Download Epic Games Launcher
+# Install Unreal Engine through launcher
+# Create new project from template</code></pre>
+
+                <p>Basic C++ example:</p>
+                <pre><code>// MyActor.h
+#pragma once
+#include "GameFramework/Actor.h"
+#include "MyActor.generated.h"
+
+UCLASS()
+class MYPROJECT_API AMyActor : public AActor
+{
+    GENERATED_BODY()
+    
+public:
+    AMyActor();
+    
+    virtual void Tick(float DeltaTime) override;
+    
+    UPROPERTY(EditAnywhere)
+    float Speed = 100.0f;
+};
+
+// MyActor.cpp
+void AMyActor::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+    
+    FVector NewLocation = GetActorLocation();
+    NewLocation.Z += Speed * DeltaTime;
+    SetActorLocation(NewLocation);
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use Blueprints for rapid prototyping, C++ for performance</li>
+                    <li>Leverage Nanite and Lumen for modern graphics</li>
+                    <li>Optimize with profiling tools</li>
+                    <li>Use version control (Perforce or Git)</li>
+                    <li>Follow Unreal coding standards</li>
+                    <li>Utilize the Asset Manager for large projects</li>
+                    <li>Implement proper LOD systems</li>
+                    <li>Test on target platforms early and often</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.unrealengine.com/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.unrealengine.com/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/EpicGames/UnrealEngine" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

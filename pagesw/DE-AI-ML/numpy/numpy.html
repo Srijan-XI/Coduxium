@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NumPy — Coduxium XI</title>
+    <meta name="description" content="Master NumPy - The fundamental package for scientific computing with Python.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">NumPy Library</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔢 NumPy</h2>
+            <p class="intro">The fundamental package for scientific computing with Python, providing multi-dimensional
+                arrays and mathematical functions.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Scientific Computing</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Arrays</span>
+                    <span class="badge">Mathematics</span>
+                </div>
+                <p>NumPy is the fundamental package for numerical computing in Python. It provides a powerful
+                    N-dimensional array object, sophisticated broadcasting functions, and tools for integrating C/C++
+                    and Fortran code.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>ndarray</strong> — Powerful N-dimensional array object</li>
+                    <li><strong>Broadcasting</strong> — Vectorized operations on arrays</li>
+                    <li><strong>Linear Algebra</strong> — Comprehensive linear algebra functions</li>
+                    <li><strong>Random Number Generation</strong> — Various distributions</li>
+                    <li><strong>Fourier Transforms</strong> — Fast Fourier transform support</li>
+                    <li><strong>Performance</strong> — Optimized C and Fortran code</li>
+                    <li><strong>Integration</strong> — Seamless Pandas, SciPy, Matplotlib integration</li>
+                    <li><strong>Memory Efficient</strong> — Typed arrays for performance</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Scientific and numerical computing</li>
+                    <li>Data analysis and statistics</li>
+                    <li>Machine learning preprocessing</li>
+                    <li>Image processing</li>
+                    <li>Signal processing</li>
+                    <li>Linear algebra operations</li>
+                    <li>Financial calculations</li>
+                    <li>Simulation and modeling</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install NumPy:</p>
+                <pre><code>pip install numpy</code></pre>
+
+                <p>Basic operations:</p>
+                <pre><code>import numpy as np
+
+# Create arrays
+arr = np.array([1, 2, 3, 4, 5])
+matrix = np.array([[1, 2], [3, 4]])
+
+# Array creation functions
+np.zeros((3, 3))          # 3x3 array of zeros
+np.ones((2, 4))           # 2x4 array of ones
+np.arange(0, 10, 2)       # [0, 2, 4, 6, 8]
+np.linspace(0, 1, 5)      # 5 evenly spaced values
+
+# Operations
+arr * 2                    # Element-wise multiplication
+arr + 10                   # Element-wise addition
+np.dot(matrix, matrix)     # Matrix multiplication
+
+# Statistical functions
+arr.mean()
+arr.std()
+arr.max()
+
+# Indexing and slicing
+arr[0]                     # First element
+arr[1:4]                   # Slice
+matrix[0, 1]               # Element at row 0, col 1
+
+# Reshaping
+arr.reshape((5, 1))        # Reshape to column vector</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use vectorized operations instead of loops</li>
+                    <li>Leverage broadcasting for efficient computations</li>
+                    <li>Choose appropriate data types for memory efficiency</li>
+                    <li>Use views instead of copies when possible</li>
+                    <li>Profile code to identify bottlenecks</li>
+                    <li>Use np.newaxis for dimension manipulation</li>
+                    <li>Understand memory layout (C-order vs F-order)</li>
+                    <li>Use einsum for complex array operations</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://numpy.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://numpy.org/doc/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/numpy/numpy" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

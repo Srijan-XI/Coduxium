@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pandas — Coduxium XI</title>
+    <meta name="description" content="Master Pandas - Powerful Python data analysis and manipulation library.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Pandas Library</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🐼 Pandas</h2>
+            <p class="intro">Powerful, flexible data analysis and manipulation library built on top of NumPy and Python.
+            </p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Data Analysis</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">DataFrames</span>
+                    <span class="badge">Time Series</span>
+                </div>
+                <p>Pandas is an open-source library providing high-performance, easy-to-use data structures and data
+                    analysis tools for Python. It's the de facto standard for data manipulation and analysis in Python.
+                </p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>DataFrame</strong> — Powerful tabular data structure</li>
+                    <li><strong>Data Cleaning</strong> — Handle missing data easily</li>
+                    <li><strong>Data Manipulation</strong> — Merge, join, group, reshape</li>
+                    <li><strong>Time Series</strong> — Comprehensive time series functionality</li>
+                    <li><strong>IO Tools</strong> — Read/write CSV, Excel, SQL, JSON, etc.</li>
+                    <li><strong>Indexing</strong> — Flexible and intuitive indexing</li>
+                    <li><strong>Aggregation</strong> — GroupBy operations</li>
+                    <li><strong>Visualization</strong> — Built-in plotting capabilities</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Data cleaning and preprocessing</li>
+                    <li>Exploratory data analysis (EDA)</li>
+                    <li>Time series analysis</li>
+                    <li>Statistical analysis</li>
+                    <li>Data transformation and wrangling</li>
+                    <li>Financial analysis</li>
+                    <li>Scientific computing</li>
+                    <li>Business intelligence</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Pandas:</p>
+                <pre><code>pip install pandas</code></pre>
+
+                <p>Basic operations:</p>
+                <pre><code>import pandas as pd
+import numpy as np
+
+# Create DataFrame
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['NYC', 'LA', 'Chicago']
+})
+
+# Read from CSV
+df = pd.read_csv('data.csv')
+
+# Basic operations
+df.head()                # First 5 rows
+df.describe()            # Statistical summary
+df['Age'].mean()         # Column mean
+df[df['Age'] > 28]      # Filtering
+
+# GroupBy
+df.groupBy('City').agg({'Age': 'mean'})
+
+# Save to file
+df.to_csv('output.csv', index=False)</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use vectorized operations instead of loops</li>
+                    <li>Choose appropriate data types to save memory</li>
+                    <li>Use categorical data type for repetitive strings</li>
+                    <li>Chain methods for cleaner code</li>
+                    <li>Handle missing data explicitly</li>
+                    <li>Use query() for complex filtering</li>
+                    <li>Avoid modifying DataFrames in-place when possible</li>
+                    <li>Profile memory usage for large datasets</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://pandas.pydata.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://pandas.pydata.org/docs/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/pandas-dev/pandas" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PyTorch — Coduxium XI</title>
+    <meta name="description"
+        content="Master PyTorch - An open source machine learning framework for research and production.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">PyTorch Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔥 PyTorch</h2>
+            <p class="intro">An open source machine learning framework that accelerates the path from research to
+                production.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">Deep Learning</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Meta/Facebook</span>
+                </div>
+                <p>PyTorch is an optimized tensor library for deep learning using GPUs and CPUs. Known for its dynamic
+                    computation graphs and Pythonic approach, it's become the preferred framework for researchers and
+                    increasingly for production deployments.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Dynamic Computation Graphs</strong> — Flexible model building and debugging</li>
+                    <li><strong>Pythonic Interface</strong> — Natural Python integration</li>
+                    <li><strong>Strong GPU Acceleration</strong> — CUDA integration for performance</li>
+                    <li><strong>TorchScript</strong> — Transition from research to production</li>
+                    <li><strong>Distributed Training</strong> — Multi-GPU and multi-node training</li>
+                    <li><strong>Rich Ecosystem</strong> — torchvision, torchaudio, torchtext</li>
+                    <li><strong>AutoGrad</strong> — Automatic differentiation engine</li>
+                    <li><strong>ONNX Support</strong> — Model interoperability</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Research and prototyping neural networks</li>
+                    <li>Computer vision (CNNs, object detection)</li>
+                    <li>Natural language processing (transformers, LSTMs)</li>
+                    <li>Generative AI (GANs, diffusion models)</li>
+                    <li>Reinforcement learning</li>
+                    <li>Graph neural networks</li>
+                    <li>Speech and audio processing</li>
+                    <li>Time series prediction</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>PyTorch Ecosystem</h3>
+                <ul>
+                    <li><strong>torchvision</strong> — Computer vision datasets and models</li>
+                    <li><strong>torchaudio</strong> — Audio processing and datasets</li>
+                    <li><strong>torchtext</strong> — NLP utilities and datasets</li>
+                    <li><strong>PyTorch Lightning</strong> — High-level training framework</li>
+                    <li><strong>TorchServe</strong> — Model serving for production</li>
+                    <li><strong>PyTorch Hub</strong> — Pre-trained model repository</li>
+                    <li><strong>Captum</strong> — Model interpretability library</li>
+                    <li><strong>TorchScript</strong> — JIT compiler for production</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Tensors</h4>
+                <ul>
+                    <li>Multi-dimensional arrays similar to NumPy</li>
+                    <li>GPU acceleration with .cuda() or .to(device)</li>
+                    <li>Automatic gradient tracking with requires_grad</li>
+                </ul>
+
+                <h4>Neural Network Modules</h4>
+                <ul>
+                    <li><code>nn.Module</code> — Base class for all models</li>
+                    <li><code>nn.Sequential</code> — Linear layer stacking</li>
+                    <li>Custom layer implementation</li>
+                    <li>Parameter management</li>
+                </ul>
+
+                <h4>Training Loop</h4>
+                <ul>
+                    <li>Forward pass through model</li>
+                    <li>Loss calculation</li>
+                    <li>Backward pass (backpropagation)</li>
+                    <li>Optimizer step for weight updates</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install PyTorch:</p>
+                <pre><code># CPU only
+pip install torch torchvision torchaudio
+
+# With CUDA support (check pytorch.org for your version)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118</code></pre>
+
+                <p>Simple neural network example:</p>
+                <pre><code>import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Define model
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(784, 128)
+        self.fc2 = nn.Linear(128, 10)
+    
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+
+# Initialize
+model = Net()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+# Training loop
+for epoch in range(epochs):
+    outputs = model(inputs)
+    loss = criterion(outputs, labels)
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use PyTorch Lightning for cleaner code</li>
+                    <li>Leverage DataLoader for efficient data loading</li>
+                    <li>Implement proper GPU memory management</li>
+                    <li>Use mixed precision training (torch.cuda.amp)</li>
+                    <li>Save and load checkpoints regularly</li>
+                    <li>Profile code with PyTorch Profiler</li>
+                    <li>Use pre-trained models from Hub</li>
+                    <li>Convert to TorchScript for production</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://pytorch.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://pytorch.org/docs/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/pytorch/pytorch" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

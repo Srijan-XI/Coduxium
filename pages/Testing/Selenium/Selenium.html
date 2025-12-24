@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Selenium — | Coduxium XI</title>
+	<link rel="stylesheet" href="../testingpages.css">
+	<link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<header>
+			<h1>Selenium — End-to-End Testing</h1>
+			<p class="subtitle">Automate real browser flows for UI testing with WebDriver. Great for regression testing, smoke tests, and cross-browser validation.</p>
+			<div class="badge-row">
+				<span class="badge">E2E</span>
+				<span class="badge">WEBDRIVER</span>
+				<span class="badge">BROWSER AUTOMATION</span>
+				<span class="badge">CI</span>
+			</div>
+			<nav>
+				<a href="../../../index.html">🏠 Home</a>
+				<a href="#intro">Introduction</a>
+				<a href="#setup">Installation &amp; Setup</a>
+				<a href="#guide">User Guide</a>
+			</nav>
+		</header>
+
+		<section id="intro" class="card">
+			<h2>Introduction</h2>
+			<p>Selenium is a browser automation toolkit built around the WebDriver standard. Your test code controls a real browser (Chrome, Firefox, Edge), interacting with the page like a user: clicking buttons, typing into inputs, and asserting the UI state.</p>
+			<h3>When to use Selenium</h3>
+			<ul>
+				<li>Validate critical user journeys (login, checkout, forms)</li>
+				<li>Cross-browser smoke tests</li>
+				<li>Regression tests for UI and integration flows</li>
+				<li>Debugging tricky client-side issues by reproducing steps</li>
+			</ul>
+			<h3>Best practice mindset</h3>
+			<ul>
+				<li>Prefer stable selectors (e.g., <code>data-testid</code>) over fragile CSS/XPath</li>
+				<li>Use explicit waits (WebDriverWait) instead of <code>sleep</code></li>
+				<li>Keep tests independent and deterministic</li>
+			</ul>
+		</section>
+
+		<section id="setup" class="card">
+			<h2>Installation &amp; Setup</h2>
+			<p>This guide uses Python, which is common for Selenium automation. If you prefer Java, the workflow is similar (JUnit/TestNG + Selenium WebDriver).</p>
+
+			<h3>1) Install Python</h3>
+			<p>Install Python 3.10+ and ensure it’s available in your terminal.</p>
+
+			<h3>2) Create a project and install Selenium</h3>
+			<pre><code># Create a folder
+mkdir selenium-demo
+cd selenium-demo
+
+# Create & activate a venv (Windows PowerShell)
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# Install Selenium
+pip install selenium</code><button class="copy-btn" data-copy="pip install selenium">COPY</button></pre>
+
+			<h3>3) Get a browser + driver</h3>
+			<p>Modern Selenium can manage drivers automatically in many setups, but in locked-down environments you may need to install the driver manually.</p>
+			<ul>
+				<li>Chrome/Edge: install the browser; driver may be auto-managed</li>
+				<li>Manual option: download matching driver and add it to PATH</li>
+			</ul>
+
+			<h3>4) Quick smoke test</h3>
+			<pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+try:
+		driver.get("https://example.com")
+		heading = driver.find_element(By.TAG_NAME, "h1").text
+		assert "Example" in heading
+finally:
+		driver.quit()</code><button class="copy-btn" data-copy="driver.get(\"https://example.com\")">COPY</button></pre>
+		</section>
+
+		<section id="guide" class="card">
+			<h2>User Guide</h2>
+
+			<h3>Project structure (simple)</h3>
+			<pre><code>selenium-demo/
+	.venv/
+	tests/
+		test_login.py
+	requirements.txt</code><button class="copy-btn" data-copy="tests/test_login.py">COPY</button></pre>
+
+			<h3>Use stable selectors</h3>
+			<p>In your app, add attributes like <code>data-testid</code>:</p>
+			<pre><code>&lt;button data-testid="login-submit"&gt;Sign in&lt;/button&gt;</code><button class="copy-btn" data-copy="data-testid=\"login-submit\"">COPY</button></pre>
+
+			<h3>Wait for elements (avoid sleep)</h3>
+			<pre><code>from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+wait = WebDriverWait(driver, 10)
+submit = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='login-submit']")))
+submit.click()</code><button class="copy-btn" data-copy="WebDriverWait(driver, 10)">COPY</button></pre>
+
+			<h3>Fill forms and assert results</h3>
+			<pre><code>driver.get("https://your-app.test/login")
+
+driver.find_element(By.NAME, "email").send_keys("user@example.com")
+driver.find_element(By.NAME, "password").send_keys("correct-horse-battery-staple")
+
+driver.find_element(By.CSS_SELECTOR, "[data-testid='login-submit']").click()
+
+wait.until(EC.url_contains("/dashboard"))
+assert "Dashboard" in driver.title</code><button class="copy-btn" data-copy="wait.until(EC.url_contains(\"/dashboard\"))">COPY</button></pre>
+
+			<h3>Run in headless mode (CI-friendly)</h3>
+			<pre><code>from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument("--headless=new")
+options.add_argument("--window-size=1280,800")
+
+driver = webdriver.Chrome(options=options)</code><button class="copy-btn" data-copy="options.add_argument(\"--headless=new\")">COPY</button></pre>
+
+			<h3>Troubleshooting tips</h3>
+			<ul>
+				<li>If elements aren’t found, wait for them (explicit waits) and double-check selectors.</li>
+				<li>If clicks fail, ensure the element is clickable and not covered by overlays.</li>
+				<li>If driver fails to start, check browser/driver version compatibility and PATH.</li>
+			</ul>
+		</section>
+
+		<footer class="page-footer">&copy; 2025 Coduxium XI</footer>
+	</div>
+
+	<div id="copyToast" class="copy-feedback">Copied to clipboard!</div>
+	<script src="../testingpages.js"></script>
+	<script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

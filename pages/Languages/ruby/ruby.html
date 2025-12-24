@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Ruby guide - Elegant, productive programming with Rails framework for web development." />
+    <meta name="keywords" content="Ruby, Rails, Ruby on Rails, Web Development, Backend, Scripting" />
+    <title>Ruby Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../language-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>💎 Ruby Complete Guide</h1>
+            <p class="subtitle">Elegant and productive - build beautiful web applications with Ruby on Rails.</p>
+            <div class="badge-row">
+                <span class="badge">ELEGANT</span>
+                <span class="badge">PRODUCTIVE</span>
+                <span class="badge">RAILS</span>
+                <span class="badge">FRIENDLY</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Developer Happiness:</strong> Ruby is designed to make programming
+                enjoyable with its clean, readable syntax.</div>
+        </header>
+
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Ruby?</h3>
+            <p><strong>Ruby</strong> is a dynamic, object-oriented programming language focused on simplicity and
+                productivity. Created by Yukihiro Matsumoto in 1995, Ruby powers the popular Ruby on Rails web framework
+                and emphasizes developer happiness.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🎨 Expressive</strong> — Natural, readable syntax</div>
+                <div class="topic"><strong>🔧 Object-Oriented</strong> — Everything is an object</div>
+                <div class="topic"><strong>📦 Gems</strong> — RubyGems package manager</div>
+                <div class="topic"><strong>🚂 Rails</strong> — Powerful web framework</div>
+                <div class="topic"><strong>🔄 Dynamic</strong> — Flexible and malleable</div>
+                <div class="topic"><strong>🌐 Cross-Platform</strong> — Windows, macOS, Linux</div>
+            </div>
+
+            <h3>Why Choose Ruby?</h3>
+            <ul>
+                <li><strong>Ruby on Rails:</strong> Build web apps quickly</li>
+                <li><strong>Readable:</strong> Code reads like English</li>
+                <li><strong>Productive:</strong> Write less, accomplish more</li>
+                <li><strong>Community:</strong> Friendly, helpful developers</li>
+            </ul>
+        </section>
+
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+
+            <div class="subsection">
+                <h3>Windows</h3>
+                <pre><code># Download RubyInstaller
+# https://rubyinstaller.org/
+
+# Or use winget
+winget install RubyInstallerTeam.Ruby
+
+# Verify
+ruby --version</code><button class="copy-btn" data-copy="ruby --version">COPY</button></pre>
+
+                <h3>macOS</h3>
+                <pre><code># Using Homebrew
+brew install ruby
+
+# Add to PATH (~/.zshrc)
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Verify
+ruby --version</code><button class="copy-btn" data-copy="brew install ruby">COPY</button></pre>
+
+                <h3>Linux</h3>
+                <pre><code># Ubuntu/Debian
+sudo apt update
+sudo apt install ruby-full
+
+# Fedora
+sudo dnf install ruby
+
+# Verify
+ruby --version</code><button class="copy-btn" data-copy="sudo apt install ruby-full">COPY</button></pre>
+
+                <h3>Your First Ruby Program</h3>
+                <pre><code># hello.rb
+puts "Hello, Ruby!"
+
+# Run
+ruby hello.rb</code><button class="copy-btn" data-copy="ruby hello.rb">COPY</button></pre>
+            </div>
+        </section>
+
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Variables & Data Types</h3>
+                <pre><code># Variables
+name = "Alice"
+age = 30
+price = 99.99
+active = true
+
+# Symbols
+:status
+:name
+
+# Arrays
+fruits = ["apple", "banana", "cherry"]
+fruits << "orange"  # Append
+
+# Hashes
+person = {
+  name: "Alice",
+  age: 30,
+  email: "alice@example.com"
+}
+
+puts person[:name]</code><button class="copy-btn" data-copy='name = "Alice"\nage = 30'>COPY</button></pre>
+
+                <h3>Methods (Functions)</h3>
+                <pre><code># Method definition
+def greet(name)
+  "Hello, #{name}!"
+end
+
+puts greet("Alice")
+
+# Default parameters
+def power(base, exponent = 2)
+  base ** exponent
+end
+
+# Blocks
+[1, 2, 3].each do |num|
+  puts num
+end
+
+# Short syntax
+[1, 2, 3].each { |num| puts num }</code><button class="copy-btn" data-copy="def greet(name)\n  \"Hello, #{name}!\"\nend">COPY</button></pre>
+
+                <h3>Classes</h3>
+                <pre><code>class Person
+  attr_accessor :name, :age
+  
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+  
+  def greet
+    "Hi, I'm #{@name}"
+  end
+end
+
+person = Person.new("Alice", 30)
+puts person.greet
+puts person.name</code><button class="copy-btn" data-copy="class Person\n  attr_accessor :name\nend">COPY</button></pre>
+
+                <h3>Enumerable Methods</h3>
+                <pre><code>numbers = [1, 2, 3, 4, 5]
+
+# Map
+squared = numbers.map { |n| n ** 2 }
+
+# Select (filter)
+evens = numbers.select { |n| n.even? }
+
+# Reduce
+sum = numbers.reduce(0) { |acc, n| acc + n }
+
+# Chain methods
+result = numbers
+  .select { |n| n.even? }
+  .map { |n| n ** 2 }
+  .reduce(:+)</code><button class="copy-btn" data-copy="numbers.map { |n| n ** 2 }">COPY</button></pre>
+            </div>
+        </section>
+
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Ruby on Rails</h3>
+            <pre><code># Install Rails
+gem install rails
+
+# Create new app
+rails new myapp
+
+# Start server
+cd myapp
+rails server
+
+# Visit: http://localhost:3000</code><button class="copy-btn" data-copy="rails new myapp">COPY</button></pre>
+
+            <h3>Gems (Package Manager)</h3>
+            <pre><code># Install gem
+gem install nokogiri
+
+# List installed gems
+gem list
+
+# In Gemfile
+gem 'rails', '~> 7.0'
+gem 'pg'
+
+# Install from Gemfile
+bundle install</code><button class="copy-btn" data-copy="gem install nokogiri">COPY</button></pre>
+        </section>
+
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Learn Ruby on Rails</strong> — Web framework</div>
+            <div class="step"><span class="n">2</span><strong>Master Blocks & Procs</strong> — Ruby's power feature
+            </div>
+            <div class="step"><span class="n">3</span><strong>Build Projects</strong> — Web apps, scripts, APIs</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://www.ruby-lang.org/en/documentation/" target="_blank">Official Ruby Docs</a></li>
+                <li>🚂 <a href="https://guides.rubyonrails.org/" target="_blank">Rails Guides</a></li>
+                <li>📘 <a href="https://www.rubyguides.com/" target="_blank">Ruby Guides</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../Database/database-common.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

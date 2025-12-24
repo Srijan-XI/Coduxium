@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Laravel guide - Learn installation, Eloquent ORM, routing, and best practices for building modern PHP applications." />
+    <meta name="keywords" content="Laravel, PHP, Framework, MVC, Eloquent, Artisan, Web Development" />
+    <title>Laravel Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../Database/database-common.css">
+    <link rel="stylesheet" href="../../framework-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🔴 Laravel Complete Guide</h1>
+            <p class="subtitle">The PHP Framework for Web Artisans - elegant, expressive, developer-friendly.</p>
+            <div class="badge-row">
+                <span class="badge">PHP</span>
+                <span class="badge">MVC</span>
+                <span class="badge">ELOQUENT ORM</span>
+                <span class="badge">ARTISAN CLI</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Industry Standard:</strong> Laravel powers millions of websites including
+                Disney+, Twitch, and Invoice Ninja.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Laravel?</h3>
+            <p><strong>Laravel</strong> is a free, open-source PHP web framework created by Taylor Otwell in 2011. It
+                follows the MVC (Model-View-Controller) architectural pattern and provides an expressive, elegant syntax
+                that makes web development a joy. Laravel includes built-in features for routing, authentication,
+                sessions, caching, and more.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🎨 Eloquent ORM</strong> — Beautiful database interactions</div>
+                <div class="topic"><strong>🛣️ Routing</strong> — Expressive route definitions</div>
+                <div class="topic"><strong>🔐 Authentication</strong> — Built-in auth scaffolding</div>
+                <div class="topic"><strong>⚡ Blade Templates</strong> — Powerful templating engine</div>
+                <div class="topic"><strong>🎯 Artisan CLI</strong> — Command-line tools</div>
+                <div class="topic"><strong>📦 Composer</strong> — Dependency management</div>
+                <div class="topic"><strong>🔄 Migrations</strong> — Version control for databases</div>
+                <div class="topic"><strong>🧪 Testing</strong> — Built-in PHPUnit support</div>
+            </div>
+
+            <h3>Why Choose Laravel?</h3>
+            <ul>
+                <li><strong>Developer Experience:</strong> Elegant syntax, comprehensive documentation</li>
+                <li><strong>Full-Stack:</strong> Frontend (Blade, Livewire, Inertia) + Backend</li>
+                <li><strong>Ecosystem:</strong> Laravel Forge, Vapor, Nova, Spark</li>
+                <li><strong>Community:</strong> Large, active community with extensive packages</li>
+                <li><strong>Modern PHP:</strong> Leverages PHP 8+ features</li>
+                <li><strong>Career Opportunities:</strong> High demand for Laravel developers</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Requirements:</strong> Laravel 11 requires PHP 8.2 or higher.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Laravel using Composer or the Laravel installer.</p>
+
+            <div id="requirements" class="subsection">
+                <h3>Requirements</h3>
+                <ul>
+                    <li>PHP >= 8.2</li>
+                    <li>Composer</li>
+                    <li>Database (MySQL, PostgreSQL, SQLite, SQL Server)</li>
+                    <li>Node.js & NPM (for asset compilation)</li>
+                </ul>
+            </div>
+
+            <div id="install-composer" class="subsection">
+                <h3>Install Composer</h3>
+                <pre><code># Windows: Download from https://getcomposer.org/
+
+# macOS
+brew install composer
+
+# Linux
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer</code><button class="copy-btn" data-copy="brew install composer">COPY</button></pre>
+            </div>
+
+            <div id="create-project" class="subsection">
+                <h3>Create New Laravel Project</h3>
+
+                <h4>Method 1: Laravel Installer (Recommended)</h4>
+                <pre><code># Install Laravel Installer
+composer global require laravel/installer
+
+# Create new project
+laravel new my-laravel-app
+
+# Navigate to project
+cd my-laravel-app
+
+# Start development server
+php artisan serve</code><button class="copy-btn" data-copy="laravel new my-laravel-app">COPY</button></pre>
+
+                <h4>Method 2: Composer</h4>
+                <pre><code>composer create-project laravel/laravel my-laravel-app
+cd my-laravel-app
+php artisan serve</code><button class="copy-btn" data-copy="composer create-project laravel/laravel my-laravel-app">COPY</button></pre>
+
+                <div class="info-box"><strong>💡 Note:</strong> Server runs on http://localhost:8000</div>
+            </div>
+
+            <div id="environment" class="subsection">
+                <h3>Environment Configuration</h3>
+                <pre><code># Copy .env.example to .env
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+
+# Configure database in .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+
+# Run migrations
+php artisan migrate</code><button class="copy-btn" data-copy="php artisan migrate">COPY</button></pre>
+            </div>
+
+            <div id="project-structure" class="subsection">
+                <h3>Project Structure</h3>
+                <pre><code>my-laravel-app/
+├── app/
+│   ├── Http/Controllers/
+│   ├── Models/
+│   └── ...
+├── bootstrap/
+├── config/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── public/
+├── resources/
+│   ├── views/
+│   ├── css/
+│   └── js/
+├── routes/
+│   ├── web.php
+│   └── api.php
+├── storage/
+├── tests/
+├── .env
+├── artisan
+└── composer.json</code></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Routing</h3>
+                <pre><code>// routes/web.php
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/hello', function () {
+    return 'Hello, Coduxium XI!';
+});
+
+// Route parameters
+Route::get('/user/{id}', function ($id) {
+    return "User ID: $id";
+});
+
+// Named routes
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+// Route groups
+Route::prefix('admin')->group(function () {
+    Route::get('/users', function () {
+        // Matches /admin/users
+    });
+});</code><button class="copy-btn" data-copy="Route::get('/', function ()">COPY</button></pre>
+
+                <h3>Controllers</h3>
+                <pre><code>// Create controller
+php artisan make:controller UserController
+
+// app/Http/Controllers/UserController.php
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        $users = User::all();
+        return view('users.index', ['users' => $users]);
+    }
+    
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return view('users.show', ['user' => $user]);
+    }
+    
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:users'
+        ]);
+        
+        $user = User::create($validated);
+        return redirect()->route('users.show', $user);
+    }
+}
+
+// routes/web.php
+Route::resource('users', UserController::class);</code><button class="copy-btn" data-copy="php artisan make:controller UserController">COPY</button></pre>
+
+                <h3>Models & Eloquent ORM</h3>
+                <pre><code>// Create model with migration
+php artisan make:model Post -m
+
+// app/Models/Post.php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    protected $fillable = ['title', 'content', 'user_id'];
+    
+    // Relationships
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+}
+
+// Query data
+$posts = Post::all();
+$post = Post::find(1);
+$posts = Post::where('user_id', 1)->get();
+$latestPosts = Post::latest()->take(10)->get();
+
+// Create
+$post = Post::create([
+    'title' => 'My Post',
+    'content' => 'Content here',
+    'user_id' => 1
+]);
+
+// Update
+$post->update(['title' => 'Updated Title']);
+
+// Delete
+$post->delete();</code><button class="copy-btn" data-copy="php artisan make:model Post -m">COPY</button></pre>
+
+                <h3>Migrations</h3>
+                <pre><code>// Create migration
+php artisan make:migration create_posts_table
+
+// database/migrations/xxxx_create_posts_table.php
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('content');
+            $table->foreignId('user_id')->constrained();
+            $table->timestamps();
+        });
+    }
+    
+    public function down()
+    {
+        Schema::dropIfExists('posts');
+    }
+};
+
+// Run migrations
+php artisan migrate
+
+// Rollback
+php artisan migrate:rollback</code><button class="copy-btn" data-copy="php artisan make:migration">COPY</button></pre>
+
+                <h3>Blade Templates</h3>
+                <pre><code>&lt;!-- resources/views/layout.blade.php --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;@yield('title')&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;a href="{{ route('home') }}"&gt;Home&lt;/a&gt;
+    &lt;/nav&gt;
+    
+    @yield('content')
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- resources/views/posts/index.blade.php --&gt;
+@extends('layout')
+
+@section('title', 'Posts')
+
+@section('content')
+    &lt;h1&gt;All Posts&lt;/h1&gt;
+    
+    @foreach($posts as $post)
+        &lt;article&gt;
+            &lt;h2&gt;{{ $post->title }}&lt;/h2&gt;
+            &lt;p&gt;{{ $post->content }}&lt;/p&gt;
+            &lt;small&gt;By {{ $post->user->name }}&lt;/small&gt;
+        &lt;/article&gt;
+    @endforeach
+    
+    @if($posts->isEmpty())
+        &lt;p&gt;No posts found.&lt;/p&gt;
+    @endif
+@endsection</code><button class="copy-btn" data-copy="@extends('layout')">COPY</button></pre>
+
+                <h3>Validation</h3>
+                <pre><code>// In controller
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'title' => 'required|max:255',
+        'email' => 'required|email|unique:users',
+        'age' => 'required|integer|min:18',
+        'password' => 'required|min:8|confirmed'
+    ]);
+    
+    // Use validated data
+    User::create($validated);
+}
+
+// Custom error messages
+$request->validate([
+    'title' => 'required'
+], [
+    'title.required' => 'Please provide a title'
+]);</code><button class="copy-btn" data-copy="$request->validate([">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Authentication</h3>
+            <pre><code>// Install Laravel Breeze (starter kit)
+composer require laravel/breeze --dev
+php artisan breeze:install
+npm install && npm run dev
+php artisan migrate
+
+// Manual authentication
+use Illuminate\Support\Facades\Auth;
+
+// Login
+if (Auth::attempt(['email' => $email, 'password' => $password])) {
+    // Authentication passed
+}
+
+// Get authenticated user
+$user = Auth::user();
+
+// Logout
+Auth::logout();</code><button class="copy-btn" data-copy="php artisan breeze:install">COPY</button></pre>
+
+            <h3>Middleware</h3>
+            <pre><code>// Create middleware
+php artisan make:middleware CheckAge
+
+// app/Http/Middleware/CheckAge.php
+public function handle($request, Closure $next)
+{
+    if ($request->age <= 18) {
+        return redirect('home');
+    }
+    
+    return $next($request);
+}
+
+// Register and use
+Route::get('/admin', function () {
+    //
+})->middleware('auth', 'admin');</code><button class="copy-btn" data-copy="php artisan make:middleware">COPY</button></pre>
+
+            <h3>Queues & Jobs</h3>
+            <pre><code>// Create job
+php artisan make:job SendEmailJob
+
+// app/Jobs/SendEmailJob.php
+public function handle()
+{
+    // Send email logic
+}
+
+// Dispatch job
+SendEmailJob::dispatch($user);
+
+// Configure queue driver in .env
+QUEUE_CONNECTION=database
+
+// Run queue worker
+php artisan queue:work</code><button class="copy-btn" data-copy="php artisan make:job">COPY</button></pre>
+
+            <h3>API Resources</h3>
+            <pre><code>// Create API resource
+php artisan make:resource UserResource
+
+// app/Http/Resources/UserResource.php
+public function toArray($request)
+{
+    return [
+        'id' => $this->id,
+        'name' => $this->name,
+        'email' => $this->email,
+        'created_at' => $this->created_at
+    ];
+}
+
+// Use in controller
+return UserResource::collection(User::all());</code><button class="copy-btn" data-copy="php artisan make:resource">COPY</button></pre>
+
+            <h3>Testing</h3>
+            <pre><code>// Create test
+php artisan make:test UserTest
+
+// tests/Feature/UserTest.php
+public function test_user_can_view_posts()
+{
+    $response = $this->get('/posts');
+    $response->assertStatus(200);
+}
+
+// Run tests
+php artisan test</code><button class="copy-btn" data-copy="php artisan test">COPY</button></pre>
+
+            <h3>Deployment</h3>
+            <pre><code># Optimize for production
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+# Asset compilation
+npm run build
+
+# Deploy with Laravel Forge or Vapor</code><button class="copy-btn" data-copy="php artisan config:cache">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Eloquent</strong> — Relationships, eager loading,
+                scopes</div>
+            <div class="step"><span class="n">2</span><strong>Build API</strong> — RESTful APIs with Laravel Sanctum
+            </div>
+            <div class="step"><span class="n">3</span><strong>Learn Livewire</strong> — Dynamic interfaces without
+                JavaScript</div>
+            <div class="step"><span class="n">4</span><strong>Add Testing</strong> — Feature and unit tests</div>
+            <div class="step"><span class="n">5</span><strong>Deploy</strong> — Use Forge or Vapor for production</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://laravel.com/docs" target="_blank">Official Laravel Documentation</a></li>
+                <li>🎓 <a href="https://laracasts.com/" target="_blank">Laracasts Video Tutorials</a></li>
+                <li>📘 <a href="https://laravel-news.com/" target="_blank">Laravel News</a></li>
+                <li>💻 <a href="https://github.com/laravel/laravel" target="_blank">Laravel GitHub</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WSL — Coduxium XI</title>
+    <meta name="description" content="Master WSL - Windows Subsystem for Linux, run Linux natively on Windows.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Windows Subsystem for Linux</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🐧 WSL (Windows Subsystem for Linux)</h2>
+            <p class="intro">Run a GNU/Linux environment directly on Windows without the overhead of a virtual machine.
+            </p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Windows</span>
+                    <span class="badge">Linux</span>
+                    <span class="badge">Development</span>
+                    <span class="badge">Microsoft</span>
+                </div>
+                <p>WSL lets developers run a GNU/Linux environment including most command-line tools, utilities, and
+                    applications directly on Windows, unmodified, without the overhead of a traditional virtual machine
+                    or dual-boot setup.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Native Linux</strong> — Real Linux kernel (WSL 2)</li>
+                    <li><strong>Performance</strong> — Fast file system and full system call compatibility</li>
+                    <li><strong>Integration</strong> — Access Windows files from Linux and vice versa</li>
+                    <li><strong>Multiple Distros</strong> — Ubuntu, Debian, Kali, openSUSE, etc.</li>
+                    <li><strong>GUI Support</strong> — Run Linux GUI applications (WSLg)</li>
+                    <li><strong>GPU Acceleration</strong> — CUDA and DirectML support</li>
+                    <li><strong>Docker Integration</strong> — Docker Desktop with WSL 2 backend</li>
+                    <li><strong>VS Code Integration</strong> — Remote development in WSL</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Web development with Linux tools</li>
+                    <li>Running Linux command-line utilities</li>
+                    <li>Docker and Kubernetes development</li>
+                    <li>DevOps and CI/CD workflows</li>
+                    <li>Data science and ML with GPU support</li>
+                    <li>Cross-platform development</li>
+                    <li>Learning Linux without dual-boot</li>
+                    <li>Security testing with Kali Linux</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install WSL (PowerShell as Admin):</p>
+                <pre><code># Install WSL with Ubuntu (default)
+wsl --install
+
+# Install specific distro
+wsl --install -d Ubuntu-22.04
+
+# List available distros
+wsl --list --online
+
+# Set WSL 2 as default
+wsl --set-default-version 2
+
+# Update WSL
+wsl --update</code></pre>
+
+                <p>Basic usage:</p>
+                <pre><code># Launch default Linux distribution
+wsl
+
+# Run specific command
+wsl ls -la
+
+# Access Windows files from Linux
+cd /mnt/c/Users/YourName
+
+# Access Linux files from Windows
+\\wsl$\Ubuntu\home\username
+
+# VS Code in WSL
+code .</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use WSL 2 for better performance</li>
+                    <li>Store project files in Linux filesystem for speed</li>
+                    <li>Use VS Code Remote - WSL extension</li>
+                    <li>Set up Docker Desktop with WSL 2 backend</li>
+                    <li>Configure Git in WSL separately from Windows</li>
+                    <li>Use Windows Terminal for better experience</li>
+                    <li>Back up your WSL distributions regularly</li>
+                    <li>Leverage WSLg for GUI applications</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://learn.microsoft.com/windows/wsl/" target="_blank" class="btn primary">Official
+                    Documentation</a>
+                <a href="https://github.com/microsoft/WSL" target="_blank" class="btn">GitHub</a>
+                <a href="https://code.visualstudio.com/docs/remote/wsl" target="_blank" class="btn">VS Code WSL</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

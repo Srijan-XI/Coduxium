@@ -1,78 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Oracle Linux — DevSphere</title>
-    <link rel="stylesheet" href="../../../../css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --oracle-red: #f80000;
-            --oracle-dark: #c40000;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Linux - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Oracle Linux guide - RHEL-compatible enterprise distribution optimized for Oracle workloads">
 
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: radial-gradient(circle at top, rgba(248, 0, 0, 0.15), transparent 50%);
-            border-radius: var(--radius-lg);
-            margin-bottom: 3rem;
-        }
-
-        .hero-section h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--oracle-red), var(--oracle-dark));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .info-card {
-            background: var(--surface-2);
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--oracle-red);
-            box-shadow: 0 10px 30px rgba(248, 0, 0, 0.2);
-        }
-
-        .info-card h3 {
-            color: var(--oracle-red);
-            margin-bottom: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 
-<body>
+<body class="linux-page">
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
-                <span class="logo">🔴</span>
+                <span class="logo">🐧</span>
                 <div>
-                    <h1><a href="../../../../index.html">DevSphere</a></h1>
-                    <p class="sub">Oracle Linux</p>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Oracle Linux</a></h1>
+                    <p class="sub">RHEL-compatible enterprise distro</p>
                 </div>
             </div>
             <div class="header-actions">
@@ -83,61 +32,183 @@
     </header>
 
     <main class="container" style="padding: 40px 0;">
-        <article class="content-page">
-            <section class="hero-section">
-                <h2>Oracle Linux</h2>
-                <p class="intro">RHEL-compatible enterprise distribution optimized for Oracle software and databases.
-                    Free to use with optional enterprise support.</p>
-            </section>
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🔴</span>
+                <span>Enterprise</span>
+            </div>
+            <h1 class="hero-title">Oracle Linux</h1>
+            <p class="hero-description">An enterprise Linux distribution that is broadly compatible with RHEL, designed for reliability and supportable deployments, with strong alignment for Oracle workloads.</p>
+        </section>
 
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>📋 Overview</h3>
-                    <p><strong>Base:</strong> RHEL (compatible)</p>
-                    <p><strong>Package Manager:</strong> DNF/YUM</p>
-                    <p><strong>Desktop:</strong> GNOME</p>
-                    <p><strong>Target:</strong> Oracle Databases & Enterprise</p>
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> RHEL-compatible</li>
+                    <li><strong>Package Manager:</strong> DNF</li>
+                    <li><strong>Desktop:</strong> GNOME (optional)</li>
+                    <li><strong>Release Model:</strong> Enterprise/stable</li>
+                    <li><strong>Target Users:</strong> Servers, enterprises, Oracle workloads</li>
+                </ul>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card"><span class="feature-icon">🧱</span><h4>RHEL Compatibility</h4><p>Fits into many enterprise Linux workflows.</p></div>
+                <div class="feature-card"><span class="feature-icon">🧰</span><h4>DNF Tooling</h4><p>Modern package management and repos.</p></div>
+                <div class="feature-card"><span class="feature-icon">🔧</span><h4>Kernel Options</h4><p>Includes Oracle’s UEK option depending on setup.</p></div>
+                <div class="feature-card"><span class="feature-icon">🏢</span><h4>Supportable</h4><p>Designed for long-lived deployments.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>What is Oracle Linux?</h3></div>
+                <p style="line-height: 1.8; margin: 20px 0;">Oracle Linux is an enterprise distribution compatible with many RHEL ecosystems. It is commonly used for server deployments, including running databases and enterprise applications in on-prem and cloud environments.</p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Enterprise-grade stability and tooling</li>
+                    <li>DNF-based package management</li>
+                    <li>Common patterns for server deployment</li>
+                    <li>Optional GUI; works well headless</li>
+                    <li>Strong documentation for enterprise use</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Oracle Linux?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card"><span class="practice-num">1</span><h4>Enterprise Lifecycle</h4><p>Predictable updates and support patterns.</p></div>
+                    <div class="practice-card"><span class="practice-num">2</span><h4>RHEL Ecosystem</h4><p>Compatible workflows and tooling in many environments.</p></div>
+                    <div class="practice-card"><span class="practice-num">3</span><h4>Server Focus</h4><p>Great for infrastructure and application hosting.</p></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="info-card">
-                    <h3>🔧 Package Management</h3>
-                    <p>Uses DNF with UEK (Unbreakable Enterprise Kernel).</p>
-                    <pre><code>sudo dnf update
-sudo dnf install package-name</code></pre>
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Step 1: Download</h4><p class="command-desc">Download from: <a href="https://www.oracle.com/linux/" target="_blank">https://www.oracle.com/linux/</a></p></div>
+                <div class="command-card"><h4>Step 2: Create Install Media</h4><pre><code class="language-bash"># Linux (USB)
+sudo dd if=oraclelinux.iso of=/dev/sdX bs=4M status=progress && sync
+
+# Or use: Rufus/Etcher/Ventoy</code></pre></div>
+                <div class="command-card"><h4>Step 3: Boot Installer</h4><p class="command-desc">Boot and pick language/timezone, disk layout, and network settings.</p></div>
+                <div class="command-card"><h4>Step 4: Register & Update</h4><pre><code class="language-bash">sudo dnf update -y</code></pre><p class="command-desc">After install, update packages and configure repos as needed.</p></div>
+            </div>
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB+ recommended</li>
+                    <li><strong>Network:</strong> Recommended for updates and repo access</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Update System</h4><pre><code class="language-bash">sudo dnf update -y</code></pre></div>
+                    <div class="command-card"><h4>Install Package</h4><pre><code class="language-bash">sudo dnf install package-name -y</code></pre></div>
+                    <div class="command-card"><h4>Remove Package</h4><pre><code class="language-bash">sudo dnf remove package-name -y</code></pre></div>
+                    <div class="command-card"><h4>Search</h4><pre><code class="language-bash">dnf search keyword</code></pre></div>
                 </div>
-
-                <div class="info-card">
-                    <h3>✨ Key Features</h3>
-                    <ul>
-                        <li>Unbreakable Enterprise Kernel</li>
-                        <li>Oracle software optimization</li>
-                        <li>Free to download & use</li>
-                        <li>RHEL binary compatibility</li>
-                    </ul>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Enable SSH</h4><pre><code class="language-bash">sudo systemctl enable --now sshd</code></pre></div>
+                    <div class="command-card"><h4>Firewall</h4><pre><code class="language-bash">sudo firewall-cmd --state
+sudo firewall-cmd --list-all</code></pre></div>
+                    <div class="command-card"><h4>Time Sync</h4><pre><code class="language-bash">timedatectl status</code></pre></div>
+                    <div class="command-card"><h4>Updates Strategy</h4><p class="command-desc">Use staged updates and maintenance windows for production systems.</p></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="info-card">
-                    <h3>🎯 Use Cases</h3>
-                    <ul>
-                        <li>Oracle database hosting</li>
-                        <li>Enterprise applications</li>
-                        <li>Cloud infrastructure</li>
-                        <li>Containerization</li>
-                    </ul>
-                </div>
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Repo Management</h4><pre><code class="language-bash">dnf repolist
+dnf repoinfo</code></pre><p class="command-desc">Inspect enabled repositories.</p></div>
+                <div class="command-card"><h4>System Services</h4><pre><code class="language-bash">systemctl status
+systemctl list-units --type=service</code></pre><p class="command-desc">Service troubleshooting and control.</p></div>
+                <div class="command-card"><h4>SELinux Status</h4><pre><code class="language-bash">getenforce
+sestatus</code></pre><p class="command-desc">Check enforcement and policies (if enabled).</p></div>
+                <div class="command-card"><h4>Container Tools</h4><pre><code class="language-bash">podman ps
+podman images</code></pre><p class="command-desc">Run containerized workloads.</p></div>
+            </div>
+        </section>
 
-                <div class="info-card">
-                    <h3>🔗 Resources</h3>
-                    <p><a href="https://www.oracle.com/linux/" target="_blank">Official Website</a></p>
-                    <p><a href="https://docs.oracle.com/en/operating-systems/oracle-linux/"
-                            target="_blank">Documentation</a></p>
-                </div>
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table"><table>
+                    <thead><tr><th>Task</th><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Update</strong></td><td><code>sudo dnf update -y</code></td><td>Upgrade packages</td></tr>
+                        <tr><td><strong>Install</strong></td><td><code>sudo dnf install pkg -y</code></td><td>Install software</td></tr>
+                        <tr><td><strong>Remove</strong></td><td><code>sudo dnf remove pkg -y</code></td><td>Remove software</td></tr>
+                        <tr><td><strong>Search</strong></td><td><code>dnf search keyword</code></td><td>Search packages</td></tr>
+                        <tr><td><strong>List repos</strong></td><td><code>dnf repolist</code></td><td>Enabled repos</td></tr>
+                        <tr><td><strong>Service status</strong></td><td><code>systemctl status</code></td><td>Service health</td></tr>
+                        <tr><td><strong>Firewall status</strong></td><td><code>sudo firewall-cmd --state</code></td><td>Firewall state</td></tr>
+                        <tr><td><strong>Logs</strong></td><td><code>journalctl -xe</code></td><td>Troubleshoot</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Filesystem usage</td></tr>
+                        <tr><td><strong>IP info</strong></td><td><code>ip a</code></td><td>Networking info</td></tr>
+                    </tbody>
+                </table></div>
+        </section>
 
-                <div class="info-card">
-                    <h3>🌐 Sibling Distros</h3>
-                    <p><a href="../Fedora/fedora.html">Fedora</a></p>
-                    <p><a href="../RHEL/rhel.html">RHEL</a></p>
-                    <p><a href="../CentOS/centos.html">CentOS</a></p>
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="https://www.oracle.com/linux/" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Official Website</h4><p>Oracle Linux homepage</p></a>
+                <a href="https://docs.oracle.com/en/operating-systems/oracle-linux/" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Documentation</h4><p>Oracle Linux docs</p></a>
+                <a href="https://github.com/oracle" target="_blank" class="next-step-card"><span class="step-icon">💬</span><h4>Community</h4><p>Oracle OSS resources</p></a>
+                <a href="https://github.com/oracle" target="_blank" class="next-step-card"><span class="step-icon">💻</span><h4>GitHub</h4><p>Oracle repositories</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;"><strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Run updates and reboot if kernel updates apply</li>
+                    <li>Enable SSH and firewall for server deployments</li>
+                    <li>Set up monitoring and backups</li>
+                    <li>Document repos and update cadence</li>
+                    <li>Use containers/VMs for safe changes</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../RHEL/rhel.html" class="next-step-card"><span class="step-icon">🎩</span><h4>RHEL</h4><p>Enterprise upstream</p></a>
+                <a href="../CentOS/centos.html" class="next-step-card"><span class="step-icon">🧩</span><h4>CentOS</h4><p>RHEL ecosystem distro</p></a>
+                <a href="../Fedora/fedora.html" class="next-step-card"><span class="step-icon">🟦</span><h4>Fedora</h4><p>Community innovation distro</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
                 </div>
             </div>
         </article>
@@ -145,7 +216,7 @@ sudo dnf install package-name</code></pre>
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <small>DevSphere © 2025</small>
+            <small>Coduxium XI © 2025</small>
             <div class="footer-links">
                 <a href="../../../../index.html">Home</a>
                 <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
@@ -170,3 +241,4 @@ sudo dnf install package-name</code></pre>
 </body>
 
 </html>
+

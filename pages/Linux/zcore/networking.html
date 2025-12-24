@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Networking - Complete Guide</title>
+    <meta name="description"
+        content="Master Linux networking - IP configuration, firewall setup, SSH, DNS, and network troubleshooting tools.">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Linux Networking</a></h1>
+                    <p class="sub">Network Configuration & Troubleshooting</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🌐</span>
+                <span>Essential Linux Skill</span>
+            </div>
+            <h1 class="hero-title">Linux Networking Mastery</h1>
+            <p class="hero-description">
+                Master network configuration, firewall management, SSH setup, and troubleshooting tools for Linux
+                systems.
+            </p>
+        </section>
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="info-box info">
+                <strong>💡 Why Learn Linux Networking?</strong>
+                <p>Understanding Linux networking is crucial for system administrators, DevOps engineers, and developers
+                    working with servers and cloud infrastructure.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔧</span>
+                    <h4>Configuration</h4>
+                    <p>Configure network interfaces and connections</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h4>Security</h4>
+                    <p>Set up firewalls and secure connections</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔍</span>
+                    <h4>Troubleshooting</h4>
+                    <p>Diagnose and fix network issues</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h4>Monitoring</h4>
+                    <p>Monitor network traffic and performance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Network Configuration -->
+        <section class="content-section">
+            <h2>🔧 Network Configuration</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>IP Configuration Commands</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>View Network Interfaces</h4>
+                        <pre><code class="language-bash">ip addr show
+# or
+ifconfig</code></pre>
+                        <p class="command-desc">List all network interfaces</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Set Static IP</h4>
+                        <pre><code class="language-bash">sudo ip addr add 192.168.1.100/24 dev eth0
+sudo ip link set eth0 up</code></pre>
+                        <p class="command-desc">Assign IP address to interface</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Set Default Gateway</h4>
+                        <pre><code class="language-bash">sudo ip route add default via 192.168.1.1</code></pre>
+                        <p class="command-desc">Configure default route</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>View Routing Table</h4>
+                        <pre><code class="language-bash">ip route show
+# or
+route -n</code></pre>
+                        <p class="command-desc">Display routing information</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Enable/Disable Interface</h4>
+                        <pre><code class="language-bash">sudo ip link set eth0 up
+sudo ip link set eth0 down</code></pre>
+                        <p class="command-desc">Control interface state</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>DHCP Configuration</h4>
+                        <pre><code class="language-bash">sudo dhclient eth0
+# or
+sudo dhcpcd eth0</code></pre>
+                        <p class="command-desc">Obtain IP via DHCP</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NetworkManager -->
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>NetworkManager (nmcli)</h3>
+                    <div class="pm-badges">
+                        <span class="badge">Ubuntu</span>
+                        <span class="badge">Fedora</span>
+                        <span class="badge">RHEL</span>
+                    </div>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>List Connections</h4>
+                        <pre><code class="language-bash">nmcli connection show</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Connect to Wi-Fi</h4>
+                        <pre><code class="language-bash">nmcli device wifi connect SSID password PASSWORD</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Create Connection</h4>
+                        <pre><code class="language-bash">nmcli con add type ethernet con-name eth0-static ifname eth0 ip4 192.168.1.100/24 gw4 192.168.1.1</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Modify Connection</h4>
+                        <pre><code class="language-bash">nmcli con mod eth0-static ipv4.dns "8.8.8.8 8.8.4.4"</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Firewall Configuration -->
+        <section class="content-section">
+            <h2>🔥 Firewall Configuration</h2>
+
+            <!-- UFW -->
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>UFW - Uncomplicated Firewall</h3>
+                    <div class="pm-badges">
+                        <span class="badge">Ubuntu</span>
+                        <span class="badge">Debian</span>
+                    </div>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Enable UFW</h4>
+                        <pre><code class="language-bash">sudo ufw enable
+sudo ufw status</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Allow Port</h4>
+                        <pre><code class="language-bash">sudo ufw allow 22/tcp
+sudo ufw allow ssh</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Allow from IP</h4>
+                        <pre><code class="language-bash">sudo ufw allow from 192.168.1.100</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Deny Port</h4>
+                        <pre><code class="language-bash">sudo ufw deny 80/tcp</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Delete Rule</h4>
+                        <pre><code class="language-bash">sudo ufw delete allow 22</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Reset Firewall</h4>
+                        <pre><code class="language-bash">sudo ufw reset</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- firewalld -->
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>firewalld</h3>
+                    <div class="pm-badges">
+                        <span class="badge">Fedora</span>
+                        <span class="badge">RHEL</span>
+                        <span class="badge">CentOS</span>
+                    </div>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Start firewalld</h4>
+                        <pre><code class="language-bash">sudo systemctl start firewalld
+sudo systemctl enable firewalld</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>List Rules</h4>
+                        <pre><code class="language-bash">sudo firewall-cmd --list-all</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Add Service</h4>
+                        <pre><code class="language-bash">sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --reload</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Add Port</h4>
+                        <pre><code class="language-bash">sudo firewall-cmd --permanent --add-port=8080/tcp</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Service</h4>
+                        <pre><code class="language-bash">sudo firewall-cmd --permanent --remove-service=http</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>List Zones</h4>
+                        <pre><code class="language-bash">sudo firewall-cmd --get-zones
+sudo firewall-cmd --get-active-zones</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SSH Configuration -->
+        <section class="content-section">
+            <h2>🔐 SSH Configuration</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Connect to Server</h4>
+                    <pre><code class="language-bash">ssh user@hostname
+ssh user@192.168.1.100
+ssh -p 2222 user@host</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Generate SSH Key</h4>
+                    <pre><code class="language-bash">ssh-keygen -t ed25519 -C "your@email.com"
+# or
+ssh-keygen -t rsa -b 4096</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Copy Key to Server</h4>
+                    <pre><code class="language-bash">ssh-copy-id user@host</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>SSH Config File</h4>
+                    <pre><code class="language-bash"># ~/.ssh/config
+Host myserver
+    HostName 192.168.1.100
+    User admin
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>SCP File Transfer</h4>
+                    <pre><code class="language-bash">scp file.txt user@host:/path/
+scp user@host:/path/file.txt ./</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>SSH Tunneling</h4>
+                    <pre><code class="language-bash">ssh -L 8080:localhost:80 user@host
+ssh -D 1080 user@host  # SOCKS proxy</code></pre>
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <strong>🔒 SSH Security Best Practices</strong>
+                <pre><code># /etc/ssh/sshd_config
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+Port 2222  # Change default port
+AllowUsers youruser</code></pre>
+            </div>
+        </section>
+
+        <!-- DNS Configuration -->
+        <section class="content-section">
+            <h2>🌍 DNS Configuration</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Set DNS Servers</h4>
+                    <pre><code class="language-bash"># /etc/resolv.conf
+nameserver 8.8.8.8
+nameserver 8.8.4.4</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>DNS Lookup</h4>
+                    <pre><code class="language-bash">nslookup google.com
+dig google.com
+host google.com</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Test DNS Resolution</h4>
+                    <pre><code class="language-bash">dig @8.8.8.8 google.com</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Flush DNS Cache</h4>
+                    <pre><code class="language-bash">sudo systemd-resolve --flush-caches
+# or
+sudo resolvectl flush-caches</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting Tools -->
+        <section class="content-section">
+            <h2>🔍 Network Troubleshooting</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Ping Test</h4>
+                    <pre><code class="language-bash">ping google.com
+ping -c 4 8.8.8.8</code></pre>
+                    <p class="command-desc">Test connectivity</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Traceroute</h4>
+                    <pre><code class="language-bash">traceroute google.com
+# or
+tracepath google.com</code></pre>
+                    <p class="command-desc">Trace network path</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Port Scanning</h4>
+                    <pre><code class="language-bash">nmap 192.168.1.1
+nmap -p 80,443 192.168.1.1</code></pre>
+                    <p class="command-desc">Scan open ports</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Network Statistics</h4>
+                    <pre><code class="language-bash">netstat -tuln
+ss -tuln</code></pre>
+                    <p class="command-desc">Show listening ports</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Bandwidth Monitoring</h4>
+                    <pre><code class="language-bash">iftop
+nethogs
+vnstat</code></pre>
+                    <p class="command-desc">Monitor traffic</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Packet Capture</h4>
+                    <pre><code class="language-bash">tcpdump -i eth0
+tcpdump -w capture.pcap</code></pre>
+                    <p class="command-desc">Capture network packets</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Check Connectivity</h4>
+                    <pre><code class="language-bash">telnet google.com 80
+nc -zv google.com 443</code></pre>
+                    <p class="command-desc">Test port connectivity</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>ARP Table</h4>
+                    <pre><code class="language-bash">arp -a
+ip neigh show</code></pre>
+                    <p class="command-desc">View ARP cache</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>MTU Test</h4>
+                    <pre><code class="language-bash">ping -M do -s 1472 google.com</code></pre>
+                    <p class="command-desc">Test maximum packet size</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="content-section">
+            <h2>✨ Best Practices</h2>
+
+            <div class="best-practices-grid">
+                <div class="practice-card">
+                    <span class="practice-num">1</span>
+                    <h4>Use Static IPs for Servers</h4>
+                    <p>Configure static IP addresses for servers to ensure consistent accessibility.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">2</span>
+                    <h4>Enable Firewalls</h4>
+                    <p>Always run a firewall and only open necessary ports.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">3</span>
+                    <h4>Use SSH Keys</h4>
+                    <p>Disable password authentication and use SSH keys for secure access.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">4</span>
+                    <h4>Monitor Network Traffic</h4>
+                    <p>Regularly monitor network traffic for unusual activity.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">5</span>
+                    <h4>Document Network Config</h4>
+                    <p>Keep documentation of your network configurations and changes.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">6</span>
+                    <h4>Regular Security Updates</h4>
+                    <p>Keep network tools and SSH updated with latest security patches.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>🚀 Next Steps</h2>
+            <div class="next-steps-grid">
+                <a href="security.html" class="next-step-card">
+                    <span class="step-icon">🔐</span>
+                    <h4>Security</h4>
+                    <p>Learn security hardening</p>
+                </a>
+                <a href="systemd.html" class="next-step-card">
+                    <span class="step-icon">⚙️</span>
+                    <h4>Systemd</h4>
+                    <p>Manage network services</p>
+                </a>
+                <a href="troubleshooting.html" class="next-step-card">
+                    <span class="step-icon">🔧</span>
+                    <h4>Troubleshooting</h4>
+                    <p>Fix network issues</p>
+                </a>
+                <a href="../linux.html" class="next-step-card">
+                    <span class="step-icon">🐧</span>
+                    <h4>Linux Hub</h4>
+                    <p>Back to Linux main page</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

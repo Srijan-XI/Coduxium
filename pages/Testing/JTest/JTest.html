@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JTest (Java Testing) — | Coduxium XI</title>
+  <link rel="stylesheet" href="../testingpages.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+
+  <div class="wrap">
+    <header>
+      <h1>JTest — Introduction (JUnit + Mockito)</h1>
+      <p class="subtitle">Test Java effectively with JUnit 5 for unit tests and Mockito for mocking. Works with Maven and Gradle.</p>
+      <div class="badge-row">
+        <span class="badge">JAVA</span>
+        <span class="badge">JUNIT 5</span>
+        <span class="badge">MOCKITO</span>
+        <span class="badge">COVERAGE</span>
+      </div>
+      <nav>
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#anatomy">Test Anatomy</a>
+        <a href="#assertions">Assertions</a>
+        <a href="#lifecycle">Lifecycle</a>
+        <a href="#param">Parameterized</a>
+        <a href="#mockito">Mockito</a>
+      </nav>
+    </header>
+
+    <section id="anatomy" class="card">
+      <h2>Test Anatomy</h2>
+      <pre><code>// src/main/java/com/acme/Calc.java
+public class Calc { public int add(int a, int b){ return a + b; } }
+
+// src/test/java/com/acme/CalcTest.java
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+class CalcTest {
+  @Test void adds(){ assertEquals(5, new Calc().add(2,3)); }
+}</code><button class="copy-btn" data-copy="assertEquals(5, new Calc().add(2,3));">COPY</button></pre>
+    </section>
+
+    <section id="assertions" class="card">
+      <h2>Common Assertions</h2>
+      <pre><code>assertEquals("Ada", name);
+assertTrue(list.contains("x"));
+assertThrows(IllegalArgumentException.class, () -&gt; doThing(null));</code><button class="copy-btn" data-copy="assertThrows(IllegalArgumentException.class, () -> doThing(null));">COPY</button></pre>
+    </section>
+
+    <section id="lifecycle" class="card">
+      <h2>Lifecycle</h2>
+      <pre><code>@BeforeAll static void initAll(){}
+@BeforeEach void init(){}
+@Test void works(){}
+@AfterEach void tearDown(){}
+@AfterAll static void tearDownAll(){}</code><button class="copy-btn" data-copy="@BeforeEach void init(){}">COPY</button></pre>
+    </section>
+
+    <section id="param" class="card">
+      <h2>Parameterized Tests</h2>
+      <pre><code>import org.junit.jupiter.params.*;
+import org.junit.jupiter.params.provider.ValueSource;
+
+@ParameterizedTest
+@ValueSource(strings = {"a","bb","ccc"})
+void hasLength(String s){
+  Assertions.assertTrue(s.length() &gt; 0);
+}</code><button class="copy-btn" data-copy="@ParameterizedTest">COPY</button></pre>
+    </section>
+
+    <section id="mockito" class="card">
+      <h2>Mockito Basics</h2>
+      <pre><code>import static org.mockito.Mockito.*;
+
+interface Api { String fetch(); }
+
+@Test
+void mocks(){
+  Api api = mock(Api.class);
+  when(api.fetch()).thenReturn("fake");
+  Assertions.assertEquals("fake", api.fetch());
+  verify(api, times(1)).fetch();
+}</code><button class="copy-btn" data-copy="when(api.fetch()).thenReturn(&quot;fake&quot;)">COPY</button></pre>
+      <p>Next: <a href="JTest.html">Install JTest (JUnit + Mockito)</a></p>
+    </section>
+
+    <footer class="page-footer">&copy; 2025 Coduxium XI</footer>
+  </div>
+
+  <div id="copyToast" class="copy-feedback">Copied to clipboard!</div>
+  <script src="../testingpages.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+
+
+  <div class="wrap">
+    <header>
+      <h1>JTest — Installation Guide (JUnit 5 + Mockito)</h1>
+      <p class="subtitle">Set up Java testing with JUnit 5 and Mockito using Maven or Gradle. Run tests and generate coverage reports.</p>
+      <div class="badge-row">
+        <span class="badge">JDK</span>
+        <span class="badge">MAVEN</span>
+        <span class="badge">GRADLE</span>
+        <span class="badge">JACOCO</span>
+      </div>
+      <nav>
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#jdk">JDK</a>
+        <a href="#maven">Maven</a>
+        <a href="#gradle">Gradle</a>
+        <a href="#run">Run</a>
+        <a href="#coverage">Coverage</a>
+      </nav>
+    </header>
+
+    <section id="jdk" class="card">
+      <h2>Install JDK</h2>
+      <p>Install a recent LTS (e.g., 17 or 21) and ensure <code>java</code>/<code>javac</code> are on PATH.</p>
+      <pre><code># Windows (winget)
+winget install EclipseAdoptium.Temurin.21.JDK
+
+# macOS (Homebrew)
+brew install openjdk@21
+
+# Ubuntu
+sudo apt install openjdk-21-jdk</code><button class="copy-btn" data-copy="winget install EclipseAdoptium.Temurin.21.JDK">COPY</button></pre>
+    </section>
+
+    <section id="maven" class="card">
+      <h2>Maven Setup</h2>
+      <h3>pom.xml</h3>
+      <pre><code>&lt;project&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;properties&gt;
+    &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+    &lt;junit.jupiter.version&gt;5.11.0&lt;/junit.jupiter.version&gt;
+    &lt;mockito.version&gt;5.11.0&lt;/mockito.version&gt;
+  &lt;/properties&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+      &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;
+      &lt;version&gt;${junit.jupiter.version}&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mockito&lt;/groupId&gt;
+      &lt;artifactId&gt;mockito-core&lt;/artifactId&gt;
+      &lt;version&gt;${mockito.version}&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+        &lt;version&gt;3.2.5&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;useModulePath&gt;false&lt;/useModulePath&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;</code><button class="copy-btn" data-copy="mvn -q -Dtest=* test">COPY</button></pre>
+    </section>
+
+    <section id="gradle" class="card">
+      <h2>Gradle Setup</h2>
+      <h3>build.gradle.kts</h3>
+      <pre><code>plugins {
+  java
+}
+
+java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
+
+dependencies {
+  testImplementation(platform("org.junit:junit-bom:5.11.0"))
+  testImplementation("org.junit.jupiter:junit-jupiter")
+  testImplementation("org.mockito:mockito-core:5.11.0")
+}
+
+tasks.test {
+  useJUnitPlatform()
+}</code><button class="copy-btn" data-copy="useJUnitPlatform()">COPY</button></pre>
+    </section>
+
+    <section id="run" class="card">
+      <h2>Run Tests</h2>
+      <pre><code># Maven
+mvn -q test
+
+# Gradle
+gradle test</code><button class="copy-btn" data-copy="mvn -q test">COPY</button></pre>
+    </section>
+
+    <section id="coverage" class="card">
+      <h2>Coverage (JaCoCo)</h2>
+      <h3>Maven</h3>
+      <pre><code>&lt;plugin&gt;
+  &lt;groupId&gt;org.jacoco&lt;/groupId&gt;
+  &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;
+  &lt;version&gt;0.8.11&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;prepare-agent&lt;/goal&gt;
+        &lt;goal&gt;report&lt;/goal&gt;
+      &lt;/goals&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;</code><button class="copy-btn" data-copy="jacoco-maven-plugin">COPY</button></pre>
+      <h3>Gradle</h3>
+      <pre><code>plugins { jacoco }
+
+tasks.test { finalizedBy(tasks.jacocoTestReport) }
+
+tasks.jacocoTestReport {
+  dependsOn(tasks.test)
+  reports { xml.required.set(true); html.required.set(true) }
+}</code><button class="copy-btn" data-copy="plugins { jacoco }">COPY</button></pre>
+      <p>Next: <a href="JTest.html">JTest Introduction</a></p>
+    </section>
+
+    <footer class="page-footer">&copy; 2025 Coduxium XI</footer>
+  </div>
+
+  <div id="copyToast" class="copy-feedback">Copied to clipboard!</div>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const t=btn.getAttribute('data-copy');
+        navigator.clipboard.writeText(t).then(()=>{
+          const el=document.getElementById('copyToast');
+          el.classList.add('show');
+          setTimeout(()=>el.classList.remove('show'),1600);
+        });
+      });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});});
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Microsoft Azure — Coduxium XI</title>
+    <meta name="description" content="Microsoft Azure - Enterprise cloud computing platform with hybrid capabilities.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Microsoft Azure</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>☁️ Microsoft Azure</h2>
+            <p class="intro">Enterprise cloud platform with extensive hybrid cloud capabilities and Microsoft integration.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">CLOUD</span>
+                    <span class="badge">ENTERPRISE</span>
+                    <span class="badge">HYBRID</span>
+                    <span class="badge">AI/ML</span>
+                </div>
+                <p>Microsoft Azure is a cloud computing platform offering 200+ products and services, known for seamless integration with Microsoft technologies, strong enterprise features, and hybrid cloud capabilities.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Services</h3>
+                <ul>
+                    <li><strong>Virtual Machines</strong> — IaaS compute instances</li>
+                    <li><strong>App Service</strong> — PaaS for web apps and APIs</li>
+                    <li><strong>Azure Functions</strong> — Serverless compute</li>
+                    <li><strong>Blob Storage</strong> — Object storage solution</li>
+                    <li><strong>SQL Database</strong> — Managed relational database</li>
+                    <li><strong>Cosmos DB</strong> — Globally distributed NoSQL database</li>
+                    <li><strong>AKS (Azure Kubernetes Service)</strong> — Managed Kubernetes</li>
+                    <li><strong>Azure DevOps</strong> — Complete DevOps toolchain</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Azure CLI Installation</h3>
+                <pre><code># Windows (using MSI installer)
+# Download from: https://aka.ms/installazurecliwindows
+
+# macOS
+brew install azure-cli
+
+# Linux (Ubuntu/Debian)
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# Verify installation
+az --version
+
+# Login to Azure
+az login
+
+# Set default subscription
+az account set --subscription "Your Subscription Name"
+
+# List all subscriptions
+az account list --output table</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resource Group & VM Management</h3>
+                <pre><code># Create resource group
+az group create \
+    --name myResourceGroup \
+    --location eastus
+
+# Create virtual machine
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image Ubuntu2204 \
+    --size Standard_B2s \
+    --admin-username azureuser \
+    --generate-ssh-keys
+
+# List VMs
+az vm list --output table
+
+# Start VM
+az vm start --resource-group myResourceGroup --name myVM
+
+# Stop VM
+az vm stop --resource-group myResourceGroup --name myVM
+
+# Delete VM
+az vm delete --resource-group myResourceGroup --name myVM --yes
+
+# Get VM IP address
+az vm show \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --show-details \
+    --query publicIps \
+    --output tsv</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Azure Storage Operations</h3>
+                <pre><code># Create storage account
+az storage account create \
+    --name mystorageaccount \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --sku Standard_LRS
+
+# Get storage account key
+az storage account keys list \
+    --resource-group myResourceGroup \
+    --account-name mystorageaccount
+
+# Create blob container
+az storage container create \
+    --name mycontainer \
+    --account-name mystorageaccount
+
+# Upload blob
+az storage blob upload \
+    --container-name mycontainer \
+    --name myfile.txt \
+    --file ./local-file.txt \
+    --account-name mystorageaccount
+
+# Download blob
+az storage blob download \
+    --container-name mycontainer \
+    --name myfile.txt \
+    --file ./downloaded-file.txt \
+    --account-name mystorageaccount
+
+# List blobs
+az storage blob list \
+    --container-name mycontainer \
+    --account-name mystorageaccount \
+    --output table</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Azure Functions Example</h3>
+                <pre><code># Node.js HTTP Trigger
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    const name = req.query.name || (req.body && req.body.name);
+    
+    if (name) {
+        context.res = {
+            status: 200,
+            body: `Hello, ${name}!`
+        };
+    } else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+};
+
+# Python HTTP Trigger
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+            name = req_body.get('name')
+        except ValueError:
+            pass
+
+    if name:
+        return func.HttpResponse(f"Hello, {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Azure SDK Example (Python)</h3>
+                <pre><code>from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+from azure.mgmt.compute import ComputeManagementClient
+
+# Authenticate
+credential = DefaultAzureCredential()
+
+# Blob Storage operations
+blob_service_client = BlobServiceClient(
+    account_url="https://mystorageaccount.blob.core.windows.net",
+    credential=credential
+)
+
+container_client = blob_service_client.get_container_client("mycontainer")
+
+# Upload blob
+with open("local-file.txt", "rb") as data:
+    container_client.upload_blob(name="myfile.txt", data=data)
+
+# Download blob
+with open("downloaded-file.txt", "wb") as download_file:
+    download_file.write(
+        container_client.download_blob("myfile.txt").readall()
+    )
+
+# VM operations
+compute_client = ComputeManagementClient(
+    credential=credential,
+    subscription_id="your-subscription-id"
+)
+
+# List VMs
+for vm in compute_client.virtual_machines.list_all():
+    print(f"VM Name: {vm.name}, Location: {vm.location}")
+
+# Start VM
+async_vm_start = compute_client.virtual_machines.begin_start(
+    "myResourceGroup", "myVM"
+)
+async_vm_start.wait()</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>ARM Template Example</h3>
+                <pre><code>{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "defaultValue": "myVM"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-04-01",
+      "name": "mystorageaccount",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2"
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2021-03-01",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_B2s"
+        },
+        "osProfile": {
+          "computerName": "[parameters('vmName')]",
+          "adminUsername": "azureuser"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "Canonical",
+            "offer": "0001-com-ubuntu-server-jammy",
+            "sku": "22_04-lts",
+            "version": "latest"
+          }
+        }
+      }
+    }
+  ]
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing Model</h3>
+                <ul>
+                    <li><strong>Pay-as-you-go</strong> — Pay only for what you use</li>
+                    <li><strong>Reserved Instances</strong> — Up to 72% savings with 1-3 year commitment</li>
+                    <li><strong>Azure Hybrid Benefit</strong> — Use existing Windows Server/SQL licenses</li>
+                    <li><strong>Free Tier</strong> — 12 months free services + always free services</li>
+                    <li><strong>Spot VMs</strong> — Up to 90% discount for interruptible workloads</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Global Infrastructure</h3>
+                <ul>
+                    <li><strong>60+ Regions</strong> — More than any cloud provider</li>
+                    <li><strong>Availability Zones</strong> — Physically separated data centers</li>
+                    <li><strong>Edge Zones</strong> — Low-latency computing at the edge</li>
+                    <li><strong>CDN</strong> — 190+ edge locations worldwide</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Differentiators</h3>
+                <ul>
+                    <li><strong>Microsoft Integration</strong> — Seamless with Office 365, Active Directory</li>
+                    <li><strong>Hybrid Cloud</strong> — Azure Arc for on-premises management</li>
+                    <li><strong>AI & ML</strong> — Azure OpenAI, Cognitive Services</li>
+                    <li><strong>Enterprise Support</strong> — Strong compliance and governance</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use Azure Policy for governance</li>
+                    <li>Enable Azure Monitor and Application Insights</li>
+                    <li>Implement Azure Key Vault for secrets</li>
+                    <li>Use Managed Identities instead of credentials</li>
+                    <li>Tag resources for cost management</li>
+                    <li>Enable Azure Security Center</li>
+                    <li>Use Azure Backup for disaster recovery</li>
+                    <li>Implement network security groups (NSG)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://azure.microsoft.com/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.microsoft.com/azure/" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://learn.microsoft.com/training/" target="_blank">Microsoft Learn</a></li>
+                    <li>💬 <a href="https://learn.microsoft.com/answers/" target="_blank">Q&A Forums</a></li>
+                    <li>📦 <a href="https://github.com/Azure" target="_blank">GitHub - Azure</a></li>
+                    <li>🎥 <a href="https://www.youtube.com/c/MicrosoftAzure" target="_blank">YouTube Channel</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://azure.microsoft.com/" target="_blank">Azure</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

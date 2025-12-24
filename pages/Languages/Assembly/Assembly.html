@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Assembly Language guide - Learn low-level programming, CPU architecture, and system programming fundamentals." />
+    <meta name="keywords"
+        content="Assembly Language, ASM, x86, ARM, Low-Level Programming, System Programming, CPU Architecture" />
+    <title>Assembly Language Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../language-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>⚙️ Assembly Language Complete Guide</h1>
+            <p class="subtitle">Master low-level programming and understand how computers work at the machine level.</p>
+            <div class="badge-row">
+                <span class="badge">LOW-LEVEL</span>
+                <span class="badge">HARDWARE CONTROL</span>
+                <span class="badge">HIGH PERFORMANCE</span>
+                <span class="badge">SYSTEM PROGRAMMING</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Foundation Knowledge:</strong> Learning Assembly provides deep
+                understanding of computer architecture and makes you a better programmer in any language.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Assembly Language?</h3>
+            <p><strong>Assembly Language</strong> is a low-level programming language that provides direct control over
+                the computer's hardware. It uses human-readable mnemonics to represent machine code instructions,
+                offering a one-to-one correspondence with the CPU's instruction set. Each CPU architecture (x86, ARM,
+                MIPS, etc.) has its own assembly language.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🔧 Hardware Control</strong> — Direct CPU register access</div>
+                <div class="topic"><strong>⚡ Maximum Performance</strong> — No overhead, pure speed</div>
+                <div class="topic"><strong>🎯 Precision</strong> — Control every instruction</div>
+                <div class="topic"><strong>💾 Memory Management</strong> — Manual memory control</div>
+                <div class="topic"><strong>🔍 Debugging</strong> — Understand program behavior</div>
+                <div class="topic"><strong>🛠️ System Programming</strong> — OS kernels, drivers</div>
+                <div class="topic"><strong>🔐 Security Research</strong> — Reverse engineering</div>
+                <div class="topic"><strong>🎮 Embedded Systems</strong> — IoT, microcontrollers</div>
+            </div>
+
+            <h3>Why Learn Assembly?</h3>
+            <ul>
+                <li><strong>Deep Understanding:</strong> Know how computers really work</li>
+                <li><strong>Performance Optimization:</strong> Write critical performance sections</li>
+                <li><strong>System Programming:</strong> Operating systems, bootloaders, drivers</li>
+                <li><strong>Reverse Engineering:</strong> Security analysis, malware research</li>
+                <li><strong>Embedded Systems:</strong> Direct hardware programming</li>
+                <li><strong>Better High-Level Code:</strong> Write more efficient C/C++/Rust</li>
+            </ul>
+
+            <h3>Common Assembly Variants</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>x86/x64 (Intel/AMD)</strong>Desktop and server CPUs</div>
+                <div class="package-item"><strong>ARM</strong>Mobile devices, embedded systems</div>
+                <div class="package-item"><strong>MIPS</strong>Embedded systems, routers</div>
+                <div class="package-item"><strong>RISC-V</strong>Open-source architecture</div>
+            </div>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> This guide focuses on x86-64 Assembly (NASM syntax),
+                the most common for learning and desktop development.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Assembly by installing an assembler and development tools.</p>
+
+            <!-- Windows Installation -->
+            <div id="windows-install" class="subsection">
+                <h3>Windows Installation</h3>
+
+                <h4>Method 1: NASM (Recommended)</h4>
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Download NASM</strong>
+                        <p>Visit <a href="https://www.nasm.us/" target="_blank">nasm.us</a> and download the Windows
+                            installer.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Install NASM</strong>
+                        <p>Run the installer and add NASM to your PATH.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Install Linker</strong>
+                        <p>Install Visual Studio Build Tools or MinGW-w64 for the linker (ld or link.exe).</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">4</span>
+                    <div><strong>Verify Installation</strong>
+                        <pre><code>nasm -version</code><button class="copy-btn" data-copy="nasm -version">COPY</button></pre>
+                    </div>
+                </div>
+
+                <h4>Method 2: MASM (Microsoft Assembler)</h4>
+                <p>Included with Visual Studio. Suitable for Windows-specific development.</p>
+            </div>
+
+            <!-- macOS Installation -->
+            <div id="macos-install" class="subsection">
+                <h3>macOS Installation</h3>
+
+                <h4>Install NASM</h4>
+                <pre><code># Using Homebrew
+brew install nasm
+
+# Verify
+nasm -version
+
+# Xcode Command Line Tools (for linker)
+xcode-select --install</code><button class="copy-btn" data-copy="brew install nasm">COPY</button></pre>
+            </div>
+
+            <!-- Linux Installation -->
+            <div id="linux-install" class="subsection">
+                <h3>Linux Installation</h3>
+
+                <h4>Ubuntu/Debian</h4>
+                <pre><code>sudo apt update
+sudo apt install nasm build-essential
+
+# Verify
+nasm -version
+ld --version</code><button class="copy-btn" data-copy="sudo apt install nasm build-essential">COPY</button></pre>
+
+                <h4>Fedora/RHEL</h4>
+                <pre><code>sudo dnf install nasm gcc
+
+nasm -version</code><button class="copy-btn" data-copy="sudo dnf install nasm gcc">COPY</button></pre>
+
+                <h4>Arch Linux</h4>
+                <pre><code>sudo pacman -S nasm gcc
+
+nasm -version</code><button class="copy-btn" data-copy="sudo pacman -S nasm">COPY</button></pre>
+            </div>
+
+            <!-- Development Setup -->
+            <div id="dev-setup" class="subsection">
+                <h3>Development Environment</h3>
+
+                <h4>Recommended Tools</h4>
+                <ul>
+                    <li><strong>Text Editor:</strong> VS Code with ASM extension, or Vim</li>
+                    <li><strong>Debugger:</strong> GDB (Linux/macOS), WinDbg (Windows)</li>
+                    <li><strong>Disassembler:</strong> objdump, IDA, Ghidra</li>
+                </ul>
+
+                <h4>Hello World Setup</h4>
+                <pre><code># Create file: hello.asm
+# Assemble
+nasm -f elf64 hello.asm -o hello.o
+
+# Link
+ld hello.o -o hello
+
+# Run
+./hello</code><button class="copy-btn" data-copy="nasm -f elf64 hello.asm -o hello.o">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Hello World (x86-64 Linux)</h3>
+                <pre><code>; Hello World in NASM Assembly (Linux x86-64)
+section .data
+    msg db 'Hello, Coduxium XI!', 0x0A    ; Message with newline
+    len equ $ - msg                        ; Calculate length
+
+section .text
+    global _start
+
+_start:
+    ; Write system call
+    mov rax, 1          ; sys_write
+    mov rdi, 1          ; stdout
+    mov rsi, msg        ; message address
+    mov rdx, len        ; message length
+    syscall
+
+    ; Exit system call
+    mov rax, 60         ; sys_exit
+    xor rdi, rdi        ; return 0
+    syscall</code><button class="copy-btn" data-copy="section .data">COPY</button></pre>
+
+                <h3>Registers (x86-64)</h3>
+                <pre><code>; General Purpose Registers (64-bit)
+; RAX, RBX, RCX, RDX - General purpose
+; RSI, RDI - Source/Destination index
+; RSP - Stack pointer
+; RBP - Base pointer
+; R8-R15 - Additional registers
+
+; Example: Moving data
+mov rax, 10         ; Move immediate value to RAX
+mov rbx, rax        ; Copy RAX to RBX
+add rax, 5          ; Add 5 to RAX (now 15)
+sub rbx, 3          ; Subtract 3 from RBX (now 7)
+
+; 32-bit, 16-bit, 8-bit access
+mov eax, 100        ; 32-bit (lower half of RAX)
+mov ax, 50          ; 16-bit (lower half of EAX)
+mov al, 10          ; 8-bit (lower byte of AX)</code><button class="copy-btn" data-copy="mov rax, 10">COPY</button></pre>
+
+                <h3>Data Movement</h3>
+                <pre><code>section .data
+    num1 dq 100         ; Define quadword (64-bit)
+    num2 dd 50          ; Define doubleword (32-bit)
+    char db 'A'         ; Define byte
+
+section .text
+    ; Load from memory
+    mov rax, [num1]     ; Load 64-bit value
+    mov ebx, [num2]     ; Load 32-bit value
+    mov cl, [char]      ; Load byte
+
+    ; Store to memory
+    mov [num1], rax     ; Store RAX to num1
+    
+    ; LEA (Load Effective Address)
+    lea rsi, [num1]     ; Load address of num1</code><button class="copy-btn" data-copy="mov rax, [num1]">COPY</button></pre>
+
+                <h3>Arithmetic Operations</h3>
+                <pre><code>; Addition and Subtraction
+mov rax, 10
+add rax, 5          ; RAX = 15
+sub rax, 3          ; RAX = 12
+inc rax             ; RAX = 13
+dec rax             ; RAX = 12
+
+; Multiplication
+mov rax, 5
+mov rbx, 3
+imul rbx            ; RAX = RAX * RBX = 15
+
+; Division (RDX:RAX / operand)
+mov rax, 20
+xor rdx, rdx        ; Clear RDX
+mov rbx, 4
+idiv rbx            ; RAX = quotient (5), RDX = remainder</code><button class="copy-btn" data-copy="add rax, 5">COPY</button></pre>
+
+                <h3>Control Flow</h3>
+                <pre><code>; Conditional jumps
+mov rax, 10
+cmp rax, 10         ; Compare
+je equal            ; Jump if equal
+jne not_equal       ; Jump if not equal
+jg greater          ; Jump if greater
+jl less             ; Jump if less
+
+equal:
+    ; Code when equal
+    jmp end
+
+not_equal:
+    ; Code when not equal
+
+end:
+    ; Continue
+
+; Loops
+mov rcx, 5          ; Counter
+loop_start:
+    ; Loop body
+    dec rcx
+    jnz loop_start  ; Jump if not zero</code><button class="copy-btn" data-copy="cmp rax, 10">COPY</button></pre>
+
+                <h3>Functions/Procedures</h3>
+                <pre><code>; Function definition
+add_numbers:
+    ; RDI = first parameter
+    ; RSI = second parameter
+    mov rax, rdi
+    add rax, rsi
+    ret             ; Return (result in RAX)
+
+; Calling convention (System V AMD64)
+main:
+    mov rdi, 10     ; First argument
+    mov rsi, 20     ; Second argument
+    call add_numbers
+    ; Result now in RAX (30)</code><button class="copy-btn" data-copy="call add_numbers">COPY</button></pre>
+
+                <h3>Stack Operations</h3>
+                <pre><code>; Push and Pop
+push rax            ; Save RAX on stack
+push rbx            ; Save RBX on stack
+; ... do work ...
+pop rbx             ; Restore RBX
+pop rax             ; Restore RAX
+
+; Function prologue/epilogue
+my_function:
+    push rbp        ; Save base pointer
+    mov rbp, rsp    ; Set up stack frame
+    sub rsp, 16     ; Allocate local space
+    
+    ; Function body
+    
+    mov rsp, rbp    ; Clean up
+    pop rbp         ; Restore base pointer
+    ret</code><button class="copy-btn" data-copy="push rax">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>System Calls (Linux x86-64)</h3>
+            <pre><code>; Common system calls
+; RAX = syscall number
+; Arguments in: RDI, RSI, RDX, R10, R8, R9
+
+; Read from stdin
+mov rax, 0          ; sys_read
+mov rdi, 0          ; stdin
+mov rsi, buffer     ; destination buffer
+mov rdx, 100        ; max bytes
+syscall
+
+; Write to stdout
+mov rax, 1          ; sys_write
+mov rdi, 1          ; stdout
+mov rsi, msg        ; source buffer
+mov rdx, len        ; length
+syscall
+
+; Open file
+mov rax, 2          ; sys_open
+mov rdi, filename   ; file path
+mov rsi, 0          ; O_RDONLY
+syscall
+mov r8, rax         ; Save file descriptor</code><button class="copy-btn" data-copy="mov rax, 1">COPY</button></pre>
+
+            <h3>Bitwise Operations</h3>
+            <pre><code>; AND, OR, XOR, NOT
+mov rax, 0b1100
+and rax, 0b1010     ; RAX = 0b1000
+or rax, 0b0011      ; RAX = 0b1011
+xor rax, 0b1111     ; RAX = 0b0100
+not rax             ; Bitwise NOT
+
+; Shifts
+mov rax, 8
+shl rax, 2          ; Shift left 2 (RAX = 32)
+shr rax, 1          ; Shift right 1 (RAX = 16)
+
+; Rotate
+rol rax, 1          ; Rotate left
+ror rax, 1          ; Rotate right</code><button class="copy-btn" data-copy="and rax, 0b1010">COPY</button></pre>
+
+            <h3>SIMD Instructions (SSE/AVX)</h3>
+            <pre><code>; SSE example - parallel operations
+section .data
+    align 16
+    vec1 dd 1.0, 2.0, 3.0, 4.0
+    vec2 dd 5.0, 6.0, 7.0, 8.0
+
+section .text
+    movaps xmm0, [vec1]     ; Load 4 floats
+    movaps xmm1, [vec2]     ; Load 4 floats
+    addps xmm0, xmm1        ; Parallel add
+    movaps [result], xmm0   ; Store result</code><button class="copy-btn" data-copy="movaps xmm0, [vec1]">COPY</button></pre>
+
+            <h3>Inline Assembly in C</h3>
+            <pre><code>// GCC inline assembly
+#include <stdio.h>
+
+int main() {
+    long result;
+    long a = 10, b = 20;
+    
+    __asm__ (
+        "mov %1, %0\n\t"
+        "add %2, %0"
+        : "=r" (result)
+        : "r" (a), "r" (b)
+    );
+    
+    printf("Result: %ld\n", result);
+    return 0;
+}</code><button class="copy-btn" data-copy="__asm__ volatile">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Practice Basics</strong> — Write simple programs,
+                understand registers</div>
+            <div class="step"><span class="n">2</span><strong>Study Architecture</strong> — Learn CPU design,
+                instruction sets</div>
+            <div class="step"><span class="n">3</span><strong>Reverse Engineering</strong> — Analyze compiled programs
+            </div>
+            <div class="step"><span class="n">4</span><strong>OS Development</strong> — Write bootloaders, kernels</div>
+            <div class="step"><span class="n">5</span><strong>Embedded Systems</strong> — Program microcontrollers
+                directly</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://www.nasm.us/doc/" target="_blank">NASM Documentation</a></li>
+                <li>🎓 <a href="https://www.intel.com/sdm" target="_blank">Intel Software Developer Manual</a></li>
+                <li>📘 <a href="https://godbolt.org/" target="_blank">Compiler Explorer</a></li>
+                <li>💻 <a href="https://github.com/0xAX/asm" target="_blank">Learning Assembly GitHub</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../Database/database-common.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

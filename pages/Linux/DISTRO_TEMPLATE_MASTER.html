@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{DISTRO_NAME} - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete {DISTRO_NAME} guide - {SHORT_DESCRIPTION}">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">{DISTRO_NAME}</a></h1>
+                    <p class="sub">{DISTRO_TAGLINE}</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">{ICON}</span>
+                <span>{BADGE_TEXT}</span>
+            </div>
+            <h1 class="hero-title">{DISTRO_NAME}</h1>
+            <p class="hero-description">
+                {HERO_DESCRIPTION}
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> {BASE_DISTRO}</li>
+                    <li><strong>Package Manager:</strong> {PACKAGE_MANAGER}</li>
+                    <li><strong>Desktop:</strong> {DESKTOP_ENV}</li>
+                    <li><strong>Release Model:</strong> {RELEASE_MODEL}</li>
+                    <li><strong>Target Users:</strong> {TARGET_USERS}</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">{FEATURE_1_ICON}</span>
+                    <h4>{FEATURE_1_TITLE}</h4>
+                    <p>{FEATURE_1_DESC}</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">{FEATURE_2_ICON}</span>
+                    <h4>{FEATURE_2_TITLE}</h4>
+                    <p>{FEATURE_2_DESC}</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">{FEATURE_3_ICON}</span>
+                    <h4>{FEATURE_3_TITLE}</h4>
+                    <p>{FEATURE_3_DESC}</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">{FEATURE_4_ICON}</span>
+                    <h4>{FEATURE_4_TITLE}</h4>
+                    <p>{FEATURE_4_DESC}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is {DISTRO_NAME}?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    {INTRO_PARAGRAPH}
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>{KEY_FEATURE_1}</li>
+                    <li>{KEY_FEATURE_2}</li>
+                    <li>{KEY_FEATURE_3}</li>
+                    <li>{KEY_FEATURE_4}</li>
+                    <li>{KEY_FEATURE_5}</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose {DISTRO_NAME}?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>{REASON_1_TITLE}</h4>
+                        <p>{REASON_1_DESC}</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>{REASON_2_TITLE}</h4>
+                        <p>{REASON_2_DESC}</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>{REASON_3_TITLE}</h4>
+                        <p>{REASON_3_DESC}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download {DISTRO_NAME} from: <a href="{DOWNLOAD_URL}" target="_blank">{DOWNLOAD_URL}</a>
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if={DISTRO_NAME}.iso of=/dev/sdX bs=4M
+
+# Or use: Etcher, Rufus, Ventoy</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS (F2/F12/Del)<br>
+                        4. Select USB as boot device
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Installation Process</h4>
+                    <p class="command-desc">
+                        {INSTALLATION_STEPS}
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> {MIN_CPU}</li>
+                    <li><strong>RAM:</strong> {MIN_RAM}</li>
+                    <li><strong>Storage:</strong> {MIN_STORAGE}</li>
+                    <li><strong>GPU:</strong> {MIN_GPU}</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">{UPDATE_COMMAND}</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">{INSTALL_COMMAND}</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">{REMOVE_COMMAND}</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">{SEARCH_COMMAND}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Software Center</h4>
+                        <p class="command-desc">{SOFTWARE_CENTER_INFO}</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>System Settings</h4>
+                        <p class="command-desc">{SETTINGS_INFO}</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>File Manager</h4>
+                        <p class="command-desc">{FILE_MANAGER_INFO}</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Terminal</h4>
+                        <p class="command-desc">{TERMINAL_INFO}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>{ADVANCED_TOPIC_1}</h4>
+                    <pre><code class="language-bash">{ADVANCED_CODE_1}</code></pre>
+                    <p class="command-desc">{ADVANCED_DESC_1}</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>{ADVANCED_TOPIC_2}</h4>
+                    <pre><code class="language-bash">{ADVANCED_CODE_2}</code></pre>
+                    <p class="command-desc">{ADVANCED_DESC_2}</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>{ADVANCED_TOPIC_3}</h4>
+                    <pre><code class="language-bash">{ADVANCED_CODE_3}</code></pre>
+                    <p class="command-desc">{ADVANCED_DESC_3}</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>{ADVANCED_TOPIC_4}</h4>
+                    <pre><code class="language-bash">{ADVANCED_CODE_4}</code></pre>
+                    <p class="command-desc">{ADVANCED_DESC_4}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>{COMMAND_1_TASK}</strong></td>
+                            <td><code>{COMMAND_1}</code></td>
+                            <td>{COMMAND_1_DESC}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{COMMAND_2_TASK}</strong></td>
+                            <td><code>{COMMAND_2}</code></td>
+                            <td>{COMMAND_2_DESC}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{COMMAND_3_TASK}</strong></td>
+                            <td><code>{COMMAND_3}</code></td>
+                            <td>{COMMAND_3_DESC}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{COMMAND_4_TASK}</strong></td>
+                            <td><code>{COMMAND_4}</code></td>
+                            <td>{COMMAND_4_DESC}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{COMMAND_5_TASK}</strong></td>
+                            <td><code>{COMMAND_5}</code></td>
+                            <td>{COMMAND_5_DESC}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="{OFFICIAL_WEBSITE}" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit {DISTRO_NAME} homepage</p>
+                </a>
+                <a href="{DOCUMENTATION}" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official docs and wiki</p>
+                </a>
+                <a href="{COMMUNITY}" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community</h4>
+                    <p>Forums and support</p>
+                </a>
+                <a href="{GITHUB}" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>GitHub repository</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Download and install {DISTRO_NAME}</li>
+                    <li>Explore the desktop environment</li>
+                    <li>Install essential software</li>
+                    <li>Join the community</li>
+                    <li>Customize your system</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                {RELATED_DISTRO_1}
+                {RELATED_DISTRO_2}
+                {RELATED_DISTRO_3}
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

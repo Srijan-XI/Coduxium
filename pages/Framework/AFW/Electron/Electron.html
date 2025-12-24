@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Electron guide - Learn installation, IPC, native APIs, and best practices for building cross-platform desktop applications." />
+    <meta name="keywords"
+        content="Electron, Desktop Apps, Cross-Platform, JavaScript, Node.js, Chromium, Native Apps" />
+    <title>Electron Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../Database/database-common.css">
+    <link rel="stylesheet" href="../../framework-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>⚛️ Electron Complete Guide</h1>
+            <p class="subtitle">Build cross-platform desktop apps with JavaScript, HTML, and CSS.</p>
+            <div class="badge-row">
+                <span class="badge">CROSS-PLATFORM</span>
+                <span class="badge">CHROMIUM</span>
+                <span class="badge">NODE.JS</span>
+                <span class="badge">DESKTOP APPS</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Industry Standard:</strong> Electron powers VS Code, Slack, Discord, Figma,
+                and thousands of other desktop apps.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Electron?</h3>
+            <p><strong>Electron</strong> is an open-source framework created by GitHub that allows you to build
+                cross-platform desktop applications using web technologies (JavaScript, HTML, and CSS). It combines
+                Chromium and Node.js into a single runtime, enabling you to write desktop applications that work on
+                Windows, macOS, and Linux from a single codebase.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🌐 Cross-Platform</strong> — Windows, macOS, Linux</div>
+                <div class="topic"><strong>🔧 Web Technologies</strong> — HTML, CSS, JavaScript</div>
+                <div class="topic"><strong>📦 Node.js Integration</strong> — Access to npm ecosystem</div>
+                <div class="topic"><strong>🖥️ Native APIs</strong> — System tray, notifications, menus</div>
+                <div class="topic"><strong>🔄 Auto Updates</strong> — Built-in update mechanism</div>
+                <div class="topic"><strong>🛡️ Chromium Security</strong> — Sandboxing, CSP</div>
+                <div class="topic"><strong>🎨 Custom UI</strong> — Full control over appearance</div>
+                <div class="topic"><strong>📱 Native Feel</strong> — Platform-specific behaviors</div>
+            </div>
+
+            <h3>Why Choose Electron?</h3>
+            <ul>
+                <li><strong>Single Codebase:</strong> Write once, deploy to all platforms</li>
+                <li><strong>Web Skills:</strong> Use existing web development knowledge</li>
+                <li><strong>Rich Ecosystem:</strong> Access to npm and web frameworks</li>
+                <li><strong>Rapid Development:</strong> Fast prototyping and iteration</li>
+                <li><strong>Native Integration:</strong> Access file system, hardware, OS features</li>
+                <li><strong>Battle-Tested:</strong> Used by major companies worldwide</li>
+            </ul>
+
+            <h3>Popular Apps Built with Electron</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>VS Code</strong>Code editor by Microsoft</div>
+                <div class="package-item"><strong>Slack</strong>Team collaboration</div>
+                <div class="package-item"><strong>Discord</strong>Voice & chat platform</div>
+                <div class="package-item"><strong>Figma</strong>Design tool</div>
+                <div class="package-item"><strong>Postman</strong>API development</div>
+                <div class="package-item"><strong>Notion</strong>Note-taking app</div>
+                <div class="package-item"><strong>Obsidian</strong>Knowledge base</div>
+                <div class="package-item"><strong>WhatsApp Desktop</strong>Messaging</div>
+            </div>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> Electron apps can be larger in size due to bundled
+                Chromium and Node.js runtime.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Electron by creating your first application.</p>
+
+            <div id="requirements" class="subsection">
+                <h3>Requirements</h3>
+                <ul>
+                    <li>Node.js (v16 or higher recommended)</li>
+                    <li>npm or yarn</li>
+                </ul>
+            </div>
+
+            <div id="quick-start" class="subsection">
+                <h3>Quick Start</h3>
+
+                <h4>Method 1: electron-quick-start</h4>
+                <pre><code># Clone the quick start repository
+git clone https://github.com/electron/electron-quick-start
+cd electron-quick-start
+
+# Install dependencies
+npm install
+
+# Run the app
+npm start</code><button class="copy-btn" data-copy="git clone https://github.com/electron/electron-quick-start">COPY</button></pre>
+
+                <h4>Method 2: Create from Scratch</h4>
+                <pre><code># Create project directory
+mkdir my-electron-app
+cd my-electron-app
+
+# Initialize npm project
+npm init -y
+
+# Install Electron
+npm install --save-dev electron</code><button class="copy-btn" data-copy="npm install --save-dev electron">COPY</button></pre>
+            </div>
+
+            <div id="project-structure" class="subsection">
+                <h3>Basic Project Structure</h3>
+                <pre><code>my-electron-app/
+├── main.js              # Main process
+├── preload.js           # Preload script
+├── renderer.js          # Renderer process
+├── index.html           # UI
+├── package.json
+└── node_modules/</code></pre>
+            </div>
+
+            <div id="package-json" class="subsection">
+                <h3>Configure package.json</h3>
+                <pre><code>{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "My Electron App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --inspect"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0"
+  }
+}</code><button class="copy-btn" data-copy="npm start">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Main Process (main.js)</h3>
+                <pre><code>const { app, BrowserWindow } = require('electron');
+const path = require('path');
+
+let mainWindow;
+
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: false,
+      contextIsolation: true
+    }
+  });
+
+  mainWindow.loadFile('index.html');
+
+  // Open DevTools in development
+  // mainWindow.webContents.openDevTools();
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
+}
+
+app.whenReady().then(() => {
+  createWindow();
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});</code><button class="copy-btn" data-copy="const { app, BrowserWindow } = require('electron');">COPY</button></pre>
+
+                <h3>HTML UI (index.html)</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My Electron App&lt;/title&gt;
+  &lt;meta http-equiv="Content-Security-Policy" 
+        content="default-src 'self'; script-src 'self'"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, Coduxium XI!&lt;/h1&gt;
+  &lt;p&gt;Welcome to Electron&lt;/p&gt;
+  
+  &lt;button id="myBtn"&gt;Click Me&lt;/button&gt;
+  &lt;p id="info"&gt;&lt;/p&gt;
+
+  &lt;script src="renderer.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-btn" data-copy="<h1>Hello, Coduxium XI!</h1>">COPY</button></pre>
+
+                <h3>Preload Script (preload.js)</h3>
+                <pre><code>const { contextBridge, ipcRenderer } = require('electron');
+
+// Expose protected methods to renderer process
+contextBridge.exposeInMainWorld('electronAPI', {
+  getVersion: () => process.versions.electron,
+  sendMessage: (message) => ipcRenderer.send('message', message),
+  onReply: (callback) => ipcRenderer.on('reply', callback)
+});</code><button class="copy-btn" data-copy="contextBridge.exposeInMainWorld">COPY</button></pre>
+
+                <h3>Renderer Process (renderer.js)</h3>
+                <pre><code>// Access exposed API from preload
+document.getElementById('myBtn').addEventListener('click', () => {
+  const version = window.electronAPI.getVersion();
+  document.getElementById('info').textContent = 
+    `Electron version: ${version}`;
+});</code><button class="copy-btn" data-copy="window.electronAPI">COPY</button></pre>
+
+                <h3>IPC Communication (Inter-Process)</h3>
+                <pre><code>// Main process (main.js)
+const { ipcMain } = require('electron');
+
+ipcMain.on('message', (event, arg) => {
+  console.log('Received:', arg);
+  event.reply('reply', 'Message received!');
+});
+
+// Invoke/handle pattern (async)
+ipcMain.handle('get-data', async (event, arg) => {
+  const result = await fetchData();
+  return result;
+});
+
+// Preload (preload.js)
+contextBridge.exposeInMainWorld('electronAPI', {
+  sendMessage: (msg) => ipcRenderer.send('message', msg),
+  onReply: (callback) => ipcRenderer.on('reply', (event, ...args) => 
+    callback(...args)
+  ),
+  getData: (arg) => ipcRenderer.invoke('get-data', arg)
+});
+
+// Renderer (renderer.js)
+// Send message
+window.electronAPI.sendMessage('Hello from renderer!');
+
+// Listen for reply
+window.electronAPI.onReply((reply) => {
+  console.log(reply);
+});
+
+// Invoke with promise
+window.electronAPI.getData('param').then(data => {
+  console.log(data);
+});</code><button class="copy-btn" data-copy="ipcMain.on('message'">COPY</button></pre>
+
+                <h3>Native Menus</h3>
+                <pre><code>const { Menu } = require('electron');
+
+const template = [
+  {
+    label: 'File',
+    submenu: [
+      {
+        label: 'New File',
+        accelerator: 'CmdOrCtrl+N',
+        click: () => { console.log('New File'); }
+      },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' }
+    ]
+  }
+];
+
+const menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);</code><button class="copy-btn" data-copy="Menu.buildFromTemplate">COPY</button></pre>
+
+                <h3>System Tray</h3>
+                <pre><code>const { Tray, Menu } = require('electron');
+
+let tray;
+
+function createTray() {
+  tray = new Tray('path/to/icon.png');
+  
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Show App', click: () => mainWindow.show() },
+    { label: 'Quit', click: () => app.quit() }
+  ]);
+  
+  tray.setToolTip('My Electron App');
+  tray.setContextMenu(contextMenu);
+  
+  tray.on('click', () => {
+    mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
+  });
+}</code><button class="copy-btn" data-copy="new Tray">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Notifications</h3>
+            <pre><code>const { Notification } = require('electron');
+
+function showNotification() {
+  new Notification({
+    title: 'Notification Title',
+    body: 'This is the notification body',
+    icon: 'path/to/icon.png'
+  }).show();
+}</code><button class="copy-btn" data-copy="new Notification">COPY</button></pre>
+
+            <h3>File Dialogs</h3>
+            <pre><code>const { dialog } = require('electron');
+
+// Open file dialog
+async function openFile() {
+  const { canceled, filePaths } = await dialog.showOpenDialog({
+    properties: ['openFile', 'multiSelections'],
+    filters: [
+      { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+      { name: 'All Files', extensions: ['*'] }
+    ]
+  });
+  
+  if (!canceled) {
+    return filePaths;
+  }
+}
+
+// Save file dialog
+async function saveFile() {
+  const { canceled, filePath } = await dialog.showSaveDialog({
+    defaultPath: 'untitled.txt'
+  });
+  
+  if (!canceled) {
+    return filePath;
+  }
+}</code><button class="copy-btn" data-copy="dialog.showOpenDialog">COPY</button></pre>
+
+            <h3>Auto Updates (electron-updater)</h3>
+            <pre><code>// Install
+npm install electron-updater
+
+// Main process
+const { autoUpdater } = require('electron-updater');
+
+autoUpdater.checkForUpdatesAndNotify();
+
+autoUpdater.on('update-available', () => {
+  console.log('Update available');
+});
+
+autoUpdater.on('update-downloaded', () => {
+  autoUpdater.quitAndInstall();
+});</code><button class="copy-btn" data-copy="npm install electron-updater">COPY</button></pre>
+
+            <h3>Packaging & Distribution</h3>
+            <pre><code># Install electron-builder
+npm install --save-dev electron-builder
+
+# package.json
+{
+  "scripts": {
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.myapp",
+    "productName": "My Electron App",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "mac": {
+      "target": ["dmg", "zip"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
+  }
+}
+
+# Build for all platforms
+npm run build</code><button class="copy-btn" data-copy="npm run build">COPY</button></pre>
+
+            <h3>Security Best Practices</h3>
+            <pre><code>// 1. Enable Context Isolation
+webPreferences: {
+  contextIsolation: true,
+  nodeIntegration: false
+}
+
+// 2. Use CSP
+&lt;meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; script-src 'self'"&gt;
+
+// 3. Validate all user input
+// 4. Use HTTPS for remote content
+// 5. Disable Node.js in renderer
+// 6. Enable sandbox
+webPreferences: {
+  sandbox: true
+}</code><button class="copy-btn" data-copy="contextIsolation: true">COPY</button></pre>
+
+            <h3>Using with React/Vue/Angular</h3>
+            <pre><code># With React
+npx create-react-app my-app
+cd my-app
+npm install --save-dev electron electron-builder concurrently wait-on
+
+# With Vite + React
+npm create vite@latest my-app -- --template react
+cd my-app
+npm install --save-dev electron
+
+# Electron Forge (recommended)
+npm init electron-app@latest my-app</code><button class="copy-btn" data-copy="npm init electron-app@latest my-app">COPY</button></pre>
+
+            <h3>Debugging</h3>
+            <pre><code># Enable DevTools
+mainWindow.webContents.openDevTools();
+
+# Debug main process
+electron . --inspect=5858
+
+# VS Code launch.json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Electron Main",
+  "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+  "program": "${workspaceFolder}/main.js"
+}</code><button class="copy-btn" data-copy="--inspect=5858">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master IPC</strong> — Learn communication between
+                processes</div>
+            <div class="step"><span class="n">2</span><strong>Native Features</strong> — Use system tray, notifications,
+                menus</div>
+            <div class="step"><span class="n">3</span><strong>Add Framework</strong> — Integrate React, Vue, or Angular
+            </div>
+            <div class="step"><span class="n">4</span><strong>Implement Updates</strong> — Auto-update mechanism</div>
+            <div class="step"><span class="n">5</span><strong>Package & Distribute</strong> — Build installers for all
+                platforms</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://www.electronjs.org/docs" target="_blank">Official Electron Documentation</a>
+                </li>
+                <li>🎓 <a href="https://www.electronjs.org/docs/latest/tutorial/quick-start" target="_blank">Electron
+                        Quick Start</a></li>
+                <li>📘 <a href="https://github.com/electron/electron" target="_blank">Electron GitHub</a></li>
+                <li>💻 <a href="https://www.electron.build/" target="_blank">Electron Builder</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

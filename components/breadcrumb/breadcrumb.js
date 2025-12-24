@@ -1,5 +1,5 @@
 /**
- * DevSphere Breadcrumb Navigation Component
+ * Coduxium XI Breadcrumb Navigation Component
  * Automatically generates breadcrumb navigation based on current URL path
  */
 

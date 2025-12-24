@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terraform — Coduxium XI</title>
+    <meta name="description"
+        content="Master Terraform - Infrastructure as Code tool for building, changing, and versioning infrastructure.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Terraform</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🏗️ Terraform</h2>
+            <p class="intro">Infrastructure as Code tool for building, changing, and versioning infrastructure safely
+                and efficiently.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Infrastructure as Code</span>
+                    <span class="badge">DevOps</span>
+                    <span class="badge">Cloud</span>
+                    <span class="badge">HashiCorp</span>
+                </div>
+                <p>Terraform is an open-source infrastructure as code software tool created by HashiCorp. Users define
+                    and provide data center infrastructure using a declarative configuration language known as HashiCorp
+                    Configuration Language (HCL).</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Multi-Cloud Support</strong> — AWS, Azure, GCP, and 1000+ providers</li>
+                    <li><strong>Declarative Configuration</strong> — Define what you want, not how to get it</li>
+                    <li><strong>State Management</strong> — Track infrastructure state</li>
+                    <li><strong>Plan Before Apply</strong> — Preview changes before execution</li>
+                    <li><strong>Resource Graph</strong> — Build dependency graphs</li>
+                    <li><strong>Modules</strong> — Reusable infrastructure components</li>
+                    <li><strong>Workspaces</strong> — Manage multiple environments</li>
+                    <li><strong>Remote State</strong> — Collaboration with shared state</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Multi-cloud infrastructure deployment</li>
+                    <li>Infrastructure automation</li>
+                    <li>Self-service infrastructure</li>
+                    <li>Kubernetes cluster provisioning</li>
+                    <li>Network infrastructure management</li>
+                    <li>Database and storage provisioning</li>
+                    <li>GitOps workflows</li>
+                    <li>Disaster recovery automation</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Terraform:</p>
+                <pre><code># Download from terraform.io or use package manager
+# Linux
+wget https://releases.hashicorp.com/terraform/1.6.0/terraform_1.6.0_linux_amd64.zip
+unzip terraform_1.6.0_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+
+# Verify installation
+terraform version</code></pre>
+
+                <p>Basic Terraform configuration:</p>
+                <pre><code># main.tf
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+  
+  tags = {
+    Name = "MyWebServer"
+  }
+}
+
+output "instance_ip" {
+  value = aws_instance.web.public_ip
+}</code></pre>
+
+                <p>Terraform workflow:</p>
+                <pre><code># Initialize
+terraform init
+
+# Plan changes
+terraform plan
+
+# Apply changes
+terraform apply
+
+# Destroy infrastructure
+terraform destroy</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use remote state for team collaboration</li>
+                    <li>Organize code with modules</li>
+                    <li>Use variables for reusability</li>
+                    <li>Implement state locking</li>
+                    <li>Use workspaces for environments</li>
+                    <li>Version control your Terraform code</li>
+                    <li>Use terraform fmt for consistent formatting</li>
+                    <li>Implement proper IAM permissions</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.terraform.io/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://developer.hashicorp.com/terraform/docs" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/hashicorp/terraform" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

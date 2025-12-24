@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vue.js — Coduxium XI</title>
+    <meta name="description"
+        content="Master Vue.js - The progressive JavaScript framework for building user interfaces.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Vue.js Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🟢 Vue.js</h2>
+            <p class="intro">The progressive JavaScript framework for building modern web interfaces with an
+                approachable core library.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Frontend</span>
+                    <span class="badge">Progressive Framework</span>
+                    <span class="badge">Reactive</span>
+                    <span class="badge">Component-Based</span>
+                </div>
+                <p>Vue.js is a progressive framework for building user interfaces. Unlike monolithic frameworks, Vue is
+                    designed from the ground up to be incrementally adoptable. The core library focuses on the view
+                    layer only, making it easy to integrate with other libraries or existing projects.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Progressive Framework</strong> — Scalable from simple library to full framework</li>
+                    <li><strong>Reactive Data Binding</strong> — Automatic UI updates when data changes</li>
+                    <li><strong>Component System</strong> — Reusable and composable components</li>
+                    <li><strong>Single-File Components</strong> — HTML, CSS, and JavaScript in one file</li>
+                    <li><strong>Vue Router</strong> — Official routing solution</li>
+                    <li><strong>Vuex/Pinia</strong> — State management patterns</li>
+                    <li><strong>Virtual DOM</strong> — Efficient rendering and updates</li>
+                    <li><strong>Composition API</strong> — Better logic reuse and code organization</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Single Page Applications (SPAs)</li>
+                    <li>Progressive Web Apps (PWAs)</li>
+                    <li>Interactive dashboards and admin panels</li>
+                    <li>E-commerce platforms</li>
+                    <li>Real-time applications</li>
+                    <li>Form-heavy applications</li>
+                    <li>Content management systems</li>
+                    <li>Incremental adoption in existing projects</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Vue Ecosystem</h3>
+                <ul>
+                    <li><strong>Nuxt.js</strong> — Full-featured framework with SSR/SSG</li>
+                    <li><strong>Vite</strong> — Official build tool with instant HMR</li>
+                    <li><strong>Vue Router</strong> — Official routing library</li>
+                    <li><strong>Pinia</strong> — Official state management (replaces Vuex)</li>
+                    <li><strong>VueUse</strong> — Collection of essential composition utilities</li>
+                    <li><strong>Vuetify/Quasar</strong> — Material Design component frameworks</li>
+                    <li><strong>Vue DevTools</strong> — Browser extension for debugging</li>
+                    <li><strong>Vitest</strong> — Testing framework</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Options API vs Composition API</h4>
+                <ul>
+                    <li><strong>Options API</strong> — Traditional, beginner-friendly approach</li>
+                    <li><strong>Composition API</strong> — Flexible, reusable logic composition</li>
+                    <li>Both APIs are fully supported and interchangeable</li>
+                </ul>
+
+                <h4>Reactivity System</h4>
+                <ul>
+                    <li><code>ref()</code> — Create reactive references</li>
+                    <li><code>reactive()</code> — Create reactive objects</li>
+                    <li><code>computed()</code> — Computed properties</li>
+                    <li><code>watch()</code> — Watch reactive changes</li>
+                    <li><code>watchEffect()</code> — Automatic dependency tracking</li>
+                </ul>
+
+                <h4>Template Syntax</h4>
+                <ul>
+                    <li>Directives: v-if, v-for, v-model, v-bind, v-on</li>
+                    <li>Template interpolation with mustache syntax</li>
+                    <li>Event handling and modifiers</li>
+                    <li>Conditional rendering and list rendering</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Create a new Vue 3 project with Vite:</p>
+                <pre><code>npm create vue@latest my-app
+cd my-app
+npm install
+npm run dev</code></pre>
+
+                <p>Or quick start with CDN:</p>
+                <pre><code>&lt;script src="https://unpkg.com/vue@3"&gt;&lt;/script&gt;
+&lt;div id="app"&gt;{{ message }}&lt;/div&gt;
+&lt;script&gt;
+  Vue.createApp({
+    data() { return { message: 'Hello Vue!' } }
+  }).mount('#app')
+&lt;/script&gt;</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use Composition API for complex logic</li>
+                    <li>Keep components small and focused</li>
+                    <li>Leverage computed properties for derived state</li>
+                    <li>Use Pinia for global state management</li>
+                    <li>Implement proper prop validation</li>
+                    <li>Use TypeScript for type safety</li>
+                    <li>Follow Vue Style Guide conventions</li>
+                    <li>Optimize with async components and lazy loading</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://vuejs.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://vuejs.org/guide/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/vuejs/core" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

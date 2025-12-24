@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CUDA — Coduxium XI</title>
+    <meta name="description" content="Master CUDA - Parallel computing platform for GPU acceleration.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">CUDA Platform</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>⚡ CUDA</h2>
+            <p class="intro">NVIDIA's parallel computing platform for GPU-accelerated applications and deep learning.
+            </p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">GPU Programming</span>
+                    <span class="badge">Parallel Computing</span>
+                    <span class="badge">C/C++</span>
+                    <span class="badge">NVIDIA</span>
+                </div>
+                <p>CUDA (Compute Unified Device Architecture) is a parallel computing platform and programming model
+                    created by NVIDIA. It allows developers to use NVIDIA GPUs for general purpose processing,
+                    dramatically accelerating compute-intensive applications.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Massive Parallelism</strong> — Execute thousands of threads simultaneously</li>
+                    <li><strong>High Memory Bandwidth</strong> — Fast data transfer between GPU and memory</li>
+                    <li><strong>CUDA C/C++</strong> — Extensions to standard C/C++</li>
+                    <li><strong>Libraries</strong> — cuBLAS, cuDNN, cuFFT, Thrust</li>
+                    <li><strong>Unified Memory</strong> — Single memory space for CPU and GPU</li>
+                    <li><strong>Multi-GPU Support</strong> — Scale across multiple GPUs</li>
+                    <li><strong>CUDA Toolkit</strong> — Complete development environment</li>
+                    <li><strong>Profiling Tools</strong> — Nsight Systems, Nsight Compute</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Deep learning training and inference</li>
+                    <li>Scientific computing and simulations</li>
+                    <li>Image and video processing</li>
+                    <li>Computational finance</li>
+                    <li>Molecular dynamics</li>
+                    <li>Data analytics and mining</li>
+                    <li>Cryptography and encryption</li>
+                    <li>Computer graphics and rendering</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>CUDA Libraries</h3>
+                <ul>
+                    <li><strong>cuBLAS</strong> — GPU-accelerated BLAS library</li>
+                    <li><strong>cuDNN</strong> — Deep Neural Network library</li>
+                    <li><strong>cuFFT</strong> — Fast Fourier Transform library</li>
+                    <li><strong>cuSPARSE</strong> — Sparse matrix operations</li>
+                    <li><strong>cuRAND</strong> — Random number generation</li>
+                    <li><strong>Thrust</strong> — C++ parallel algorithms library</li>
+                    <li><strong>CUB</strong> — Reusable software components</li>
+                    <li><strong>NCCL</strong> — Multi-GPU collective operations</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Kernel Functions</h4>
+                <ul>
+                    <li>Functions that run on GPU</li>
+                    <li>Launched with &lt;&lt;&lt;grid, block&gt;&gt;&gt; syntax</li>
+                    <li>Executed by multiple threads in parallel</li>
+                </ul>
+
+                <h4>Memory Hierarchy</h4>
+                <ul>
+                    <li><strong>Global Memory</strong> — Largest, accessible by all threads</li>
+                    <li><strong>Shared Memory</strong> — Fast, block-level memory</li>
+                    <li><strong>Constant Memory</strong> — Read-only cached memory</li>
+                    <li><strong>Registers</strong> — Fastest, thread-private</li>
+                </ul>
+
+                <h4>Thread Organization</h4>
+                <ul>
+                    <li><strong>Threads</strong> — Basic execution unit</li>
+                    <li><strong>Blocks</strong> — Groups of threads</li>
+                    <li><strong>Grids</strong> — Collections of blocks</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install CUDA Toolkit:</p>
+                <pre><code># Download from NVIDIA website
+# Or use package manager (Ubuntu example)
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get install cuda-toolkit</code></pre>
+
+                <p>Simple CUDA kernel:</p>
+                <pre><code>__global__ void vectorAdd(float *a, float *b, float *c, int n) {
+    int i = blockDim.x * blockIdx.x + threadIdx.x;
+    if (i < n) {
+        c[i] = a[i] + b[i];
+    }
+}
+
+// Host code
+int main() {
+    // Allocate memory
+    cudaMalloc(&d_a, size);
+    cudaMalloc(&d_b, size);
+    cudaMalloc(&d_c, size);
+    
+    // Launch kernel
+    int threadsPerBlock = 256;
+    int blocksPerGrid = (n + threadsPerBlock - 1) / threadsPerBlock;
+    vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_a, d_b, d_c, n);
+    
+    // Copy result back
+    cudaMemcpy(h_c, d_c, size, cudaMemcpyDeviceToHost);
+    
+    // Free memory
+    cudaFree(d_a);
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Maximize occupancy with proper thread configuration</li>
+                    <li>Minimize memory transfers between host and device</li>
+                    <li>Use shared memory for frequently accessed data</li>
+                    <li>Coalesce global memory accesses</li>
+                    <li>Profile with Nsight tools</li>
+                    <li>Use streams for concurrent operations</li>
+                    <li>Optimize memory access patterns</li>
+                    <li>Handle errors with proper checking</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://developer.nvidia.com/cuda-zone" target="_blank" class="btn primary">Official
+                    Website</a>
+                <a href="https://docs.nvidia.com/cuda/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/NVIDIA/cuda-samples" target="_blank" class="btn">CUDA Samples</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

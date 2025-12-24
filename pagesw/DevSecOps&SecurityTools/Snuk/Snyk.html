@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snyk — Coduxium XI</title>
+    <meta name="description" content="Snyk - Developer security platform for finding and fixing vulnerabilities.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Snyk</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🛡️ Snyk</h2>
+            <p class="intro">Developer-first security platform for finding and automatically fixing vulnerabilities in code, dependencies, containers, and IaC.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">SECURITY</span>
+                    <span class="badge">DEVSECOPS</span>
+                    <span class="badge">DEPENDENCIES</span>
+                    <span class="badge">DEVELOPER-FIRST</span>
+                </div>
+                <p>Snyk is a developer security platform that helps find and fix vulnerabilities across your entire technology stack: open source dependencies, container images, Infrastructure as Code (IaC), and application code.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Products</h3>
+                <ul>
+                    <li><strong>Snyk Open Source</strong> — Find and fix vulnerabilities in dependencies</li>
+                    <li><strong>Snyk Code</strong> — SAST (Static Application Security Testing)</li>
+                    <li><strong>Snyk Container</strong> — Scan container images and Kubernetes workloads</li>
+                    <li><strong>Snyk Infrastructure as Code</strong> — Scan Terraform, CloudFormation, Kubernetes YAML</li>
+                    <li><strong>Snyk Cloud</strong> — Runtime security and cloud posture management</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Snyk CLI Installation</h3>
+                <pre><code># macOS
+brew install snyk/tap/snyk
+
+# Linux/macOS (npm)
+npm install -g snyk
+
+# Windows (Scoop)
+scoop bucket add snyk https://github.com/snyk/scoop-snyk
+scoop install snyk
+
+# Docker
+docker run --rm -it -v $(pwd):/app snyk/snyk:linux test
+
+# Authenticate
+snyk auth
+
+# Verify installation
+snyk --version</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Testing Dependencies</h3>
+                <pre><code># Test project for vulnerabilities
+snyk test
+
+# Test specific package manager
+snyk test --file=package.json
+snyk test --file=pom.xml
+snyk test --file=requirements.txt
+snyk test --file=Gemfile.lock
+
+# Test and monitor
+snyk test && snyk monitor
+
+# Test with JSON output
+snyk test --json
+
+# Test with severity threshold
+snyk test --severity-threshold=high
+
+# Ignore specific vulnerabilities
+snyk ignore --id=SNYK-JS-LODASH-590103
+
+# Fix vulnerabilities automatically
+snyk fix</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Container Image Scanning</h3>
+                <pre><code># Test Docker image
+snyk container test nginx:latest
+
+# Test with Dockerfile
+snyk container test nginx:latest --file=Dockerfile
+
+# Monitor image
+snyk container monitor nginx:latest
+
+# Test with specific platform
+snyk container test nginx:latest --platform=linux/amd64
+
+# Generate SBOM
+snyk container test nginx:latest --print-deps --json > sbom.json
+
+# Test local image
+docker build -t myapp:latest .
+snyk container test myapp:latest
+
+# Exclude base image vulnerabilities
+snyk container test myapp:latest --exclude-base-image-vulns</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Infrastructure as Code Scanning</h3>
+                <pre><code># Test Terraform files
+snyk iac test terraform/
+
+# Test Kubernetes manifests
+snyk iac test k8s-deployment.yaml
+
+# Test CloudFormation
+snyk iac test cloudformation-template.yaml
+
+# Test Helm charts
+snyk iac test helm/
+
+# Test with specific rules
+snyk iac test --rules=custom-rules.tar.gz
+
+# Generate HTML report
+snyk iac test --report --report-format=html > report.html
+
+# Test with severity threshold
+snyk iac test --severity-threshold=medium</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Code Scanning (SAST)</h3>
+                <pre><code># Test source code
+snyk code test
+
+# Test specific file
+snyk code test src/app.js
+
+# Test with JSON output
+snyk code test --json
+
+# Test and get detailed report
+snyk code test --sarif > results.sarif
+
+# Ignore specific issues
+snyk ignore --id=javascript/NoHardcodedCredentials</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GitHub Actions Integration</h3>
+                <pre><code>name: Snyk Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+      
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: snyk.sarif
+
+  snyk-container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Build Docker image
+        run: docker build -t myapp:${{ github.sha }} .
+      
+      - name: Run Snyk Container scan
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: myapp:${{ github.sha }}
+          args: --severity-threshold=critical
+
+  snyk-iac:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run Snyk IaC scan
+        uses: snyk/actions/iac@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          file: terraform/</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GitLab CI Integration</h3>
+                <pre><code>stages:
+  - security
+
+snyk-scan:
+  stage: security
+  image: snyk/snyk:node
+  script:
+    - snyk auth $SNYK_TOKEN
+    - snyk test --severity-threshold=high
+    - snyk monitor
+  allow_failure: true
+
+snyk-container:
+  stage: security
+  image: snyk/snyk:docker
+  services:
+    - docker:dind
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - snyk auth $SNYK_TOKEN
+    - snyk container test $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  allow_failure: false
+
+snyk-iac:
+  stage: security
+  image: snyk/snyk:linux
+  script:
+    - snyk auth $SNYK_TOKEN
+    - snyk iac test terraform/ --severity-threshold=medium
+  allow_failure: true</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Jenkins Integration</h3>
+                <pre><code>pipeline {
+    agent any
+    
+    environment {
+        SNYK_TOKEN = credentials('snyk-api-token')
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        
+        stage('Snyk Security Scan') {
+            steps {
+                script {
+                    snykSecurity(
+                        snykInstallation: 'snyk-latest',
+                        snykTokenId: 'snyk-api-token',
+                        severity: 'high',
+                        failOnIssues: true
+                    )
+                }
+            }
+        }
+        
+        stage('Snyk Monitor') {
+            steps {
+                sh 'snyk monitor --project-name=my-app'
+            }
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Snyk Policy File (.snyk)</h3>
+                <pre><code># .snyk file for ignoring vulnerabilities
+version: v1.25.0
+ignore:
+  SNYK-JS-LODASH-590103:
+    - '*':
+        reason: Not affected by this vulnerability
+        expires: 2024-12-31T23:59:59.999Z
+  
+  SNYK-PYTHON-FLASK-2434876:
+    - flask:
+        reason: Fix not available yet, monitoring
+        expires: 2024-06-30T00:00:00.000Z
+
+patch:
+  SNYK-JS-MINIMIST-559764:
+    - '*':
+        patched: '2024-01-15T10:00:00.000Z'</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Snyk API Example</h3>
+                <pre><code>import requests
+
+# Configuration
+SNYK_TOKEN = "your-snyk-token"
+ORG_ID = "your-org-id"
+BASE_URL = "https://api.snyk.io/v1"
+
+headers = {
+    "Authorization": f"token {SNYK_TOKEN}",
+    "Content-Type": "application/json"
+}
+
+# List projects
+response = requests.get(
+    f"{BASE_URL}/org/{ORG_ID}/projects",
+    headers=headers
+)
+projects = response.json()
+
+for project in projects['projects']:
+    print(f"Project: {project['name']}")
+    print(f"Issues: {project['issueCountsBySeverity']}")
+
+# Get vulnerabilities for a project
+project_id = "project-id"
+response = requests.post(
+    f"{BASE_URL}/org/{ORG_ID}/project/{project_id}/issues",
+    headers=headers,
+    json={"filters": {"severities": ["high", "critical"]}}
+)
+issues = response.json()
+print(f"Critical/High issues: {len(issues['issues'])}")</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>IDE Integrations</h3>
+                <ul>
+                    <li><strong>VS Code</strong> — Snyk Security extension</li>
+                    <li><strong>IntelliJ IDEA</strong> — Snyk plugin for JetBrains</li>
+                    <li><strong>Eclipse</strong> — Snyk Security Scanner plugin</li>
+                    <li><strong>Visual Studio</strong> — Snyk extension</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing</h3>
+                <ul>
+                    <li><strong>Free Tier</strong> — Unlimited tests for open source projects</li>
+                    <li><strong>Team Plan</strong> — $52/developer/month (unlimited tests, private repos)</li>
+                    <li><strong>Business Plan</strong> — $159/developer/month (SSO, advanced reporting)</li>
+                    <li><strong>Enterprise Plan</strong> — Custom pricing (audit logs, SLA, dedicated support)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Integrate Snyk early in development workflow</li>
+                    <li>Use Snyk in CI/CD to prevent vulnerable code merging</li>
+                    <li>Enable automatic fix PRs for dependencies</li>
+                    <li>Set severity thresholds appropriate to your risk tolerance</li>
+                    <li>Monitor production applications continuously</li>
+                    <li>Use IDE integrations for real-time feedback</li>
+                    <li>Review and update .snyk policy file regularly</li>
+                    <li>Prioritize fixing reachable vulnerabilities</li>
+                    <li>Track and improve security metrics over time</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://snyk.io/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.snyk.io/" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://learn.snyk.io/" target="_blank">Snyk Learn</a></li>
+                    <li>💬 <a href="https://support.snyk.io/" target="_blank">Support Portal</a></li>
+                    <li>📦 <a href="https://github.com/snyk" target="_blank">GitHub - Snyk</a></li>
+                    <li>🔍 <a href="https://security.snyk.io/" target="_blank">Vulnerability Database</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://snyk.io/" target="_blank">Snyk</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

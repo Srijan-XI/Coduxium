@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debian - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Debian guide - stable, universal Linux distribution and the base for many popular distros">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Debian</a></h1>
+                    <p class="sub">The Universal Operating System</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🧱</span>
+                <span>Stable & Universal</span>
+            </div>
+            <h1 class="hero-title">Debian</h1>
+            <p class="hero-description">A community-driven distribution known for stability, wide hardware support, and a massive package ecosystem. Debian is the upstream base for many popular distros.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Independent</li>
+                    <li><strong>Package Manager:</strong> APT (dpkg)</li>
+                    <li><strong>Desktop:</strong> GNOME, KDE Plasma, Xfce, LXQt (installer choice)</li>
+                    <li><strong>Release Model:</strong> Stable / Testing / Unstable</li>
+                    <li><strong>Target Users:</strong> Servers, desktops, stability-first workflows</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card"><span class="feature-icon">🛡️</span><h4>Rock-Solid Stability</h4><p>Stable releases prioritize reliability and predictable updates.</p></div>
+                <div class="feature-card"><span class="feature-icon">📦</span><h4>Huge Repositories</h4><p>Access a massive collection of packages and tools.</p></div>
+                <div class="feature-card"><span class="feature-icon">🌍</span><h4>Universal Platform</h4><p>Runs on many architectures and supports diverse hardware.</p></div>
+                <div class="feature-card"><span class="feature-icon">🤝</span><h4>Community Driven</h4><p>Transparent governance and a long-lived community culture.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>What is Debian?</h3></div>
+                <p style="line-height: 1.8; margin: 20px 0;">Debian is one of the oldest and most influential Linux distributions. It focuses on stability, free software principles, and a strong packaging system. Many downstream distributions (like Ubuntu) build on Debian’s work.</p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Stable releases and conservative change management</li>
+                    <li>Large package repositories and mature tooling</li>
+                    <li>Multiple supported desktops and server-first options</li>
+                    <li>Strong community documentation and ecosystem</li>
+                    <li>Supports many CPU architectures</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Debian?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card"><span class="practice-num">1</span><h4>Stability First</h4><p>Great for servers and long-running systems.</p></div>
+                    <div class="practice-card"><span class="practice-num">2</span><h4>Trusted Base</h4><p>Downstream distros inherit Debian’s packaging foundation.</p></div>
+                    <div class="practice-card"><span class="practice-num">3</span><h4>Flexibility</h4><p>Choose stable/testing and your preferred desktop stack.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Step 1: Download</h4><p class="command-desc">Download from: <a href="https://www.debian.org/distrib/" target="_blank">https://www.debian.org/distrib/</a></p></div>
+                <div class="command-card"><h4>Step 2: Create Bootable USB</h4><pre><code class="language-bash"># Windows: Rufus
+# macOS/Linux: Etcher
+
+# Linux (dd example)
+sudo dd if=debian.iso of=/dev/sdX bs=4M status=progress && sync</code></pre></div>
+                <div class="command-card"><h4>Step 3: Boot Installer</h4><p class="command-desc">Boot from USB and choose Installer / Graphical Installer.</p></div>
+                <div class="command-card"><h4>Step 4: Install</h4><p class="command-desc">Select disk options, choose a desktop environment, and complete setup.</p></div>
+            </div>
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ Notes</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li>Some Wi‑Fi chipsets may need non-free firmware packages.</li>
+                    <li>For newer hardware, consider the latest stable point release or testing.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Update System</h4><pre><code class="language-bash">sudo apt update
+sudo apt upgrade</code></pre></div>
+                    <div class="command-card"><h4>Install Software</h4><pre><code class="language-bash">sudo apt install package-name</code></pre></div>
+                    <div class="command-card"><h4>Remove Software</h4><pre><code class="language-bash">sudo apt remove package-name
+sudo apt autoremove</code></pre></div>
+                    <div class="command-card"><h4>Search</h4><pre><code class="language-bash">apt search keyword</code></pre></div>
+                </div>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Users</h4><p class="command-desc">Create a non-root user and use sudo for admin tasks.</p></div>
+                    <div class="command-card"><h4>Updates</h4><p class="command-desc">Enable security updates and keep packages current.</p></div>
+                    <div class="command-card"><h4>Firewall</h4><p class="command-desc">Use UFW or nftables for basic host firewalling.</p></div>
+                    <div class="command-card"><h4>Backups</h4><p class="command-desc">Schedule backups for /home and key system configs.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Enable Backports</h4><pre><code class="language-bash"># Example: add stable-backports (adjust to your release)
+echo "deb http://deb.debian.org/debian stable-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
+sudo apt update</code></pre><p class="command-desc">Get newer packages while staying on stable.</p></div>
+                <div class="command-card"><h4>Firewall (UFW)</h4><pre><code class="language-bash">sudo apt install ufw
+sudo ufw enable
+sudo ufw status</code></pre><p class="command-desc">Simple firewall management.</p></div>
+                <div class="command-card"><h4>Service Debugging</h4><pre><code class="language-bash">systemctl status service-name
+journalctl -u service-name --no-pager -n 200</code></pre><p class="command-desc">Troubleshoot systemd services.</p></div>
+                <div class="command-card"><h4>Upgrade Strategy</h4><pre><code class="language-bash"># Before a major upgrade
+sudo apt update
+sudo apt full-upgrade</code></pre><p class="command-desc">Keep the system consistent before release upgrades.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead><tr><th>Task</th><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Update index</strong></td><td><code>sudo apt update</code></td><td>Refresh package lists</td></tr>
+                        <tr><td><strong>Upgrade</strong></td><td><code>sudo apt upgrade</code></td><td>Upgrade installed packages</td></tr>
+                        <tr><td><strong>Full upgrade</strong></td><td><code>sudo apt full-upgrade</code></td><td>Handle dependency changes</td></tr>
+                        <tr><td><strong>Install</strong></td><td><code>sudo apt install pkg</code></td><td>Install packages</td></tr>
+                        <tr><td><strong>Remove</strong></td><td><code>sudo apt remove pkg</code></td><td>Remove packages</td></tr>
+                        <tr><td><strong>Autoremove</strong></td><td><code>sudo apt autoremove</code></td><td>Remove unused deps</td></tr>
+                        <tr><td><strong>Show package info</strong></td><td><code>apt show pkg</code></td><td>Display details</td></tr>
+                        <tr><td><strong>List installed</strong></td><td><code>apt list --installed</code></td><td>Installed packages</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Filesystem usage</td></tr>
+                        <tr><td><strong>Logs</strong></td><td><code>journalctl -xe</code></td><td>Troubleshoot issues</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="https://www.debian.org/" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Official Website</h4><p>Debian homepage</p></a>
+                <a href="https://wiki.debian.org/" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Debian Wiki</h4><p>Community documentation</p></a>
+                <a href="https://www.debian.org/doc/" target="_blank" class="next-step-card"><span class="step-icon">📚</span><h4>Debian Docs</h4><p>Official documentation</p></a>
+                <a href="https://bugs.debian.org/" target="_blank" class="next-step-card"><span class="step-icon">🐞</span><h4>Bug Tracker</h4><p>Report and track issues</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Run updates and enable security updates</li>
+                    <li>Decide between stable vs testing based on your needs</li>
+                    <li>Set up backups and basic firewalling</li>
+                    <li>Install your desktop apps and developer tools</li>
+                    <li>Explore Debian’s documentation and wiki</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="Ubuntu/ubuntu.html" class="next-step-card"><span class="step-icon">🟠</span><h4>Ubuntu</h4><p>Popular Debian-based distro</p></a>
+                <a href="Mint/mint.html" class="next-step-card"><span class="step-icon">🌿</span><h4>Linux Mint</h4><p>Beginner-friendly desktop</p></a>
+                <a href="Kali/kali.html" class="next-step-card"><span class="step-icon">🛡️</span><h4>Kali Linux</h4><p>Security testing distro</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
+

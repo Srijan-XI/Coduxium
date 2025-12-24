@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systemd & Service Management - Complete Guide</title>
+    <meta name="description"
+        content="Master systemd service management - create services, manage units, use timers, and troubleshoot with journalctl.">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Systemd Service
+                            Management</a></h1>
+                    <p class="sub">Modern Linux System & Service Manager</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">⚙️</span>
+                <span>Essential Linux Skill</span>
+            </div>
+            <h1 class="hero-title">Master Systemd</h1>
+            <p class="hero-description">
+                Learn to manage services, create systemd units, schedule tasks with timers, and troubleshoot using
+                journalctl.
+            </p>
+        </section>
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="info-box info">
+                <strong>💡 What is Systemd?</strong>
+                <p>Systemd is a modern init system and service manager for Linux that has become the de facto standard
+                    on most major distributions. It manages system boot, services, and provides powerful logging
+                    capabilities.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <h4>Fast Boot</h4>
+                    <p>Parallel service startup for faster boot times</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h4>Service Control</h4>
+                    <p>Easy service start, stop, enable, disable</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h4>Advanced Logging</h4>
+                    <p>Centralized logging with journalctl</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⏰</span>
+                    <h4>Timers</h4>
+                    <p>Modern alternative to cron jobs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Management -->
+        <section class="content-section">
+            <h2>🔧 Service Management</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Basic Service Commands</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Start Service</h4>
+                        <pre><code class="language-bash">sudo systemctl start nginx</code></pre>
+                        <p class="command-desc">Start a service immediately</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Stop Service</h4>
+                        <pre><code class="language-bash">sudo systemctl stop nginx</code></pre>
+                        <p class="command-desc">Stop a running service</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Restart Service</h4>
+                        <pre><code class="language-bash">sudo systemctl restart nginx</code></pre>
+                        <p class="command-desc">Restart a service</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Reload Config</h4>
+                        <pre><code class="language-bash">sudo systemctl reload nginx</code></pre>
+                        <p class="command-desc">Reload configuration without restart</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Enable at Boot</h4>
+                        <pre><code class="language-bash">sudo systemctl enable nginx</code></pre>
+                        <p class="command-desc">Start service on boot</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Disable at Boot</h4>
+                        <pre><code class="language-bash">sudo systemctl disable nginx</code></pre>
+                        <p class="command-desc">Prevent service from starting on boot</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Check Status</h4>
+                        <pre><code class="language-bash">systemctl status nginx</code></pre>
+                        <p class="command-desc">View service status and logs</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Is Service Active?</h4>
+                        <pre><code class="language-bash">systemctl is-active nginx
+systemctl is-enabled nginx</code></pre>
+                        <p class="command-desc">Check if service is running/enabled</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>List All Services</h4>
+                        <pre><code class="language-bash">systemctl list-units --type=service
+systemctl list-units --state=running</code></pre>
+                        <p class="command-desc">Show all services</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creating Services -->
+        <section class="content-section">
+            <h2>📝 Creating Systemd Services</h2>
+
+            <div class="info-box success">
+                <strong>✨ Basic Service Unit File</strong>
+                <pre><code># /etc/systemd/system/myapp.service
+[Unit]
+Description=My Application
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/myapp
+ExecStart=/usr/bin/python3 /opt/myapp/app.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+            </div>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Service Types</h4>
+                    <pre><code>Type=simple    # Default
+Type=forking   # Daemonizes
+Type=oneshot   # Runs once
+Type=notify    # Sends notification</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Restart Policies</h4>
+                    <pre><code>Restart=no
+Restart=on-failure
+Restart=always
+Restart=on-abnormal</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Environment Variables</h4>
+                    <pre><code>[Service]
+Environment="PORT=8080"
+Environment="ENV=production"
+EnvironmentFile=/etc/myapp/config</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Dependencies</h4>
+                    <pre><code>[Unit]
+Requires=postgresql.service
+After=postgresql.service
+Before=nginx.service</code></pre>
+                </div>
+            </div>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Reload and Start Service</h3>
+                </div>
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Reload Systemd</h4>
+                        <pre><code class="language-bash">sudo systemctl daemon-reload</code></pre>
+                        <p class="command-desc">Reload systemd configuration</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Enable & Start</h4>
+                        <pre><code class="language-bash">sudo systemctl enable --now myapp</code></pre>
+                        <p class="command-desc">Enable and start in one command</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Edit Service</h4>
+                        <pre><code class="language-bash">sudo systemctl edit myapp</code></pre>
+                        <p class="command-desc">Edit service with drop-in file</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timers -->
+        <section class="content-section">
+            <h2>⏰ Systemd Timers</h2>
+
+            <div class="info-box info">
+                <strong>💡 Timers vs Cron</strong>
+                <p>Systemd timers are more powerful than cron - they can run immediately if a scheduled time was missed,
+                    are logged centrally, and integrate better with systemd services.</p>
+            </div>
+
+            <div class="info-box success">
+                <strong>✨ Creating a Timer</strong>
+                <pre><code># /etc/systemd/system/backup.timer
+[Unit]
+Description=Daily Backup Timer
+
+[Timer]
+OnCalendar=daily
+OnCalendar=*-*-* 02:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target</code></pre>
+                <pre><code># /etc/systemd/system/backup.service
+[Unit]
+Description=Backup Service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup.sh</code></pre>
+            </div>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Timer Schedules</h4>
+                    <pre><code>OnCalendar=daily
+OnCalendar=weekly
+OnCalendar=monthly
+OnCalendar=*-*-* 04:00:00</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Relative Timers</h4>
+                    <pre><code>OnBootSec=15min
+OnUnitActiveSec=1h
+OnActiveSec=30min</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Enable Timer</h4>
+                    <pre><code class="language-bash">sudo systemctl enable backup.timer
+sudo systemctl start backup.timer</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>List Timers</h4>
+                    <pre><code class="language-bash">systemctl list-timers --all</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journalctl -->
+        <section class="content-section">
+            <h2>📊 Journalctl - System Logs</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>View All Logs</h4>
+                    <pre><code class="language-bash">journalctl</code></pre>
+                    <p class="command-desc">Show all journal entries</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Follow Logs</h4>
+                    <pre><code class="language-bash">journalctl -f</code></pre>
+                    <p class="command-desc">Real-time log monitoring</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Service Logs</h4>
+                    <pre><code class="language-bash">journalctl -u nginx
+journalctl -u nginx -f</code></pre>
+                    <p class="command-desc">Logs for specific service</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Time Range</h4>
+                    <pre><code class="language-bash">journalctl --since "1 hour ago"
+journalctl --since "2025-01-01"
+journalctl --since today</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Priority Levels</h4>
+                    <pre><code class="language-bash">journalctl -p err
+journalctl -p warning</code></pre>
+                    <p class="command-desc">Filter by severity</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Boot Logs</h4>
+                    <pre><code class="language-bash">journalctl -b
+journalctl -b -1  # Previous boot</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Disk Usage</h4>
+                    <pre><code class="language-bash">journalctl --disk-usage</code></pre>
+                    <p class="command-desc">Check log space usage</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Clean Old Logs</h4>
+                    <pre><code class="language-bash">sudo journalctl --vacuum-time=7d
+sudo journalctl --vacuum-size=500M</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Kernel Messages</h4>
+                    <pre><code class="language-bash">journalctl -k</code></pre>
+                    <p class="command-desc">Kernel logs only</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Targets -->
+        <section class="content-section">
+            <h2>🎯 System Targets</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Current Target</h4>
+                    <pre><code class="language-bash">systemctl get-default</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Set Default Target</h4>
+                    <pre><code class="language-bash">sudo systemctl set-default multi-user.target
+sudo systemctl set-default graphical.target</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Switch Target</h4>
+                    <pre><code class="language-bash">sudo systemctl isolate multi-user.target</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Common Targets</h4>
+                    <pre><code>poweroff.target    # Shutdown
+rescue.target      # Single user
+multi-user.target  # CLI
+graphical.target   # GUI</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="content-section">
+            <h2>✨ Best Practices</h2>
+
+            <div class="best-practices-grid">
+                <div class="practice-card">
+                    <span class="practice-num">1</span>
+                    <h4>Use Descriptive Names</h4>
+                    <p>Give your service files clear, descriptive names that explain their purpose.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">2</span>
+                    <h4>Set Restart Policies</h4>
+                    <p>Always configure appropriate restart policies for critical services.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">3</span>
+                    <h4>Use Timers Over Cron</h4>
+                    <p>Prefer systemd timers for scheduled tasks - better logging and reliability.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">4</span>
+                    <h4>Monitor Logs Regularly</h4>
+                    <p>Use journalctl to monitor service logs and catch issues early.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">5</span>
+                    <h4>Document Dependencies</h4>
+                    <p>Clearly define service dependencies with After/Before/Requires.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">6</span>
+                    <h4>Clean Logs Periodically</h4>
+                    <p>Set up automatic journal cleanup to prevent disk space issues.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Example -->
+        <section class="content-section">
+            <h2>💼 Real-World Example</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Web Application Service</h3>
+                </div>
+                <div class="info-box success">
+                    <pre><code># /etc/systemd/system/webapp.service
+[Unit]
+Description=My Web Application
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=notify
+User=webapp
+Group=webapp
+WorkingDirectory=/var/www/myapp
+
+# Environment
+Environment="PORT=8000"
+Environment="DATABASE_URL=postgresql://localhost/myapp"
+EnvironmentFile=-/etc/webapp/config
+
+# Commands
+ExecStartPre=/usr/bin/python3 /var/www/myapp/migrate.py
+ExecStart=/usr/bin/python3 /var/www/myapp/main.py
+ExecReload=/bin/kill -HUP $MAINPID
+
+# Restart policy
+Restart=on-failure
+RestartSec=5s
+StartLimitBurst=3
+StartLimitInterval=60s
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=webapp
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>🚀 Next Steps</h2>
+            <div class="next-steps-grid">
+                <a href="shell-scripting.html" class="next-step-card">
+                    <span class="step-icon">📜</span>
+                    <h4>Shell Scripting</h4>
+                    <p>Create service startup scripts</p>
+                </a>
+                    <a href="security.html" class="next-step-card">
+                    <span class="step-icon">🔐</span>
+                    <h4>Security</h4>
+                    <p>Secure your services</p>
+                </a>
+                    <a href="troubleshooting.html" class="next-step-card">
+                    <span class="step-icon">🔧</span>
+                    <h4>Troubleshooting</h4>
+                    <p>Debug service issues</p>
+                </a>
+                <a href="../linux.html" class="next-step-card">
+                    <span class="step-icon">🐧</span>
+                    <h4>Linux Hub</h4>
+                    <p>Back to Linux main page</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

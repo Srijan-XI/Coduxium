@@ -1,6 +1,6 @@
-# 🌐 DevSphere — Static Site Repository Info
+# 🌐 Coduxium XI — Static Site Repository Info
 
-A lightweight, modern, and feature-rich web interface to explore the **DevSphere** repository. This static site provides a comprehensive guide to languages, frameworks, databases, and tools with a premium user experience.
+A lightweight, modern, and feature-rich web interface to explore the **Coduxium XI** repository. This static site provides a comprehensive guide to languages, frameworks, databases, and tools with a premium user experience.
 
 ## ✨ Features
 
@@ -12,9 +12,10 @@ A lightweight, modern, and feature-rich web interface to explore the **DevSphere
 - **Breadcrumb Navigation**: Automatic path detection with smart emoji icons.
 
 ### 🔍 Search & Navigation
-- **Real-time Search**: Instant search across languages, frameworks, databases, and tools.
-- **Keyboard Navigation**: Full keyboard support for search results.
-- **Direct Links**: Quick access to install guides, documentation, and intros.
+- **Real-time Search**: Instant search across 100+ technologies including languages, frameworks, databases, DevOps tools, development tools, AI/ML libraries, security tools, and Linux distributions
+- **Keyboard Navigation**: Full keyboard support for search results
+- **Filter Chips**: Quick filtering by category (Languages, Frameworks, Databases, Linux, DevOps, Testing)
+- **Direct Links**: Quick access to install guides, documentation, and intros
 
 ### 💻 Developer Tools
 - **Syntax Highlighting**: Supports 13+ languages (Python, JS, Java, C++, etc.) via Highlight.js.
@@ -23,8 +24,15 @@ A lightweight, modern, and feature-rich web interface to explore the **DevSphere
 - **Icon Library**: 70+ technology icons with emojis and colors.
 
 ### 📊 Live Stats
-- **Dashboard**: Overview of available languages, frameworks, databases, DevOps tools, and Linux distros.
-- **15 Linux Distributions**: Comprehensive guides for Arch, Debian, Red Hat families, and more.
+- **Dashboard**: Overview of available languages, frameworks, databases, DevOps tools, development tools, testing frameworks, AI/ML libraries, game engines, security tools, and Linux distros.
+- **20 Programming Languages**: Python, Java, JavaScript, TypeScript, Rust, Go, C/C++, C#, PHP, Ruby, Swift, Kotlin, R, SQL, KQL, Bash, Scala, Dart, MATLAB, Assembly
+- **25 Frameworks**: React, Vue, Angular, Node.js, Express, Next.js, Django, Flask, FastAPI, Laravel, Spring Boot, and more
+- **11 Databases**: MySQL, PostgreSQL, MongoDB, Redis, DynamoDB, MariaDB, SQLite, Neo4j, IBM Db2, Snowflake, BigQuery
+- **9 DevOps Tools**: Docker, Git, GitHub, GitLab, BitBucket, Jenkins, Kubernetes, Terraform, Ansible
+- **8 Development Tools**: Postman, Vite, Vitest, YAML, TOML, JSON, XML, CSV
+- **8 AI/ML Libraries**: TensorFlow, PyTorch, Scikit-learn, CUDA, HuggingFace, LangChain, Apache Spark, Apache Kafka
+- **6 Security Tools**: AquaSecurity, SonarQube, Snyk, HashiCorp Vault, Metasploit, Security Tools
+- **24 Linux Distributions**: Comprehensive guides for Arch, Debian, Red Hat families, and more
 
 ### 🎨 Design Elements
 - **Brutalist Watermark**: Interactive shield-icon watermark on all pages.
@@ -67,19 +75,32 @@ Simply double-click `index.html` to open in your browser. Note: Some features li
   - `watermark.css` — Watermark styling.
   - `watermark.js` — Auto-inject watermark on all pages.
 - `pages/` — Content pages for each technology:
-  - `Languages/` — Programming languages guides.
-  - `Framework/` — Web frameworks documentation.
-  - `Database/` — Database systems info.
-  - `Testing/` — Testing frameworks.
-  - `Devop&API/` — DevOps tools and APIs.
+  - `Languages/` — Programming languages guides
+  - `Framework/` — Web frameworks documentation
+  - `Database/` — Database systems info
+  - `DevelopmentTools/` — Development tools (Postman, Vite, Vitest, YAML, TOML, JSON, XML, CSV)
+  - `Testing/` — Testing frameworks
   - `Linux/` — Linux distributions and guides:
     - Core pages: `linux.html`, `kernel.html`, `filesystem.html`, `install.html`, `commands.html`
-    - `Arch/` — Arch Linux, BlackArch, Garuda, RedArch
-    - `Debian/` — Ubuntu, Kali, Linux Mint, ParrotSec
-    - `RedHat/` — Fedora, RHEL, CentOS, Oracle Linux
-    - `Gentoo/` — Gentoo Linux
+    - `Arch/` — Arch Linux, BlackArch, Garuda, RedArch, SteamOS
+    - `Debian/` — Ubuntu, Kali, Linux Mint, ParrotSec, Pop!_OS, Zorin, MX Linux, Tails
+    - `RedHat/` — Fedora, RHEL, CentOS, Oracle Linux, Rocky Linux
+    - `Gentoo/` — Gentoo Linux, ChromeOS Flex
     - `Slackware/` — Slackware Linux
-  - `Resources/` — Additional resources and tools.
+    - `Alpine/` — Alpine Linux
+    - `Qubes/` — Qubes OS
+- `pagesw/` — Extended content:
+  - `DevOps-I&A/` — DevOps & Infrastructure/Automation tools
+  - `DevSecOps&SecurityTools/` — Security and DevSecOps tools
+  - `DE-AI-ML/` — Data Engineering, AI, and ML libraries
+  - `GameEngines/` — Game development engines
+  - `CloudS/` — Cloud services (AWS, Azure, GCP, DigitalOcean)
+  - `OS/` — Operating Systems (Windows, macOS, iOS, Android)
+- `pagex/` — Utility pages:
+  - `Resources/` — Learning resources and tutorials
+  - `tools/` — Developer tools overview
+  - `notes/` — Development notes
+  - `projects/` — Project showcases
 - `docpages/` — General documentation pages.
 
 ## 🛠️ Technologies
@@ -105,4 +126,4 @@ To enable GitHub specific links (Download ZIP, Repo, Issues), ensure the `repoCo
 
 ---
 
-**Enjoy exploring DevSphere!** 🚀
+**Enjoy exploring Coduxium XI!** 🚀

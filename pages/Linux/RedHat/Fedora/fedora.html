@@ -4,92 +4,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fedora Linux - Innovative & Cutting Edge</title>
+    <title>Fedora - Complete Guide | Coduxium XI</title>
+    <meta name="description"
+        content="Complete Fedora guide - Innovation-focused Linux distribution featuring cutting-edge open source technologies">
+
     <link rel="stylesheet" href="../../../../css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --fedora-blue: #0B57A4;
-            /* Standard Fedora Blue */
-            --fedora-dark: #2C3E50;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #f0f3f6;
-            /* Fedora usually cleaner, lighter feel initially, but let's stick to dark mode mostly to match site */
-            background: #0f1419;
-            color: #e1e4e8;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #0B57A4 0%, #294172 100%);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .info-card:hover {
-            border-color: var(--fedora-blue);
-        }
-    </style>
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 
-<body>
-    <div class="hero">
-        <h1>Fedora Linux</h1>
-        <p class="text-xl" style="color: #cadff5;">Innovative, Free, and Open Source. The upstream for RHEL.</p>
-    </div>
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Fedora</a></h1>
+                    <p class="sub">Freedom. Friends. Features. First.</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
 
-    <main class="card-grid">
-        <section class="info-card">
-            <h2>🚀 Upstream & Cutting Edge</h2>
-            <p>Fedora is the upstream source for Red Hat Enterprise Linux (RHEL). It tests new technologies (like
-                PipeWire, Wayland, systemd) before they reach the enterprise market.</p>
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🎩</span>
+                <span>Innovation Leader</span>
+            </div>
+            <h1 class="hero-title">Fedora</h1>
+            <p class="hero-description">
+                A cutting-edge Linux distribution that showcases the latest in free and open source software. Fedora is
+                the upstream for Red Hat Enterprise Linux and leads innovation in the Linux world.
+            </p>
         </section>
 
-        <section class="info-card">
-            <h2>📦 RPM & DNF</h2>
-            <p>Uses the RPM package format and the DNF package manager. Known for its speed and dependency resolution.
-            </p>
-            <div
-                style="background: #0d1117; padding: 10px; border-left: 3px solid var(--fedora-blue); font-family: monospace; margin-top: 10px;">
-                sudo dnf update<br>
-                sudo dnf install gnome-tweaks
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Independent (upstream for RHEL)</li>
+                    <li><strong>Package Manager:</strong> DNF (Dandified YUM)</li>
+                    <li><strong>Desktop:</strong> GNOME (default), KDE, Xfce spins available</li>
+                    <li><strong>Release Model:</strong> 6-month release cycle</li>
+                    <li><strong>Target Users:</strong> Developers, enthusiasts, early adopters</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <h4>Bleeding Edge</h4>
+                    <p>Latest software versions and cutting-edge technologies first</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h4>Security First</h4>
+                    <p>SELinux enabled by default, strong security focus</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏢</span>
+                    <h4>Red Hat Backed</h4>
+                    <p>Sponsored by Red Hat, enterprise-quality development</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌍</span>
+                    <h4>Strong Community</h4>
+                    <p>Active global community of contributors and users</p>
+                </div>
             </div>
         </section>
 
-        <section class="info-card">
-            <h2>🖥️ Fedora Workstation</h2>
-            <p>The polished desktop edition, usually featuring the purest GNOME experience available out-of-the-box.</p>
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Fedora?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Fedora is a Linux distribution developed by the Fedora Project and sponsored by Red Hat. It serves
+                    as the upstream source for Red Hat Enterprise Linux (RHEL), meaning new features and technologies
+                    are tested in Fedora before making their way to RHEL. Fedora is known for its commitment to free
+                    software, rapid adoption of new technologies, and strong security defaults including SELinux.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li><strong>Latest Software:</strong> Always includes the newest stable versions of software</li>
+                    <li><strong>Wayland by Default:</strong> Modern display server protocol for better graphics</li>
+                    <li><strong>SELinux:</strong> Security-Enhanced Linux enabled and configured out of the box</li>
+                    <li><strong>DNF Package Manager:</strong> Fast, powerful package management with excellent
+                        dependency resolution</li>
+                    <li><strong>Multiple Editions:</strong> Workstation, Server, IoT, and community spins for different
+                        use cases</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Fedora?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>For Developers</h4>
+                        <p>Excellent development environment with latest tools, IDEs, and programming languages</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Innovation Testing Ground</h4>
+                        <p>Experience tomorrow's enterprise Linux features today</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Professional Quality</h4>
+                        <p>Enterprise-grade stability with Red Hat's backing and expertise</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download Fedora from: <a href="https://getfedora.org/" target="_blank">getfedora.org</a><br><br>
+                        Choose: Fedora Workstation (desktop) or specific spins<br>
+                        File size: ~2-3GB
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=Fedora.iso of=/dev/sdX bs=4M status=progress
+
+# Or use Fedora Media Writer (recommended)
+sudo dnf install mediawriter</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS/UEFI (F2/F12/Del)<br>
+                        4. Select USB as boot device<br>
+                        5. Choose "Start Fedora"
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Install Fedora</h4>
+                    <p class="command-desc">
+                        1. Click "Install to Hard Drive"<br>
+                        2. Select language and keyboard<br>
+                        3. Configure disk partitioning<br>
+                        4. Set network and hostname<br>
+                        5. Create user account<br>
+                        6. Begin installation<br>
+                        7. Reboot and enjoy!
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 2 GHz dual-core or better</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB minimum (40GB+ recommended)</li>
+                    <li><strong>GPU:</strong> Graphics card with OpenGL 2.0+ support</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management with DNF</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo dnf update
+# or upgrade (same as update)
+sudo dnf upgrade</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">sudo dnf install package-name
+
+# Install group
+sudo dnf group install "Development Tools"</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo dnf remove package-name
+
+# Remove with dependencies
+sudo dnf autoremove package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">dnf search keyword
+dnf info package-name  # Details</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>GNOME Software Center</h4>
+                        <p class="command-desc">Access from Activities → Software to browse and install applications</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Enable RPM Fusion</h4>
+                        <pre><code class="language-bash">sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Media Codecs</h4>
+                        <pre><code class="language-bash">sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Flatpak Support</h4>
+                        <pre><code class="language-bash">flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Enable NVIDIA Drivers</h4>
+                    <pre><code class="language-bash"># Add RPM Fusion first, then:
+sudo dnf install akmod-nvidia
+sudo dnf install xorg-x11-drv-nvidia-cuda</code></pre>
+                    <p class="command-desc">Install proprietary NVIDIA graphics drivers</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>System Rollback with OSTree</h4>
+                    <pre><code class="language-bash"># List deployments
+rpm-ostree status
+
+# Rollback to previous version
+rpm-ostree rollback
+
+# Rebase to different version
+rpm-ostree rebase fedora:fedora/39/x86_64/silverblue</code></pre>
+                    <p class="command-desc">Fedora Silverblue/Kinoite feature</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Development Tools Setup</h4>
+                    <pre><code class="language-bash"># Install development group
+sudo dnf group install "Development Tools" "Development Libraries"
+
+# Install languages
+sudo dnf install python3-devel nodejs npm golang rust cargo
+
+# Install toolbox for containerized dev
+sudo dnf install toolbox
+toolbox create fedora-toolbox</code></pre>
+                    <p class="command-desc">Set up complete development environment</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>SELinux Management</h4>
+                    <pre><code class="language-bash"># Check SELinux status
+sestatus
+
+# Temporarily set to permissive
+sudo setenforce 0
+
+# View SELinux denials
+sudo ausearch -m avc -ts recent
+
+# Troubleshoot issues
+sudo sealert -a /var/log/audit/audit.log</code></pre>
+                    <p class="command-desc">Manage SELinux security policies</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update System</strong></td>
+                            <td><code>sudo dnf update</code></td>
+                            <td>Update all packages to latest version</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Package</strong></td>
+                            <td><code>sudo dnf install package</code></td>
+                            <td>Install a new package</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remove Package</strong></td>
+                            <td><code>sudo dnf remove package</code></td>
+                            <td>Uninstall a package</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search Packages</strong></td>
+                            <td><code>dnf search keyword</code></td>
+                            <td>Search for available packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List Installed</strong></td>
+                            <td><code>dnf list installed</code></td>
+                            <td>Show all installed packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clean Cache</strong></td>
+                            <td><code>sudo dnf clean all</code></td>
+                            <td>Clear DNF cache</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fedora Version</strong></td>
+                            <td><code>cat /etc/fedora-release</code></td>
+                            <td>Show Fedora version</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Service Management</strong></td>
+                            <td><code>sudo systemctl restart service</code></td>
+                            <td>Restart a service</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Firewall Control</strong></td>
+                            <td><code>sudo firewall-cmd --list-all</code></td>
+                            <td>View firewall rules</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Check Updates</strong></td>
+                            <td><code>dnf check-update</code></td>
+                            <td>List available updates</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://getfedora.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Fedora homepage</p>
+                </a>
+                <a href="https://docs.fedoraproject.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official Fedora docs</p>
+                </a>
+                <a href="https://ask.fedoraproject.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Ask Fedora</h4>
+                    <p>Community Q&A forum</p>
+                </a>
+                <a href="https://src.fedoraproject.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>Fedora package sources</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Download Fedora Workstation for desktop use</li>
+                    <li>Enable RPM Fusion for additional software</li>
+                    <li>Install media codecs for multimedia support</li>
+                    <li>Explore Fedora Spins for different desktop environments</li>
+                    <li>Join the Fedora community and contribute</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../RHEL/rhel.html" class="next-step-card">
+                    <span class="step-icon">🏢</span>
+                    <h4>RHEL</h4>
+                    <p>Enterprise version downstream from Fedora</p>
+                </a>
+                <a href="../CentOS/centos.html" class="next-step-card">
+                    <span class="step-icon">💜</span>
+                    <h4>CentOS Stream</h4>
+                    <p>Rolling preview of RHEL</p>
+                </a>
+                <a href="../RockyLinux/RockyLinux.html" class="next-step-card">
+                    <span class="step-icon">💚</span>
+                    <h4>Rocky Linux</h4>
+                    <p>Community enterprise Linux</p>
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer style="text-align: center; padding: 40px;">
-        <a href="../../linux.html" style="color: var(--fedora-blue); text-decoration: none;">← Back to Linux Home</a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
     </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 
 </html>

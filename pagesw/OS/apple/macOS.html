@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>macOS — Coduxium XI</title>
+    <meta name="description" content="macOS - Apple's Unix-based operating system for Mac computers.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">macOS</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🍎 macOS</h2>
+            <p class="intro">Apple's Unix-based operating system combining elegant design with powerful Unix underpinnings.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">UNIX</span>
+                    <span class="badge">DESIGN</span>
+                    <span class="badge">PREMIUM</span>
+                    <span class="badge">CREATIVE</span>
+                </div>
+                <p>macOS (formerly Mac OS X and OS X) is Apple's proprietary Unix-based operating system for Mac computers. Built on a Darwin foundation (BSD Unix), it combines the power of Unix with Apple's renowned design philosophy and ecosystem integration.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Evolution & Versions</h3>
+                <ul>
+                    <li><strong>Mac OS X 10.0 "Cheetah"</strong> (2001) — First OS X release</li>
+                    <li><strong>Mac OS X 10.4 "Tiger"</strong> (2005) — Spotlight search, Dashboard widgets</li>
+                    <li><strong>Mac OS X 10.5 "Leopard"</strong> (2007) — Time Machine, 64-bit apps</li>
+                    <li><strong>Mac OS X 10.6 "Snow Leopard"</strong> (2009) — Refinement and optimization</li>
+                    <li><strong>Mac OS X 10.7 "Lion"</strong> (2011) — iOS-inspired features, Mission Control</li>
+                    <li><strong>OS X 10.8 "Mountain Lion"</strong> (2012) — Notification Center, iCloud</li>
+                    <li><strong>OS X 10.10 "Yosemite"</strong> (2014) — Flat design, Handoff</li>
+                    <li><strong>macOS 10.12 "Sierra"</strong> (2016) — Siri on Mac, Universal Clipboard</li>
+                    <li><strong>macOS 10.13 "High Sierra"</strong> (2017) — APFS file system</li>
+                    <li><strong>macOS 10.14 "Mojave"</strong> (2018) — Dark Mode, Desktop Stacks</li>
+                    <li><strong>macOS 10.15 "Catalina"</strong> (2019) — Music, TV, Podcasts apps; Catalyst</li>
+                    <li><strong>macOS 11 "Big Sur"</strong> (2020) — UI redesign, Apple Silicon support</li>
+                    <li><strong>macOS 12 "Monterey"</strong> (2021) — Universal Control, Shortcuts</li>
+                    <li><strong>macOS 13 "Ventura"</strong> (2022) — Stage Manager, Continuity Camera</li>
+                    <li><strong>macOS 14 "Sonoma"</strong> (2023) — Widgets on Desktop, Game Mode</li>
+                    <li><strong>macOS 15 "Sequoia"</strong> (2024) — iPhone Mirroring, Apple Intelligence</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Unix Foundation:</strong> Darwin (BSD Unix) kernel with full POSIX compliance</li>
+                    <li><strong>Aqua Interface:</strong> Elegant, consistent user interface design</li>
+                    <li><strong>Spotlight:</strong> System-wide instant search</li>
+                    <li><strong>Time Machine:</strong> Automatic backup solution</li>
+                    <li><strong>Mission Control:</strong> Window and desktop management</li>
+                    <li><strong>Continuity:</strong> Seamless integration with iPhone, iPad, Apple Watch</li>
+                    <li><strong>Handoff:</strong> Start on one device, finish on another</li>
+                    <li><strong>AirDrop:</strong> Wireless file sharing between Apple devices</li>
+                    <li><strong>iCloud:</strong> Cloud storage and synchronization</li>
+                    <li><strong>FileVault:</strong> Full-disk encryption</li>
+                    <li><strong>Gatekeeper:</strong> App security and code signing</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Terminal & Command Line</h3>
+                <pre><code># System Information
+system_profiler SPHardwareDataType
+sw_vers
+
+# Package Management with Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install wget
+brew install git
+brew install node
+
+# Update all packages
+brew update
+brew upgrade
+
+# macOS specific commands
+# Open Finder from current directory
+open .
+
+# Spotlight search from terminal
+mdfind "search term"
+
+# Show/hide hidden files in Finder
+defaults write com.apple.finder AppleShowAllFiles -bool true
+killall Finder
+
+# Change screenshot location
+defaults write com.apple.screencapture location ~/Desktop/Screenshots
+killall SystemUIServer
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Check battery status
+pmset -g batt
+
+# Network utilities
+networksetup -listallhardwareports
+networksetup -getairportnetwork en0</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Development Tools</h3>
+                <pre><code># Xcode Command Line Tools
+xcode-select --install
+
+# Check if installed
+xcode-select -p
+
+# Swift REPL
+swift
+
+# Compile Swift
+swiftc hello.swift -o hello
+./hello
+
+# Objective-C compilation
+clang -framework Foundation hello.m -o hello
+
+# Package managers
+# Homebrew (most popular)
+brew install python3
+
+# MacPorts
+sudo port install python3
+
+# pip (Python)
+pip3 install requests
+
+# npm (Node.js)
+npm install -g yarn</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>System Preferences via CLI</h3>
+                <pre><code># Dock settings
+# Auto-hide Dock
+defaults write com.apple.dock autohide -bool true
+killall Dock
+
+# Set Dock size
+defaults write com.apple.dock tilesize -int 48
+killall Dock
+
+# Finder preferences
+# Show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Performance tweaks
+# Disable animations
+defaults write com.apple.dock launchanim -bool false
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# Faster key repeat
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Security
+# Enable Firewall
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+
+# Check SIP status
+csrutil status</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Apple Silicon (M1/M2/M3/M4)</h3>
+                <pre><code># Check architecture
+uname -m
+# arm64 = Apple Silicon, x86_64 = Intel
+
+# Rosetta 2 (for Intel apps on Apple Silicon)
+softwareupdate --install-rosetta --agree-to-license
+
+# Run command with Rosetta
+arch -x86_64 /bin/bash
+
+# Universal Binary check
+file /Applications/Safari.app/Contents/MacOS/Safari
+
+# Install Homebrew for Apple Silicon
+# ARM64 (native)
+/opt/homebrew/bin/brew install package
+
+# x86_64 (Rosetta)
+arch -x86_64 /usr/local/bin/brew install package</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Keyboard Shortcuts</h3>
+                <ul>
+                    <li><strong>⌘ + Space:</strong> Spotlight search</li>
+                    <li><strong>⌘ + Tab:</strong> Switch between applications</li>
+                    <li><strong>⌘ + `:</strong> Switch between windows of same app</li>
+                    <li><strong>⌘ + Q:</strong> Quit application</li>
+                    <li><strong>⌘ + W:</strong> Close window</li>
+                    <li><strong>⌘ + ,:</strong> Open preferences</li>
+                    <li><strong>⌃ + ↑:</strong> Mission Control</li>
+                    <li><strong>⌃ + ←/→:</strong> Switch between desktops</li>
+                    <li><strong>⌘ + Shift + 3:</strong> Screenshot entire screen</li>
+                    <li><strong>⌘ + Shift + 4:</strong> Screenshot selection</li>
+                    <li><strong>⌘ + Shift + 5:</strong> Screenshot/Screen recording toolbar</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>File System & Directories</h3>
+                <pre><code># Important directories
+/Applications          # Installed applications
+/System                # System files (protected by SIP)
+/Library               # System-wide libraries and support files
+~/Library              # User-specific libraries
+~/Documents            # User documents
+~/Downloads            # Downloaded files
+~/Desktop              # Desktop files
+
+# Hidden files/folders
+~/.ssh                 # SSH keys and config
+~/.bash_profile        # Bash configuration
+~/.zshrc               # Zsh configuration (default shell)
+~/.gitconfig           # Git configuration
+
+# File system commands
+# APFS (Apple File System) info
+diskutil apfs list
+
+# Mount/unmount volumes
+diskutil mount /dev/disk2s1
+diskutil unmount /dev/disk2s1
+
+# Repair disk
+diskutil repairVolume /
+
+# Extended attributes
+xattr -l file.txt
+xattr -d com.apple.quarantine downloaded-file.dmg</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Automation with AppleScript</h3>
+                <pre><code>-- Display notification
+display notification "Build completed" with title "Xcode"
+
+-- Dialog box
+display dialog "Are you sure?" buttons {"Cancel", "OK"} default button "OK"
+
+-- Open application
+tell application "Safari"
+    activate
+    open location "https://example.com"
+end tell
+
+-- System Events
+tell application "System Events"
+    -- Get list of processes
+    set processList to name of every process
+end tell
+
+-- Folder actions
+on adding folder items to thisFolder after receiving addedItems
+    repeat with anItem in addedItems
+        -- Process new file
+        display notification "New file added: " & (name of anItem)
+    end repeat
+end adding folder items to
+
+# Run AppleScript from terminal
+osascript -e 'display notification "Hello" with title "Test"'
+osascript script.scpt</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Python Scripting on macOS</h3>
+                <pre><code>import subprocess
+import os
+
+# macOS specific - Open file/URL
+os.system('open https://apple.com')
+os.system('open -a Safari')
+
+# Run AppleScript from Python
+script = '''
+tell application "Finder"
+    activate
+    make new Finder window
+end tell
+'''
+subprocess.run(['osascript', '-e', script])
+
+# System notifications
+subprocess.run([
+    'osascript', '-e',
+    'display notification "Build complete" with title "Python Script"'
+])
+
+# Get macOS version
+import platform
+print(platform.mac_ver())
+
+# PyObjC - Native macOS APIs
+from Foundation import NSBundle
+bundle = NSBundle.mainBundle()
+info = bundle.localizedInfoDictionary() or bundle.infoDictionary()
+print(info.get('CFBundleName', 'Unknown'))</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Security Features</h3>
+                <ul>
+                    <li><strong>System Integrity Protection (SIP):</strong> Protects system files from modification</li>
+                    <li><strong>Gatekeeper:</strong> Verifies apps from identified developers</li>
+                    <li><strong>XProtect:</strong> Built-in malware detection</li>
+                    <li><strong>FileVault:</strong> Full-disk encryption (AES-XTS 256-bit)</li>
+                    <li><strong>Touch ID/Face ID:</strong> Biometric authentication</li>
+                    <li><strong>Secure Enclave:</strong> Hardware security for encryption keys</li>
+                    <li><strong>App Sandbox:</strong> Isolates apps from system resources</li>
+                    <li><strong>Notarization:</strong> Apple verification for distributed apps</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Continuity Features</h3>
+                <ul>
+                    <li><strong>Universal Clipboard:</strong> Copy on one device, paste on another</li>
+                    <li><strong>Handoff:</strong> Continue work across devices</li>
+                    <li><strong>Universal Control:</strong> Use one keyboard/mouse across Mac and iPad</li>
+                    <li><strong>Sidecar:</strong> Use iPad as second display</li>
+                    <li><strong>AirDrop:</strong> Wireless file transfer</li>
+                    <li><strong>iPhone Mirroring:</strong> Control iPhone from Mac (macOS Sequoia)</li>
+                    <li><strong>Continuity Camera:</strong> Use iPhone as webcam</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>System Requirements (macOS Sequoia 15)</h3>
+                <ul>
+                    <li>iMac (2019 and later)</li>
+                    <li>iMac Pro (2017 and later)</li>
+                    <li>Mac Pro (2019 and later)</li>
+                    <li>Mac Studio (2022 and later)</li>
+                    <li>MacBook Air (2020 and later)</li>
+                    <li>MacBook Pro (2018 and later)</li>
+                    <li>Mac mini (2018 and later)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.apple.com/macos/" target="_blank">Official macOS Page</a></li>
+                    <li>📚 <a href="https://support.apple.com/macos" target="_blank">macOS Support</a></li>
+                    <li>💻 <a href="https://developer.apple.com/macos/" target="_blank">Developer Resources</a></li>
+                    <li>🍺 <a href="https://brew.sh/" target="_blank">Homebrew Package Manager</a></li>
+                    <li>🔧 <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a></li>
+                    <li>📖 <a href="https://ss64.com/osx/" target="_blank">macOS Terminal Commands</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.apple.com/macos/" target="_blank">macOS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

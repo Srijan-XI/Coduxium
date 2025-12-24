@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete MATLAB guide - Learn installation, matrix operations, visualization, and best practices for technical computing." />
+    <meta name="keywords"
+        content="MATLAB, Technical Computing, Matrix Operations, Data Visualization, Engineering, Scientific Computing" />
+    <title>MATLAB Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../language-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🔢 MATLAB Complete Guide</h1>
+            <p class="subtitle">A powerful platform for numerical computing, visualization, and algorithm development.
+            </p>
+            <div class="badge-row">
+                <span class="badge">NUMERICAL COMPUTING</span>
+                <span class="badge">MATRIX OPERATIONS</span>
+                <span class="badge">VISUALIZATION</span>
+                <span class="badge">ENGINEERING</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Industry Standard:</strong> MATLAB is the go-to tool for engineers,
+                scientists, and researchers worldwide for numerical analysis and visualization.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is MATLAB?</h3>
+            <p><strong>MATLAB</strong> (Matrix Laboratory) is a proprietary multi-paradigm programming language and
+                numeric computing environment developed by MathWorks. First released in the late 1970s, MATLAB has
+                become the standard tool for engineers and scientists for algorithm development, data analysis,
+                visualization, and numerical computation.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>📊 Matrix Operations</strong> — Built for linear algebra</div>
+                <div class="topic"><strong>📈 Visualization</strong> — Advanced plotting and graphics</div>
+                <div class="topic"><strong>🧮 Numerical Computing</strong> — High-performance calculations</div>
+                <div class="topic"><strong>🔧 Toolboxes</strong> — Specialized for engineering domains</div>
+                <div class="topic"><strong>🤖 Simulink</strong> — Visual programming for simulations</div>
+                <div class="topic"><strong>📡 Signal Processing</strong> — Audio, image, and data analysis</div>
+                <div class="topic"><strong>🎯 Algorithm Development</strong> — Rapid prototyping</div>
+                <div class="topic"><strong>🔄 Integration</strong> — C/C++, Python, Java interop</div>
+            </div>
+
+            <h3>Why Choose MATLAB?</h3>
+            <ul>
+                <li><strong>Industry Standard:</strong> Used in aerospace, automotive, finance, biotech</li>
+                <li><strong>Comprehensive Toolboxes:</strong> Control systems, signal processing, AI, more</li>
+                <li><strong>Easy Visualization:</strong> Publication-quality plots with minimal code</li>
+                <li><strong>Rapid Prototyping:</strong> Test algorithms quickly</li>
+                <li><strong>Educational:</strong> Taught in universities worldwide</li>
+                <li><strong>Integration:</strong> Works with hardware, embedded systems</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> MATLAB is commercial software. Consider open
+                alternatives like GNU Octave for similar functionality.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with MATLAB by installing it from MathWorks.</p>
+
+            <!-- Windows Installation -->
+            <div id="windows-install" class="subsection">
+                <h3>Windows Installation</h3>
+
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Create MathWorks Account</strong>
+                        <p>Visit <a href="https://www.mathworks.com/mwaccount/register"
+                                target="_blank">mathworks.com</a> and create an account. You'll need a valid license
+                            (academic, trial, or commercial).</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Download Installer</strong>
+                        <p>Log in and download the MATLAB installer for Windows from your account.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Run Installer</strong>
+                        <p>Execute the installer and sign in with your MathWorks credentials. Select the toolboxes you
+                            need during installation.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">4</span>
+                    <div><strong>Activate License</strong>
+                        <p>Follow the activation prompts to activate your MATLAB license.</p>
+                    </div>
+                </div>
+
+                <h4>Academic Access</h4>
+                <p>Many universities provide MATLAB access to students. Check with your institution's IT department or
+                    campus license portal.</p>
+            </div>
+
+            <!-- macOS Installation -->
+            <div id="macos-install" class="subsection">
+                <h3>macOS Installation</h3>
+
+                <p>Download the macOS installer from <a href="https://www.mathworks.com/downloads/"
+                        target="_blank">MathWorks Downloads</a> and follow the installation wizard. Ensure your Mac
+                    meets the system requirements.</p>
+
+                <h4>System Requirements</h4>
+                <ul>
+                    <li>macOS 11 (Big Sur) or later</li>
+                    <li>8 GB RAM minimum (16 GB recommended)</li>
+                    <li>3-5 GB disk space for base installation</li>
+                </ul>
+            </div>
+
+            <!-- Linux Installation -->
+            <div id="linux-install" class="subsection">
+                <h3>Linux Installation</h3>
+
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Download Installer</strong>
+                        <p>Download the Linux installer from MathWorks website.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Extract and Run</strong>
+                        <pre><code>unzip matlab_installer.zip
+cd matlab_installer
+./install</code><button class="copy-btn" data-copy="./install">COPY</button></pre>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Follow GUI Installer</strong>
+                        <p>The graphical installer will guide you through the setup process.</p>
+                    </div>
+                </div>
+
+                <h4>Alternative: GNU Octave (Open Source)</h4>
+                <pre><code># Ubuntu/Debian
+sudo apt install octave
+
+# Fedora
+sudo dnf install octave
+
+# Arch Linux
+sudo pacman -S octave</code><button class="copy-btn" data-copy="sudo apt install octave">COPY</button></pre>
+            </div>
+
+            <!-- Environment Setup -->
+            <div id="environment-setup" class="subsection">
+                <h3>First Launch</h3>
+                <p>After installation, launch MATLAB. You'll see:</p>
+                <ul>
+                    <li><strong>Command Window:</strong> Execute commands interactively</li>
+                    <li><strong>Workspace:</strong> View variables in memory</li>
+                    <li><strong>Current Folder:</strong> Browse files</li>
+                    <li><strong>Editor:</strong> Write and save scripts (.m files)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Hello World</h3>
+                <pre><code>% Display message
+disp('Hello, Coduxium XI!')
+
+% Alternative
+fprintf('Welcome to MATLAB!\n')</code><button class="copy-btn" data-copy="disp('Hello, Coduxium XI!')">COPY</button></pre>
+
+                <h3>Variables & Basic Operations</h3>
+                <pre><code>% Variables (no declaration needed)
+x = 5;
+y = 10;
+z = x + y;
+
+% Display variable
+disp(z)
+
+% Suppress output with semicolon
+a = 100;  % No output
+
+% Multiple assignments
+p = 1; q = 2; r = 3;</code><button class="copy-btn" data-copy="x = 5; y = 10; z = x + y;">COPY</button></pre>
+
+                <h3>Matrices & Arrays</h3>
+                <pre><code>% Create matrix
+A = [1 2 3; 4 5 6; 7 8 9];
+
+% Row vector
+v = [1 2 3 4 5];
+
+% Column vector
+c = [1; 2; 3; 4; 5];
+
+% Matrix operations
+B = A';              % Transpose
+C = A * A;           % Matrix multiplication
+D = A .* A;          % Element-wise multiplication
+
+% Access elements
+element = A(2, 3);   % Row 2, Column 3
+row = A(1, :);       % First row
+col = A(:, 2);       % Second column</code><button class="copy-btn" data-copy="A = [1 2 3; 4 5 6; 7 8 9];">COPY</button></pre>
+
+                <h3>Common Functions</h3>
+                <pre><code>% Generate sequences
+seq = 1:10;              % 1 to 10
+seq2 = 0:0.1:1;          % 0 to 1, step 0.1
+lin = linspace(0, 10, 50); % 50 points from 0 to 10
+
+% Matrix creation
+zeros_mat = zeros(3, 4);  % 3x4 matrix of zeros
+ones_mat = ones(2, 5);    % 2x5 matrix of ones
+eye_mat = eye(4);         % 4x4 identity matrix
+rand_mat = rand(3, 3);    % 3x3 random matrix
+
+% Math functions
+sqrt_val = sqrt(16);
+sine = sin(pi/2);
+log_val = log(10);
+abs_val = abs(-5);</code><button class="copy-btn" data-copy="seq = 1:10;">COPY</button></pre>
+
+                <h3>Control Flow</h3>
+                <pre><code>% If-else
+x = 10;
+if x > 5
+    disp('x is greater than 5')
+elseif x == 5
+    disp('x equals 5')
+else
+    disp('x is less than 5')
+end
+
+% For loop
+for i = 1:5
+    fprintf('Iteration %d\n', i)
+end
+
+% While loop
+count = 1;
+while count <= 5
+    disp(count)
+    count = count + 1;
+end</code><button class="copy-btn" data-copy="for i = 1:5">COPY</button></pre>
+
+                <h3>Plotting & Visualization</h3>
+                <pre><code>% Simple plot
+x = 0:0.1:10;
+y = sin(x);
+plot(x, y)
+title('Sine Wave')
+xlabel('X-axis')
+ylabel('Y-axis')
+grid on
+
+% Multiple plots
+figure;
+subplot(2, 1, 1)
+plot(x, sin(x))
+title('Sine')
+
+subplot(2, 1, 2)
+plot(x, cos(x))
+title('Cosine')
+
+% 3D plot
+[X, Y] = meshgrid(-5:0.5:5);
+Z = sin(sqrt(X.^2 + Y.^2));
+surf(X, Y, Z)
+title('3D Surface')</code><button class="copy-btn" data-copy="plot(x, sin(x))">COPY</button></pre>
+
+                <h3>Functions (M-files)</h3>
+                <pre><code>% Save as myFunction.m
+function result = myFunction(a, b)
+    % Calculate sum and product
+    result = a + b * 2;
+end
+
+% Usage
+output = myFunction(5, 10);
+
+% Multiple outputs
+function [sum_val, prod_val] = calculate(x, y)
+    sum_val = x + y;
+    prod_val = x * y;
+end
+
+[s, p] = calculate(4, 5);</code><button class="copy-btn" data-copy="function result = myFunction(a, b)">COPY</button></pre>
+
+                <h3>Working with Data</h3>
+                <pre><code>% Read CSV
+data = readmatrix('data.csv');
+
+% Read Excel
+xlsdata = readtable('data.xlsx');
+
+% Save workspace
+save('mydata.mat', 'A', 'B');
+
+% Load workspace
+load('mydata.mat');
+
+% Export data
+writematrix(A, 'output.csv');</code><button class="copy-btn" data-copy="data = readmatrix('data.csv');">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Popular Toolboxes</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>Signal Processing</strong>Filter design, FFT, spectral analysis</div>
+                <div class="package-item"><strong>Image Processing</strong>Computer vision, image enhancement</div>
+                <div class="package-item"><strong>Control Systems</strong>PID, state-space, transfer functions</div>
+                <div class="package-item"><strong>Statistics & ML</strong>Regression, classification, clustering</div>
+                <div class="package-item"><strong>Simulink</strong>Model-based design, simulations</div>
+                <div class="package-item"><strong>Optimization</strong>Linear, nonlinear, genetic algorithms</div>
+                <div class="package-item"><strong>Deep Learning</strong>Neural networks, CNNs, transfer learning</div>
+                <div class="package-item"><strong>Parallel Computing</strong>GPU acceleration, distributed computing
+                </div>
+            </div>
+
+            <h3>Symbolic Math</h3>
+            <pre><code>% Requires Symbolic Math Toolbox
+syms x y
+f = x^2 + 2*x + 1;
+
+% Solve equation
+solution = solve(f == 0, x);
+
+% Differentiate
+df = diff(f, x);
+
+% Integrate
+int_f = int(f, x);</code><button class="copy-btn" data-copy="syms x">COPY</button></pre>
+
+            <h3>GPU Computing</h3>
+            <pre><code>% Transfer array to GPU
+A_gpu = gpuArray(rand(1000));
+B_gpu = gpuArray(rand(1000));
+
+% Perform computation on GPU
+C_gpu = A_gpu * B_gpu;
+
+% Transfer back to CPU
+C = gather(C_gpu);</code><button class="copy-btn" data-copy="A_gpu = gpuArray(rand(1000));">COPY</button></pre>
+
+            <h3>Machine Learning</h3>
+            <pre><code>% Load sample data
+load fisheriris
+
+% Train SVM classifier
+SVMModel = fitcsvm(meas, species);
+
+% Make predictions
+predictions = predict(SVMModel, meas(1:10, :));</code><button class="copy-btn" data-copy="SVMModel = fitcsvm(meas, species);">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Explore Toolboxes</strong> — Try Signal Processing or
+                Image Processing</div>
+            <div class="step"><span class="n">2</span><strong>Learn Simulink</strong> — Visual modeling and simulations
+            </div>
+            <div class="step"><span class="n">3</span><strong>Practice Visualization</strong> — Create
+                publication-quality plots</div>
+            <div class="step"><span class="n">4</span><strong>Apply to Projects</strong> — Solve real engineering
+                problems</div>
+            <div class="step"><span class="n">5</span><strong>Optimize Code</strong> — Use profiler, vectorization, GPU
+            </div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://www.mathworks.com/help/matlab/" target="_blank">Official MATLAB
+                        Documentation</a></li>
+                <li>🎓 <a href="https://matlabacademy.mathworks.com/" target="_blank">MATLAB Academy</a></li>
+                <li>📘 <a href="https://www.mathworks.com/matlabcentral/" target="_blank">MATLAB Central</a></li>
+                <li>💻 <a href="https://www.gnu.org/software/octave/" target="_blank">GNU Octave (Open Alternative)</a>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../Database/database-common.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

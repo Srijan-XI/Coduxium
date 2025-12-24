@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Svelte — Coduxium XI</title>
+    <meta name="description" content="Master Svelte - The radical new approach to building user interfaces.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Svelte Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔥 Svelte</h2>
+            <p class="intro">A radical new approach to building user interfaces - a compiler that shifts work to build
+                time.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Frontend</span>
+                    <span class="badge">Compiler</span>
+                    <span class="badge">No Virtual DOM</span>
+                    <span class="badge">Reactive</span>
+                </div>
+                <p>Svelte is a radical new approach to building user interfaces. Unlike frameworks that do the bulk of
+                    their work in the browser, Svelte shifts that work into a compile step. The result is highly
+                    optimized vanilla JavaScript that runs faster and produces smaller bundle sizes.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Compile-Time Framework</strong> — No runtime overhead or virtual DOM</li>
+                    <li><strong>Truly Reactive</strong> — Built-in reactivity without hooks or complex APIs</li>
+                    <li><strong>Small Bundle Sizes</strong> — Minimal JavaScript shipped to browser</li>
+                    <li><strong>Component Scoped Styles</strong> — CSS automatically scoped to components</li>
+                    <li><strong>Less Code</strong> — Write less boilerplate, more functionality</li>
+                    <li><strong>Built-in Animations</strong> — Smooth transitions and animations</li>
+                    <li><strong>No Virtual DOM</strong> — Direct DOM manipulation for performance</li>
+                    <li><strong>TypeScript Support</strong> — Full TypeScript integration</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>High-performance web applications</li>
+                    <li>Interactive data visualizations</li>
+                    <li>Single Page Applications (SPAs)</li>
+                    <li>Progressive Web Apps (PWAs)</li>
+                    <li>Embedded widgets and components</li>
+                    <li>Real-time dashboards</li>
+                    <li>Mobile-first applications</li>
+                    <li>Content-driven websites with SvelteKit</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Svelte Ecosystem</h3>
+                <ul>
+                    <li><strong>SvelteKit</strong> — Official full-stack framework with routing and SSR</li>
+                    <li><strong>Vite</strong> — Fast build tool with HMR</li>
+                    <li><strong>Svelte Stores</strong> — Built-in state management</li>
+                    <li><strong>Svelte Native</strong> — Mobile app development with NativeScript</li>
+                    <li><strong>Sapper</strong> — Legacy framework (replaced by SvelteKit)</li>
+                    <li><strong>Svelte Material UI</strong> — Material Design components</li>
+                    <li><strong>Svelte DevTools</strong> — Browser extension for debugging</li>
+                    <li><strong>Skeleton UI</strong> — Tailwind-based component library</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Reactivity</h4>
+                <ul>
+                    <li>Reactive declarations with <code>$:</code> syntax</li>
+                    <li>Automatic dependency tracking</li>
+                    <li>No useState or hooks needed</li>
+                    <li>Direct variable assignments trigger updates</li>
+                </ul>
+
+                <h4>Component Structure</h4>
+                <ul>
+                    <li>Single-file components (.svelte)</li>
+                    <li>Script, template, and style in one file</li>
+                    <li>Props with export keyword</li>
+                    <li>Slots for content projection</li>
+                </ul>
+
+                <h4>Stores</h4>
+                <ul>
+                    <li><code>writable</code> — Mutable store</li>
+                    <li><code>readable</code> — Read-only store</li>
+                    <li><code>derived</code> — Computed stores</li>
+                    <li><code>$store</code> — Auto-subscription syntax</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Create a new SvelteKit project:</p>
+                <pre><code>npm create svelte@latest my-app
+cd my-app
+npm install
+npm run dev</code></pre>
+
+                <p>Basic Svelte component example:</p>
+                <pre><code>&lt;script&gt;
+  let count = 0;
+  $: doubled = count * 2;
+&lt;/script&gt;
+
+&lt;button on:click={() => count++}&gt;
+  Count: {count} (doubled: {doubled})
+&lt;/button&gt;
+
+&lt;style&gt;
+  button { color: purple; }
+&lt;/style&gt;</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use SvelteKit for full-stack applications</li>
+                    <li>Leverage reactive declarations ($:) for computed values</li>
+                    <li>Use stores for global state management</li>
+                    <li>Take advantage of built-in transitions and animations</li>
+                    <li>Keep components small and focused</li>
+                    <li>Use TypeScript for type safety</li>
+                    <li>Implement proper error boundaries</li>
+                    <li>Optimize with lazy loading and code splitting</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://svelte.dev/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://svelte.dev/docs" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/sveltejs/svelte" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

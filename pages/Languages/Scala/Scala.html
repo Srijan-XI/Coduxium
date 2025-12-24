@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Scala guide - Learn installation, functional programming, JVM integration, and best practices for modern Scala development." />
+    <meta name="keywords"
+        content="Scala, Functional Programming, JVM, Programming, Learn Scala, Scala Tutorial, Apache Spark, Akka" />
+    <title>Scala Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../language-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🔷 Scala Complete Guide</h1>
+            <p class="subtitle">A powerful language combining object-oriented and functional programming on the JVM.</p>
+            <div class="badge-row">
+                <span class="badge">FUNCTIONAL</span>
+                <span class="badge">JVM-BASED</span>
+                <span class="badge">SCALABLE</span>
+                <span class="badge">TYPE-SAFE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Industry Power:</strong> Scala powers Twitter, LinkedIn, Netflix, and
+                Apache Spark - built for high-performance, scalable systems.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Scala?</h3>
+            <p><strong>Scala</strong> (Scalable Language) is a modern, statically-typed programming language designed by
+                Martin Odersky and first released in 2004. It seamlessly integrates object-oriented and functional
+                programming paradigms, running on the Java Virtual Machine (JVM) and offering full interoperability with
+                Java. Scala is designed to be concise, elegant, and type-safe.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🎯 Multi-Paradigm</strong> — OOP + Functional Programming</div>
+                <div class="topic"><strong>☕ JVM Compatible</strong> — Use Java libraries seamlessly</div>
+                <div class="topic"><strong>🔒 Type-Safe</strong> — Advanced type system</div>
+                <div class="topic"><strong>⚡ Concise Syntax</strong> — Less boilerplate than Java</div>
+                <div class="topic"><strong>🔄 Immutability</strong> — Functional programming focus</div>
+                <div class="topic"><strong>🧵 Concurrency</strong> — Akka actors, futures</div>
+                <div class="topic"><strong>📊 Big Data</strong> — Apache Spark foundation</div>
+                <div class="topic"><strong>🔧 Pattern Matching</strong> — Powerful control flow</div>
+            </div>
+
+            <h3>Why Choose Scala?</h3>
+            <ul>
+                <li><strong>Functional Programming:</strong> First-class functions, immutability, monads</li>
+                <li><strong>Java Ecosystem:</strong> Access to millions of Java libraries</li>
+                <li><strong>Concurrency:</strong> Built-in support for concurrent programming</li>
+                <li><strong>Big Data:</strong> Apache Spark, the leading big data framework</li>
+                <li><strong>Type Safety:</strong> Catch errors at compile time</li>
+                <li><strong>Career Opportunities:</strong> High-paying jobs in fintech, big data</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> Scala 3 (Dotty) introduced significant improvements.
+                New projects should use Scala 3.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Scala by installing the Scala Build Tool (sbt) and the Scala compiler.</p>
+
+            <!-- Windows Installation -->
+            <div id="windows-install" class="subsection">
+                <h3>Windows Installation</h3>
+
+                <h4>Method 1: Coursier (Recommended)</h4>
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Install Coursier</strong>
+                        <pre><code># PowerShell
+irm https://get-coursier.io/install.ps1 | iex</code><button class="copy-btn" data-copy="irm https://get-coursier.io/install.ps1 | iex">COPY</button></pre>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Install Scala</strong>
+                        <pre><code>cs setup</code><button class="copy-btn" data-copy="cs setup">COPY</button></pre>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Verify Installation</strong>
+                        <pre><code>scala -version
+sbt --version</code><button class="copy-btn" data-copy="scala -version">COPY</button></pre>
+                    </div>
+                </div>
+
+                <h4>Method 2: Chocolatey</h4>
+                <pre><code>choco install sbt
+choco install scala</code><button class="copy-btn" data-copy="choco install sbt">COPY</button></pre>
+            </div>
+
+            <!-- macOS Installation -->
+            <div id="macos-install" class="subsection">
+                <h3>macOS Installation</h3>
+
+                <h4>Method 1: Homebrew (Recommended)</h4>
+                <pre><code># Install Scala and sbt
+brew install coursier/formulas/coursier
+cs setup
+
+# Or install separately
+brew install scala
+brew install sbt
+
+# Verify
+scala -version
+sbt --version</code><button class="copy-btn" data-copy="brew install coursier/formulas/coursier">COPY</button></pre>
+
+                <h4>Method 2: SDKMAN!</h4>
+                <pre><code># Install SDKMAN!
+curl -s "https://get.sdkman.io" | bash
+
+# Install Scala
+sdk install scala
+sdk install sbt</code><button class="copy-btn" data-copy="sdk install scala">COPY</button></pre>
+            </div>
+
+            <!-- Linux Installation -->
+            <div id="linux-install" class="subsection">
+                <h3>Linux Installation</h3>
+
+                <h4>Method 1: Coursier (Recommended)</h4>
+                <pre><code># Install Coursier
+curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz | gzip -d > cs
+chmod +x cs
+./cs setup
+
+# Verify
+scala -version
+sbt --version</code><button class="copy-btn" data-copy="./cs setup">COPY</button></pre>
+
+                <h4>Ubuntu/Debian - Using apt</h4>
+                <pre><code>sudo apt update
+sudo apt install scala sbt</code><button class="copy-btn" data-copy="sudo apt install scala sbt">COPY</button></pre>
+
+                <h4>Arch Linux</h4>
+                <pre><code>sudo pacman -S scala sbt</code><button class="copy-btn" data-copy="sudo pacman -S scala sbt">COPY</button></pre>
+
+                <h4>Fedora/RHEL</h4>
+                <pre><code>sudo dnf install scala sbt</code><button class="copy-btn" data-copy="sudo dnf install scala sbt">COPY</button></pre>
+            </div>
+
+            <!-- Project Setup -->
+            <div id="project-setup" class="subsection">
+                <h3>Create Your First Project</h3>
+                <pre><code># Create new Scala project with sbt
+sbt new scala/scala3.g8
+
+# Or manually create structure
+mkdir my-scala-app
+cd my-scala-app
+
+# Create build.sbt
+cat > build.sbt << EOF
+name := "MyScalaApp"
+version := "0.1"
+scalaVersion := "3.3.1"
+EOF
+
+# Create source directory
+mkdir -p src/main/scala
+
+# Run sbt
+sbt run</code><button class="copy-btn" data-copy="sbt new scala/scala3.g8">COPY</button></pre>
+
+                <h4>IDE Setup</h4>
+                <ul>
+                    <li><strong>IntelliJ IDEA:</strong> Scala plugin (recommended)</li>
+                    <li><strong>VS Code:</strong> Metals extension</li>
+                    <li><strong>Eclipse:</strong> Scala IDE plugin</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Hello World</h3>
+                <pre><code>// Scala 3 style
+@main def hello(): Unit =
+  println("Hello, Coduxium XI!")
+
+// Traditional style
+object HelloWorld {
+  def main(args: Array[String]): Unit = {
+    println("Hello, World!")
+  }
+}</code><button class="copy-btn" data-copy='@main def hello(): Unit = println("Hello, Coduxium XI!")'>COPY</button></pre>
+
+                <h3>Variables & Types</h3>
+                <pre><code>// Immutable (preferred)
+val name = "Scala"
+val version = 3
+val isAwesome = true
+
+// Mutable
+var count = 0
+count = count + 1
+
+// Explicit types
+val language: String = "Scala"
+val year: Int = 2024
+val price: Double = 99.99
+
+// Type inference
+val numbers = List(1, 2, 3, 4, 5)
+val tuple = (1, "two", 3.0)</code><button class="copy-btn" data-copy='val name = "Scala"'>COPY</button></pre>
+
+                <h3>Functions</h3>
+                <pre><code>// Basic function
+def greet(name: String): String = {
+  s"Hello, $name!"
+}
+
+// Single expression (no braces needed)
+def add(a: Int, b: Int): Int = a + b
+
+// Default parameters
+def greetWithTitle(name: String, title: String = "Mr."): String =
+  s"Hello, $title $name!"
+
+// Anonymous functions (lambdas)
+val square = (x: Int) => x * x
+val double: Int => Int = _ * 2
+
+// Call functions
+println(greet("Alice"))
+println(add(5, 10))
+println(square(7))</code><button class="copy-btn" data-copy="def greet(name: String): String = s\"Hello, $name!\"">COPY</button></pre>
+
+                <h3>Collections</h3>
+                <pre><code>// Lists (immutable)
+val fruits = List("apple", "banana", "orange")
+val numbers = List(1, 2, 3, 4, 5)
+
+// List operations
+val doubled = numbers.map(_ * 2)
+val evens = numbers.filter(_ % 2 == 0)
+val sum = numbers.reduce(_ + _)
+
+// Arrays (mutable)
+val arr = Array(1, 2, 3, 4, 5)
+arr(0) = 10
+
+// Sets
+val uniqueNumbers = Set(1, 2, 3, 2, 1) // Set(1, 2, 3)
+
+// Maps
+val ages = Map(
+  "Alice" -> 25,
+  "Bob" -> 30,
+  "Charlie" -> 28
+)
+println(ages("Alice")) // 25</code><button class="copy-btn" data-copy="val fruits = List(\"apple\", \"banana\")">COPY</button></pre>
+
+                <h3>Pattern Matching</h3>
+                <pre><code>// Basic pattern matching
+def describe(x: Any): String = x match {
+  case 0 => "zero"
+  case 1 => "one"
+  case s: String => s"String: $s"
+  case i: Int if i > 1 => s"Integer greater than 1: $i"
+  case _ => "something else"
+}
+
+// Pattern matching with case classes
+case class Person(name: String, age: Int)
+
+def greetPerson(p: Person): String = p match {
+  case Person(name, age) if age < 18 => s"Hi $name, you're a minor"
+  case Person(name, age) => s"Hello $name, you're $age years old"
+}
+
+// List patterns
+def sumList(list: List[Int]): Int = list match {
+  case Nil => 0
+  case head :: tail => head + sumList(tail)
+}</code><button class="copy-btn" data-copy="def describe(x: Any): String = x match">COPY</button></pre>
+
+                <h3>Classes & Objects</h3>
+                <pre><code>// Class
+class Person(val name: String, var age: Int) {
+  def greet(): String = s"Hi, I'm $name"
+  
+  def birthday(): Unit = {
+    age += 1
+    println(s"Happy birthday! Now $age years old")
+  }
+}
+
+// Create instance
+val person = Person("Alice", 25)
+person.greet()
+person.birthday()
+
+// Case class (immutable data)
+case class Point(x: Int, y: Int)
+val p1 = Point(1, 2)
+val p2 = p1.copy(x = 3) // New instance
+
+// Singleton object
+object MathUtils {
+  def square(x: Int): Int = x * x
+  val PI = 3.14159
+}
+
+println(MathUtils.square(5))</code><button class="copy-btn" data-copy="class Person(val name: String, var age: Int)">COPY</button></pre>
+
+                <h3>Higher-Order Functions</h3>
+                <pre><code>// Functions as parameters
+def applyTwice(f: Int => Int, x: Int): Int = f(f(x))
+val increment = (x: Int) => x + 1
+println(applyTwice(increment, 5)) // 7
+
+// Map, filter, reduce
+val numbers = List(1, 2, 3, 4, 5)
+val squared = numbers.map(x => x * x)
+val evens = numbers.filter(_ % 2 == 0)
+val sum = numbers.reduce(_ + _)
+
+// For comprehensions
+val result = for {
+  x <- 1 to 3
+  y <- 1 to 2
+} yield (x, y)
+// List((1,1), (1,2), (2,1), (2,2), (3,1), (3,2))</code><button class="copy-btn" data-copy="val squared = numbers.map(x => x * x)">COPY</button></pre>
+
+                <h3>Options & Error Handling</h3>
+                <pre><code>// Option type (like Rust's Option or Java's Optional)
+def findPerson(id: Int): Option[Person] = {
+  if (id > 0) Some(Person("Alice", 25))
+  else None
+}
+
+val person = findPerson(1)
+person match {
+  case Some(p) => println(p.name)
+  case None => println("Not found")
+}
+
+// Try for exception handling
+import scala.util.{Try, Success, Failure}
+
+def divide(a: Int, b: Int): Try[Int] = Try(a / b)
+
+divide(10, 2) match {
+  case Success(result) => println(s"Result: $result")
+  case Failure(e) => println(s"Error: ${e.getMessage}")
+}</code><button class="copy-btn" data-copy="def findPerson(id: Int): Option[Person]">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Popular Frameworks & Libraries</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>Apache Spark</strong>Big data processing</div>
+                <div class="package-item"><strong>Akka</strong>Actor-based concurrency</div>
+                <div class="package-item"><strong>Play Framework</strong>Web applications</div>
+                <div class="package-item"><strong>Cats</strong>Functional programming library</div>
+                <div class="package-item"><strong>ZIO</strong>Type-safe, composable async</div>
+                <div class="package-item"><strong>Slick</strong>Database query DSL</div>
+                <div class="package-item"><strong>Fs2</strong>Functional streams</div>
+                <div class="package-item"><strong>Circe</strong>JSON processing</div>
+            </div>
+
+            <h3>SBT Dependencies</h3>
+            <pre><code>// build.sbt
+libraryDependencies ++= Seq(
+  "org.apache.spark" %% "spark-core" % "3.5.0",
+  "com.typesafe.akka" %% "akka-actor" % "2.8.5",
+  "org.scalatest" %% "scalatest" % "3.2.17" % Test
+)
+
+// Add dependency and reload
+// sbt reload
+// sbt compile</code><button class="copy-btn" data-copy="libraryDependencies += ...">COPY</button></pre>
+
+            <h3>Futures & Async Programming</h3>
+            <pre><code>import scala.concurrent.{Future, Await}
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+
+// Create future
+val future: Future[Int] = Future {
+  Thread.sleep(1000)
+  42
+}
+
+// Transform future
+val doubled = future.map(_ * 2)
+
+// Combine futures
+val f1 = Future { 10 }
+val f2 = Future { 20 }
+val combined = for {
+  a <- f1
+  b <- f2
+} yield a + b
+
+// Wait for result (blocking)
+val result = Await.result(combined, 5.seconds)
+println(result) // 30</code><button class="copy-btn" data-copy="val future: Future[Int] = Future { 42 }">COPY</button></pre>
+
+            <h3>Implicits (Scala 2) / Given/Using (Scala 3)</h3>
+            <pre><code>// Scala 3 style
+trait Ordering[T]:
+  def compare(a: T, b: T): Int
+
+given intOrdering: Ordering[Int] with
+  def compare(a: Int, b: Int): Int = a - b
+
+def max[T](a: T, b: T)(using ord: Ordering[T]): T =
+  if ord.compare(a, b) > 0 then a else b
+
+println(max(5, 10)) // 10 (uses intOrdering)</code><button class="copy-btn" data-copy="given intOrdering: Ordering[Int]">COPY</button></pre>
+
+            <h3>Type Classes</h3>
+            <pre><code>// Define type class
+trait Show[T]:
+  def show(value: T): String
+
+// Implement for Int
+given Show[Int] with
+  def show(value: Int): String = s"Int($value)"
+
+// Implement for String
+given Show[String] with
+  def show(value: String): String = s"String($value)"
+
+// Generic function using type class
+def display[T](value: T)(using s: Show[T]): Unit =
+  println(s.show(value))
+
+display(42)
+display("hello")</code><button class="copy-btn" data-copy="trait Show[T]">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Functional Programming</strong> — Learn map,
+                flatMap, fold</div>
+            <div class="step"><span class="n">2</span><strong>Explore Akka</strong> — Build concurrent, distributed
+                systems</div>
+            <div class="step"><span class="n">3</span><strong>Learn Apache Spark</strong> — Big data processing at scale
+            </div>
+            <div class="step"><span class="n">4</span><strong>Build Web Apps</strong> — Create APIs with Play Framework
+            </div>
+            <div class="step"><span class="n">5</span><strong>Type-Level Programming</strong> — Advanced type system
+                features</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://docs.scala-lang.org/" target="_blank">Official Scala Documentation</a></li>
+                <li>🎓 <a href="https://www.scala-exercises.org/" target="_blank">Scala Exercises</a></li>
+                <li>📘 <a href="https://www.coursera.org/specializations/scala" target="_blank">Functional Programming
+                        in Scala (Coursera)</a></li>
+                <li>💻 <a href="https://scastie.scala-lang.org/" target="_blank">Scastie (Online Playground)</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../Database/database-common.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qubes OS - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Qubes OS guide - Security-focused OS using virtualization for strong isolation">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Qubes OS</a></h1>
+                    <p class="sub">Security by compartmentalization</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🔐</span>
+                <span>Security By Isolation</span>
+            </div>
+            <h1 class="hero-title">Qubes OS</h1>
+            <p class="hero-description">
+                A security-focused operating system that isolates applications and workflows into separate virtual machines ("qubes") so a compromise in one area is less likely to spread to others.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Xen-based (uses Fedora/Debian templates)</li>
+                    <li><strong>Package Manager:</strong> DNF (Fedora templates) / APT (Debian templates)</li>
+                    <li><strong>Desktop:</strong> Xfce (default), others supported</li>
+                    <li><strong>Release Model:</strong> Stable releases</li>
+                    <li><strong>Target Users:</strong> Security-conscious users, researchers, journalists</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h4>Strong Isolation</h4>
+                    <p>Separate activities into isolated qubes to reduce blast radius.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🧪</span>
+                    <h4>Disposable VMs</h4>
+                    <p>Open risky files/sites in throwaway environments that self-destruct.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h4>Template System</h4>
+                    <p>Centralized updates via templates for consistent, repeatable qubes.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🕵️</span>
+                    <h4>Privacy Options</h4>
+                    <p>Optional Whonix integration for Tor-based anonymity workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Qubes OS?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Qubes OS is a security-oriented operating system that uses virtualization to implement security by compartmentalization. It runs applications in isolated compartments called qubes, so if one qube is compromised, the others are designed to remain isolated.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>App isolation using Xen virtual machines (qubes)</li>
+                    <li>Color-coded trust levels for safer daily workflows</li>
+                    <li>Disposable VMs for untrusted content</li>
+                    <li>Hardware isolation for USB and networking components</li>
+                    <li>Template-based maintenance for simpler patching</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Qubes OS?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Reduce Blast Radius</h4>
+                        <p>Compartmentalize work, personal, and untrusted activities to limit damage from compromise.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Flexible Templates</h4>
+                        <p>Use Fedora/Debian templates so you can choose tooling without losing consistency.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Privacy Workflows</h4>
+                        <p>Pair with Whonix and disposable VMs for privacy-first browsing and research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download Qubes OS from: <a href="https://www.qubes-os.org/downloads/" target="_blank">https://www.qubes-os.org/downloads/</a>
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=Qubes-R4.x-x86_64.iso of=/dev/sdX bs=1M status=progress && sync
+
+# Or use: Etcher, Rufus (DD mode), Ventoy</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS/UEFI (F2/F12/Del)<br>
+                        4. Select USB as boot device
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Installation Process</h4>
+                    <p class="command-desc">
+                        Test media (recommended), run the installer, enable full-disk encryption, complete partitioning, create user, finish installation, then reboot and complete initial qube setup.
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit with VT-x/AMD-V virtualization support</li>
+                    <li><strong>RAM:</strong> 6GB minimum (8GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 32GB minimum (SSD recommended)</li>
+                    <li><strong>GPU:</strong> Any (depends on setup; integrated is fine)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash"># dom0 updates
+sudo qubes-dom0-update
+
+# Fedora template
+sudo dnf upgrade --refresh
+
+# Debian template
+sudo apt update && sudo apt upgrade</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash"># Run in a template VM
+sudo dnf install package-name
+# or
+sudo apt install package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash"># Run in a template VM
+sudo dnf remove package-name
+# or
+sudo apt remove package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">dnf search keyword
+# or
+apt search keyword</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Qube Manager</h4>
+                        <p class="command-desc">Create, start, and manage qubes; set templates and labels.</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Global Settings</h4>
+                        <p class="command-desc">Configure default templates, networking qubes, and device handling.</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Secure File Moves</h4>
+                        <p class="command-desc">Use "Send to VM" or controlled copy mechanisms between qubes.</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Disposable VMs</h4>
+                        <p class="command-desc">Open risky sites/files in DisposableVMs to limit persistence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Whonix Integration</h4>
+                    <pre><code class="language-bash"># Install Whonix templates (dom0)
+sudo qubes-dom0-update qubes-template-whonix-gw
+sudo qubes-dom0-update qubes-template-whonix-ws
+
+# Create gateway/workstation qubes
+qvm-create sys-whonix --template whonix-gw --label orange
+qvm-create anon-whonix --template whonix-ws --label orange
+qvm-prefs anon-whonix netvm sys-whonix</code></pre>
+                    <p class="command-desc">Route selected qubes through Tor via Whonix.</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>USB Device Isolation</h4>
+                    <pre><code class="language-bash"># List USB devices
+qvm-usb
+
+# Attach a device to a qube
+qvm-usb attach my-qube sys-usb:device-id</code></pre>
+                    <p class="command-desc">Keep USB attacks away from sensitive components.</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Backup & Restore</h4>
+                    <pre><code class="language-bash"># Back up via GUI (recommended):
+# Qube Manager → System → Backup Qubes
+
+# Restore (example)
+qvm-backup-restore /path/to/backup</code></pre>
+                    <p class="command-desc">Use encrypted backups and store them safely offline.</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Split GPG</h4>
+                    <pre><code class="language-bash"># High-level workflow:
+# 1) Keep private keys in a dedicated "vault" qube
+# 2) Enable Split GPG service
+# 3) Allow signing/encryption from other qubes without exposing keys</code></pre>
+                    <p class="command-desc">Protect private keys even if a work qube is compromised.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>List qubes</strong></td>
+                            <td><code>qvm-ls</code></td>
+                            <td>Show all qubes and their states</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start qube</strong></td>
+                            <td><code>qvm-start my-qube</code></td>
+                            <td>Boot a qube</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Run app</strong></td>
+                            <td><code>qvm-run my-qube firefox</code></td>
+                            <td>Launch an application inside a qube</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shutdown qube</strong></td>
+                            <td><code>qvm-shutdown my-qube</code></td>
+                            <td>Stop a running qube</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Copy file to qube</strong></td>
+                            <td><code>qvm-copy-to-vm dest-qube /path/to/file</code></td>
+                            <td>Safely transfer files between qubes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Create qube</strong></td>
+                            <td><code>qvm-create --class AppVM --label blue my-qube</code></td>
+                            <td>Create a new AppVM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List templates</strong></td>
+                            <td><code>qvm-ls --class TemplateVM</code></td>
+                            <td>Show installed template VMs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Show qube prefs</strong></td>
+                            <td><code>qvm-prefs my-qube</code></td>
+                            <td>Inspect configuration of a qube</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Firewall settings</strong></td>
+                            <td><code>qvm-firewall my-qube</code></td>
+                            <td>Configure per-qube firewall rules</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Attach USB device</strong></td>
+                            <td><code>qvm-usb attach my-qube dom0:BUS-DEV</code></td>
+                            <td>Attach a USB device to a qube</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://www.qubes-os.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Qubes OS homepage</p>
+                </a>
+                <a href="https://www.qubes-os.org/doc/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official docs and guides</p>
+                </a>
+                <a href="https://forum.qubes-os.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community</h4>
+                    <p>Forums and support</p>
+                </a>
+                <a href="https://github.com/QubesOS/qubes-issues" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>Issue tracker and repositories</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Plan your qube layout (work/personal/untrusted/vault)</li>
+                    <li>Enable full-disk encryption and strong passwords</li>
+                    <li>Install and update templates regularly</li>
+                    <li>Use DisposableVMs for risky browsing/files</li>
+                    <li>Set up a backup strategy (encrypted + offline)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Debian/Tails/Tails.html" class="next-step-card">
+                    <span class="step-icon">🔒</span>
+                    <h4>Tails</h4>
+                    <p>Privacy-focused amnesic live OS</p>
+                </a>
+                <a href="../Debian/ParrotSec/parrotsec.html" class="next-step-card">
+                    <span class="step-icon">🦜</span>
+                    <h4>Parrot Security</h4>
+                    <p>Security & privacy toolkit on Debian</p>
+                </a>
+                <a href="../Debian/Kali/kali.html" class="next-step-card">
+                    <span class="step-icon">🛠️</span>
+                    <h4>Kali Linux</h4>
+                    <p>Penetration testing distribution</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

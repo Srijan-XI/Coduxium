@@ -1,78 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Red Hat Enterprise Linux — DevSphere</title>
-    <link rel="stylesheet" href="../../../../css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --rhel-red: #ee0000;
-            --rhel-dark: #cc0000;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Hat Enterprise Linux - Complete Guide | Coduxium XI</title>
+    <meta name="description"
+        content="Complete RHEL guide - Industry-leading enterprise Linux distribution with professional support and stability">
 
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: radial-gradient(circle at top, rgba(238, 0, 0, 0.15), transparent 50%);
-            border-radius: var(--radius-lg);
-            margin-bottom: 3rem;
-        }
-
-        .hero-section h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--rhel-red), var(--rhel-dark));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .info-card {
-            background: var(--surface-2);
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--rhel-red);
-            box-shadow: 0 10px 30px rgba(238, 0, 0, 0.2);
-        }
-
-        .info-card h3 {
-            color: var(--rhel-red);
-            margin-bottom: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
 </head>
 
-<body>
+<body class="linux-page">
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
-                <span class="logo">🏢</span>
+                <span class="logo">🐧</span>
                 <div>
-                    <h1><a href="../../../../index.html">DevSphere</a></h1>
-                    <p class="sub">Red Hat Enterprise Linux</p>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Red Hat Enterprise
+                            Linux</a></h1>
+                    <p class="sub">The Enterprise Standard</p>
                 </div>
             </div>
             <div class="header-actions">
@@ -83,91 +33,448 @@
     </header>
 
     <main class="container" style="padding: 40px 0;">
-        <article class="content-page">
-            <section class="hero-section">
-                <h2>Red Hat Enterprise Linux</h2>
-                <p class="intro">The industry-leading enterprise Linux distribution with professional support,
-                    stability, and security for mission-critical workloads.</p>
-            </section>
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🏢</span>
+                <span>Enterprise Grade</span>
+            </div>
+            <h1 class="hero-title">Red Hat Enterprise Linux</h1>
+            <p class="hero-description">
+                The world's leading enterprise Linux platform. RHEL provides a stable, secure, and high-performance
+                foundation for mission-critical workloads with professional support from Red Hat.
+            </p>
+        </section>
 
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>📋 Overview</h3>
-                    <p><strong>Base:</strong> Fedora (upstream)</p>
-                    <p><strong>Package Manager:</strong> DNF/YUM</p>
-                    <p><strong>Desktop:</strong> GNOME</p>
-                    <p><strong>Target:</strong> Enterprise Servers</p>
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Fedora (downstream)</li>
+                    <li><strong>Package Manager:</strong> DNF/YUM</li>
+                    <li><strong>Desktop:</strong> GNOME (Workstation), Server has no GUI</li>
+                    <li><strong>Release Model:</strong> Major releases every 3 years, 10 years support</li>
+                    <li><strong>Target Users:</strong> Enterprises, data centers, mission-critical systems</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h4>Enterprise Support</h4>
+                    <p>Professional 24/7 support from Red Hat experts</p>
                 </div>
-
-                <div class="info-card">
-                    <h3>🔧 Package Management</h3>
-                    <p>Uses DNF (Dandified YUM).</p>
-                    <pre><code>sudo dnf update
-sudo dnf install package-name</code></pre>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h4>Security & Compliance</h4>
+                    <p>SELinux, certifications, and security updates for 10 years</p>
                 </div>
-
-                <div class="info-card">
-                    <h3>✨ Key Features</h3>
-                    <ul>
-                        <li>Long-term support (10 years)</li>
-                        <li>Professional support</li>
-                        <li>Security certifications</li>
-                        <li>Stability & reliability</li>
-                    </ul>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Stability</h4>
+                    <p>Rigorously tested for production environments</p>
                 </div>
-
-                <div class="info-card">
-                    <h3>🎯 Use Cases</h3>
-                    <ul>
-                        <li>Enterprise servers</li>
-                        <li>Cloud infrastructure</li>
-                        <li>Mission-critical applications</li>
-                        <li>Containerization (OpenShift)</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h3>🔗 Resources</h3>
-                    <p><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"
-                            target="_blank">Official Website</a></p>
-                    <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/"
-                            target="_blank">Documentation</a></p>
-                </div>
-
-                <div class="info-card">
-                    <h3>🌐 Sibling Distros</h3>
-                    <p><a href="../Fedora/fedora.html">Fedora</a></p>
-                    <p><a href="../CentOS/centos.html">CentOS</a></p>
-                    <p><a href="../Oracle/oracle.html">Oracle Linux</a></p>
+                <div class="feature-card">
+                    <span class="feature-icon">🌍</span>
+                    <h4>Industry Standard</h4>
+                    <p>Most widely deployed enterprise Linux worldwide</p>
                 </div>
             </div>
-        </article>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is RHEL?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Red Hat Enterprise Linux (RHEL) is a commercial open-source Linux distribution developed by Red Hat
+                    for the commercial market. RHEL is based on Fedora but undergoes extensive testing and certification
+                    to ensure stability and reliability for enterprise deployments. It's the foundation for many other
+                    distributions including CentOS, Rocky Linux, and AlmaLinux.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li><strong>Long-term Support:</strong> 10 years of security updates and support</li>
+                    <li><strong>SELinux:</strong> Advanced security framework enabled by default</li>
+                    <li><strong>Certifications:</strong> Hardware and software vendor certifications</li>
+                    <li><strong>Red Hat Insights:</strong> Proactive system health monitoring</li>
+                    <li><strong>Ansible Integration:</strong> Built-in automation capabilities</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose RHEL?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Enterprise Ready</h4>
+                        <p>Proven stability and reliability for mission-critical workloads</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Professional Support</h4>
+                        <p>24/7 expert support from Red Hat when you need it</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Ecosystem Leader</h4>
+                        <p>Largest partner ecosystem with certified hardware and software</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Get RHEL</h4>
+                    <p class="command-desc">
+                        Download from: <a href="https://access.redhat.com/" target="_blank">Red Hat Customer
+                            Portal</a><br><br>
+                        Free for developers: <a href="https://developers.redhat.com/" target="_blank">Red Hat Developer
+                            Program</a><br>
+                        Choose: Server, Workstation, or specific use case
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable Media</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=rhel.iso of=/dev/sdX bs=4M status=progress
+
+# Or use Fedora Media Writer</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot & Install</h4>
+                    <p class="command-desc">
+                        1. Boot from installation media<br>
+                        2. Select "Install Red Hat Enterprise Linux"<br>
+                        3. Choose language and keyboard<br>
+                        4. Configure installation destination<br>
+                        5. Set network and hostname
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Register System</h4>
+                    <pre><code class="language-bash"># Register with Red Hat
+sudo subscription-manager register
+
+# Attach subscription
+sudo subscription-manager attach --auto
+
+# Enable repositories
+sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms</code></pre>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 2 GHz dual-core or better (64-bit)</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB minimum (40GB+ recommended)</li>
+                    <li><strong>GPU:</strong> For Workstation: graphics card with 1024x768</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management with DNF</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo dnf update -y</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">sudo dnf install package-name
+
+# Install group
+sudo dnf group install "Development Tools"</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo dnf remove package-name
+sudo dnf autoremove</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">dnf search keyword
+dnf info package-name</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Subscription Management</h4>
+                        <pre><code class="language-bash"># Check status
+sudo subscription-manager status
+
+# List available subscriptions
+sudo subscription-manager list --available</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Enable EPEL Repository</h4>
+                        <pre><code class="language-bash"># Install EPEL
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Firewall Management</h4>
+                        <pre><code class="language-bash"># Check firewall status
+sudo firewall-cmd --state
+
+# Add service
+sudo firewall-cmd --add-service=http --permanent
+sudo firewall-cmd --reload</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>SELinux Management</h4>
+                        <pre><code class="language-bash"># Check SELinux status
+sestatus
+
+# View denials
+sudo ausearch -m avc -ts recent</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Red Hat Insights</h4>
+                    <pre><code class="language-bash"># Register with Insights
+sudo insights-client --register
+
+# Run analysis
+sudo insights-client
+
+# Check status
+sudo insights-client --status</code></pre>
+                    <p class="command-desc">Proactive system health monitoring</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Container Management (Podman)</h4>
+                    <pre><code class="language-bash"># Install Podman
+sudo dnf install podman
+
+# Run container
+podman run -it registry.access.redhat.com/ubi9/ubi bash
+
+# List containers
+podman ps -a</code></pre>
+                    <p class="command-desc">Enterprise container runtime</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Ansible Automation</h4>
+                    <pre><code class="language-bash"># Install Ansible
+sudo dnf install ansible-core
+
+# Run playbook
+ansible-playbook playbook.yml
+
+# Ad-hoc command
+ansible all -m ping</code></pre>
+                    <p class="command-desc">Automate system configuration</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>System Roles</h4>
+                    <pre><code class="language-bash"># Install system roles
+sudo dnf install rhel-system-roles
+
+# Available roles
+ls /usr/share/ansible/roles/
+
+# Example: Configure time sync
+ansible-playbook -i inventory timesync.yml</code></pre>
+                    <p class="command-desc">Pre-built Ansible roles for common tasks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update System</strong></td>
+                            <td><code>sudo dnf update</code></td>
+                            <td>Update all packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Register System</strong></td>
+                            <td><code>sudo subscription-manager register</code></td>
+                            <td>Register with Red Hat</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Package</strong></td>
+                            <td><code>sudo dnf install package</code></td>
+                            <td>Install software</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Check Subscription</strong></td>
+                            <td><code>sudo subscription-manager status</code></td>
+                            <td>View subscription status</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Firewall Status</strong></td>
+                            <td><code>sudo firewall-cmd --list-all</code></td>
+                            <td>View firewall rules</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SELinux Status</strong></td>
+                            <td><code>sestatus</code></td>
+                            <td>Check SELinux mode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Service Management</strong></td>
+                            <td><code>sudo systemctl restart service</code></td>
+                            <td>Restart a service</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System Logs</strong></td>
+                            <td><code>sudo journalctl -xe</code></td>
+                            <td>View system logs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RHEL Version</strong></td>
+                            <td><code>cat /etc/redhat-release</code></td>
+                            <td>Show RHEL version</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Insights Check</strong></td>
+                            <td><code>sudo insights-client</code></td>
+                            <td>Run health analysis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux" target="_blank"
+                    class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit RHEL homepage</p>
+                </a>
+                <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/" target="_blank"
+                    class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official RHEL documentation</p>
+                </a>
+                <a href="https://access.redhat.com/support" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Support</h4>
+                    <p>Red Hat Customer Portal</p>
+                </a>
+                <a href="https://developers.redhat.com/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Developer Program</h4>
+                    <p>Free RHEL for developers</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Sign up for Red Hat Developer Program (free)</li>
+                    <li>Download and install RHEL</li>
+                    <li>Register system with subscription-manager</li>
+                    <li>Explore Red Hat Insights for system health</li>
+                    <li>Learn Ansible for automation</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Fedora/fedora.html" class="next-step-card">
+                    <span class="step-icon">🎩</span>
+                    <h4>Fedora</h4>
+                    <p>Upstream for RHEL</p>
+                </a>
+                <a href="../CentOS/centos.html" class="next-step-card">
+                    <span class="step-icon">💜</span>
+                    <h4>CentOS Stream</h4>
+                    <p>Rolling preview of RHEL</p>
+                </a>
+                <a href="../RockyLinux/RockyLinux.html" class="next-step-card">
+                    <span class="step-icon">💚</span>
+                    <h4>Rocky Linux</h4>
+                    <p>Community RHEL rebuild</p>
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <small>DevSphere © 2025</small>
+            <small>Coduxium XI © 2025</small>
             <div class="footer-links">
                 <a href="../../../../index.html">Home</a>
-                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
             </div>
         </div>
     </footer>
 
-    <script>
-        const btn = document.getElementById('btn-theme');
-        const key = 'il-devlangs-theme';
-        const set = (val) => {
-            document.body.classList.toggle('light', val === 'light');
-            localStorage.setItem(key, val);
-        };
-        const stored = localStorage.getItem(key);
-        if (stored) set(stored); else set('dark');
-        btn.addEventListener('click', () => {
-            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
-            set(cur === 'light' ? 'dark' : 'light');
-        });
-    </script>
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 
 </html>

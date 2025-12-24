@@ -237,3 +237,134 @@
 		display: none;
 	}
 }
+
+/* ========================================
+   Highlight.js Local Theme (No CDN)
+   Prevents CORB/CORS issues when running locally.
+   ======================================== */
+
+.hljs {
+	color: var(--text);
+	background: transparent;
+}
+
+.hljs-comment,
+.hljs-quote {
+	color: var(--muted);
+	font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag {
+	color: var(--primary);
+	font-weight: 600;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+	color: var(--accent);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition {
+	color: var(--ok);
+}
+
+.hljs-number,
+.hljs-built_in,
+.hljs-type {
+	color: var(--warn);
+}
+
+.hljs-attribute,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-name {
+	color: var(--primary-hover);
+}
+
+.hljs-meta,
+.hljs-subst {
+	color: var(--text);
+}
+
+.hljs-deletion {
+	color: var(--bad);
+}
+
+/* Theme variants (no new colors; remap existing tokens) */
+
+html.hljs-theme-vs-dark .hljs-keyword,
+html.hljs-theme-vs-dark .hljs-selector-tag,
+html.hljs-theme-vs-dark .hljs-literal,
+html.hljs-theme-vs-dark .hljs-doctag {
+	color: var(--primary);
+}
+
+html.hljs-theme-github .hljs-keyword,
+html.hljs-theme-github .hljs-selector-tag,
+html.hljs-theme-github .hljs-literal,
+html.hljs-theme-github .hljs-doctag {
+	color: var(--accent);
+}
+
+html.hljs-theme-github .hljs-title,
+html.hljs-theme-github .hljs-section,
+html.hljs-theme-github .hljs-function .hljs-title {
+	color: var(--primary);
+}
+
+html.hljs-theme-monokai .hljs-keyword,
+html.hljs-theme-monokai .hljs-selector-tag,
+html.hljs-theme-monokai .hljs-literal,
+html.hljs-theme-monokai .hljs-doctag {
+	color: var(--primary-hover);
+}
+
+html.hljs-theme-monokai .hljs-string,
+html.hljs-theme-monokai .hljs-regexp,
+html.hljs-theme-monokai .hljs-addition {
+	color: var(--warn);
+}
+
+html.hljs-theme-dracula .hljs-title,
+html.hljs-theme-dracula .hljs-section,
+html.hljs-theme-dracula .hljs-function .hljs-title {
+	color: var(--primary-hover);
+}
+
+html.hljs-theme-dracula .hljs-string,
+html.hljs-theme-dracula .hljs-regexp,
+html.hljs-theme-dracula .hljs-addition {
+	color: var(--accent);
+}
+
+html.hljs-theme-nord .hljs-comment,
+html.hljs-theme-nord .hljs-quote {
+	color: var(--muted);
+	font-style: normal;
+}
+
+html.hljs-theme-nord .hljs-number,
+html.hljs-theme-nord .hljs-built_in,
+html.hljs-theme-nord .hljs-type {
+	color: var(--primary-hover);
+}
+
+html.hljs-theme-atom-one-dark .hljs-keyword,
+html.hljs-theme-atom-one-dark .hljs-selector-tag,
+html.hljs-theme-atom-one-dark .hljs-literal,
+html.hljs-theme-atom-one-dark .hljs-doctag {
+	color: var(--primary-600);
+}
+
+html.hljs-theme-atom-one-dark .hljs-title,
+html.hljs-theme-atom-one-dark .hljs-section,
+html.hljs-theme-atom-one-dark .hljs-function .hljs-title {
+	color: var(--accent);
+}

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Solid.js guide - Learn installation, reactive primitives, and best practices for building performant web applications." />
+    <meta name="keywords"
+        content="SolidJS, Solid, JavaScript, Reactive, Web Framework, Performance, Fine-Grained Reactivity" />
+    <title>Solid.js Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../Database/database-common.css">
+    <link rel="stylesheet" href="../../framework-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>⚡ Solid.js Complete Guide</h1>
+            <p class="subtitle">A declarative, efficient, and flexible JavaScript library for building user interfaces.
+            </p>
+            <div class="badge-row">
+                <span class="badge">REACTIVE</span>
+                <span class="badge">NO VIRTUAL DOM</span>
+                <span class="badge">FAST</span>
+                <span class="badge">JSX</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Performance King:</strong> Solid.js is one of the fastest JavaScript
+                frameworks, beating React and Vue in benchmarks.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Solid.js?</h3>
+            <p><strong>Solid.js</strong> is a declarative JavaScript library for creating user interfaces with
+                fine-grained reactivity. Unlike React, it doesn't use a Virtual DOM - instead, it compiles your code
+                into efficient DOM updates, resulting in exceptional performance. It uses JSX but the similarity to
+                React ends there.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>⚡ Blazing Fast</strong> — No Virtual DOM overhead</div>
+                <div class="topic"><strong>🎯 Fine-Grained Reactivity</strong> — Surgical DOM updates</div>
+                <div class="topic"><strong>📦 Small Bundle Size</strong> — ~7KB minified + gzipped</div>
+                <div class="topic"><strong>🔧 JSX Templates</strong> — Familiar syntax</div>
+                <div class="topic"><strong>🚀 Real Reactivity</strong> — True reactive primitives</div>
+                <div class="topic"><strong>📈 Predictable</strong> — No re-renders, no hooks rules</div>
+                <div class="topic"><strong>🌐 SSR Ready</strong> — Server-side rendering support</div>
+                <div class="topic"><strong>🎨 No Runtime</strong> — Compiled to vanilla JS</div>
+            </div>
+
+            <h3>Why Choose Solid.js?</h3>
+            <ul>
+                <li><strong>Performance:</strong> Fastest framework in most benchmarks</li>
+                <li><strong>Simple Mental Model:</strong> No complex lifecycle, just reactivity</li>
+                <li><strong>React-Like DX:</strong> Familiar JSX without the gotchas</li>
+                <li><strong>Bundle Size:</strong> Smaller than React or Vue</li>
+                <li><strong>No Magic:</strong> Predictable, explicit behavior</li>
+                <li><strong>True Reactivity:</strong> Data flows naturally</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> Solid.js looks like React but behaves differently.
+                JSX is compiled, not runtime-rendered.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Solid.js using Vite or the official templates.</p>
+
+            <div id="project-setup" class="subsection">
+                <h3>Create New Project</h3>
+
+                <h4>Using Vite (Recommended)</h4>
+                <pre><code># Create new project with Vite
+npm create vite@latest my-solid-app -- --template solid
+
+# Or with TypeScript
+npm create vite@latest my-solid-app -- --template solid-ts
+
+cd my-solid-app
+npm install
+npm run dev</code><button class="copy-btn" data-copy="npm create vite@latest my-solid-app -- --template solid">COPY</button></pre>
+
+                <h4>Using Degit</h4>
+                <pre><code>npx degit solidjs/templates/js my-solid-app
+cd my-solid-app
+npm install
+npm run dev</code><button class="copy-btn" data-copy="npx degit solidjs/templates/js my-solid-app">COPY</button></pre>
+
+                <div class="info-box"><strong>💡 Note:</strong> Dev server runs on http://localhost:5173</div>
+            </div>
+
+            <div id="add-to-existing" class="subsection">
+                <h3>Add to Existing Project</h3>
+                <pre><code>npm install solid-js
+
+# Vite config for Solid
+npm install vite-plugin-solid -D</code><button class="copy-btn" data-copy="npm install solid-js">COPY</button></pre>
+
+                <pre><code>// vite.config.js
+import { defineConfig } from 'vite';
+import solid from 'vite-plugin-solid';
+
+export default defineConfig({
+  plugins: [solid()],
+});</code><button class="copy-btn" data-copy="plugins: [solid()]">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Hello World</h3>
+                <pre><code>import { render } from 'solid-js/web';
+
+function App() {
+  return &lt;h1&gt;Hello, Coduxium XI!&lt;/h1&gt;;
+}
+
+render(() => &lt;App /&gt;, document.getElementById('root'));</code><button class="copy-btn" data-copy="render(() => <App />">COPY</button></pre>
+
+                <h3>Reactive Primitives - Signal</h3>
+                <pre><code>import { createSignal } from 'solid-js';
+
+function Counter() {
+  const [count, setCount] = createSignal(0);
+  
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count()}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count() + 1)}&gt;
+        Increment
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code><button class="copy-btn" data-copy="const [count, setCount] = createSignal(0)">COPY</button></pre>
+
+                <h3>Effects - createEffect</h3>
+                <pre><code>import { createSignal, createEffect } from 'solid-js';
+
+function Logger() {
+  const [count, setCount] = createSignal(0);
+  
+  createEffect(() => {
+    console.log('Count changed:', count());
+  });
+  
+  return (
+    &lt;button onClick={() => setCount(count() + 1)}&gt;
+      Click me
+    &lt;/button&gt;
+  );
+}</code><button class="copy-btn" data-copy="createEffect(() => {">COPY</button></pre>
+
+                <h3>Memos - createMemo</h3>
+                <pre><code>import { createSignal, createMemo } from 'solid-js';
+
+function ExpensiveCalculation() {
+  const [count, setCount] = createSignal(0);
+  
+  // Cached computed value
+  const doubled = createMemo(() => {
+    console.log('Computing...');
+    return count() * 2;
+  });
+  
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count()}&lt;/p&gt;
+      &lt;p&gt;Doubled: {doubled()}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count() + 1)}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code><button class="copy-btn" data-copy="const doubled = createMemo(">COPY</button></pre>
+
+                <h3>Control Flow - Show, For</h3>
+                <pre><code>import { createSignal, Show, For } from 'solid-js';
+
+function TodoList() {
+  const [todos, setTodos] = createSignal([
+    { id: 1, text: 'Learn Solid', done: false },
+    { id: 2, text: 'Build app', done: false }
+  ]);
+  
+  return (
+    &lt;div&gt;
+      &lt;Show when={todos().length > 0} fallback={&lt;p&gt;No todos&lt;/p&gt;}&gt;
+        &lt;ul&gt;
+          &lt;For each={todos()}&gt;
+            {(todo) => (
+              &lt;li style={{ 
+                "text-decoration": todo.done ? "line-through" : "none" 
+              }}&gt;
+                {todo.text}
+              &lt;/li&gt;
+            )}
+          &lt;/For&gt;
+        &lt;/ul&gt;
+      &lt;/Show&gt;
+    &lt;/div&gt;
+  );
+}</code><button class="copy-btn" data-copy="<Show when={todos().length > 0}>">COPY</button></pre>
+
+                <h3>Props & Components</h3>
+                <pre><code>interface ButtonProps {
+  label: string;
+  onClick: () => void;
+}
+
+function Button(props: ButtonProps) {
+  return (
+    &lt;button onClick={props.onClick}&gt;
+      {props.label}
+    &lt;/button&gt;
+  );
+}
+
+function App() {
+  const [count, setCount] = createSignal(0);
+  
+  return (
+    &lt;div&gt;
+      &lt;p&gt;{count()}&lt;/p&gt;
+      &lt;Button 
+        label="Increment" 
+        onClick={() => setCount(count() + 1)} 
+      /&gt;
+    &lt;/div&gt;
+  );
+}</code><button class="copy-btn" data-copy="function Button(props: ButtonProps)">COPY</button></pre>
+
+                <h3>Store (State Management)</h3>
+                <pre><code>import { createStore } from 'solid-js/store';
+
+function TodoApp() {
+  const [todos, setTodos] = createStore([
+    { id: 1, text: 'Learn Solid', completed: false }
+  ]);
+  
+  const addTodo = (text: string) => {
+    setTodos([...todos, { 
+      id: Date.now(), 
+      text, 
+      completed: false 
+    }]);
+  };
+  
+  const toggleTodo = (id: number) => {
+    setTodos(
+      (todo) => todo.id === id,
+      'completed',
+      (c) => !c
+    );
+  };
+  
+  return (
+    &lt;For each={todos}&gt;
+      {(todo) => (
+        &lt;div onClick={() => toggleTodo(todo.id)}&gt;
+          {todo.text} - {todo.completed ? '✓' : '○'}
+        &lt;/div&gt;
+      )}
+    &lt;/For&gt;
+  );
+}</code><button class="copy-btn" data-copy="const [todos, setTodos] = createStore">COPY</button></pre>
+
+                <h3>Resources (Async Data)</h3>
+                <pre><code>import { createResource } from 'solid-js';
+
+async function fetchUser(id) {
+  const response = await fetch(`/api/users/${id}`);
+  return response.json();
+}
+
+function UserProfile() {
+  const [userId, setUserId] = createSignal(1);
+  const [user] = createResource(userId, fetchUser);
+  
+  return (
+    &lt;Show when={user()} fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+      &lt;div&gt;
+        &lt;h1&gt;{user().name}&lt;/h1&gt;
+        &lt;p&gt;{user().email}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/Show&gt;
+  );
+}</code><button class="copy-btn" data-copy="const [user] = createResource">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Context API</h3>
+            <pre><code>import { createContext, useContext } from 'solid-js';
+
+const CounterContext = createContext();
+
+function CounterProvider(props) {
+  const [count, setCount] = createSignal(0);
+  
+  const counter = {
+    count,
+    increment: () => setCount(c => c + 1),
+    decrement: () => setCount(c => c - 1)
+  };
+  
+  return (
+    &lt;CounterContext.Provider value={counter}&gt;
+      {props.children}
+    &lt;/CounterContext.Provider&gt;
+  );
+}
+
+function useCounter() {
+  return useContext(CounterContext);
+}
+
+function Display() {
+  const { count, increment } = useCounter();
+  return &lt;button onClick={increment}&gt;{count()}&lt;/button&gt;;
+}</code><button class="copy-btn" data-copy="const CounterContext = createContext()">COPY</button></pre>
+
+            <h3>Routing (Solid Router)</h3>
+            <pre><code>import { Router, Route, A } from '@solidjs/router';
+
+function App() {
+  return (
+    &lt;Router&gt;
+      &lt;nav&gt;
+        &lt;A href="/"&gt;Home&lt;/A&gt;
+        &lt;A href="/about"&gt;About&lt;/A&gt;
+      &lt;/nav&gt;
+      &lt;Route path="/" component={Home} /&gt;
+      &lt;Route path="/about" component={About} /&gt;
+      &lt;Route path="/users/:id" component={User} /&gt;
+    &lt;/Router&gt;
+  );
+}</code><button class="copy-btn" data-copy="<Router>">COPY</button></pre>
+
+            <h3>Transitions</h3>
+            <pre><code>import { createSignal, startTransition } from 'solid-js';
+
+function SearchResults() {
+  const [query, setQuery] = createSignal('');
+  const [results, setResults] = createSignal([]);
+  
+  const handleSearch = (value) => {
+    setQuery(value); // Immediate update
+    
+    startTransition(() => {
+      // Non-urgent update
+      const filtered = data.filter(item => 
+        item.includes(value)
+      );
+      setResults(filtered);
+    });
+  };
+  
+  return (
+    &lt;input 
+      value={query()} 
+      onInput={(e) => handleSearch(e.target.value)} 
+    /&gt;
+  );
+}</code><button class="copy-btn" data-copy="startTransition(() => {">COPY</button></pre>
+
+            <h3>Build & Deploy</h3>
+            <pre><code># Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Deploy to Vercel, Netlify (auto-detected)</code><button class="copy-btn" data-copy="npm run build">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Reactivity</strong> — Signals, memos, effects</div>
+            <div class="step"><span class="n">2</span><strong>Learn Control Flow</strong> — Show, For, Switch</div>
+            <div class="step"><span class="n">3</span><strong>Add Routing</strong> — Install Solid Router</div>
+            <div class="step"><span class="n">4</span><strong>State Management</strong> — Stores and context</div>
+            <div class="step"><span class="n">5</span><strong>Build & Deploy</strong> — Production optimization</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://www.solidjs.com/docs" target="_blank">Official Solid.js Documentation</a></li>
+                <li>🎓 <a href="https://www.solidjs.com/tutorial" target="_blank">Solid.js Tutorial</a></li>
+                <li>📘 <a href="https://github.com/solidjs/solid" target="_blank">Solid.js GitHub</a></li>
+                <li>💻 <a href="https://playground.solidjs.com/" target="_blank">Solid Playground</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

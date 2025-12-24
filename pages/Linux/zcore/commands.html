@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linux Command Cheat Sheet - Complete Guide</title>
+    <meta name="description"
+        content="Essential Linux commands for files, system info, permissions, and package management across Debian, Fedora, and Arch families.">
+
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../zlinux-Style/linux.css" />
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css" />
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Linux Commands</a></h1>
+                    <p class="sub">Fast reference for daily terminal work</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">⌨️</span>
+                <span>Core Linux Topic</span>
+            </div>
+            <h1 class="hero-title">Essential Linux Commands</h1>
+            <p class="hero-description">
+                A clean, practical cheat sheet for daily terminal work. <code>sudo</code> typically requires admin
+                privileges.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>📂 File Operations</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>ls -la</code></td>
+                            <td>List all files (including hidden) with details.</td>
+                        </tr>
+                        <tr>
+                            <td><code>cd directory</code></td>
+                            <td>Change directory. Use <code>cd ..</code> to go back one level.</td>
+                        </tr>
+                        <tr>
+                            <td><code>cp source dest</code></td>
+                            <td>Copy a file. Use <code>cp -r</code> for folders.</td>
+                        </tr>
+                        <tr>
+                            <td><code>mv source dest</code></td>
+                            <td>Move or rename a file.</td>
+                        </tr>
+                        <tr>
+                            <td><code>rm file</code></td>
+                            <td>Remove a file. <strong>Dangerous:</strong> <code>rm -rf folder</code> deletes a folder.</td>
+                        </tr>
+                        <tr>
+                            <td><code>mkdir folder</code></td>
+                            <td>Create a new directory.</td>
+                        </tr>
+                        <tr>
+                            <td><code>touch file</code></td>
+                            <td>Create an empty file.</td>
+                        </tr>
+                        <tr>
+                            <td><code>cat file</code></td>
+                            <td>Display file content.</td>
+                        </tr>
+                        <tr>
+                            <td><code>grep "text" file</code></td>
+                            <td>Search for text inside a file.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⚡ System Info & Management</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>sudo</code></td>
+                            <td>Run command as superuser (admin).</td>
+                        </tr>
+                        <tr>
+                            <td><code>top</code> / <code>htop</code></td>
+                            <td>Monitor real-time processes and resource usage.</td>
+                        </tr>
+                        <tr>
+                            <td><code>df -h</code></td>
+                            <td>Check disk space usage.</td>
+                        </tr>
+                        <tr>
+                            <td><code>free -h</code></td>
+                            <td>Check RAM usage.</td>
+                        </tr>
+                        <tr>
+                            <td><code>uname -a</code></td>
+                            <td>Show kernel and system information.</td>
+                        </tr>
+                        <tr>
+                            <td><code>systemctl status service</code></td>
+                            <td>Check the status of a service (e.g., nginx, sshd).</td>
+                        </tr>
+                        <tr>
+                            <td><code>shutdown now</code></td>
+                            <td>Turn off the computer immediately.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📦 Package Management</h2>
+            <p class="intro" style="margin: 0 0 1rem 0;">Commands depend on your distribution family.</p>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Family</th>
+                            <th>Update</th>
+                            <th>Install</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Debian/Ubuntu</strong></td>
+                            <td><code>apt update &amp;&amp; apt upgrade</code></td>
+                            <td><code>apt install pkg</code></td>
+                            <td><code>apt remove pkg</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fedora/RHEL</strong></td>
+                            <td><code>dnf upgrade</code></td>
+                            <td><code>dnf install pkg</code></td>
+                            <td><code>dnf remove pkg</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arch Linux</strong></td>
+                            <td><code>pacman -Syu</code></td>
+                            <td><code>pacman -S pkg</code></td>
+                            <td><code>pacman -Rns pkg</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔒 Permissions</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>chmod +x file</code></td>
+                            <td>Make a file executable.</td>
+                        </tr>
+                        <tr>
+                            <td><code>chmod 777 file</code></td>
+                            <td>Give everyone read/write/execute permissions (risky).</td>
+                        </tr>
+                        <tr>
+                            <td><code>chown user:group file</code></td>
+                            <td>Change file ownership.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🚀 Next Steps</h2>
+            <div class="next-steps-grid">
+                <a href="package-management.html" class="next-step-card">
+                    <span class="step-icon">📦</span>
+                    <h4>Package Management</h4>
+                    <p>Learn the major package manager families</p>
+                </a>
+                <a href="shell-scripting.html" class="next-step-card">
+                    <span class="step-icon">📜</span>
+                    <h4>Shell Scripting</h4>
+                    <p>Automate tasks with Bash scripts</p>
+                </a>
+                <a href="troubleshooting.html" class="next-step-card">
+                    <span class="step-icon">🧰</span>
+                    <h4>Troubleshooting</h4>
+                    <p>Debug common system issues</p>
+                </a>
+                <a href="../linux.html" class="next-step-card">
+                    <span class="step-icon">🐧</span>
+                    <h4>Linux Hub</h4>
+                    <p>Back to Linux main page</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../../Languages/languages.html">Languages</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
+

@@ -1,5 +1,5 @@
 /**
- * DevSphere Theme Switcher
+ * Coduxium XI Theme Switcher
  * Dark/Light mode with localStorage persistence
  */
 
@@ -15,7 +15,7 @@ class ThemeSwitcher {
 
 	init() {
 		// Announce that ThemeSwitcher manages theme so other scripts can defer
-		window.devSphereThemeManager = 'theme-switcher';
+		window.CoduxiumXIThemeManager = 'theme-switcher';
 		// Apply saved theme
 		this.applyTheme(this.currentTheme);
 		
@@ -25,7 +25,7 @@ class ThemeSwitcher {
 		// Listen for system theme changes
 		if (window.matchMedia) {
 			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-				if (!localStorage.getItem('devSphereTheme')) {
+				if (!localStorage.getItem('Coduxium XITheme')) {
 					this.setTheme(e.matches ? 'dark' : 'light');
 				}
 			});

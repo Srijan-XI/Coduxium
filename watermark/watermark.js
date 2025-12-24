@@ -16,7 +16,7 @@
 
         // Create watermark link (can link to GitHub profile)
         const watermarkLink = document.createElement('a');
-        watermarkLink.href = 'https://github.com/Srijan-XI';
+        watermarkLink.href = 'https://srijanxi.netlify.app/';
         watermarkLink.target = '_blank';
         watermarkLink.rel = 'noopener noreferrer';
         watermarkLink.className = 'brutalist-watermark';

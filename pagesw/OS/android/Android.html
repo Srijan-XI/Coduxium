@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Android — Coduxium XI</title>
+    <meta name="description" content="Android - Open-source mobile operating system powering billions of devices worldwide.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Android OS</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🤖 Android</h2>
+            <p class="intro">The world's most popular mobile operating system, powering over 3 billion active devices globally.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">OPEN SOURCE</span>
+                    <span class="badge">LINUX</span>
+                    <span class="badge">MOBILE</span>
+                    <span class="badge">GLOBAL</span>
+                </div>
+                <p>Android is a Linux-based open-source mobile operating system developed by Google. First released in 2008, Android has become the dominant mobile OS worldwide, with over 70% market share. It powers smartphones, tablets, smart TVs, cars, wearables, and IoT devices.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Android Version History</h3>
+                <ul>
+                    <li><strong>Android 1.0</strong> (2008) — First commercial release</li>
+                    <li><strong>Android 1.5 Cupcake</strong> (2009) — On-screen keyboard, video recording</li>
+                    <li><strong>Android 2.0 Eclair</strong> (2009) — Multiple accounts, Bluetooth 2.1</li>
+                    <li><strong>Android 2.2 Froyo</strong> (2010) — USB tethering, Adobe Flash</li>
+                    <li><strong>Android 2.3 Gingerbread</strong> (2010) — Improved UI, NFC support</li>
+                    <li><strong>Android 3.0 Honeycomb</strong> (2011) — Tablet-optimized</li>
+                    <li><strong>Android 4.0 Ice Cream Sandwich</strong> (2011) — Unified phone/tablet UI, Face Unlock</li>
+                    <li><strong>Android 4.1 Jelly Bean</strong> (2012) — Project Butter (60fps UI), Google Now</li>
+                    <li><strong>Android 4.4 KitKat</strong> (2013) — Memory optimization, immersive mode</li>
+                    <li><strong>Android 5.0 Lollipop</strong> (2014) — Material Design, ART runtime</li>
+                    <li><strong>Android 6.0 Marshmallow</strong> (2015) — Doze mode, runtime permissions</li>
+                    <li><strong>Android 7.0 Nougat</strong> (2016) — Multi-window, Quick Settings</li>
+                    <li><strong>Android 8.0 Oreo</strong> (2017) — Picture-in-Picture, notification channels</li>
+                    <li><strong>Android 9.0 Pie</strong> (2018) — Gesture navigation, Digital Wellbeing</li>
+                    <li><strong>Android 10</strong> (2019) — Dark theme, gesture navigation, privacy controls</li>
+                    <li><strong>Android 11</strong> (2020) — Conversations, one-time permissions, screen recording</li>
+                    <li><strong>Android 12</strong> (2021) — Material You, privacy dashboard</li>
+                    <li><strong>Android 13</strong> (2022) — Per-app language, themed icons</li>
+                    <li><strong>Android 14</strong> (2023) — Satellite connectivity, health connect</li>
+                    <li><strong>Android 15</strong> (2024) — Enhanced privacy, improved performance</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Open Source:</strong> AOSP (Android Open Source Project)</li>
+                    <li><strong>Customization:</strong> Launchers, widgets, icon packs</li>
+                    <li><strong>Google Play Store:</strong> 3.5M+ apps available</li>
+                    <li><strong>Multi-tasking:</strong> Split-screen, picture-in-picture</li>
+                    <li><strong>Google Services:</strong> Gmail, Maps, Drive, Photos integration</li>
+                    <li><strong>Material Design:</strong> Modern, responsive UI framework</li>
+                    <li><strong>Notifications:</strong> Rich, actionable notification system</li>
+                    <li><strong>Google Assistant:</strong> AI-powered voice assistant</li>
+                    <li><strong>Security:</strong> Play Protect, monthly security patches</li>
+                    <li><strong>Accessibility:</strong> TalkBack, Live Caption, Sound Amplifier</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Android Development - Kotlin</h3>
+                <pre><code>// MainActivity.kt - Modern Android app
+package com.example.myapp
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyAppTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    CounterScreen()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun CounterScreen() {
+    var count by remember { mutableStateOf(0) }
+    
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Count: $count",
+            style = MaterialTheme.typography.headlineLarge
+        )
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        Button(onClick = { count++ }) {
+            Text("Increment")
+        }
+        
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        OutlinedButton(onClick = { count = 0 }) {
+            Text("Reset")
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Jetpack Compose - Modern UI</h3>
+                <pre><code>import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+
+data class Item(val id: Int, val name: String)
+
+@Composable
+fun ItemList(items: List<Item>) {
+    LazyColumn {
+        items(items) { item ->
+            ListItem(
+                headlineContent = { Text(item.name) },
+                supportingContent = { Text("ID: ${item.id}") },
+                leadingContent = {
+                    Icon(
+                        Icons.Filled.Person,
+                        contentDescription = null
+                    )
+                }
+            )
+            Divider()
+        }
+    }
+}
+
+// Navigation with Compose
+@Composable
+fun AppNavigation() {
+    val navController = rememberNavController()
+    
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") {
+            HomeScreen(onNavigate = { navController.navigate("details") })
+        }
+        composable("details") {
+            DetailsScreen(onBack = { navController.popBackStack() })
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Android Manifest</h3>
+                <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp"&gt;
+
+    &lt;!-- Permissions --&gt;
+    &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+    &lt;uses-permission android:name="android.permission.CAMERA" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;
+    &lt;uses-permission android:name="android.permission.POST_NOTIFICATIONS" /&gt;
+
+    &lt;application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.MyApp"&gt;
+        
+        &lt;activity
+            android:name=".MainActivity"
+            android:exported="true"&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+
+        &lt;!-- Service --&gt;
+        &lt;service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="false" /&gt;
+
+        &lt;!-- Broadcast Receiver --&gt;
+        &lt;receiver android:name=".MyReceiver"&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.BOOT_COMPLETED" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Room Database (SQLite)</h3>
+                <pre><code>// Entity
+@Entity(tableName = "users")
+data class User(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "email") val email: String
+)
+
+// DAO (Data Access Object)
+@Dao
+interface UserDao {
+    @Query("SELECT * FROM users")
+    fun getAllUsers(): Flow<List<User>>
+    
+    @Query("SELECT * FROM users WHERE id = :userId")
+    suspend fun getUserById(userId: Int): User?
+    
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUser(user: User)
+    
+    @Delete
+    suspend fun deleteUser(user: User)
+    
+    @Update
+    suspend fun updateUser(user: User)
+}
+
+// Database
+@Database(entities = [User::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun userDao(): UserDao
+    
+    companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
+        
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "app_database"
+                ).build()
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Retrofit - Network Requests</h3>
+                <pre><code>// API Interface
+interface ApiService {
+    @GET("users/{id}")
+    suspend fun getUser(@Path("id") userId: Int): User
+    
+    @GET("users")
+    suspend fun getAllUsers(): List<User>
+    
+    @POST("users")
+    suspend fun createUser(@Body user: User): User
+    
+    @PUT("users/{id}")
+    suspend fun updateUser(@Path("id") id: Int, @Body user: User): User
+    
+    @DELETE("users/{id}")
+    suspend fun deleteUser(@Path("id") id: Int): Response<Unit>
+}
+
+// Retrofit Setup
+object RetrofitClient {
+    private const val BASE_URL = "https://api.example.com/"
+    
+    val apiService: ApiService by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiService::class.java)
+    }
+}
+
+// Usage in ViewModel
+class UserViewModel : ViewModel() {
+    private val _users = MutableStateFlow<List<User>>(emptyList())
+    val users: StateFlow<List<User>> = _users
+    
+    fun fetchUsers() {
+        viewModelScope.launch {
+            try {
+                val result = RetrofitClient.apiService.getAllUsers()
+                _users.value = result
+            } catch (e: Exception) {
+                Log.e("UserViewModel", "Error: ${e.message}")
+            }
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>WorkManager - Background Tasks</h3>
+                <pre><code>// Define Worker
+class SyncWorker(
+    context: Context,
+    params: WorkerParameters
+) : CoroutineWorker(context, params) {
+    
+    override suspend fun doWork(): Result {
+        return try {
+            // Perform background work
+            syncData()
+            Result.success()
+        } catch (e: Exception) {
+            Result.retry()
+        }
+    }
+    
+    private suspend fun syncData() {
+        // Sync logic
+    }
+}
+
+// Schedule work
+val constraints = Constraints.Builder()
+    .setRequiredNetworkType(NetworkType.CONNECTED)
+    .setRequiresBatteryNotLow(true)
+    .build()
+
+val syncWorkRequest = PeriodicWorkRequestBuilder<SyncWorker>(
+    repeatInterval = 1,
+    repeatIntervalTimeUnit = TimeUnit.HOURS
+)
+    .setConstraints(constraints)
+    .build()
+
+WorkManager.getInstance(context)
+    .enqueueUniquePeriodicWork(
+        "sync_work",
+        ExistingPeriodicWorkPolicy.KEEP,
+        syncWorkRequest
+    )</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Notifications</h3>
+                <pre><code>// Create notification channel (Android 8.0+)
+fun createNotificationChannel(context: Context) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channel = NotificationChannel(
+            "channel_id",
+            "Channel Name",
+            NotificationManager.IMPORTANCE_DEFAULT
+        ).apply {
+            description = "Channel Description"
+        }
+        
+        val notificationManager = context.getSystemService(NotificationManager::class.java)
+        notificationManager.createNotificationChannel(channel)
+    }
+}
+
+// Show notification
+fun showNotification(context: Context) {
+    val notification = NotificationCompat.Builder(context, "channel_id")
+        .setSmallIcon(R.drawable.ic_notification)
+        .setContentTitle("Title")
+        .setContentText("Notification text")
+        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        .setAutoCancel(true)
+        .build()
+    
+    NotificationManagerCompat.from(context).notify(1, notification)
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Build Configuration (build.gradle.kts)</h3>
+                <pre><code>plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace = "com.example.myapp"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.myapp"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
+    }
+}
+
+dependencies {
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    
+    // Compose
+    implementation(platform("androidx.compose:compose-bom:2024.01.00"))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
+    
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    
+    // WorkManager
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Android Flavors & Manufacturers</h3>
+                <ul>
+                    <li><strong>Stock Android:</strong> Google Pixel devices (pure AOSP experience)</li>
+                    <li><strong>One UI:</strong> Samsung's custom skin</li>
+                    <li><strong>MIUI:</strong> Xiaomi's interface</li>
+                    <li><strong>OxygenOS:</strong> OnePlus devices</li>
+                    <li><strong>ColorOS:</strong> OPPO smartphones</li>
+                    <li><strong>Realme UI:</strong> Realme devices</li>
+                    <li><strong>EMUI/HarmonyOS:</strong> Huawei (post-Google services)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Testing</h3>
+                <pre><code>// Unit Test
+class CalculatorTest {
+    @Test
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
+    }
+}
+
+// Instrumented Test
+@RunWith(AndroidJUnit4::class)
+class MainActivityTest {
+    @get:Rule
+    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+    
+    @Test
+    fun buttonClick_incrementsCounter() {
+        onView(withId(R.id.button))
+            .perform(click())
+        onView(withId(R.id.counter))
+            .check(matches(withText("1")))
+    }
+}
+
+// Compose UI Test
+@Test
+fun counterIncrement_works() {
+    composeTestRule.setContent {
+        CounterScreen()
+    }
+    
+    composeTestRule.onNodeWithText("Increment").performClick()
+    composeTestRule.onNodeWithText("Count: 1").assertExists()
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.android.com/" target="_blank">Android Official Site</a></li>
+                    <li>📚 <a href="https://developer.android.com/" target="_blank">Android Developers</a></li>
+                    <li>💻 <a href="https://kotlinlang.org/" target="_blank">Kotlin Programming</a></li>
+                    <li>🎨 <a href="https://m3.material.io/" target="_blank">Material Design 3</a></li>
+                    <li>🔧 <a href="https://developer.android.com/jetpack" target="_blank">Android Jetpack</a></li>
+                    <li>📱 <a href="https://developer.android.com/jetpack/compose" target="_blank">Jetpack Compose</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.android.com/" target="_blank">Android</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

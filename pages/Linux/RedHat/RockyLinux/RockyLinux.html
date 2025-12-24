@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocky Linux - Complete Guide | Coduxium XI</title>
+    <meta name="description"
+        content="Complete Rocky Linux guide - Community enterprise Linux providing production-ready RHEL alternative">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Rocky Linux</a></h1>
+                    <p class="sub">Enterprise Linux, Community Driven</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">💚</span>
+                <span>CentOS Successor</span>
+            </div>
+            <h1 class="hero-title">Rocky Linux</h1>
+            <p class="hero-description">
+                A community enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat
+                Enterprise Linux. Rocky Linux is the spiritual successor to CentOS, providing a stable, production-ready
+                platform.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> RHEL (bug-for-bug compatible)</li>
+                    <li><strong>Package Manager:</strong> DNF</li>
+                    <li><strong>Desktop:</strong> None default (Server), GNOME/KDE available</li>
+                    <li><strong>Release Model:</strong> Follows RHEL release cycle</li>
+                    <li><strong>Target Users:</strong> Enterprises, data centers, CentOS migrants</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h4>RHEL Compatible</h4>
+                    <p>100% binary compatible with Red Hat Enterprise Linux</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🆓</span>
+                    <h4>Free & Open</h4>
+                    <p>Completely free with no subscription required</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h4>Community Driven</h4>
+                    <p>Governed by the community, for the community</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h4>Production Ready</h4>
+                    <p>Enterprise-grade stability and long-term support</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Rocky Linux?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Rocky Linux is a community-driven enterprise operating system founded by Gregory Kurtzer, one of the
+                    original founders of CentOS. Created in response to Red Hat's decision to discontinue CentOS as a
+                    RHEL rebuild, Rocky Linux aims to provide a stable, production-ready platform that is 100%
+                    bug-for-bug compatible with RHEL. It's named after Rocky McGaugh, a co-founder of CentOS who passed
+                    away in 2004.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li><strong>RHEL Compatibility:</strong> Drop-in replacement for RHEL and CentOS</li>
+                    <li><strong>Long-term Support:</strong> 10 years of support matching RHEL lifecycle</li>
+                    <li><strong>No Subscription:</strong> Free to use with no licensing costs</li>
+                    <li><strong>Community Governance:</strong> Transparent, community-led development</li>
+                    <li><strong>Enterprise Features:</strong> SELinux, firewalld, and enterprise tools included</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Rocky Linux?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>CentOS Replacement</h4>
+                        <p>Perfect migration path for CentOS users seeking stability</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Enterprise Without Cost</h4>
+                        <p>Get RHEL-level stability without subscription fees</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Community Trust</h4>
+                        <p>Backed by strong community and transparent governance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download from: <a href="https://rockylinux.org/download"
+                            target="_blank">rockylinux.org/download</a><br><br>
+                        Choose: Minimal, DVD, or Boot ISO<br>
+                        File size: ~2-10GB depending on version
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=Rocky-9.iso of=/dev/sdX bs=4M status=progress
+
+# Or use Fedora Media Writer, Etcher</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot & Install</h4>
+                    <p class="command-desc">
+                        1. Boot from installation media<br>
+                        2. Select "Install Rocky Linux"<br>
+                        3. Choose language and keyboard<br>
+                        4. Configure installation destination<br>
+                        5. Set network and hostname<br>
+                        6. Create user account
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Post-Installation</h4>
+                    <pre><code class="language-bash"># Update system
+sudo dnf update -y
+
+# Install EPEL (optional)
+sudo dnf install epel-release -y
+
+# Reboot
+sudo reboot</code></pre>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 2 GHz dual-core or better (64-bit)</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB minimum (40GB+ recommended)</li>
+                    <li><strong>GPU:</strong> Not required for server, any for desktop</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management with DNF</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo dnf update -y</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">sudo dnf install package-name
+
+# Install group
+sudo dnf group install "Development Tools"</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo dnf remove package-name
+sudo dnf autoremove</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">dnf search keyword
+dnf info package-name</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Install Desktop Environment</h4>
+                        <pre><code class="language-bash"># GNOME
+sudo dnf group install "Server with GUI"
+
+# Or specific DE
+sudo dnf group install "GNOME Desktop"</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Firewall Management</h4>
+                        <pre><code class="language-bash"># Check status
+sudo firewall-cmd --state
+
+# Add service
+sudo firewall-cmd --add-service=http --permanent
+sudo firewall-cmd --reload</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>SELinux Management</h4>
+                        <pre><code class="language-bash"># Check status
+sestatus
+
+# Temporarily set permissive
+sudo setenforce 0</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Enable EPEL</h4>
+                        <pre><code class="language-bash">sudo dnf install epel-release -y
+sudo dnf update</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Migrate from CentOS</h4>
+                    <pre><code class="language-bash"># Download migration script
+curl https://raw.githubusercontent.com/rocky-linux/rocky-tools/main/migrate2rocky/migrate2rocky.sh -o migrate2rocky.sh
+
+# Make executable
+chmod +x migrate2rocky.sh
+
+# Run migration
+sudo ./migrate2rocky.sh -r</code></pre>
+                    <p class="command-desc">Migrate existing CentOS installation to Rocky</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Container Management (Podman)</h4>
+                    <pre><code class="language-bash"># Install Podman
+sudo dnf install podman -y
+
+# Run container
+podman run -it rockylinux/rockylinux:9 bash
+
+# List containers
+podman ps -a</code></pre>
+                    <p class="command-desc">Container runtime for Rocky Linux</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Web Server Setup (Apache)</h4>
+                    <pre><code class="language-bash"># Install Apache
+sudo dnf install httpd -y
+
+# Start and enable
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# Open firewall
+sudo firewall-cmd --add-service=http --permanent
+sudo firewall-cmd --reload</code></pre>
+                    <p class="command-desc">Set up web server</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Kernel Management</h4>
+                    <pre><code class="language-bash"># List installed kernels
+rpm -q kernel
+
+# Set default kernel
+sudo grubby --set-default /boot/vmlinuz-<version>
+
+# Remove old kernels
+sudo dnf remove kernel-<old-version></code></pre>
+                    <p class="command-desc">Manage system kernels</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update System</strong></td>
+                            <td><code>sudo dnf update</code></td>
+                            <td>Update all packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Package</strong></td>
+                            <td><code>sudo dnf install package</code></td>
+                            <td>Install software</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remove Package</strong></td>
+                            <td><code>sudo dnf remove package</code></td>
+                            <td>Uninstall software</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search Packages</strong></td>
+                            <td><code>dnf search keyword</code></td>
+                            <td>Search for packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List Installed</strong></td>
+                            <td><code>dnf list installed</code></td>
+                            <td>Show installed packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rocky Version</strong></td>
+                            <td><code>cat /etc/rocky-release</code></td>
+                            <td>Show Rocky Linux version</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Firewall Status</strong></td>
+                            <td><code>sudo firewall-cmd --list-all</code></td>
+                            <td>View firewall rules</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Service Management</strong></td>
+                            <td><code>sudo systemctl restart service</code></td>
+                            <td>Restart a service</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SELinux Status</strong></td>
+                            <td><code>sestatus</code></td>
+                            <td>Check SELinux mode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System Logs</strong></td>
+                            <td><code>sudo journalctl -xe</code></td>
+                            <td>View system logs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://rockylinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Rocky Linux homepage</p>
+                </a>
+                <a href="https://docs.rockylinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official Rocky Linux docs</p>
+                </a>
+                <a href="https://forums.rockylinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community Forums</h4>
+                    <p>Get help and support</p>
+                </a>
+                <a href="https://github.com/rocky-linux" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>GitHub repositories</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Download Rocky Linux ISO</li>
+                    <li>Install on server or VM</li>
+                    <li>Enable EPEL repository for additional packages</li>
+                    <li>Configure firewall and SELinux</li>
+                    <li>Join the Rocky Linux community</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../RHEL/rhel.html" class="next-step-card">
+                    <span class="step-icon">🏢</span>
+                    <h4>RHEL</h4>
+                    <p>Upstream enterprise Linux</p>
+                </a>
+                <a href="../CentOS/centos.html" class="next-step-card">
+                    <span class="step-icon">💜</span>
+                    <h4>CentOS Stream</h4>
+                    <p>Rolling preview of RHEL</p>
+                </a>
+                <a href="../Fedora/fedora.html" class="next-step-card">
+                    <span class="step-icon">🎩</span>
+                    <h4>Fedora</h4>
+                    <p>Innovation leader for RHEL</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GameMaker — Coduxium XI</title>
+    <meta name="description" content="GameMaker - User-friendly 2D game development engine with GML scripting.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">GameMaker Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎮 GameMaker</h2>
+            <p class="intro">Accessible 2D game development engine perfect for beginners and indie developers.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">2D</span>
+                    <span class="badge">GML</span>
+                    <span class="badge">INDIE</span>
+                    <span class="badge">VISUAL SCRIPTING</span>
+                </div>
+                <p>GameMaker (formerly GameMaker Studio) is a cross-platform game engine developed by YoYo Games. Known for its intuitive drag-and-drop interface and powerful GML (GameMaker Language) scripting, it's the engine behind many successful indie games.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Drag-and-Drop</strong> — Visual programming for beginners</li>
+                    <li><strong>GML Scripting</strong> — C-like language for advanced logic</li>
+                    <li><strong>Cross-Platform</strong> — Windows, macOS, Linux, HTML5, iOS, Android, consoles</li>
+                    <li><strong>Built-in Editor</strong> — Integrated sprite, room, and animation editors</li>
+                    <li><strong>Tile System</strong> — Efficient tile-based level design</li>
+                    <li><strong>Physics</strong> — Box2D physics integration</li>
+                    <li><strong>Particles</strong> — Flexible particle system</li>
+                    <li><strong>Audio</strong> — Complete audio management</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code># Download GameMaker
+# https://gamemaker.io/en/download
+
+# Installation
+1. Download installer for your platform
+2. Run installer
+3. Create YoYo Games account
+4. Choose license tier
+
+# Create First Project
+1. File → New Project
+2. Choose DnD or GML
+3. Add sprites, objects, rooms
+4. Run with F5</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GML Code Example</h3>
+                <pre><code>// Create Event - Initialize player
+speed = 0;
+max_speed = 5;
+acceleration = 0.5;
+friction_amount = 0.3;
+
+// Step Event - Movement logic
+if (keyboard_check(vk_right)) {
+    speed = min(speed + acceleration, max_speed);
+    sprite_index = spr_player_run;
+    image_xscale = 1;
+}
+else if (keyboard_check(vk_left)) {
+    speed = max(speed - acceleration, -max_speed);
+    sprite_index = spr_player_run;
+    image_xscale = -1;
+}
+else {
+    // Apply friction
+    if (speed > 0) {
+        speed = max(speed - friction_amount, 0);
+    } else if (speed < 0) {
+        speed = min(speed + friction_amount, 0);
+    }
+    sprite_index = spr_player_idle;
+}
+
+// Move the player
+x += speed;
+
+// Jump logic
+if (keyboard_check_pressed(vk_space) && place_meeting(x, y+1, obj_ground)) {
+    vspeed = -10;
+}
+
+// Gravity
+if (!place_meeting(x, y+1, obj_ground)) {
+    vspeed += 0.5;
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Notable Games</h3>
+                <ul>
+                    <li><strong>Undertale</strong> — Beloved indie RPG</li>
+                    <li><strong>Hotline Miami</strong> — Fast-paced action game</li>
+                    <li><strong>Hyper Light Drifter</strong> — Beautiful action-adventure</li>
+                    <li><strong>Spelunky</strong> — Roguelike platformer</li>
+                    <li><strong>Nuclear Throne</strong> — Top-down shooter</li>
+                    <li><strong>Katana ZERO</strong> — Stylish action platformer</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing Tiers</h3>
+                <ul>
+                    <li><strong>Free</strong> — Limited exports, watermarked</li>
+                    <li><strong>Creator ($4.99/mo)</strong> — Desktop and web exports</li>
+                    <li><strong>Indie ($9.99/mo)</strong> — All platforms except console</li>
+                    <li><strong>Enterprise (Custom)</strong> — Console development and source code access</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Learning Path</h3>
+                <ol>
+                    <li><strong>Drag-and-Drop Basics</strong> — Learn visual scripting</li>
+                    <li><strong>GML Fundamentals</strong> — Transition to code</li>
+                    <li><strong>Object-Oriented Design</strong> — Understand objects and inheritance</li>
+                    <li><strong>Advanced Techniques</strong> — Data structures, shaders, particles</li>
+                    <li><strong>Optimization</strong> — Performance best practices</li>
+                </ol>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://gamemaker.io/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://manual.gamemaker.io/" target="_blank">Official Manual</a></li>
+                    <li>🎓 <a href="https://gamemaker.io/en/tutorials" target="_blank">Official Tutorials</a></li>
+                    <li>💬 <a href="https://forum.gamemaker.io/" target="_blank">Community Forum</a></li>
+                    <li>🎥 <a href="https://www.youtube.com/@yoyogames" target="_blank">YouTube Channel</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://gamemaker.io/" target="_blank">GameMaker</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

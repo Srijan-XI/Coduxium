@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SonarQube — Coduxium XI</title>
+    <meta name="description" content="SonarQube - Continuous code quality and security inspection platform.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">SonarQube</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔍 SonarQube</h2>
+            <p class="intro">Leading platform for continuous inspection of code quality and security vulnerabilities.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">CODE QUALITY</span>
+                    <span class="badge">SECURITY</span>
+                    <span class="badge">STATIC ANALYSIS</span>
+                    <span class="badge">DEVSECOPS</span>
+                </div>
+                <p>SonarQube is an open-source platform for continuous inspection of code quality to perform automatic reviews with static analysis to detect bugs, code smells, and security vulnerabilities across 30+ programming languages.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Multi-Language Support</strong> — Java, C#, Python, JavaScript, TypeScript, Go, and more</li>
+                    <li><strong>Code Quality Metrics</strong> — Bugs, code smells, technical debt</li>
+                    <li><strong>Security Vulnerabilities</strong> — OWASP Top 10, CWE coverage</li>
+                    <li><strong>Quality Gates</strong> — Enforce quality standards before merge</li>
+                    <li><strong>Code Coverage</strong> — Track test coverage metrics</li>
+                    <li><strong>Pull Request Decoration</strong> — GitHub, GitLab, Bitbucket integration</li>
+                    <li><strong>Custom Rules</strong> — Define organization-specific rules</li>
+                    <li><strong>Technical Debt</strong> — Measure and track code debt</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Installation - Docker</h3>
+                <pre><code># Pull SonarQube image
+docker pull sonarqube:lts-community
+
+# Run SonarQube
+docker run -d --name sonarqube \
+  -p 9000:9000 \
+  -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \
+  sonarqube:lts-community
+
+# With PostgreSQL database
+docker network create sonarnet
+
+docker run -d --name sonarqube-db \
+  --network sonarnet \
+  -e POSTGRES_USER=sonar \
+  -e POSTGRES_PASSWORD=sonar \
+  -e POSTGRES_DB=sonarqube \
+  postgres:15
+
+docker run -d --name sonarqube \
+  --network sonarnet \
+  -p 9000:9000 \
+  -e SONAR_JDBC_URL=jdbc:postgresql://sonarqube-db:5432/sonarqube \
+  -e SONAR_JDBC_USERNAME=sonar \
+  -e SONAR_JDBC_PASSWORD=sonar \
+  sonarqube:lts-community
+
+# Access at http://localhost:9000
+# Default credentials: admin/admin</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>SonarScanner Setup</h3>
+                <pre><code># Install SonarScanner CLI
+# macOS
+brew install sonar-scanner
+
+# Linux (manual)
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+unzip sonar-scanner-cli-5.0.1.3006-linux.zip
+export PATH=$PATH:/path/to/sonar-scanner/bin
+
+# Windows
+# Download from: https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/
+
+# Verify installation
+sonar-scanner --version
+
+# sonar-project.properties
+sonar.projectKey=my-project
+sonar.projectName=My Project
+sonar.projectVersion=1.0
+sonar.sources=src
+sonar.host.url=http://localhost:9000
+sonar.login=YOUR_TOKEN
+
+# Run scan
+sonar-scanner</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Maven Integration</h3>
+                <pre><code>&lt;!-- Add to pom.xml --&gt;
+&lt;properties&gt;
+    &lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;
+    &lt;sonar.login&gt;YOUR_TOKEN&lt;/sonar.login&gt;
+&lt;/properties&gt;
+
+&lt;!-- Run analysis --&gt;
+mvn clean verify sonar:sonar
+
+&lt;!-- With parameters --&gt;
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=my-project \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=YOUR_TOKEN</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Gradle Integration</h3>
+                <pre><code>// build.gradle
+plugins {
+    id "org.sonarqube" version "4.4.1.3373"
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "my-project"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.login", "YOUR_TOKEN"
+    }
+}
+
+// Run analysis
+./gradlew sonar</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GitHub Actions Integration</h3>
+                <pre><code>name: SonarQube Analysis
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Shallow clones disabled for better analysis
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin'
+
+      - name: Cache SonarQube packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          -Dsonar.projectKey=my-project</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GitLab CI Integration</h3>
+                <pre><code>stages:
+  - test
+  - sonarqube
+
+sonarqube-check:
+  stage: sonarqube
+  image: maven:3.9-eclipse-temurin-17
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - mvn verify sonar:sonar 
+      -Dsonar.projectKey=$CI_PROJECT_NAME 
+      -Dsonar.host.url=$SONAR_HOST_URL 
+      -Dsonar.login=$SONAR_TOKEN
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
+    - develop</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Quality Gate Configuration</h3>
+                <pre><code># Quality Gate conditions (configured in SonarQube UI)
+# - Coverage < 80%: FAILED
+# - Duplicated Lines > 3%: FAILED
+# - Maintainability Rating worse than A: FAILED
+# - Reliability Rating worse than A: FAILED
+# - Security Rating worse than A: FAILED
+# - Security Hotspots Reviewed < 100%: FAILED
+
+# Check Quality Gate status in pipeline
+sonar-scanner \
+  -Dsonar.qualitygate.wait=true \
+  -Dsonar.qualitygate.timeout=300
+
+# Exit code 0 if passed, 1 if failed</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>JavaScript/TypeScript Analysis</h3>
+                <pre><code># sonar-project.properties for Node.js
+sonar.projectKey=my-js-project
+sonar.projectName=My JavaScript Project
+sonar.sources=src
+sonar.tests=test
+sonar.javascript.lcov.reportPaths=coverage/lcov.info
+sonar.testExecutionReportPaths=test-report.xml
+
+# Run tests with coverage
+npm test -- --coverage
+
+# Run SonarScanner
+sonar-scanner
+
+# TypeScript specific
+sonar.typescript.tsconfigPath=tsconfig.json</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Python Analysis</h3>
+                <pre><code># sonar-project.properties for Python
+sonar.projectKey=my-python-project
+sonar.projectName=My Python Project
+sonar.sources=src
+sonar.tests=tests
+sonar.python.coverage.reportPaths=coverage.xml
+sonar.python.version=3.11
+
+# Generate coverage with pytest
+pytest --cov=src --cov-report=xml
+
+# Run SonarScanner
+sonar-scanner</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Editions & Pricing</h3>
+                <ul>
+                    <li><strong>Community Edition</strong> — Free, open source, unlimited LOC</li>
+                    <li><strong>Developer Edition</strong> — Paid, branch analysis, PR decoration</li>
+                    <li><strong>Enterprise Edition</strong> — Paid, portfolio management, executive reporting</li>
+                    <li><strong>Data Center Edition</strong> — Paid, high availability, horizontal scaling</li>
+                    <li><strong>SonarCloud</strong> — SaaS version with free tier for open source</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Integrate SonarQube early in development cycle</li>
+                    <li>Set up Quality Gates to enforce standards</li>
+                    <li>Use PR decoration for immediate feedback</li>
+                    <li>Configure meaningful quality profiles</li>
+                    <li>Track technical debt regularly</li>
+                    <li>Fix security hotspots immediately</li>
+                    <li>Maintain high code coverage (>80%)</li>
+                    <li>Review and fix code smells incrementally</li>
+                    <li>Customize rules for your organization</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.sonarsource.com/products/sonarqube/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.sonarqube.org/" target="_blank">Documentation</a></li>
+                    <li>💬 <a href="https://community.sonarsource.com/" target="_blank">Community Forum</a></li>
+                    <li>📦 <a href="https://github.com/SonarSource/sonarqube" target="_blank">GitHub Repository</a></li>
+                    <li>🎓 <a href="https://www.sonarsource.com/learn/" target="_blank">Learning Resources</a></li>
+                    <li>☁️ <a href="https://www.sonarsource.com/products/sonarcloud/" target="_blank">SonarCloud (SaaS)</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.sonarsource.com/" target="_blank">SonarQube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

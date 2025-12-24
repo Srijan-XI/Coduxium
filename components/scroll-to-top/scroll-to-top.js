@@ -1,5 +1,5 @@
 /**
- * DevSphere Scroll-to-Top Button
+ * Coduxium XI Scroll-to-Top Button
  * Smooth scroll with visibility based on scroll position
  */
 
