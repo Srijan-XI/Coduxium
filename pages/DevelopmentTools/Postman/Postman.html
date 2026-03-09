@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete guide to Postman - API development platform for designing, testing, documenting, and automating APIs with collections, environments, and Newman CLI." />
+  <meta name="keywords"
+    content="Postman, API, REST, Testing, Collections, Newman, API Development, HTTP, Integration Testing" />
+  <title>Postman Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Postman Complete Guide</h1>
+      <p class="subtitle">Design, test, and automate your APIs using collections, environments, and scripts. Run tests
+        in CI with Newman.</p>
+      <div class="badge-row">
+        <span class="badge">API TESTING</span>
+        <span class="badge">COLLECTIONS</span>
+        <span class="badge">AUTOMATION</span>
+        <span class="badge">NEWMAN</span>
+        <span class="badge">REST</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Pro Tip:</strong> Use environment variables for URLs and tokens. Store
+        collections in Git and run them in CI/CD pipelines with Newman for continuous API testing.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Postman?</h3>
+      <p>Postman is a comprehensive API development platform that simplifies each step of building an API and
+        streamlines collaboration. From design and testing to documentation and monitoring, Postman is the tool used by
+        millions of developers and companies worldwide to accelerate API development.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🔧 API Design</strong> — Design APIs with OpenAPI specifications</div>
+        <div class="topic"><strong>📡 Request Builder</strong> — Send HTTP requests with any method</div>
+        <div class="topic"><strong>📚 Collections</strong> — Organize and share API requests</div>
+        <div class="topic"><strong>🌍 Environments</strong> — Switch between dev/staging/prod</div>
+        <div class="topic"><strong>🧪 Testing</strong> — Automated tests with JavaScript</div>
+        <div class="topic"><strong>📊 Mock Servers</strong> — Simulate API responses</div>
+        <div class="topic"><strong>📝 Documentation</strong> — Auto-generated API docs</div>
+        <div class="topic"><strong>⚙️ Newman</strong> — CLI for CI/CD integration</div>
+      </div>
+
+      <h3>Why Choose Postman?</h3>
+      <ul>
+        <li><strong>Intuitive Interface:</strong> User-friendly GUI makes API testing accessible to everyone on your
+          team.</li>
+        <li><strong>Collaboration:</strong> Share collections, environments, and workspaces with your team.</li>
+        <li><strong>Automation:</strong> Write tests in JavaScript and run them via Newman in CI/CD pipelines.</li>
+        <li><strong>Comprehensive:</strong> Handle REST, GraphQL, WebSocket, gRPC, and SOAP APIs.</li>
+        <li><strong>Ecosystem:</strong> Integrations with GitHub, GitLab, Slack, Jenkins, and more.</li>
+        <li><strong>Free Tier:</strong> Generous free plan for individuals and small teams.</li>
+      </ul>
+
+      <h3>Use Cases</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🧪 API Testing</strong> — Manual and automated API testing</div>
+        <div class="topic"><strong>🔍 API Exploration</strong> — Discover and understand APIs</div>
+        <div class="topic"><strong>⚙️ Automated Testing</strong> — Run tests in CI/CD pipelines</div>
+        <div class="topic"><strong>📝 Documentation</strong> — Generate and publish API docs</div>
+        <div class="topic"><strong>🏗️ Development</strong> — Design APIs before implementation</div>
+        <div class="topic"><strong>🤝 Collaboration</strong> — Share APIs across teams</div>
+      </div>
+
+      <h3>Postman vs Alternatives</h3>
+      <ul>
+        <li><strong>vs cURL:</strong> Visual interface, test automation, collaboration features</li>
+        <li><strong>vs Insomnia:</strong> Larger ecosystem, better collaboration, more integrations</li>
+        <li><strong>vs Thunder Client:</strong> Full-featured desktop app vs VS Code extension</li>
+        <li><strong>vs HTTPie:</strong> GUI vs CLI focus, but both complement each other</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Important:</strong> Store sensitive data (API keys, tokens) in
+        environment variables, never hardcode them in requests or collections that will be version-controlled.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Get started with Postman desktop application and Newman CLI for automated testing.</p>
+
+      <!-- Windows Installation -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation</h3>
+
+        <h4>Option 1 — winget (Recommended)</h4>
+        <pre><code># Install Postman
+winget install -e --id Postman.Postman
+
+# Launch Postman from Start menu</code><button class="copy-btn" data-copy="winget install -e --id Postman.Postman">COPY</button></pre>
+
+        <h4>Option 2 — Direct Download</h4>
+        <div class="step"><span class="n">1</span> Download from <a href="https://www.postman.com/downloads/"
+            target="_blank" rel="noopener noreferrer">postman.com/downloads</a></div>
+        <div class="step"><span class="n">2</span> Run the installer</div>
+        <div class="step"><span class="n">3</span> Launch Postman</div>
+        <div class="step"><span class="n">4</span> Sign in or create account (optional but recommended)</div>
+      </div>
+
+      <!-- macOS Installation -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation</h3>
+
+        <h4>Homebrew (Recommended)</h4>
+        <pre><code># Install Postman
+brew install --cask postman
+
+# Launch Postman
+open -a Postman</code><button class="copy-btn" data-copy="brew install --cask postman">COPY</button></pre>
+
+        <h4>Direct Download</h4>
+        <p>Download from <a href="https://www.postman.com/downloads/" target="_blank"
+            rel="noopener noreferrer">postman.com/downloads</a>, drag to Applications folder, and launch.</p>
+      </div>
+
+      <!-- Linux Installation -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation</h3>
+
+        <h4>Snap (Recommended)</h4>
+        <pre><code># Install via Snap
+sudo snap install postman
+
+# Launch
+postman</code><button class="copy-btn" data-copy="sudo snap install postman">COPY</button></pre>
+
+        <h4>Manual Installation</h4>
+        <pre><code># Download and extract
+wget https://dl.pstmn.io/download/latest/linux_64 -O postman-linux-x64.tar.gz
+sudo tar -xzf postman-linux-x64.tar.gz -C /opt
+
+# Create symlink
+sudo ln -s /opt/Postman/Postman /usr/bin/postman
+
+# Launch
+postman</code><button class="copy-btn" data-copy="postman">COPY</button></pre>
+      </div>
+
+      <!-- Newman CLI -->
+      <div id="newman-install" class="subsection">
+        <h3>Newman CLI Installation</h3>
+        <p>Newman is the command-line companion for Postman that allows you to run collections in CI/CD pipelines.</p>
+
+        <pre><code># Install Newman globally via npm
+npm install -g newman
+
+# Verify installation
+newman --version
+
+# Install Newman HTML reporter (optional but recommended)
+npm install -g newman-reporter-htmlextra
+
+# Install Newman JUnit reporter
+npm install -g newman-reporter-junit</code><button class="copy-btn" data-copy="npm install -g newman">COPY</button></pre>
+      </div>
+
+      <!-- Initial Setup -->
+      <div id="initial-setup" class="subsection">
+        <h3>Initial Setup</h3>
+
+        <h4>Create Account (Optional)</h4>
+        <div class="step"><span class="n">1</span> Launch Postman</div>
+        <div class="step"><span class="n">2</span> Click "Sign In" or "Create Account"</div>
+        <div class="step"><span class="n">3</span> Sign up with email or Google/GitHub</div>
+        <div class="step"><span class="n">4</span> Verify email if required</div>
+
+        <p><strong>Benefits of signing in:</strong></p>
+        <ul>
+          <li>Sync collections and environments across devices</li>
+          <li>Collaborate with team members</li>
+          <li>Access cloud features (mock servers, monitors)</li>
+          <li>Backup your work automatically</li>
+        </ul>
+
+        <h4>Configure Settings</h4>
+        <div class="step"><span class="n">1</span> Go to Settings (gear icon or Ctrl/Cmd + ,)</div>
+        <div class="step"><span class="n">2</span> Configure SSL verification, proxy if needed</div>
+        <div class="step"><span class="n">3</span> Set default request timeout</div>
+        <div class="step"><span class="n">4</span> Choose light/dark theme</div>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <p>Learn how to create requests, build collections, write tests, and automate API testing.</p>
+
+      <!-- Making Requests -->
+      <div id="making-requests" class="subsection">
+        <h3>Making HTTP Requests</h3>
+
+        <h4>Create a Simple Request</h4>
+        <div class="step"><span class="n">1</span> Click "New" or "+" to create a new request</div>
+        <div class="step"><span class="n">2</span> Select HTTP method (GET, POST, PUT, DELETE, etc.)</div>
+        <div class="step"><span class="n">3</span> Enter URL (e.g., https://api.example.com/users)</div>
+        <div class="step"><span class="n">4</span> Add headers, body, or parameters if needed</div>
+        <div class="step"><span class="n">5</span> Click "Send"</div>
+        <div class="step"><span class="n">6</span> View response (body, headers, status)</div>
+
+        <h4>Request Types Examples</h4>
+        <pre><code># GET Request
+GET https://jsonplaceholder.typicode.com/posts/1
+
+# POST Request with JSON body
+POST https://jsonplaceholder.typicode.com/posts
+Headers:
+  Content-Type: application/json
+Body (raw JSON):
+{
+  "title": "My Post",
+  "body": "This is the content",
+  "userId": 1
+}
+
+# PUT Request (update)
+PUT https://jsonplaceholder.typicode.com/posts/1
+Body:
+{
+  "id": 1,
+  "title": "Updated Title",
+  "body": "Updated content",
+  "userId": 1
+}
+
+# DELETE Request
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+# Query Parameters
+GET https://api.example.com/users?page=2&limit=10</code><button class="copy-btn" data-copy="GET https://api.example.com/users">COPY</button></pre>
+      </div>
+
+      <!-- Collections -->
+      <div id="collections" class="subsection">
+        <h3>Working with Collections</h3>
+
+        <h4>Create a Collection</h4>
+        <div class="step"><span class="n">1</span> Click "Collections" in sidebar</div>
+        <div class="step"><span class="n">2</span> Click "New Collection" or "+"</div>
+        <div class="step"><span class="n">3</span> Name your collection (e.g., "User API")</div>
+        <div class="step"><span class="n">4</span> Add description (optional)</div>
+        <div class="step"><span class="n">5</span> Configure authorization, variables, scripts</div>
+
+        <h4>Add Requests to Collection</h4>
+        <div class="step"><span class="n">1</span> Create or open a request</div>
+        <div class="step"><span class="n">2</span> Click "Save" or Ctrl/Cmd + S</div>
+        <div class="step"><span class="n">3</span> Choose collection and folder</div>
+        <div class="step"><span class="n">4</span> Name the request</div>
+        <div class="step"><span class="n">5</span> Save</div>
+
+        <h4>Organize with Folders</h4>
+        <div class="step"><span class="n">1</span> Right-click collection</div>
+        <div class="step"><span class="n">2</span> Select "Add Folder"</div>
+        <div class="step"><span class="n">3</span> Name folder (e.g., "Authentication", "Users", "Posts")</div>
+        <div class="step"><span class="n">4</span> Drag requests into folders</div>
+
+        <h4>Export Collection</h4>
+        <pre><code># Export collection to JSON file
+1. Right-click collection
+2. Select "Export"
+3. Choose Collection v2.1 (recommended)
+4. Save file
+
+# Use in version control (Git)
+git add my-api.postman_collection.json
+git commit -m "Add API test collection"</code><button class="copy-btn" data-copy="Export collection">COPY</button></pre>
+      </div>
+
+      <!-- Environments -->
+      <div id="environments" class="subsection">
+        <h3>Environments & Variables</h3>
+
+        <h4>Create Environment</h4>
+        <div class="step"><span class="n">1</span> Click "Environments" in sidebar</div>
+        <div class="step"><span class="n">2</span> Click "+" to create new environment</div>
+        <div class="step"><span class="n">3</span> Name it (e.g., "Local", "Staging", "Production")</div>
+        <div class="step"><span class="n">4</span> Add variables (key-value pairs)</div>
+        <div class="step"><span class="n">5</span> Save</div>
+
+        <h4>Environment Variables Example</h4>
+        <pre><code>// Local Environment
+{
+  "name": "Local",
+  "values": [
+    { "key": "baseUrl", "value": "http://localhost:3000", "enabled": true },
+    { "key": "apiKey", "value": "local-key-123", "enabled": true, "type": "secret" },
+    { "key": "userId", "value": "test-user-1", "enabled": true }
+  ]
+}
+
+// Production Environment
+{
+  "name": "Production",
+  "values": [
+    { "key": "baseUrl", "value": "https://api.example.com", "enabled": true },
+    { "key": "apiKey", "value": "prod-key-xyz", "enabled": true "type": "secret" },
+    { "key": "userId", "value": "", "enabled": true }
+  ]
+}</code><button class="copy-btn" data-copy="Environment variables">COPY</button></pre>
+
+        <h4>Use Variables in Requests</h4>
+        <pre><code># In URL
+{{baseUrl}}/users/{{userId}}
+
+# In Headers
+Authorization: Bearer {{apiToken}}
+
+# In Body
+{
+  "apiKey": "{{apiKey}}",
+  "environment": "{{env}}"
+}
+
+# In Tests/Scripts
+pm.environment.get("baseUrl")
+pm.environment.set("userId", "12345")</code><button class="copy-btn" data-copy="{{baseUrl}}/users">COPY</button></pre>
+      </div>
+
+      <!-- Writing Tests -->
+      <div id="tests" class="subsection">
+        <h3>Writing Tests</h3>
+
+        <h4>Basic Tests</h4>
+        <pre><code>// Tests tab in request
+
+// Check status code
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// Check response time
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+});
+
+// Check JSON response
+pm.test("Response has JSON body", function () {
+    pm.response.to.be.json;
+});
+
+// Check specific field
+pm.test("User has correct email", function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData.email).to.eql("user@example.com");
+});
+
+// Check array length
+pm.test("Returns 10 users", function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.lengthOf(10);
+});
+
+// Check header exists
+pm.test("Content-Type header is present", function () {
+    pm.response.to.have.header("Content-Type");
+});
+
+// Multiple assertions
+pm.test("User object is valid", function () {
+    const user = pm.response.json();
+    pm.expect(user).to.have.property("id");
+    pm.expect(user).to.have.property("name");
+    pm.expect(user.name).to.be.a("string");
+    pm.expect(user.id).to.be.a("number");
+});</code><button class="copy-btn" data-copy='pm.test("Status code is 200", () => pm.response.to.have.status(200))'>COPY</button></pre>
+
+        <h4>Advanced Tests</h4>
+        <pre><code>// Save response data to environment
+pm.test("Save user ID", function () {
+    const jsonData = pm.response.json();
+    pm.environment.set("userId", jsonData.id);
+    pm.environment.set("authToken", jsonData.token);
+});
+
+// Conditional tests
+if (pm.response.code === 200) {
+    pm.test("Successful response has data", function () {
+        const jsonData = pm.response.json();
+        pm.expect(jsonData).to.have.property("data");
+    });
+}
+
+// Schema validation
+const schema = {
+    type: "object",
+    required: ["id", "email", "name"],
+    properties: {
+        id: { type: "number" },
+        email: { type: "string", format: "email" },
+        name: { type: "string", minLength: 1 }
+    }
+};
+
+pm.test("Response matches schema", function () {
+    pm.response.to.have.jsonSchema(schema);
+});
+
+// Array validation
+pm.test("All users have valid emails", function () {
+    const users = pm.response.json();
+    users.forEach(user => {
+        pm.expect(user.email).to.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+    });
+});</code><button class="copy-btn" data-copy="Advanced tests">COPY</button></pre>
+      </div>
+
+      <!-- Pre-request Scripts -->
+      <div id="pre-request" class="subsection">
+        <h3>Pre-request Scripts</h3>
+        <pre><code>// Generate timestamp
+pm.environment.set("timestamp", Date.now());
+
+// Generate random data
+const randomEmail = `user${Math.floor(Math.random() * 10000)}@example.com`;
+pm.environment.set("randomEmail", randomEmail);
+
+// Set authorization header
+const token = pm.environment.get("authToken");
+pm.request.headers.add({
+    key: "Authorization",
+    value: `Bearer ${token}`
+});
+
+// Generate UUID
+const { v4: uuidv4 } = require('uuid');
+pm.environment.set("requestId", uuidv4());
+
+// Hash password (example)
+const CryptoJS = require('crypto-js');
+const password = pm.environment.get("password");
+const hashedPassword = CryptoJS.SHA256(password).toString();
+pm.environment.set("hashedPassword", hashedPassword);
+
+// Make a pre-request API call
+pm.sendRequest({
+    url: pm.environment.get("baseUrl") + "/auth/token",
+    method: "POST",
+    header: {
+        "Content-Type": "application/json"
+    },
+    body: {
+        mode: "raw",
+        raw: JSON.stringify({
+            username: pm.environment.get("username"),
+            password: pm.environment.get("password")
+        })
+    }
+}, function (err, res) {
+    if (!err) {
+        const token = res.json().access_token;
+        pm.environment.set("authToken", token);
+    }
+});</code><button class="copy-btn" data-copy="Pre-request scripts">COPY</button></pre>
+      </div>
+
+      <!-- Newman CLI -->
+      <div id="newman-cli" class="subsection">
+        <h3>Newman CLI</h3>
+
+        <h4>Basic Newman Usage</h4>
+        <pre><code># Run collection
+newman run my-api.postman_collection.json
+
+# Run with environment
+newman run my-api.postman_collection.json \
+  -e local.postman_environment.json
+
+# Run with specific iteration count
+newman run my-api.postman_collection.json \
+  --iteration-count 5
+
+# Run with delay between requests
+newman run my-api.postman_collection.json \
+  --delay-request 1000
+
+# Run specific folder
+newman run my-api.postman_collection.json \
+  --folder "User Tests"</code><button class="copy-btn" data-copy="newman run collection.json -e environment.json">COPY</button></pre>
+
+        <h4>Newman with Reporters</h4>
+        <pre><code># Generate HTML report
+newman run my-api.postman_collection.json \
+  -e local.postman_environment.json \
+  -r htmlextra \
+  --reporter-htmlextra-export report.html
+
+# Generate JUnit report (for CI/CD)
+newman run my-api.postman_collection.json \
+  -e prod.postman_environment.json \
+  -r junit \
+  --reporter-junit-export results.xml
+
+# Multiple reporters
+newman run my-api.postman_collection.json \
+  -r cli,json,htmlextra \
+  --reporter-json-export output.json \
+  --reporter-htmlextra-export report.html
+
+# Run in CI/CD (exit on failure)
+newman run my-api.postman_collection.json \
+  -e prod.postman_environment.json \
+  --bail \
+  --suppress-exit-code</code><button class="copy-btn" data-copy="newman run collection.json -r htmlextra">COPY</button></pre>
+
+        <h4>Newman in CI/CD</h4>
+        <pre><code># GitHub Actions example
+name: API Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: npm install -g newman newman-reporter-htmlextra
+      - run: |
+          newman run api-tests.postman_collection.json \
+            -e production.postman_environment.json \
+            -r htmlextra,junit \
+            --reporter-htmlextra-export test-report.html \
+            --reporter-junit-export results.xml
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-reports
+          path: |
+            test-report.html
+            results.xml</code><button class="copy-btn" data-copy="Newman in CI/CD">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Mock Servers</h3>
+      <p>Create mock servers to simulate API responses during development:</p>
+      <div class="step"><span class="n">1</span> Right-click collection → "Mock Collection"</div>
+      <div class="step"><span class="n">2</span> Configure mock server settings</div>
+      <div class="step"><span class="n">3</span> Save examples in requests</div>
+      <div class="step"><span class="n">4</span> Use mock URL in development</div>
+
+      <h3>Monitors</h3>
+      <p>Schedule collections to run automatically and monitor API health:</p>
+      <div class="step"><span class="n">1</span> Go to "Monitors" tab</div>
+      <div class="step"><span class="n">2</span> Create new monitor</div>
+      <div class="step"><span class="n">3</span> Select collection and environment</div>
+      <div class="step"><span class="n">4</span> Set schedule (hourly, daily, weekly)</div>
+      <div class="step"><span class="n">5</span> Configure notifications</div>
+
+      <h3>Documentation</h3>
+      <pre><code># Auto-generate API documentation
+1. Open collection
+2. Click "View complete documentation"
+3. Edit descriptions for requests
+4. Add examples
+5. Click "Publish" to share publicly or with team
+
+# Embed documentation
+<iframe src="https://documenter.getpostman.com/view/YOUR_DOC_ID"></iframe></code><button class="copy-btn" data-copy="API Documentation">COPY</button></pre>
+
+      <h3>GraphQL Support</h3>
+      <pre><code># GraphQL query in Postman
+POST https://api.example.com/graphql
+Body (GraphQL):
+query GetUser($id: ID!) {
+  user(id: $id) {
+    id
+    name
+    email
+    posts {
+      title
+      createdAt
+    }
+  }
+}
+
+Variables:
+{
+  "id": "123"
+}</code><button class="copy-btn" data-copy="GraphQL query">COPY</button></pre>
+
+      <h3>Data-Driven Testing</h3>
+      <pre><code># Create CSV or JSON file with test data
+# users.csv:
+username,email,age
+john,john@example.com,30
+jane,jane@example.com,25
+
+# Run with Newman
+newman run collection.json \
+  -d users.csv \
+  --iteration-count 2
+
+# In request, use variables:
+POST {{baseUrl}}/users
+{
+  "username": "{{username}}",
+  "email": "{{email}}",
+  "age": {{age}}
+}</code><button class="copy-btn" data-copy="Data-driven testing">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Create Your First Collection</strong> — Organize related API
+        requests</div>
+      <div class="step"><span class="n">2</span><strong>Set Up Environments</strong> — Configure dev/staging/prod
+        variables</div>
+      <div class="step"><span class="n">3</span><strong>Write Tests</strong> — Add automated tests to your requests
+      </div>
+      <div class="step"><span class="n">4</span><strong>Export and Version Control</strong> — Store collections in Git
+      </div>
+      <div class="step"><span class="n">5</span><strong>Integrate Newman in CI/CD</strong> — Run tests automatically
+      </div>
+      <div class="step"><span class="n">6</span><strong>Generate Documentation</strong> — Share API docs with teammates
+      </div>
+      <div class="step"><span class="n">7</span><strong>Set Up Monitors</strong> — Get alerted on API failures</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://learning.postman.com/docs/" target="_blank" rel="noopener noreferrer">Official Postman
+            Documentation</a></li>
+        <li>🎓 <a href="https://academy.postman.com/" target="_blank" rel="noopener noreferrer">Postman Academy (Free
+            Courses)</a></li>
+        <li>⚙️ <a
+            href="https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/"
+            target="_blank" rel="noopener noreferrer">Newman CLI Documentation</a></li>
+        <li>🌐 <a href="https://www.postman.com/explore" target="_blank" rel="noopener noreferrer">Public API
+            Network</a></li>
+        <li>💡 <a href="https://blog.postman.com/" target="_blank" rel="noopener noreferrer">Postman Blog</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete Python guide - Learn installation, syntax, libraries, and best practices for the world's most popular programming language." />
+  <meta name="keywords"
+    content="Python, Programming, Learn Python, Python Tutorial, Data Science, Machine Learning, Web Development" />
+  <title>Python Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>🐍 Python Complete Guide</h1>
+      <p class="subtitle">A powerful, versatile programming language for beginners and experts alike.</p>
+      <div class="badge-row">
+        <span class="badge">EASY TO LEARN</span>
+        <span class="badge">VERSATILE</span>
+        <span class="badge">BATTERIES INCLUDED</span>
+        <span class="badge">CROSS-PLATFORM</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Beginner Friendly:</strong> Python's clean, readable syntax makes it the perfect
+        first language while being powerful enough for advanced applications.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Python?</h3>
+      <p><strong>Python</strong> is a high-level, interpreted, dynamically-typed programming language created by Guido
+        van Rossum and first released in 1991. Known for its emphasis on code readability and simplicity, Python has
+        become one of the most popular programming languages worldwide, powering everything from simple scripts to
+        complex web applications and AI systems.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>📖 Readable Syntax</strong> — Clean, English-like code</div>
+        <div class="topic"><strong>🔄 Interpreted</strong> — No compilation step needed</div>
+        <div class="topic"><strong>🎯 Dynamic Typing</strong> — Variables don't need type declarations</div>
+        <div class="topic"><strong>🧩 Multi-Paradigm</strong> — OOP, functional, procedural</div>
+        <div class="topic"><strong>📦 Standard Library</strong> — "Batteries included" philosophy</div>
+        <div class="topic"><strong>🌐 Cross-Platform</strong> — Windows, macOS, Linux</div>
+        <div class="topic"><strong>🤝 Community</strong> — 400,000+ packages on PyPI</div>
+        <div class="topic"><strong>⚡ Productivity</strong> — Write less code, achieve more</div>
+      </div>
+
+      <h3>Why Choose Python?</h3>
+      <ul>
+        <li><strong>Easy to Learn:</strong> Intuitive syntax perfect for beginners</li>
+        <li><strong>Versatile:</strong> Web development, data science, ML, automation, scripting</li>
+        <li><strong>Rich Ecosystem:</strong> NumPy, Pandas, Django, Flask, TensorFlow, PyTorch</li>
+        <li><strong>Job Market:</strong> High demand across industries</li>
+        <li><strong>Community Support:</strong> Massive, helpful community worldwide</li>
+        <li><strong>Rapid Development:</strong> Prototype and deploy quickly</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Important:</strong> Python 2 reached end-of-life in 2020. Always use
+        Python 3.x (3.8+) for new projects.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Get started with Python by installing it on your system and setting up your development environment.</p>
+
+      <!-- Windows Installation -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation</h3>
+
+        <h4>Method 1: Official Installer (Recommended)</h4>
+        <div class="step"><span class="n">1</span>
+          <div><strong>Download Python</strong>
+            <p>Visit <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a> and download
+              the latest Python 3.x installer for Windows.</p>
+          </div>
+        </div>
+        <div class="step"><span class="n">2</span>
+          <div><strong>Run Installer</strong>
+            <p><strong style="color:#f59e0b;">CRITICAL:</strong> Check "Add Python to PATH" before clicking "Install
+              Now"</p>
+          </div>
+        </div>
+        <div class="step"><span class="n">3</span>
+          <div><strong>Verify Installation</strong>
+            <pre><code>python --version
+pip --version</code><button class="copy-btn" data-copy="python --version">COPY</button></pre>
+          </div>
+        </div>
+
+        <h4>Method 2: Microsoft Store</h4>
+        <pre><code># Open Microsoft Store, search for "Python 3.12" and install</code><button class="copy-btn" data-copy="Microsoft Store Python">COPY</button></pre>
+
+        <h4>Method 3: winget</h4>
+        <pre><code>winget install Python.Python.3.12</code><button class="copy-btn" data-copy="winget install Python.Python.3.12">COPY</button></pre>
+      </div>
+
+      <!-- macOS Installation -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation</h3>
+
+        <h4>Method 1: Homebrew (Recommended)</h4>
+        <pre><code># Install Homebrew (if not installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Python
+brew install python
+
+# Verify
+python3 --version
+pip3 --version</code><button class="copy-btn" data-copy="brew install python">COPY</button></pre>
+
+        <h4>Method 2: Official Installer</h4>
+        <p>Download from <a href="https://www.python.org/downloads/macos/"
+            target="_blank">python.org/downloads/macos</a></p>
+
+        <h4>Create Aliases (Optional)</h4>
+        <pre><code>echo 'alias python=python3' >> ~/.zshrc
+echo 'alias pip=pip3' >> ~/.zshrc
+source ~/.zshrc</code><button class="copy-btn" data-copy="echo 'alias python=python3' >> ~/.zshrc">COPY</button></pre>
+      </div>
+
+      <!-- Linux Installation -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation</h3>
+
+        <h4>Ubuntu/Debian</h4>
+        <pre><code>sudo apt update
+sudo apt install python3 python3-pip python3-venv</code><button class="copy-btn" data-copy="sudo apt install python3 python3-pip python3-venv">COPY</button></pre>
+
+        <h4>Fedora/RHEL</h4>
+        <pre><code>sudo dnf install python3 python3-pip</code><button class="copy-btn" data-copy="sudo dnf install python3 python3-pip">COPY</button></pre>
+
+        <h4>Arch Linux</h4>
+        <pre><code>sudo pacman -S python python-pip</code><button class="copy-btn" data-copy="sudo pacman -S python python-pip">COPY</button></pre>
+      </div>
+
+      <!-- Virtual Environments -->
+      <div id="virtual-env" class="subsection">
+        <h3>Virtual Environments</h3>
+        <pre><code># Create virtual environment
+python -m venv myenv
+
+# Activate (Windows)
+myenv\Scripts\activate
+
+# Activate (macOS/Linux)
+source myenv/bin/activate
+
+# Install packages
+pip install django pandas numpy
+
+# Deactivate
+deactivate
+
+# Generate requirements.txt
+pip freeze > requirements.txt</code><button class="copy-btn" data-copy="python -m venv myenv">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Hello World</h3>
+        <pre><code>print("Hello, Coduxium XI!")</code><button class="copy-btn" data-copy='print("Hello, Coduxium XI!")'>COPY</button></pre>
+
+        <h3>Variables & Data Types</h3>
+        <pre><code># Variables (no type declaration needed)
+name = "Python"
+version = 3.12
+is_awesome = True
+
+# Type checking
+print(type(name))  # <class 'str'>
+
+# Type conversion
+age = "25"
+age_int = int(age)</code><button class="copy-btn" data-copy='name = "Python"\nversion = 3.12'>COPY</button></pre>
+
+        <h3>Strings</h3>
+        <pre><code># f-strings (Python 3.6+)
+name = "Alice"
+age = 30
+greeting = f"My name is {name} and I'm {age} years old"
+
+# String methods
+text = "Python"
+print(text.upper())    # PYTHON
+print(text[0])         # P
+print(text[::-1])      # nohtyP (reversed)</code><button class="copy-btn" data-copy='greeting = f"My name is {name}"'>COPY</button></pre>
+
+        <h3>Lists, Tuples & Dictionaries</h3>
+        <pre><code># Lists (mutable)
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+
+# List comprehension
+squares = [x**2 for x in range(10)]
+evens = [x for x in range(20) if x % 2 == 0]
+
+# Dictionaries
+user = {
+    "name": "Bob",
+    "age": 25,
+    "email": "bob@example.com"
+}
+print(user["name"])
+user["age"] = 26</code><button class="copy-btn" data-copy="fruits = ['apple', 'banana']\nfruits.append('cherry')">COPY</button></pre>
+
+        <h3>Control Flow</h3>
+        <pre><code># If-elif-else
+age = 18
+if age < 18:
+    print("Minor")
+elif age == 18:
+    print("Just became an adult!")
+else:
+    print("Adult")
+
+# For loops
+for fruit in ["apple", "banana", "cherry"]:
+    print(fruit)
+
+# While loops
+count = 0
+while count < 5:
+    print(count)
+    count += 1</code><button class="copy-btn" data-copy="if age >= 18:\n    print('Adult')">COPY</button></pre>
+
+        <h3>Functions</h3>
+        <pre><code># Basic function
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+
+# Default parameters
+def power(base, exponent=2):
+    return base ** exponent
+
+# Lambda functions
+square = lambda x: x ** 2
+print(square(5))  # 25</code><button class="copy-btn" data-copy="def greet(name):\n    return f'Hello, {name}!'">COPY</button></pre>
+
+        <h3>Classes & Objects</h3>
+        <pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def greet(self):
+        return f"Hi, I'm {self.name}"
+
+# Create instance
+person = Person("Alice", 30)
+print(person.greet())</code><button class="copy-btn" data-copy="class Person:\n    def __init__(self, name, age):\n        self.name = name">COPY</button></pre>
+
+        <h3>File Operations</h3>
+        <pre><code># Reading files
+with open('file.txt', 'r') as file:
+    content = file.read()
+
+# Writing files
+with open('output.txt', 'w') as file:
+    file.write("Hello, World!")</code><button class="copy-btn" data-copy="with open('file.txt', 'r') as file:\n    content = file.read()">COPY</button></pre>
+
+        <h3>Exception Handling</h3>
+        <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"Error: {e}")
+finally:
+    print("Cleanup")</code><button class="copy-btn" data-copy="try:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print('Error!')">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Popular Libraries</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>NumPy</strong>Numerical computing</div>
+        <div class="package-item"><strong>Pandas</strong>Data manipulation</div>
+        <div class="package-item"><strong>Django</strong>Web framework</div>
+        <div class="package-item"><strong>Flask</strong>Micro web framework</div>
+        <div class="package-item"><strong>FastAPI</strong>Modern API framework</div>
+        <div class="package-item"><strong>TensorFlow</strong>Machine learning</div>
+        <div class="package-item"><strong>PyTorch</strong>Deep learning</div>
+        <div class="package-item"><strong>Scikit-learn</strong>ML algorithms</div>
+        <div class="package-item"><strong>Matplotlib</strong>Data visualization</div>
+        <div class="package-item"><strong>Requests</strong>HTTP library</div>
+      </div>
+
+      <h3>Installing Packages</h3>
+      <pre><code>pip install requests
+pip install django==4.2
+pip install -r requirements.txt
+pip list
+pip show numpy
+pip uninstall flask</code><button class="copy-btn" data-copy="pip install requests">COPY</button></pre>
+
+      <h3>Decorators</h3>
+      <pre><code>def timer_decorator(func):
+    import time
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        print(f"Took {time.time() - start:.2f}s")
+        return result
+    return wrapper
+
+@timer_decorator
+def slow_function():
+    import time
+    time.sleep(1)</code><button class="copy-btn" data-copy="Decorator example">COPY</button></pre>
+
+      <h3>Generators</h3>
+      <pre><code>def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(10):
+    print(num)</code><button class="copy-btn" data-copy="Generator example">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Practice Basics</strong> — Solve problems on LeetCode or
+        HackerRank</div>
+      <div class="step"><span class="n">2</span><strong>Build Projects</strong> — Create a web app with Flask or Django
+      </div>
+      <div class="step"><span class="n">3</span><strong>Learn Data Science</strong> — Master Pandas and NumPy</div>
+      <div class="step"><span class="n">4</span><strong>Explore ML</strong> — Try Sc ikit-learn and TensorFlow</div>
+      <div class="step"><span class="n">5</span><strong>Master Testing</strong> — Learn pytest for testing</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://docs.python.org/3/" target="_blank">Official Python Documentation</a></li>
+        <li>🎓 <a href="https://realpython.com/" target="_blank">Real Python Tutorials</a></li>
+        <li>📘 <a href="https://automatetheboringstuff.com/" target="_blank">Automate the Boring Stuff</a></li>
+        <li>💻 <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 8 Style Guide</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

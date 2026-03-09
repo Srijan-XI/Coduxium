@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete SQL guide - Master database querying, data manipulation, and relational database management." />
+  <meta name="keywords" content="SQL, Database, MySQL, PostgreSQL, Queries, Data, Relational" />
+  <title>SQL Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>🗄️ SQL Complete Guide</h1>
+      <p class="subtitle">Structured Query Language - manage and query relational databases efficiently.</p>
+      <div class="badge-row">
+        <span class="badge">RELATIONAL</span>
+        <span class="badge">QUERIES</span>
+        <span class="badge">DATA</span>
+        <span class="badge">STANDARD</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Universal Language:</strong> SQL is the standard language for all relational
+        databases - MySQL, PostgreSQL, SQL Server, Oracle.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is SQL?</h3>
+      <p><strong>SQL</strong> (Structured Query Language) is a standardized language for managing and manipulating
+        relational databases. Created in the 1970s, SQL remains the fundamental skill for data analysis, backend
+        development, and database administration.</p>
+
+      <h3>Key Concepts</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>📊 Tables</strong> — Structured data storage</div>
+        <div class="topic"><strong>🔑 Keys</strong> — Primary & foreign keys</div>
+        <div class="topic"><strong>🔗 Joins</strong> — Combine related data</div>
+        <div class="topic"><strong>📝 CRUD</strong> — Create, Read, Update, Delete</div>
+        <div class="topic"><strong>🎯 Indexes</strong> — Query optimization</div>
+        <div class="topic"><strong>🔒 Transactions</strong> — Data consistency</div>
+      </div>
+
+      <h3>Why Learn SQL?</h3>
+      <ul>
+        <li><strong>Universal:</strong> Works with all relational databases</li>
+        <li><strong>Essential:</strong> Required for data roles and backend dev</li>
+        <li><strong>Powerful:</strong> Handle millions of records efficiently</li>
+        <li><strong>In-Demand:</strong> Top skill in job markets</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+
+      <div class="subsection">
+        <h3>MySQL Installation</h3>
+
+        <h4>Windows</h4>
+        <pre><code># Download MySQL Installer
+# https://dev.mysql.com/downloads/installer/
+
+# Or use winget
+winget install Oracle.MySQL</code><button class="copy-btn" data-copy="winget install Oracle.MySQL">COPY</button></pre>
+
+        <h4>macOS</h4>
+        <pre><code># Using Homebrew
+brew install mysql
+
+# Start MySQL
+brew services start mysql
+
+# Secure installation
+mysql_secure_installation</code><button class="copy-btn" data-copy="brew install mysql">COPY</button></pre>
+
+        <h4>Linux</h4>
+        <pre><code># Ubuntu/Debian
+sudo apt update
+sudo apt install mysql-server
+
+# Start MySQL
+sudo systemctl start mysql
+
+# Secure installation
+sudo mysql_secure_installation</code><button class="copy-btn" data-copy="sudo apt install mysql-server">COPY</button></pre>
+
+        <h3>Connect to MySQL</h3>
+        <pre><code># Connect
+mysql -u root -p
+
+# Show databases
+SHOW DATABASES;
+
+# Create database
+CREATE DATABASE mydb;
+
+# Use database
+USE mydb;</code><button class="copy-btn" data-copy="mysql -u root -p">COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Create Tables</h3>
+        <pre><code>-- Create table
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    age INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Show table structure
+DESCRIBE users;</code><button class="copy-btn" data-copy="CREATE TABLE users (id INT PRIMARY KEY, name VARCHAR(100));">COPY</button></pre>
+
+        <h3>INSERT Data</h3>
+        <pre><code>-- Insert single row
+INSERT INTO users (name, email, age)
+VALUES ('Alice', 'alice@example.com', 30);
+
+-- Insert multiple rows
+INSERT INTO users (name, email, age) VALUES
+('Bob', 'bob@example.com', 25),
+('Charlie', 'charlie@example.com', 35);</code><button class="copy-btn" data-copy="INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com');">COPY</button></pre>
+
+        <h3>SELECT Queries</h3>
+        <pre><code>-- Select all
+SELECT * FROM users;
+
+-- Select specific columns
+SELECT name, email FROM users;
+
+-- WHERE clause
+SELECT * FROM users WHERE age > 25;
+
+-- ORDER BY
+SELECT * FROM users ORDER BY age DESC;
+
+-- LIMIT
+SELECT * FROM users LIMIT 10;
+
+-- DISTINCT
+SELECT DISTINCT age FROM users;</code><button class="copy-btn" data-copy="SELECT * FROM users WHERE age > 25;">COPY</button></pre>
+
+        <h3>UPDATE & DELETE</h3>
+        <pre><code>-- Update
+UPDATE users
+SET age = 31
+WHERE name = 'Alice';
+
+-- Delete
+DELETE FROM users
+WHERE age < 18;
+
+-- Delete all rows (careful!)
+DELETE FROM users;</code><button class="copy-btn" data-copy="UPDATE users SET age = 31 WHERE name = 'Alice';">COPY</button></pre>
+
+        <h3>Joins</h3>
+        <pre><code>-- Create orders table
+CREATE TABLE orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    product VARCHAR(100),
+    amount DECIMAL(10, 2),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- INNER JOIN
+SELECT users.name, orders.product
+FROM users
+INNER JOIN orders ON users.id = orders.user_id;
+
+-- LEFT JOIN
+SELECT users.name, orders.product
+FROM users
+LEFT JOIN orders ON users.id = orders.user_id;
+
+-- RIGHT JOIN
+SELECT users.name, orders.product
+FROM users
+RIGHT JOIN orders ON users.id = orders.user_id;</code><button class="copy-btn" data-copy="SELECT u.name, o.product FROM users u INNER JOIN orders o ON u.id = o.user_id;">COPY</button></pre>
+
+        <h3>Aggregate Functions</h3>
+        <pre><code>-- COUNT
+SELECT COUNT(*) FROM users;
+
+-- SUM
+SELECT SUM(amount) FROM orders;
+
+-- AVG
+SELECT AVG(age) FROM users;
+
+-- MAX/MIN
+SELECT MAX(age), MIN(age) FROM users;
+
+-- GROUP BY
+SELECT age, COUNT(*) as count
+FROM users
+GROUP BY age;
+
+-- HAVING
+SELECT age, COUNT(*) as count
+FROM users
+GROUP BY age
+HAVING count > 1;</code><button class="copy-btn" data-copy="SELECT COUNT(*) FROM users;">COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Indexes</h3>
+      <pre><code>-- Create index
+CREATE INDEX idx_email ON users(email);
+
+-- Composite index
+CREATE INDEX idx_name_age ON users(name, age);
+
+-- Show indexes
+SHOW INDEX FROM users;
+
+-- Drop index
+DROP INDEX idx_email ON users;</code><button class="copy-btn" data-copy="CREATE INDEX idx_email ON users(email);">COPY</button></pre>
+
+      <h3>Transactions</h3>
+      <pre><code>-- Start transaction
+START TRANSACTION;
+
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+
+-- Commit if successful
+COMMIT;
+
+-- Or rollback if error
+ROLLBACK;</code><button class="copy-btn" data-copy="START TRANSACTION;\nCOMMIT;">COPY</button></pre>
+
+      <h3>Subqueries</h3>
+      <pre><code>-- Subquery in WHERE
+SELECT name FROM users
+WHERE id IN (SELECT user_id FROM orders WHERE amount > 100);
+
+-- Subquery in SELECT
+SELECT name,
+    (SELECT COUNT(*) FROM orders WHERE user_id = users.id) as order_count
+FROM users;</code><button class="copy-btn" data-copy="Subquery example">COPY</button></pre>
+
+      <h3>Views</h3>
+      <pre><code>-- Create view
+CREATE VIEW user_orders AS
+SELECT users.name, COUNT(orders.id) as order_count
+FROM users
+LEFT JOIN orders ON users.id = orders.user_id
+GROUP BY users.id;
+
+-- Query view
+SELECT * FROM user_orders;</code><button class="copy-btn" data-copy="CREATE VIEW user_orders AS SELECT ...">COPY</button></pre>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Master Joins</strong> — INNER, LEFT, RIGHT, FULL</div>
+      <div class="step"><span class="n">2</span><strong>Learn Indexes</strong> — Query optimization</div>
+      <div class="step"><span class="n">3</span><strong>Practice Subqueries</strong> — Complex data retrieval</div>
+      <div class="step"><span class="n">4</span><strong>Database Design</strong> — Normalization, ER diagrams</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://www.w3schools.com/sql/" target="_blank">W3Schools SQL Tutorial</a></li>
+        <li>📘 <a href="https://mode.com/sql-tutorial/" target="_blank">Mode SQL Tutorial</a></li>
+        <li>🎓 <a href="https://sqlzoo.net/" target="_blank">SQLZoo Interactive</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

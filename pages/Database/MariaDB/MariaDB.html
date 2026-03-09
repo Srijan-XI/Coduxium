@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete MariaDB guide - Learn installation, SQL queries, replication, and best practices for this MySQL-compatible database." />
+    <meta name="keywords" content="MariaDB, MySQL, Database, SQL, RDBMS, Open Source, Relational Database" />
+    <title>MariaDB Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../database-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🐬 MariaDB Complete Guide</h1>
+            <p class="subtitle">A MySQL-compatible, community-driven relational database management system.</p>
+            <div class="badge-row">
+                <span class="badge">OPEN SOURCE</span>
+                <span class="badge">MYSQL COMPATIBLE</span>
+                <span class="badge">ACID COMPLIANT</span>
+                <span class="badge">HIGH PERFORMANCE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 MySQL Alternative:</strong> MariaDB is a drop-in replacement for MySQL,
+                used by Wikipedia, Google, and Red Hat.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is MariaDB?</h3>
+            <p><strong>MariaDB</strong> is a community-developed, commercially supported fork of MySQL created by the
+                original developers of MySQL in 2009. It's designed to maintain compatibility with MySQL while offering
+                additional features, better performance, and ensuring the database remains free and open-source under
+                the GPL.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🔄 MySQL Compatible</strong> — Drop-in replacement</div>
+                <div class="topic"><strong>⚡ Performance</strong> — Faster query execution</div>
+                <div class="topic"><strong>🔓 Open Source</strong> — Truly free, GPL licensed</div>
+                <div class="topic"><strong>🗄️ Storage Engines</strong> — Multiple engine support</div>
+                <div class="topic"><strong>🔐 Security</strong> — Enhanced authentication</div>
+                <div class="topic"><strong>🔄 Replication</strong> — Master-slave, Galera cluster</div>
+                <div class="topic"><strong>📊 Analytics</strong> — ColumnStore for analytics</div>
+                <div class="topic"><strong>🌐 JSON Support</strong> — Native JSON functions</div>
+            </div>
+
+            <h3>Why Choose MariaDB?</h3>
+            <ul>
+                <li><strong>MySQL Compatibility:</strong> Easy migration from MySQL</li>
+                <li><strong>Community-Driven:</strong> No Oracle ownership concerns</li>
+                <li><strong>Better Performance:</strong> Optimizer improvements, faster queries</li>
+                <li><strong>More Features:</strong> Window functions, CTEs, JSON improvements</li>
+                <li><strong>Enterprise Ready:</strong> Used by major corporations</li>
+                <li><strong>Active Development:</strong> Regular releases with new features</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> While highly compatible, MariaDB 10.6+ has diverged
+                from MySQL in some features.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with MariaDB by installing it on your system.</p>
+
+            <!-- Windows Installation -->
+            <div id="windows-install" class="subsection">
+                <h3>Windows Installation</h3>
+
+                <h4>Method 1: MSI Installer (Recommended)</h4>
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Download Installer</strong>
+                        <p>Visit <a href="https://mariadb.org/download/" target="_blank">mariadb.org/download</a> and
+                            download the Windows MSI installer.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Run Installer</strong>
+                        <p>Execute the installer and choose components. Set the root password when prompted.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Verify Installation</strong>
+                        <pre><code>mysql --version
+# or
+mariadb --version</code><button class="copy-btn" data-copy="mariadb --version">COPY</button></pre>
+                    </div>
+                </div>
+
+                <h4>Method 2: Chocolatey</h4>
+                <pre><code>choco install mariadb</code><button class="copy-btn" data-copy="choco install mariadb">COPY</button></pre>
+            </div>
+
+            <!-- macOS Installation -->
+            <div id="macos-install" class="subsection">
+                <h3>macOS Installation</h3>
+
+                <h4>Using Homebrew (Recommended)</h4>
+                <pre><code># Install MariaDB
+brew install mariadb
+
+# Start the service
+brew services start mariadb
+
+# Secure installation
+sudo mysql_secure_installation
+
+# Connect
+mariadb -u root -p</code><button class="copy-btn" data-copy="brew install mariadb">COPY</button></pre>
+            </div>
+
+            <!-- Linux Installation -->
+            <div id="linux-install" class="subsection">
+                <h3>Linux Installation</h3>
+
+                <h4>Ubuntu/Debian</h4>
+                <pre><code>sudo apt update
+sudo apt install mariadb-server mariadb-client
+
+# Secure installation
+sudo mysql_secure_installation
+
+# Start service
+sudo systemctl start mariadb
+sudo systemctl enable mariadb</code><button class="copy-btn" data-copy="sudo apt install mariadb-server">COPY</button></pre>
+
+                <h4>Fedora/RHEL/CentOS</h4>
+                <pre><code>sudo dnf install mariadb-server
+
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+sudo mysql_secure_installation</code><button class="copy-btn" data-copy="sudo dnf install mariadb-server">COPY</button></pre>
+
+                <h4>Arch Linux</h4>
+                <pre><code>sudo pacman -S mariadb
+
+sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl start mariadb
+sudo mysql_secure_installation</code><button class="copy-btn" data-copy="sudo pacman -S mariadb">COPY</button></pre>
+            </div>
+
+            <!-- Docker Installation -->
+            <div id="docker-install" class="subsection">
+                <h3>Docker Installation</h3>
+                <pre><code># Pull image
+docker pull mariadb:latest
+
+# Run container
+docker run -d \
+  --name mariadb \
+  -e MYSQL_ROOT_PASSWORD=my-secret-pw \
+  -e MYSQL_DATABASE=mydb \
+  -p 3306:3306 \
+  mariadb:latest
+
+# Connect to container
+docker exec -it mariadb mariadb -u root -p</code><button class="copy-btn" data-copy="docker run -d --name mariadb">COPY</button></pre>
+            </div>
+
+            <div id="first-connection" class="subsection">
+                <h3>First Connection</h3>
+                <pre><code># Connect as root
+sudo mariadb
+
+# Or with password
+mariadb -u root -p
+
+# Create database
+CREATE DATABASE testdb;
+
+# Create user
+CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON testdb.* TO 'myuser'@'localhost';
+FLUSH PRIVILEGES;</code><button class="copy-btn" data-copy="CREATE DATABASE testdb;">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Database Operations</h3>
+                <pre><code>-- Create database
+CREATE DATABASE ecommerce;
+
+-- Use database
+USE ecommerce;
+
+-- Show databases
+SHOW DATABASES;
+
+-- Drop database
+DROP DATABASE IF EXISTS old_db;</code><button class="copy-btn" data-copy="CREATE DATABASE ecommerce;">COPY</button></pre>
+
+                <h3>Table Operations</h3>
+                <pre><code>-- Create table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_email (email)
+);
+
+-- Show tables
+SHOW TABLES;
+
+-- Describe table
+DESCRIBE users;
+
+-- Alter table
+ALTER TABLE users ADD COLUMN last_login TIMESTAMP;
+
+-- Drop table
+DROP TABLE IF EXISTS old_table;</code><button class="copy-btn" data-copy="CREATE TABLE users">COPY</button></pre>
+
+                <h3>CRUD Operations</h3>
+                <pre><code>-- INSERT
+INSERT INTO users (username, email, password_hash)
+VALUES ('john_doe', 'john@example.com', 'hashed_password');
+
+-- Multiple inserts
+INSERT INTO users (username, email, password_hash) VALUES
+    ('alice', 'alice@example.com', 'hash1'),
+    ('bob', 'bob@example.com', 'hash2');
+
+-- SELECT
+SELECT * FROM users;
+SELECT username, email FROM users WHERE id = 1;
+SELECT * FROM users WHERE created_at > '2024-01-01';
+
+-- UPDATE
+UPDATE users SET email = 'newemail@example.com' WHERE id = 1;
+
+-- DELETE
+DELETE FROM users WHERE id = 5;
+
+-- Transactions
+START TRANSACTION;
+UPDATE users SET email = 'test@example.com' WHERE id = 1;
+COMMIT;
+-- or
+ROLLBACK;</code><button class="copy-btn" data-copy="INSERT INTO users">COPY</button></pre>
+
+                <h3>Joins</h3>
+                <pre><code>-- Create orders table
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    total DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- INNER JOIN
+SELECT u.username, o.total, o.created_at
+FROM users u
+INNER JOIN orders o ON u.id = o.user_id;
+
+-- LEFT JOIN
+SELECT u.username, COUNT(o.id) as order_count
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+GROUP BY u.id;</code><button class="copy-btn" data-copy="INNER JOIN">COPY</button></pre>
+
+                <h3>Advanced Queries</h3>
+                <pre><code>-- Window Functions (MariaDB 10.2+)
+SELECT 
+    username,
+    total,
+    ROW_NUMBER() OVER (ORDER BY total DESC) as rank
+FROM users u
+JOIN orders o ON u.id = o.user_id;
+
+-- Common Table Expressions (CTE)
+WITH high_value_orders AS (
+    SELECT user_id, SUM(total) as total_spent
+    FROM orders
+    GROUP BY user_id
+    HAVING total_spent > 1000
+)
+SELECT u.username, h.total_spent
+FROM users u
+JOIN high_value_orders h ON u.id = h.user_id;
+
+-- JSON Functions
+CREATE TABLE products (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    attributes JSON
+);
+
+INSERT INTO products VALUES
+(1, 'Laptop', '{"color": "silver", "weight": 1.5}');
+
+SELECT 
+    name,
+    JSON_VALUE(attributes, '$.color') as color
+FROM products;</code><button class="copy-btn" data-copy="WITH high_value_orders AS">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Indexes & Performance</h3>
+            <pre><code>-- Create index
+CREATE INDEX idx_username ON users(username);
+
+-- Composite index
+CREATE INDEX idx_email_created ON users(email, created_at);
+
+-- Full-text index
+CREATE FULLTEXT INDEX idx_description ON products(description);
+
+-- Show indexes
+SHOW INDEX FROM users;
+
+-- Analyze query performance
+EXPLAIN SELECT * FROM users WHERE email = 'john@example.com';</code><button class="copy-btn" data-copy="CREATE INDEX">COPY</button></pre>
+
+            <h3>Replication Setup</h3>
+            <pre><code>-- Master configuration (my.cnf)
+[mysqld]
+server-id=1
+log-bin=mysql-bin
+binlog-format=ROW
+
+-- Restart MariaDB
+sudo systemctl restart mariadb
+
+-- Create replication user
+CREATE USER 'repl'@'%' IDENTIFIED BY 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+
+-- Get master status
+SHOW MASTER STATUS;
+
+-- Slave configuration (my.cnf)
+[mysqld]
+server-id=2
+
+-- Configure slave
+CHANGE MASTER TO
+  MASTER_HOST='master_ip',
+  MASTER_USER='repl',
+  MASTER_PASSWORD='password',
+  MASTER_LOG_FILE='mysql-bin.000001',
+  MASTER_LOG_POS=154;
+
+-- Start slave
+START SLAVE;
+
+-- Check slave status
+SHOW SLAVE STATUS\G</code><button class="copy-btn" data-copy="SHOW MASTER STATUS;">COPY</button></pre>
+
+            <h3>Backup & Restore</h3>
+            <pre><code># Backup single database
+mysqldump -u root -p ecommerce > ecommerce_backup.sql
+
+# Backup all databases
+mysqldump -u root -p --all-databases > all_backup.sql
+
+# Backup with compression
+mysqldump -u root -p ecommerce | gzip > ecommerce_backup.sql.gz
+
+# Restore database
+mysql -u root -p ecommerce < ecommerce_backup.sql
+
+# Restore compressed backup
+gunzip < ecommerce_backup.sql.gz | mysql -u root -p ecommerce</code><button class="copy-btn" data-copy="mysqldump -u root -p">COPY</button></pre>
+
+            <h3>User Management</h3>
+            <pre><code>-- Create user
+CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'secure_password';
+
+-- Grant privileges
+GRANT SELECT, INSERT, UPDATE, DELETE ON ecommerce.* TO 'appuser'@'localhost';
+
+-- Grant all privileges
+GRANT ALL PRIVILEGES ON ecommerce.* TO 'admin'@'localhost';
+
+-- Show grants
+SHOW GRANTS FOR 'appuser'@'localhost';
+
+-- Revoke privileges
+REVOKE INSERT ON ecommerce.* FROM 'appuser'@'localhost';
+
+-- Drop user
+DROP USER 'olduser'@'localhost';
+
+-- Change password
+ALTER USER 'appuser'@'localhost' IDENTIFIED BY 'new_password';</code><button class="copy-btn" data-copy="CREATE USER">COPY</button></pre>
+
+            <h3>Application Integration</h3>
+            <pre><code>// Node.js (mysql2)
+const mysql = require('mysql2/promise');
+
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'ecommerce',
+  waitForConnections: true,
+  connectionLimit: 10
+});
+
+const [rows] = await pool.query('SELECT * FROM users WHERE id = ?', [1]);
+
+// Python (PyMySQL or mysql-connector-python)
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='password',
+    database='ecommerce'
+)
+
+cursor = conn.cursor()
+cursor.execute('SELECT * FROM users')
+results = cursor.fetchall()</code><button class="copy-btn" data-copy="mysql.createPool">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master SQL</strong> — Learn advanced queries, joins, CTEs
+            </div>
+            <div class="step"><span class="n">2</span><strong>Optimize Performance</strong> — Indexing, query
+                optimization</div>
+            <div class="step"><span class="n">3</span><strong>Setup Replication</strong> — High availability
+                configuration</div>
+            <div class="step"><span class="n">4</span><strong>Implement Backups</strong> — Automated backup strategy
+            </div>
+            <div class="step"><span class="n">5</span><strong>Monitor & Tune</strong> — Performance monitoring tools
+            </div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://mariadb.org/documentation/" target="_blank">Official MariaDB Documentation</a>
+                </li>
+                <li>🎓 <a href="https://mariadb.com/kb/en/training-tutorials/" target="_blank">MariaDB Training</a></li>
+                <li>📘 <a href="https://mariadb.org/download/" target="_blank">MariaDB Downloads</a></li>
+                <li>💻 <a href="https://github.com/MariaDB" target="_blank">MariaDB GitHub</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

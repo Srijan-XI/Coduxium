@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete Rust guide - Memory-safe systems programming with zero-cost abstractions and blazing performance." />
+  <meta name="keywords" content="Rust, Systems Programming, Memory Safety, Performance, WebAssembly, Safe" />
+  <title>Rust Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>🦀 Rust Complete Guide</h1>
+      <p class="subtitle">Memory safety without garbage collection - blazing fast and reliable systems programming.</p>
+      <div class="badge-row">
+        <span class="badge">MEMORY SAFE</span>
+        <span class="badge">ZERO-COST</span>
+        <span class="badge">CONCURRENT</span>
+        <span class="badge">FAST</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Memory Safety:</strong> Rust prevents memory bugs at compile-time without garbage
+        collection overhead.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Rust?</h3>
+      <p><strong>Rust</strong> is a systems programming language focused on safety, speed, and concurrency. Created by
+        Mozilla, Rust guarantees memory safety without a garbage collector, making it ideal for performance-critical
+        applications, embedded systems, and WebAssembly.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🛡️ Memory Safety</strong> — No null, no dangling pointers</div>
+        <div class="topic"><strong>⚡ Zero-Cost Abstractions</strong> — No runtime overhead</div>
+        <div class="topic"><strong>🔒 Ownership System</strong> — Compile-time memory management</div>
+        <div class="topic"><strong>🧵 Fearless Concurrency</strong> — Thread safety guaranteed</div>
+        <div class="topic"><strong>📦 Cargo</strong> — Built-in package manager</div>
+        <div class="topic"><strong>🌐 Cross-Platform</strong> — Windows, Linux, macOS, web</div>
+      </div>
+
+      <h3>Why Choose Rust?</h3>
+      <ul>
+        <li><strong>Safety:</strong> Eliminates entire classes of bugs</li>
+        <li><strong>Performance:</strong> As fast as C/C++</li>
+        <li><strong>Productivity:</strong> Great tooling and error messages</li>
+        <li><strong>Growing:</strong> Most loved language (Stack Overflow survey)</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+
+      <div class="subsection">
+        <h3>Install Rust (All Platforms)</h3>
+        <pre><code># Install rustup (Rust toolchain installer)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Windows: Download from rustup.rs
+
+# Verify
+rustc --version
+cargo --version</code><button class="copy-btn" data-copy="curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh">COPY</button></pre>
+
+        <h3>Your First Rust Program</h3>
+        <pre><code>// main.rs
+fn main() {
+    println!("Hello, Rust!");
+}
+
+// Compile and run
+rustc main.rs
+./main
+
+// Or use Cargo
+cargo new hello_world
+cd hello_world
+cargo run</code><button class="copy-btn" data-copy="cargo run">COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Variables & Types</h3>
+        <pre><code>fn main() {
+    // Immutable by default
+    let x = 5;
+    
+    // Mutable
+    let mut y = 10;
+    y = 15;
+    
+    // Type annotation
+    let age: i32 = 30;
+    let price: f64 = 99.99;
+    let name: &str = "Alice";
+    
+    // Constants
+    const MAX_POINTS: u32 = 100_000;
+}</code><button class="copy-btn" data-copy="let x = 5;\nlet mut y = 10;">COPY</button></pre>
+
+        <h3>Ownership & Borrowing</h3>
+        <pre><code>fn main() {
+    // Ownership
+    let s1 = String::from("hello");
+    let s2 = s1; // s1 moved to s2, s1 no longer valid
+    
+    // Borrowing (immutable reference)
+    let s3 = String::from("world");
+    let len = calculate_length(&s3);
+    println!("{} has length {}", s3, len);
+    
+    // Mutable reference
+    let mut s4 = String::from("hello");
+    change(&mut s4);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+
+fn change(s: &mut String) {
+    s.push_str(", world");
+}</code><button class="copy-btn" data-copy="Ownership example">COPY</button></pre>
+
+        <h3>Structs & Enums</h3>
+        <pre><code>// Struct
+struct Person {
+    name: String,
+    age: u32,
+}
+
+impl Person {
+    fn new(name: String, age: u32) -> Person {
+        Person { name, age }
+    }
+    
+    fn greet(&self) {
+        println!("Hi, I'm {}", self.name);
+    }
+}
+
+// Enum
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+}
+
+fn main() {
+    let person = Person::new(String::from("Alice"), 30);
+    person.greet();
+}</code><button class="copy-btn" data-copy="struct Person { name: String, age: u32 }">COPY</button></pre>
+
+        <h3>Pattern Matching</h3>
+        <pre><code>fn main() {
+    let number = 7;
+    
+    match number {
+        1 => println!("One"),
+        2 | 3 | 5 | 7 => println!("Prime"),
+        _ => println!("Other"),
+    }
+    
+    // Option handling
+    let some_number = Some(5);
+    match some_number {
+        Some(x) => println!("Got: {}", x),
+        None => println!("Nothing"),
+    }
+}</code><button class="copy-btn" data-copy="match value { Some(x) => x, None => 0 }">COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Cargo (Package Manager)</h3>
+      <pre><code># Create new project
+cargo new my_project
+cargo new my_lib --lib
+
+# Build project
+cargo build
+cargo build --release
+
+# Run project
+cargo run
+
+# Add dependency (in Cargo.toml)
+[dependencies]
+serde = "1.0"
+
+# Update dependencies
+cargo update</code><button class="copy-btn" data-copy="cargo new my_project">COPY</button></pre>
+
+      <h3>Popular Crates</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>tokio</strong>Async runtime</div>
+        <div class="package-item"><strong>serde</strong>Serialization</div>
+        <div class="package-item"><strong>actix-web</strong>Web framework</div>
+        <div class="package-item"><strong>reqwest</strong>HTTP client</div>
+      </div>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Master Ownership</strong> — Core concept of Rust</div>
+      <div class="step"><span class="n">2</span><strong>Read The Book</strong> — Official Rust book is excellent</div>
+      <div class="step"><span class="n">3</span><strong>Practice Projects</strong> — CLI tools, web servers</div>
+      <div class="step"><span class="n">4</span><strong>Learn Async</strong> — Tokio for async programming</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://doc.rust-lang.org/book/" target="_blank">The Rust Programming Language Book</a></li>
+        <li>🎓 <a href="https://rustlings.cool/" target="_blank">Rustlings Exercises</a></li>
+        <li>📘 <a href="https://rust-by-example.org/" target="_blank">Rust by Example</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

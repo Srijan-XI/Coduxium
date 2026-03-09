@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project List Dashboard</title>
+    <link rel="stylesheet" href="Project.css">
+  <link rel="stylesheet" href="../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav style="background: #161b22; border-bottom: 1px solid #30363d; padding: 1rem; margin-bottom: 2rem; border-radius: 0.5rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="../../index.html" style="color: #e1e4e8; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; background: #0d1117; border-radius: 0.375rem; border: 1px solid #30363d; transition: all 0.2s;" onmouseover="this.style.borderColor='#8b5cf6'" onmouseout="this.style.borderColor='#30363d'">← Home</a>
+                <a href="../Resources/Resources.html" style="color: #e1e4e8; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; background: #0d1117; border-radius: 0.375rem; border: 1px solid #30363d; transition: all 0.2s;" onmouseover="this.style.borderColor='#8b5cf6'" onmouseout="this.style.borderColor='#30363d'">Resources</a>
+                <a href="../notes/notes.html" style="color: #e1e4e8; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; background: #0d1117; border-radius: 0.375rem; border: 1px solid #30363d; transition: all 0.2s;" onmouseover="this.style.borderColor='#8b5cf6'" onmouseout="this.style.borderColor='#30363d'">Notes</a>
+                <a href="../tools/tools.html" style="color: #e1e4e8; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; background: #0d1117; border-radius: 0.375rem; border: 1px solid #30363d; transition: all 0.2s;" onmouseover="this.style.borderColor='#8b5cf6'" onmouseout="this.style.borderColor='#30363d'">Tools</a>
+            </div>
+            <div style="color: #8b92a0; font-size: 0.875rem;">Coduxium XI Projects</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Project Vault</h1>
+            <p>A curated list of projects by Language and Level.</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Language Tabs -->
+            <nav id="language-tabs" class="language-tabs">
+                <!-- Tabs will be injected here by JavaScript -->
+            </nav>
+
+            <!-- Current Language Title & Level Filters -->
+            <div class="filters-section">
+                <h2 id="current-language-title">Java Projects</h2>
+                <div id="level-filters" class="level-filters">
+                    <button data-level="All" class="level-filter-btn active">All Levels</button>
+                    <button data-level="Beginner" class="level-filter-btn">Beginner</button>
+                    <button data-level="Intermediate" class="level-filter-btn">Intermediate</button>
+                    <button data-level="Advanced" class="level-filter-btn">Advanced</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div id="project-list-grid" class="project-grid">
+                <!-- Project cards will be injected here by JavaScript -->
+            </div>
+            
+            <!-- Message for No Projects Found -->
+            <div id="no-projects-message" class="hidden no-projects">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="8" y1="18" x2="16" y2="18"></line>
+                    <line x1="8" y1="14" x2="16" y2="14"></line>
+                    <line x1="10" y1="10" x2="14" y2="10"></line>
+                </svg>
+                <p>No projects found for this selection.</p>
+            </div>
+
+        </main>
+    </div>
+   
+    <script src = "Project.js"></script>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+        <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Floating Home Button -->
+    <a href="../../index.html" style="position: fixed; bottom: 6rem; right: 2rem; background: #f59e0b; color: white; padding: 0.75rem 1.5rem; border-radius: 2rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); transition: all 0.3s ease; z-index: 999;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(245, 158, 11, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(245, 158, 11, 0.4)'">
+        🏠 Home
+    </a>
+
+    <script src="pro.js"></script>
+  <script src="../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

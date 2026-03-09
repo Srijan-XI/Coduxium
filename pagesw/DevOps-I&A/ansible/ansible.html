@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ansible — Coduxium XI</title>
+    <meta name="description"
+        content="Master Ansible - Simple, powerful IT automation engine for configuration management and application deployment.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Ansible</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🔧 Ansible</h2>
+            <p class="intro">Simple, agentless IT automation engine for configuration management, application
+                deployment, and orchestration.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Configuration Management</span>
+                    <span class="badge">Automation</span>
+                    <span class="badge">Agentless</span>
+                    <span class="badge">YAML</span>
+                </div>
+                <p>Ansible is an open-source automation tool for IT tasks such as configuration management, application
+                    deployment, intraservice orchestration, and provisioning. It uses SSH for communication and requires
+                    no agents on remote systems.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Agentless</strong> — No need to install agents on managed nodes</li>
+                    <li><strong>Simple YAML Syntax</strong> — Easy-to-read playbooks</li>
+                    <li><strong>Idempotent</strong> — Safe to run multiple times</li>
+                    <li><strong>Push-Based</strong> — Control node pushes configurations</li>
+                    <li><strong>Extensive Modules</strong> — 3000+ built-in modules</li>
+                    <li><strong>Role-Based</strong> — Organize playbooks with roles</li>
+                    <li><strong>Ansible Galaxy</strong> — Community roles and collections</li>
+                    <li><strong>Parallel Execution</strong> — Manage multiple hosts simultaneously</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Server configuration management</li>
+                    <li>Application deployment automation</li>
+                    <li>Multi-tier orchestration</li>
+                    <li>Cloud provisioning</li>
+                    <li>Network automation</li>
+                    <li>Security and compliance automation</li>
+                    <li>Continuous delivery pipelines</li>
+                    <li>Container management</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Components</h4>
+                <ul>
+                    <li><strong>Playbooks</strong> — YAML files defining automation tasks</li>
+                    <li><strong>Inventory</strong> — List of managed hosts</li>
+                    <li><strong>Modules</strong> — Reusable units of code</li>
+                    <li><strong>Roles</strong> — Organize playbooks and files</li>
+                    <li><strong>Tasks</strong> — Individual automation steps</li>
+                    <li><strong>Handlers</strong> — Triggered by task changes</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Ansible:</p>
+                <pre><code># Ubuntu/Debian
+sudo apt update
+sudo apt install ansible
+
+# RHEL/CentOS
+sudo yum install ansible
+
+# macOS
+brew install ansible
+
+# Via pip
+pip install ansible</code></pre>
+
+                <p>Simple playbook example:</p>
+                <pre><code># playbook.yml
+---
+- name: Configure web servers
+  hosts: webservers
+  become: yes
+  
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    
+    - name: Start nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+    
+    - name: Copy index.html
+      copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        mode: '0644'</code></pre>
+
+                <p>Running playbooks:</p>
+                <pre><code># Run a playbook
+ansible-playbook playbook.yml
+
+# Check syntax
+ansible-playbook playbook.yml --syntax-check
+
+# Dry run
+ansible-playbook playbook.yml --check
+
+# Run with specific inventory
+ansible-playbook -i inventory.ini playbook.yml</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use roles to organize complex playbooks</li>
+                    <li>Keep playbooks idempotent</li>
+                    let>Use Ansible Vault for sensitive data</li>
+                    <li>Version control your playbooks</li>
+                    <li>Use variables for flexibility</li>
+                    <li>Test playbooks before production</li>
+                    <li>Use tags for selective execution</li>
+                    <li>Document playbooks with comments</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.ansible.com/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.ansible.com/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/ansible/ansible" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

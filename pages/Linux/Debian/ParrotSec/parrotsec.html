@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrot Security - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Parrot Security guide - Debian-based security and privacy distribution for pentesting and research">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">Parrot Security</a></h1>
+                    <p class="sub">Security & privacy toolkit on Debian</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🦜</span>
+                <span>Security & Privacy</span>
+            </div>
+            <h1 class="hero-title">Parrot Security</h1>
+            <p class="hero-description">
+                A Debian-based distribution designed for security research, penetration testing, digital forensics, and privacy-focused daily use.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Debian</li>
+                    <li><strong>Package Manager:</strong> APT</li>
+                    <li><strong>Desktop:</strong> MATE (commonly), others available</li>
+                    <li><strong>Release Model:</strong> Rolling / frequent updates (edition-dependent)</li>
+                    <li><strong>Target Users:</strong> Security researchers, pentesters, privacy advocates</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🛠️</span>
+                    <h4>Pentesting Toolkit</h4>
+                    <p>Preinstalled tools for auditing, testing, and research.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🕵️</span>
+                    <h4>Privacy Options</h4>
+                    <p>Designed with privacy-conscious workflows in mind.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Lightweight</h4>
+                    <p>Optimized to be responsive on modest hardware.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔐</span>
+                    <h4>Security-Focused</h4>
+                    <p>Useful for labs, training, and hands-on practice.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Parrot Security?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Parrot Security OS is a Debian-based distribution built for security professionals and privacy-minded users. It includes a curated set of tools for penetration testing, forensics, and development, while aiming to stay lightweight.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Security tooling for auditing and testing</li>
+                    <li>Privacy-focused utilities and workflows</li>
+                    <li>Lightweight desktop experience</li>
+                    <li>Debian base for broad compatibility</li>
+                    <li>Good for labs, training, and learning environments</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Parrot Security?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Ready-to-Use Tools</h4>
+                        <p>Start practicing security tasks quickly without assembling a toolkit from scratch.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Debian Compatibility</h4>
+                        <p>Strong package availability and stable ecosystem foundations.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Lightweight UX</h4>
+                        <p>Useful on laptops and VMs where resources are limited.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download Parrot OS from: <a href="https://www.parrotsec.org/" target="_blank">https://www.parrotsec.org/</a>
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=Parrot.iso of=/dev/sdX bs=4M status=progress && sync
+
+# Or use: Etcher, Rufus, Ventoy</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS/UEFI (F2/F12/Del)<br>
+                        4. Select USB as boot device
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Installation Process</h4>
+                    <p class="command-desc">
+                        Start the live environment (if available), launch the installer, select language/keyboard, configure disk and users, then complete installation and reboot.
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit compatible</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB+ recommended</li>
+                    <li><strong>GPU:</strong> Any (depends on desktop)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo apt update
+sudo apt upgrade</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">sudo apt install package-name</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo apt remove package-name</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">apt search keyword</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Tool Categories</h4>
+                        <p class="command-desc">Explore preinstalled tools grouped by network, web, forensics, and more.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Update Tools</h4>
+                        <p class="command-desc">Keep your system and toolchain updated before labs or assessments.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Use a VM</h4>
+                        <p class="command-desc">Run Parrot in a VM for safer experimentation and snapshots.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Network Safety</h4>
+                        <p class="command-desc">Use the right interfaces and confirm you have authorization to test.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Network Diagnostics</h4>
+                    <pre><code class="language-bash">ip a
+ip r
+ping -c 3 1.1.1.1</code></pre>
+                    <p class="command-desc">Quick network checks for lab environments.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Forensics Basics</h4>
+                    <pre><code class="language-bash"># Example: list disks
+lsblk
+
+# Always mount evidence read-only when possible</code></pre>
+                    <p class="command-desc">Use correct procedures and preserve evidence integrity.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Containerized Tooling</h4>
+                    <pre><code class="language-bash"># Prefer containers/VMs for isolated tool runs
+docker ps</code></pre>
+                    <p class="command-desc">Isolation can keep your base system cleaner and safer.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Snapshot Your Lab</h4>
+                    <pre><code class="language-bash"># VM snapshot via your hypervisor
+# Create a snapshot before major changes</code></pre>
+                    <p class="command-desc">Makes it easy to roll back after experiments.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update system</strong></td>
+                            <td><code>sudo apt update && sudo apt upgrade</code></td>
+                            <td>Update packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Find tool</strong></td>
+                            <td><code>which toolname</code></td>
+                            <td>Locate a command on PATH</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Show interfaces</strong></td>
+                            <td><code>ip a</code></td>
+                            <td>List network interfaces</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List services</strong></td>
+                            <td><code>systemctl --type=service</code></td>
+                            <td>View running services (if systemd enabled)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disk usage</strong></td>
+                            <td><code>df -h</code></td>
+                            <td>Check filesystem usage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search packages</strong></td>
+                            <td><code>apt search keyword</code></td>
+                            <td>Search APT repositories</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install metapackage</strong></td>
+                            <td><code>sudo apt install parrot-tools-full</code></td>
+                            <td>Install full toolset (large)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List open ports</strong></td>
+                            <td><code>ss -tulpn</code></td>
+                            <td>Show listening services/ports</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Firewall status</strong></td>
+                            <td><code>sudo ufw status</code></td>
+                            <td>Check UFW firewall rules (if used)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autoremove</strong></td>
+                            <td><code>sudo apt autoremove</code></td>
+                            <td>Remove unused dependencies</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://www.parrotsec.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Parrot OS homepage</p>
+                </a>
+                <a href="https://www.parrotsec.org/docs/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official docs and wiki</p>
+                </a>
+                <a href="https://community.parrotsec.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community</h4>
+                    <p>Forums and support</p>
+                </a>
+                <a href="https://github.com/parrotsec" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>GitHub organization</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Update the system before using tools</li>
+                    <li>Set up a VM-based lab environment</li>
+                    <li>Practice with legal targets and authorization</li>
+                    <li>Learn key tool categories (web/network/forensics)</li>
+                    <li>Join the community for guidance and updates</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Kali/kali.html" class="next-step-card">
+                    <span class="step-icon">🛠️</span>
+                    <h4>Kali Linux</h4>
+                    <p>Penetration testing distribution</p>
+                </a>
+                <a href="../Tails/Tails.html" class="next-step-card">
+                    <span class="step-icon">🔒</span>
+                    <h4>Tails</h4>
+                    <p>Amnesic Tor-based live OS</p>
+                </a>
+                <a href="../../Qubes/Qubes.html" class="next-step-card">
+                    <span class="step-icon">🔐</span>
+                    <h4>Qubes OS</h4>
+                    <p>Security by compartmentalization</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

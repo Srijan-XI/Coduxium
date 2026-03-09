@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Troubleshooting - Debugging & Recovery Guide</title>
+    <meta name="description"
+        content="Linux troubleshooting guide: logs, systemd, networking, disk space, performance, boot issues, and recovery steps.">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Linux Troubleshooting</a></h1>
+                    <p class="sub">Methodical debugging for common Linux issues</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🧰</span>
+                <span>Core Linux Topic</span>
+            </div>
+            <h1 class="hero-title">Troubleshoot Like a Pro</h1>
+            <p class="hero-description">
+                Start with symptoms, collect logs, isolate changes, and validate fixes. This page gives you a
+                repeatable workflow and the commands you’ll use most.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">Logs</span>
+                    <span class="stat-label">First evidence</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Diff</span>
+                    <span class="stat-label">What changed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Fix</span>
+                    <span class="stat-label">Small steps</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow -->
+        <section class="content-section">
+            <h2>🧭 A Simple Debug Workflow</h2>
+            <div class="best-practices-grid">
+                <div class="practice-card">
+                    <h4>1) Identify the scope</h4>
+                    <p>Is it one app, one user, one service, or the whole system?</p>
+                </div>
+                <div class="practice-card">
+                    <h4>2) Gather evidence</h4>
+                    <p>Logs, timestamps, error messages, and recent changes.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>3) Isolate variables</h4>
+                    <p>Test in safe mode, another user, or a minimal config.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>4) Apply minimal fixes</h4>
+                    <p>Change one thing at a time, then re-test.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logs -->
+        <section class="content-section">
+            <h2>📜 Logs & Diagnostics</h2>
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Journal (systemd)</h4>
+                    <pre><code>journalctl -b
+journalctl -p warning..alert -b
+journalctl -u ssh -b
+journalctl -xe</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Kernel & boot</h4>
+                    <pre><code>dmesg -T | tail -200
+sudo journalctl -k -b
+sudo systemctl status</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>System overview</h4>
+                    <pre><code>uname -a
+lsb_release -a 2>/dev/null || cat /etc/os-release
+uptime
+free -h</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Scenarios -->
+        <section class="content-section">
+            <h2>🧩 Common Problems & Quick Checks</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>No network / DNS issues</h3>
+                    <p>Verify link, IP, DNS, then routes/firewall.</p>
+                    <div class="example-box">
+                        <strong>Commands:</strong>
+                        <ul>
+                            <li><code>ip a</code> / <code>ip r</code></li>
+                            <li><code>ping -c 3 1.1.1.1</code></li>
+                            <li><code>ping -c 3 example.com</code></li>
+                            <li><code>resolvectl status</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Disk full / I/O problems</h3>
+                    <p>Check free space and which paths are consuming it.</p>
+                    <div class="example-box">
+                        <strong>Commands:</strong>
+                        <ul>
+                            <li><code>df -h</code></li>
+                            <li><code>du -xh / | sort -h | tail</code></li>
+                            <li><code>journalctl --disk-usage</code></li>
+                            <li><code>sudo dmesg -T | grep -i error</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Service won’t start</h3>
+                    <p>Inspect status and logs, then validate config and permissions.</p>
+                    <div class="example-box">
+                        <strong>Commands:</strong>
+                        <ul>
+                            <li><code>systemctl status myservice</code></li>
+                            <li><code>journalctl -u myservice -b</code></li>
+                            <li><code>systemctl cat myservice</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance -->
+        <section class="content-section">
+            <h2>📈 Performance Debugging</h2>
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>CPU / Memory</h4>
+                    <pre><code>top
+htop
+ps aux --sort=-%cpu | head
+ps aux --sort=-%mem | head</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Disk / I/O</h4>
+                    <pre><code>iostat -xz 1 5 2>/dev/null
+vmstat 1 5
+sudo smartctl -a /dev/sda 2>/dev/null</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Boot time</h4>
+                    <pre><code>systemd-analyze
+systemd-analyze blame
+systemd-analyze critical-chain</code></pre>
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Tip: compare before/after</h3>
+                <p>When you change a setting, re-run the same command set and compare the outputs.</p>
+            </div>
+        </section>
+
+        <!-- Recovery -->
+        <section class="content-section">
+            <h2>🧯 Recovery Basics</h2>
+            <div class="warning-box">
+                <h3>⚠️ Be careful on production</h3>
+                <p>Prefer reversible actions (stop/start services, temporary config changes) before deeper repairs.</p>
+            </div>
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Safe shell access</h4>
+                    <pre><code># Local console: try switching TTY
+Ctrl+Alt+F3
+
+# Single-user rescue (systemd)
+# Add at boot: systemd.unit=rescue.target</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Rollback config</h4>
+                    <pre><code># Inspect changes
+sudo ls -lt /etc | head
+
+# Keep backups of config files you edit
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Package repair</h4>
+                    <pre><code># Debian/Ubuntu
+sudo apt --fix-broken install
+
+# Arch
+sudo pacman -Syu
+
+# Fedora
+sudo dnf distro-sync</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>🚀 Next Steps</h2>
+            <div class="next-steps-grid">
+                <a href="commands.html" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Commands</h4>
+                    <p>Refresh essential CLI tools for debugging</p>
+                </a>
+                <a href="networking.html" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Networking</h4>
+                    <p>Deep dive into DNS, routes, and interfaces</p>
+                </a>
+                <a href="security.html" class="next-step-card">
+                    <span class="step-icon">🔐</span>
+                    <h4>Linux Security</h4>
+                    <p>Hardening and common security pitfalls</p>
+                </a>
+                <a href="../linux.html" class="next-step-card">
+                    <span class="step-icon">🐧</span>
+                    <h4>Linux Hub</h4>
+                    <p>Back to Linux main page</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../../Languages/languages.html">Languages</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LangChain — Coduxium XI</title>
+    <meta name="description" content="Master LangChain - Building applications with large language models.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">LangChain Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🦜🔗 LangChain</h2>
+            <p class="intro">A framework for developing applications powered by large language models with chaining and
+                memory.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">LLM</span>
+                    <span class="badge">AI Agents</span>
+                    <span class="badge">Python/TypeScript</span>
+                    <span class="badge">Chains</span>
+                </div>
+                <p>LangChain is a framework for developing applications powered by language models. It enables
+                    applications to be context-aware, connect LLMs to sources of context, and use reasoning to determine
+                    actions based on that context.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Model I/O</strong> — Manage prompts and interact with LLMs</li>
+                    <li><strong>Chains</strong> — Sequence multiple components together</li>
+                    <li><strong>Agents</strong> — Use LLMs to choose which actions to take</li>
+                    <li><strong>Memory</strong> — Persist state between chain/agent calls</li>
+                    <li><strong>Document Loaders</strong> — Load data from various sources</li>
+                    <li><strong>Vector Stores</strong> — Semantic search integration</li>
+                    <li><strong>Retrievers</strong> — Combine docs with language models</li>
+                    <li><strong>Callbacks</strong> — Hook into any LLM application</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Question-answering systems over documents</li>
+                    <li>Chatbots with memory and context</li>
+                    <li>AI agents that can use tools</li>
+                    <li>Document summarization</li>
+                    <li>Code generation and analysis</li>
+                    <li>Data extraction and transformation</li>
+                    <li>Semantic search applications</li>
+                    <li>Multi-step reasoning tasks</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>LangChain Ecosystem</h3>
+                <ul>
+                    <li><strong>LangChain</strong> — Core Python/TypeScript framework</li>
+                    <li><strong>LangSmith</strong> — Debugging and monitoring platform</li>
+                    <li><strong>LangServe</strong> — Deploy chains as REST APIs</li>
+                    <li><strong>LangGraph</strong> — Build stateful multi-actor applications</li>
+                    <li><strong>LangChain Hub</strong> — Share and discover prompts</li>
+                    <li><strong>Templates</strong> — Reference architectures</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install LangChain:</p>
+                <pre><code>pip install langchain langchain-community langchain-openai</code></pre>
+
+                <p>Simple chain example:</p>
+                <pre><code>from langchain_openai import ChatOpenAI
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.output_parser import StrOutputParser
+
+# Create a chain
+prompt = ChatPromptTemplate.from_template("Tell me a joke about {topic}")
+model = ChatOpenAI()
+output_parser = StrOutputParser()
+
+chain = prompt | model | output_parser
+
+# Run the chain
+result = chain.invoke({"topic": "programming"})</code></pre>
+
+                <p>RAG example:</p>
+                <pre><code>from langchain.document_loaders import TextLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.vectorstores import FAISS
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.chains import RetrievalQA
+
+# Load and split documents
+loader = TextLoader("data.txt")
+documents = loader.load()
+text_splitter = RecursiveCharacterTextSplitter()
+texts = text_splitter.split_documents(documents)
+
+# Create vector store
+embeddings = OpenAIEmbeddings()
+vectorstore = FAISS.from_documents(texts, embeddings)
+
+# Create QA chain
+qa_chain = RetrievalQA.from_chain_type(
+    llm=ChatOpenAI(),
+    retriever=vectorstore.as_retriever()
+)
+
+result = qa_chain.run("Your question here")</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use LCEL (LangChain Expression Language) for chains</li>
+                    <li>Implement proper error handling</li>
+                    <li>Monitor costs and token usage</li>
+                    <li>Use async operations for better performance</li>
+                    <li>Leverage caching to reduce API calls</li>
+                    <li>Test chains with LangSmith</li>
+                    <li>Use streaming for better UX</li>
+                    <li>Implement rate limiting</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.langchain.com/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://python.langchain.com/docs/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/langchain-ai/langchain" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

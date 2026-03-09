@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete KQL guide - Kusto Query Language for Azure Data Explorer, Application Insights, and Log Analytics." />
+  <meta name="keywords" content="KQL, Kusto, Azure, Log Analytics, Data Explorer, Queries, Monitoring" />
+  <title>KQL Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>🔍 KQL Complete Guide</h1>
+      <p class="subtitle">Kusto Query Language - powerful analytics for Azure logs and telemetry data.</p>
+      <div class="badge-row">
+        <span class="badge">AZURE</span>
+        <span class="badge">ANALYTICS</span>
+        <span class="badge">LOGS</span>
+        <span class="badge">MONITORING</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Getting Started</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Azure Analytics:</strong> KQL is the query language for Azure Data Explorer,
+        Application Insights, and Log Analytics.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is KQL?</h3>
+      <p><strong>KQL</strong> (Kusto Query Language) is a powerful query language for exploring large structured,
+        semi-structured, and unstructured data. Used in Azure Data Explorer, Application Insights, and Log Analytics,
+        KQL helps analyze logs, metrics, and telemetry.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>📊 Analytics</strong> — Fast data exploration</div>
+        <div class="topic"><strong>🔍 Search</strong> — Full-text and pattern matching</div>
+        <div class="topic"><strong>📈 Aggregation</strong> — Powerful summarization</div>
+        <div class="topic"><strong>⏱️ Time-Series</strong> — Time-based analysis</div>
+        <div class="topic"><strong>📉 Visualization</strong> — Built-in charting</div>
+        <div class="topic"><strong>☁️ Cloud-Native</strong> — Optimized for Azure</div>
+      </div>
+
+      <h3>Use Cases</h3>
+      <ul>
+        <li><strong>Log Analysis:</strong> Application and infrastructure logs</li>
+        <li><strong>Performance Monitoring:</strong> APM and metrics</li>
+        <li><strong>Security:</strong> Threat detection and investigation</li>
+        <li><strong>Business Intelligence:</strong> Data exploration and reporting</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Getting Started</h2>
+
+      <div class="subsection">
+        <h3>Access KQL</h3>
+
+        <h4>Azure Portal</h4>
+        <ul>
+          <li><strong>Log Analytics:</strong> Azure Portal > Log Analytics workspaces > Logs</li>
+          <li><strong>Application Insights:</strong> Azure Portal > Application Insights > Logs</li>
+          <li><strong>Azure Data Explorer:</strong> portal.azure.com/dataexplorer</li>
+        </ul>
+
+        <h4>Demo Environment</h4>
+        <p>Try KQL without Azure: <a href="https://dataexplorer.azure.com/" target="_blank">Azure Data Explorer Demo</a>
+        </p>
+
+        <h3>Your First Query</h3>
+        <pre><code>// Simple query
+print "Hello, KQL!"
+
+// Query a table
+StormEvents
+| take 10</code><button class="copy-btn" data-copy='print "Hello, KQL!"'>COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Basic Query Structure</h3>
+        <pre><code>// Table | operator | operator | ...
+StormEvents
+| where State == "TEXAS"
+| take 10
+
+// Comments start with //</code><button class="copy-btn" data-copy="StormEvents\n| where State == \"TEXAS\"">COPY</button></pre>
+
+        <h3>Common Operators</h3>
+
+        <h4>where (Filter)</h4>
+        <pre><code>StormEvents
+| where State == "CALIFORNIA"
+| where EventType == "Flood"
+| where DamageProperty > 1000
+
+// Multiple conditions
+StormEvents
+| where State == "TEXAS" and EventType == "Tornado"</code><button class="copy-btn" data-copy='StormEvents\n| where State == "TEXAS"'>COPY</button></pre>
+
+        <h4>project (Select Columns)</h4>
+        <pre><code>StormEvents
+| project State, EventType, DamageProperty
+
+// Rename columns
+StormEvents
+| project Location=State, Event=EventType, Damage=DamageProperty
+
+// Computed columns
+StormEvents
+| project State, EventType, DamageInK = DamageProperty / 1000</code><button class="copy-btn" data-copy="StormEvents\n| project State, EventType">COPY</button></pre>
+
+        <h4>summarize (Aggregate)</h4>
+        <pre><code>// Count by State
+StormEvents
+| summarize count() by State
+
+// Multiple aggregations
+StormEvents
+| summarize 
+    TotalEvents = count(),
+    TotalDamage = sum(DamageProperty),
+    AvgDamage = avg(DamageProperty)
+    by State
+
+// Top States by damage
+StormEvents
+| summarize TotalDamage = sum(DamageProperty) by State
+| top 10 by TotalDamage desc</code><button class="copy-btn" data-copy="StormEvents\n| summarize count() by State">COPY</button></pre>
+
+        <h4>extend (Add Columns)</h4>
+        <pre><code>StormEvents
+| extend DamageCategory = case(
+    DamageProperty > 1000000, "High",
+    DamageProperty > 100000, "Medium",
+    "Low"
+)
+
+// Add calculated field
+StormEvents
+| extend DamageInMillions = DamageProperty / 1000000</code><button class="copy-btn" data-copy="StormEvents\n| extend Category = case(...)">COPY</button></pre>
+
+        <h4>sort/order</h4>
+        <pre><code>StormEvents
+| sort by DamageProperty desc
+
+// Multiple columns
+StormEvents
+| order by State asc, DamageProperty desc</code><button class="copy-btn" data-copy="StormEvents\n| sort by DamageProperty desc">COPY</button></pre>
+
+        <h3>Time-Series Queries</h3>
+        <pre><code>// Last 24 hours
+StormEvents
+| where StartTime > ago(24h)
+
+// Specific time range
+StormEvents
+| where StartTime between (datetime(2024-01-01) .. datetime(2024-01-31))
+
+// Time aggregation
+StormEvents
+| summarize count() by bin(StartTime, 1d)
+
+// Trend over time
+StormEvents
+| where StartTime > ago(30d)
+| summarize TotalDamage = sum(DamageProperty) by bin(StartTime, 1d)
+| render timechart</code><button class="copy-btn" data-copy="StormEvents\n| where StartTime > ago(24h)">COPY</button></pre>
+
+        <h3>String Operations</h3>
+        <pre><code>// Contains
+StormEvents
+| where EventNarrative contains "flood"
+
+// Starts with
+StormEvents
+| where State startswith "C"
+
+// Regular expressions
+StormEvents
+| where EventNarrative matches regex "tornado.*damage"
+
+// String functions
+StormEvents
+| extend UpperState = toupper(State)
+| extend EventLength = strlen(EventNarrative)</code><button class="copy-btn" data-copy='StormEvents\n| where EventNarrative contains "flood"'>COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Joins</h3>
+      <pre><code>// Inner join
+StormEvents
+| join kind=inner (
+    StormDamages
+) on EventId
+
+// Left outer join
+StormEvents
+| join kind=leftouter (
+    StormDamages
+) on EventId</code><button class="copy-btn" data-copy="Table1\n| join kind=inner (Table2) on Key">COPY</button></pre>
+
+      <h3>Visualization</h3>
+      <pre><code>// Pie chart
+StormEvents
+| summarize count() by State
+| render piechart
+
+// Bar chart
+StormEvents
+| summarize TotalDamage = sum(DamageProperty) by EventType
+| render barchart
+
+// Time chart
+StormEvents
+| summarize count() by bin(StartTime, 1d)
+| render timechart
+
+// Scatter plot
+StormEvents
+| project DamageProperty, DeathsDirect
+| render scatterchart</code><button class="copy-btn" data-copy="| render timechart">COPY</button></pre>
+
+      <h3>Common Scenarios</h3>
+
+      <h4>Error Analysis</h4>
+      <pre><code>// Application errors
+AppTraces
+| where SeverityLevel >= 3  // Error or Critical
+| where TimeGenerated > ago(1h)
+| summarize count() by Message
+| top 10 by count_</code><button class="copy-btn" data-copy="AppTraces\n| where SeverityLevel >= 3">COPY</button></pre>
+
+      <h4>Performance Monitoring</h4>
+      <pre><code>// Slow requests
+AppRequests
+| where Duration > 1000  // > 1 second
+| summarize 
+    AvgDuration = avg(Duration),
+    P95Duration = percentile(Duration, 95)
+    by Name</code><button class="copy-btn" data-copy="AppRequests\n| where Duration > 1000">COPY</button></pre>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Practice in Demo</strong> — Use Azure Data Explorer demo</div>
+      <div class="step"><span class="n">2</span><strong>Learn Time-Series</strong> — Master ago(), bin(), render</div>
+      <div class="step"><span class="n">3</span><strong>Build Dashboards</strong> — Create Azure workbooks</div>
+      <div class="step"><span class="n">4</span><strong>Alerts</strong> — Set up log-based alerts</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/" target="_blank">Official KQL
+            Documentation</a></li>
+        <li>🎓 <a href="https://aka.ms/kql-learn" target="_blank">Microsoft Learn KQL</a></li>
+        <li>🔍 <a href="https://dataexplorer.azure.com/" target="_blank">KQL Demo Environment</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

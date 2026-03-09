@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spring Engine — Coduxium XI</title>
+    <meta name="description" content="Spring Engine - Open-source RTS game engine with advanced physics and AI.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Spring RTS Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>⚙️ Spring Engine</h2>
+            <p class="intro">Powerful open-source RTS game engine with advanced physics and large-scale battles.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">RTS</span>
+                    <span class="badge">C++</span>
+                    <span class="badge">LUA</span>
+                    <span class="badge">OPEN SOURCE</span>
+                </div>
+                <p>Spring (formerly known as TA Spring) is a free and open-source game engine for real-time strategy (RTS) games. Originally inspired by Total Annihilation, it features advanced terrain deformation, realistic physics, and support for massive unit counts.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Large-Scale Battles</strong> — Supports thousands of units simultaneously</li>
+                    <li><strong>Terrain Deformation</strong> — Real-time destructible terrain</li>
+                    <li><strong>Advanced Physics</strong> — Realistic projectile physics and ballistics</li>
+                    <li><strong>Lua Scripting</strong> — Flexible game logic via Lua</li>
+                    <li><strong>Cross-Platform</strong> — Windows, Linux, macOS</li>
+                    <li><strong>Multiplayer</strong> — Built-in networking and lobby system</li>
+                    <li><strong>AI Support</strong> — Multiple AI frameworks available</li>
+                    <li><strong>Mod-Friendly</strong> — Extensive modding capabilities</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Installation</h3>
+                <pre><code># Download from official website
+# https://springrts.com/
+
+# Linux (Ubuntu/Debian)
+sudo apt-get install spring
+
+# Install via portable package
+# Download SpringLobby or pr-downloader
+# https://github.com/spring/spring/releases
+
+# Verify installation
+spring --version</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Basic Lua Widget Example</h3>
+                <pre><code>-- Widget info
+function widget:GetInfo()
+    return {
+        name      = "Example Widget",
+        desc      = "Shows basic widget structure",
+        author    = "Developer",
+        version   = "1.0",
+        license   = "GPL",
+        enabled   = true
+    }
+end
+
+-- Called when widget loads
+function widget:Initialize()
+    Spring.Echo("Widget loaded!")
+end
+
+-- Called every frame
+function widget:Update()
+    -- Game logic here
+end
+
+-- Called when unit is created
+function widget:UnitCreated(unitID, unitDefID, unitTeam)
+    Spring.Echo("Unit created: " .. unitID)
+end</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Notable Games/Mods</h3>
+                <ul>
+                    <li><strong>Beyond All Reason</strong> — Popular Total Annihilation successor</li>
+                    <li><strong>Zero-K</strong> — Award-winning RTS with unique mechanics</li>
+                    <li><strong>Evolution RTS</strong> — Futuristic RTS game</li>
+                    <li><strong>Balanced Annihilation</strong> — Competitive TA mod</li>
+                    <li><strong>Tech Annihilation</strong> — TA-style gameplay</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Engine Architecture</h3>
+                <ul>
+                    <li><strong>Core Engine</strong> — Written in C++ for performance</li>
+                    <li><strong>Game Logic</strong> — Lua-based scripting for flexibility</li>
+                    <li><strong>Rendering</strong> — OpenGL-based graphics</li>
+                    <li><strong>Pathfinding</strong> — Sophisticated group pathfinding</li>
+                    <li><strong>Audio</strong> — OpenAL for 3D positional audio</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://springrts.com/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://springrts.com/wiki/" target="_blank">Wiki Documentation</a></li>
+                    <li>🎓 <a href="https://springrts.com/wiki/Lua_Modding" target="_blank">Lua Modding Guide</a></li>
+                    <li>💬 <a href="https://discord.gg/springrts" target="_blank">Discord Community</a></li>
+                    <li>📦 <a href="https://github.com/spring/spring" target="_blank">GitHub Repository</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://springrts.com/" target="_blank">Spring RTS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

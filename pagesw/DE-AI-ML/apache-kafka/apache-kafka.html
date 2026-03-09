@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apache Kafka — Coduxium XI</title>
+    <meta name="description"
+        content="Master Apache Kafka - Distributed event streaming platform for high-performance data pipelines.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Apache Kafka</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🌊 Apache Kafka</h2>
+            <p class="intro">Distributed event streaming platform capable of handling trillions of events per day.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Event Streaming</span>
+                    <span class="badge">Distributed</span>
+                    <span class="badge">Real-Time</span>
+                    <span class="badge">Message Queue</span>
+                </div>
+                <p>Apache Kafka is an open-source distributed event streaming platform used for high-performance data
+                    pipelines, streaming analytics, data integration, and mission-critical applications.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>High Throughput</strong> — Millions of messages per second</li>
+                    <li><strong>Scalability</strong> — Scale horizontally across clusters</li>
+                    <li><strong>Durability</strong> — Persistent storage with replication</li>
+                    <li><strong>Real-Time Processing</strong> — Stream processing with Kafka Streams</li>
+                    <li><strong>Fault Tolerance</strong> — Automatic failover and recovery</li>
+                    <li><strong>Partitioning</strong> — Parallel processing for performance</li>
+                    <li><strong>Retention</strong> — Configurable message retention</li>
+                    <li><strong>Ecosystem</strong> — Connect, Streams, KSQL integrations</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Real-time data pipelines and streaming</li>
+                    <li>Event sourcing architecture</li>
+                    <li>Log aggregation and monitoring</li>
+                    <li>Microservices communication</li>
+                    <li>Stream processing and analytics</li>
+                    <li>Activity tracking and metrics</li>
+                    <li>Change Data Capture (CDC)</li>
+                    <li>IoT data ingestion</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <ul>
+                    <li><strong>Topics</strong> — Categories for organizing messages</li>
+                    <li><strong>Producers</strong> — Publish messages to topics</li>
+                    <li><strong>Consumers</strong> — Subscribe and read messages</li>
+                    <li><strong>Brokers</strong> — Kafka servers that store data</li>
+                    <li><strong>Partitions</strong> — Parallel processing units</li>
+                    <li><strong>Consumer Groups</strong> — Load balancing across consumers</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Quick start with Python:</p>
+                <pre><code>pip install kafka-python
+
+# Producer
+from kafka import KafkaProducer
+producer = KafkaProducer(bootstrap_servers='localhost:9092')
+producer.send('my-topic', b'Hello Kafka!')
+
+# Consumer
+from kafka import KafkaConsumer
+consumer = KafkaConsumer('my-topic',
+                         bootstrap_servers='localhost:9092')
+for message in consumer:
+    print(message.value)</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use appropriate partition keys for even distribution</li>
+                    <li>Monitor lag and throughput metrics</li>
+                    <li>Configure replication for fault tolerance</li>
+                    <li>Use consumer groups for scalability</li>
+                    <li>Implement proper error handling</li>
+                    <li>Tune batch size and compression</li>
+                    <li>Use schema registry for data governance</li>
+                    <li>Regular backup and disaster recovery planning</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://kafka.apache.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://kafka.apache.org/documentation/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/apache/kafka" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

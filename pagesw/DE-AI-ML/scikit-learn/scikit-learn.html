@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scikit-learn — Coduxium XI</title>
+    <meta name="description" content="Master Scikit-learn - Machine learning in Python made simple and efficient.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Scikit-learn Library</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>📊 Scikit-learn</h2>
+            <p class="intro">Simple and efficient tools for predictive data analysis built on NumPy, SciPy, and
+                matplotlib.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">Data Science</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Classical ML</span>
+                </div>
+                <p>Scikit-learn is a free software machine learning library for Python. It features various
+                    classification, regression, and clustering algorithms and is designed to interoperate with NumPy and
+                    SciPy.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Comprehensive Algorithms</strong> — Classification, regression, clustering</li>
+                    <li><strong>Consistent API</strong> — fit(), predict(), transform() pattern</li>
+                    <li><strong>Model Selection</strong> — Cross-validation and hyperparameter tuning</li>
+                    <li><strong>Preprocessing</strong> — Feature scaling, encoding, imputation</li>
+                    <li><strong>Pipelines</strong> — Chain preprocessing and model steps</li>
+                    <li><strong>Metrics</strong> — Comprehensive evaluation metrics</li>
+                    <li><strong>Ensemble Methods</strong> — Random forests, gradient boosting</li>
+                    <li><strong>Dimensionality Reduction</strong> — PCA, t-SNE, UMAP</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Classification tasks (spam detection, image recognition)</li>
+                    <li>Regression problems (price prediction, forecasting)</li>
+                    <li>Clustering (customer segmentation, anomaly detection)</li>
+                    <li>Dimensionality reduction (feature engineering)</li>
+                    <li>Model selection and evaluation</li>
+                    <li>Data preprocessing and transformation</li>
+                    <li>Ensemble learning</li>
+                    <li>Feature extraction and selection</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Algorithms</h3>
+                <h4>Supervised Learning</h4>
+                <ul>
+                    <li><strong>Linear Models</strong> — LinearRegression, LogisticRegression, Ridge, Lasso</li>
+                    <li><strong>Tree-Based</strong> — DecisionTree, RandomForest, GradientBoosting</li>
+                    <li><strong>SVM</strong> — Support Vector Machines</li>
+                    <li><strong>Neural Networks</strong> — MLPClassifier, MLPRegressor</li>
+                    <li><strong>Naive Bayes</strong> — GaussianNB, MultinomialNB</li>
+                </ul>
+
+                <h4>Unsupervised Learning</h4>
+                <ul>
+                    <li><strong>Clustering</strong> — KMeans, DBSCAN, AgglomerativeClustering</li>
+                    <li><strong>Dimensionality Reduction</strong> — PCA, t-SNE, TruncatedSVD</li>
+                    <li><strong>Anomaly Detection</strong> — IsolationForest, OneClassSVM</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install scikit-learn:</p>
+                <pre><code>pip install scikit-learn</code></pre>
+
+                <p>Simple classification example:</p>
+                <pre><code>from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# Load data
+iris = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(
+    iris.data, iris.target, test_size=0.2, random_state=42
+)
+
+# Train model
+clf = RandomForestClassifier(n_estimators=100)
+clf.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = clf.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, y_pred)}")</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use pipelines for reproducible workflows</li>
+                    <li>Apply cross-validation for reliable performance estimates</li>
+                    <li>Scale features before training</li>
+                    <li>Use GridSearchCV or RandomizedSearchCV for hyperparameter tuning</li>
+                    <li>Handle imbalanced datasets appropriately</li>
+                    <li>Split data properly (train/val/test)</li>
+                    <li>Monitor for overfitting with learning curves</li>
+                    <li>Use appropriate metrics for your problem</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://scikit-learn.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://scikit-learn.org/stable/documentation.html" target="_blank"
+                    class="btn">Documentation</a>
+                <a href="https://github.com/scikit-learn/scikit-learn" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

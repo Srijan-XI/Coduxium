@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="Complete guide to MySQL - The world's most popular open-source relational database for OLTP workloads with ACID compliance and powerful features." />
+	<meta name="keywords" content="MySQL, SQL, Database, Relational, ACID, InnoDB, MariaDB, RDBMS" />
+	<title>MySQL Complete Guide | Coduxium XI</title>
+	<link rel="stylesheet" href="../../../css/main.css">
+	<link rel="stylesheet" href="../database-common.css">
+	<link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+	<div class="page-wrapper">
+		<header class="page-header">
+			<h1>MySQL Complete Guide</h1>
+			<p class="subtitle">The world's most popular open-source relational database for OLTP workloads.</p>
+			<div class="badge-row">
+				<span class="badge">RELATIONAL</span>
+				<span class="badge">SQL</span>
+				<span class="badge">ACID</span>
+				<span class="badge">INNODB</span>
+				<span class="badge">OPEN SOURCE</span>
+			</div>
+			<nav class="section-nav">
+				<a href="../../../index.html">🏠 Home</a>
+				<a href="#introduction">Introduction</a>
+				<a href="#installation">Installation & Setup</a>
+				<a href="#user-guide">User Guide</a>
+				<a href="#advanced">Advanced Topics</a>
+				<a href="#next-steps">Next Steps</a>
+			</nav>
+			<div class="info-box"><strong>💡 Pro Tip:</strong> Use proper indexing and EXPLAIN to optimize query
+				performance. MySQL's query optimizer works best with well-designed indexes.</div>
+		</header>
+
+		<!-- ==================== INTRODUCTION SECTION ==================== -->
+		<section id="introduction" class="card accent">
+			<h2>📚 Introduction</h2>
+
+			<h3>What is MySQL?</h3>
+			<p>MySQL is a powerful, open-source relational database management system (RDBMS) that has been the backbone
+				of countless web applications for over 25 years. Known for its reliability, ease of use, and proven
+				performance, MySQL powers everything from small personal projects to large-scale enterprise
+				applications.</p>
+
+			<h3>Key Features</h3>
+			<div class="topic-grid">
+				<div class="topic"><strong>🔒 ACID Compliance</strong> — Guaranteed data integrity with transactions
+				</div>
+				<div class="topic"><strong>⚡ High Performance</strong> — Optimized for fast read and write operations
+				</div>
+				<div class="topic"><strong>🔄 Replication</strong> — Master-slave and group replication support</div>
+				<div class="topic"><strong>💾 InnoDB Engine</strong> — MVCC, row-level locking, foreign keys</div>
+				<div class="topic"><strong>📊 Stored Procedures</strong> — Business logic in the database</div>
+				<div class="topic"><strong>🔍 Full-Text Search</strong> — Built-in text search capabilities</div>
+				<div class="topic"><strong>🌐 Cross-Platform</strong> — Runs on Windows, Linux, macOS</div>
+				<div class="topic"><strong>🛡️ Security</strong> — SSL support, encryption, access control</div>
+			</div>
+
+			<h3>Why Choose MySQL?</h3>
+			<ul>
+				<li><strong>Proven Reliability:</strong> Used by industry giants like Facebook, Twitter, YouTube, and
+					Netflix for mission-critical applications.</li>
+				<li><strong>Easy to Learn:</strong> Standard SQL syntax makes it accessible for beginners while offering
+					advanced features for experts.</li>
+				<li><strong>Scalability:</strong> Handles everything from small databases to petabyte-scale data
+					warehouses.</li>
+				<li><strong>Performance:</strong> Optimized query execution, efficient indexing, and query caching
+					deliver fast response times.</li>
+				<li><strong>Community & Support:</strong> Large community, extensive documentation, and commercial
+					support available through Oracle.</li>
+				<li><strong>Cost-Effective:</strong> Open-source with a flexible licensing model (GPL and commercial).
+				</li>
+			</ul>
+
+			<h3>Use Cases</h3>
+			<div class="topic-grid">
+				<div class="topic"><strong>🌐 Web Applications</strong> — CMS, forums, e-commerce platforms</div>
+				<div class="topic"><strong>💼 Enterprise Software</strong> — ERP, CRM, business applications</div>
+				<div class="topic"><strong>📊 Data Warehousing</strong> — Analytics, reporting, BI tools</div>
+				<div class="topic"><strong>📱 Mobile Apps</strong> — Backend data storage and APIs</div>
+				<div class="topic"><strong>🎮 Gaming</strong> — User data, leaderboards, game state</div>
+				<div class="topic"><strong>📰 Content Management</strong> — WordPress, Drupal, Joomla</div>
+			</div>
+
+			<h3>InnoDB Storage Engine</h3>
+			<p>InnoDB is the default storage engine in MySQL, providing:</p>
+			<ul>
+				<li><strong>ACID Transactions:</strong> Full support for commit, rollback, and crash recovery</li>
+				<li><strong>Row-Level Locking:</strong> Better concurrency than table-level locks</li>
+				<li><strong>Foreign Keys:</strong> Maintain referential integrity across tables</li>
+				<li><strong>MVCC:</strong> Multi-Version Concurrency Control for consistent reads</li>
+				<li><strong>Crash Recovery:</strong> Automatic recovery after unexpected shutdowns</li>
+			</ul>
+
+			<div class="info-box warning"><strong>⚠️ Important:</strong> Always use the InnoDB storage engine for
+				production applications. MyISAM lacks transaction support and crash recovery capabilities.</div>
+		</section>
+
+		<!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+		<section id="installation" class="card">
+			<h2>⚙️ Installation & Setup</h2>
+			<p>Get started with MySQL by installing MySQL Server and client tools on your platform.</p>
+
+			<!-- Windows Installation -->
+			<div id="windows-install" class="subsection">
+				<h3>Windows Installation</h3>
+
+				<h4>Option 1 — MySQL Installer (Recommended)</h4>
+				<div class="step"><span class="n">1</span> Download MySQL Installer from <a
+						href="https://dev.mysql.com/downloads/installer/" target="_blank"
+						rel="noopener noreferrer">MySQL Downloads</a></div>
+				<div class="step"><span class="n">2</span> Run the installer and choose "Developer Default" or "Server
+					only"</div>
+				<div class="step"><span class="n">3</span> Select products: MySQL Server, MySQL Shell, MySQL Workbench
+				</div>
+				<div class="step"><span class="n">4</span> Configure server: Set root password, create user accounts
+				</div>
+				<div class="step"><span class="n">5</span> Choose to run MySQL as a Windows Service</div>
+
+				<h4>Option 2 — winget</h4>
+				<pre><code># Install MySQL Server
+winget install Oracle.MySQL
+
+# Verify installation
+mysql --version
+
+# Access MySQL (will prompt for password)
+mysql -u root -p</code><button class="copy-btn" data-copy="winget install Oracle.MySQL">COPY</button></pre>
+
+				<h4>Option 3 — Chocolatey</h4>
+				<pre><code># Install MySQL
+choco install mysql
+
+# Start MySQL service
+net start MySQL80
+
+# Connect to MySQL
+mysql -u root -p</code><button class="copy-btn" data-copy="choco install mysql">COPY</button></pre>
+			</div>
+
+			<!-- macOS Installation -->
+			<div id="macos-install" class="subsection">
+				<h3>macOS Installation</h3>
+				<pre><code># Install MySQL using Homebrew
+brew install mysql
+
+# Start MySQL service
+brew services start mysql
+
+# Secure the installation (set root password, remove test databases)
+mysql_secure_installation
+
+# Connect to MySQL
+mysql -u root -p
+
+# Stop MySQL service
+brew services stop mysql</code><button class="copy-btn" data-copy="brew install mysql">COPY</button></pre>
+			</div>
+
+			<!-- Linux Installation -->
+			<div id="linux-install" class="subsection">
+				<h3>Linux Installation</h3>
+
+				<h4>Ubuntu/Debian</h4>
+				<pre><code># Update package index
+sudo apt update
+
+# Install MySQL Server
+sudo apt install mysql-server
+
+# Start MySQL service
+sudo systemctl start mysql
+sudo systemctl enable mysql
+
+# Secure installation
+sudo mysql_secure_installation
+
+# Check service status
+sudo systemctl status mysql
+
+# Connect to MySQL (Ubuntu uses auth_socket by default for root)
+sudo mysql</code><button class="copy-btn" data-copy="sudo apt install mysql-server">COPY</button></pre>
+
+				<h4>RHEL/CentOS/Fedora</h4>
+				<pre><code># Add MySQL repository (for latest version)
+sudo dnf install https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+
+# Install MySQL Server
+sudo dnf install mysql-community-server
+
+# Start and enable MySQL
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+
+# Get temporary root password
+sudo grep 'temporary password' /var/log/mysqld.log
+
+# Secure installation (will ask to change root password)
+sudo mysql_secure_installation
+
+# Connect to MySQL
+mysql -u root -p</code><button class="copy-btn" data-copy="sudo dnf install mysql-community-server">COPY</button></pre>
+			</div>
+
+			<!-- Docker Installation -->
+			<div id="docker-install" class="subsection">
+				<h3>Docker Installation</h3>
+				<pre><code># Run MySQL with root password
+docker run -d \
+  --name mysql \
+  -p 3306:3306 \
+  -e MYSQL_ROOT_PASSWORD=StrongRootP@ssw0rd \
+  -e MYSQL_DATABASE=myapp \
+  -e MYSQL_USER=appuser \
+  -e MYSQL_PASSWORD=AppP@ssw0rd \
+  -v mysql_data:/var/lib/mysql \
+  mysql:8.0
+
+# Access MySQL Shell in container
+docker exec -it mysql mysql -u root -p
+
+# View logs
+docker logs mysql
+
+# Stop and remove
+docker stop mysql && docker rm mysql</code><button class="copy-btn" data-copy="docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=StrongRootP@ssw0rd mysql:8.0">COPY</button></pre>
+			</div>
+
+			<!-- Initial Configuration -->
+			<div id="initial-config" class="subsection">
+				<h3>Initial Configuration & Security</h3>
+
+				<h4>Secure Installation</h4>
+				<pre><code># Run security script (all platforms)
+mysql_secure_installation
+
+# This will:
+# 1. Set root password
+# 2. Remove anonymous users
+# 3. Disallow root login remotely
+# 4. Remove test database
+# 5. Reload privilege tables</code><button class="copy-btn" data-copy="mysql_secure_installation">COPY</button></pre>
+
+				<h4>Create Database and User</h4>
+				<pre><code># Connect as root
+mysql -u root -p
+
+# Create database
+CREATE DATABASE myapp CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+# Create user with password
+CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'StrongP@ssw0rd';
+
+# Grant privileges
+GRANT ALL PRIVILEGES ON myapp.* TO 'appuser'@'localhost';
+
+# For remote access (use specific IP instead of % in production)
+CREATE USER 'appuser'@'%' IDENTIFIED BY 'StrongP@ssw0rd';
+GRANT ALL PRIVILEGES ON myapp.* TO 'appuser'@'%';
+
+# Apply changes
+FLUSH PRIVILEGES;
+
+# Verify user
+SELECT user, host FROM mysql.user;
+
+# Exit
+EXIT;</code><button class="copy-btn" data-copy="CREATE DATABASE myapp CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;">COPY</button></pre>
+
+				<h4>Enable Remote Connections (Optional)</h4>
+				<pre><code># Edit MySQL configuration
+# Ubuntu/Debian: /etc/mysql/mysql.conf.d/mysqld.cnf
+# RHEL/CentOS: /etc/my.cnf
+# macOS (Homebrew): /usr/local/etc/my.cnf
+
+# Find and change:
+bind-address = 0.0.0.0
+
+# Restart MySQL
+sudo systemctl restart mysql  # Linux
+brew services restart mysql   # macOS
+
+# Configure firewall to allow port 3306
+sudo ufw allow 3306/tcp  # Ubuntu
+sudo firewall-cmd --permanent --add-port=3306/tcp  # RHEL/CentOS
+sudo firewall-cmd --reload</code><button class="copy-btn" data-copy="bind-address = 0.0.0.0">COPY</button></pre>
+			</div>
+
+			<!-- Verification -->
+			<div id="verify-install" class="subsection">
+				<h3>Verify Installation</h3>
+				<pre><code># Check MySQL version
+mysql --version
+
+# Connect to MySQL
+mysql -u appuser -p -h localhost -P 3306 -D myapp
+
+# Inside MySQL shell:
+
+# Show current database
+SELECT DATABASE();
+
+# Show MySQL version
+SELECT VERSION();
+
+# Show current user
+SELECT USER();
+
+# Show all databases
+SHOW DATABASES;
+
+# Use specific database
+USE myapp;
+
+# Show tables in current database
+SHOW TABLES;
+
+# Exit MySQL
+EXIT;</code><button class="copy-btn" data-copy="mysql -u appuser -p -D myapp">COPY</button></pre>
+			</div>
+		</section>
+
+		<!-- ==================== USER GUIDE SECTION ==================== -->
+		<section id="user-guide" class="card accent">
+			<h2>📖 User Guide</h2>
+			<p>Learn essential SQL operations and best practices for working with MySQL.</p>
+
+			<!-- Database & Table Operations -->
+			<div id="db-table-ops" class="subsection">
+				<h3>Database & Table Operations</h3>
+
+				<h4>Database Management</h4>
+				<pre><code>-- Create database
+CREATE DATABASE myapp CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Show all databases
+SHOW DATABASES;
+
+-- Use database
+USE myapp;
+
+-- Show current database
+SELECT DATABASE();
+
+-- Drop database (careful!)
+DROP DATABASE IF EXISTS old_database;</code><button class="copy-btn" data-copy="CREATE DATABASE myapp CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;">COPY</button></pre>
+
+				<h4>Create Tables</h4>
+				<pre><code>-- Create users table
+CREATE TABLE users (
+  id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  is_active BOOLEAN DEFAULT TRUE,
+  
+  INDEX idx_email (email),
+  INDEX idx_username (username),
+  INDEX idx_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Create orders table with foreign key
+CREATE TABLE orders (
+  id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  user_id BIGINT UNSIGNED NOT NULL,
+  order_number VARCHAR(50) NOT NULL UNIQUE,
+  total DECIMAL(10, 2) NOT NULL,
+  status ENUM('pending', 'processing', 'completed', 'cancelled') DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  INDEX idx_user_id (user_id),
+  INDEX idx_status (status),
+  INDEX idx_created_at (created_at)
+) ENGINE=InnoDB;
+
+-- Show table structure
+DESCRIBE users;
+SHOW CREATE TABLE users;</code><button class="copy-btn" data-copy="CREATE TABLE users (id BIGINT PRIMARY KEY AUTO_INCREMENT, email VARCHAR(255) NOT NULL UNIQUE);">COPY</button></pre>
+			</div>
+
+			<!-- CRUD Operations -->
+			<div id="crud-ops" class="subsection">
+				<h3>CRUD Operations</h3>
+
+				<h4>INSERT - Create Data</h4>
+				<pre><code>-- Insert single row
+INSERT INTO users (email, username, password_hash, first_name, last_name)
+VALUES ('ada@example.com', 'ada_lovelace', 'hashed_password', 'Ada', 'Lovelace');
+
+-- Insert multiple rows
+INSERT INTO users (email, username, password_hash, first_name, last_name) VALUES
+  ('grace@example.com', 'grace_hopper', 'hashed_pwd', 'Grace', 'Hopper'),
+  ('alan@example.com', 'alan_turing', 'hashed_pwd', 'Alan', 'Turing'),
+  ('margaret@example.com', 'margaret_hamilton', 'hashed_pwd', 'Margaret', 'Hamilton');
+
+-- Insert with ON DUPLICATE KEY UPDATE
+INSERT INTO users (email, username, password_hash) 
+VALUES ('ada@example.com', 'ada_lovelace', 'new_hash')
+ON DUPLICATE KEY UPDATE password_hash = VALUES(password_hash);</code><button class="copy-btn" data-copy="INSERT INTO users (email, username) VALUES ('ada@example.com', 'ada');">COPY</button></pre>
+
+				<h4>SELECT - Read Data</h4>
+				<pre><code>-- Select all columns
+SELECT * FROM users;
+
+-- Select specific columns
+SELECT id, email, username, created_at FROM users;
+
+-- WHERE clause with conditions
+SELECT * FROM users WHERE is_active = TRUE;
+SELECT * FROM users WHERE created_at >= '2025-01-01';
+SELECT * FROM users WHERE first_name LIKE 'A%';
+
+-- Multiple conditions
+SELECT * FROM users 
+WHERE is_active = TRUE 
+  AND created_at >= '2025-01-01'
+  AND (first_name = 'Ada' OR last_name = 'Lovelace');
+
+-- ORDER BY and LIMIT
+SELECT * FROM users 
+ORDER BY created_at DESC 
+LIMIT 10;
+
+-- Pagination with OFFSET
+SELECT * FROM users 
+ORDER BY id 
+LIMIT 20 OFFSET 40;  -- Page 3 (20 per page)
+
+-- DISTINCT values
+SELECT DISTINCT status FROM orders;
+
+-- Aggregate functions
+SELECT COUNT(*) as total_users FROM users;
+SELECT COUNT(*) as active_users FROM users WHERE is_active = TRUE;
+SELECT AVG(total) as avg_order_value FROM orders;
+SELECT SUM(total) as total_revenue FROM orders WHERE status = 'completed';
+SELECT MIN(total), MAX(total), AVG(total) FROM orders;
+
+-- GROUP BY
+SELECT status, COUNT(*) as count, SUM(total) as revenue
+FROM orders
+GROUP BY status;
+
+-- GROUP BY with HAVING
+SELECT user_id, COUNT(*) as order_count, SUM(total) as total_spent
+FROM orders
+GROUP BY user_id
+HAVING order_count >= 5
+ORDER BY total_spent DESC;</code><button class="copy-btn" data-copy="SELECT * FROM users WHERE email='ada@example.com';">COPY</button></pre>
+
+				<h4>UPDATE - Modify Data</h4>
+				<pre><code>-- Update single record
+UPDATE users 
+SET first_name = 'Ada Augusta', updated_at = CURRENT_TIMESTAMP
+WHERE email = 'ada@example.com';
+
+-- Update multiple records
+UPDATE users 
+SET is_active = FALSE
+WHERE created_at < '2020-01-01';
+
+-- Update with calculation
+UPDATE orders
+SET total = total * 1.10
+WHERE status = 'pending' AND created_at < '2025-12-01';
+
+-- Update with CASE
+UPDATE users
+SET status = CASE
+  WHEN last_login < NOW() - INTERVAL 90 DAY THEN 'inactive'
+  WHEN last_login < NOW() - INTERVAL 30 DAY THEN 'dormant'
+  ELSE 'active'
+END;</code><button class="copy-btn" data-copy="UPDATE users SET first_name='Ada' WHERE email='ada@example.com';">COPY</button></pre>
+
+				<h4>DELETE - Remove Data</h4>
+				<pre><code>-- Delete specific records
+DELETE FROM users WHERE email = 'ada@example.com';
+
+-- Delete with condition
+DELETE FROM orders WHERE status = 'cancelled' AND created_at < '2024-01-01';
+
+-- Delete all records (careful!)
+DELETE FROM temp_table;
+
+-- TRUNCATE (faster than DELETE for removing all rows)
+TRUNCATE TABLE temp_table;</code><button class="copy-btn" data-copy="DELETE FROM users WHERE email='ada@example.com';">COPY</button></pre>
+			</div>
+
+			<!-- Joins & Relationships -->
+			<div id="joins" class="subsection">
+				<h3>Joins & Relationships</h3>
+				<pre><code>-- INNER JOIN (only matching records)
+SELECT u.username, u.email, o.order_number, o.total, o.created_at
+FROM users u
+INNER JOIN orders o ON u.id = o.user_id
+WHERE o.status = 'completed'
+ORDER BY o.created_at DESC;
+
+-- LEFT JOIN (all users, even without orders)
+SELECT u.username, COUNT(o.id) as order_count, COALESCE(SUM(o.total), 0) as total_spent
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+GROUP BY u.id, u.username
+ORDER BY total_spent DESC;
+
+-- RIGHT JOIN
+SELECT * FROM orders o
+RIGHT JOIN users u ON o.user_id = u.id;
+
+-- Multiple joins
+SELECT 
+  u.username,
+  o.order_number,
+  oi.product_name,
+  oi.quantity,
+  oi.price
+FROM users u
+INNER JOIN orders o ON u.id = o.user_id
+INNER JOIN order_items oi ON o.id = oi.order_id
+WHERE u.id = 1;
+
+-- Self join (find users in same city)
+SELECT 
+  u1.username as user1,
+  u2.username as user2,
+  u1.city
+FROM users u1
+INNER JOIN users u2 ON u1.city = u2.city AND u1.id < u2.id;</code><button class="copy-btn" data-copy="SELECT u.*, o.* FROM users u INNER JOIN orders o ON u.id = o.user_id;">COPY</button></pre>
+			</div>
+
+			<!-- Indexing -->
+			<div id="indexing" class="subsection">
+				<h3>Indexing for Performance</h3>
+				<pre><code>-- Create single-column index
+CREATE INDEX idx_email ON users(email);
+
+-- Create unique index
+CREATE UNIQUE INDEX idx_order_number ON orders(order_number);
+
+-- Create composite index
+CREATE INDEX idx_user_status_date ON orders(user_id, status, created_at);
+
+-- Create full-text index
+CREATE FULLTEXT INDEX idx_fulltext_content ON articles(title, body);
+
+-- Full-text search
+SELECT * FROM articles 
+WHERE MATCH(title, body) AGAINST('MySQL database tutorial' IN NATURAL LANGUAGE MODE);
+
+-- Show indexes on table
+SHOW INDEXES FROM users;
+
+-- Drop index
+DROP INDEX idx_email ON users;
+
+-- Analyze query performance
+EXPLAIN SELECT * FROM users WHERE email = 'ada@example.com';
+
+-- Extended analysis
+EXPLAIN FORMAT=JSON SELECT * FROM orders WHERE user_id = 1;
+
+-- Show query execution stats
+SHOW PROFILES;
+SET profiling = 1;
+SELECT * FROM large_table WHERE indexed_column = 'value';
+SHOW PROFILE;</code><button class="copy-btn" data-copy="CREATE INDEX idx_email ON users(email);">COPY</button></pre>
+			</div>
+
+			<!-- Transactions -->
+			<div id="transactions" class="subsection">
+				<h3>Transactions (ACID)</h3>
+				<pre><code>-- Basic transaction
+START TRANSACTION;
+
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+
+COMMIT;
+
+-- Transaction with rollback on error
+START TRANSACTION;
+
+INSERT INTO orders (user_id, total) VALUES (1, 99.99);
+SET @order_id = LAST_INSERT_ID();
+
+INSERT INTO order_items (order_id, product_id, quantity, price) 
+VALUES (@order_id, 101, 2, 49.99);
+
+-- If everything is OK
+COMMIT;
+
+-- If something went wrong
+-- ROLLBACK;
+
+-- Savepoints
+START TRANSACTION;
+
+INSERT INTO logs (message) VALUES ('Step 1');
+SAVEPOINT step1;
+
+INSERT INTO logs (message) VALUES ('Step 2');
+SAVEPOINT step2;
+
+-- Rollback to specific savepoint
+ROLLBACK TO step2;
+
+COMMIT;</code><button class="copy-btn" data-copy="START TRANSACTION; ... COMMIT;">COPY</button></pre>
+			</div>
+		</section>
+
+		<!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+		<section id="advanced" class="card">
+			<h2>🚀 Advanced Topics</h2>
+
+			<h3>Stored Procedures & Functions</h3>
+			<pre><code>-- Create stored procedure
+DELIMITER //
+CREATE PROCEDURE GetUserOrders(IN userId INT)
+BEGIN
+  SELECT * FROM orders WHERE user_id = userId ORDER BY created_at DESC;
+END //
+DELIMITER ;
+
+-- Call procedure
+CALL GetUserOrders(1);
+
+-- Create function
+DELIMITER //
+CREATE FUNCTION CalculateTax(amount DECIMAL(10,2))
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+  RETURN amount * 0.15;
+END //
+DELIMITER ;
+
+-- Use function
+SELECT order_number, total, CalculateTax(total) as tax FROM orders;</code><button class="copy-btn" data-copy="Stored Procedures">COPY</button></pre>
+
+			<h3>Views</h3>
+			<pre><code>-- Create view
+CREATE VIEW active_users_summary AS
+SELECT 
+  id,
+  username,
+  email,
+  created_at,
+  (SELECT COUNT(*) FROM orders WHERE user_id = users.id) as order_count
+FROM users
+WHERE is_active = TRUE;
+
+-- Query view
+SELECT * FROM active_users_summary WHERE order_count > 5;</code><button class="copy-btn" data-copy="CREATE VIEW">COPY</button></pre>
+
+			<h3>Triggers</h3>
+			<pre><code>-- Create audit trigger
+DELIMITER //
+CREATE TRIGGER users_after_update
+AFTER UPDATE ON users
+FOR EACH ROW
+BEGIN
+  INSERT INTO users_audit (user_id, action, old_email, new_email, changed_at)
+  VALUES (NEW.id, 'UPDATE', OLD.email, NEW.email, NOW());
+END //
+DELIMITER ;</code><button class="copy-btn" data-copy="CREATE TRIGGER">COPY</button></pre>
+
+			<h3>JSON Data Type</h3>
+			<pre><code>-- Create table with JSON column
+CREATE TABLE products (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100),
+  attributes JSON
+);
+
+-- Insert JSON data
+INSERT INTO products (name, attributes) VALUES
+  ('Laptop', '{"brand": "Dell", "cpu": "i7", "ram": "16GB"}'),
+  ('Phone', '{"brand": "Apple", "model": "iPhone 15", "storage": "256GB"}');
+
+-- Query JSON data
+SELECT name, attributes->'$.brand' as brand FROM products;
+SELECT name, JSON_EXTRACT(attributes, '$.cpu') as cpu FROM products;
+
+-- Update JSON data
+UPDATE products 
+SET attributes = JSON_SET(attributes, '$.price', 999.99) 
+WHERE id = 1;</code><button class="copy-btn" data-copy="JSON Data">COPY</button></pre>
+
+			<h3>Replication</h3>
+			<pre><code>-- On master server
+CREATE USER 'repl'@'%' IDENTIFIED BY 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+SHOW MASTER STATUS;
+
+-- On slave server (in my.cnf)
+server-id=2
+relay-log=slave-relay-bin
+read-only=1
+
+-- Configure slave
+CHANGE MASTER TO
+  MASTER_HOST='master_ip',
+  MASTER_USER='repl',
+  MASTER_PASSWORD='password',
+  MASTER_LOG_FILE='mysql-bin.000001',
+  MASTER_LOG_POS=107;
+
+START SLAVE;
+SHOW SLAVE STATUS\G</code><button class="copy-btn" data-copy="Replication">COPY</button></pre>
+		</section>
+
+		<!-- ==================== NEXT STEPS SECTION ==================== -->
+		<section id="next-steps" class="card accent">
+			<h2>🎯 Next Steps</h2>
+			<div class="step"><span class="n">1</span><strong>Design Your Schema</strong> — Plan tables, relationships,
+				and normalization</div>
+			<div class="step"><span class="n">2</span><strong>Create Indexes</strong> — Add indexes for frequently
+				queried columns</div>
+			<div class="step"><span class="n">3</span><strong>Use EXPLAIN</strong> — Analyze and optimize query
+				performance</div>
+			<div class="step"><span class="n">4</span><strong>Implement Backups</strong> — Set up regular mysqldump or
+				binary log backups</div>
+			<div class="step"><span class="n">5</span><strong>Monitor Performance</strong> — Use slow query log and
+				performance schema</div>
+			<div class="step"><span class="n">6</span><strong>Set Up Replication</strong> — Configure master-slave for
+				high availability</div>
+			<div class="step"><span class="n">7</span><strong>Optimize Configuration</strong> — Tune my.cnf for your
+				workload</div>
+
+			<h3>📚 Additional Resources</h3>
+			<ul>
+				<li>📖 <a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer">Official MySQL
+						Documentation</a></li>
+				<li>🛠️ <a href="https://www.mysql.com/products/workbench/" target="_blank"
+						rel="noopener noreferrer">MySQL Workbench (GUI Tool)</a></li>
+				<li>📊 <a href="https://www.percona.com/software/database-tools/percona-monitoring-and-management"
+						target="_blank" rel="noopener noreferrer">Percona Monitoring (PMM)</a></li>
+				<li>💡 <a href="https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/" target="_blank"
+						rel="noopener noreferrer">MySQL Tutorial</a></li>
+				<li>🎓 <a href="https://www.mysqltutorial.org/" target="_blank" rel="noopener noreferrer">MySQL
+						Tutorial.org</a></li>
+			</ul>
+		</section>
+
+		<footer>
+			<p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+		</footer>
+	</div>
+
+	<div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+	<script src="../database-common.js"></script>
+	<script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

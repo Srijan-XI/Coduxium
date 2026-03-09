@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jest — | Coduxium XI</title>
+  <link rel="stylesheet" href="../testingpages.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+
+  <div class="wrap">
+    <header>
+      <h1>Jest — Introduction</h1>
+      <p class="subtitle">A delightful JavaScript testing framework with zero-config, snapshots, mocks, and fast parallel runs.</p>
+      <div class="badge-row">
+        <span class="badge">JAVASCRIPT</span>
+        <span class="badge">SNAPSHOTS</span>
+        <span class="badge">MOCKS</span>
+        <span class="badge">TS SUPPORT</span>
+      </div>
+      <nav>
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#anatomy">Test Anatomy</a>
+        <a href="#matchers">Matchers</a>
+        <a href="#mocking">Mocking</a>
+        <a href="#async">Async</a>
+        <a href="#snapshots">Snapshots</a>
+      </nav>
+    </header>
+
+    <section id="overview" class="card">
+      <h2>Overview</h2>
+      <p>Jest is a batteries-included test runner and assertion library for JavaScript and TypeScript. It runs tests in parallel, isolates modules, supports coverage, and integrates well with React, Node.js, and modern toolchains.</p>
+      <ul>
+        <li>Zero-config for most JS apps</li>
+        <li>Fast parallel execution and watch mode</li>
+        <li>Powerful mocking and spies</li>
+        <li>Snapshot testing for UI/serializable output</li>
+        <li>TypeScript via Babel or ts-jest</li>
+      </ul>
+    </section>
+
+    <section id="anatomy" class="card">
+      <h2>Test Anatomy</h2>
+      <pre><code>// sum.js
+export const sum = (a, b) =&gt; a + b
+
+// sum.test.js
+describe('sum', () =&gt; {
+  test('adds two numbers', () =&gt; {
+    expect(sum(2, 3)).toBe(5)
+  })
+})</code><button class="copy-btn" data-copy="expect(sum(2, 3)).toBe(5)">COPY</button></pre>
+    </section>
+
+    <section id="matchers" class="card">
+      <h2>Common Matchers</h2>
+      <pre><code>expect(value).toBe(3)
+expect(value).toEqual({a:1})
+expect(value).toBeTruthy()
+expect(array).toContain('x')
+await expect(promise).resolves.toBe('ok')</code><button class="copy-btn" data-copy="expect(value).toEqual({a:1})">COPY</button></pre>
+    </section>
+
+    <section id="mocking" class="card">
+      <h2>Mocking & Spies</h2>
+      <pre><code>const api = { fetch: () =&gt; 'real' }
+
+test('mocks implementation', () =&gt; {
+  const spy = jest.spyOn(api, 'fetch').mockReturnValue('fake')
+  expect(api.fetch()).toBe('fake')
+  spy.mockRestore()
+})</code><button class="copy-btn" data-copy="jest.spyOn(api, 'fetch').mockReturnValue('fake')">COPY</button></pre>
+    </section>
+
+    <section id="async" class="card">
+      <h2>Async Tests</h2>
+      <pre><code>test('awaits promise', async () =&gt; {
+  const data = await Promise.resolve(42)
+  expect(data).toBe(42)
+})</code><button class="copy-btn" data-copy="await Promise.resolve(42)">COPY</button></pre>
+    </section>
+
+    <section id="snapshots" class="card">
+      <h2>Snapshot Testing</h2>
+      <pre><code>test('object snapshot', () =&gt; {
+  const user = { id: 1, name: 'Ada' }
+  expect(user).toMatchSnapshot()
+})</code><button class="copy-btn" data-copy="toMatchSnapshot()">COPY</button></pre>
+      <p>Next: <a href="Jest.html">Install Jest</a></p>
+    </section>
+
+    <footer class="page-footer">&copy; 2025 Coduxium XI</footer>
+  </div>
+
+  <div id="copyToast" class="copy-feedback">Copied to clipboard!</div>
+  <script src="../testingpages.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+
+
+  <div class="wrap">
+    <header>
+      <h1>Jest — Installation Guide</h1>
+      <p class="subtitle">Set up Jest for JavaScript and TypeScript projects. Configure scripts, TypeScript, Babel, coverage, and debug.</p>
+      <div class="badge-row">
+        <span class="badge">NODE</span>
+        <span class="badge">TS</span>
+        <span class="badge">BABEL</span>
+        <span class="badge">COVERAGE</span>
+      </div>
+      <nav>
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#setup">Setup</a>
+        <a href="#run">Run</a>
+        <a href="#typescript">TypeScript</a>
+        <a href="#babel">Babel</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#debug">Debug</a>
+      </nav>
+    </header>
+
+    <section id="setup" class="card">
+      <h2>Setup</h2>
+      <pre><code># Initialize project
+npm init -y
+
+# Install Jest	npm i -D jest
+
+# Or yarn/pnpm
+yarn add -D jest
+pnpm add -D jest
+
+# Optional: create config
+npx jest --init</code><button class="copy-btn" data-copy="npm i -D jest">COPY</button></pre>
+      <h3>Package Scripts</h3>
+      <pre><code>{
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci"
+  }
+}</code><button class="copy-btn" data-copy="jest --watch">COPY</button></pre>
+    </section>
+
+    <section id="run" class="card">
+      <h2>Run Tests</h2>
+      <pre><code># Run all tests
+npm test
+
+# Watch changed tests
+npm run test:watch
+
+# CI mode + JUnit report (example)
+jest --ci --reporters=default --reporters=jest-junit</code><button class="copy-btn" data-copy="npm test">COPY</button></pre>
+    </section>
+
+    <section id="typescript" class="card">
+      <h2>TypeScript</h2>
+      <pre><code># Option A: ts-jest (no Babel)
+npm i -D ts-jest @types/jest typescript
+npx ts-jest config:init
+
+# jest.config.ts
+export default {
+  testEnvironment: 'node',
+  preset: 'ts-jest',
+}</code><button class="copy-btn" data-copy="npm i -D ts-jest @types/jest typescript">COPY</button></pre>
+      <pre><code># Option B: Babel + TS
+npm i -D @babel/core @babel/preset-env @babel/preset-typescript babel-jest @types/jest typescript
+
+# babel.config.json
+{
+  "presets": ["@babel/preset-env", "@babel/preset-typescript"]
+}</code><button class="copy-btn" data-copy="npm i -D @babel/core @babel/preset-env @babel/preset-typescript babel-jest">COPY</button></pre>
+    </section>
+
+    <section id="babel" class="card">
+      <h2>Babel (JS/TS)</h2>
+      <pre><code>// jest.config.js
+module.exports = {
+  transform: { '^.+\\.[tj]sx?$': ['babel-jest', { rootMode: 'upward' }] },
+  testEnvironment: 'node',
+}</code><button class="copy-btn" data-copy="babel-jest">COPY</button></pre>
+    </section>
+
+    <section id="coverage" class="card">
+      <h2>Coverage</h2>
+      <pre><code>// jest.config.js
+module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.{js,ts}'],
+  coverageReporters: ['text', 'lcov'],
+}</code><button class="copy-btn" data-copy="collectCoverage: true">COPY</button></pre>
+    </section>
+
+    <section id="debug" class="card">
+      <h2>Debug in VS Code</h2>
+      <pre><code>{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Tests",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "args": ["--runInBand"],
+      "console": "integratedTerminal"
+    }
+  ]
+}</code><button class="copy-btn" data-copy="Jest Tests">COPY</button></pre>
+      <p>Next: <a href="Jest.html">Jest Introduction</a></p>
+    </section>
+
+    <footer class="page-footer">&copy; 2025 Coduxium XI</footer>
+  </div>
+
+  <div id="copyToast" class="copy-feedback">Copied to clipboard!</div>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const t=btn.getAttribute('data-copy');
+        navigator.clipboard.writeText(t).then(()=>{
+          const el=document.getElementById('copyToast');
+          el.classList.add('show');
+          setTimeout(()=>el.classList.remove('show'),1600);
+        });
+      });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});});
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+
+</body>
+</html>

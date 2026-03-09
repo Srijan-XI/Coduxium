@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slackware - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete Slackware guide - classic independent Linux distribution emphasizing simplicity and manual control">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Slackware</a></h1>
+                    <p class="sub">Classic independent distribution</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">⚙️</span>
+                <span>Traditional</span>
+            </div>
+            <h1 class="hero-title">Slackware</h1>
+            <p class="hero-description">The oldest surviving Linux distribution (since 1993). Slackware prioritizes stability, simplicity, and manual control over automation.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Independent</li>
+                    <li><strong>Package Tools:</strong> pkgtools (no automatic deps)</li>
+                    <li><strong>Desktop:</strong> KDE, Xfce (optional)</li>
+                    <li><strong>Release Model:</strong> Stable releases</li>
+                    <li><strong>Target Users:</strong> Advanced users, admins, learners</li>
+                </ul>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card"><span class="feature-icon">🧠</span><h4>Manual Control</h4><p>Configuration is explicit and transparent.</p></div>
+                <div class="feature-card"><span class="feature-icon">🧱</span><h4>Stability</h4><p>Conservative changes and strong UNIX roots.</p></div>
+                <div class="feature-card"><span class="feature-icon">🧰</span><h4>Classic Tooling</h4><p>Simple packaging tools without heavy automation.</p></div>
+                <div class="feature-card"><span class="feature-icon">📚</span><h4>Educational</h4><p>Great for learning Linux internals.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>What is Slackware?</h3></div>
+                <p style="line-height: 1.8; margin: 20px 0;">Slackware is a long-running, independent distribution known for its simplicity and minimal abstraction. It avoids unnecessary distro-specific tooling and expects users to manage configuration thoughtfully.</p>
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Classic UNIX-like philosophy</li>
+                    <li>Conservative, stable releases</li>
+                    <li>No forced dependency resolution</li>
+                    <li>Simple init and configuration patterns</li>
+                    <li>Excellent learning platform</li>
+                </ul>
+                <h3 style="margin-top: 30px;">Why Choose Slackware?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card"><span class="practice-num">1</span><h4>Transparency</h4><p>Less automation means fewer surprises.</p></div>
+                    <div class="practice-card"><span class="practice-num">2</span><h4>Stability</h4><p>Suitable for systems that value predictability.</p></div>
+                    <div class="practice-card"><span class="practice-num">3</span><h4>Learning</h4><p>Build deep Linux understanding through manual config.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Step 1: Download</h4><p class="command-desc">Download from: <a href="http://www.slackware.com/getslack/" target="_blank">http://www.slackware.com/getslack/</a></p></div>
+                <div class="command-card"><h4>Step 2: Create Install Media</h4><pre><code class="language-bash"># Linux (USB)
+sudo dd if=slackware.iso of=/dev/sdX bs=4M status=progress && sync</code></pre></div>
+                <div class="command-card"><h4>Step 3: Boot and Partition</h4><p class="command-desc">Partition disks carefully. Consider separate /home and swap as needed.</p></div>
+                <div class="command-card"><h4>Step 4: Install & Configure</h4><p class="command-desc">Run installer, select package sets, configure bootloader and network.</p></div>
+            </div>
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit recommended</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB+ recommended</li>
+                    <li><strong>Skill:</strong> Comfortable with manual configuration</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Install Package</h4><pre><code class="language-bash">installpkg package.tgz</code></pre></div>
+                    <div class="command-card"><h4>Upgrade Package</h4><pre><code class="language-bash">upgradepkg package.tgz</code></pre></div>
+                    <div class="command-card"><h4>Remove Package</h4><pre><code class="language-bash">removepkg package</code></pre></div>
+                    <div class="command-card"><h4>Update (slackpkg)</h4><pre><code class="language-bash">slackpkg update
+slackpkg upgrade-all</code></pre></div>
+                </div>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Read Docs</h4><p class="command-desc">Slackware rewards reading official docs and Slackbook.</p></div>
+                    <div class="command-card"><h4>Keep Backups</h4><p class="command-desc">Manual systems benefit from well-documented backups.</p></div>
+                    <div class="command-card"><h4>Track Changes</h4><p class="command-desc">Keep a changelog for manual config edits.</p></div>
+                    <div class="command-card"><h4>Secure Services</h4><p class="command-desc">Only enable services you actively use.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Runlevels / init scripts</h4><pre><code class="language-bash">ls /etc/rc.d/
+cat /etc/inittab</code></pre><p class="command-desc">Understand init and startup scripts.</p></div>
+                <div class="command-card"><h4>Kernel Info</h4><pre><code class="language-bash">uname -a
+ls /boot</code></pre><p class="command-desc">Inspect kernel and boot artifacts.</p></div>
+                <div class="command-card"><h4>Network Debug</h4><pre><code class="language-bash">ip a
+route -n</code></pre><p class="command-desc">Basic networking visibility.</p></div>
+                <div class="command-card"><h4>System Logs</h4><pre><code class="language-bash">dmesg | tail
+tail -n 100 /var/log/messages</code></pre><p class="command-desc">Debug hardware and service issues.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table"><table>
+                    <thead><tr><th>Task</th><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Install package</strong></td><td><code>installpkg package.tgz</code></td><td>Install package</td></tr>
+                        <tr><td><strong>Upgrade package</strong></td><td><code>upgradepkg package.tgz</code></td><td>Upgrade package</td></tr>
+                        <tr><td><strong>Remove package</strong></td><td><code>removepkg package</code></td><td>Remove package</td></tr>
+                        <tr><td><strong>Update slackpkg</strong></td><td><code>slackpkg update</code></td><td>Refresh slackpkg lists</td></tr>
+                        <tr><td><strong>Upgrade all</strong></td><td><code>slackpkg upgrade-all</code></td><td>Upgrade packages</td></tr>
+                        <tr><td><strong>System info</strong></td><td><code>uname -a</code></td><td>Kernel/system info</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Filesystem usage</td></tr>
+                        <tr><td><strong>Processes</strong></td><td><code>top</code></td><td>Process monitor</td></tr>
+                        <tr><td><strong>Networking</strong></td><td><code>ip a</code></td><td>Interface info</td></tr>
+                        <tr><td><strong>Logs</strong></td><td><code>tail -n 100 /var/log/messages</code></td><td>System log tail</td></tr>
+                    </tbody>
+                </table></div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="http://www.slackware.com/" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Official Website</h4><p>Slackware homepage</p></a>
+                <a href="http://docs.slackware.com/" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Documentation</h4><p>Official docs</p></a>
+                <a href="https://slackbook.org/" target="_blank" class="next-step-card"><span class="step-icon">📚</span><h4>Slackbook</h4><p>Popular community guide</p></a>
+                <a href="https://www.linuxquestions.org/questions/slackware-14/" target="_blank" class="next-step-card"><span class="step-icon">💬</span><h4>Community</h4><p>Discussion and support</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;"><strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Read the Slackware docs and Slackbook</li>
+                    <li>Document manual config changes</li>
+                    <li>Set up backups before big changes</li>
+                    <li>Enable only necessary services</li>
+                    <li>Keep updates controlled and intentional</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Arch/arch.html" class="next-step-card"><span class="step-icon">🏗️</span><h4>Arch Linux</h4><p>DIY, rolling and minimal</p></a>
+                <a href="../Gentoo/gentoo.html" class="next-step-card"><span class="step-icon">🧬</span><h4>Gentoo</h4><p>Source-based customization</p></a>
+                <a href="../RedHat/Fedora/fedora.html" class="next-step-card"><span class="step-icon">🟦</span><h4>Fedora</h4><p>Modern community distro</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
+                    <p>No graphical configuration tools. Edit config files manually to truly understand your system.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+</body>
+
+</html>
+

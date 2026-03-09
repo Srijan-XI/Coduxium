@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ruby on Rails — Coduxium XI</title>
+    <meta name="description"
+        content="Master Ruby on Rails - The web framework that emphasizes convention over configuration.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Ruby on Rails Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🛤️ Ruby on Rails</h2>
+            <p class="intro">A server-side web framework that emphasizes convention over configuration and rapid
+                development.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Backend</span>
+                    <span class="badge">Full-Stack</span>
+                    <span class="badge">Ruby</span>
+                    <span class="badge">MVC</span>
+                </div>
+                <p>Ruby on Rails (Rails) is a full-stack web application framework written in Ruby. It follows the
+                    Model-View-Controller (MVC) pattern and emphasizes convention over configuration (CoC) and don't
+                    repeat yourself (DRY) principles for rapid application development.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Convention over Configuration</strong> — Less code, faster development</li>
+                    <li><strong>MVC Architecture</strong> — Clean separation of concerns</li>
+                    <li><strong>Active Record ORM</strong> — Database abstraction layer</li>
+                    <li><strong>Database Migrations</strong> — Version control for database schemas</li>
+                    <li><strong>RESTful Design</strong> — Built-in REST conventions</li>
+                    <li><strong>Asset Pipeline</strong> — Automatic asset compilation and minification</li>
+                    <li><strong>Action Cable</strong> — WebSocket integration for real-time features</li>
+                    <li><strong>Rich Ecosystem</strong> — Thousands of gems (libraries)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Rapid prototyping and MVPs</li>
+                    <li>E-commerce platforms (Shopify built on Rails)</li>
+                    <li>Content management systems</li>
+                    <li>SaaS applications</li>
+                    <li>Social networking platforms</li>
+                    <li>API-only backends</li>
+                    <li>Real-time applications with Action Cable</li>
+                    <li>Database-driven web applications</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Rails Ecosystem</h3>
+                <ul>
+                    <li><strong>Active Record</strong> — ORM for database operations</li>
+                    <li><strong>Action Pack</strong> — Controllers and routing</li>
+                    <li><strong>Action View</strong> — Template rendering</li>
+                    <li><strong>Action Cable</strong> — WebSocket support</li>
+                    <li><strong>Active Job</strong> — Background job processing</li>
+                    <li><strong>Active Storage</strong> — File upload and cloud storage</li>
+                    <li><strong>Action Mailer</strong> — Email sending</li>
+                    <li><strong>Hotwire</strong> — Modern frontend approach (Turbo + Stimulus)</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>MVC Pattern</h4>
+                <ul>
+                    <li><strong>Models</strong> — Business logic and database interaction</li>
+                    <li><strong>Views</strong> — ERB templates for HTML rendering</li>
+                    <li><strong>Controllers</strong> — Request handling and response generation</li>
+                </ul>
+
+                <h4>Active Record</h4>
+                <ul>
+                    <li>Object-relational mapping (ORM)</li>
+                    <li>Database migrations for schema changes</li>
+                    <li>Associations (has_many, belongs_to, etc.)</li>
+                    <li>Validations and callbacks</li>
+                </ul>
+
+                <h4>Routing</h4>
+                <ul>
+                    <li>RESTful resource routing</li>
+                    <li>Nested routes</li>
+                    <li>Custom routes and constraints</li>
+                    <li>Named routes and URL helpers</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install Rails and create a new application:</p>
+                <pre><code>gem install rails
+rails new myapp
+cd myapp
+rails server</code></pre>
+
+                <p>Generate a scaffold (model, controller, views):</p>
+                <pre><code>rails generate scaffold Article title:string body:text
+rails db:migrate</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Follow Rails conventions for faster development</li>
+                    <li>Use RESTful routing patterns</li>
+                    <li>Keep controllers thin, models fat</li>
+                    <li>Write tests with RSpec or Minitest</li>
+                    <li>Use gems for common functionality</li>
+                    <li>Implement background jobs with Sidekiq</li>
+                    <li>Use concerns for shared model/controller logic</li>
+                    <li>Follow the DRY principle</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://rubyonrails.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://guides.rubyonrails.org/" target="_blank" class="btn">Rails Guides</a>
+                <a href="https://github.com/rails/rails" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Security - Hardening & Best Practices</title>
+    <meta name="description"
+        content="Linux security guide: updates, users/permissions, SSH hardening, firewall, SELinux/AppArmor, logging, and backups.">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Linux Security</a></h1>
+                    <p class="sub">Hardening basics for desktop and server</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🔐</span>
+                <span>Core Linux Topic</span>
+            </div>
+            <h1 class="hero-title">Secure Your Linux System</h1>
+            <p class="hero-description">
+                Practical steps to reduce risk: keep systems updated, limit access, harden SSH, configure a firewall,
+                and monitor logs.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">Least</span>
+                    <span class="stat-label">Privilege</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Patch</span>
+                    <span class="stat-label">Regularly</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Audit</span>
+                    <span class="stat-label">Logs</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Baselines -->
+        <section class="content-section">
+            <h2>✅ Security Baseline</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧑‍💻</div>
+                    <h3>Accounts & Permissions</h3>
+                    <p>Use sudo, avoid shared accounts, and keep file permissions tight.</p>
+                    <div class="example-box">
+                        <strong>Core checks:</strong>
+                        <ul>
+                            <li>Disable unused accounts</li>
+                            <li>Use strong passwords or SSH keys</li>
+                            <li>Review sudoers entries</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Updates & Repos</h3>
+                    <p>Patch the OS and apps. Only use trusted repositories and signed packages.</p>
+                    <div class="example-box">
+                        <strong>Best practice:</strong>
+                        <ul>
+                            <li>Enable automatic security updates where appropriate</li>
+                            <li>Pin/limit third‑party repos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧱</div>
+                    <h3>Network Exposure</h3>
+                    <p>Open only required ports, limit listening services, and use a firewall.</p>
+                    <div class="example-box">
+                        <strong>Quick win:</strong>
+                        <ul>
+                            <li>Stop/disable unused services</li>
+                            <li>Restrict SSH access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Essential Commands -->
+        <section class="content-section">
+            <h2>🛠️ Essential Security Commands</h2>
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Updates</h4>
+                    <pre><code># Debian/Ubuntu
+sudo apt update && sudo apt upgrade
+
+# Fedora
+sudo dnf upgrade
+
+# Arch
+sudo pacman -Syu</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Firewall (UFW / Firewalld)</h4>
+                    <pre><code># UFW (Ubuntu)
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw allow OpenSSH
+
+# Firewalld (Fedora/RHEL)
+sudo firewall-cmd --state
+sudo firewall-cmd --set-default-zone=public
+sudo firewall-cmd --permanent --add-service=ssh
+sudo firewall-cmd --reload</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Listening Ports & Services</h4>
+                    <pre><code>ss -tulpn
+systemctl --type=service --state=running
+journalctl -p warning..alert -b</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SSH Hardening -->
+        <section class="content-section">
+            <h2>🧰 SSH Hardening (Servers)</h2>
+            <div class="info-box">
+                <h3>Recommended changes</h3>
+                <p>Prefer SSH keys, disable root login, and reduce brute‑force exposure.</p>
+                <pre><code># Edit SSH configuration
+sudo nano /etc/ssh/sshd_config
+
+# Common hardening options
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+
+# Reload service
+sudo systemctl reload ssh
+# or
+sudo systemctl reload sshd</code></pre>
+            </div>
+            <div class="warning-box">
+                <h3>⚠️ Don’t lock yourself out</h3>
+                <p>Keep an active session open while testing, and verify key login works before disabling passwords.</p>
+            </div>
+        </section>
+
+        <!-- MAC (SELinux / AppArmor) -->
+        <section class="content-section">
+            <h2>🛡️ SELinux & AppArmor</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>SELinux</th>
+                            <th>AppArmor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Common on</strong></td>
+                            <td>RHEL/Fedora/CentOS</td>
+                            <td>Ubuntu/Debian-based</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Model</strong></td>
+                            <td>Label-based policies</td>
+                            <td>Path-based profiles</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Operating modes</strong></td>
+                            <td>Enforcing / Permissive / Disabled</td>
+                            <td>Enforce / Complain / Disable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>SELinux quick checks</h4>
+                    <pre><code>sestatus
+getenforce
+sudo setenforce 0   # permissive (temporary)
+sudo setenforce 1   # enforcing</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>AppArmor quick checks</h4>
+                    <pre><code>sudo aa-status
+sudo aa-complain /path/to/profile
+sudo aa-enforce /path/to/profile</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Logs</h4>
+                    <pre><code>journalctl -xe
+# SELinux often logs in audit
+sudo ausearch -m avc -ts recent</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Backups & Recovery -->
+        <section class="content-section">
+            <h2>🧯 Backups & Recovery</h2>
+            <div class="best-practices-grid">
+                <div class="practice-card">
+                    <h4>3-2-1 rule</h4>
+                    <p>Keep 3 copies, on 2 media types, with 1 offsite.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Test restores</h4>
+                    <p>A backup isn’t useful until a restore is proven.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Encrypt sensitive backups</h4>
+                    <p>Protect data at rest and in transit.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Document recovery</h4>
+                    <p>Write down steps, keys, and where backups live.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>🚀 Next Steps</h2>
+            <div class="next-steps-grid">
+                <a href="systemd.html" class="next-step-card">
+                    <span class="step-icon">⚙️</span>
+                    <h4>Systemd</h4>
+                    <p>Harden services and audit units</p>
+                </a>
+                <a href="package-management.html" class="next-step-card">
+                    <span class="step-icon">📦</span>
+                    <h4>Package Management</h4>
+                    <p>Trusted repos, updates, and verification</p>
+                </a>
+                <a href="troubleshooting.html" class="next-step-card">
+                    <span class="step-icon">🧰</span>
+                    <h4>Troubleshooting</h4>
+                    <p>Debug auth, firewall, and policy issues</p>
+                </a>
+                <a href="../linux.html" class="next-step-card">
+                    <span class="step-icon">🐧</span>
+                    <h4>Linux Hub</h4>
+                    <p>Back to Linux main page</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../../Languages/languages.html">Languages</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YAML — Coduxium XI</title>
+    <meta name="description" content="YAML - Human-readable data serialization language used for configuration files and data exchange.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>YAML (YAML Ain't Markup Language)</h1>
+            <p class="subtitle">Human-readable data serialization format perfect for configuration files and data exchange.</p>
+            <div class="badge-row">
+                <span class="badge">CONFIG</span>
+                <span class="badge">DATA FORMAT</span>
+                <span class="badge">HUMAN-READABLE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#syntax">Syntax</a>
+                <a href="#examples">Examples</a>
+                <a href="#usage">Usage</a>
+            </nav>
+        </header>
+
+        <section id="overview" class="card accent">
+            <h2>📄 Overview</h2>
+            <p>YAML is a human-readable data serialization language commonly used for configuration files and in applications where data is being stored or transmitted. It's widely used in DevOps, CI/CD pipelines, and configuration management.</p>
+
+            <h3>Common Use Cases</h3>
+            <ul>
+                <li><strong>CI/CD Pipelines</strong> — GitHub Actions, GitLab CI, CircleCI</li>
+                <li><strong>Configuration Files</strong> — Docker Compose, Kubernetes, Ansible</li>
+                <li><strong>Data Serialization</strong> — API responses, data exchange</li>
+                <li><strong>Application Config</strong> — Settings, environment variables</li>
+            </ul>
+        </section>
+
+        <section id="syntax" class="card">
+            <h2>📖 Syntax Guide</h2>
+
+            <h3>Basic Data Types</h3>
+            <pre><code># Scalars
+string: "Hello World"
+number: 42
+float: 3.14
+boolean: true
+null_value: null
+
+# Unquoted strings (no special chars)
+name: John Doe
+city: New York</code></pre>
+
+            <h3>Lists (Arrays)</h3>
+            <pre><code># Block style
+fruits:
+  - apple
+  - banana
+  - orange
+
+# Flow style
+colors: [red, green, blue]
+
+# Mixed
+mixed:
+  - item1
+  - item2
+  - [nested, list]</code></pre>
+
+            <h3>Dictionaries (Objects)</h3>
+            <pre><code># Basic object
+person:
+  name: John Doe
+  age: 30
+  city: New York
+
+# Nested objects
+company:
+  name: Tech Corp
+  address:
+    street: 123 Main St
+    city: Boston
+    zip: "02101"</code></pre>
+
+            <h3>Multi-line Strings</h3>
+            <pre><code># Literal (preserves newlines)
+description: |
+  This is a multi-line
+  string that preserves
+  line breaks.
+
+# Folded (single line)
+summary: >
+  This text will be
+  folded into a
+  single line.
+
+# Quotes for special characters
+message: "Line 1\nLine 2"</code></pre>
+
+            <h3>Comments</h3>
+            <pre><code># This is a comment
+key: value  # Inline comment
+
+# Multi-line comment block:
+# Line 1
+# Line 2
+# Line 3</code></pre>
+
+            <h3>Anchors and Aliases</h3>
+            <pre><code># Define anchor
+defaults: &defaults
+  timeout: 30
+  retry: 3
+
+# Reference anchor
+production:
+  &lt;&lt;: *defaults
+  environment: prod
+
+staging:
+  &lt;&lt;: *defaults
+  environment: staging</code></pre>
+        </section>
+
+        <section id="examples" class="card accent">
+            <h2>💼 Real-World Examples</h2>
+
+            <h3>Docker Compose</h3>
+            <pre><code>version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    environment:
+      - NODE_ENV=production
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:</code></pre>
+
+            <h3>GitHub Actions</h3>
+            <pre><code>name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm test</code></pre>
+
+            <h3>Kubernetes Deployment</h3>
+            <pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.21
+        ports:
+        - containerPort: 80</code></pre>
+
+            <h3>Application Config</h3>
+            <pre><code>app:
+  name: MyApp
+  version: 1.0.0
+  debug: false
+
+database:
+  host: localhost
+  port: 5432
+  name: mydb
+  credentials:
+    username: admin
+    password: ${DB_PASSWORD}
+
+logging:
+  level: info
+  format: json
+  outputs:
+    - console
+    - file: /var/log/app.log</code></pre>
+        </section>
+
+        <section id="usage" class="card">
+            <h2>🔧 Using YAML in Code</h2>
+
+            <h3>JavaScript/Node.js</h3>
+            <pre><code>// Install: npm install js-yaml
+const yaml = require('js-yaml');
+const fs = require('fs');
+
+// Parse YAML file
+const config = yaml.load(fs.readFileSync('config.yml', 'utf8'));
+console.log(config);
+
+// Convert object to YAML
+const obj = { name: 'John', age: 30 };
+const yamlStr = yaml.dump(obj);
+console.log(yamlStr);</code></pre>
+
+            <h3>Python</h3>
+            <pre><code># Install: pip install pyyaml
+import yaml
+
+# Load YAML file
+with open('config.yml', 'r') as file:
+    config = yaml.safe_load(file)
+    print(config)
+
+# Dump to YAML
+data = {'name': 'John', 'age': 30}
+with open('output.yml', 'w') as file:
+    yaml.dump(data, file)</code></pre>
+
+            <h3>Best Practices</h3>
+            <ul>
+                <li><strong>Indentation</strong> — Use 2 spaces (never tabs)</li>
+                <li><strong>Quotes</strong> — Use for strings with special characters</li>
+                <li><strong>Comments</strong> — Document complex configurations</li>
+                <li><strong>Anchors</strong> — Reuse common configurations</li>
+                <li><strong>Validation</strong> — Use YAML linters</li>
+            </ul>
+
+            <h3>Common Pitfalls</h3>
+            <ul>
+                <li>❌ Mixing tabs and spaces</li>
+                <li>❌ Inconsistent indentation</li>
+                <li>❌ Unquoted strings with colons</li>
+                <li>❌ Missing spaces after colons</li>
+            </ul>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://yaml.org/" target="_blank">YAML Spec</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

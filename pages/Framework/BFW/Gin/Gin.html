@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Gin guide - Learn installation, routing, middleware, and best practices for building high-performance Go web APIs." />
+    <meta name="keywords" content="Gin, Go, Golang, Web Framework, REST API, HTTP Router, Performance" />
+    <title>Gin Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../Database/database-common.css">
+    <link rel="stylesheet" href="../../framework-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🍸 Gin Complete Guide</h1>
+            <p class="subtitle">A high-performance HTTP web framework written in Go (Golang).</p>
+            <div class="badge-row">
+                <span class="badge">GO</span>
+                <span class="badge">FAST</span>
+                <span class="badge">LIGHTWEIGHT</span>
+                <span class="badge">MARTINI-LIKE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Performance:</strong> Gin is 40x faster than Martini, making it one of the
+                fastest Go web frameworks.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Gin?</h3>
+            <p><strong>Gin</strong> is a HTTP web framework written in Go (Golang). It features a Martini-like API with
+                much better performance -- up to 40 times faster. If you need performance and good productivity, Gin is
+                your framework of choice.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>⚡ Fast</strong> — Radix tree routing, low overhead</div>
+                <div class="topic"><strong>🛣️ Router</strong> — Fast, flexible HTTP routing</div>
+                <div class="topic"><strong>🔧 Middleware</strong> — Extensible middleware support</div>
+                <div class="topic"><strong>📦 JSON Validation</strong> — Built-in validation</div>
+                <div class="topic"><strong>🎯 Error Management</strong> — Convenient error handling</div>
+                <div class="topic"><strong>🔄 Route Grouping</strong> — Organize routes logically</div>
+                <div class="topic"><strong>📝 Rendering</strong> — JSON, XML, HTML rendering</div>
+                <div class="topic"><strong>🧪 Testable</strong> — Easy to unit test</div>
+            </div>
+
+            <h3>Why Choose Gin?</h3>
+            <ul>
+                <li><strong>Performance:</strong> Extremely fast, optimized routing</li>
+                <li><strong>Simplicity:</strong> Clean, intuitive API</li>
+                <li><strong>Productivity:</strong> Middleware, grouping, easy validation</li>
+                <li><strong>Go Ecosystem:</strong> Access to all Go libraries</li>
+                <li><strong>Active Community:</strong> Popular framework with good support</li>
+                <li><strong>Production Ready:</strong> Used by many companies</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Requirement:</strong> Gin requires Go 1.16 or higher.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Gin by installing the package.</p>
+
+            <div id="install-go" class="subsection">
+                <h3>Install Go</h3>
+                <pre><code># Download from https://go.dev/dl/
+
+# Verify installation
+go version</code><button class="copy-btn" data-copy="go version">COPY</button></pre>
+            </div>
+
+            <div id="create-project" class="subsection">
+                <h3>Create New Project</h3>
+                <pre><code># Create project directory
+mkdir my-gin-app
+cd my-gin-app
+
+# Initialize Go module
+go mod init my-gin-app
+
+# Install Gin
+go get -u github.com/gin-gonic/gin</code><button class="copy-btn" data-copy="go get -u github.com/gin-gonic/gin">COPY</button></pre>
+            </div>
+
+            <div id="first-app" class="subsection">
+                <h3>Create First Application</h3>
+                <pre><code>// main.go
+package main
+
+import (
+    "github.com/gin-gonic/gin"
+    "net/http"
+)
+
+func main() {
+    // Create router
+    r := gin.Default()
+    
+    // Define route
+    r.GET("/", func(c *gin.Context) {
+        c.JSON(http.StatusOK, gin.H{
+            "message": "Hello, Coduxium XI!",
+        })
+    })
+    
+    // Run server
+    r.Run(":8080") // Listen on localhost:8080
+}</code><button class="copy-btn" data-copy="r := gin.Default()">COPY</button></pre>
+
+                <h4>Run the Application</h4>
+                <pre><code># Run
+go run main.go
+
+# Or build and run
+go build
+./my-gin-app
+
+# Server will run on http://localhost:8080</code><button class="copy-btn" data-copy="go run main.go">COPY</button></pre>
+            </div>
+
+            <div id="project-structure" class="subsection">
+                <h3>Recommended Project Structure</h3>
+                <pre><code>my-gin-app/
+├── main.go
+├── controllers/
+│   └── user_controller.go
+├── models/
+│   └── user.go
+├── routes/
+│   └── routes.go
+├── middleware/
+│   └── auth.go
+├── config/
+│   └── database.go
+├── go.mod
+└── go.sum</code></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Basic Routing</h3>
+                <pre><code>package main
+
+import (
+    "github.com/gin-gonic/gin"
+    "net/http"
+)
+
+func main() {
+    r := gin.Default()
+    
+    // GET
+    r.GET("/users", getUsers)
+    
+    // POST
+    r.POST("/users", createUser)
+    
+    // PUT
+    r.PUT("/users/:id", updateUser)
+    
+    // DELETE
+    r.DELETE("/users/:id", deleteUser)
+    
+    r.Run(":8080")
+}
+
+func getUsers(c *gin.Context) {
+    c.JSON(http.StatusOK, gin.H{
+        "users": []string{"Alice", "Bob"},
+    })
+}</code><button class="copy-btn" data-copy="r.GET(\"/users\", getUsers)">COPY</button></pre>
+
+                <h3>Path Parameters</h3>
+                <pre><code>// Route with parameter
+r.GET("/users/:id", func(c *gin.Context) {
+    id := c.Param("id")
+    c.JSON(http.StatusOK, gin.H{
+        "user_id": id,
+    })
+})
+
+// Multiple parameters
+r.GET("/users/:id/posts/:postId", func(c *gin.Context) {
+    userId := c.Param("id")
+    postId := c.Param("postId")
+    c.JSON(http.StatusOK, gin.H{
+        "user_id": userId,
+        "post_id": postId,
+    })
+})</code><button class="copy-btn" data-copy="id := c.Param(\"id\")">COPY</button></pre>
+
+                <h3>Query Parameters</h3>
+                <pre><code>// GET /search?q=golang&limit=10
+r.GET("/search", func(c *gin.Context) {
+    query := c.Query("q")
+    limit := c.DefaultQuery("limit", "20") // Default value
+    
+    c.JSON(http.StatusOK, gin.H{
+        "query": query,
+        "limit": limit,
+    })
+})</code><button class="copy-btn" data-copy="query := c.Query(\"q\")">COPY</button></pre>
+
+                <h3>Request Body & Binding</h3>
+                <pre><code>type User struct {
+    Name  string `json:"name" binding:"required"`
+    Email string `json:"email" binding:"required,email"`
+    Age   int    `json:"age" binding:"gte=0,lte=120"`
+}
+
+r.POST("/users", func(c *gin.Context) {
+    var user User
+    
+    // Bind and validate JSON
+    if err := c.ShouldBindJSON(&user); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{
+            "error": err.Error(),
+        })
+        return
+    }
+    
+    // Process user
+    c.JSON(http.StatusCreated, user)
+})</code><button class="copy-btn" data-copy="c.ShouldBindJSON(&user)">COPY</button></pre>
+
+                <h3>Response Formats</h3>
+                <pre><code>// JSON
+r.GET("/json", func(c *gin.Context) {
+    c.JSON(http.StatusOK, gin.H{
+        "message": "Hello",
+        "status": "success",
+    })
+})
+
+// XML
+r.GET("/xml", func(c *gin.Context) {
+    c.XML(http.StatusOK, gin.H{
+        "message": "Hello",
+    })
+})
+
+// String
+r.GET("/string", func(c *gin.Context) {
+    c.String(http.StatusOK, "Hello, %s", "World")
+})
+
+// HTML
+r.GET("/html", func(c *gin.Context) {
+    c.HTML(http.StatusOK, "index.html", gin.H{
+        "title": "Home",
+    })
+})</code><button class="copy-btn" data-copy="c.JSON(http.StatusOK, gin.H{">COPY</button></pre>
+
+                <h3>Route Groups</h3>
+                <pre><code>func main() {
+    r := gin.Default()
+    
+    // API v1 group
+    v1 := r.Group("/api/v1")
+    {
+        v1.GET("/users", getUsers)
+        v1.POST("/users", createUser)
+        
+        // Nested groups
+        admin := v1.Group("/admin")
+        {
+            admin.GET("/stats", getStats)
+        }
+    }
+    
+    // API v2 group
+    v2 := r.Group("/api/v2")
+    {
+        v2.GET("/users", getUsersV2)
+    }
+    
+    r.Run(":8080")
+}</code><button class="copy-btn" data-copy="v1 := r.Group(\"/api/v1\")">COPY</button></pre>
+
+                <h3>Middleware</h3>
+                <pre><code>// Logger middleware
+func Logger() gin.HandlerFunc {
+    return func(c *gin.Context) {
+        // Before request
+        t := time.Now()
+        
+        // Process request
+        c.Next()
+        
+        // After request
+        latency := time.Since(t)
+        log.Print(latency)
+    }
+}
+
+// Use middleware
+r := gin.New()
+r.Use(gin.Logger())
+r.Use(gin.Recovery())
+r.Use(Logger())
+
+// Per-route middleware
+r.GET("/auth", AuthRequired(), func(c *gin.Context) {
+    c.JSON(http.StatusOK, gin.H{"message": "Authenticated"})
+})
+
+// Group middleware
+authorized := r.Group("/admin")
+authorized.Use(AuthRequired())
+{
+    authorized.GET("/dashboard", dashboard)
+}</code><button class="copy-btn" data-copy="func Logger() gin.HandlerFunc">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Custom Validation</h3>
+            <pre><code>import (
+    "github.com/go-playground/validator/v10"
+)
+
+type User struct {
+    Name string `json:"name" binding:"required,min=3"`
+    Age  int    `json:"age" binding:"required,gte=18"`
+}
+
+// Custom validator
+var bookableDate validator.Func = func(fl validator.FieldLevel) bool {
+    date, ok := fl.Field().Interface().(time.Time)
+    if ok {
+        if date.After(time.Now()) {
+            return true
+        }
+    }
+    return false
+}
+
+// Register custom validator
+if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+    v.RegisterValidation("bookabledate", bookableDate)
+}</code><button class="copy-btn" data-copy="binding.Validator.Engine()">COPY</button></pre>
+
+            <h3>File Upload</h3>
+            <pre><code>r.POST("/upload", func(c *gin.Context) {
+    // Single file
+    file, _ := c.FormFile("file")
+    
+    // Save file
+    c.SaveUploadedFile(file, "./uploads/"+file.Filename)
+    
+    c.JSON(http.StatusOK, gin.H{
+        "message": "File uploaded",
+        "filename": file.Filename,
+    })
+})
+
+// Multiple files
+r.POST("/upload-multiple", func(c *gin.Context) {
+    form, _ := c.MultipartForm()
+    files := form.File["files"]
+    
+    for _, file := range files {
+        c.SaveUploadedFile(file, "./uploads/"+file.Filename)
+    }
+    
+    c.JSON(http.StatusOK, gin.H{
+        "count": len(files),
+    })
+})</code><button class="copy-btn" data-copy="c.FormFile(\"file\")">COPY</button></pre>
+
+            <h3>Database Integration (GORM)</h3>
+            <pre><code>import (
+    "gorm.io/driver/sqlite"
+    "gorm.io/gorm"
+)
+
+type User struct {
+    ID    uint   `gorm:"primaryKey"`
+    Name  string
+    Email string `gorm:"unique"`
+}
+
+var db *gorm.DB
+
+func initDB() {
+    var err error
+    db, err = gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+    if err != nil {
+        panic("failed to connect database")
+    }
+    
+    db.AutoMigrate(&User{})
+}
+
+func getUsers(c *gin.Context) {
+    var users []User
+    db.Find(&users)
+    c.JSON(http.StatusOK, users)
+}
+
+func createUser(c *gin.Context) {
+    var user User
+    if err := c.ShouldBindJSON(&user); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        return
+    }
+    
+    db.Create(&user)
+    c.JSON(http.StatusCreated, user)
+}</code><button class="copy-btn" data-copy="db.Find(&users)">COPY</button></pre>
+
+            <h3>Authentication (JWT)</h3>
+            <pre><code>import (
+    "github.com/golang-jwt/jwt/v5"
+)
+
+var jwtSecret = []byte("your-secret-key")
+
+func generateToken(userID uint) (string, error) {
+    token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+        "user_id": userID,
+        "exp": time.Now().Add(time.Hour * 24).Unix(),
+    })
+    
+    return token.SignedString(jwtSecret)
+}
+
+func AuthMiddleware() gin.HandlerFunc {
+    return func(c *gin.Context) {
+        tokenString := c.GetHeader("Authorization")
+        
+        token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+            return jwtSecret, nil
+        })
+        
+        if err != nil || !token.Valid {
+            c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+            c.Abort()
+            return
+        }
+        
+        c.Next()
+    }
+}</code><button class="copy-btn" data-copy="jwt.NewWithClaims">COPY</button></pre>
+
+            <h3>Testing</h3>
+            <pre><code>import (
+    "testing"
+    "net/http/httptest"
+)
+
+func TestGetUsers(t *testing.T) {
+    r := setupRouter()
+    
+    w := httptest.NewRecorder()
+    req, _ := http.NewRequest("GET", "/users", nil)
+    r.ServeHTTP(w, req)
+    
+    if w.Code != http.StatusOK {
+        t.Errorf("Expected status 200, got %d", w.Code)
+    }
+}</code><button class="copy-btn" data-copy="httptest.NewRecorder()">COPY</button></pre>
+
+            <h3>Deployment</h3>
+            <pre><code># Build for production
+CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+
+# Docker
+FROM golang:1.21-alpine AS builder
+WORKDIR /app
+COPY . .
+RUN go build -o main .
+
+FROM alpine:latest
+COPY --from=builder /app/main .
+CMD ["./main"]</code><button class="copy-btn" data-copy="go build -o main .">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Routing</strong> — Groups, parameters, middleware
+            </div>
+            <div class="step"><span class="n">2</span><strong>Add Database</strong> — Integrate GORM or other ORM</div>
+            <div class="step"><span class="n">3</span><strong>Authentication</strong> — Implement JWT or session auth
+            </div>
+            <div class="step"><span class="n">4</span><strong>Write Tests</strong> — Unit and integration tests</div>
+            <div class="step"><span class="n">5</span><strong>Deploy</strong> — Dockerize and deploy to cloud</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://gin-gonic.com/docs/" target="_blank">Official Gin Documentation</a></li>
+                <li>🎓 <a href="https://github.com/gin-gonic/gin" target="_blank">Gin GitHub Repository</a></li>
+                <li>📘 <a href="https://github.com/gin-gonic/examples" target="_blank">Gin Examples</a></li>
+                <li>💻 <a href="https://pkg.go.dev/github.com/gin-gonic/gin" target="_blank">Gin Package
+                        Documentation</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

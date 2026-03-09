@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TensorFlow — Coduxium XI</title>
+    <meta name="description"
+        content="Master TensorFlow - Google's end-to-end open source platform for machine learning.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">TensorFlow Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🧠 TensorFlow</h2>
+            <p class="intro">An end-to-end open source platform for machine learning from research to production.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">Deep Learning</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Google</span>
+                </div>
+                <p>TensorFlow is an open-source machine learning framework developed by Google that allows developers to
+                    create large-scale neural networks with many layers. It's designed for both research and production,
+                    offering flexibility and scalability.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>High-Level APIs (Keras)</strong> — Easy model building and training</li>
+                    <li><strong>Eager Execution</strong> — Immediate evaluation for debugging</li>
+                    <li><strong>Distributed Training</strong> — Scale across multiple GPUs and TPUs</li>
+                    <li><strong>TensorBoard</strong> — Visualization and profiling tools</li>
+                    <li><strong>Production Deployment</strong> — TF Serving, TF Lite, TF.js</li>
+                    <li><strong>SavedModel Format</strong> — Cross-platform model serialization</li>
+                    <li><strong>AutoML</strong> — Automated model optimization</li>
+                    <li><strong>Pre-trained Models</strong> — TensorFlow Hub model repository</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Computer vision and image classification</li>
+                    <li>Natural language processing (NLP)</li>
+                    <li>Speech recognition and synthesis</li>
+                    <li>Time series forecasting</li>
+                    <li>Recommendation systems</li>
+                    <li>Reinforcement learning</li>
+                    <li>Generative models (GANs, VAEs)</li>
+                    <li>Edge AI with TensorFlow Lite</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>TensorFlow Ecosystem</h3>
+                <ul>
+                    <li><strong>Keras</strong> — High-level neural networks API</li>
+                    <li><strong>TensorFlow Lite</strong> — Mobile and embedded devices</li>
+                    <li><strong>TensorFlow.js</strong> — Machine learning in JavaScript</li>
+                    <li><strong>TensorFlow Serving</strong> — Production model serving</li>
+                    <li><strong>TensorBoard</strong> — Visualization and monitoring</li>
+                    <li><strong>TensorFlow Hub</strong> — Pre-trained model repository</li>
+                    <li><strong>TensorFlow Extended (TFX)</strong> — End-to-end ML pipelines</li>
+                    <li><strong>TensorFlow Datasets</strong> — Ready-to-use datasets</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Tensors</h4>
+                <ul>
+                    <li>Multi-dimensional arrays</li>
+                    <li>Data types and shapes</li>
+                    <li>Operations on tensors</li>
+                    <li>Automatic differentiation</li>
+                </ul>
+
+                <h4>Models</h4>
+                <ul>
+                    <li><strong>Sequential API</strong> — Linear stack of layers</li>
+                    <li><strong>Functional API</strong> — Complex model architectures</li>
+                    <li><strong>Model Subclassing</strong> — Custom models with full control</li>
+                </ul>
+
+                <h4>Training Pipeline</h4>
+                <ul>
+                    <li>Data loading with tf.data API</li>
+                    <li>Model compilation (optimizer, loss, metrics)</li>
+                    <li>Training and validation</li>
+                    <li>Callbacks for custom behavior</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install TensorFlow:</p>
+                <pre><code>pip install tensorflow
+
+# With GPU support
+pip install tensorflow[and-cuda]</code></pre>
+
+                <p>Simple neural network example:</p>
+                <pre><code>import tensorflow as tf
+
+# Load dataset
+mnist = tf.keras.datasets.mnist
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+# Build model
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(input_shape=(28, 28)),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dropout(0.2),
+    tf.keras.layers.Dense(10)
+])
+
+# Compile and train
+model.compile(optimizer='adam',
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+              metrics=['accuracy'])
+model.fit(x_train, y_train, epochs=5)</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use Keras API for high-level model building</li>
+                    <li>Leverage tf.data for efficient data pipelines</li>
+                    <li>Monitor training with TensorBoard</li>
+                    <li>Use mixed precision training for faster computation</li>
+                    <li>Implement checkpointing and early stopping</li>
+                    <li>Optimize models with TensorFlow Lite converter</li>
+                    <li>Use pre-trained models from TensorFlow Hub</li>
+                    <li>Profile and optimize with TensorFlow Profiler</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.tensorflow.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://www.tensorflow.org/learn" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/tensorflow/tensorflow" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

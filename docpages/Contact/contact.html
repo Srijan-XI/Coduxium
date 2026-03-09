@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support — Coduxium XI</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Contact.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../index.html" style="color:inherit;text-decoration:none">Coduxium XI</a></h1>
+                    <p class="sub">Contact & Support</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="contact-container">
+        <header class="contact-header">
+            <h1>✉️ Get In Touch</h1>
+            <p>We value your questions, feedback, and contributions. Here's how you can reach us.</p>
+        </header>
+
+        <div class="contact-grid">
+            <!-- Column 1: Direct Contact Form -->
+            <div class="contact-form-section">
+                <h2>Send a Quick Message</h2>
+                <form id="contactForm" onsubmit="handleFormSubmission(event)">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" id="name" name="name" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" name="subject" class="form-select" required>
+                            <option value="" disabled selected>Select a topic</option>
+                            <option value="bug">Report a Bug/Typo</option>
+                            <option value="feature">Suggest a New Feature/Language</option>
+                            <option value="question">General Question/Inquiry</option>
+                            <option value="feedback">Feedback on Content Quality</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="form-textarea"></textarea>
+                    </div>
+
+                    <button type="submit" class="form-button">Submit Message</button>
+                </form>
+
+                <!-- Success Message Display -->
+                <div id="successMessage" class="success-message">
+                    <p>Thank you for your message!</p>
+                    <p>Since this is a client-side demo, your message was simulated. We encourage you to use the community channels for actionable issues and contributions!</p>
+                </div>
+            </div>
+
+            <!-- Column 2: Community & Support Links -->
+            <div class="community-section">
+                <h2>Community & Support</h2>
+                <p>The best way to get help, report issues, or contribute is through our open-source platforms.</p>
+
+                <div class="community-links">
+                    <a href="mailto:srijansah11@outlook.com" class="community-link">
+                        <span class="community-link-icon">✉️</span>
+                        <div class="community-link-content">
+                            <div class="community-link-title">Email Us Directly</div>
+                            <div class="community-link-desc">srijansah11@outlook.com</div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/issues" target="_blank" rel="noopener" class="community-link">
+                        <span class="community-link-icon">🐛</span>
+                        <div class="community-link-content">
+                            <div class="community-link-title">Report an Issue / Bug</div>
+                            <div class="community-link-desc">For errors in guides or questions.</div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/discussions" target="_blank" rel="noopener" class="community-link">
+                        <span class="community-link-icon">💬</span>
+                        <div class="community-link-content">
+                            <div class="community-link-title">Ask a General Question</div>
+                            <div class="community-link-desc">Join our community discussions.</div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs.git/pulls" class="community-link">
+                        <span class="community-link-icon">💡</span>
+                        <div class="community-link-content">
+                            <div class="community-link-title">Submit a Contribution</div>
+                            <div class="community-link-desc">Fork the repo and submit a PR!</div>
+                        </div>
+                    </a>
+
+                    <a href="https://stackoverflow.com/" target="_blank" rel="noopener" class="community-link">
+                        <span class="community-link-icon">❓</span>
+                        <div class="community-link-content">
+                            <div class="community-link-title">Search Stack Overflow</div>
+                            <div class="community-link-desc">Find answers from the wider dev community.</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Contact.js"></script>
+</body>
+</html>
+

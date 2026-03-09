@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bash Shell Scripting - Complete Guide</title>
+    <meta name="description"
+        content="Master Bash shell scripting from basics to advanced - variables, loops, functions, automation, and best practices.">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Bash Shell Scripting</a>
+                    </h1>
+                    <p class="sub">Automate Everything with Shell Scripts</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">📜</span>
+                <span>Essential Linux Skill</span>
+            </div>
+            <h1 class="hero-title">Master Bash Scripting</h1>
+            <p class="hero-description">
+                Learn to write powerful shell scripts to automate tasks, manage systems, and boost your productivity
+                with Bash.
+            </p>
+        </section>
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="info-box info">
+                <strong>💡 What is Shell Scripting?</strong>
+                <p>Shell scripting is writing a series of commands for the shell to execute. Bash (Bourne Again SHell)
+                    is the most popular shell for Linux scripting.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Automation</h4>
+                    <p>Automate repetitive tasks and workflows</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔧</span>
+                    <h4>System Admin</h4>
+                    <p>Manage servers and systems efficiently</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h4>Data Processing</h4>
+                    <p>Process text files and logs</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h4>Task Scheduling</h4>
+                    <p>Schedule and run tasks automatically</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started -->
+        <section class="content-section">
+            <h2>🚀 Getting Started</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Create a Script File</h4>
+                    <pre><code class="language-bash">touch myscript.sh
+chmod +x myscript.sh</code></pre>
+                    <p class="command-desc">Create and make executable</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Shebang Line</h4>
+                    <pre><code class="language-bash">#!/bin/bash</code></pre>
+                    <p class="command-desc">First line of every script</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Run the Script</h4>
+                    <pre><code class="language-bash">./myscript.sh
+# or
+bash myscript.sh</code></pre>
+                    <p class="command-desc">Execute your script</p>
+                </div>
+            </div>
+
+            <div class="info-box success">
+                <strong>✨ Your First Script</strong>
+                <pre><code>#!/bin/bash
+# My first script
+echo "Hello, World!"
+echo "Current user: $USER"
+echo "Current directory: $(pwd)"</code></pre>
+            </div>
+        </section>
+
+        <!-- Variables -->
+        <section class="content-section">
+            <h2>📦 Variables</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Variable Basics</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Declare Variables</h4>
+                        <pre><code>#!/bin/bash
+NAME="John"
+AGE=25
+readonly PI=3.14</code></pre>
+                        <p class="command-desc">No spaces around =</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Use Variables</h4>
+                        <pre><code>echo "Name: $NAME"
+echo "Name: ${NAME}"
+echo "Age: $AGE"</code></pre>
+                        <p class="command-desc">Access with $ or ${}</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Command Substitution</h4>
+                        <pre><code>CURRENT_DATE=$(date)
+FILES=$(ls -l)
+USER_COUNT=`who | wc -l`</code></pre>
+                        <p class="command-desc">Store command output</p>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Special Variables</h4>
+                        <pre><code>$0  # Script name
+$1, $2  # Arguments
+$#  # Argument count
+$@  # All arguments
+$?  # Exit status</code></pre>
+                        <p class="command-desc">Built-in variables</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conditionals -->
+        <section class="content-section">
+            <h2>🔀 Conditionals</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>If Statement</h4>
+                    <pre><code>if [ $AGE -gt 18 ]; then
+    echo "Adult"
+elif [ $AGE -eq 18 ]; then
+    echo "Just turned 18"
+else
+    echo "Minor"
+fi</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>String Comparison</h4>
+                    <pre><code>if [ "$NAME" = "John" ]; then
+    echo "Hello John"
+fi
+
+if [ -z "$VAR" ]; then
+    echo "Variable is empty"
+fi</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>File Tests</h4>
+                    <pre><code>if [ -f "file.txt" ]; then
+    echo "File exists"
+fi
+
+if [ -d "directory" ]; then
+    echo "Directory exists"
+fi</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Logical Operators</h4>
+                    <pre><code>if [ $AGE -gt 18 ] && [ $AGE -lt 65 ]; then
+    echo "Working age"
+fi
+
+if [ $DAY = "Sat" ] || [ $DAY = "Sun" ]; then
+    echo "Weekend"
+fi</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loops -->
+        <section class="content-section">
+            <h2>🔁 Loops</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>For Loop</h4>
+                    <pre><code>for i in 1 2 3 4 5; do
+    echo "Number: $i"
+done
+
+for file in *.txt; do
+    echo "Processing $file"
+done</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>C-Style For Loop</h4>
+                    <pre><code>for ((i=1; i<=5; i++)); do
+    echo "Count: $i"
+done</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>While Loop</h4>
+                    <pre><code>counter=1
+while [ $counter -le 5 ]; do
+    echo "Counter: $counter"
+    ((counter++))
+done</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Until Loop</h4>
+                    <pre><code>counter=1
+until [ $counter -gt 5 ]; do
+    echo "Counter: $counter"
+    ((counter++))
+done</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Functions -->
+        <section class="content-section">
+            <h2>⚙️ Functions</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Function Examples</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Basic Function</h4>
+                        <pre><code>greet() {
+    echo "Hello, $1!"
+}
+
+greet "Alice"
+greet "Bob"</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Return Values</h4>
+                        <pre><code>add() {
+    local result=$(($1 + $2))
+    echo $result
+}
+
+sum=$(add 5 3)
+echo "Sum: $sum"</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Local Variables</h4>
+                        <pre><code>my_function() {
+    local LOCAL_VAR="local"
+    GLOBAL_VAR="global"
+}
+
+my_function
+echo $GLOBAL_VAR  # accessible
+echo $LOCAL_VAR   # empty</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Arrays -->
+        <section class="content-section">
+            <h2>📚 Arrays</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Create Arrays</h4>
+                    <pre><code>fruits=("apple" "banana" "cherry")
+numbers=(1 2 3 4 5)</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Access Elements</h4>
+                    <pre><code>echo ${fruits[0]}   # apple
+echo ${fruits[@]}   # all elements
+echo ${#fruits[@]}  # array length</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Loop Through Array</h4>
+                    <pre><code>for fruit in "${fruits[@]}"; do
+    echo "Fruit: $fruit"
+done</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Add/Remove Elements</h4>
+                    <pre><code>fruits+=("orange")   # add
+unset fruits[1]      # remove</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- File Operations -->
+        <section class="content-section">
+            <h2>📁 File Operations</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Read File Line by Line</h4>
+                    <pre><code>while IFS= read -r line; do
+    echo "Line: $line"
+done < file.txt</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Write to File</h4>
+                    <pre><code>echo "text" > file.txt   # overwrite
+echo "text" >> file.txt  # append</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Check File Existence</h4>
+                    <pre><code>if [ -f "file.txt" ]; then
+    echo "File exists"
+else
+    echo "File not found"
+fi</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="content-section">
+            <h2>✨ Best Practices</h2>
+
+            <div class="best-practices-grid">
+                <div class="practice-card">
+                    <span class="practice-num">1</span>
+                    <h4>Use Shellcheck</h4>
+                    <p>Validate your scripts with shellcheck for common errors and best practices.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">2</span>
+                    <h4>Quote Variables</h4>
+                    <p>Always quote variables: "$VAR" instead of $VAR to handle spaces correctly.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">3</span>
+                    <h4>Error Handling</h4>
+                    <p>Use set -e to exit on errors and set -u for undefined variables.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">4</span>
+                    <h4>Add Comments</h4>
+                    <p>Document your code with clear comments explaining complex logic.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">5</span>
+                    <h4>Use Functions</h4>
+                    <p>Break complex scripts into reusable functions for better organization.</p>
+                </div>
+
+                <div class="practice-card">
+                    <span class="practice-num">6</span>
+                    <h4>Check Exit Codes</h4>
+                    <p>Always check command exit codes ($?) for error handling.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Examples -->
+        <section class="content-section">
+            <h2>💼 Real-World Examples</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>System Backup Script</h3>
+                </div>
+                <div class="info-box success">
+                    <pre><code>#!/bin/bash
+# Backup script with error handling
+
+set -e
+set -u
+
+BACKUP_DIR="/backup"
+SOURCE_DIR="/home/user/documents"
+DATE=$(date +%Y%m%d)
+BACKUP_FILE="backup_${DATE}.tar.gz"
+
+echo "Starting backup..."
+
+if [ ! -d "$BACKUP_DIR" ]; then
+    mkdir -p "$BACKUP_DIR"
+fi
+
+tar -czf "${BACKUP_DIR}/${BACKUP_FILE}" "$SOURCE_DIR"
+
+if [ $? -eq 0 ]; then
+    echo "Backup completed: ${BACKUP_FILE}"
+else
+    echo "Backup failed!" >&2
+    exit 1
+fi
+
+# Clean old backups (keep last 7 days)
+find "$BACKUP_DIR" -name "backup_*.tar.gz" -mtime +7 -delete
+
+echo "Backup process finished!"</code></pre>
+                </div>
+            </div>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Log File Monitor</h3>
+                </div>
+                <div class="info-box success">
+                    <pre><code>#!/bin/bash
+# Monitor log file for errors
+
+LOG_FILE="/var/log/application.log"
+ERROR_COUNT=0
+
+tail -f "$LOG_FILE" | while read -r line; do
+    if echo "$line" | grep -q "ERROR"; then
+        ((ERROR_COUNT++))
+        echo "$(date): Error detected - $line"
+        
+        if [ $ERROR_COUNT -ge 5 ]; then
+            echo "Too many errors! Sending alert..."
+            # Send email or notification
+            break
+        fi
+    fi
+done</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>🚀 Next Steps</h2>
+            <div class="next-steps-grid">
+                <a href="package-management.html" class="next-step-card">
+                    <span class="step-icon">📦</span>
+                    <h4>Package Management</h4>
+                    <p>Automate software installation</p>
+                </a>
+                <a href="systemd.html" class="next-step-card">
+                    <span class="step-icon">⚙️</span>
+                    <h4>Systemd</h4>
+                    <p>Create systemd services</p>
+                </a>
+                <a href="networking.html" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Networking</h4>
+                    <p>Network automation scripts</p>
+                </a>
+                <a href="../linux.html" class="next-step-card">
+                    <span class="step-icon">🐧</span>
+                    <h4>Linux Hub</h4>
+                    <p>Explore more Linux topics</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

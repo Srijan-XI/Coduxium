@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Dart & Flutter guide - Learn installation, syntax, widgets, and best practices for cross-platform mobile development." />
+    <meta name="keywords" content="Dart, Flutter, Mobile Development, Cross-Platform, Android, iOS, UI Framework" />
+    <title>Dart & Flutter Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../language-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🎯 Dart & Flutter Complete Guide</h1>
+            <p class="subtitle">Build beautiful, natively compiled applications for mobile, web, and desktop from a
+                single codebase.</p>
+            <div class="badge-row">
+                <span class="badge">CROSS-PLATFORM</span>
+                <span class="badge">FAST</span>
+                <span class="badge">BEAUTIFUL UI</span>
+                <span class="badge">HOT RELOAD</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Google's Framework:</strong> Flutter is backed by Google and used by
+                companies like Alibaba, BMW, and Tencent for production apps.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Dart & Flutter?</h3>
+            <p><strong>Dart</strong> is an open-source, client-optimized programming language developed by Google. It's
+                designed for building fast apps on any platform. <strong>Flutter</strong> is Google's UI toolkit built
+                with Dart that allows developers to create beautiful, natively compiled applications for mobile, web,
+                and desktop from a single codebase.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>📱 Cross-Platform</strong> — iOS, Android, Web, Desktop</div>
+                <div class="topic"><strong>⚡ Hot Reload</strong> — See changes instantly</div>
+                <div class="topic"><strong>🎨 Beautiful UI</strong> — Rich widget catalog</div>
+                <div class="topic"><strong>🚀 High Performance</strong> — Native ARM code compilation</div>
+                <div class="topic"><strong>🧩 Widget-Based</strong> — Everything is a widget</div>
+                <div class="topic"><strong>📦 Package Ecosystem</strong> — pub.dev repository</div>
+                <div class="topic"><strong>🔧 Developer Tools</strong> — DevTools, Dart analyzer</div>
+                <div class="topic"><strong>🌐 Google Backed</strong> — Strong community support</div>
+            </div>
+
+            <h3>Why Choose Dart & Flutter?</h3>
+            <ul>
+                <li><strong>Single Codebase:</strong> Write once, deploy everywhere</li>
+                <li><strong>Fast Development:</strong> Hot reload speeds up iteration</li>
+                <li><strong>Native Performance:</strong> Compiled to native ARM code</li>
+                <li><strong>Expressive UI:</strong> Create custom, beautiful designs easily</li>
+                <li><strong>Growing Ecosystem:</strong> 30,000+ packages on pub.dev</li>
+                <li><strong>Career Opportunities:</strong> High demand for Flutter developers</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Important:</strong> Flutter 3.0+ supports all platforms. Always use
+                the latest stable version for new projects.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Flutter by installing the SDK on your system.</p>
+
+            <!-- Windows Installation -->
+            <div id="windows-install" class="subsection">
+                <h3>Windows Installation</h3>
+
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Download Flutter SDK</strong>
+                        <p>Visit <a href="https://docs.flutter.dev/get-started/install/windows" target="_blank">Flutter
+                                Windows Install</a> and download the latest stable release.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Extract SDK</strong>
+                        <p>Extract the zip file to a location like <code>C:\flutter</code> (avoid Program Files).</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Add to PATH</strong>
+                        <p>Add <code>C:\flutter\bin</code> to your system PATH environment variable.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">4</span>
+                    <div><strong>Run Flutter Doctor</strong>
+                        <pre><code>flutter doctor</code><button class="copy-btn" data-copy="flutter doctor">COPY</button></pre>
+                        <p>This command checks your environment and displays a report of the status.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">5</span>
+                    <div><strong>Install Dependencies</strong>
+                        <ul>
+                            <li><strong>Android Studio:</strong> For Android development</li>
+                            <li><strong>Visual Studio:</strong> For Windows desktop development</li>
+                            <li><strong>Chrome:</strong> For web development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- macOS Installation -->
+            <div id="macos-install" class="subsection">
+                <h3>macOS Installation</h3>
+
+                <h4>Method 1: Direct Download</h4>
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Download Flutter SDK</strong>
+                        <p>Download from <a href="https://docs.flutter.dev/get-started/install/macos"
+                                target="_blank">Flutter macOS Install</a></p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Extract and Add to PATH</strong>
+                        <pre><code>cd ~/development
+unzip ~/Downloads/flutter_macos_*.zip
+
+# Add to PATH in ~/.zshrc or ~/.bash_profile
+export PATH="$PATH:`pwd`/flutter/bin"
+
+source ~/.zshrc</code><button class="copy-btn" data-copy="export PATH=\"$PATH:`pwd`/flutter/bin\"">COPY</button></pre>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Run Flutter Doctor</strong>
+                        <pre><code>flutter doctor</code><button class="copy-btn" data-copy="flutter doctor">COPY</button></pre>
+                    </div>
+                </div>
+
+                <h4>Install Development Tools</h4>
+                <ul>
+                    <li><strong>Xcode:</strong> For iOS/macOS development</li>
+                    <li><strong>CocoaPods:</strong> <code>sudo gem install cocoapods</code></li>
+                    <li><strong>Android Studio:</strong> For Android development</li>
+                </ul>
+            </div>
+
+            <!-- Linux Installation -->
+            <div id="linux-install" class="subsection">
+                <h3>Linux Installation</h3>
+
+                <h4>Method 1: Snap (Recommended)</h4>
+                <pre><code>sudo snap install flutter --classic
+
+# Verify installation
+flutter doctor</code><button class="copy-btn" data-copy="sudo snap install flutter --classic">COPY</button></pre>
+
+                <h4>Method 2: Manual Installation</h4>
+                <pre><code>cd ~/development
+wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_*-stable.tar.xz
+tar xf flutter_linux_*-stable.tar.xz
+
+# Add to PATH
+export PATH="$PATH:~/development/flutter/bin"
+
+flutter doctor</code><button class="copy-btn" data-copy="tar xf flutter_linux_*-stable.tar.xz">COPY</button></pre>
+
+                <h4>Install Dependencies</h4>
+                <pre><code># Ubuntu/Debian
+sudo apt install clang cmake ninja-build libgtk-3-dev
+
+# Install Android Studio for Android development</code><button class="copy-btn" data-copy="sudo apt install clang cmake ninja-build libgtk-3-dev">COPY</button></pre>
+            </div>
+
+            <!-- IDE Setup -->
+            <div id="ide-setup" class="subsection">
+                <h3>IDE Setup</h3>
+
+                <h4>Visual Studio Code (Recommended)</h4>
+                <pre><code># Install Flutter and Dart extensions
+# Open VS Code > Extensions > Search "Flutter"
+# Install both Flutter and Dart extensions</code></pre>
+
+                <h4>Android Studio</h4>
+                <p>Install Flutter and Dart plugins from Settings → Plugins.</p>
+
+                <h4>Create First App</h4>
+                <pre><code># Create new Flutter app
+flutter create my_first_app
+cd my_first_app
+
+# Run on connected device/emulator
+flutter run</code><button class="copy-btn" data-copy="flutter create my_first_app">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Dart Basics - Hello World</h3>
+                <pre><code>void main() {
+  print('Hello, Coduxium XI!');
+}</code><button class="copy-btn" data-copy="void main() { print('Hello, Coduxium XI!'); }">COPY</button></pre>
+
+                <h3>Dart Variables & Types</h3>
+                <pre><code>// Type inference
+var name = 'Flutter';
+var version = 3;
+var isAwesome = true;
+
+// Explicit types
+String language = 'Dart';
+int year = 2024;
+double price = 99.99;
+bool isCrossPlatform = true;
+
+// Nullable types
+String? nullableName;
+int? nullableAge;
+
+// Final and const
+final pi = 3.14159;      // Runtime constant
+const maxValue = 100;    // Compile-time constant</code><button class="copy-btn" data-copy="var name = 'Flutter';">COPY</button></pre>
+
+                <h3>Dart Collections</h3>
+                <pre><code>// Lists
+List<String> fruits = ['apple', 'banana', 'orange'];
+fruits.add('mango');
+
+// Sets
+Set<int> uniqueNumbers = {1, 2, 3, 4};
+
+// Maps
+Map<String, int> ages = {
+  'Alice': 25,
+  'Bob': 30,
+};
+
+// Spread operator
+var allFruits = [...fruits, 'grape'];</code><button class="copy-btn" data-copy="List<String> fruits = ['apple', 'banana'];">COPY</button></pre>
+
+                <h3>Dart Functions</h3>
+                <pre><code>// Basic function
+String greet(String name) {
+  return 'Hello, $name!';
+}
+
+// Arrow function
+String greetShort(String name) => 'Hello, $name!';
+
+// Optional parameters
+void printInfo(String name, {int? age, String? city}) {
+  print('Name: $name');
+  if (age != null) print('Age: $age');
+  if (city != null) print('City: $city');
+}
+
+// Usage
+printInfo('Alice', age: 25, city: 'NYC');</code><button class="copy-btn" data-copy="String greet(String name) => 'Hello, $name!';">COPY</button></pre>
+
+                <h3>Flutter - Basic Widget</h3>
+                <pre><code>import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My First App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Welcome to Flutter'),
+      ),
+      body: Center(
+        child: Text(
+          'Hello, Coduxium XI!',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}</code><button class="copy-btn" data-copy="class MyApp extends StatelessWidget">COPY</button></pre>
+
+                <h3>Stateful Widget</h3>
+                <pre><code>class Counter extends StatefulWidget {
+  @override
+  _CounterState createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _count = 0;
+
+  void _increment() {
+    setState(() {
+      _count++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Count: $_count', style: TextStyle(fontSize: 30)),
+        SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: _increment,
+          child: Text('Increment'),
+        ),
+      ],
+    );
+  }
+}</code><button class="copy-btn" data-copy="class Counter extends StatefulWidget">COPY</button></pre>
+
+                <h3>Common Widgets</h3>
+                <pre><code>// Container
+Container(
+  width: 200,
+  height: 100,
+  color: Colors.blue,
+  child: Text('Hello'),
+)
+
+// Row and Column
+Row(
+  children: [
+    Icon(Icons.star),
+    Text('Rating'),
+  ],
+)
+
+// ListView
+ListView(
+  children: [
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
+  ],
+)
+
+// Image
+Image.network('https://example.com/image.png')
+Image.asset('assets/logo.png')</code><button class="copy-btn" data-copy="Container(width: 200, height: 100)">COPY</button></pre>
+
+                <h3>Navigation</h3>
+                <pre><code>// Navigate to new screen
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => SecondScreen()),
+);
+
+// Go back
+Navigator.pop(context);
+
+// Named routes
+MaterialApp(
+  routes: {
+    '/': (context) => HomeScreen(),
+    '/details': (context) => DetailsScreen(),
+  },
+);
+
+// Navigate using named route
+Navigator.pushNamed(context, '/details');</code><button class="copy-btn" data-copy="Navigator.push(context, MaterialPageRoute...)">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Popular Packages</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>http</strong>HTTP requests</div>
+                <div class="package-item"><strong>provider</strong>State management</div>
+                <div class="package-item"><strong>riverpod</strong>Modern state management</div>
+                <div class="package-item"><strong>dio</strong>Advanced HTTP client</div>
+                <div class="package-item"><strong>sqflite</strong>SQLite database</div>
+                <div class="package-item"><strong>shared_preferences</strong>Local storage</div>
+                <div class="package-item"><strong>firebase_core</strong>Firebase integration</div>
+                <div class="package-item"><strong>google_maps_flutter</strong>Maps integration</div>
+            </div>
+
+            <h3>Package Management</h3>
+            <pre><code># Add package to pubspec.yaml
+dependencies:
+  http: ^1.1.0
+  provider: ^6.1.0
+
+# Install packages
+flutter pub get
+
+# Upgrade packages
+flutter pub upgrade</code><button class="copy-btn" data-copy="flutter pub get">COPY</button></pre>
+
+            <h3>State Management with Provider</h3>
+            <pre><code>import 'package:provider/provider.dart';
+
+class CounterModel extends ChangeNotifier {
+  int _count = 0;
+  int get count => _count;
+
+  void increment() {
+    _count++;
+    notifyListeners();
+  }
+}
+
+// Provide model
+ChangeNotifierProvider(
+  create: (context) => CounterModel(),
+  child: MyApp(),
+)
+
+// Consume model
+Consumer<CounterModel>(
+  builder: (context, counter, child) {
+    return Text('${counter.count}');
+  },
+)</code><button class="copy-btn" data-copy="class CounterModel extends ChangeNotifier">COPY</button></pre>
+
+            <h3>Async Programming</h3>
+            <pre><code>// Future
+Future<String> fetchData() async {
+  await Future.delayed(Duration(seconds: 2));
+  return 'Data loaded';
+}
+
+// FutureBuilder
+FutureBuilder<String>(
+  future: fetchData(),
+  builder: (context, snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return CircularProgressIndicator();
+    }
+    if (snapshot.hasError) {
+      return Text('Error: ${snapshot.error}');
+    }
+    return Text('Data: ${snapshot.data}');
+  },
+)</code><button class="copy-btn" data-copy="Future<String> fetchData() async">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Build UI</strong> — Create beautiful, responsive layouts
+            </div>
+            <div class="step"><span class="n">2</span><strong>Learn State Management</strong> — Master Provider or
+                Riverpod</div>
+            <div class="step"><span class="n">3</span><strong>Work with APIs</strong> — Fetch and display data from REST
+                APIs</div>
+            <div class="step"><span class="n">4</span><strong>Add Firebase</strong> — Authentication, database,
+                analytics</div>
+            <div class="step"><span class="n">5</span><strong>Publish App</strong> — Deploy to App Store and Play Store
+            </div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://docs.flutter.dev/" target="_blank">Official Flutter Documentation</a></li>
+                <li>🎓 <a href="https://dart.dev/guides" target="_blank">Dart Language Tour</a></li>
+                <li>📘 <a href="https://pub.dev/" target="_blank">pub.dev Package Repository</a></li>
+                <li>💻 <a href="https://flutter.dev/showcase" target="_blank">Flutter Showcase Apps</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../Database/database-common.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

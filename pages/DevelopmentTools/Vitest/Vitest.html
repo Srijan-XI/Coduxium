@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vitest — Coduxium XI</title>
+    <meta name="description" content="Vitest - Blazing fast unit test framework powered by Vite with native ESM support.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>Vitest Testing Framework</h1>
+            <p class="subtitle">Blazing fast unit testing framework powered by Vite with native ESM support and Jest compatibility.</p>
+            <div class="badge-row">
+                <span class="badge">TESTING</span>
+                <span class="badge">VITE</span>
+                <span class="badge">ESM</span>
+                <span class="badge">JEST-COMPATIBLE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#installation">Installation</a>
+                <a href="#usage">Usage</a>
+                <a href="#features">Features</a>
+            </nav>
+        </header>
+
+        <section id="overview" class="card accent">
+            <h2>🧪 Overview</h2>
+            <p>Vitest is a blazing fast unit test framework powered by Vite. It provides instant feedback with watch mode, native ESM support, and Jest-compatible API.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Lightning Fast</strong> — Powered by Vite, instant test execution</li>
+                <li><strong>Jest Compatible</strong> — Familiar API, easy migration</li>
+                <li><strong>Native ESM</strong> — First-class ES modules support</li>
+                <li><strong>Smart Watch Mode</strong> — Instant rerun on file changes</li>
+                <li><strong>TypeScript</strong> — Out-of-the-box TypeScript support</li>
+                <li><strong>UI Mode</strong> — Beautiful test runner UI</li>
+                <li><strong>Component Testing</strong> — Test React, Vue, Svelte components</li>
+            </ul>
+        </section>
+
+        <section id="installation" class="card">
+            <h2>📦 Installation</h2>
+
+            <pre><code># Install Vitest
+npm install -D vitest
+
+# With UI
+npm install -D vitest @vitest/ui
+
+# Add to package.json
+{
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
+  }
+}</code></pre>
+
+            <h3>Configuration</h3>
+            <pre><code>// vite.config.ts
+import { defineConfig } from 'vitest/config'
+
+export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'json']
+    }
+  }
+})</code></pre>
+        </section>
+
+        <section id="usage" class="card accent">
+            <h2>📖 Basic Usage</h2>
+
+            <h3>Writing Tests</h3>
+            <pre><code>// math.test.ts
+import { describe, it, expect } from 'vitest'
+
+describe('Math operations', () => {
+  it('adds two numbers', () => {
+    expect(1 + 1).toBe(2)
+  })
+
+  it('multiplies numbers', () => {
+    expect(2 * 3).toBe(6)
+  })
+})</code></pre>
+
+            <h3>Async Tests</h3>
+            <pre><code>import { describe, it, expect } from 'vitest'
+
+describe('Async operations', () => {
+  it('fetches data', async () => {
+    const data = await fetchData()
+    expect(data).toBeDefined()
+  })
+
+  it('resolves promise', () => {
+    return expect(Promise.resolve(42)).resolves.toBe(42)
+  })
+})</code></pre>
+
+            <h3>Matchers</h3>
+            <pre><code>// Equality
+expect(value).toBe(expected)
+expect(value).toEqual(expected)
+
+// Truthiness
+expect(value).toBeTruthy()
+expect(value).toBeFalsy()
+
+// Numbers
+expect(value).toBeGreaterThan(3)
+expect(value).toBeLessThan(5)
+
+// Strings
+expect(string).toContain('text')
+expect(string).toMatch(/pattern/)
+
+// Arrays
+expect(array).toContain(item)
+expect(array).toHaveLength(3)
+
+// Objects
+expect(obj).toHaveProperty('key')
+expect(obj).toMatchObject({ key: 'value' })</code></pre>
+
+            <h3>Mocking</h3>
+            <pre><code>import { vi } from 'vitest'
+
+// Mock functions
+const mockFn = vi.fn()
+mockFn('hello')
+expect(mockFn).toHaveBeenCalledWith('hello')
+
+// Mock modules
+vi.mock('./api', () => ({
+  fetchUser: vi.fn(() => ({ name: 'John' }))
+}))
+
+// Spy on methods
+const spy = vi.spyOn(obj, 'method')
+spy.mockReturnValue(42)</code></pre>
+
+            <h3>Snapshot Testing</h3>
+            <pre><code>import { expect, test } from 'vitest'
+
+test('renders correctly', () => {
+  const result = render()
+  expect(result).toMatchSnapshot()
+})
+
+// Update snapshots
+npm run test -- -u</code></pre>
+        </section>
+
+        <section id="features" class="card">
+            <h2>🚀 Advanced Features</h2>
+
+            <h3>Component Testing (React)</h3>
+            <pre><code>import { render, screen } from '@testing-library/react'
+import { expect, test } from 'vitest'
+import Button from './Button'
+
+test('renders button', () => {
+  render(&lt;Button&gt;Click me&lt;/Button&gt;)
+  expect(screen.getByText('Click me')).toBeInTheDocument()
+})</code></pre>
+
+            <h3>Coverage</h3>
+            <pre><code># Install coverage provider
+npm install -D @vitest/coverage-v8
+
+# Run with coverage
+npm run test:coverage
+
+# Configure in vite.config.ts
+export default defineConfig({
+  test: {
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'lcov'],
+      exclude: ['**/node_modules/**', '**/dist/**']
+    }
+  }
+})</code></pre>
+
+            <h3>Watch Mode</h3>
+            <pre><code># Run in watch mode (default)
+npm run test
+
+# Watch specific files
+vitest src/components
+
+# Run once
+vitest run</code></pre>
+
+            <h3>UI Mode</h3>
+            <pre><code># Start UI
+npm run test:ui
+
+# Access at http://localhost:51204/__vitest__/</code></pre>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://vitest.dev/" target="_blank">Vitest Docs</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

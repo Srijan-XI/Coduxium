@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete FastAPI guide - Learn installation, async APIs, automatic documentation, and best practices for Python web APIs." />
+    <meta name="keywords" content="FastAPI, Python, REST API, Async, Web Framework, OpenAPI, Pydantic" />
+    <title>FastAPI Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../Database/database-common.css">
+    <link rel="stylesheet" href="../../framework-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>⚡ FastAPI Complete Guide</h1>
+            <p class="subtitle">Modern, fast (high-performance) web framework for building APIs with Python 3.7+.</p>
+            <div class="badge-row">
+                <span class="badge">PYTHON</span>
+                <span class="badge">ASYNC</span>
+                <span class="badge">AUTO DOCS</span>
+                <span class="badge">TYPE-SAFE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Production Ready:</strong> FastAPI is used by Microsoft, Uber, and Netflix
+                for high-performance API services.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is FastAPI?</h3>
+            <p><strong>FastAPI</strong> is a modern, fast (high-performance) web framework for building APIs with Python
+                3.7+ based on standard Python type hints. It's one of the fastest Python frameworks available, on par
+                with NodeJS and Go, and provides automatic interactive API documentation.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>⚡ Fast Performance</strong> — Starlette + Pydantic speed</div>
+                <div class="topic"><strong>📝 Auto Documentation</strong> — Swagger UI + ReDoc</div>
+                <div class="topic"><strong>🔒 Type Safety</strong> — Python type hints validation</div>
+                <div class="topic"><strong>🚀 Async Support</strong> — Native async/await</div>
+                <div class="topic"><strong>✅ Data Validation</strong> — Pydantic models</div>
+                <div class="topic"><strong>🔧 Easy to Learn</strong> — Intuitive, based on standards</div>
+                <div class="topic"><strong>🌐 Standards-Based</strong> — OpenAPI, JSON Schema</div>
+                <div class="topic"><strong>🛡️ Security</strong> — OAuth2, JWT, API keys</div>
+            </div>
+
+            <h3>Why Choose FastAPI?</h3>
+            <ul>
+                <li><strong>Performance:</strong> One of the fastest Python frameworks</li>
+                <li><strong>Productivity:</strong> Reduce development time by 40%</li>
+                <li><strong>Fewer Bugs:</strong> Type validation catches errors early</li>
+                <li><strong>Auto Docs:</strong> Interactive API documentation out of the box</li>
+                <li><strong>Modern Python:</strong> Leverages latest Python features</li>
+                <li><strong>Production Ready:</strong> Used by major companies</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Requirement:</strong> FastAPI requires Python 3.7 or higher for
+                type hints support.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with FastAPI by installing the framework and an ASGI server.</p>
+
+            <div id="installation" class="subsection">
+                <h3>Install FastAPI</h3>
+
+                <pre><code># Install FastAPI and Uvicorn (ASGI server)
+pip install "fastapi[all]"
+
+# Or install minimal version
+pip install fastapi uvicorn[standard]
+
+# Verify installation
+python -c "import fastapi; print(fastapi.__version__)"</code><button class="copy-btn" data-copy="pip install fastapi uvicorn[standard]">COPY</button></pre>
+            </div>
+
+            <div id="first-app" class="subsection">
+                <h3>Create First Application</h3>
+
+                <pre><code># main.py
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, Coduxium XI!"}
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: str = None):
+    return {"item_id": item_id, "q": q}</code><button class="copy-btn" data-copy="from fastapi import FastAPI">COPY</button></pre>
+
+                <h4>Run the Application</h4>
+                <pre><code># Start development server
+uvicorn main:app --reload
+
+# Server will run on http://127.0.0.1:8000
+# API docs: http://127.0.0.1:8000/docs
+# Alternative docs: http://127.0.0.1:8000/redoc</code><button class="copy-btn" data-copy="uvicorn main:app --reload">COPY</button></pre>
+            </div>
+
+            <div id="project-structure" class="subsection">
+                <h3>Recommended Project Structure</h3>
+                <pre><code>my-fastapi-app/
+├── app/
+│   ├── __init__.py
+│   ├── main.py          # FastAPI app instance
+│   ├── models.py        # Pydantic models
+│   ├── database.py      # Database connection
+│   ├── routers/         # API routes
+│   │   ├── __init__.py
+│   │   ├── users.py
+│   │   └── items.py
+│   └── dependencies.py  # Shared dependencies
+├── tests/
+├── requirements.txt
+└── .env</code></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Path Parameters</h3>
+                <pre><code>@app.get("/users/{user_id}")
+def read_user(user_id: int):
+    return {"user_id": user_id}
+
+# Enum path parameters
+from enum import Enum
+
+class ModelName(str, Enum):
+    alexnet = "alexnet"
+    resnet = "resnet"
+    lenet = "lenet"
+
+@app.get("/models/{model_name}")
+def get_model(model_name: ModelName):
+    return {"model_name": model_name, "message": "Deep Learning"}</code><button class="copy-btn" data-copy="@app.get(\"/users/{user_id}\")">COPY</button></pre>
+
+                <h3>Query Parameters</h3>
+                <pre><code>@app.get("/items/")
+def read_items(skip: int = 0, limit: int = 10):
+    return {"skip": skip, "limit": limit}
+
+# Optional parameters
+from typing import Optional
+
+@app.get("/products/")
+def read_products(q: Optional[str] = None):
+    if q:
+        return {"q": q}
+    return {"message": "No query"}</code><button class="copy-btn" data-copy="def read_items(skip: int = 0)">COPY</button></pre>
+
+                <h3>Request Body (Pydantic Models)</h3>
+                <pre><code>from pydantic import BaseModel
+from typing import Optional
+
+class Item(BaseModel):
+    name: str
+    description: Optional[str] = None
+    price: float
+    tax: Optional[float] = None
+
+@app.post("/items/")
+def create_item(item: Item):
+    item_dict = item.dict()
+    if item.tax:
+        price_with_tax = item.price + item.tax
+        item_dict.update({"price_with_tax": price_with_tax})
+    return item_dict
+
+@app.put("/items/{item_id}")
+def update_item(item_id: int, item: Item):
+    return {"item_id": item_id, **item.dict()}</code><button class="copy-btn" data-copy="class Item(BaseModel):">COPY</button></pre>
+
+                <h3>Response Models</h3>
+                <pre><code>class UserIn(BaseModel):
+    username: str
+    password: str
+    email: str
+
+class UserOut(BaseModel):
+    username: str
+    email: str
+
+@app.post("/users/", response_model=UserOut)
+def create_user(user: UserIn):
+    # Password won't be in response
+    return user</code><button class="copy-btn" data-copy="response_model=UserOut">COPY</button></pre>
+
+                <h3>Async Endpoints</h3>
+                <pre><code>import asyncio
+
+@app.get("/async-example")
+async def async_endpoint():
+    await asyncio.sleep(1)
+    return {"message": "This was async!"}
+
+# Async database query
+@app.get("/users/{user_id}")
+async def read_user(user_id: int):
+    user = await db.fetch_user(user_id)
+    return user</code><button class="copy-btn" data-copy="async def async_endpoint():">COPY</button></pre>
+
+                <h3>Dependency Injection</h3>
+                <pre><code>from fastapi import Depends
+
+def common_parameters(q: Optional[str] = None, skip: int = 0, limit: int = 100):
+    return {"q": q, "skip": skip, "limit": limit}
+
+@app.get("/items/")
+def read_items(commons: dict = Depends(common_parameters)):
+    return commons
+
+# Database dependency
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.get("/users/")
+def read_users(db: Session = Depends(get_db)):
+    users = db.query(User).all()
+    return users</code><button class="copy-btn" data-copy="Depends(common_parameters)">COPY</button></pre>
+
+                <h3>Routers (APIRouter)</h3>
+                <pre><code># app/routers/users.py
+from fastapi import APIRouter
+
+router = APIRouter(
+    prefix="/users",
+    tags=["users"]
+)
+
+@router.get("/")
+def read_users():
+    return [{"username": "alice"}, {"username": "bob"}]
+
+@router.get("/{user_id}")
+def read_user(user_id: int):
+    return {"user_id": user_id}
+
+# app/main.py
+from .routers import users
+
+app = FastAPI()
+app.include_router(users.router)</code><button class="copy-btn" data-copy="router = APIRouter()">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Authentication (OAuth2 + JWT)</h3>
+            <pre><code>from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from jose import JWTError, jwt
+from passlib.context import CryptContext
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+SECRET_KEY = "your-secret-key"
+ALGORITHM = "HS256"
+
+def create_access_token(data: dict):
+    to_encode = data.copy()
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return encoded_jwt
+
+@app.post("/token")
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    # Verify user
+    access_token = create_access_token(data={"sub": form_data.username})
+    return {"access_token": access_token, "token_type": "bearer"}
+
+async def get_current_user(token: str = Depends(oauth2_scheme)):
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    username = payload.get("sub")
+    return username
+
+@app.get("/users/me")
+async def read_users_me(current_user: str = Depends(get_current_user)):
+    return {"username": current_user}</code><button class="copy-btn" data-copy="OAuth2PasswordBearer(tokenUrl=\"token\")">COPY</button></pre>
+
+            <h3>Background Tasks</h3>
+            <pre><code>from fastapi import BackgroundTasks
+
+def send_email(email: str, message: str):
+    # Send email logic
+    print(f"Sending email to {email}: {message}")
+
+@app.post("/send-notification/")
+async def send_notification(
+    email: str,
+    background_tasks: BackgroundTasks
+):
+    background_tasks.add_task(send_email, email, "Welcome!")
+    return {"message": "Notification sent in background"}</code><button class="copy-btn" data-copy="background_tasks: BackgroundTasks">COPY</button></pre>
+
+            <h3>CORS Middleware</h3>
+            <pre><code>from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or specific origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)</code><button class="copy-btn" data-copy="CORSMiddleware">COPY</button></pre>
+
+            <h3>Database Integration (SQLAlchemy)</h3>
+            <pre><code>from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+DATABASE_URL = "sqlite:///./test.db"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(bind=engine)
+Base = declarative_base()
+
+# Model
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True)
+    email = Column(String, unique=True)
+    
+Base.metadata.create_all(bind=engine)</code><button class="copy-btn" data-copy="create_engine(DATABASE_URL)">COPY</button></pre>
+
+            <h3>Testing</h3>
+            <pre><code>from fastapi.testclient import TestClient
+
+client = TestClient(app)
+
+def test_read_main():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello, Coduxium XI!"}</code><button class="copy-btn" data-copy="TestClient(app)">COPY</button></pre>
+
+            <h3>Deployment</h3>
+            <pre><code># Production server with Gunicorn + Uvicorn workers
+gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker
+
+# Docker
+FROM python:3.11
+COPY ./requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
+COPY ./app /app
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]</code><button class="copy-btn" data-copy="gunicorn app.main:app -w 4">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Pydantic</strong> — Data validation and models
+            </div>
+            <div class="step"><span class="n">2</span><strong>Add Authentication</strong> — OAuth2, JWT, API keys</div>
+            <div class="step"><span class="n">3</span><strong>Database Integration</strong> — SQLAlchemy, async
+                databases</div>
+            <div class="step"><span class="n">4</span><strong>Write Tests</strong> — Use TestClient for API testing
+            </div>
+            <div class="step"><span class="n">5</span><strong>Deploy</strong> — Docker, cloud platforms</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://fastapi.tiangolo.com/" target="_blank">Official FastAPI Documentation</a></li>
+                <li>🎓 <a href="https://fastapi.tiangolo.com/tutorial/" target="_blank">FastAPI Tutorial</a></li>
+                <li>📘 <a href="https://github.com/tiangolo/fastapi" target="_blank">FastAPI GitHub</a></li>
+                <li>💻 <a href="https://fastapi.tiangolo.com/async/" target="_blank">Async SQL Databases</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MX Linux - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete MX Linux guide - Debian-based distribution focused on stability, performance, and user-friendly tools">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">MX Linux</a></h1>
+                    <p class="sub">Stable, fast, and tool-rich Debian-based distro</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🔷</span>
+                <span>Stable & Fast</span>
+            </div>
+            <h1 class="hero-title">MX Linux</h1>
+            <p class="hero-description">
+                A midweight Debian-based distribution combining stability, performance, and a polished desktop experience with a strong set of MX Tools.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Debian Stable (MX repositories)</li>
+                    <li><strong>Package Manager:</strong> APT (+ MX tools)</li>
+                    <li><strong>Desktop:</strong> Xfce (flagship), KDE, Fluxbox</li>
+                    <li><strong>Release Model:</strong> Stable releases</li>
+                    <li><strong>Target Users:</strong> General users, older hardware, stability seekers</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h4>Stability</h4>
+                    <p>Built on Debian Stable for dependable updates.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛠️</span>
+                    <h4>MX Tools</h4>
+                    <p>Helpful utilities for setup, maintenance, and troubleshooting.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Performance</h4>
+                    <p>Optimized to run well on modest and older hardware.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💾</span>
+                    <h4>Live USB</h4>
+                    <p>Strong live USB experience with persistence options.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is MX Linux?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    MX Linux is a cooperative project originating from the antiX and former MEPIS communities. It uses Debian Stable as a base and focuses on a smooth desktop experience, strong performance, and practical system tools.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Debian Stable foundation</li>
+                    <li>MX Tools suite for system management</li>
+                    <li>Multiple editions (Xfce, KDE, Fluxbox)</li>
+                    <li>Good performance on older machines</li>
+                    <li>Live USB with persistence support</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose MX Linux?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Low Friction Setup</h4>
+                        <p>MX Tools and sane defaults help you get productive quickly.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Stable Base</h4>
+                        <p>Debian Stable keeps the system predictable and reliable.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Great on Older Hardware</h4>
+                        <p>Performance-focused design makes it a solid choice for aging laptops/desktops.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download MX Linux from: <a href="https://mxlinux.org/download-links/" target="_blank">https://mxlinux.org/download-links/</a>
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=MX.iso of=/dev/sdX bs=4M status=progress && sync
+
+# Or use: MX USB Maker, Etcher, Rufus, Ventoy</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS/UEFI (F2/F12/Del)<br>
+                        4. Select USB as boot device
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Installation Process</h4>
+                    <p class="command-desc">
+                        Boot the live environment, launch the MX Installer from the desktop, choose partitioning, create users, install bootloader, then reboot.
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit compatible</li>
+                    <li><strong>RAM:</strong> 1GB minimum (2GB recommended)</li>
+                    <li><strong>Storage:</strong> 15GB minimum</li>
+                    <li><strong>GPU:</strong> Any compatible with chosen desktop</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">sudo apt update
+sudo apt upgrade</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">sudo apt install package-name</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">sudo apt remove package-name</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">apt search keyword</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>MX Package Installer</h4>
+                        <p class="command-desc">Install popular apps via an easy GUI tool.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>MX Tweak</h4>
+                        <p class="command-desc">Adjust desktop and system behavior quickly.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>MX Snapshot</h4>
+                        <p class="command-desc">Create a bootable ISO of your configured system.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>MX Cleanup</h4>
+                        <p class="command-desc">Remove old kernels and free disk space safely.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Create System Snapshot</h4>
+                    <pre><code class="language-bash">mx-snapshot</code></pre>
+                    <p class="command-desc">Create a bootable ISO for backup or redistribution.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Kernel Management</h4>
+                    <pre><code class="language-bash">uname -r
+sudo apt-cache search linux-image</code></pre>
+                    <p class="command-desc">Inspect kernel version and explore alternative kernels.</p>
+                </div>
+                <div class="command-card">
+                    <h4>systemd Option</h4>
+                    <pre><code class="language-bash"># MX uses SysVinit by default
+sudo apt install systemd-sysv</code></pre>
+                    <p class="command-desc">Optional switch to systemd for compatibility needs.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Development Setup</h4>
+                    <pre><code class="language-bash">sudo apt install build-essential git
+sudo apt install python3 python3-pip nodejs npm</code></pre>
+                    <p class="command-desc">Install common developer tools for coding and builds.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update system</strong></td>
+                            <td><code>sudo apt update && sudo apt upgrade</code></td>
+                            <td>Update packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MX Tweak</strong></td>
+                            <td><code>mx-tweak</code></td>
+                            <td>System tweaks and desktop settings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Package installer</strong></td>
+                            <td><code>mx-packageinstaller</code></td>
+                            <td>GUI tool for software installation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Create snapshot</strong></td>
+                            <td><code>mx-snapshot</code></td>
+                            <td>Build ISO snapshot of your system</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disk usage</strong></td>
+                            <td><code>df -h</code></td>
+                            <td>Check filesystem usage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hardware summary</strong></td>
+                            <td><code>inxi -Fxz</code></td>
+                            <td>Show system/hardware overview (often preinstalled)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cleanup</strong></td>
+                            <td><code>mx-cleanup</code></td>
+                            <td>Remove old kernels / free space (MX tool)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List block devices</strong></td>
+                            <td><code>lsblk</code></td>
+                            <td>View disks, partitions, mountpoints</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search packages</strong></td>
+                            <td><code>apt search keyword</code></td>
+                            <td>Find packages in APT repositories</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autoremove</strong></td>
+                            <td><code>sudo apt autoremove</code></td>
+                            <td>Remove unused dependencies</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://mxlinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit MX Linux homepage</p>
+                </a>
+                <a href="https://mxlinux.org/wiki/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>MX Linux wiki</p>
+                </a>
+                <a href="https://forum.mxlinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community</h4>
+                    <p>Forums and support</p>
+                </a>
+                <a href="https://github.com/MX-Linux" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>MX Linux on GitHub</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Explore MX Tools and core utilities</li>
+                    <li>Install your essential applications</li>
+                    <li>Customize desktop and workflow</li>
+                    <li>Create a snapshot backup (optional)</li>
+                    <li>Join the community for tips and support</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Ubuntu/ubuntu.html" class="next-step-card">
+                    <span class="step-icon">🟠</span>
+                    <h4>Ubuntu</h4>
+                    <p>Popular Debian-based distro</p>
+                </a>
+                <a href="../Mint/mint.html" class="next-step-card">
+                    <span class="step-icon">🌿</span>
+                    <h4>Linux Mint</h4>
+                    <p>Beginner-friendly desktop experience</p>
+                </a>
+                <a href="../PopOS/PopOS.html" class="next-step-card">
+                    <span class="step-icon">🚀</span>
+                    <h4>Pop!_OS</h4>
+                    <p>Debian/Ubuntu-based desktop distro</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

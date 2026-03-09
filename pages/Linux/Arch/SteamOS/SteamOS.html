@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteamOS - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete SteamOS guide - Valve's gaming-focused Linux distribution for Steam Deck and compatible PCs">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">SteamOS</a></h1>
+                    <p class="sub">Valve's gaming-focused Linux</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🎮</span>
+                <span>Gaming</span>
+            </div>
+            <h1 class="hero-title">SteamOS</h1>
+            <p class="hero-description">A gaming-focused Linux distribution by Valve. SteamOS 3 powers the Steam Deck and uses an Arch base with KDE Plasma and Proton integration.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Arch (SteamOS 3.x)</li>
+                    <li><strong>Package Manager:</strong> Pacman (with Valve repos)</li>
+                    <li><strong>Desktop:</strong> KDE Plasma (Desktop Mode)</li>
+                    <li><strong>Release Model:</strong> Rolling-ish (Valve controlled)</li>
+                    <li><strong>Target Users:</strong> Steam Deck owners, gaming PCs</li>
+                </ul>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card"><span class="feature-icon">🍷</span><h4>Proton</h4><p>Run many Windows games on Linux.</p></div>
+                <div class="feature-card"><span class="feature-icon">🕹️</span><h4>Steam Integration</h4><p>Console-like gaming UI and desktop mode.</p></div>
+                <div class="feature-card"><span class="feature-icon">🖥️</span><h4>KDE Desktop</h4><p>Full Linux desktop when needed.</p></div>
+                <div class="feature-card"><span class="feature-icon">⚡</span><h4>Optimized</h4><p>Tuned for handheld/console gaming UX.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>What is SteamOS?</h3></div>
+                <p style="line-height: 1.8; margin: 20px 0;">SteamOS is Valve's Linux distribution designed to provide a smooth gaming experience. SteamOS 3 (Steam Deck) uses an Arch base and emphasizes a console-like UI while still offering a full desktop mode.</p>
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Steam-first gaming UX</li>
+                    <li>Proton compatibility layer</li>
+                    <li>Desktop Mode for general use</li>
+                    <li>Controller-first experience</li>
+                    <li>Hardware-optimized for Steam Deck</li>
+                </ul>
+                <h3 style="margin-top: 30px;">Why Choose SteamOS?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card"><span class="practice-num">1</span><h4>Gaming UX</h4><p>Console-style interface focused on playing games.</p></div>
+                    <div class="practice-card"><span class="practice-num">2</span><h4>Linux Benefits</h4><p>Stable base system with desktop flexibility.</p></div>
+                    <div class="practice-card"><span class="practice-num">3</span><h4>Proton Ecosystem</h4><p>Play many Windows titles via Proton.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Step 1: Official Images</h4><p class="command-desc">SteamOS 3 is officially targeted at Steam Deck. For PCs, consider Steam Deck recovery images or alternatives like Bazzite/ChimeraOS.</p></div>
+                <div class="command-card"><h4>Step 2: Create Bootable USB</h4><pre><code class="language-bash"># Linux
+sudo dd if=steamdeck-recovery.iso of=/dev/sdX bs=4M status=progress && sync</code></pre></div>
+                <div class="command-card"><h4>Step 3: Boot</h4><p class="command-desc">Boot into recovery and follow Valve guidance for your hardware.</p></div>
+                <div class="command-card"><h4>Step 4: Setup</h4><p class="command-desc">Complete initial Steam setup, then enable Desktop Mode for general usage.</p></div>
+            </div>
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> x86_64</li>
+                    <li><strong>RAM:</strong> 4GB minimum</li>
+                    <li><strong>Storage:</strong> 32GB+ recommended</li>
+                    <li><strong>GPU:</strong> Hardware-specific; Steam Deck supported</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Update System</h4><pre><code class="language-bash"># Updates are typically handled via SteamOS UI
+# Desktop mode can use pacman with care</code></pre></div>
+                    <div class="command-card"><h4>Install Flatpak</h4><pre><code class="language-bash">flatpak install flathub app.id</code></pre></div>
+                    <div class="command-card"><h4>List Flatpaks</h4><pre><code class="language-bash">flatpak list</code></pre></div>
+                    <div class="command-card"><h4>Remove Flatpak</h4><pre><code class="language-bash">flatpak uninstall app.id</code></pre></div>
+                </div>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Enable Desktop Mode</h4><p class="command-desc">Switch to desktop for browsing, apps, and settings.</p></div>
+                    <div class="command-card"><h4>Manage Storage</h4><p class="command-desc">Use built-in storage tools and keep space for shader caches.</p></div>
+                    <div class="command-card"><h4>Controller Settings</h4><p class="command-desc">Tune controller layouts and gyro settings per game.</p></div>
+                    <div class="command-card"><h4>Proton Versions</h4><p class="command-desc">Choose Proton version per title for best compatibility.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card"><h4>Proton Logs</h4><pre><code class="language-bash">PROTON_LOG=1 %command%</code></pre><p class="command-desc">Generate Proton log for troubleshooting.</p></div>
+                <div class="command-card"><h4>GameMode</h4><pre><code class="language-bash">gamemoderun %command%</code></pre><p class="command-desc">Optional performance tweaks for games.</p></div>
+                <div class="command-card"><h4>MangoHud</h4><pre><code class="language-bash">mangohud %command%</code></pre><p class="command-desc">FPS and metrics overlay.</p></div>
+                <div class="command-card"><h4>Desktop Shortcuts</h4><pre><code class="language-bash"># Steam + X opens keyboard on Steam Deck</code></pre><p class="command-desc">Learn device-specific shortcuts.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table"><table>
+                    <thead><tr><th>Task</th><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Install flatpak</strong></td><td><code>flatpak install flathub app.id</code></td><td>Install apps</td></tr>
+                        <tr><td><strong>List flatpaks</strong></td><td><code>flatpak list</code></td><td>Show installed apps</td></tr>
+                        <tr><td><strong>Run flatpak</strong></td><td><code>flatpak run app.id</code></td><td>Launch app</td></tr>
+                        <tr><td><strong>Remove flatpak</strong></td><td><code>flatpak uninstall app.id</code></td><td>Uninstall app</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Check storage</td></tr>
+                        <tr><td><strong>GPU info</strong></td><td><code>lspci | grep -i vga</code></td><td>Detect GPU</td></tr>
+                        <tr><td><strong>System info</strong></td><td><code>uname -a</code></td><td>Kernel/system info</td></tr>
+                        <tr><td><strong>Network</strong></td><td><code>ip a</code></td><td>Interfaces</td></tr>
+                        <tr><td><strong>Logs</strong></td><td><code>journalctl -xe</code></td><td>Troubleshoot</td></tr>
+                        <tr><td><strong>Proton log</strong></td><td><code>PROTON_LOG=1 %command%</code></td><td>Generate Proton log</td></tr>
+                    </tbody>
+                </table></div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="https://store.steampowered.com/steamdeck" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Steam Deck</h4><p>Official product page</p></a>
+                <a href="https://www.steamdeck.com/en/tech" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Tech Specs</h4><p>Hardware details</p></a>
+                <a href="https://www.protondb.com/" target="_blank" class="next-step-card"><span class="step-icon">💬</span><h4>ProtonDB</h4><p>Game compatibility reports</p></a>
+                <a href="https://github.com/ValveSoftware" target="_blank" class="next-step-card"><span class="step-icon">💻</span><h4>Source Code</h4><p>Valve Software on GitHub</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Enable Desktop Mode and install essential apps</li>
+                    <li>Set Proton version per game</li>
+                    <li>Use Flatpak for desktop applications</li>
+                    <li>Monitor storage usage regularly</li>
+                    <li>Learn Steam Deck shortcuts for faster navigation</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../arch.html" class="next-step-card"><span class="step-icon">🏗️</span><h4>Arch Linux</h4><p>Upstream base distro</p></a>
+                <a href="../Garuda/garuda.html" class="next-step-card"><span class="step-icon">🦅</span><h4>Garuda</h4><p>Gaming-friendly Arch desktop</p></a>
+                <a href="../../Debian/Ubuntu/ubuntu.html" class="next-step-card"><span class="step-icon">🟠</span><h4>Ubuntu</h4><p>Popular gaming-capable distro</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
+
+        <!-- INTRODUCTION SECTION -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is SteamOS?</h3>
+            <p><strong>SteamOS</strong> is a Debian-based (SteamOS 2.x) and now Arch-based (SteamOS 3.x) Linux
+                distribution developed by Valve Corporation. It's designed specifically for playing video games. SteamOS
+                3.0, used on the Steam Deck, uses the KDE Plasma desktop and includes Proton for Windows game
+                compatibility.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🎮 Gaming First</strong> — Optimized for games</div>
+                <div class="topic"><strong>🍷 Proton</strong> — Run Windows games</div>
+                <div class="topic"><strong>🖥️ KDE Plasma</strong> — Modern desktop</div>
+                <div class="topic"><strong>⚡ Performance</strong> — Gaming optimizations</div>
+                <div class="topic"><strong>🔄 Rolling Release</strong> — Arch base (3.x)</div>
+                <div class="topic"><strong>💻 Desktop Mode</strong> — Full Linux desktop</div>
+                <div class="topic"><strong>🎯 Steam Integration</strong> — Seamless Steam experience</div>
+                <div class="topic"><strong>🔓 Open Source</strong> — Free to use</div>
+            </div>
+
+            <h3>Why Choose SteamOS?</h3>
+            <ul>
+                <li><strong>Gaming:</strong> Optimized specifically for Steam gaming</li>
+                <li><strong>Proton:</strong> Play Windows games on Linux</li>
+                <li><strong>Performance:</strong> Better framerates than Windows on same hardware</li>
+                <li><strong>Free:</strong> No Windows license required</li>
+                <li><strong>Desktop Mode:</strong> Full Linux desktop when needed</li>
+                <li><strong>Steam Deck:</strong> Official OS for Valve's handheld</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> SteamOS 3.0 ISOs for desktop PCs are not officially
+                released yet. Use alternatives like Chimera OS or Bazzite for desktop gaming.</div>
+        </section>
+
+        <!-- INSTALLATION SECTION -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation</h2>
+
+            <div class="subsection">
+                <h3>Steam Deck (Pre-installed)</h3>
+                <p>SteamOS comes pre-installed on Steam Deck. To restore:</p>
+                <div class="step"><span class="n">1</span>Download recovery image from <a
+                        href="https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3" target="_blank">Steam
+                        Support</a></div>
+                <div class="step"><span class="n">2</span>Create recovery USB</div>
+                <div class="step"><span class="n">3</span>Boot from USB and follow recovery process</div>
+            </div>
+
+            <div class="subsection">
+                <h3>Desktop PC (Unofficial)</h3>
+                <p>For desktop PCs, consider these alternatives based on SteamOS:</p>
+                <div class="package-list">
+                    <div class="package-item"><strong>ChimeraOS</strong>Steam-focused, similar to SteamOS</div>
+                    <div class="package-item"><strong>Bazzite</strong>Fedora-based, Steam Deck experience</div>
+                    <div class="package-item"><strong>Nobara</strong>Gaming-optimized Fedora</div>
+                    <div class="package-item"><strong>Garuda Linux</strong>Arch-based gaming distro</div>
+                </div>
+                <pre><code># Or install Steam on any Arch-based distro
+sudo pacman -S steam
+
+# Enable Proton for Windows games in Steam settings</code><button class="copy-btn" data-copy="sudo pacman -S steam">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- USER GUIDE SECTION -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Gaming Mode vs Desktop Mode</h3>
+                <ul>
+                    <li><strong>Gaming Mode:</strong> Full-screen Steam interface, controller-friendly</li>
+                    <li><strong>Desktop Mode:</strong> KDE Plasma desktop, keyboard & mouse</li>
+                    <li><strong>Switch:</strong> Return to Gaming Mode from desktop</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Desktop Mode</h3>
+                <pre><code># Access Desktop Mode
+# Hold Power button → Switch to Desktop
+
+# Update system
+sudo steamos-readonly disable
+sudo pacman -Syu
+sudo steamos-readonly enable
+
+# Install software
+sudo steamos-readonly disable
+sudo pacman -S package-name
+sudo steamos-readonly enable</code><button class="copy-btn" data-copy="sudo steamos-readonly disable">COPY</button></pre>
+            </div>
+
+            <div class="subsection">
+                <h3>Proton Configuration</h3>
+                <p>Proton allows running Windows games on Linux:</p>
+                <pre><code># Enable Proton in Steam
+# Settings → Compatibility → Enable Steam Play for all titles
+
+# Select Proton version
+# Right-click game → Properties → Compatibility → Force Proton version
+
+# Check game compatibility
+# Visit protondb.com for game reports</code><button class="copy-btn" data-copy="protondb.com">COPY</button></pre>
+            </div>
+
+            <div class="subsection">
+                <h3>Install Non-Steam Games</h3>
+                <pre><code># Install Heroic Games Launcher (Epic/GOG)
+flatpak install flathub com.heroicgameslauncher.hgl
+
+# Install Lutris (universal game manager)
+flatpak install flathub net.lutris.Lutris
+
+# Add to Steam as non-Steam game
+# Games → Add Non-Steam Game</code><button class="copy-btn" data-copy="flatpak install flathub">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS SECTION -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Performance Tweaks</h3>
+            <pre><code># Enable GameMode
+# Automatically enabled on Steam Deck
+
+# Install MangoHud (performance overlay)
+flatpak install flathub org.freedesktop.Platform.VulkanLayer.MangoHud
+
+# Launch game with MangoHud
+mangohud %command%  # In Steam launch options
+
+# FSR (FidelityFX Super Resolution)
+# Enable in SteamOS settings or per-game</code><button class="copy-btn" data-copy="mangohud">COPY</button></pre>
+
+            <h3>Custom Proton Versions</h3>
+            <pre><code># Install Proton-GE (community build)
+# Download from GitHub: GloriousEggroll/proton-ge-custom
+
+# Extract to:
+~/.steam/root/compatibilitytools.d/
+
+# Restart Steam and select GE-Proton in game properties</code><button class="copy-btn" data-copy="GE-Proton">COPY</button></pre>
+
+            <h3>Development Setup</h3>
+            <pre><code># Disable read-only system
+sudo steamos-readonly disable
+
+# Install development tools
+sudo pacman -S base-devel git vim
+
+# Install programming languages
+sudo pacman -S python nodejs rust
+
+# Enable read-only again (recommended)
+sudo steamos-readonly enable</code><button class="copy-btn" data-copy="sudo pacman -S base-devel">COPY</button></pre>
+
+            <h3>Dual Boot with Windows</h3>
+            <pre><code># For Steam Deck/desktop with SteamOS
+# Install Windows to separate partition
+
+# Use rEFInd boot manager
+sudo pacman -S refind
+
+# Configure boot entries for both OS</code><button class="copy-btn" data-copy="sudo pacman -S refind">COPY</button></pre>
+        </section>
+
+        <!-- NEXT STEPS SECTION -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Install Games</strong> — Download from Steam library</div>
+            <div class="step"><span class="n">2</span><strong>Configure Proton</strong> — Enable for Windows games</div>
+            <div class="step"><span class="n">3</span><strong>Test Compatibility</strong> — Check ProtonDB</div>
+            <div class="step"><span class="n">4</span><strong>Optimize Performance</strong> — FSR, GameMode, MangoHud
+            </div>
+            <div class="step"><span class="n">5</span><strong>Explore Desktop Mode</strong> — Full Linux capabilities
+            </div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://help.steampowered.com/" target="_blank">Steam Support</a></li>
+                <li>🎮 <a href="https://www.protondb.com/" target="_blank">ProtonDB - Game Compatibility</a></li>
+                <li>📘 <a href="https://steamcommunity.com/groups/steamuniverse" target="_blank">SteamOS Community</a>
+                </li>
+                <li>💻 <a href="https://github.com/ValveSoftware" target="_blank">Valve GitHub</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

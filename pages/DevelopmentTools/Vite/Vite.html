@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vite — Coduxium XI</title>
+    <meta name="description"
+        content="Master Vite - Next generation frontend build tool that provides lightning-fast dev server and optimized builds.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>Vite Build Tool</h1>
+            <p class="subtitle">Lightning-fast dev server and optimized production builds for modern web projects.</p>
+            <div class="badge-row">
+                <span class="badge">BUILD TOOL</span>
+                <span class="badge">HMR</span>
+                <span class="badge">ROLLUP</span>
+                <span class="badge">ESM</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#installation">Installation</a>
+                <a href="#configuration">Configuration</a>
+                <a href="#features">Features</a>
+            </nav>
+        </header>
+
+        <section id="overview" class="card accent">
+            <h2>⚡ Overview</h2>
+            <p>Vite (French word for "quick", pronounced /vit/) is a build tool that significantly improves the frontend development experience. It serves code via native ES modules in development and bundles with Rollup for production, offering instant server start and lightning-fast Hot Module Replacement (HMR).</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Instant Server Start</strong> — No bundling in development</li>
+                <li><strong>Lightning Fast HMR</strong> — Updates instantly regardless of app size</li>
+                <li><strong>Optimized Build</strong> — Pre-configured Rollup build with best practices</li>
+                <li><strong>Framework Support</strong> — React, Vue, Svelte, Vanilla JS, and more</li>
+                <li><strong>TypeScript Support</strong> — Built-in TypeScript compilation</li>
+                <li><strong>Plugin Ecosystem</strong> — Rich plugin system compatible with Rollup plugins</li>
+            </ul>
+        </section>
+
+        <section id="installation" class="card">
+            <h2>📦 Installation & Setup</h2>
+
+            <h3>Create New Project</h3>
+            <pre><code># Create project with template
+npm create vite@latest my-project
+
+# Choose framework: vanilla, vue, react, preact, lit, svelte
+# Choose variant: JavaScript or TypeScript
+
+cd my-project
+npm install
+npm run dev</code></pre>
+
+            <h3>Framework-Specific Templates</h3>
+            <pre><code># React + TypeScript
+npm create vite@latest my-react-app -- --template react-ts
+
+# Vue + TypeScript
+npm create vite@latest my-vue-app -- --template vue-ts
+
+# Svelte + TypeScript
+npm create vite@latest my-svelte-app -- --template svelte-ts
+
+# Vanilla TypeScript
+npm create vite@latest my-vanilla-app -- --template vanilla-ts</code></pre>
+
+            <h3>Add to Existing Project</h3>
+            <pre><code># Install Vite
+npm install -D vite
+
+# Add scripts to package.json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}</code></pre>
+        </section>
+
+        <section id="configuration" class="card accent">
+            <h2>⚙️ Configuration</h2>
+
+            <h3>Basic vite.config.js</h3>
+            <pre><code>import { defineConfig } from 'vite'
+
+export default defineConfig({
+  // Server options
+  server: {
+    port: 3000,
+    open: true,
+    cors: true
+  },
+  
+  // Build options
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    minify: 'terser'
+  },
+  
+  // Path aliases
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@components': '/src/components'
+    }
+  }
+})</code></pre>
+
+            <h3>React Configuration</h3>
+            <pre><code>import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom']
+        }
+      }
+    }
+  }
+})</code></pre>
+
+            <h3>Vue Configuration</h3>
+            <pre><code>import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
+})</code></pre>
+
+            <h3>Environment Variables</h3>
+            <pre><code># .env file
+VITE_API_URL=https://api.example.com
+VITE_APP_TITLE=My App
+
+# Access in code
+console.log(import.meta.env.VITE_API_URL)
+console.log(import.meta.env.MODE) // 'development' or 'production'
+
+# TypeScript support - vite-env.d.ts
+interface ImportMetaEnv {
+  readonly VITE_API_URL: string
+  readonly VITE_APP_TITLE: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}</code></pre>
+        </section>
+
+        <section id="features" class="card">
+            <h2>🚀 Features & Usage</h2>
+
+            <h3>Import CSS and Assets</h3>
+            <pre><code>// Import CSS
+import './style.css'
+
+// Import CSS as module
+import styles from './component.module.css'
+
+// Import images
+import logo from './assets/logo.png'
+
+// Import JSON
+import data from './data.json'
+
+// Dynamic imports
+const module = await import('./module.js')</code></pre>
+
+            <h3>Static Asset Handling</h3>
+            <pre><code>// Explicit URL imports
+import url from './asset.png?url'
+
+// Import as string
+import raw from './shader.glsl?raw'
+
+// Import Web Workers
+import Worker from './worker?worker'
+const worker = new Worker()</code></pre>
+
+            <h3>Popular Plugins</h3>
+            <pre><code># React
+npm install -D @vitejs/plugin-react
+
+# Vue
+npm install -D @vitejs/plugin-vue
+
+# PWA
+npm install -D vite-plugin-pwa
+
+# SVG as React components
+npm install -D vite-plugin-svgr
+
+# Legacy browser support
+npm install -D @vitejs/plugin-legacy
+
+# Compression
+npm install -D vite-plugin-compression</code></pre>
+
+            <h3>Using Plugins</h3>
+            <pre><code>import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+import viteCompression from 'vite-plugin-compression'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'My App',
+        short_name: 'App'
+      }
+    }),
+    viteCompression({
+      algorithm: 'gzip',
+      ext: '.gz'
+    })
+  ]
+})</code></pre>
+
+            <h3>Production Build</h3>
+            <pre><code># Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+
+# Build with custom config
+vite build --config vite.prod.config.js
+
+# Analyze bundle size
+npm install -D rollup-plugin-visualizer
+
+# Add to vite.config.js
+import { visualizer } from 'rollup-plugin-visualizer'
+
+export default defineConfig({
+  plugins: [
+    visualizer({
+      open: true,
+      gzipSize: true
+    })
+  ]
+})</code></pre>
+
+            <h3>Proxy Configuration</h3>
+            <pre><code>export default defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+      '/ws': {
+        target: 'ws://localhost:8080',
+        ws: true
+      }
+    }
+  }
+})</code></pre>
+
+            <h3>Library Mode</h3>
+            <pre><code>// Build as library
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
+
+export default defineConfig({
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/main.ts'),
+      name: 'MyLib',
+      fileName: (format) => `my-lib.${format}.js`,
+      formats: ['es', 'cjs', 'umd']
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+      }
+    }
+  }
+})</code></pre>
+        </section>
+
+        <section id="comparison" class="card accent">
+            <h2>📊 Vite vs Other Build Tools</h2>
+
+            <h3>Vite vs Webpack</h3>
+            <ul>
+                <li><strong>Dev Server:</strong> Vite is significantly faster (uses ESM)</li>
+                <li><strong>HMR:</strong> Vite provides instant updates</li>
+                <li><strong>Configuration:</strong> Vite requires minimal setup</li>
+                <li><strong>Plugin Ecosystem:</strong> Webpack has more plugins, but Vite is growing fast</li>
+            </ul>
+
+            <h3>Vite vs Create React App</h3>
+            <ul>
+                <li><strong>Speed:</strong> Vite is much faster in development</li>
+                <li><strong>Flexibility:</strong> Vite is more configurable</li>
+                <li><strong>Modern:</strong> Vite uses ESM, CRA uses traditional bundling</li>
+            </ul>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://vitejs.dev/" target="_blank">Vite Docs</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+    <script src="../../../components/code-highlighter/code-highlighter.js"></script>
+</body>
+
+</html>

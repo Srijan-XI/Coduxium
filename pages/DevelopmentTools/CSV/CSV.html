@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSV — Coduxium XI</title>
+    <meta name="description" content="CSV - Comma-Separated Values for tabular data storage and exchange.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>CSV (Comma-Separated Values)</h1>
+            <p class="subtitle">Simple text format for tabular data that's universally supported across platforms and applications.</p>
+            <div class="badge-row">
+                <span class="badge">DATA FORMAT</span>
+                <span class="badge">TABULAR</span>
+                <span class="badge">EXCEL</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#format">Format</a>
+                <a href="#usage">Usage</a>
+            </nav>
+        </header>
+
+        <section id="overview" class="card accent">
+            <h2>📄 Overview</h2>
+            <p>CSV (Comma-Separated Values) is a simple file format used to store tabular data. Each line represents a row, and columns are separated by commas. It's widely used for data exchange between applications, especially spreadsheets and databases.</p>
+
+            <h3>Common Use Cases</h3>
+            <ul>
+                <li><strong>Data Export/Import</strong> — Database tables, spreadsheets</li>
+                <li><strong>Data Analytics</strong> — Machine learning datasets</li>
+                <li><strong>Reporting</strong> — Generate reports from applications</li>
+                <li><strong>Data Migration</strong> — Transfer between systems</li>
+            </ul>
+        </section>
+
+        <section id="format" class="card">
+            <h2>📖 CSV Format</h2>
+
+            <h3>Basic Structure</h3>
+            <pre><code>name,age,city
+John Doe,30,New York
+Jane Smith,25,Los Angeles
+Bob Johnson,35,Chicago</code></pre>
+
+            <h3>With Quotes</h3>
+            <pre><code>name,description,price
+"MacBook Pro","15-inch, 512GB SSD",2399.99
+"iPhone 15","Latest model, 256GB",999.99
+"iPad Air","10.9-inch display",599.00</code></pre>
+
+            <h3>Handling Special Characters</h3>
+            <pre><code>name,address,notes
+"John Doe","123 Main St, Apt 4B","VIP customer"
+"Jane Smith","456 Oak Ave","Prefers email, not phone"
+"Bob's Store","789 Pine Rd","Uses quote: ""Best prices"""</code></pre>
+
+            <h3>Different Delimiters</h3>
+            <pre><code># Semicolon-separated (common in Europe)
+name;age;city
+John Doe;30;New York
+
+# Tab-separated (TSV)
+name	age	city
+John Doe	30	New York
+
+# Pipe-separated
+name|age|city
+John Doe|30|New York</code></pre>
+        </section>
+
+        <section id="usage" class="card accent">
+            <h2>🔧 Working with CSV</h2>
+
+            <h3>JavaScript</h3>
+            <pre><code>// Read CSV (Node.js)
+const fs = require('fs');
+const csv = require('csv-parser');
+
+fs.createReadStream('data.csv')
+  .pipe(csv())
+  .on('data', (row) => {
+    console.log(row);
+  });
+
+// Write CSV
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+
+const csvWriter = createCsvWriter({
+  path: 'output.csv',
+  header: [
+    {id: 'name', title: 'Name'},
+    {id: 'age', title: 'Age'}
+  ]
+});
+
+csvWriter.writeRecords([
+  {name: 'John', age: 30},
+  {name: 'Jane', age: 25}
+]);
+
+// Browser - Parse CSV string
+function parseCSV(text) {
+  const lines = text.split('\n');
+  const headers = lines[0].split(',');
+  
+  return lines.slice(1).map(line => {
+    const values = line.split(',');
+    return headers.reduce((obj, header, i) => {
+      obj[header] = values[i];
+      return obj;
+    }, {});
+  });
+}</code></pre>
+
+            <h3>Python</h3>
+            <pre><code>import csv
+
+# Read CSV
+with open('data.csv', 'r') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row['name'], row['age'])
+
+# Write CSV
+with open('output.csv', 'w', newline='') as file:
+    fieldnames = ['name', 'age', 'city']
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    
+    writer.writeheader()
+    writer.writerow({'name': 'John', 'age': 30, 'city': 'NYC'})
+    writer.writerow({'name': 'Jane', 'age': 25, 'city': 'LA'})
+
+# Using Pandas
+import pandas as pd
+
+# Read CSV
+df = pd.read_csv('data.csv')
+print(df.head())
+
+# Write CSV
+df.to_csv('output.csv', index=False)
+
+# Filter and export
+df[df['age'] > 25].to_csv('filtered.csv', index=False)</code></pre>
+
+            <h3>Java</h3>
+            <pre><code>import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+
+// Read CSV
+try (CSVReader reader = new CSVReader(new FileReader("data.csv"))) {
+    String[] line;
+    while ((line = reader.readNext()) != null) {
+        System.out.println(Arrays.toString(line));
+    }
+}
+
+// Write CSV
+try (CSVWriter writer = new CSVWriter(new FileWriter("output.csv"))) {
+    String[] header = {"Name", "Age", "City"};
+    String[] data1 = {"John", "30", "NYC"};
+    String[] data2 = {"Jane", "25", "LA"};
+    
+    writer.writeNext(header);
+    writer.writeNext(data1);
+    writer.writeNext(data2);
+}</code></pre>
+
+            <h3>C#</h3>
+            <pre><code>using CsvHelper;
+using System.Globalization;
+
+// Read CSV
+using (var reader = new StreamReader("data.csv"))
+using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+{
+    var records = csv.GetRecords&lt;Person&gt;();
+    foreach (var record in records)
+    {
+        Console.WriteLine($"{record.Name}, {record.Age}");
+    }
+}
+
+// Write CSV
+using (var writer = new StreamWriter("output.csv"))
+using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+{
+    csv.WriteRecords(people);
+}</code></pre>
+
+            <h3>Excel/Google Sheets</h3>
+            <pre><code># Export from Excel
+File → Save As → CSV (Comma delimited) (*.csv)
+
+# Import to Excel
+Data → From Text/CSV → Select file → Load
+
+# Google Sheets
+File → Download → Comma-separated values (.csv)
+File → Import → Upload → Import data</code></pre>
+
+            <h3>Database Operations</h3>
+            <pre><code># MySQL - Import CSV
+LOAD DATA INFILE '/path/to/data.csv'
+INTO TABLE users
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+# MySQL - Export CSV
+SELECT * FROM users
+INTO OUTFILE '/path/to/output.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+# PostgreSQL - Import
+COPY users FROM '/path/to/data.csv' 
+DELIMITER ',' CSV HEADER;
+
+# PostgreSQL - Export
+COPY users TO '/path/to/output.csv' 
+DELIMITER ',' CSV HEADER;</code></pre>
+
+            <h3>Data Analysis Example</h3>
+            <pre><code># Python with Pandas
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load CSV
+df = pd.read_csv('sales.csv')
+
+# Basic analysis
+print(df.describe())
+print(df.groupby('category')['sales'].sum())
+
+# Visualization
+df.groupby('month')['sales'].sum().plot(kind='bar')
+plt.show()
+
+# Export results
+summary = df.groupby('category').agg({
+    'sales': ['sum', 'mean', 'count']
+})
+summary.to_csv('sales_summary.csv')</code></pre>
+
+            <h3>Best Practices</h3>
+            <ul>
+                <li>✅ Always include header row</li>
+                <li>✅ Quote fields containing commas, quotes, or newlines</li>
+                <li>✅ Use UTF-8 encoding</li>
+                <li>✅ Be consistent with delimiters</li>
+                <li>✅ Handle empty values properly</li>
+                <li>❌ Avoid complex nested structures</li>
+                <li>❌ Don't use formulas (Excel-specific)</li>
+            </ul>
+
+            <h3>Common Issues</h3>
+            <ul>
+                <li><strong>Encoding:</strong> Use UTF-8 to avoid character issues</li>
+                <li><strong>Line Endings:</strong> Windows (\r\n) vs Unix (\n)</li>
+                <li><strong>Quotes:</strong> Escape internal quotes by doubling ""</li>
+                <li><strong>Large Files:</strong> Stream processing for big datasets</li>
+            </ul>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://tools.ietf.org/html/rfc4180" target="_blank">CSV RFC</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

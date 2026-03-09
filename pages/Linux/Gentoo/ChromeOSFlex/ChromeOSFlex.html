@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromeOS Flex - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete ChromeOS Flex guide - Google's cloud-first OS for reviving older PCs and Macs">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">ChromeOS Flex</a></h1>
+                    <p class="sub">Cloud-first OS for old hardware</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">💿</span>
+                <span>Revive Old PCs</span>
+            </div>
+            <h1 class="hero-title">ChromeOS Flex</h1>
+            <p class="hero-description">
+                A free, cloud-first operating system from Google designed to run fast on older PCs and Macs, focused on web apps, automatic updates, and low maintenance.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Chromium OS (Gentoo-based heritage)</li>
+                    <li><strong>Package Manager:</strong> N/A (managed OS image)</li>
+                    <li><strong>Desktop:</strong> ChromeOS interface</li>
+                    <li><strong>Release Model:</strong> Automatic updates</li>
+                    <li><strong>Target Users:</strong> Schools, businesses, and users reviving old hardware</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <h4>Fast & Lightweight</h4>
+                    <p>Quick boot and responsive UI for aging machines.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h4>Auto Updates</h4>
+                    <p>Always up-to-date without manual maintenance.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h4>Security</h4>
+                    <p>Verified boot and built-in protections.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">☁️</span>
+                    <h4>Cloud-First</h4>
+                    <p>Google Drive and web apps are first-class.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is ChromeOS Flex?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    ChromeOS Flex is a free operating system from Google that brings a Chromebook-like experience to compatible PCs and Macs. It is designed around the Chrome browser, web apps, and cloud services, with automatic updates and a simplified, low-admin experience.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Fast boot and lightweight performance on older hardware</li>
+                    <li>Automatic updates and minimal maintenance</li>
+                    <li>Security model built around verified boot</li>
+                    <li>Web apps and Google Workspace integration</li>
+                    <li>Optional Linux development environment on supported devices</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose ChromeOS Flex?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Revive Old Hardware</h4>
+                        <p>Turn aging PCs into fast, secure machines for browsing and productivity.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Easy to Maintain</h4>
+                        <p>Automatic updates reduce IT overhead for fleets and labs.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Cloud Workflows</h4>
+                        <p>Ideal for Google Drive, Docs, Meet, and web-first tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Check Compatibility</h4>
+                    <p class="command-desc">
+                        Review certified models at: <a href="https://chromeenterprise.google/os/chromeosflex/" target="_blank">https://chromeenterprise.google/os/chromeosflex/</a>
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Recommended: Chromebook Recovery Utility (Chrome extension)
+
+# Manual (Linux) - after downloading the image:
+sudo dd if=chromeos_flex_image.bin of=/dev/sdX bs=4M status=progress && sync</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Use boot menu (F12/ESC/F2 varies)<br>
+                        4. Select USB to launch ChromeOS Flex
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Install (Optional)</h4>
+                    <p class="command-desc">
+                        Try from USB first, then use the on-screen install option if satisfied. Installation erases the internal drive.
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> Intel/AMD x86-64</li>
+                    <li><strong>RAM:</strong> 4GB minimum</li>
+                    <li><strong>Storage:</strong> 16GB minimum</li>
+                    <li><strong>GPU:</strong> Any compatible with device</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash"># Updates are automatic
+# Settings → About ChromeOS Flex → Check for updates</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Apps</h4>
+                        <pre><code class="language-bash"># Install web apps and extensions
+# Open Chrome Web Store
+# Add to Chrome
+
+# Install PWAs
+# Visit site → Install icon in address bar</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Linux Apps (If Supported)</h4>
+                        <pre><code class="language-bash"># Enable Linux environment
+# Settings → Advanced → Developers → Linux
+
+sudo apt update
+sudo apt install package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Keyboard Shortcuts</h4>
+                        <pre><code class="language-bash">Ctrl + Alt + /   # Show shortcuts
+Search + S       # Screenshot
+Alt + Tab        # Switch windows
+Ctrl + T         # New tab
+Ctrl + W         # Close tab</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Files App</h4>
+                        <p class="command-desc">Manage local files and Google Drive from one place.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Google Account</h4>
+                        <p class="command-desc">Sign in to sync bookmarks, settings, and cloud data.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Extensions</h4>
+                        <p class="command-desc">Keep extensions minimal for best performance and security.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Try Before Install</h4>
+                        <p class="command-desc">Boot from USB to test compatibility before wiping your drive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Linux Development Environment</h4>
+                    <pre><code class="language-bash"># Enable in Settings if available
+sudo apt update
+sudo apt install git vim</code></pre>
+                    <p class="command-desc">Use Linux tools for development on supported devices.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Enterprise Enrollment</h4>
+                    <pre><code class="language-bash"># Organization setups use enterprise enrollment
+# Policies, apps, restrictions managed centrally</code></pre>
+                    <p class="command-desc">Best for schools and businesses managing device fleets.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Performance Optimization</h4>
+                    <pre><code class="language-bash"># Keep extensions lean
+# Clear browsing data when needed:
+# Ctrl + Shift + Del</code></pre>
+                    <p class="command-desc">Reduce load by limiting background extensions and tabs.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Dual Boot (Reality Check)</h4>
+                    <pre><code class="language-bash"># Not officially supported
+# Prefer USB try-out or virtualization for testing</code></pre>
+                    <p class="command-desc">ChromeOS Flex is designed as a single-OS install experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Show shortcuts</strong></td>
+                            <td><code>Ctrl + Alt + /</code></td>
+                            <td>Open the shortcuts overlay</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Screenshot</strong></td>
+                            <td><code>Search + S</code></td>
+                            <td>Capture a screenshot</td>
+                        </tr>
+                        <tr>
+                            <td><strong>New tab</strong></td>
+                            <td><code>Ctrl + T</code></td>
+                            <td>Open a new browser tab</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Close tab</strong></td>
+                            <td><code>Ctrl + W</code></td>
+                            <td>Close the current tab</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Switch windows</strong></td>
+                            <td><code>Alt + Tab</code></td>
+                            <td>Switch between open windows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reopen closed tab</strong></td>
+                            <td><code>Ctrl + Shift + T</code></td>
+                            <td>Restore the last closed browser tab</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Incognito tab</strong></td>
+                            <td><code>Ctrl + Shift + N</code></td>
+                            <td>Open a new incognito window</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reload page</strong></td>
+                            <td><code>Ctrl + R</code></td>
+                            <td>Reload the current page</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lock screen</strong></td>
+                            <td><code>Search + L</code></td>
+                            <td>Lock your session</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Open Files app</strong></td>
+                            <td><code>Alt + Shift + M</code></td>
+                            <td>Open the Files application</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://chromeenterprise.google/os/chromeosflex/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>ChromeOS Flex overview</p>
+                </a>
+                <a href="https://support.google.com/chromeosflex/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Help center and guides</p>
+                </a>
+                <a href="https://support.google.com/chromeosflex/community" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community</h4>
+                    <p>Support community</p>
+                </a>
+                <a href="https://www.youtube.com/chromeos" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Videos</h4>
+                    <p>ChromeOS channel</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Test from USB on your target machine</li>
+                    <li>Sign in and configure sync settings</li>
+                    <li>Install essential web apps/extensions</li>
+                    <li>Enable Linux (optional) for development</li>
+                    <li>Keep extensions minimal for best performance</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../gentoo.html" class="next-step-card">
+                    <span class="step-icon">💜</span>
+                    <h4>Gentoo</h4>
+                    <p>Source-based customization</p>
+                </a>
+                <a href="../../Arch/arch.html" class="next-step-card">
+                    <span class="step-icon">🏹</span>
+                    <h4>Arch Linux</h4>
+                    <p>Rolling release for power users</p>
+                </a>
+                <a href="../../Debian/Ubuntu/ubuntu.html" class="next-step-card">
+                    <span class="step-icon">🟠</span>
+                    <h4>Ubuntu</h4>
+                    <p>Popular beginner-friendly distro</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

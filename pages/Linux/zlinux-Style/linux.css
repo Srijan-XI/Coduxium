@@ -1,0 +1,444 @@
+/* ========================================
+   LINUX PAGE STYLES
+   Common styles for linux.html, kernel.html, 
+   install.html, and filesystem.html
+   ======================================== */
+
+/* === Premium Linux Page Styles === */
+:root {
+    --linux-gradient: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-hover-border: var(--primary);
+}
+
+body.light {
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-border: rgba(0, 0, 0, 0.1);
+}
+
+/* === Hero Section Enhancement === */
+.hero-section {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: radial-gradient(circle at top right, rgba(255, 94, 98, 0.1), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 40%);
+    border-radius: var(--radius-lg);
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hero-section h2 {
+    font-size: 3rem;
+    background: var(--linux-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.intro {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--text-2);
+    line-height: 1.6;
+}
+
+/* === Family Grid Layout === */
+.family-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* === Interactive Cards === */
+.family-card {
+    background: var(--surface-2);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.family-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--card-accent, var(--primary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.family-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
+    border-color: var(--card-accent, var(--primary));
+}
+
+.family-card:hover::before {
+    transform: scaleX(1);
+}
+
+.family-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.family-icon {
+    font-size: 2.5rem;
+    background: var(--surface-1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.family-title h4 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--text-1);
+}
+
+.family-title small {
+    display: block;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.distro-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.distro-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: var(--surface-1);
+    border-radius: var(--radius-md);
+    transition: background 0.2s;
+}
+
+.distro-item:hover {
+    background: var(--surface-3);
+}
+
+.distro-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    background: var(--surface-3);
+    color: var(--text-1);
+    font-weight: 500;
+    border: 1px solid var(--border);
+}
+
+/* === Core Docs Section === */
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .path-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+}
+
+.path-card {
+    background: var(--surface-2);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.path-card:hover {
+    transform: scale(1.02);
+    border-color: var(--primary);
+}
+
+.path-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.lang-resources {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* === Custom Accents for Families === */
+.arch-family {
+    --card-accent: #1793d1;
+}
+
+.debian-family {
+    --card-accent: #d70a53;
+}
+
+.redhat-family {
+    --card-accent: #ee0000;
+}
+
+.gentoo-family {
+    --card-accent: #54487a;
+}
+
+.slack-family {
+    --card-accent: #4c4c4c;
+}
+
+/* === Layout for Sidebar === */
+.page-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+.sidebar {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+}
+
+.sidebar h3 {
+    font-size: 1rem;
+    color: var(--text-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 600;
+}
+
+.sidebar h3:first-child {
+    margin-top: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-1);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all 0.2s;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover {
+    background: var(--surface-3);
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+.nav-link.active {
+    background: var(--primary);
+    color: white;
+}
+
+.content-page {
+    width: 100%;
+    min-width: 0;
+}
+
+/* === Kernel Page Specific === */
+.diagram-container {
+    background: var(--surface-2);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    margin: 2rem 0;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.diagram-arrow {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.kernel-subgrid {
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.layer {
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: var(--radius-md);
+    font-weight: bold;
+}
+
+.layer.user {
+    background: #3b82f633;
+    border: 1px solid #3b82f6;
+    color: var(--text-1);
+}
+
+.layer.kernel {
+    background: #ef444433;
+    border: 1px solid #ef4444;
+    color: var(--text-1);
+}
+
+.layer.hardware {
+    background: #22c55e33;
+    border: 1px solid #22c55e;
+    color: var(--text-1);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background: var(--surface-2);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+/* === Install Page Specific === */
+.step-card {
+    background: var(--surface-2);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.step-number {
+    background: var(--primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.wsl-box {
+    background: linear-gradient(135deg, #0e1e36 0%, #000000 100%);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    color: white;
+    margin-top: 1rem;
+    border: 1px solid #333;
+}
+
+/* === Filesystem Page Specific === */
+.fs-tree {
+    font-family: monospace;
+    background: var(--surface-2);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.fs-item {
+    margin: 0.5rem 0;
+}
+
+.fs-desc {
+    color: var(--text-2);
+    margin-left: 1rem;
+}
+
+.perm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.perm-card {
+    background: var(--surface-2);
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.perm-symbol {
+    font-family: monospace;
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

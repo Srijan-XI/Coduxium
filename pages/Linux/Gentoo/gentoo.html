@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gentoo - Complete Guide | Coduxium XI</title>
+        <meta name="description" content="Complete Gentoo Linux guide - source-based distribution, Portage package manager, USE flags, and system optimization">
+
+        <link rel="stylesheet" href="../../../css/main.css">
+        <link rel="stylesheet" href="../zlinux-Style/linux.css">
+        <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+        <link rel="stylesheet" href="../zlinux-Style/distro.css">
+        <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+    </head>
+
+    <body class="linux-page">
+        <header class="site-header">
+            <div class="container header-inner">
+                <div class="brand">
+                    <span class="logo">🐧</span>
+                    <div>
+                        <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Gentoo</a></h1>
+                        <p class="sub">Source-based distro for maximum control</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <a href="../linux.html" class="btn">← Back to Linux</a>
+                    <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container" style="padding: 40px 0;">
+            <!-- Hero Section -->
+            <section class="linux-hero">
+                <div class="hero-badge">
+                    <span class="badge-icon">🧬</span>
+                    <span>Source-Based</span>
+                </div>
+                <h1 class="hero-title">Gentoo</h1>
+                <p class="hero-description">
+                    A highly flexible Linux distribution where you compile software from source, tune features via USE flags, and optimize performance for your exact hardware.
+                </p>
+            </section>
+
+            <!-- OVERVIEW Section -->
+            <section class="content-section">
+                <h2>📋 Overview</h2>
+
+                <div class="info-box info">
+                    <strong>💡 Quick Facts</strong>
+                    <ul style="margin-top: 10px; line-height: 1.8;">
+                        <li><strong>Type:</strong> Source-based distribution</li>
+                        <li><strong>Package Manager:</strong> Portage (emerge)</li>
+                        <li><strong>Customization:</strong> USE flags + build options</li>
+                        <li><strong>Ideal For:</strong> Power users, learning, performance tuning</li>
+                        <li><strong>Tradeoff:</strong> More time/effort than binary distros</li>
+                    </ul>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🧩</span>
+                        <h4>Granular Control</h4>
+                        <p>Enable/disable features per package with USE flags.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">⚡</span>
+                        <h4>Performance</h4>
+                        <p>Compile and optimize for your CPU and workload.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📦</span>
+                        <h4>Portage</h4>
+                        <p>Mature packaging system with source and binary options.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🛠️</span>
+                        <h4>Learning</h4>
+                        <p>Great for understanding Linux internals hands-on.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTRODUCTION Section -->
+            <section class="content-section">
+                <h2>📚 Introduction</h2>
+
+                <div class="distro-pm-section">
+                    <div class="pm-header">
+                        <h3>What is Gentoo?</h3>
+                    </div>
+                    <p style="line-height: 1.8; margin: 20px 0;">
+                        Gentoo is a source-based Linux distribution where most software is built locally from source code. This approach allows you to precisely tune features, dependencies, and compiler optimizations. Gentoo is especially popular with users who want maximum control or want to learn deeply how Linux systems fit together.
+                    </p>
+
+                    <h3 style="margin-top: 30px;">Core Concepts</h3>
+                    <ul style="line-height: 2; margin-top: 15px;">
+                        <li><strong>Portage:</strong> Package manager (the <em>emerge</em> tool)</li>
+                        <li><strong>USE flags:</strong> Feature toggles that influence build options</li>
+                        <li><strong>Profiles:</strong> Sensible defaults for system targets</li>
+                        <li><strong>MAKEOPTS:</strong> Parallel compile settings (e.g., <code>-j</code>)</li>
+                        <li><strong>march / mtune:</strong> CPU-specific optimizations</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- INSTALLATION GUIDE Section -->
+            <section class="content-section">
+                <h2>⚙️ Installation Guide</h2>
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Step 1: Pick a Stage & Handbook</h4>
+                        <p class="command-desc">Use the official Handbook and choose your architecture (amd64 is most common).</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Step 2: Partition & Mount</h4>
+                        <pre><code class="language-bash"># Example (adjust for your disk layout)
+    lsblk
+    sudo fdisk /dev/sdX
+
+    sudo mkfs.ext4 /dev/sdX?
+    sudo mount /dev/sdX? /mnt/gentoo</code></pre>
+                    </div>
+                    <div class="command-card">
+                        <h4>Step 3: Install Base System</h4>
+                        <p class="command-desc">Download/extract the stage tarball, configure chroot, then build kernel and install a bootloader.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Step 4: First Reboot</h4>
+                        <p class="command-desc">Configure networking, users, and desktop (optional), then reboot into your new Gentoo system.</p>
+                    </div>
+                </div>
+
+                <div class="info-box warning" style="margin-top: 30px;">
+                    <strong>⚠️ Heads-up</strong>
+                    <ul style="margin-top: 10px; line-height: 1.8;">
+                        <li>Expect longer install time due to compilation.</li>
+                        <li>Use a fast network connection and adequate CPU/RAM.</li>
+                        <li>Start with a minimal build; add desktop later.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- USER GUIDE Section -->
+            <section class="content-section">
+                <h2>📖 User Guide</h2>
+
+                <div class="distro-pm-section">
+                    <div class="pm-header">
+                        <h3>Portage Basics</h3>
+                    </div>
+
+                    <div class="command-grid">
+                        <div class="command-card">
+                            <h4>Sync Repos</h4>
+                            <pre><code class="language-bash">sudo emerge --sync</code></pre>
+                        </div>
+                        <div class="command-card">
+                            <h4>Update System (World)</h4>
+                            <pre><code class="language-bash">sudo emerge --ask --verbose --update --deep --newuse @world</code></pre>
+                        </div>
+                        <div class="command-card">
+                            <h4>Install Package</h4>
+                            <pre><code class="language-bash">sudo emerge --ask app-editors/vim</code></pre>
+                        </div>
+                        <div class="command-card">
+                            <h4>Search Package</h4>
+                            <pre><code class="language-bash">emerge --search nginx</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="distro-pm-section" style="margin-top: 30px;">
+                    <div class="pm-header">
+                        <h3>USE Flags</h3>
+                    </div>
+                    <p style="line-height: 1.8; margin-top: 15px;">
+                        USE flags enable/disable features across packages (e.g., enabling <code>pulseaudio</code> or <code>wayland</code>). You can set them globally in <code>/etc/portage/make.conf</code> or per-package in <code>/etc/portage/package.use</code>.
+                    </p>
+                    <div class="command-grid" style="margin-top: 20px;">
+                        <div class="command-card">
+                            <h4>Inspect USE Flags</h4>
+                            <pre><code class="language-bash">equery uses app-editors/vim
+    emerge --pretend --verbose app-editors/vim</code></pre>
+                        </div>
+                        <div class="command-card">
+                            <h4>Per-package USE Example</h4>
+                            <pre><code class="language-bash"># /etc/portage/package.use
+    www-servers/nginx http2
+    media-video/ffmpeg x264 x265</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ADVANCED TOPICS Section -->
+            <section class="content-section">
+                <h2>🚀 Advanced Topics</h2>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Compilation Tuning</h4>
+                        <pre><code class="language-bash"># /etc/portage/make.conf
+    MAKEOPTS="-j4"
+    COMMON_FLAGS="-O2 -pipe -march=native"</code></pre>
+                        <p class="command-desc">Tune parallel builds and CPU optimizations carefully.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Kernel Configuration</h4>
+                        <pre><code class="language-bash">cd /usr/src/linux
+    make menuconfig
+    make -j4 && make modules_install
+    make install</code></pre>
+                        <p class="command-desc">Build a custom kernel for your system.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Cleaning & Maintenance</h4>
+                        <pre><code class="language-bash">sudo emerge --depclean
+    sudo revdep-rebuild</code></pre>
+                        <p class="command-desc">Remove unused deps and rebuild broken linkages.</p>
+                    </div>
+                    <div class="command-card">
+                        <h4>Binary Packages (Optional)</h4>
+                        <pre><code class="language-bash"># Some packages may be available as binaries
+    emerge -g --ask package-name</code></pre>
+                        <p class="command-desc">Use binaries where available to save time.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- USEFUL COMMANDS Section -->
+            <section class="content-section">
+                <h2>💻 Useful Commands</h2>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Sync Portage</strong></td>
+                                <td><code>sudo emerge --sync</code></td>
+                                <td>Update the ebuild repository</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Update world</strong></td>
+                                <td><code>sudo emerge -avuDN @world</code></td>
+                                <td>Full system update with USE changes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Install package</strong></td>
+                                <td><code>sudo emerge -a category/pkg</code></td>
+                                <td>Install from source via Portage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Search packages</strong></td>
+                                <td><code>emerge --search keyword</code></td>
+                                <td>Find packages by name/description</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Depclean</strong></td>
+                                <td><code>sudo emerge --depclean</code></td>
+                                <td>Remove orphan dependencies</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pretend update</strong></td>
+                                <td><code>sudo emerge -pvuDN @world</code></td>
+                                <td>Preview updates before compiling</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Show system info</strong></td>
+                                <td><code>emerge --info</code></td>
+                                <td>Display build configuration and environment</td>
+                            </tr>
+                            <tr>
+                                <td><strong>List profiles</strong></td>
+                                <td><code>eselect profile list</code></td>
+                                <td>Show available Gentoo profiles</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Set profile</strong></td>
+                                <td><code>sudo eselect profile set &lt;N&gt;</code></td>
+                                <td>Select a system profile (careful!)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inspect USE flags</strong></td>
+                                <td><code>equery uses category/pkg</code></td>
+                                <td>See which USE flags a package supports</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ADDITIONAL RESOURCES Section -->
+            <section class="content-section">
+                <h2>📚 Additional Resources</h2>
+                <div class="next-steps-grid">
+                    <a href="https://www.gentoo.org/" target="_blank" class="next-step-card">
+                        <span class="step-icon">🌐</span>
+                        <h4>Official Website</h4>
+                        <p>Gentoo project homepage</p>
+                    </a>
+                    <a href="https://wiki.gentoo.org/" target="_blank" class="next-step-card">
+                        <span class="step-icon">📖</span>
+                        <h4>Gentoo Wiki</h4>
+                        <p>Guides and documentation</p>
+                    </a>
+                    <a href="https://forums.gentoo.org/" target="_blank" class="next-step-card">
+                        <span class="step-icon">💬</span>
+                        <h4>Community</h4>
+                        <p>Forums and support</p>
+                    </a>
+                    <a href="https://github.com/gentoo" target="_blank" class="next-step-card">
+                        <span class="step-icon">💻</span>
+                        <h4>Source Code</h4>
+                        <p>Gentoo on GitHub</p>
+                    </a>
+                </div>
+
+                <div class="info-box success" style="margin-top: 30px;">
+                    <strong>✨ Next Steps</strong>
+                    <ol style="margin-top: 10px; line-height: 2;">
+                        <li>Pick a stable profile and keep it consistent</li>
+                        <li>Set sensible <code>MAKEOPTS</code> and compiler flags</li>
+                        <li>Start with minimal installs; expand gradually</li>
+                        <li>Review USE flags before large upgrades</li>
+                        <li>Snapshot/backup before major changes</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Related Distros -->
+            <section class="content-section">
+                <h2>🔗 Related Distributions</h2>
+                <div class="next-steps-grid">
+                    <a href="../Arch/arch.html" class="next-step-card">
+                        <span class="step-icon">🏗️</span>
+                        <h4>Arch Linux</h4>
+                        <p>DIY-friendly rolling release</p>
+                    </a>
+                    <a href="../RedHat/Fedora/fedora.html" class="next-step-card">
+                        <span class="step-icon">🎩</span>
+                        <h4>Fedora</h4>
+                        <p>Developer-friendly upstream distro</p>
+                    </a>
+                    <a href="./ChromeOSFlex/ChromeOSFlex.html" class="next-step-card">
+                        <span class="step-icon">🧩</span>
+                        <h4>ChromeOS Flex</h4>
+                        <p>Lightweight system alternative</p>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <small>Coduxium XI © 2025</small>
+                <div class="footer-links">
+                    <a href="../../../index.html">Home</a>
+                    <a href="../../../docpages/about/about.html">About</a>
+                    <a href="../linux.html">Linux Hub</a>
+                    <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../../../components/theme-switch/theme-switcher.js"></script>
+        <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+    </body>
+
+</html>
+

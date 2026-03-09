@@ -1,0 +1,261 @@
+/* ========================================
+   LINUX DISTRO PAGES STYLES
+   Common styles for all Linux distribution pages
+   (Arch, Debian, RedHat, Gentoo, Slackware, etc.)
+   ======================================== */
+
+/* === Root Variables for Distro Colors === */
+:root {
+    /* Arch Family */
+    --arch-blue: #1793d1;
+    --arch-dark: #333333;
+
+    /* Debian/Ubuntu Family */
+    --ubuntu-orange: #E95420;
+    --ubuntu-aubergine: #77216F;
+    --debian-red: #d70a53;
+
+    /* Red Hat Family */
+    --fedora-blue: #0B57A4;
+    --fedora-dark: #2C3E50;
+    --redhat-red: #ee0000;
+
+    /* Other Distros */
+    --gentoo-purple: #54487a;
+    --slack-gray: #4c4c4c;
+}
+
+/* === Base Body Styles === */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #0f1419;
+    color: #e1e4e8;
+}
+
+/* === Hero Section === */
+.hero {
+    background: linear-gradient(135deg, rgba(23, 147, 209, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--arch-blue);
+}
+
+/* === Card Grid Layout === */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === Info Cards === */
+.info-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--arch-blue);
+}
+
+/* === Command Block === */
+.cmd-block {
+    background: #0d1117;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--arch-blue);
+    font-family: 'Courier New', monospace;
+    margin-top: 1rem;
+}
+
+/* === Button Links === */
+.btn-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--arch-blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: 20px 10px;
+    }
+}
+
+/* === Arch Family Specific Styles === */
+body.arch-distro .hero {
+    background: linear-gradient(135deg, rgba(23, 147, 209, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+body.arch-distro .hero h1,
+body.arch-distro .btn-link,
+body.arch-distro .cmd-block {
+    border-left-color: var(--arch-blue);
+}
+
+body.arch-distro .info-card:hover {
+    border-color: var(--arch-blue);
+}
+
+/* === Ubuntu/Debian Family Specific Styles === */
+body.ubuntu-distro .hero,
+body.debian-distro .hero {
+    background: linear-gradient(135deg, var(--ubuntu-aubergine) 0%, var(--ubuntu-orange) 100%);
+}
+
+body.ubuntu-distro .hero h1 {
+    color: #fff;
+}
+
+body.ubuntu-distro .info-card:hover {
+    border-color: var(--ubuntu-orange);
+}
+
+body.ubuntu-distro .btn-link {
+    color: var(--ubuntu-orange);
+}
+
+body.ubuntu-distro .cmd-block {
+    border-left-color: var(--ubuntu-orange);
+}
+
+/* === Fedora/Red Hat Family Specific Styles === */
+body.fedora-distro .hero,
+body.redhat-distro .hero {
+    background: linear-gradient(135deg, #0B57A4 0%, #294172 100%);
+}
+
+body.fedora-distro .hero h1,
+body.redhat-distro .hero h1 {
+    color: #ffffff;
+}
+
+body.fedora-distro .info-card:hover {
+    border-color: var(--fedora-blue);
+}
+
+body.fedora-distro .btn-link {
+    color: var(--fedora-blue);
+}
+
+body.fedora-distro .cmd-block {
+    border-left-color: var(--fedora-blue);
+}
+
+/* === Gentoo Family Specific Styles === */
+body.gentoo-distro .hero {
+    background: linear-gradient(135deg, rgba(84, 72, 122, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+body.gentoo-distro .hero h1 {
+    color: var(--gentoo-purple);
+}
+
+body.gentoo-distro .info-card:hover {
+    border-color: var(--gentoo-purple);
+}
+
+body.gentoo-distro .btn-link {
+    color: var(--gentoo-purple);
+}
+
+body.gentoo-distro .cmd-block {
+    border-left-color: var(--gentoo-purple);
+}
+
+/* === Slackware Family Specific Styles === */
+body.slackware-distro .hero {
+    background: linear-gradient(135deg, rgba(76, 76, 76, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+body.slackware-distro .hero h1 {
+    color: var(--slack-gray);
+}
+
+body.slackware-distro .info-card:hover {
+    border-color: var(--slack-gray);
+}
+
+body.slackware-distro .btn-link {
+    color: var(--slack-gray);
+}
+
+body.slackware-distro .cmd-block {
+    border-left-color: var(--slack-gray);
+}
+
+/* === Footer Styles === */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #30363d;
+    margin-top: 40px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+/* === Utility Classes === */
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.text-gray-400 {
+    color: #9ca3af;
+}
+
+/* === Code/Command Display Styles === */
+code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+/* === List Styles === */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+ul.no-bullets {
+    list-style: none;
+    padding: 0;
+}
+
+/* === Link Badges/Pills === */
+.badge-link {
+    border: 1px solid #333;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 5px;
+}
+
+/* === Flex Utilities for Related Distros === */
+.related-distros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}

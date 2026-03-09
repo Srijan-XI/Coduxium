@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete guide to Docker - Platform for developing, shipping, and running applications in containers with consistency across all environments." />
+  <meta name="keywords"
+    content="Docker, Containers, DevOps, Containerization, Docker Compose, Kubernetes, Microservices" />
+  <title>Docker Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Docker Complete Guide</h1>
+      <p class="subtitle">Build once, run anywhere. Package applications and dependencies into portable containers.</p>
+      <div class="badge-row">
+        <span class="badge">CONTAINERS</span>
+        <span class="badge">IMAGES</span>
+        <span class="badge">COMPOSE</span>
+        <span class="badge">REGISTRY</span>
+        <span class="badge">DEVOPS</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Pro Tip:</strong> Use multi-stage builds and .dockerignore files to keep your
+        images small and secure. Smaller images mean faster deployments and reduced attack surface.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Docker?</h3>
+      <p>Docker is an open-source platform that automates the deployment of applications inside lightweight, portable
+        containers. Containers package an application with all of its dependencies, ensuring it runs consistently across
+        different computing environments - from your laptop to production servers.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🐳 Containerization</strong> — Lightweight, standalone executable packages</div>
+        <div class="topic"><strong>📦 Image Layering</strong> — Efficient storage with copy-on-write file systems</div>
+        <div class="topic"><strong>🔄 Portability</strong> — Run anywhere Docker is installed</div>
+        <div class="topic"><strong>⚡ Fast Startup</strong> — Containers start in seconds</div>
+        <div class="topic"><strong>🔒 Isolation</strong> — Process and filesystem isolation</div>
+        <div class="topic"><strong>📊 Resource Efficient</strong> — Less overhead than VMs</div>
+        <div class="topic"><strong>🎯 Docker Compose</strong> — Multi-container orchestration</div>
+        <div class="topic"><strong>🌐 Docker Hub</strong> — Public registry with millions of images</div>
+      </div>
+
+      <h3>Why Choose Docker?</h3>
+      <ul>
+        <li><strong>Consistency:</strong> Eliminate "works on my machine" problems by ensuring identical environments
+          everywhere.</li>
+        <li><strong>Rapid Deployment:</strong> Build once, deploy anywhere. Containers start in seconds, making scaling
+          instant.</li>
+        <li><strong>Isolation:</strong> Run multiple versions of the same application or different applications without
+          conflicts.</li>
+        <li><strong>Efficiency:</strong> Containers sh are the host OS kernel, using fewer resources than traditional
+          VMs.</li>
+        <li><strong>Microservices:</strong> Perfect for microservice architectures where each service runs in its own
+          container.</li>
+        <li><strong>CI/CD Integration:</strong> Seamlessly integrates with Jenkins, GitLab CI, GitHub Actions, and other
+          CI/CD tools.</li>
+      </ul>
+
+      <h3>Use Cases</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🚀 Microservices</strong> — Deploy and scale services independently</div>
+        <div class="topic"><strong>🔄 CI/CD</strong> — Consistent build and test environments</div>
+        <div class="topic"><strong>☁️ Cloud Migration</strong> — Easy lift-and-shift to cloud platforms</div>
+        <div class="topic"><strong>💻 Development</strong> — Standardized dev environments for teams</div>
+        <div class="topic"><strong>📊 Data Processing</strong> — Isolated processing pipelines</div>
+        <div class="topic"><strong>🧪 Testing</strong> — Reproducible test environments</div>
+      </div>
+
+      <h3>Docker vs Virtual Machines</h3>
+      <ul>
+        <li><strong>Size:</strong> Docker containers are MB-sized; VMs are GB-sized</li>
+        <li><strong>Startup:</strong> Containers start in seconds; VMs take minutes</li>
+        <li><strong>Resources:</strong> Containers share host kernel; VMs include full OS</li>
+        <li><strong>Portability:</strong> Container images run anywhere; VM images are hypervisor-specific</li>
+        <li><strong>Management:</strong> Docker CLI is simpler than VM management tools</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Important:</strong> While Docker provides process isolation, it's not a
+        complete security boundary like VMs. Use Docker in conjunction with other security practices for production
+        workloads.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Get started with Docker by installing Docker Desktop (Windows/macOS) or Docker Engine (Linux).</p>
+
+      <!-- Windows Installation -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation (Docker Desktop)</h3>
+        <div class="info-box"><strong>📌 Prerequisites:</strong> Windows 10/11 (64-bit) with WSL 2 enabled. Docker
+          Desktop requires virtualization to be enabled in BIOS.</div>
+
+        <h4>Option 1 — winget (Recommended)</h4>
+        <pre><code># Install Docker Desktop
+winget install -e --id Docker.DockerDesktop
+
+# Enable WSL 2 if not already enabled
+wsl --install
+
+# Restart your computer after installation</code><button class="copy-btn" data-copy="winget install -e --id Docker.DockerDesktop">COPY</button></pre>
+
+        <h4>Option 2 — Manual Download</h4>
+        <div class="step"><span class="n">1</span> Download Docker Desktop from <a
+            href="https://www.docker.com/products/docker-desktop/" target="_blank"
+            rel="noopener noreferrer">docker.com</a></div>
+        <div class="step"><span class="n">2</span> Run the installer and follow the setup wizard</div>
+        <div class="step"><span class="n">3</span> Enable WSL 2 integration when prompted</div>
+        <div class="step"><span class="n">4</span> Restart your computer</div>
+        <div class="step"><span class="n">5</span> Launch Docker Desktop from Start menu</div>
+      </div>
+
+      <!-- macOS Installation -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation (Docker Desktop)</h3>
+        <pre><code># Install Docker Desktop using Homebrew
+brew install --cask docker
+
+# Open Docker Desktop
+open -a Docker
+
+# Wait until Docker is running, then verify
+docker --version
+docker compose version</code><button class="copy-btn" data-copy="brew install --cask docker">COPY</button></pre>
+
+        <h4>Alternative: Manual Download</h4>
+        <p>Download Docker Desktop for Mac from <a href="https://www.docker.com/products/docker-desktop/"
+            target="_blank" rel="noopener noreferrer">docker.com</a> (choose Apple Silicon or Intel chip)</p>
+      </div>
+
+      <!-- Linux Installation -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation (Docker Engine)</h3>
+
+        <h4>Ubuntu/Debian</h4>
+        <pre><code># Remove old versions
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+# Set up repository
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+
+# Add Docker's official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+  sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Add repository
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Install Docker Engine
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io \
+  docker-buildx-plugin docker-compose-plugin
+
+# Start Dock service
+sudo systemctl enable docker
+sudo systemctl start docker</code><button class="copy-btn" data-copy="sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin">COPY</button></pre>
+
+        <h4>RHEL/CentOS/Fedora</h4>
+        <pre><code># Remove old versions
+sudo dnf remove docker docker-client docker-client-latest docker-common \
+  docker-latest docker-latest-logrotate docker-logrotate docker-engine
+
+# Set up repository
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo \
+  https://download.docker.com/linux/fedora/docker-ce.repo
+
+# Install Docker Engine
+sudo dnf install -y docker-ce docker-ce-cli containerd.io \
+  docker-buildx-plugin docker-compose-plugin
+
+# Start Docker service
+sudo systemctl enable docker
+sudo systemctl start docker</code><button class="copy-btn" data-copy="sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin">COPY</button></pre>
+      </div>
+
+      <!-- Post-Installation -->
+      <div id="post-install" class="subsection">
+        <h3>Post-Installation (Linux)</h3>
+
+        <h4>Run Docker without sudo</h4>
+        <pre><code># Add your user to docker group
+sudo usermod -aG docker $USER
+
+# Apply group membership
+newgrp docker
+
+# Verify - no sudo needed
+docker ps</code><button class="copy-btn" data-copy="sudo usermod -aG docker $USER">COPY</button></pre>
+
+        <h4>Configure Docker to start on boot</h4>
+        <pre><code># Enable Docker service
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service</code><button class="copy-btn" data-copy="sudo systemctl enable docker.service">COPY</button></pre>
+      </div>
+
+      <!-- Verification -->
+      <div id="verify-install" class="subsection">
+        <h3>Verify Installation</h3>
+        <pre><code># Check Docker version
+docker --version
+docker compose version
+
+# Check Docker info
+docker info
+
+# Run hello-world container
+docker run hello-world
+
+# List running containers
+docker ps
+
+# List all containers (including stopped)
+docker ps -a
+
+# List downloaded images
+docker images</code><button class="copy-btn" data-copy="docker run hello-world">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <p>Learn essential Docker commands and workflows for containerizing and running applications.</p>
+
+      <!-- Docker Images -->
+      <div id="images" class="subsection">
+        <h3>Working with Images</h3>
+
+        <h4>Pulling Images from Docker Hub</h4>
+        <pre><code># Pull latest version
+docker pull nginx
+
+# Pull specific version
+docker pull nginx:1.25-alpine
+docker pull postgres:16
+docker pull node:20-alpine
+
+# Search for images
+docker search redis
+
+# View local images
+docker images
+
+# View image history
+docker history nginx
+
+# Remove image
+docker rmi nginx:latest
+
+# Remove all unused images
+docker image prune -a</code><button class="copy-btn" data-copy="docker pull nginx:alpine">COPY</button></pre>
+
+        <h4>Building Custom Images</h4>
+        <pre><code># Create Dockerfile
+cat > Dockerfile << 'EOF'
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+EXPOSE 3000
+CMD ["node", "server.js"]
+EOF
+
+# Build image
+docker build -t myapp:1.0 .
+
+# Build with build arguments
+docker build --build-arg NODE_ENV=production -t myapp:prod .
+
+# Build and tag multiple versions
+docker build -t myapp:1.0 -t myapp:latest .
+
+# View build history
+docker history myapp:1.0</code><button class="copy-btn" data-copy="docker build -t myapp:latest .">COPY</button></pre>
+
+        <h4>Multi-Stage Builds</h4>
+        <pre><code># Dockerfile with multi-stage build
+FROM node:20 AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY --from=builder /app/dist ./dist
+CMD ["node", "dist/server.js"]</code><button class="copy-btn" data-copy="Multi-stage build">COPY</button></pre>
+      </div>
+
+      <!-- Running Containers -->
+      <div id="containers" class="subsection">
+        <h3>Running Containers</h3>
+
+        <h4>Basic Container Operations</h4>
+        <pre><code># Run container in foreground
+docker run nginx
+
+# Run in detached mode (background)
+docker run -d nginx
+
+# Run with custom name
+docker run -d --name my-nginx nginx
+
+# Run and remove after exit
+docker run --rm ubuntu echo "Hello World"
+
+# Run interactively
+docker run -it ubuntu bash
+
+# Run with port mapping
+docker run -d -p 8080:80 nginx
+# Host port 8080 -> Container port 80
+
+# Run with environment variables
+docker run -d -e DB_PASSWORD=secret postgres
+
+# Run with volume mount
+docker run -d -v /path/on/host:/path/in/container nginx
+
+# Run with restart policy
+docker run -d --restart unless-stopped nginx</code><button class="copy-btn" data-copy="docker run -d -p 8080:80 nginx">COPY</button></pre>
+
+        <h4>Managing Containers</h4>
+        <pre><code># List running containers
+docker ps
+
+# List all containers
+docker ps -a
+
+# Stop container
+docker stop my-nginx
+
+# Start stopped container
+docker start my-nginx
+
+# Restart container
+docker restart my-nginx
+
+# Pause container
+docker pause my-nginx
+docker unpause my-nginx
+
+# Remove container
+docker rm my-nginx
+
+# Force remove running container
+docker rm -f my-nginx
+
+# Remove all stopped containers
+docker container prune</code><button class="copy-btn" data-copy="docker ps">COPY</button></pre>
+
+        <h4>Interacting with Containers</h4>
+        <pre><code># View logs
+docker logs my-nginx
+
+# Follow logs (like tail -f)
+docker logs -f my-nginx
+
+# View last 100 lines
+docker logs --tail 100 my-nginx
+
+# Execute command in running container
+docker exec my-nginx ls /usr/share/nginx/html
+
+# Get interactive shell
+docker exec -it my-nginx bash
+
+# Copy files to/from container
+docker cp file.txt my-nginx:/app/
+docker cp my-nginx:/app/output.log ./
+
+# View container details
+docker inspect my-nginx
+
+# View container stats (CPU, memory)
+docker stats my-nginx
+
+# View processes in container
+docker top my-nginx</code><button class="copy-btn" data-copy="docker exec -it my-nginx bash">COPY</button></pre>
+      </div>
+
+      <!-- Dockerfile Best Practices -->
+      <div id="dockerfile" class="subsection">
+        <h3>Dockerfile Best Practices</h3>
+
+        <h4>Well-Optimized Dockerfile</h4>
+        <pre><code># Use specific base image version
+FROM node:20-alpine AS base
+
+# Set working directory
+WORKDIR /app
+
+# Copy only dependency files first (for caching)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --only=production \
+    && npm cache clean --force
+
+# Copy application code
+COPY . .
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs \
+    && adduser -S nodejs -u 1001 \
+    && chown -R nodejs:nodejs /app
+
+# Switch to non-root user
+USER nodejs
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node healthcheck.js
+
+# Start application
+CMD ["node", "server.js"]</code><button class="copy-btn" data-copy="Dockerfile best practices">COPY</button></pre>
+
+        <h4>.dockerignore File</h4>
+        <pre><code># .dockerignore
+node_modules
+npm-debug.log
+dist
+.git
+.gitignore
+README.md
+.env
+.env.local
+coverage
+.vscode
+.idea
+*.log
+.DS_Store</code><button class="copy-btn" data-copy=".dockerignore">COPY</button></pre>
+      </div>
+
+      <!-- Docker Compose -->
+      <div id="compose" class="subsection">
+        <h3>Docker Compose</h3>
+
+        <h4>Basic docker-compose.yml</h4>
+        <pre><code>version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://postgres:password@db:5432/myapp
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=myapp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:</code><button class="copy-btn" data-copy="docker-compose.yml">COPY</button></pre>
+
+        <h4>Docker Compose Commands</h4>
+        <pre><code># Start services
+docker compose up
+
+# Start in detached mode
+docker compose up -d
+
+# Build and start
+docker compose up --build
+
+# Stop services
+docker compose stop
+
+# Stop and remove containers
+docker compose down
+
+# Stop and remove containers, volumes
+docker compose down -v
+
+# View logs
+docker compose logs
+
+# Follow logs for specific service
+docker compose logs -f web
+
+# List running services
+docker compose ps
+
+# Execute command in service
+docker compose exec web sh
+
+# Scale services
+docker compose up -d --scale web=3</code><button class="copy-btn" data-copy="docker compose up -d">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Docker Networking</h3>
+      <pre><code># List networks
+docker network ls
+
+# Create custom network
+docker network create my-network
+
+# Run container in network
+docker run -d --network my-network --name web nginx
+
+# Connect container to network
+docker network connect my-network my-container
+
+# Inspect network
+docker network inspect my-network
+
+# Remove network
+docker network rm my-network</code><button class="copy-btn" data-copy="docker network create my-network">COPY</button></pre>
+
+      <h3>Docker Volumes</h3>
+      <pre><code># Create named volume
+docker volume create my-data
+
+# List volumes
+docker volume ls
+
+# Run container with volume
+docker run -d -v my-data:/data nginx
+
+# Inspect volume
+docker volume inspect my-data
+
+# Remove volume
+docker volume rm my-data
+
+# Remove all unused volumes
+docker volume prune
+
+# Backup volume
+docker run --rm -v my-data:/data -v $(pwd):/backup \
+  ubuntu tar czf /backup/backup.tar.gz /data</code><button class="copy-btn" data-copy="docker volume create my-data">COPY</button></pre>
+
+      <h3>Docker Registry</h3>
+      <pre><code># Login to Docker Hub
+docker login
+
+# Tag image for registry
+docker tag myapp:latest username/myapp:latest
+
+# Push to Docker Hub
+docker push username/myapp:latest
+
+# Pull from private registry
+docker pull registry.company.com/myapp:latest
+
+# Run local registry
+docker run -d -p 5000:5000 --name registry registry:2
+
+# Push to local registry
+docker tag myapp:latest localhost:5000/myapp:latest
+docker push localhost:5000/myapp:latest</code><button class="copy-btn" data-copy="docker push username/myapp:latest">COPY</button></pre>
+
+      <h3>Resource Limits</h3>
+      <pre><code># Limit memory
+docker run -d --memory="512m" nginx
+
+# Limit CPU
+docker run -d --cpus="1.5" nginx
+
+# Limit both
+docker run -d --memory="1g" --cpus="2" nginx
+
+# Set memory swap limit
+docker run -d --memory="512m" --memory-swap="1g" nginx</code><button class="copy-btn" data-copy="docker run --memory='512m' --cpus='1.5' nginx">COPY</button></pre>
+
+      <h3>Docker System Management</h3>
+      <pre><code># View disk usage
+docker system df
+
+# Remove unused data
+docker system prune
+
+# Remove everything including volumes
+docker system prune -a --volumes
+
+# View real-time events
+docker events
+
+# Export container
+docker export my-container > container.tar
+
+# Import image from tarball
+docker import container.tar myimage:latest</code><button class="copy-btn" data-copy="docker system prune">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Containerize Your App</strong> — Create a Dockerfile for your
+        application</div>
+      <div class="step"><span class="n">2</span><strong>Use Docker Compose</strong> — Define multi-container
+        applications</div>
+      <div class="step"><span class="n">3</span><strong>Optimize Images</strong> — Use multi-stage builds and Alpine
+        images</div>
+      <div class="step"><span class="n">4</span><strong>Implement CI/CD</strong> — Integrate Docker into your build
+        pipeline</div>
+      <div class="step"><span class="n">5</span><strong>Security Scanning</strong> — Use docker scan or Trivy for
+        vulnerabilities</div>
+      <div class="step"><span class="n">6</span><strong>Learn Kubernetes</strong> — Orchestrate containers at scale
+      </div>
+      <div class="step"><span class="n">7</span><strong>Production Best Practices</strong> — Health checks, logging,
+        monitoring</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer">Official Docker
+            Documentation</a></li>
+        <li>🎓 <a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener noreferrer">Docker Get
+            Started Tutorial</a></li>
+        <li>🐳 <a href="https://hub.docker.com/" target="_blank" rel="noopener noreferrer">Docker Hub (Image
+            Registry)</a></li>
+        <li>🛠️ <a href="https://www.docker.com/products/docker-desktop/" target="_blank"
+            rel="noopener noreferrer">Docker Desktop</a></li>
+        <li>📚 <a href="https://github.com/docker/awesome-compose" target="_blank" rel="noopener noreferrer">Awesome
+            Docker Compose Examples</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

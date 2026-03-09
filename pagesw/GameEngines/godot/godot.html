@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Godot — Coduxium XI</title>
+    <meta name="description" content="Master Godot - Free and open source game engine for 2D and 3D games.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Godot Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎯 Godot Engine</h2>
+            <p class="intro">Free and open source game engine for creating 2D and 3D games with an innovative scene
+                system.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Engine</span>
+                    <span class="badge">Open Source</span>
+                    <span class="badge">2D/3D</span>
+                    <span class="badge">GDScript</span>
+                </div>
+                <p>Godot is a feature-packed, cross-platform game engine completely free and open source under the MIT
+                    license. It's designed to create both 2D and 3D games with an intuitive scene system and powerful
+                    scripting.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>100% Free</strong> — No royalties, no subscriptions, truly yours</li>
+                    <li><strong>Scene System</strong> — Innovative node and scene architecture</li>
+                    <li><strong>GDScript</strong> — Python-like scripting language</li>
+                    <li><strong>Visual Scripting</strong> — Node-based programming</li>
+                    <li><strong>Excellent 2D</strong> — Dedicated 2D engine with pixel-perfect rendering</li>
+                    <li><strong>Modern 3D</strong> — PBR rendering, global illumination</li>
+                    <li><strong>Cross-Platform</strong> — Export to desktop, mobile, web</li>
+                    <li><strong>Live Editing</strong> — Edit scenes while game is running</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>2D games (platformers, RPGs, puzzle games)</li>
+                    <li>3D games (FPS, adventure, simulation)</li>
+                    <li>Mobile game development</li>
+                    <li>Web games</li>
+                    <li>Educational games and simulations</li>
+                    <li>Indie game development</li>
+                    <li>Prototyping and game jams</li>
+                    <li>Interactive applications</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>GDScript example:</p>
+                <pre><code># Player.gd
+extends CharacterBody2D
+
+var speed = 200.0
+var jump_velocity = -400.0
+
+func _physics_process(delta):
+    # Add gravity
+    if not is_on_floor():
+        velocity.y += get_gravity().y * delta
+    
+    # Handle jump
+    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+        velocity.y = jump_velocity
+    
+    # Get input direction
+    var direction = Input.get_axis("ui_left", "ui_right")
+    if direction:
+        velocity.x = direction * speed
+    else:
+        velocity.x = move_toward(velocity.x, 0, speed)
+    
+    move_and_slide()
+
+# Signal example
+signal health_changed(new_health)
+
+func take_damage(amount):
+    health -= amount
+    emit_signal("health_changed", health)</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use scenes and nodes effectively</li>
+                    <li>Leverage signals for communication</li>
+                    <li>Keep scripts focused and modular</li>
+                    <li>Use groups for batch operations</li>
+                    <li>Optimize with object pooling</li>
+                    <li>Follow GDScript style guide</li>
+                    <li>Use autoload for global systems</li>
+                    <li>Profile performance regularly</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://godotengine.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.godotengine.org/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/godotengine/godot" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete C# guide - Learn installation, syntax, .NET ecosystem, and best practices for modern C# development." />
+  <meta name="keywords"
+    content="C#, CSharp, .NET, Programming, Learn C#, C# Tutorial, ASP.NET, Unity, Game Development" />
+  <title>C# Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>💎 C# Complete Guide</h1>
+      <p class="subtitle">A modern, object-oriented language for building powerful applications on the .NET platform.</p>
+      <div class="badge-row">
+        <span class="badge">TYPE-SAFE</span>
+        <span class="badge">CROSS-PLATFORM</span>
+        <span class="badge">.NET ECOSYSTEM</span>
+        <span class="badge">ENTERPRISE-READY</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Professional Choice:</strong> C# is widely used for enterprise applications, game development with Unity, and cross-platform apps with .NET.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is C#?</h3>
+      <p><strong>C#</strong> (pronounced "C Sharp") is a modern, object-oriented programming language developed by Microsoft in 2000 as part of the .NET initiative. Designed by Anders Hejlsberg, C# combines the power of C++ with the simplicity of Visual Basic, making it ideal for building Windows applications, web services, games, and cloud-based solutions.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>🎯 Type-Safe</strong> — Strong static typing prevents errors</div>
+        <div class="topic"><strong>🧩 Object-Oriented</strong> — Classes, inheritance, polymorphism</div>
+        <div class="topic"><strong>⚡ Modern Syntax</strong> — LINQ, async/await, pattern matching</div>
+        <div class="topic"><strong>🌐 Cross-Platform</strong> — .NET runs on Windows, macOS, Linux</div>
+        <div class="topic"><strong>🎮 Game Development</strong> — Industry standard with Unity</div>
+        <div class="topic"><strong>☁️ Cloud-Native</strong> — Azure integration, microservices</div>
+        <div class="topic"><strong>🔄 Garbage Collection</strong> — Automatic memory management</div>
+        <div class="topic"><strong>📦 Rich Ecosystem</strong> — NuGet packages, extensive libraries</div>
+      </div>
+
+      <h3>Why Choose C#?</h3>
+      <ul>
+        <li><strong>Versatile:</strong> Desktop, web, mobile, games, cloud, IoT</li>
+        <li><strong>Mature Ecosystem:</strong> .NET Framework, .NET Core, .NET 8+</li>
+        <li><strong>Career Opportunities:</strong> High demand in enterprise and game dev</li>
+        <li><strong>Modern Features:</strong> Continuously updated with new language features</li>
+        <li><strong>Excellent Tooling:</strong> Visual Studio, Visual Studio Code, Rider</li>
+        <li><strong>Performance:</strong> Native compilation, JIT optimization</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Important:</strong> Use .NET 6 or later for new projects. .NET Framework is Windows-only and legacy.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Get started with C# by installing the .NET SDK on your system.</p>
+
+      <!-- Windows Installation -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation</h3>
+
+        <h4>Method 1: Official Installer (Recommended)</h4>
+        <div class="step"><span class="n">1</span>
+          <div><strong>Download .NET SDK</strong>
+            <p>Visit <a href="https://dotnet.microsoft.com/download" target="_blank">dotnet.microsoft.com/download</a> and download the latest .NET SDK for Windows.</p>
+          </div>
+        </div>
+        <div class="step"><span class="n">2</span>
+          <div><strong>Run Installer</strong>
+            <p>Execute the downloaded installer and follow the setup wizard.</p>
+          </div>
+        </div>
+        <div class="step"><span class="n">3</span>
+          <div><strong>Verify Installation</strong>
+            <pre><code>dotnet --version
+dotnet --list-sdks</code><button class="copy-btn" data-copy="dotnet --version">COPY</button></pre>
+          </div>
+        </div>
+
+        <h4>Method 2: winget</h4>
+        <pre><code>winget install Microsoft.DotNet.SDK.8</code><button class="copy-btn" data-copy="winget install Microsoft.DotNet.SDK.8">COPY</button></pre>
+
+        <h4>Method 3: Chocolatey</h4>
+        <pre><code>choco install dotnet-sdk</code><button class="copy-btn" data-copy="choco install dotnet-sdk">COPY</button></pre>
+      </div>
+
+      <!-- macOS Installation -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation</h3>
+
+        <h4>Method 1: Homebrew (Recommended)</h4>
+        <pre><code># Install .NET SDK
+brew install --cask dotnet-sdk
+
+# Verify
+dotnet --version</code><button class="copy-btn" data-copy="brew install --cask dotnet-sdk">COPY</button></pre>
+
+        <h4>Method 2: Official Installer</h4>
+        <p>Download from <a href="https://dotnet.microsoft.com/download/dotnet" target="_blank">dotnet.microsoft.com/download</a></p>
+      </div>
+
+      <!-- Linux Installation -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation</h3>
+
+        <h4>Ubuntu/Debian</h4>
+        <pre><code>wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt update
+sudo apt install dotnet-sdk-8.0</code><button class="copy-btn" data-copy="sudo apt install dotnet-sdk-8.0">COPY</button></pre>
+
+        <h4>Fedora/RHEL</h4>
+        <pre><code>sudo dnf install dotnet-sdk-8.0</code><button class="copy-btn" data-copy="sudo dnf install dotnet-sdk-8.0">COPY</button></pre>
+
+        <h4>Arch Linux</h4>
+        <pre><code>sudo pacman -S dotnet-sdk</code><button class="copy-btn" data-copy="sudo pacman -S dotnet-sdk">COPY</button></pre>
+      </div>
+
+      <!-- IDE Setup -->
+      <div id="ide-setup" class="subsection">
+        <h3>Development Environment</h3>
+        <pre><code># Create new console app
+dotnet new console -n MyFirstApp
+cd MyFirstApp
+
+# Run the app
+dotnet run</code><button class="copy-btn" data-copy="dotnet new console -n MyFirstApp">COPY</button></pre>
+
+        <h4>Recommended IDEs</h4>
+        <ul>
+          <li><strong>Visual Studio</strong> — Full-featured IDE (Windows/Mac)</li>
+          <li><strong>Visual Studio Code</strong> — Lightweight with C# extension</li>
+          <li><strong>JetBrains Rider</strong> — Cross-platform premium IDE</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Hello World</h3>
+        <pre><code>// Modern C# 10+ (top-level statements)
+Console.WriteLine("Hello, Coduxium XI!");
+
+// Traditional approach
+using System;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}</code><button class="copy-btn" data-copy='Console.WriteLine("Hello, Coduxium XI!");'>COPY</button></pre>
+
+        <h3>Variables & Data Types</h3>
+        <pre><code>// Type inference
+var name = "C#";
+var version = 12;
+var isAwesome = true;
+
+// Explicit types
+string language = "C#";
+int year = 2024;
+double price = 99.99;
+decimal money = 1234.56m;
+bool isOpen = false;
+
+// Nullable types
+int? nullableInt = null;
+string? nullableString = null;</code><button class="copy-btn" data-copy='var name = "C#";'>COPY</button></pre>
+
+        <h3>Strings & Interpolation</h3>
+        <pre><code>string firstName = "John";
+string lastName = "Doe";
+
+// String interpolation
+string fullName = $"{firstName} {lastName}";
+Console.WriteLine($"Welcome, {fullName}!");
+
+// String methods
+string upper = fullName.ToUpper();
+bool contains = fullName.Contains("John");
+string substring = fullName.Substring(0, 4);</code><button class="copy-btn" data-copy='string fullName = $"{firstName} {lastName}";'>COPY</button></pre>
+
+        <h3>Collections</h3>
+        <pre><code>// Arrays
+int[] numbers = { 1, 2, 3, 4, 5 };
+string[] fruits = new string[3];
+
+// Lists
+List<string> names = new List<string>();
+names.Add("Alice");
+names.Add("Bob");
+
+// Dictionaries
+Dictionary<string, int> ages = new Dictionary<string, int>
+{
+    { "Alice", 25 },
+    { "Bob", 30 }
+};</code><button class="copy-btn" data-copy="List<string> names = new List<string>();">COPY</button></pre>
+
+        <h3>Control Flow</h3>
+        <pre><code>// If-else
+int age = 18;
+if (age < 18)
+{
+    Console.WriteLine("Minor");
+}
+else if (age == 18)
+{
+    Console.WriteLine("Just became an adult!");
+}
+else
+{
+    Console.WriteLine("Adult");
+}
+
+// Switch expression (C# 8+)
+string result = age switch
+{
+    < 18 => "Minor",
+    18 => "Just became an adult!",
+    _ => "Adult"
+};
+
+// Loops
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine(i);
+}
+
+foreach (var item in names)
+{
+    Console.WriteLine(item);
+}</code><button class="copy-btn" data-copy="foreach (var item in names)">COPY</button></pre>
+
+        <h3>Methods</h3>
+        <pre><code>// Basic method
+string Greet(string name)
+{
+    return $"Hello, {name}!";
+}
+
+// Expression-bodied method
+string GreetShort(string name) => $"Hello, {name}!";
+
+// Optional parameters
+int Add(int a, int b = 10) => a + b;
+
+// Lambda expressions
+Func<int, int> square = x => x * x;
+Console.WriteLine(square(5)); // 25</code><button class="copy-btn" data-copy="string Greet(string name) => $\"Hello, {name}!\";">COPY</button></pre>
+
+        <h3>Classes & Objects</h3>
+        <pre><code>public class Person
+{
+    // Properties
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    // Constructor
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+
+    // Method
+    public string Introduce()
+    {
+        return $"Hi, I'm {Name} and I'm {Age} years old.";
+    }
+}
+
+// Create instance
+var person = new Person("Alice", 30);
+Console.WriteLine(person.Introduce());</code><button class="copy-btn" data-copy="var person = new Person(\"Alice\", 30);">COPY</button></pre>
+
+        <h3>LINQ (Language Integrated Query)</h3>
+        <pre><code>List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+// Filter
+var evens = numbers.Where(n => n % 2 == 0);
+
+// Transform
+var squares = numbers.Select(n => n * n);
+
+// Aggregate
+var sum = numbers.Sum();
+var average = numbers.Average();
+
+// Complex query
+var filtered = numbers
+    .Where(n => n > 3)
+    .OrderByDescending(n => n)
+    .Select(n => n * 2)
+    .ToList();</code><button class="copy-btn" data-copy="var evens = numbers.Where(n => n % 2 == 0);">COPY</button></pre>
+
+        <h3>Async/Await</h3>
+        <pre><code>using System.Net.Http;
+
+async Task<string> FetchDataAsync(string url)
+{
+    using HttpClient client = new HttpClient();
+    string result = await client.GetStringAsync(url);
+    return result;
+}
+
+// Usage
+var data = await FetchDataAsync("https://api.example.com/data");</code><button class="copy-btn" data-copy="async Task<string> FetchDataAsync(string url)">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Popular Frameworks & Libraries</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>ASP.NET Core</strong>Web applications & APIs</div>
+        <div class="package-item"><strong>Entity Framework</strong>ORM for databases</div>
+        <div class="package-item"><strong>Blazor</strong>Web UI with C#</div>
+        <div class="package-item"><strong>Unity</strong>Game development</div>
+        <div class="package-item"><strong>Xamarin/MAUI</strong>Cross-platform mobile</div>
+        <div class="package-item"><strong>ML.NET</strong>Machine learning</div>
+        <div class="package-item"><strong>Newtonsoft.Json</strong>JSON serialization</div>
+        <div class="package-item"><strong>Dapper</strong>Micro ORM</div>
+      </div>
+
+      <h3>NuGet Package Management</h3>
+      <pre><code># Install package
+dotnet add package Newtonsoft.Json
+
+# List packages
+dotnet list package
+
+# Restore packages
+dotnet restore
+
+# Update package
+dotnet add package Newtonsoft.Json --version 13.0.3</code><button class="copy-btn" data-copy="dotnet add package Newtonsoft.Json">COPY</button></pre>
+
+      <h3>Records (C# 9+)</h3>
+      <pre><code>// Immutable data structure
+public record Person(string Name, int Age);
+
+var person1 = new Person("Alice", 30);
+var person2 = person1 with { Age = 31 }; // Non-destructive mutation</code><button class="copy-btn" data-copy="public record Person(string Name, int Age);">COPY</button></pre>
+
+      <h3>Pattern Matching</h3>
+      <pre><code>object obj = "Hello";
+
+string result = obj switch
+{
+    string s when s.Length > 5 => "Long string",
+    string s => "Short string",
+    int i => $"Integer: {i}",
+    _ => "Unknown"
+};</code><button class="copy-btn" data-copy="Pattern matching example">COPY</button></pre>
+
+      <h3>Exception Handling</h3>
+      <pre><code>try
+{
+    int result = 10 / 0;
+}
+catch (DivideByZeroException ex)
+{
+    Console.WriteLine($"Error: {ex.Message}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"General error: {ex.Message}");
+}
+finally
+{
+    Console.WriteLine("Cleanup");
+}</code><button class="copy-btn" data-copy="try-catch example">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Practice Basics</strong> — Solve problems on LeetCode or HackerRank</div>
+      <div class="step"><span class="n">2</span><strong>Build Web APIs</strong> — Create REST APIs with ASP.NET Core</div>
+      <div class="step"><span class="n">3</span><strong>Learn EF Core</strong> — Master database access with Entity Framework</div>
+      <div class="step"><span class="n">4</span><strong>Explore Unity</strong> — Build games with C# and Unity</div>
+      <div class="step"><span class="n">5</span><strong>Master Async</strong> — Deep dive into async/await patterns</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://docs.microsoft.com/dotnet/csharp/" target="_blank">Official C# Documentation</a></li>
+        <li>🎓 <a href="https://learn.microsoft.com/training/dotnet/" target="_blank">Microsoft Learn</a></li>
+        <li>📘 <a href="https://www.pluralsight.com/paths/c-10" target="_blank">Pluralsight C# Path</a></li>
+        <li>💻 <a href="https://dotnet.microsoft.com/apps/aspnet" target="_blank">ASP.NET Core</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

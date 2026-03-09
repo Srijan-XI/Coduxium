@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide</title>
+    <link rel="stylesheet" href="qs.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🚀 Quick Start Guide</h1>
+            <p>Get up and running with any programming language in minutes!</p>
+        </header>
+
+        <section>
+            <h2>🎯 Choose Your Path</h2>
+            <div class="grid grid-3">
+                <div class="card card-accent">
+                    <h3>Path 1: Complete Beginner</h3>
+                    <p>Never coded before? Start here!</p>
+                    <ol class="list-decimal list-inside text-gray-600 space-y-2 text-sm">
+                        <li>**Choose Python** (most beginner-friendly)</li>
+                        <li>**Go to**: `PYTHON/Installation-Guide.md`</li>
+                        <li>**Follow**: Step-by-step installation</li>
+                        <li>**Try**: `q01_hello_world.py`</li>
+                        <li>**Progress**: Work through questions q01-q10</li>
+                    </ol>
+                </div>
+
+                <div class="card card-accent">
+                    <h3>Path 2: Experienced Developer</h3>
+                    <p>Setting up a new language or environment?</p>
+                    <ol class="list-decimal list-inside text-gray-600 space-y-2 text-sm">
+                        <li>**Pick your language**: Python, Java, C/C++, PHP, R, or Rust</li>
+                        <li>**Quick install**: Follow installation guide for your OS</li>
+                        <li>**Jump to**: Intermediate or Advanced questions</li>
+                        <li>**Build**: Real projects with your new skills</li>
+                    </ol>
+                </div>
+
+                <div class="card card-accent">
+                    <h3>Path 3: Contributor</h3>
+                    <p>Want to contribute to the project?</p>
+                    <ol class="list-decimal list-inside text-gray-600 space-y-2 text-sm">
+                        <li>**Read**: [CONTRIBUTING.md]</li>
+                        <li>**Fork**: The repository</li>
+                        <li>**Choose**: An open issue or create new content</li>
+                        <li>**Submit**: Pull request</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📦 Installation (Quick Version)</h2>
+            <p>*For detailed instructions, see language-specific installation guides.*</p>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>Windows (PowerShell/Winget)</h3>
+                    <pre class="code-block text-xs sm:text-sm"><code># Python
+winget install Python.Python.3.11
+
+# Java
+winget install Oracle.JDK.17
+
+# Rust
+winget install Rustlang.Rust.MSVC</code></pre>
+                </div>
+                
+                <div class="card">
+                    <h3>macOS (Homebrew)</h3>
+                    <pre class="code-block text-xs sm:text-sm"><code># Using Homebrew
+brew install python
+brew install openjdk@17
+brew install rust</code></pre>
+                </div>
+                
+                <div class="card">
+                    <h3>Linux (Ubuntu/Debian)</h3>
+                    <pre class="code-block text-xs sm:text-sm"><code># Python
+sudo apt update
+sudo apt install python3 python3-pip
+
+# Java
+sudo apt install openjdk-17-jdk
+
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎓 Learning Path Recommendations</h2>
+            <div class="grid grid-3">
+                <div class="card card-success">
+                    <h3>Week 1: Getting Started</h3>
+                    <ul>
+                        <li>Install chosen language</li>
+                        <li>Set up IDE/editor</li>
+                        <li>Complete beginner questions (Q1-Q5)</li>
+                        <li>Read basic syntax documentation</li>
+                    </ul>
+                </div>
+                <div class="card card-accent">
+                    <h3>Week 2-4: Building Skills</h3>
+                    <ul>
+                        <li>Complete intermediate questions</li>
+                        <li>Read about data structures</li>
+                        <li>Start a small project</li>
+                        <li>Learn Docker basics (optional)</li>
+                        <li>Join community discussions</li>
+                    </ul>
+                </div>
+                <div class="card card-warn">
+                    <h3>Month 2-3: Advanced Topics</h3>
+                    <ul>
+                        <li>Complete advanced questions</li>
+                        <li>Build a medium-sized project</li>
+                        <li>Contribute to open source</li>
+                        <li>Explore frameworks/libraries</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="goal-section">
+            <h2>🎯 Your First Goal</h2>
+            <p>Choose ONE task to complete today. Check it off when done!</p>
+            <div id="goal-checklist">
+                <!-- Checkbox items will be rendered here -->
+            </div>
+        </section>
+        
+        <section>
+            <h2>💡 Quick Tips & Tools</h2>
+            <div class="quickstart-grid">
+                <div>
+                    <h3 class="quickstart-title">Tips for Learning</h3>
+                    <ul>
+                        <li>**Code daily**: Even 30 minutes helps</li>
+                        <li>**Type, don't copy**: Manual typing builds muscle memory</li>
+                        <li>**Experiment**: Modify examples to see what happens</li>
+                        <li>**Debug yourself**: Try to solve errors before searching</li>
+                        <li>**Build projects**: Apply what you learn</li>
+                    </ul>
+                    <h3 class="quickstart-title quickstart-title-spaced">Tips for Practice Questions</h3>
+                    <ul>
+                        <li>**Read carefully**: Understand requirements first</li>
+                        <li>**Plan first**: Pseudocode before coding</li>
+                        <li>**Start simple**: Get basic version working first</li>
+                        <li>**Test thoroughly**: Try edge cases</li>
+                        <li>**Refactor**: Improve after it works</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="quickstart-title">Essential Tools</h3>
+                    <ul class="quickstart-tools-list">
+                        <li>
+                            <strong class="text-dark-gray">Code Editors (Pick One):</strong>
+                            <span class="block text-sm text-gray-600 ml-4">VS Code (Recommended), PyCharm, IntelliJ IDEA, Sublime Text, Vim/Neovim.</span>
+                        </li>
+                        <li>
+                            <strong class="text-dark-gray">Version Control:</strong>
+                            <span class="block text-sm text-gray-600 ml-4">Git (Essential for all developers), GitHub Desktop (GUI for beginners).</span>
+                        </li>
+                        <li>
+                            <strong class="text-dark-gray">Terminal/Shell:</strong>
+                            <span class="block text-sm text-gray-600 ml-4">Windows (PowerShell/Windows Terminal), macOS (Terminal/iTerm2), Linux (Default Terminal).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <h2>📚 Next Steps & Help</h2>
+            <div class="footer-grid">
+                <div>
+                    <h3 class="quickstart-title">After Quick Start</h3>
+                    <ol>
+                        <li>**Deep Dive**: Read full installation guide for your language</li>
+                        <li>**Practice**: Work through all practice questions</li>
+                        <li>**Resources**: Check [RESOURCES.md] for courses and books</li>
+                        <li>**Projects**: Build something from scratch</li>
+                        <li>**Contribute**: Add your own questions or improvements</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="quickstart-title">Need Help?</h3>
+                    <ul>
+                        <li>📖 Check [FAQ.md]</li>
+                        <li>💬 Open an [Issue]</li>
+                        <li>🔍 Search existing issues</li>
+                        <li>📧 Contact maintainers</li>
+                    </ul>
+                </div>
+            </div>
+            <p>[⬆ Back to README] | [View All Languages] | [Contribute]</p>
+        </footer>
+    </div>
+    <script src="qs.js"></script>
+</body>
+</html>
+

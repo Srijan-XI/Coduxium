@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackArch - Complete Guide | Coduxium XI</title>
+    <meta name="description" content="Complete BlackArch guide - Arch-based penetration testing distribution with a large security tool repository">
+
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../zlinux-Style/distro.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../../index.html" style="color:inherit;text-decoration:none">BlackArch</a></h1>
+                    <p class="sub">Arch-based penetration testing distro</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">🐱‍💻</span>
+                <span>Offensive Security</span>
+            </div>
+            <h1 class="hero-title">BlackArch</h1>
+            <p class="hero-description">
+                BlackArch is an Arch Linux-based distribution and repository for penetration testers and security researchers, providing a large catalog of tools that can be installed selectively.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Arch Linux</li>
+                    <li><strong>Package Manager:</strong> Pacman (+ BlackArch repo)</li>
+                    <li><strong>Desktop:</strong> Varies (minimal to full DE)</li>
+                    <li><strong>Release Model:</strong> Rolling</li>
+                    <li><strong>Target Users:</strong> Security researchers, pentesters</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🧰</span>
+                    <h4>Huge Tool Repo</h4>
+                    <p>Install individual tools or grouped categories.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🧱</span>
+                    <h4>Arch Base</h4>
+                    <p>Pacman workflow and rolling updates.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔧</span>
+                    <h4>Flexible Setup</h4>
+                    <p>Run ISO or add repo to existing Arch.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h4>Security Focus</h4>
+                    <p>Recon, web testing, exploitation, forensics.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is BlackArch?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    BlackArch is a penetration testing distribution and repository built on Arch Linux. You can run it as a full OS or add the BlackArch repository to a standard Arch install to pull security tools as needed.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li>Large security tool repository</li>
+                    <li>Install tools individually or by category</li>
+                    <li>Rolling updates via Arch ecosystem</li>
+                    <li>Minimal base is possible (build your own environment)</li>
+                    <li>Works as ISO or as an added repository</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose BlackArch?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Tool Coverage</h4>
+                        <p>Access a wide range of offensive and defensive tooling.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Selective Installs</h4>
+                        <p>Install only what you need to keep systems lean.</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Arch Workflow</h4>
+                        <p>Familiar Pacman + rolling release cadence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">Download from: <a href="https://blackarch.org/downloads.html" target="_blank">https://blackarch.org/downloads.html</a></p>
+                </div>
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=blackarch.iso of=/dev/sdX bs=4M status=progress && sync
+
+# Or use: Etcher, Rufus, Ventoy</code></pre>
+                </div>
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">Boot and choose live session or installer depending on ISO.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Step 4: Add Repo (Optional)</h4>
+                    <pre><code class="language-bash"># Add BlackArch repo to existing Arch
+# Follow official instructions on blackarch.org
+
+sudo pacman -Syu</code></pre>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> 64-bit</li>
+                    <li><strong>RAM:</strong> 2GB minimum (4GB+ recommended)</li>
+                    <li><strong>Storage:</strong> 20GB+ recommended</li>
+                    <li><strong>GPU:</strong> Any compatible with your chosen desktop</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+            <div class="distro-pm-section">
+                <div class="pm-header"><h3>Package Management</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Update System</h4><pre><code class="language-bash">sudo pacman -Syu</code></pre></div>
+                    <div class="command-card"><h4>Install Package</h4><pre><code class="language-bash">sudo pacman -S package-name</code></pre></div>
+                    <div class="command-card"><h4>Remove Package</h4><pre><code class="language-bash">sudo pacman -Rns package-name</code></pre></div>
+                    <div class="command-card"><h4>Search Package</h4><pre><code class="language-bash">pacman -Ss keyword</code></pre></div>
+                </div>
+            </div>
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header"><h3>Essential Tasks</h3></div>
+                <div class="command-grid">
+                    <div class="command-card"><h4>Enable Firewall</h4><p class="command-desc">Use UFW/nftables depending on your setup.</p></div>
+                    <div class="command-card"><h4>Keep Tools Isolated</h4><p class="command-desc">Use VMs/containers for risky tooling and testing.</p></div>
+                    <div class="command-card"><h4>Snapshots</h4><p class="command-desc">Use filesystem snapshots before big upgrades.</p></div>
+                    <div class="command-card"><h4>Update Mirrors</h4><p class="command-desc">Use reflector to pick fast mirrors (if installed).</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Pacman Mirror Refresh</h4>
+                    <pre><code class="language-bash">sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist</code></pre>
+                    <p class="command-desc">Optional, improves download performance.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Service Management</h4>
+                    <pre><code class="language-bash">sudo systemctl status
+sudo systemctl enable --now sshd</code></pre>
+                    <p class="command-desc">Manage services using systemd.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Network Inspection</h4>
+                    <pre><code class="language-bash">ip a
+ss -tulpn</code></pre>
+                    <p class="command-desc">Basic networking visibility.</p>
+                </div>
+                <div class="command-card">
+                    <h4>Project Isolation</h4>
+                    <pre><code class="language-bash">docker ps
+podman ps</code></pre>
+                    <p class="command-desc">Run tools in containers where possible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr><th>Task</th><th>Command</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Update system</strong></td><td><code>sudo pacman -Syu</code></td><td>Full update</td></tr>
+                        <tr><td><strong>Search packages</strong></td><td><code>pacman -Ss keyword</code></td><td>Search repos</td></tr>
+                        <tr><td><strong>Install package</strong></td><td><code>sudo pacman -S pkg</code></td><td>Install software</td></tr>
+                        <tr><td><strong>Remove package</strong></td><td><code>sudo pacman -Rns pkg</code></td><td>Remove + deps</td></tr>
+                        <tr><td><strong>List installed</strong></td><td><code>pacman -Qe</code></td><td>Explicit packages</td></tr>
+                        <tr><td><strong>System info</strong></td><td><code>uname -a</code></td><td>Kernel/system info</td></tr>
+                        <tr><td><strong>Disk usage</strong></td><td><code>df -h</code></td><td>Filesystem usage</td></tr>
+                        <tr><td><strong>List services</strong></td><td><code>systemctl --type=service</code></td><td>Show services</td></tr>
+                        <tr><td><strong>Open ports</strong></td><td><code>ss -tulpn</code></td><td>Listening ports</td></tr>
+                        <tr><td><strong>IP addresses</strong></td><td><code>ip a</code></td><td>Interfaces info</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+            <div class="next-steps-grid">
+                <a href="https://blackarch.org/" target="_blank" class="next-step-card"><span class="step-icon">🌐</span><h4>Official Website</h4><p>BlackArch homepage</p></a>
+                <a href="https://blackarch.org/tools.html" target="_blank" class="next-step-card"><span class="step-icon">📖</span><h4>Tools</h4><p>Browse tool categories</p></a>
+                <a href="https://blackarch.org/community.html" target="_blank" class="next-step-card"><span class="step-icon">💬</span><h4>Community</h4><p>Community resources</p></a>
+                <a href="https://github.com/BlackArch" target="_blank" class="next-step-card"><span class="step-icon">💻</span><h4>Source Code</h4><p>BlackArch on GitHub</p></a>
+            </div>
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Install only the tool categories you need</li>
+                    <li>Use VMs/snapshots for risky workflows</li>
+                    <li>Keep the system updated regularly</li>
+                    <li>Document your lab environment</li>
+                    <li>Follow OPSEC best practices</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../../Debian/Kali/kali.html" class="next-step-card"><span class="step-icon">🐉</span><h4>Kali Linux</h4><p>Popular security distro</p></a>
+                <a href="../arch.html" class="next-step-card"><span class="step-icon">🏗️</span><h4>Arch Linux</h4><p>Upstream base distro</p></a>
+                <a href="../Garuda/garuda.html" class="next-step-card"><span class="step-icon">🦅</span><h4>Garuda</h4><p>Arch-based desktop</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../docpages/about/about.html">About</a>
+                <a href="../../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

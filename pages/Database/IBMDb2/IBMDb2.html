@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete IBM Db2 guide - Learn installation, SQL queries, and best practices for enterprise database development." />
+    <meta name="keywords" content="IBM Db2, Database, SQL, Enterprise Database, Relational Database, RDBMS" />
+    <title>IBM Db2 Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../database-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🔷 IBM Db2 Complete Guide</h1>
+            <p class="subtitle">Enterprise-grade relational database for mission-critical workloads.</p>
+            <div class="badge-row">
+                <span class="badge">ENTERPRISE</span>
+                <span class="badge">ACID COMPLIANT</span>
+                <span class="badge">HIGH PERFORMANCE</span>
+                <span class="badge">AI-POWERED</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Enterprise Standard:</strong> Db2 powers critical systems at banks,
+                airlines, and Fortune 500 companies worldwide.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is IBM Db2?</h3>
+            <p><strong>IBM Db2</strong> is a family of data management products, including database servers, developed
+                by IBM. It's a relational database management system (RDBMS) designed to store, analyze, and retrieve
+                data efficiently. Db2 is optimized for high performance, availability, and scalability in enterprise
+                environments.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🏢 Enterprise Ready</strong> — Mission-critical workloads</div>
+                <div class="topic"><strong>⚡ High Performance</strong> — Optimized query processing</div>
+                <div class="topic"><strong>🤖 AI Integration</strong> — Built-in ML capabilities</div>
+                <div class="topic"><strong>🔒 Security</strong> — Advanced encryption, compliance</div>
+                <div class="topic"><strong>📊 Analytics</strong> — In-database analytics</div>
+                <div class="topic"><strong>🌐 Multi-Cloud</strong> — Deploy anywhere</div>
+                <div class="topic"><strong>🔄 Replication</strong> — High availability</div>
+                <div class="topic"><strong>📈 Scalability</strong> — Handles massive workloads</div>
+            </div>
+
+            <h3>Why Choose IBM Db2?</h3>
+            <ul>
+                <li><strong>Enterprise Features:</strong> Advanced security, compliance, HA/DR</li>
+                <li><strong>Performance:</strong> Optimized for complex queries</li>
+                <li><strong>AI/ML:</strong> Built-in machine learning capabilities</li>
+                <li><strong>Hybrid Cloud:</strong> Run on-prem, cloud, or hybrid</li>
+                <li><strong>Compatibility:</strong> SQL standard compliant</li>
+                <li><strong>IBM Support:</strong> Enterprise-grade support</li>
+            </ul>
+
+            <h3>Db2 Editions</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>Db2 Community Edition</strong>Free for dev/test</div>
+                <div class="package-item"><strong>Db2 Standard</strong>Small to medium workloads</div>
+                <div class="package-item"><strong>Db2 Advanced</strong>Large enterprise workloads</div>
+                <div class="package-item"><strong>Db2 on Cloud</strong>Fully managed cloud service</div>
+            </div>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> Community Edition is free but limited; commercial
+                editions require licenses.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with IBM Db2 Community Edition or cloud deployment.</p>
+
+            <!-- Docker Installation -->
+            <div id="docker-install" class="subsection">
+                <h3>Docker Installation (Recommended for Testing)</h3>
+                <pre><code># Pull Db2 Community Edition
+docker pull ibmcom/db2
+
+# Run container
+docker run -itd \
+  --name mydb2 \
+  --privileged=true \
+  -p 50000:50000 \
+  -e LICENSE=accept \
+  -e DB2INST1_PASSWORD=YourPassword \
+  -e DBNAME=testdb \
+  ibmcom/db2
+
+# Check logs
+docker logs -f mydb2
+
+# Connect to container
+docker exec -it mydb2 bash -c "su - db2inst1"</code><button class="copy-btn" data-copy="docker pull ibmcom/db2">COPY</button></pre>
+            </div>
+
+            <!-- Windows Installation -->
+            <div id="windows-install" class="subsection">
+                <h3>Windows Installation</h3>
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Download</strong>
+                        <p>Download Db2 Community Edition from <a href="https://www.ibm.com/products/db2-database"
+                                target="_blank">IBM website</a>.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Run Installer</strong>
+                        <p>Execute setup.exe and follow the installation wizard.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Create Instance</strong>
+                        <p>Create a Db2 instance and set the admin password.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Linux Installation -->
+            <div id="linux-install" class="subsection">
+                <h3>Linux Installation</h3>
+                <pre><code># Download Db2 Community Edition installer
+# Extract the archive
+tar -xzvf v11.5.8_linuxx64_server_dec.tar.gz
+
+# Run installer
+cd server_dec
+sudo ./db2setup
+
+# Create instance
+sudo /opt/ibm/db2/V11.5/instance/db2icrt -u db2inst1 db2inst1
+
+# Start instance
+su - db2inst1
+db2start</code><button class="copy-btn" data-copy="./db2setup">COPY</button></pre>
+            </div>
+
+            <div id="first-database" class="subsection">
+                <h3>Create First Database</h3>
+                <pre><code># Connect to Db2 instance
+db2
+
+# Create database
+CREATE DATABASE testdb
+
+# Connect to database
+CONNECT TO testdb
+
+# List databases
+LIST DB DIRECTORY
+
+# Disconnect
+CONNECT RESET</code><button class="copy-btn" data-copy="CREATE DATABASE testdb">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Database Operations</h3>
+                <pre><code>-- Connect to database
+CONNECT TO testdb
+
+-- Create schema
+CREATE SCHEMA myschema
+
+-- Set current schema
+SET SCHEMA myschema
+
+-- List tables in current schema
+LIST TABLES
+
+-- Terminate connection
+TERMINATE</code><button class="copy-btn" data-copy="CONNECT TO testdb">COPY</button></pre>
+
+                <h3>Table Operations</h3>
+                <pre><code>-- Create table
+CREATE TABLE employees (
+    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    hire_date DATE,
+    salary DECIMAL(10,2),
+    department_id INTEGER
+)
+
+-- Describe table
+DESCRIBE TABLE employees
+
+-- Alter table
+ALTER TABLE employees ADD COLUMN phone VARCHAR(20)
+
+-- Drop table
+DROP TABLE employees</code><button class="copy-btn" data-copy="CREATE TABLE employees">COPY</button></pre>
+
+                <h3>CRUD Operations</h3>
+                <pre><code>-- INSERT
+INSERT INTO employees (first_name, last_name, email, hire_date, salary)
+VALUES ('John', 'Doe', 'john@example.com', '2024-01-15', 75000.00)
+
+-- Multiple inserts
+INSERT INTO employees (first_name, last_name, email, hire_date, salary) VALUES
+    ('Alice', 'Smith', 'alice@example.com', '2024-01-20', 80000.00),
+    ('Bob', 'Johnson', 'bob@example.com', '2024-02-01', 70000.00)
+
+-- SELECT
+SELECT * FROM employees
+
+SELECT first_name, last_name, salary
+FROM employees
+WHERE salary > 75000
+
+-- UPDATE
+UPDATE employees
+SET salary = salary * 1.10
+WHERE id = 1
+
+-- DELETE
+DELETE FROM employees WHERE id = 3
+
+-- Transaction
+BEGIN
+    UPDATE employees SET salary = 85000 WHERE id = 1;
+    INSERT INTO employees (first_name, last_name, email) 
+    VALUES ('Test', 'User', 'test@example.com');
+COMMIT
+-- or ROLLBACK</code><button class="copy-btn" data-copy="INSERT INTO employees">COPY</button></pre>
+
+                <h3>Joins & Relationships</h3>
+                <pre><code>-- Create departments table
+CREATE TABLE departments (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+)
+
+-- Add foreign key
+ALTER TABLE employees
+ADD CONSTRAINT fk_dept
+FOREIGN KEY (department_id) REFERENCES departments(id)
+
+-- INNER JOIN
+SELECT e.first_name, e.last_name, d.name as department
+FROM employees e
+INNER JOIN departments d ON e.department_id = d.id
+
+-- LEFT JOIN
+SELECT e.first_name, e.last_name, d.name as department
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.id
+
+-- Aggregate with GROUP BY
+SELECT d.name, COUNT(e.id) as employee_count, AVG(e.salary) as avg_salary
+FROM departments d
+LEFT JOIN employees e ON d.id = e.department_id
+GROUP BY d.name</code><button class="copy-btn" data-copy="INNER JOIN">COPY</button></pre>
+
+                <h3>Advanced SQL</h3>
+                <pre><code>-- Common Table Expressions (CTE)
+WITH high_earners AS (
+    SELECT * FROM employees WHERE salary > 80000
+)
+SELECT first_name, last_name, salary
+FROM high_earners
+ORDER BY salary DESC
+
+-- Window Functions
+SELECT 
+    first_name,
+    last_name,
+    salary,
+    RANK() OVER (ORDER BY salary DESC) as salary_rank,
+    ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) as dept_rank
+FROM employees
+
+-- Recursive CTE (Organizational chart)
+WITH RECURSIVE org_chart (id, name, manager_id, level) AS (
+    SELECT id, first_name, manager_id, 1
+    FROM employees
+    WHERE manager_id IS NULL
+    UNION ALL
+    SELECT e.id, e.first_name, e.manager_id, o.level + 1
+    FROM employees e
+    INNER JOIN org_chart o ON e.manager_id = o.id
+)
+SELECT * FROM org_chart</code><button class="copy-btn" data-copy="WITH high_earners AS">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Indexes & Performance</h3>
+            <pre><code>-- Create index
+CREATE INDEX idx_lastname ON employees(last_name)
+
+-- Create unique index
+CREATE UNIQUE INDEX idx_email ON employees(email)
+
+-- Create composite index
+CREATE INDEX idx_name ON employees(last_name, first_name)
+
+-- Show indexes
+SELECT * FROM SYSCAT.INDEXES WHERE TABNAME = 'EMPLOYEES'
+
+-- Query execution plan
+EXPLAIN PLAN FOR
+SELECT * FROM employees WHERE last_name = 'Smith'
+
+-- Drop index
+DROP INDEX idx_lastname</code><button class="copy-btn" data-copy="CREATE INDEX">COPY</button></pre>
+
+            <h3>Stored Procedures</h3>
+            <pre><code>-- Create stored procedure
+CREATE PROCEDURE increase_salary(
+    IN emp_id INTEGER,
+    IN increase_pct DECIMAL(5,2)
+)
+LANGUAGE SQL
+BEGIN
+    UPDATE employees
+    SET salary = salary * (1 + increase_pct / 100)
+    WHERE id = emp_id;
+END
+
+-- Call procedureCALL increase_salary(1, 10.0)
+
+-- Drop procedure
+DROP PROCEDURE increase_salary</code><button class="copy-btn" data-copy="CREATE PROCEDURE">COPY</button></pre>
+
+            <h3>Backup & Restore</h3>
+            <pre><code># Online backup
+db2 BACKUP DATABASE testdb ONLINE TO /backups
+
+# Offline backup
+db2stop
+db2 BACKUP DATABASE testdb TO /backups
+db2start
+
+# Restore database
+db2 RESTORE DATABASE testdb FROM /backups
+
+# List history
+db2 LIST HISTORY BACKUP ALL FOR testdb</code><button class="copy-btn" data-copy="BACKUP DATABASE">COPY</button></pre>
+
+            <h3>User Management</h3>
+            <pre><code>-- Create user (OS level)
+# Linux: sudo useradd dbuser
+
+-- Grant permissions
+GRANT CONNECT ON DATABASE TO USER dbuser
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE employees TO USER dbuser
+
+-- Grant all privileges
+GRANT ALL PRIVILEGES ON TABLE employees TO USER dbuser
+
+-- Revoke permissions
+REVOKE SELECT ON TABLE employees FROM USER dbuser</code><button class="copy-btn" data-copy="GRANT CONNECT">COPY</button></pre>
+
+            <h3>Application Integration</h3>
+            <pre><code>// Node.js (ibm_db)
+const ibmdb = require('ibm_db');
+
+const connStr = 'DATABASE=testdb;HOSTNAME=localhost;PORT=50000;PROTOCOL=TCPIP;UID=db2inst1;PWD=password';
+
+ibmdb.open(connStr, (err, conn) => {
+  if (err) return console.error(err);
+  
+  conn.query('SELECT * FROM employees', (err, rows) => {
+    if (err) return console.error(err);
+    console.log(rows);
+    conn.close();
+  });
+});
+
+// Python (ibm_db)
+import ibm_db
+
+conn = ibm_db.connect("DATABASE=testdb;HOSTNAME=localhost;PORT=50000;PROTOCOL=TCPIP;UID=db2inst1;PWD=password", "", "")
+
+stmt = ibm_db.exec_immediate(conn, "SELECT * FROM employees")
+result = ibm_db.fetch_assoc(stmt)
+
+while result:
+    print(result)
+    result = ibm_db.fetch_assoc(stmt)
+
+ibm_db.close(conn)</code><button class="copy-btn" data-copy="ibm_db.connect">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master SQL</strong> — Advanced queries, procedures</div>
+            <div class="step"><span class="n">2</span><strong>Performance Tuning</strong> — Indexes, query optimization
+            </div>
+            <div class="step"><span class="n">3</span><strong>High Availability</strong> — Setup HADR, replication</div>
+            <div class="step"><span class="n">4</span><strong>Security</strong> — Encryption, access control</div>
+            <div class="step"><span class="n">5</span><strong>Monitor & Maintain</strong> — Db2 monitoring tools</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://www.ibm.com/docs/en/db2" target="_blank">Official IBM Db2 Documentation</a></li>
+                <li>🎓 <a href="https://www.ibm.com/training/db2" target="_blank">IBM Db2 Training</a></li>
+                <li>📘 <a
+                        href="https://community.ibm.com/community/user/datamanagement/communities/community-home?CommunityKey=ea909850-39ea-4ac4-9512-8e2eb37ea09a"
+                        target="_blank">Db2 Community</a></li>
+                <li>💻 <a href="https://www.ibm.com/products/db2-database" target="_blank">Db2 Products</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

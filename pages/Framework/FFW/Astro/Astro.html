@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Astro guide - Learn installation, island architecture, and best practices for building content-focused websites." />
+    <meta name="keywords" content="Astro, Static Site Generator, Islands Architecture, Web Framework, Performance" />
+    <title>Astro Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../Database/database-common.css">
+    <link rel="stylesheet" href="../../framework-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🚀 Astro Complete Guide</h1>
+            <p class="subtitle">The web framework for content-driven websites with zero JavaScript by default.</p>
+            <div class="badge-row">
+                <span class="badge">ISLANDS ARCHITECTURE</span>
+                <span class="badge">ZERO JS</span>
+                <span class="badge">FAST</span>
+                <span class="badge">FRAMEWORK-AGNOSTIC</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Performance First:</strong> Astro ships zero JavaScript by default, making
+                it perfect for content sites, blogs, and documentation.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Astro?</h3>
+            <p><strong>Astro</strong> is an all-in-one web framework for building fast, content-focused websites. It
+                pioneered the "Islands Architecture" pattern, allowing you to use any UI framework (React, Vue, Svelte,
+                etc.) while shipping minimal JavaScript to the browser. By default, Astro renders everything to static
+                HTML at build time.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🏝️ Islands Architecture</strong> — Interactive components on demand</div>
+                <div class="topic"><strong>⚡ Zero JS by Default</strong> — Ship only what you need</div>
+                <div class="topic"><strong>🎨 Framework Agnostic</strong> — React, Vue, Svelte, Solid</div>
+                <div class="topic"><strong>📦 Content Collections</strong> — Type-safe content management</div>
+                <div class="topic"><strong>🔧 Built-in Features</strong> — Routing, layouts, assets</div>
+                <div class="topic"><strong>🌐 SSR & SSG</strong> — Server or static rendering</div>
+                <div class="topic"><strong>📈 SEO Optimized</strong> — Perfect Lighthouse scores</div>
+                <div class="topic"><strong>🚀 Fast Builds</strong> — Vite-powered development</div>
+            </div>
+
+            <h3>Why Choose Astro?</h3>
+            <ul>
+                <li><strong>Performance:</strong> Ships minimal JavaScript, blazing fast load times</li>
+                <li><strong>Flexibility:</strong> Use any UI framework or none at all</li>
+                <li><strong>Content-First:</strong> Perfect for blogs, docs, marketing sites</li>
+                <li><strong>Developer Experience:</strong> File-based routing, hot reload</li>
+                <li><strong>SEO Friendly:</strong> Static HTML, meta tags, sitemaps</li>
+                <li><strong>Easy Migration:</strong> Bring your existing React/Vue components</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Note:</strong> Astro 4.0 introduced View Transitions API support
+                and improved content collections.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Astro using the official CLI.</p>
+
+            <div id="project-setup" class="subsection">
+                <h3>Create New Project</h3>
+
+                <pre><code># Create new Astro project
+npm create astro@latest
+
+# Follow the prompts:
+# - Where should we create your new project? my-astro-site
+# - How would you like to start? (Use arrow keys or type)
+#   - Empty
+#   - Blog
+#   - Documentation
+#   - Portfolio
+# - Install dependencies? Yes
+# - Initialize git? Yes
+# - TypeScript? Strict
+
+cd my-astro-site
+npm run dev</code><button class="copy-btn" data-copy="npm create astro@latest">COPY</button></pre>
+
+                <div class="info-box"><strong>💡 Note:</strong> Dev server runs on http://localhost:4321</div>
+            </div>
+
+            <div id="project-structure" class="subsection">
+                <h3>Project Structure</h3>
+                <pre><code>my-astro-site/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # Astro/React/Vue components
+│   ├── content/         # Content collections
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # File-based routing
+│   └── styles/          # CSS files
+├── astro.config.mjs     # Astro configuration
+├── package.json
+└── tsconfig.json</code></pre>
+            </div>
+
+            <div id="add-frameworks" class="subsection">
+                <h3>Add UI Frameworks</h3>
+                <pre><code># Add React
+npx astro add react
+
+# Add Vue
+npx astro add vue
+
+# Add Svelte
+npx astro add svelte
+
+# Add Tailwind CSS
+npx astro add tailwind</code><button class="copy-btn" data-copy="npx astro add react">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Astro Components</h3>
+                <pre><code>---
+// Component script (runs at build time)
+const title = "Welcome to Astro";
+const items = ["React", "Vue", "Svelte"];
+---
+
+&lt;!-- Component template --&gt;
+&lt;div class="container"&gt;
+  &lt;h1&gt;{title}&lt;/h1&gt;
+  &lt;ul&gt;
+    {items.map(item => &lt;li&gt;{item}&lt;/li&gt;)}
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+&lt;/style&gt;</code><button class="copy-btn" data-copy="--- Component script ---">COPY</button></pre>
+
+                <h3>Pages & Routing</h3>
+                <pre><code>// src/pages/index.astro
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+&lt;Layout title="Home"&gt;
+  &lt;h1&gt;Hello, Coduxium XI!&lt;/h1&gt;
+&lt;/Layout&gt;
+
+// src/pages/blog/[slug].astro - Dynamic route
+---
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+&lt;article&gt;
+  &lt;h1&gt;{post.data.title}&lt;/h1&gt;
+  &lt;p&gt;{post.data.description}&lt;/p&gt;
+&lt;/article&gt;</code><button class="copy-btn" data-copy="export async function getStaticPaths()">COPY</button></pre>
+
+                <h3>Layouts</h3>
+                <pre><code>---
+// src/layouts/Layout.astro
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width" /&gt;
+    &lt;title&gt;{title}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;nav&gt;
+      &lt;a href="/"&gt;Home&lt;/a&gt;
+      &lt;a href="/blog"&gt;Blog&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;main&gt;
+      &lt;slot /&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-btn" data-copy="<slot />">COPY</button></pre>
+
+                <h3>Content Collections</h3>
+                <pre><code>// src/content/config.ts
+import { defineCollection, z } from 'astro:content';
+
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    description: z.string(),
+    author: z.string(),
+    tags: z.array(z.string())
+  })
+});
+
+export const collections = {
+  'blog': blogCollection
+};
+
+// src/content/blog/first-post.md
+---
+title: "My First Post"
+pubDate: 2024-01-01
+description: "This is my first blog post"
+author: "John Doe"
+tags: ["astro", "blogging"]
+---
+
+# Hello World
+
+This is my first post!
+
+// Query collection
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---</code><button class="copy-btn" data-copy="import { getCollection } from 'astro:content'">COPY</button></pre>
+
+                <h3>Island Components (Interactive)</h3>
+                <pre><code>---
+// Import React component
+import Counter from '../components/Counter.jsx';
+---
+
+&lt;!-- Static by default --&gt;
+&lt;Counter /&gt;
+
+&lt;!-- Load on page load --&gt;
+&lt;Counter client:load /&gt;
+
+&lt;!-- Load when visible --&gt;
+&lt;Counter client:visible /&gt;
+
+&lt;!-- Load on idle --&gt;
+&lt;Counter client:idle /&gt;
+
+&lt;!-- Load on media query --&gt;
+&lt;Counter client:media="(max-width: 768px)" /&gt;</code><button class="copy-btn" data-copy="<Counter client:load />">COPY</button></pre>
+
+                <h3>API Routes</h3>
+                <pre><code>// src/pages/api/hello.json.ts
+import type { APIRoute } from 'astro';
+
+export const GET: APIRoute = async ({ params, request }) => {
+  return new Response(
+    JSON.stringify({
+      message: 'Hello from Astro API!'
+    })
+  );
+};
+
+export const POST: APIRoute = async ({ request }) => {
+  const data = await request.json();
+  // Process data
+  return new Response(JSON.stringify({ success: true }), {
+    status: 201
+  });
+};</code><button class="copy-btn" data-copy="export const GET: APIRoute">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Popular Integrations</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>@astrojs/react</strong>React components</div>
+                <div class="package-item"><strong>@astrojs/vue</strong>Vue components</div>
+                <div class="package-item"><strong>@astrojs/svelte</strong>Svelte components</div>
+                <div class="package-item"><strong>@astrojs/tailwind</strong>Tailwind CSS</div>
+                <div class="package-item"><strong>@astrojs/sitemap</strong>Auto-generate sitemap</div>
+                <div class="package-item"><strong>@astrojs/mdx</strong>MDX support</div>
+                <div class="package-item"><strong>@astrojs/image</strong>Image optimization</div>
+                <div class="package-item"><strong>@astrojs/partytown</strong>Web workers for scripts</div>
+            </div>
+
+            <h3>Configuration</h3>
+            <pre><code>// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
+
+export default defineConfig({
+  site: 'https://example.com',
+  integrations: [react(), tailwind()],
+  output: 'static', // or 'server' for SSR
+  vite: {
+    // Vite config
+  }
+});</code><button class="copy-btn" data-copy="export default defineConfig">COPY</button></pre>
+
+            <h3>View Transitions</h3>
+            <pre><code>---
+// Enable view transitions
+import { ViewTransitions } from 'astro:transitions';
+---
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;ViewTransitions /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Smooth page transitions --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-btn" data-copy="<ViewTransitions />">COPY</button></pre>
+
+            <h3>Image Optimization</h3>
+            <pre><code>---
+import { Image } from 'astro:assets';
+import myImage from '../assets/photo.jpg';
+---
+
+&lt;Image src={myImage} alt="My photo" width={800} /&gt;</code><button class="copy-btn" data-copy="import { Image } from 'astro:assets'">COPY</button></pre>
+
+            <h3>Deploy</h3>
+            <pre><code># Build for production
+npm run build
+
+# Preview build
+npm run preview
+
+# Deploy to Vercel, Netlify, Cloudflare Pages
+# (Auto-detected from git repository)</code><button class="copy-btn" data-copy="npm run build">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Content Collections</strong> — Type-safe content
+                management</div>
+            <div class="step"><span class="n">2</span><strong>Add UI Framework</strong> — React, Vue, or Svelte for
+                islands</div>
+            <div class="step"><span class="n">3</span><strong>Optimize Images</strong> — Use built-in image optimization
+            </div>
+            <div class="step"><span class="n">4</span><strong>Build Blog/Docs</strong> — Perfect use case for Astro
+            </div>
+            <div class="step"><span class="n">5</span><strong>Deploy</strong> — Ship to production on edge networks
+            </div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://docs.astro.build/" target="_blank">Official Astro Documentation</a></li>
+                <li>🎓 <a href="https://astro.build/tutorial/" target="_blank">Astro Tutorial</a></li>
+                <li>📘 <a href="https://astro.build/themes/" target="_blank">Astro Themes</a></li>
+                <li>💻 <a href="https://astro.new/" target="_blank">Astro Playground</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

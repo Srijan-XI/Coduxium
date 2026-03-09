@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panda3D — Coduxium XI</title>
+    <meta name="description" content="Panda3D - Open-source game engine framework for Python and C++.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Panda3D Game Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🐼 Panda3D</h2>
+            <p class="intro">Open-source game engine and framework for Python and C++ development.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">PYTHON</span>
+                    <span class="badge">C++</span>
+                    <span class="badge">OPEN SOURCE</span>
+                    <span class="badge">3D</span>
+                </div>
+                <p>Panda3D is an open-source, completely free-to-use engine for realtime 3D games, visualizations, simulations, experiments. Originally developed by Disney for their MMORPGs, it's now maintained by the community and used in both games and scientific visualization.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Python-First</strong> — Primary scripting in Python with C++ performance</li>
+                    <li><strong>Free & Open Source</strong> — BSD license, completely free</li>
+                    <li><strong>Cross-Platform</strong> — Windows, Linux, macOS</li>
+                    <li><strong>Scene Graph</strong> — Flexible scene management</li>
+                    <li><strong>Shader Support</strong> — GLSL and Cg shaders</li>
+                    <li><strong>Physics</strong> — Bullet physics engine integration</li>
+                    <li><strong>Audio</strong> — OpenAL for 3D positional audio</li>
+                    <li><strong>Networking</strong> — Built-in distributed object system</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Installation</h3>
+                <pre><code># Install via pip (Python 3.6+)
+pip install panda3d
+
+# Verify installation
+python -c "import direct.directbase.DirectStart"
+
+# Install development tools
+pip install panda3d-tools</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Hello World Example</h3>
+                <pre><code>from direct.showbase.ShowBase import ShowBase
+
+class MyApp(ShowBase):
+    def __init__(self):
+        ShowBase.__init__(self)
+        
+        # Load a model
+        self.model = self.loader.loadModel("models/environment")
+        self.model.reparentTo(self.render)
+        self.model.setScale(0.25)
+        self.model.setPos(-8, 42, 0)
+
+app = MyApp()
+app.run()</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li><strong>Educational Games</strong> — Great for teaching Python game development</li>
+                    <li><strong>Scientific Visualization</strong> — Data visualization and simulations</li>
+                    <li><strong>Rapid Prototyping</strong> — Quick 3D application development</li>
+                    <li><strong>MMO Development</strong> — Built-in networking capabilities</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Notable Projects</h3>
+                <ul>
+                    <li><strong>Toontown Online</strong> — Disney's MMO (original use case)</li>
+                    <li><strong>Pirates of the Caribbean Online</strong> — Disney MMO</li>
+                    <li><strong>Various Research Projects</strong> — Used in universities worldwide</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://www.panda3d.org/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://docs.panda3d.org/" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://www.panda3d.org/manual/" target="_blank">Manual & Tutorials</a></li>
+                    <li>💬 <a href="https://discourse.panda3d.org/" target="_blank">Community Forum</a></li>
+                    <li>📦 <a href="https://github.com/panda3d/panda3d" target="_blank">GitHub Repository</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.panda3d.org/" target="_blank">Panda3D</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

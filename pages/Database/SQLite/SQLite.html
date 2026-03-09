@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete SQLite guide - Learn installation, SQL queries, and best practices for this lightweight embedded database." />
+    <meta name="keywords" content="SQLite, Database, SQL, Embedded Database, Serverless, Lightweight" />
+    <title>SQLite Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../database-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🪶 SQLite Complete Guide</h1>
+            <p class="subtitle">A self-contained, serverless, zero-configuration SQL database engine.</p>
+            <div class="badge-row">
+                <span class="badge">SERVERLESS</span>
+                <span class="badge">EMBEDDED</span>
+                <span class="badge">ZERO-CONFIG</span>
+                <span class="badge">CROSS-PLATFORM</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Most Deployed:</strong> SQLite is the most widely deployed database, used
+                in browsers, mobile apps, and embedded devices.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is SQLite?</h3>
+            <p><strong>SQLite</strong> is a C-library that provides a lightweight, disk-based database that doesn't
+                require a separate server process. It allows accessing the database using a nonstandard variant of SQL.
+                SQLite is completely self-contained, requiring no external dependencies, and stores the entire database
+                in a single cross-platform file.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>📦 Self-Contained</strong> — No external dependencies</div>
+                <div class="topic"><strong>🚫 Serverless</strong> — No server process needed</div>
+                <div class="topic"><strong>⚙️ Zero-Configuration</strong> — No setup required</div>
+                <div class="topic"><strong>📁 Single File</strong> — Entire DB in one file</div>
+                <div class="topic"><strong>🌐 Cross-Platform</strong> — Works everywhere</div>
+                <div class="topic"><strong>⚡ Fast</strong> — Lightweight and quick</div>
+                <div class="topic"><strong>🔓 Public Domain</strong> — No licensing concerns</div>
+                <div class="topic"><strong>🔒 ACID Compliant</strong> — Reliable transactions</div>
+            </div>
+
+            <h3>Why Choose SQLite?</h3>
+            <ul>
+                <li><strong>Simplicity:</strong> No installation, no configuration</li>
+                <li><strong>Portability:</strong> Single file, easy to share/backup</li>
+                <li><strong>Embedded:</strong> Perfect for mobile apps, browsers</li>
+                <li><strong>Testing:</strong> Great for development and testing</li>
+                <li><strong>Small Apps:</strong> Ideal for low to medium traffic</li>
+                <li><strong>Offline Apps:</strong> Works without network connection</li>
+            </ul>
+
+            <h3>Common Use Cases</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>Mobile Apps</strong>iOS, Android local storage</div>
+                <div class="package-item"><strong>Browsers</strong>Chrome, Firefox local data</div>
+                <div class="package-item"><strong>Embedded Devices</strong>IoT, smart devices</div>
+                <div class="package-item"><strong>Desktop Apps</strong>Electron, local cache</div>
+                <div class="package-item"><strong>Testing</strong>Dev/test databases</div>
+                <div class="package-item"><strong>File Formats</strong>Application file storage</div>
+            </div>
+
+            <div class="info-box warning"><strong>⚠️ Limitations:</strong> Not suitable for high-write concurrency or
+                network file systems.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>SQLite comes pre-installed on most systems, but you can also install it manually.</p>
+
+            <!-- Windows Installation -->
+            <div id="windows-install" class="subsection">
+                <h3>Windows Installation</h3>
+
+                <div class="step"><span class="n">1</span>
+                    <div><strong>Download SQLite Tools</strong>
+                        <p>Visit <a href="https://www.sqlite.org/download.html"
+                                target="_blank">sqlite.org/download.html</a> and download the precompiled binaries for
+                            Windows.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">2</span>
+                    <div><strong>Extract Files</strong>
+                        <p>Extract the ZIP file to a folder (e.g., C:\sqlite).</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">3</span>
+                    <div><strong>Add to PATH</strong>
+                        <p>Add the folder to your system PATH environment variable.</p>
+                    </div>
+                </div>
+                <div class="step"><span class="n">4</span>
+                    <div><strong>Verify Installation</strong>
+                        <pre><code>sqlite3 --version</code><button class="copy-btn" data-copy="sqlite3 --version">COPY</button></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- macOS Installation -->
+            <div id="macos-install" class="subsection">
+                <h3>macOS Installation</h3>
+
+                <p>SQLite comes pre-installed on macOS. To update:</p>
+                <pre><code># Using Homebrew
+brew install sqlite3
+
+# Verify
+sqlite3 --version</code><button class="copy-btn" data-copy="brew install sqlite3">COPY</button></pre>
+            </div>
+
+            <!-- Linux Installation -->
+            <div id="linux-install" class="subsection">
+                <h3>Linux Installation</h3>
+
+                <h4>Ubuntu/Debian</h4>
+                <pre><code>sudo apt update
+sudo apt install sqlite3
+
+sqlite3 --version</code><button class="copy-btn" data-copy="sudo apt install sqlite3">COPY</button></pre>
+
+                <h4>Fedora/RHEL</h4>
+                <pre><code>sudo dnf install sqlite
+
+sqlite3 --version</code><button class="copy-btn" data-copy="sudo dnf install sqlite">COPY</button></pre>
+
+                <h4>Arch Linux</h4>
+                <pre><code>sudo pacman -S sqlite
+
+sqlite3 --version</code><button class="copy-btn" data-copy="sudo pacman -S sqlite">COPY</button></pre>
+            </div>
+
+            <div id="first-database" class="subsection">
+                <h3>Create First Database</h3>
+                <pre><code># Open SQLite CLI and create database
+sqlite3 mydata base.db
+
+# SQLite prompt
+sqlite> .databases
+sqlite> .tables
+sqlite> .quit</code><button class="copy-btn" data-copy="sqlite3 mydatabase.db">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>SQLite CLI Commands</h3>
+                <pre><code>-- Dot commands (SQLite specific)
+.help              -- Show help
+.databases         -- List attached databases
+.tables            -- List tables
+.schema tablename  -- Show table schema
+.mode column       -- Set output mode
+.headers on        -- Show column headers
+.quit              -- Exit SQLite</code><button class="copy-btn" data-copy=".tables">COPY</button></pre>
+
+                <h3>Create Tables</h3>
+                <pre><code>-- Create table
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create table with foreign key
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    content TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Show table structure
+.schema users</code><button class="copy-btn" data-copy="CREATE TABLE users">COPY</button></pre>
+
+                <h3>CRUD Operations</h3>
+                <pre><code>-- INSERT
+INSERT INTO users (username, email, password_hash)
+VALUES ('john_doe', 'john@example.com', 'hashed_password');
+
+-- Multiple inserts
+INSERT INTO users (username, email, password_hash) VALUES
+    ('alice', 'alice@example.com', 'hash1'),
+    ('bob', 'bob@example.com', 'hash2');
+
+-- SELECT
+SELECT * FROM users;
+SELECT username, email FROM users WHERE id = 1;
+SELECT * FROM users WHERE username LIKE 'john%';
+
+-- UPDATE
+UPDATE users SET email = 'newemail@example.com' WHERE id = 1;
+
+-- DELETE
+DELETE FROM users WHERE id = 5;</code><button class="copy-btn" data-copy="INSERT INTO users">COPY</button></pre>
+
+                <h3>Transactions</h3>
+                <pre><code>-- Begin transaction
+BEGIN TRANSACTION;
+
+INSERT INTO users (username, email, password_hash)
+VALUES ('test', 'test@example.com', 'hash');
+
+UPDATE users SET email = 'updated@example.com' WHERE username = 'test';
+
+-- Commit or rollback
+COMMIT;
+-- or
+ROLLBACK;</code><button class="copy-btn" data-copy="BEGIN TRANSACTION;">COPY</button></pre>
+
+                <h3>Joins & Aggregation</h3>
+                <pre><code>-- INNER JOIN
+SELECT u.username, p.title
+FROM users u
+INNER JOIN posts p ON u.id = p.user_id;
+
+-- LEFT JOIN
+SELECT u.username, COUNT(p.id) as post_count
+FROM users u
+LEFT JOIN posts p ON u.id = p.user_id
+GROUP BY u.id;
+
+-- Aggregation functions
+SELECT COUNT(*) FROM users;
+SELECT AVG(id) FROM users;
+SELECT MAX(created_at), MIN(created_at) FROM users;</code><button class="copy-btn" data-copy="INNER JOIN">COPY</button></pre>
+
+                <h3>Indexes</h3>
+                <pre><code>-- Create index
+CREATE INDEX idx_username ON users(username);
+CREATE INDEX idx_email ON users(email);
+
+-- Create unique index
+CREATE UNIQUE INDEX idx_unique_email ON users(email);
+
+-- List indexes
+.indexes users
+
+-- Drop index
+DROP INDEX idx_username;</code><button class="copy-btn" data-copy="CREATE INDEX">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Full-Text Search</h3>
+            <pre><code>-- Create FTS table
+CREATE VIRTUAL TABLE articles_fts USING fts5(title, content);
+
+-- Insert data
+INSERT INTO articles_fts (title, content) VALUES
+    ('Introduction to SQLite', 'SQLite is a lightweight database...'),
+    ('Advanced SQL', 'Learn advanced SQL techniques...');
+
+-- Search
+SELECT * FROM articles_fts WHERE articles_fts MATCH 'SQLite';
+SELECT * FROM articles_fts WHERE content MATCH 'database';</code><button class="copy-btn" data-copy="CREATE VIRTUAL TABLE">COPY</button></pre>
+
+            <h3>JSON Support (SQLite 3.38+)</h3>
+            <pre><code>-- Create table with JSON
+CREATE TABLE products (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    attributes TEXT -- JSON data
+);
+
+-- Insert JSON
+INSERT INTO products (name, attributes) VALUES
+    ('Laptop', json('{"color": "silver", "weight": 1.5}'));
+
+-- Extract JSON values
+SELECT 
+    name,
+    json_extract(attributes, '$.color') as color,
+    json_extract(attributes, '$.weight') as weight
+FROM products;
+
+-- Validate JSON
+SELECT json_valid('{"key": "value"}');  -- Returns 1 (true)</code><button class="copy-btn" data-copy="json_extract">COPY</button></pre>
+
+            <h3>Backup & Restore</h3>
+            <pre><code># Backup database
+sqlite3 mydatabase.db ".backup backup.db"
+
+# Dump to SQL file
+sqlite3 mydatabase.db ".dump" > backup.sql
+
+# Restore from SQL file
+sqlite3 newdatabase.db < backup.sql
+
+# Vacuum (shrink database)
+sqlite3 mydatabase.db "VACUUM;"</code><button class="copy-btn" data-copy=".backup backup.db">COPY</button></pre>
+
+            <h3>Application Integration</h3>
+            <pre><code>// Node.js (better-sqlite3)
+const Database = require('better-sqlite3');
+const db = new Database('mydata.db');
+
+// Create table
+db.exec(`CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+)`);
+
+// Insert
+const insert = db.prepare('INSERT INTO users (name) VALUES (?)');
+insert.run('John Doe');
+
+// Query
+const users = db.prepare('SELECT * FROM users').all();
+console.log(users);
+
+// Python (sqlite3)
+import sqlite3
+
+conn = sqlite3.connect('mydata.db')
+cursor = conn.cursor()
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS users
+                  (id INTEGER PRIMARY KEY, name TEXT)''')
+
+cursor.execute('INSERT INTO users (name) VALUES (?)', ('Alice',))
+conn.commit()
+
+cursor.execute('SELECT * FROM users')
+rows = cursor.fetchall()
+
+conn.close()
+
+// Rust (rusqlite)
+use rusqlite::{Connection, Result};
+
+fn main() -> Result<()> {
+    let conn = Connection::open("mydata.db")?;
+    
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)",
+        [],
+    )?;
+    
+    conn.execute("INSERT INTO users (name) VALUES (?1)", ["Alice"])?;
+    
+    Ok(())
+}</code><button class="copy-btn" data-copy="const db = new Database">COPY</button></pre>
+
+            <h3>Performance Optimization</h3>
+            <pre><code>-- Enable WAL mode (better concurrency)
+PRAGMA journal_mode =WAL;
+
+-- Increase cache size
+PRAGMA cache_size = 10000;
+
+-- Enable foreign keys
+PRAGMA foreign_keys = ON;
+
+-- Analyze query performance
+EXPLAIN QUERY PLAN SELECT * FROM users WHERE email = 'test@example.com';
+
+-- Optimize database
+VACUUM;
+ANALYZE;</code><button class="copy-btn" data-copy="PRAGMA journal_mode=WAL;">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master SQL</strong> — Practice queries, joins, indexes
+            </div>
+            <div class="step"><span class="n">2</span><strong>Enable FTS</strong> — Implement full-text search</div>
+            <div class="step"><span class="n">3</span><strong>Optimize Performance</strong> — WAL mode, indexing</div>
+            <div class="step"><span class="n">4</span><strong>Integrate with Apps</strong> — Use in mobile/desktop apps
+            </div>
+            <div class="step"><span class="n">5</span><strong>Backup Strategy</strong> — Automated backups</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://www.sqlite.org/docs.html" target="_blank">Official SQLite Documentation</a></li>
+                <li>🎓 <a href="https://www.sqlitetutorial.net/" target="_blank">SQLite Tutorial</a></li>
+                <li>📘 <a href="https://www.sqlite.org/cli.html" target="_blank">SQLite Command Line</a></li>
+                <li>💻 <a href="https://sqlite.org/famous.html" target="_blank">Well-Known Users of SQLite</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

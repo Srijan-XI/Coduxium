@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine Linux - Complete Guide | Coduxium XI</title>
+    <meta name="description"
+        content="Complete Alpine Linux guide - Security-oriented, lightweight Linux distribution perfect for containers and embedded systems">
+
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux-enhanced.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body class="linux-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🐧</span>
+                <div>
+                    <h1><a href="../../../index.html" style="color:inherit;text-decoration:none">Alpine Linux</a></h1>
+                    <p class="sub">Small. Simple. Secure.</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <!-- Hero Section -->
+        <section class="linux-hero">
+            <div class="hero-badge">
+                <span class="badge-icon">❄️</span>
+                <span>Lightweight & Secure</span>
+            </div>
+            <h1 class="hero-title">Alpine Linux</h1>
+            <p class="hero-description">
+                A security-oriented, lightweight Linux distribution based on musl libc and BusyBox. Perfect for
+                containers, embedded systems, and resource-efficient deployments.
+            </p>
+        </section>
+
+        <!-- OVERVIEW Section -->
+        <section class="content-section">
+            <h2>📋 Overview</h2>
+
+            <div class="info-box info">
+                <strong>💡 Quick Facts</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Base:</strong> Independent</li>
+                    <li><strong>Package Manager:</strong> APK (Alpine Package Keeper)</li>
+                    <li><strong>Desktop:</strong> None default (Xfce, GNOME available)</li>
+                    <li><strong>Release Model:</strong> Rolling with stable branches</li>
+                    <li><strong>Target Users:</strong> Container deployments, embedded systems, power users</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🪶</span>
+                    <h4>Ultra Lightweight</h4>
+                    <p>Base image only ~5MB, runs smoothly on minimal hardware</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h4>Security First</h4>
+                    <p>PIE, SSP, and ASLR enabled by default for maximum security</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🐋</span>
+                    <h4>Container Ready</h4>
+                    <p>Most popular base image for Docker containers worldwide</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Fast Performance</h4>
+                    <p>Minimal overhead with musl libc and BusyBox utilities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION Section -->
+        <section class="content-section">
+            <h2>📚 Introduction</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>What is Alpine Linux?</h3>
+                </div>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Alpine Linux is a security-oriented, lightweight Linux distribution designed for power users who
+                    appreciate security, simplicity, and resource efficiency. Unlike traditional distributions that use
+                    glibc, Alpine uses musl libc and BusyBox to achieve an incredibly small footprint. This makes it
+                    ideal for containers, cloud deployments, embedded systems, and any environment where resources are
+                    limited.
+                </p>
+
+                <h3 style="margin-top: 30px;">Key Features</h3>
+                <ul style="line-height: 2; margin-top: 15px;">
+                    <li><strong>Tiny Size:</strong> Base Docker image is only ~5MB (compared to 100MB+ for others)</li>
+                    <li><strong>Security Hardened:</strong> Uses PaX and grsecurity patches for enhanced security</li>
+                    <li><strong>musl libc:</strong> Lightweight, standards-compliant C library</li>
+                    <li><strong>BusyBox:</strong> Combines hundreds of Unix utilities into single executable</li>
+                    <li><strong>APK Package Manager:</strong> Simple, fast package management system</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Why Choose Alpine Linux?</h3>
+                <div class="best-practices-grid" style="margin-top: 20px;">
+                    <div class="practice-card">
+                        <span class="practice-num">1</span>
+                        <h4>Perfect for Containers</h4>
+                        <p>Minimal attack surface and tiny size make it ideal for Docker and Kubernetes deployments</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">2</span>
+                        <h4>Resource Efficient</h4>
+                        <p>Runs smoothly on as little as 128MB RAM, perfect for VPS and embedded systems</p>
+                    </div>
+                    <div class="practice-card">
+                        <span class="practice-num">3</span>
+                        <h4>Security Focus</h4>
+                        <p>Built from the ground up with security in mind, all packages compiled with hardening features
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE Section -->
+        <section class="content-section">
+            <h2>⚙️ Installation Guide</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Step 1: Download</h4>
+                    <p class="command-desc">
+                        Download Alpine Linux from: <a href="https://alpinelinux.org/downloads/"
+                            target="_blank">alpinelinux.org/downloads</a><br><br>
+                        Choose: Standard (~150MB), Extended (desktop), Virtual, or NetBoot
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 2: Create Bootable USB</h4>
+                    <pre><code class="language-bash"># Linux
+sudo dd if=alpine-standard.iso of=/dev/sdX bs=4M
+
+# Or use: Etcher, Rufus, Ventoy</code></pre>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 3: Boot from USB</h4>
+                    <p class="command-desc">
+                        1. Insert USB drive<br>
+                        2. Restart computer<br>
+                        3. Enter BIOS (F2/F12/Del)<br>
+                        4. Select USB as boot device<br>
+                        5. Login as root (no password)
+                    </p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Step 4: Run Setup</h4>
+                    <pre><code class="language-bash"># Run Alpine setup script
+setup-alpine
+
+# Follow prompts for:
+# - Keyboard layout
+# - Hostname, network
+# - Root password, timezone
+# - APK mirror, SSH
+# - Disk and installation mode
+
+# Reboot after completion
+reboot</code></pre>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 30px;">
+                <strong>⚠️ System Requirements</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>CPU:</strong> x86_64, ARM, or other (very flexible)</li>
+                    <li><strong>RAM:</strong> 128MB minimum (512MB recommended)</li>
+                    <li><strong>Storage:</strong> 700MB minimum (2GB recommended)</li>
+                    <li><strong>GPU:</strong> Not required (text-based by default)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- USER GUIDE Section -->
+        <section class="content-section">
+            <h2>📖 User Guide</h2>
+
+            <div class="distro-pm-section">
+                <div class="pm-header">
+                    <h3>Package Management with APK</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Update System</h4>
+                        <pre><code class="language-bash">apk update
+apk upgrade</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Package</h4>
+                        <pre><code class="language-bash">apk add package-name
+
+# Install without caching (for Docker)
+apk add --no-cache package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Remove Package</h4>
+                        <pre><code class="language-bash">apk del package-name</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Search Package</h4>
+                        <pre><code class="language-bash">apk search keyword
+apk search -v -d keyword  # Verbose with description</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distro-pm-section" style="margin-top: 30px;">
+                <div class="pm-header">
+                    <h3>Essential Tasks</h3>
+                </div>
+
+                <div class="command-grid">
+                    <div class="command-card">
+                        <h4>Install Common Tools</h4>
+                        <pre><code class="language-bash">apk add bash curl wget git vim nano</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Service Management (OpenRC)</h4>
+                        <pre><code class="language-bash">rc-service servicename start
+rc-update add servicename default</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>Install Desktop (Xfce)</h4>
+                        <pre><code class="language-bash">setup-xorg-base
+apk add xfce4 xfce4-terminal lightdm
+rc-update add lightdm</code></pre>
+                    </div>
+
+                    <div class="command-card">
+                        <h4>List Installed Packages</h4>
+                        <pre><code class="language-bash">apk info
+apk info -vv  # Detailed info</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVANCED TOPICS Section -->
+        <section class="content-section">
+            <h2>🚀 Advanced Topics</h2>
+
+            <div class="command-grid">
+                <div class="command-card">
+                    <h4>Docker Multi-Stage Build</h4>
+                    <pre><code class="language-bash">FROM alpine:latest AS builder
+RUN apk add --no-cache go
+COPY . /app
+WORKDIR /app
+RUN go build -o myapp
+
+FROM alpine:latest
+RUN apk add --no-cache ca-certificates
+COPY --from=builder /app/myapp /usr/local/bin/
+CMD ["myapp"]</code></pre>
+                    <p class="command-desc">Optimize Docker images with Alpine's small size</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Firewall Configuration</h4>
+                    <pre><code class="language-bash"># Install awall firewall
+apk add awall iptables
+rc-update add iptables
+
+# Configure and enable
+vi /etc/awall/optional/custom.json
+awall enable custom
+awall activate</code></pre>
+                    <p class="command-desc">Set up Alpine Wall firewall frontend</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Development Environment</h4>
+                    <pre><code class="language-bash"># Install build tools
+apk add build-base
+
+# Programming languages
+apk add python3 py3-pip nodejs npm rust
+
+# Database
+apk add postgresql mariadb</code></pre>
+                    <p class="command-desc">Set up development tools and languages</p>
+                </div>
+
+                <div class="command-card">
+                    <h4>Custom Package Building</h4>
+                    <pre><code class="language-bash"># Install build tools
+apk add alpine-sdk
+
+# Add user for building
+adduser -D builder
+addgroup builder abuild
+
+# Build package
+abuild -r</code></pre>
+                    <p class="command-desc">Build custom APK packages from source</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USEFUL COMMANDS Section -->
+        <section class="content-section">
+            <h2>💻 Useful Commands</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Update Package List</strong></td>
+                            <td><code>apk update</code></td>
+                            <td>Fetch latest package index</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Upgrade All Packages</strong></td>
+                            <td><code>apk upgrade</code></td>
+                            <td>Upgrade all installed packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Install Package</strong></td>
+                            <td><code>apk add package</code></td>
+                            <td>Install a new package</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remove Package</strong></td>
+                            <td><code>apk del package</code></td>
+                            <td>Remove a package</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Search Packages</strong></td>
+                            <td><code>apk search keyword</code></td>
+                            <td>Search for available packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List Installed</strong></td>
+                            <td><code>apk info</code></td>
+                            <td>Show all installed packages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Package Info</strong></td>
+                            <td><code>apk info package</code></td>
+                            <td>Show package details</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start Service</strong></td>
+                            <td><code>rc-service name start</code></td>
+                            <td>Start a service (OpenRC)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enable at Boot</strong></td>
+                            <td><code>rc-update add name</code></td>
+                            <td>Enable service at startup</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System Info</strong></td>
+                            <td><code>cat /etc/alpine-release</code></td>
+                            <td>Show Alpine version</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL RESOURCES Section -->
+        <section class="content-section">
+            <h2>📚 Additional Resources</h2>
+
+            <div class="next-steps-grid">
+                <a href="https://alpinelinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">🌐</span>
+                    <h4>Official Website</h4>
+                    <p>Visit Alpine Linux homepage</p>
+                </a>
+                <a href="https://wiki.alpinelinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">📖</span>
+                    <h4>Documentation</h4>
+                    <p>Official wiki and guides</p>
+                </a>
+                <a href="https://alpinelinux.org/community/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💬</span>
+                    <h4>Community</h4>
+                    <p>Forums, IRC, and mailing lists</p>
+                </a>
+                <a href="https://gitlab.alpinelinux.org/" target="_blank" class="next-step-card">
+                    <span class="step-icon">💻</span>
+                    <h4>Source Code</h4>
+                    <p>GitLab repository</p>
+                </a>
+            </div>
+
+            <div class="info-box success" style="margin-top: 30px;">
+                <strong>✨ Next Steps</strong>
+                <ol style="margin-top: 10px; line-height: 2;">
+                    <li>Download Alpine Linux ISO</li>
+                    <li>Try it in Docker: <code>docker run -it alpine:latest</code></li>
+                    <li>Install on VPS or bare metal</li>
+                    <li>Learn APK package management</li>
+                    <li>Join the Alpine community</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Related Distros -->
+        <section class="content-section">
+            <h2>🔗 Related Distributions</h2>
+            <div class="next-steps-grid">
+                <a href="../Arch/arch.html" class="next-step-card">
+                    <span class="step-icon">🏹</span>
+                    <h4>Arch Linux</h4>
+                    <p>Another minimal, power-user distro</p>
+                </a>
+                <a href="../Gentoo/gentoo.html" class="next-step-card">
+                    <span class="step-icon">💜</span>
+                    <h4>Gentoo</h4>
+                    <p>Source-based, highly customizable</p>
+                </a>
+                <a href="../Slackware/slackware.html" class="next-step-card">
+                    <span class="step-icon">⚙️</span>
+                    <h4>Slackware</h4>
+                    <p>Simple, stable, UNIX-like</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../docpages/about/about.html">About</a>
+                <a href="../linux.html">Linux Hub</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

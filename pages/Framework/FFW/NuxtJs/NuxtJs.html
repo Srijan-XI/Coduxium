@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Nuxt.js guide - Learn installation, SSR, routing, and best practices for building powerful Vue.js applications." />
+    <meta name="keywords"
+        content="Nuxt.js, Vue.js, SSR, Server-Side Rendering, Framework, Web Development, JavaScript" />
+    <title>Nuxt.js Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../Database/database-common.css">
+    <link rel="stylesheet" href="../../framework-common.css">
+    <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🚀 Nuxt.js Complete Guide</h1>
+            <p class="subtitle">The Intuitive Vue Framework for building production-ready applications with SSR, SSG,
+                and SPA.</p>
+            <div class="badge-row">
+                <span class="badge">VUE.JS</span>
+                <span class="badge">SSR/SSG</span>
+                <span class="badge">FILE-BASED ROUTING</span>
+                <span class="badge">PRODUCTION-READY</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Enterprise Choice:</strong> Nuxt.js powers websites for GitLab, Alibaba,
+                and Adobe with built-in SSR and SEO optimization.</div>
+        </header>
+
+        <!-- ==================== INTRODUCTION SECTION ==================== -->
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Nuxt.js?</h3>
+            <p><strong>Nuxt.js</strong> is a powerful, open-source Vue.js framework that simplifies the development of
+                universal or single-page Vue applications. Created by the Nuxt team, it provides server-side rendering
+                (SSR), static site generation (SSG), and SPA capabilities out of the box with a modular architecture and
+                excellent developer experience.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>🎯 Server-Side Rendering</strong> — SEO-friendly by default</div>
+                <div class="topic"><strong>📁 File-Based Routing</strong> — Automatic route generation</div>
+                <div class="topic"><strong>⚡ Fast Performance</strong> — Code splitting, lazy loading</div>
+                <div class="topic"><strong>🔧 TypeScript Support</strong> — First-class TS integration</div>
+                <div class="topic"><strong>🌐 Universal Rendering</strong> — SSR, SSG, SPA modes</div>
+                <div class="topic"><strong>📦 Module System</strong> — Rich ecosystem of modules</div>
+                <div class="topic"><strong>🔄 Auto Imports</strong> — Components, composables auto-imported</div>
+                <div class="topic"><strong>🎨 Vue 3 Powered</strong> — Latest Vue features</div>
+            </div>
+
+            <h3>Why Choose Nuxt.js?</h3>
+            <ul>
+                <li><strong>SEO Optimized:</strong> Built-in SSR for search engine visibility</li>
+                <li><strong>Developer Experience:</strong> Hot reload, auto-imports, TypeScript</li>
+                <li><strong>Flexible Rendering:</strong> Choose SSR, SSG, or SPA per route</li>
+                <li><strong>Vue Ecosystem:</strong> Access to all Vue libraries and tools</li>
+                <li><strong>Production Ready:</strong> Optimized builds, caching, preloading</li>
+                <li><strong>Active Community:</strong> Large ecosystem of modules and plugins</li>
+            </ul>
+
+            <div class="info-box warning"><strong>⚠️ Important:</strong> Use Nuxt 3 for new projects. It's built on Vue
+                3, Vite, and offers better performance.</div>
+        </section>
+
+        <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+            <p>Get started with Nuxt.js by creating a new project.</p>
+
+            <div id="project-setup" class="subsection">
+                <h3>Create New Project</h3>
+
+                <h4>Using npx (Recommended)</h4>
+                <pre><code># Create new Nuxt 3 project
+npx nuxi@latest init my-nuxt-app
+
+# Navigate to project
+cd my-nuxt-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev</code><button class="copy-btn" data-copy="npx nuxi@latest init my-nuxt-app">COPY</button></pre>
+
+                <h4>Using pnpm</h4>
+                <pre><code>pnpm dlx nuxi@latest init my-nuxt-app
+cd my-nuxt-app
+pnpm install
+pnpm dev</code><button class="copy-btn" data-copy="pnpm dlx nuxi@latest init my-nuxt-app">COPY</button></pre>
+
+                <h4>Using yarn</h4>
+                <pre><code>yarn dlx nuxi@latest init my-nuxt-app
+cd my-nuxt-app
+yarn install
+yarn dev</code><button class="copy-btn" data-copy="yarn dlx nuxi@latest init my-nuxt-app">COPY</button></pre>
+
+                <div class="info-box"><strong>💡 Note:</strong> The dev server will be available at
+                    http://localhost:3000</div>
+            </div>
+
+            <div id="project-structure" class="subsection">
+                <h3>Project Structure</h3>
+                <pre><code>my-nuxt-app/
+├── .nuxt/           # Build output (auto-generated)
+├── assets/          # Uncompiled assets (CSS, images)
+├── components/      # Vue components
+├── composables/     # Vue composables
+├── layouts/         # App layouts
+├── middleware/      # Route middleware
+├── pages/           # File-based routing
+├── plugins/         # Plugins
+├── public/          # Static files
+├── server/          # Server API routes
+├── app.vue          # Main app component
+├── nuxt.config.ts   # Nuxt configuration
+└── package.json     # Dependencies</code></pre>
+            </div>
+
+            <div id="typescript-setup" class="subsection">
+                <h3>TypeScript Setup</h3>
+                <p>Nuxt 3 has built-in TypeScript support. Just use .ts or .vue with lang="ts":</p>
+                <pre><code>// nuxt.config.ts is TypeScript by default
+export default defineNuxtConfig({
+  typescript: {
+    strict: true,
+    typeCheck: true
+  }
+})</code><button class="copy-btn" data-copy="Nuxt TypeScript config">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== USER GUIDE SECTION ==================== -->
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>App.vue (Main Component)</h3>
+                <pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;NuxtLayout&gt;
+      &lt;NuxtPage /&gt;
+    &lt;/NuxtLayout&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code><button class="copy-btn" data-copy="<NuxtPage />">COPY</button></pre>
+
+                <h3>Pages & Routing</h3>
+                <pre><code>&lt;!-- pages/index.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Welcome to Nuxt 3!&lt;/h1&gt;
+    &lt;NuxtLink to="/about"&gt;About&lt;/NuxtLink&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+// Page meta
+definePageMeta({
+  title: 'Home Page',
+  layout: 'default'
+})
+&lt;/script&gt;
+
+&lt;!-- pages/about.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;About Us&lt;/h1&gt;
+    &lt;NuxtLink to="/"&gt;Home&lt;/NuxtLink&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;!-- pages/blog/[id].vue - Dynamic route --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Blog Post {{ $route.params.id }}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code><button class="copy-btn" data-copy="<NuxtLink to=\"/about\">">COPY</button></pre>
+
+                <h3>Components</h3>
+                <pre><code>&lt;!-- components/MyButton.vue --&gt;
+&lt;template&gt;
+  &lt;button @click="handleClick"&gt;
+    &lt;slot /&gt;
+  &lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+const handleClick = () => {
+  console.log('Button clicked!')
+}
+&lt;/script&gt;
+
+&lt;!-- Usage in any page (auto-imported!) --&gt;
+&lt;template&gt;
+  &lt;MyButton&gt;Click Me&lt;/MyButton&gt;
+&lt;/template&gt;</code><button class="copy-btn" data-copy="<MyButton>">COPY</button></pre>
+
+                <h3>Composables</h3>
+                <pre><code>// composables/useCounter.ts
+export const useCounter = () => {
+  const count = ref(0)
+  const increment = () => count.value++
+  const decrement = () => count.value--
+  
+  return {
+    count: readonly(count),
+    increment,
+    decrement
+  }
+}
+
+// Usage in component
+&lt;script setup&gt;
+const { count, increment } = useCounter()
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ count }}&lt;/p&gt;
+    &lt;button @click="increment"&gt;+&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code><button class="copy-btn" data-copy="export const useCounter = () =>">COPY</button></pre>
+
+                <h3>Data Fetching</h3>
+                <pre><code>&lt;script setup&gt;
+// useFetch - auto-imports
+const { data: posts, pending, error } = await useFetch('/api/posts')
+
+// useAsyncData with custom fetcher
+const { data: user } = await useAsyncData('user', () => $fetch('/api/user/1'))
+
+// Lazy loading
+const { data: comments } = await useLazyAsyncData('comments', 
+  () => $fetch('/api/comments')
+)
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;div v-if="pending"&gt;Loading...&lt;/div&gt;
+    &lt;div v-else-if="error"&gt;Error: {{ error.message }}&lt;/div&gt;
+    &lt;div v-else&gt;
+      &lt;div v-for="post in posts" :key="post.id"&gt;
+        {{ post.title }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code><button class="copy-btn" data-copy="const { data } = await useFetch">COPY</button></pre>
+
+                <h3>Layouts</h3>
+                <pre><code>&lt;!-- layouts/default.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;header&gt;
+      &lt;nav&gt;
+        &lt;NuxtLink to="/"&gt;Home&lt;/NuxtLink&gt;
+        &lt;NuxtLink to="/about"&gt;About&lt;/NuxtLink&gt;
+      &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      &lt;slot /&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;© 2025 Coduxium XI&lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;!-- layouts/custom.vue --&gt;
+&lt;template&gt;
+  &lt;div class="custom-layout"&gt;
+    &lt;slot /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;!-- Use in page --&gt;
+&lt;script setup&gt;
+definePageMeta({
+  layout: 'custom'
+})
+&lt;/script&gt;</code><button class="copy-btn" data-copy="<slot />">COPY</button></pre>
+
+                <h3>Server API Routes</h3>
+                <pre><code>// server/api/hello.ts
+export default defineEventHandler((event) => {
+  return {
+    message: 'Hello from Nuxt API!'
+  }
+})
+
+// server/api/users/[id].ts - Dynamic API route
+export default defineEventHandler((event) => {
+  const id = getRouterParam(event, 'id')
+  return {
+    id,
+    name: 'John Doe'
+  }
+})
+
+// server/api/posts.post.ts - POST request
+export default defineEventHandler(async (event) => {
+  const body = await readBody(event)
+  // Save to database
+  return { success: true, data: body }
+})</code><button class="copy-btn" data-copy="export default defineEventHandler">COPY</button></pre>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>Popular Nuxt Modules</h3>
+            <div class="package-list">
+                <div class="package-item"><strong>@nuxtjs/tailwindcss</strong>Tailwind CSS integration</div>
+                <div class="package-item"><strong>@nuxt/content</strong>File-based CMS</div>
+                <div class="package-item"><strong>@nuxt/image</strong>Image optimization</div>
+                <div class="package-item"><strong>@pinia/nuxt</strong>State management</div>
+                <div class="package-item"><strong>@nuxtjs/i18n</strong>Internationalization</div>
+                <div class="package-item"><strong>nuxt-security</strong>Security headers</div>
+                <div class="package-item"><strong>@vueuse/nuxt</strong>Vue composables</div>
+                <div class="package-item"><strong>@nuxt/devtools</strong>Enhanced dev experience</div>
+            </div>
+
+            <h3>Configuration</h3>
+            <pre><code>// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content',
+    '@pinia/nuxt'
+  ],
+  
+  app: {
+    head: {
+      title: 'My Nuxt App',
+      meta: [
+        { name: 'description', content: 'My amazing Nuxt app' }
+      ]
+    }
+  },
+  
+  runtimeConfig: {
+    // Private keys (server-side only)
+    apiSecret: process.env.API_SECRET,
+    
+    // Public keys (exposed to client)
+    public: {
+      apiBase: process.env.API_BASE_URL || '/api'
+    }
+  }
+})</code><button class="copy-btn" data-copy="export default defineNuxtConfig">COPY</button></pre>
+
+            <h3>State Management (Pinia)</h3>
+            <pre><code>// stores/counter.ts
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
+    count: 0
+  }),
+  
+  actions: {
+    increment() {
+      this.count++
+    }
+  },
+  
+  getters: {
+    doubleCount: (state) => state.count * 2
+  }
+})
+
+// Usage in component
+&lt;script setup&gt;
+const counter = useCounterStore()
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;{{ counter.count }}&lt;/p&gt;
+    &lt;button @click="counter.increment"&gt;+&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code><button class="copy-btn" data-copy="export const useCounterStore">COPY</button></pre>
+
+            <h3>SEO & Meta Tags</h3>
+            <pre><code>&lt;script setup&gt;
+// Per-page SEO
+useHead({
+  title: 'My Page Title',
+  meta: [
+    { name: 'description', content: 'Page description' },
+    { property: 'og:title', content: 'Open Graph Title' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://example.com/page' }
+  ]
+})
+
+// Dynamic SEO
+const route = useRoute()
+useSeoMeta({
+  title: () => `Product ${route.params.id}`,
+  description: 'Product description',
+  ogImage: '/images/og-image.jpg'
+})
+&lt;/script&gt;</code><button class="copy-btn" data-copy="useHead({ title: ... })">COPY</button></pre>
+
+            <h3>Deployment</h3>
+            <pre><code># Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Static Site Generation
+npm run generate
+
+# Deploy to Vercel/Netlify (auto-detected)
+# Just connect your repository!</code><button class="copy-btn" data-copy="npm run build">COPY</button></pre>
+        </section>
+
+        <!-- ==================== NEXT STEPS SECTION ==================== -->
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master Routing</strong> — File-based routes, dynamic
+                params</div>
+            <div class="step"><span class="n">2</span><strong>Learn Data Fetching</strong> — useFetch, useAsyncData
+                patterns</div>
+            <div class="step"><span class="n">3</span><strong>Add Modules</strong> — Tailwind, Content, i18n</div>
+            <div class="step"><span class="n">4</span><strong>Build API</strong> — Create server routes and middleware
+            </div>
+            <div class="step"><span class="n">5</span><strong>Deploy</strong> — Ship to production on Vercel or Netlify
+            </div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://nuxt.com/docs" target="_blank">Official Nuxt Documentation</a></li>
+                <li>🎓 <a href="https://masteringnuxt.com/" target="_blank">Mastering Nuxt Course</a></li>
+                <li>📘 <a href="https://nuxt.com/modules" target="_blank">Nuxt Modules</a></li>
+                <li>💻 <a href="https://github.com/nuxt/nuxt" target="_blank">Nuxt GitHub</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../../Database/database-common.js"></script>
+    <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

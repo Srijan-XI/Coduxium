@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JSON — Coduxium XI</title>
+    <meta name="description" content="JSON - JavaScript Object Notation, the universal data interchange format.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>JSON (JavaScript Object Notation)</h1>
+            <p class="subtitle">Lightweight data-interchange format that's easy for humans to read and write, and easy for machines to parse and generate.</p>
+            <div class="badge-row">
+                <span class="badge">DATA FORMAT</span>
+                <span class="badge">API</span>
+                <span class="badge">CONFIG</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#syntax">Syntax</a>
+                <a href="#usage">Usage</a>
+            </nav>
+        </header>
+
+        <section id="overview" class="card accent">
+            <h2>📄 Overview</h2>
+            <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format. It's completely language-independent but uses conventions familiar to programmers of C-family languages. It's the de facto standard for REST APIs and web data exchange.</p>
+
+            <h3>Common Use Cases</h3>
+            <ul>
+                <li><strong>REST APIs</strong> — Request/response payloads</li>
+                <li><strong>Configuration Files</strong> — package.json, tsconfig.json</li>
+                <li><strong>Data Storage</strong> — NoSQL databases (MongoDB)</li>
+                <li><strong>Data Exchange</strong> — Between client and server</li>
+            </ul>
+        </section>
+
+        <section id="syntax" class="card">
+            <h2>📖 Syntax Rules</h2>
+
+            <h3>Data Types</h3>
+            <pre><code>{
+  "string": "Hello World",
+  "number": 42,
+  "float": 3.14,
+  "boolean": true,
+  "null": null,
+  "array": [1, 2, 3],
+  "object": {
+    "nested": "value"
+  }
+}</code></pre>
+
+            <h3>Objects</h3>
+            <pre><code>{
+  "name": "John Doe",
+  "age": 30,
+  "email": "john@example.com",
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "zip": "10001"
+  },
+  "active": true
+}</code></pre>
+
+            <h3>Arrays</h3>
+            <pre><code>{
+  "fruits": ["apple", "banana", "orange"],
+  "numbers": [1, 2, 3, 4, 5],
+  "mixed": [1, "two", true, null],
+  "objects": [
+    {"id": 1, "name": "Item 1"},
+    {"id": 2, "name": "Item 2"}
+  ]
+}</code></pre>
+
+            <h3>Strings</h3>
+            <pre><code>{
+  "basic": "Simple string",
+  "escaped": "Line 1\nLine 2",
+  "unicode": "Hello \u0041",
+  "quotes": "She said \"Hello\"",
+  "backslash": "Path: C:\\Users"
+}</code></pre>
+        </section>
+
+        <section id="usage" class="card accent">
+            <h2>🔧 Working with JSON</h2>
+
+            <h3>JavaScript</h3>
+            <pre><code>// Parse JSON string
+const jsonString = '{"name":"John","age":30}';
+const obj = JSON.parse(jsonString);
+console.log(obj.name); // "John"
+
+// Convert object to JSON
+const person = { name: "John", age: 30 };
+const json = JSON.stringify(person);
+console.log(json); // '{"name":"John","age":30}'
+
+// Pretty print
+const pretty = JSON.stringify(person, null, 2);
+
+// With replacer
+const filtered = JSON.stringify(person, ['name']);</code></pre>
+
+            <h3>Python</h3>
+            <pre><code>import json
+
+# Parse JSON
+json_string = '{"name": "John", "age": 30}'
+data = json.loads(json_string)
+print(data['name'])  # John
+
+# Convert to JSON
+person = {'name': 'John', 'age': 30}
+json_string = json.dumps(person)
+
+# Pretty print
+pretty = json.dumps(person, indent=2)
+
+# From/to file
+with open('data.json', 'r') as f:
+    data = json.load(f)
+
+with open('output.json', 'w') as f:
+    json.dump(data, f, indent=2)</code></pre>
+
+            <h3>Java</h3>
+            <pre><code>// Using Jackson
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+ObjectMapper mapper = new ObjectMapper();
+
+// Parse JSON
+String json = "{\"name\":\"John\",\"age\":30}";
+Person person = mapper.readValue(json, Person.class);
+
+// Convert to JSON
+String output = mapper.writeValueAsString(person);
+
+// Pretty print
+String pretty = mapper.writerWithDefaultPrettyPrinter()
+                     .writeValueAsString(person);</code></pre>
+
+            <h3>C#</h3>
+            <pre><code>using System.Text.Json;
+
+// Parse JSON
+string json = "{\"name\":\"John\",\"age\":30}";
+Person person = JsonSerializer.Deserialize&lt;Person&gt;(json);
+
+// Convert to JSON
+string output = JsonSerializer.Serialize(person);
+
+// Pretty print
+var options = new JsonSerializerOptions { WriteIndented = true };
+string pretty = JsonSerializer.Serialize(person, options);</code></pre>
+
+            <h3>REST API Example</h3>
+            <pre><code>// Request
+fetch('https://api.example.com/users', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    email: 'john@example.com'
+  })
+})
+.then(res => res.json())
+.then(data => console.log(data));
+
+// Response
+{
+  "id": 123,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "created_at": "2025-01-01T00:00:00Z"
+}</code></pre>
+
+            <h3>package.json Example</h3>
+            <pre><code>{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "My application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "keywords": ["node", "api"],
+  "author": "John Doe",
+  "license": "MIT"
+}</code></pre>
+
+            <h3>Best Practices</h3>
+            <ul>
+                <li>✅ Use double quotes for keys and strings</li>
+                <li>✅ No trailing commas</li>
+                <li>✅ Use arrays for ordered data</li>
+                <li>✅ Use objects for key-value pairs</li>
+                <li>✅ Validate JSON with linters</li>
+                <li>❌ Avoid comments (use separate docs)</li>
+                <li>❌ Don't use functions or undefined</li>
+            </ul>
+
+            <h3>JSON vs Other Formats</h3>
+            <ul>
+                <li><strong>vs XML:</strong> More concise, easier to read</li>
+                <li><strong>vs YAML:</strong> Stricter syntax, better for APIs</li>
+                <li><strong>vs TOML:</strong> Better for data exchange, less for config</li>
+            </ul>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Coduxium XI. Empowering developers with knowledge.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://www.json.org/" target="_blank">JSON Spec</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

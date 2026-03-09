@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete guide to GitHub - Platform for version control and collaboration with repositories, pull requests, issues, GitHub Actions, and powerful developer tools." />
+  <meta name="keywords"
+    content="GitHub, Git, Version Control, Pull Requests, Issues, Actions, CI/CD, Collaboration, Open Source" />
+  <title>GitHub Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>GitHub Complete Guide</h1>
+      <p class="subtitle">Collaborate with pull requests, manage issues, automate with Actions, and work locally with
+        the gh CLI.</p>
+      <div class="badge-row">
+        <span class="badge">REPOSITORIES</span>
+        <span class="badge">PULL REQUESTS</span>
+        <span class="badge">ISSUES</span>
+        <span class="badge">ACTIONS</span>
+        <span class="badge">COLLABORATION</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Pro Tip:</strong> Use GitHub CLI (gh) for creating repos, managing PRs, and
+        automating workflows directly from your terminal. It's faster than using the web interface!</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is GitHub?</h3>
+      <p>GitHub is the world's leading platform for version control and collaboration, built on top of Git. It allows
+        developers to host and review code, manage projects, and build software alongside millions of other developers.
+        With over 100 million developers and 330 million repositories, GitHub has become the home of open source and
+        enterprise software development.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>📦 Repositories</strong> — Host unlimited public and private repos</div>
+        <div class="topic"><strong>🔀 Pull Requests</strong> — Code review and collaboration</div>
+        <div class="topic"><strong>🐛 Issues</strong> — Track bugs, features, and tasks</div>
+        <div class="topic"><strong>⚙️ GitHub Actions</strong> — CI/CD automation workflows</div>
+        <div class="topic"><strong>📊 Projects</strong> — Kanban boards for project management</div>
+        <div class="topic"><strong>🔒 Security</strong> — Dependabot, code scanning, secret scanning</div>
+        <div class="topic"><strong>📚 Pages</strong> — Host static websites for free</div>
+        <div class="topic"><strong>🤝 Collaboration</strong> — Teams, organizations, discussions</div>
+      </div>
+
+      <h3>Why Choose GitHub?</h3>
+      <ul>
+        <li><strong>Industry Standard:</strong> Used by virtually every major tech company and millions of open-source
+          projects.</li>
+        <li><strong>Collaboration Tools:</strong> Pull requests, code review, and discussions make teamwork seamless.
+        </li>
+        <li><strong>CI/CD Integration:</strong> GitHub Actions provides unlimited CI/CD minutes for public repos.</li>
+        <li><strong>Open Source Hub:</strong> Discover, contribute to, and learn from millions of open-source projects.
+        </li>
+        <li><strong>Professional Network:</strong> Your GitHub profile serves as your developer portfolio.</li>
+        <li><strong>Ecosystem:</strong> Integrations with thousands of tools and services.</li>
+      </ul>
+
+      <h3>Use Cases</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>💻 Software Development</strong> — Host code and collaborate</div>
+        <div class="topic"><strong>🌐 Open Source</strong> — Contribute to or maintain projects</div>
+        <div class="topic"><strong>📝 Documentation</strong> — Version control for docs with GitHub Pages</div>
+        <div class="topic"><strong>🎓 Education</strong> — Learn, teach, and showcase projects</div>
+        <div class="topic"><strong>📦 Package Hosting</strong> — npm, Docker, Maven via GitHub Packages</div>
+        <div class="topic"><strong>⚙️ Automation</strong> — CI/CD, release automation, bot workflows</div>
+      </div>
+
+      <h3>GitHub vs Alternatives</h3>
+      <ul>
+        <li><strong>vs GitLab:</strong> Larger community, better for open source, simpler UI, free CI/CD for public
+          repos</li>
+        <li><strong>vs Bitbucket:</strong> Better third-party integrations, larger ecosystem, more active community</li>
+        <li><strong>vs Azure DevOps:</strong> Easier to use, better for open source, more social features</li>
+      </ul>
+
+      <div class="info-box warning"><strong>⚠️ Important:</strong> Never commit secrets (API keys, passwords, tokens) to
+        public repositories. Use GitHub Secrets for CI/CD and environment variables for applications.</div>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+      <p>Get started with GitHub by creating an account and installing GitHub CLI for command-line access.</p>
+
+      <!-- Create Account -->
+      <div id="create-account" class="subsection">
+        <h3>Create GitHub Account</h3>
+        <div class="step"><span class="n">1</span> Go to <a href="https://github.com" target="_blank"
+            rel="noopener noreferrer">github.com</a></div>
+        <div class="step"><span class="n">2</span> Click "Sign up" and enter your email</div>
+        <div class="step"><span class="n">3</span> Create a password (strong password recommended)</div>
+        <div class="step"><span class="n">4</span> Choose a username (this will be your profile URL)</div>
+        <div class="step"><span class="n">5</span> Verify your email address</div>
+        <div class="step"><span class="n">6</span> Complete the setup wizard</div>
+
+        <h4>Account Types</h4>
+        <ul>
+          <li><strong>Free:</strong> Unlimited public/private repos, Actions minutes (2,000/month), code spaces storage
+          </li>
+          <li><strong>Pro ($4/month):</strong> Advanced tools, insights, and support</li>
+          <li><strong>Team ($4/user/month):</strong> Team access controls and management</li>
+          <li><strong>Enterprise:</strong> Advanced security, compliance, and deployment</li>
+        </ul>
+      </div>
+
+      <!-- GitHub CLI Installation -->
+      <div id="cli-install" class="subsection">
+        <h3>GitHub CLI (gh) Installation</h3>
+        <p>The GitHub CLI brings GitHub to your terminal, allowing you to manage repositories, pull requests, issues,
+          and more.</p>
+
+        <h4>Windows Installation</h4>
+        <pre><code># Using winget (recommended)
+winget install -e --id GitHub.cli
+
+# Using Chocolatey
+choco install gh
+
+# Using Scoop
+scoop install gh
+
+# Verify installation
+gh --version</code><button class="copy-btn" data-copy="winget install -e --id GitHub.cli">COPY</button></pre>
+
+        <h4>macOS Installation</h4>
+        <pre><code># Using Homebrew (recommended)
+brew install gh
+
+# Verify installation
+gh --version</code><button class="copy-btn" data-copy="brew install gh">COPY</button></pre>
+
+        <h4>Linux Installation</h4>
+        <pre><code># Debian/Ubuntu
+type -p curl >/dev/null || sudo apt install curl -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
+  sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
+  https://cli.github.com/packages stable main" | \
+  sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh -y
+
+# Fedora/RHEL
+sudo dnf install gh
+
+# Arch Linux
+sudo pacman -S github-cli
+
+# Verify installation
+gh --version</code><button class="copy-btn" data-copy="sudo apt install gh -y">COPY</button></pre>
+      </div>
+
+      <!-- Authentication -->
+      <div id="authentication" class="subsection">
+        <h3>Authentication</h3>
+
+        <h4>Authenticate GitHub CLI</h4>
+        <pre><code># Start authentication flow
+gh auth login
+
+# Follow prompts:
+# 1. GitHub.com or GitHub Enterprise Server? → GitHub.com
+# 2. HTTPS or SSH? → HTTPS (recommended for beginners)
+# 3. Authenticate Git with GitHub credentials? → Yes
+# 4. How to authenticate? → Login with a web browser
+
+# Verify authentication
+gh auth status
+
+# View current user
+gh api user --jq '.login'</code><button class="copy-btn" data-copy="gh auth login">COPY</button></pre>
+
+        <h4>SSH Authentication (Alternative)</h4>
+        <pre><code># Generate SSH key (if you haven't already)
+ssh-keygen -t ed25519 -C "your.email@example.com"
+
+# Start SSH agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# Add SSH key to GitHub account
+gh ssh-key add ~/.ssh/id_ed25519.pub -t "My Laptop"
+
+# Or copy and add manually
+cat ~/.ssh/id_ed25519.pub
+# Go to GitHub → Settings → SSH and GPG keys → New SSH key
+
+# Test connection
+ssh -T git@github.com</code><button class="copy-btn" data-copy='ssh-keygen -t ed25519 -C "your.email@example.com"'>COPY</button></pre>
+
+        <h4>Personal Access Tokens</h4>
+        <div class="step"><span class="n">1</span> Go to GitHub → Settings → Developer settings → Personal access tokens
+          → Tokens (classic)</div>
+        <div class="step"><span class="n">2</span> Click "Generate new token (classic)"</div>
+        <div class="step"><span class="n">3</span> Give it a descriptive name</div>
+        <div class="step"><span class="n">4</span> Set expiration (recommend 90 days)</div>
+        <div class="step"><span class="n">5</span> Select scopes (repo, workflow, etc.)</div>
+        <div class="step"><span class="n">6</span> Generate and copy token (save it securely!)</div>
+
+        <pre><code># Use token for HTTPS authentication
+git clone https://USERNAME:TOKEN@github.com/user/repo.git
+
+# Or configure git credential helper
+git config --global credential.helper store
+# Next time you push, enter token as password</code><button class="copy-btn" data-copy="git config --global credential.helper store">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <p>Learn how to create repositories, collaborate with pull requests, manage issues, and automate workflows.</p>
+
+      <!-- Repositories -->
+      <div id="repositories" class="subsection">
+        <h3>Working with Repositories</h3>
+
+        <h4>Create Repository (Web)</h4>
+        <div class="step"><span class="n">1</span> Click "+" in top-right → "New repository"</div>
+        <div class="step"><span class="n">2</span> Choose owner (personal or organization)</div>
+        <div class="step"><span class="n">3</span> Enter repository name</div>
+        <div class="step"><span class="n">4</span> Add description (optional but recommended)</div>
+        <div class="step"><span class="n">5</span> Choose Public or Private</div>
+        <div class="step"><span class="n">6</span> Initialize with README, .gitignore, license (optional)</div>
+        <div class="step"><span class="n">7</span> Click "Create repository"</div>
+
+        <h4>Create Repository (CLI)</h4>
+        <pre><code># Create new repo from current directory
+gh repo create my-project --public --source=. --remote=origin --push
+
+# Create empty repo
+gh repo create username/my-project --public
+
+# Create with description
+gh repo create my-app --description "My awesome app" --public
+
+# Create private repo
+gh repo create my-secret-project --private
+
+# Initialize from template
+gh repo create my-project --template username/template-repo --public</code><button class="copy-btn" data-copy="gh repo create my-project --public --source=. --push">COPY</button></pre>
+
+        <h4>Clone Repository</h4>
+        <pre><code># Clone via HTTPS
+gh repo clone username/repo
+
+# Clone via SSH
+git clone git@github.com:username/repo.git
+
+# Clone to specific folder
+gh repo clone username/repo my-folder
+
+# Clone and immediately navigate
+gh repo clone username/repo && cd repo</code><button class="copy-btn" data-copy="gh repo clone username/repo">COPY</button></pre>
+
+        <h4>Repository Settings</h4>
+        <pre><code># View repository information
+gh repo view
+
+# View repository in browser
+gh repo view --web
+
+# Archive repository
+gh repo archive username/old-project
+
+# Delete repository
+gh repo delete username/old-project
+
+# Set repository visibility
+gh repo edit --visibility private</code><button class="copy-btn" data-copy="gh repo view">COPY</button></pre>
+      </div>
+
+      <!-- Branches & Pull Requests -->
+      <div id="pull-requests" class="subsection">
+        <h3>Branches & Pull Requests</h3>
+
+        <h4>Create Feature Branch</h4>
+        <pre><code># Create and switch to new branch
+git checkout -b feature/add-login
+
+# Make changes and commit
+git add .
+git commit -m "feat: add login functionality"
+
+# Push branch to GitHub
+git push -u origin feature/add-login</code><button class="copy-btn" data-copy="git checkout -b feature/new-feature">COPY</button></pre>
+
+        <h4>Create Pull Request</h4>
+        <pre><code># Create PR with auto-filled title and body from commits
+gh pr create --fill
+
+# Create PR with custom title and body
+gh pr create --title "Add login feature" --body "Implements user authentication"
+
+# Create PR targeting specific branch
+gh pr create --base develop --head feature/add-login
+
+# Create draft PR
+gh pr create --draft --fill
+
+# Create PR with labels and reviewers
+gh pr create --fill --label enhancement --reviewer @username --assignee @me</code><button class="copy-btn" data-copy="gh pr create --fill">COPY</button></pre>
+
+        <h4>Review Pull Requests</h4>
+        <pre><code># List open PRs
+gh pr list
+
+# View PR details
+gh pr view 123
+
+# View PR in browser
+gh pr view 123 --web
+
+# Checkout PR locally
+gh pr checkout 123
+
+# Review PR
+gh pr review 123 --approve
+gh pr review 123 --request-changes --body "Please fix formatting"
+gh pr review 123 --comment --body "Looks good!"
+
+# Add comment to PR
+gh pr comment 123 --body "Great work!"</code><button class="copy-btn" data-copy="gh pr list">COPY</button></pre>
+
+        <h4>Merge Pull Requests</h4>
+        <pre><code># Merge PR (create merge commit)
+gh pr merge 123
+
+# Squash merge (recommended for feature branches)
+gh pr merge 123 --squash
+
+# Rebase merge
+gh pr merge 123 --rebase
+
+# Merge and delete branch
+gh pr merge 123 --squash --delete-branch
+
+# Auto-merge when checks pass
+gh pr merge 123 --auto --squash</code><button class="copy-btn" data-copy="gh pr merge 123 --squash">COPY</button></pre>
+      </div>
+
+      <!-- Issues -->
+      <div id="issues" class="subsection">
+        <h3>Managing Issues</h3>
+
+        <h4>Create Issues</h4>
+        <pre><code># Create issue interactively
+gh issue create
+
+# Create with title and body
+gh issue create --title "Bug: App crashes on startup" --body "Steps to reproduce..."
+
+# Create with labels
+gh issue create --title "Feature request" --label enhancement,help-wanted
+
+# Create and assign
+gh issue create --title "Fix tests" --assignee @me
+
+# Create from template
+gh issue create --template bug_report.md</code><button class="copy-btn" data-copy="gh issue create">COPY</button></pre>
+
+        <h4>Manage Issues</h4>
+        <pre><code># List issues
+gh issue list
+
+# List open issues assigned to you
+gh issue list --assignee @me
+
+# List issues with specific label
+gh issue list --label bug
+
+# View issue details
+gh issue view 42
+
+# View issue in browser
+gh issue view 42 --web
+
+# Comment on issue
+gh issue comment 42 --body "Working on this"
+
+# Close issue
+gh issue close 42
+
+# Reopen issue
+gh issue reopen 42</code><button class="copy-btn" data-copy="gh issue list">COPY</button></pre>
+
+        <h4>Link Issues to PRs</h4>
+        <pre><code># In PR description or commit message, use keywords:
+# "Fixes #42" or "Closes #42" or "Resolves #42"
+
+# Create PR that closes issue
+gh pr create --fill --body "Closes #42"
+
+# Link existing PR to issue
+gh pr edit 123 --add-label "fixes #42"</code><button class="copy-btn" data-copy="Fixes #123">COPY</button></pre>
+      </div>
+
+      <!-- GitHub Actions -->
+      <div id="actions" class="subsection">
+        <h3>GitHub Actions (CI/CD)</h3>
+
+        <h4>Basic CI Workflow</h4>
+        <pre><code># Create .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run lint
+      
+      - name: Run tests
+        run: npm test
+      
+      - name: Build
+        run: npm run build</code><button class="copy-btn" data-copy="Basic CI workflow">COPY</button></pre>
+
+        <h4>Advanced Workflow with Matrix</h4>
+        <pre><code>name: Test Matrix
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [18, 20, 22]
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test</code><button class="copy-btn" data-copy="Matrix workflow">COPY</button></pre>
+
+        <h4>Deploy Workflow</h4>
+        <pre><code>name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build Docker image
+        run: docker build -t myapp:${{ github.sha }} .
+      
+      - name: Push to registry
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          docker push myapp:${{ github.sha }}
+      
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            docker pull myapp:${{ github.sha }}
+            docker stop myapp || true
+            docker run -d --name myapp -p 80:3000 myapp:${{ github.sha }}</code><button class="copy-btn" data-copy="Deploy workflow">COPY</button></pre>
+
+        <h4>View Workflow Runs</h4>
+        <pre><code># List workflow runs
+gh run list
+
+# View specific run
+gh run view 123456
+
+# Watch live run
+gh run watch
+
+# Rerun failed jobs
+gh run rerun 123456
+
+# Cancel running workflow
+gh run cancel 123456</code><button class="copy-btn" data-copy="gh run list">COPY</button></pre>
+
+        <h4>Scheduled Workflows (Cron Jobs)</h4>
+        <pre><code>name: Nightly Build
+
+on:
+  schedule:
+    # Run at 2 AM UTC every day
+    - cron: '0 2 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run nightly tasks
+        run: |
+          npm ci
+          npm run build
+          npm run test:e2e</code><button class="copy-btn" data-copy="Scheduled workflow">COPY</button></pre>
+
+        <h4>Docker Build and Push to GHCR</h4>
+        <pre><code>name: Docker Build and Push
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*.*.*' ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=sha
+      
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max</code><button class="copy-btn" data-copy="Docker GHCR workflow">COPY</button></pre>
+
+        <h4>Reusable Workflows</h4>
+        <pre><code># .github/workflows/reusable-test.yml
+name: Reusable Test Workflow
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+      - run: npm ci
+      - run: npm test
+
+# Use in another workflow:
+# .github/workflows/ci.yml
+name: CI
+on: [push]
+
+jobs:
+  call-test:
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      node-version: '20'</code><button class="copy-btn" data-copy="Reusable workflow">COPY</button></pre>
+
+        <h4>Composite Actions</h4>
+        <pre><code># .github/actions/setup-node-app/action.yml
+name: 'Setup Node App'
+description: 'Setup Node.js and install dependencies'
+
+inputs:
+  node-version:
+    description: 'Node.js version'
+    required: false
+    default: '20'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'npm'
+    - run: npm ci
+      shell: bash
+
+# Use in workflow:
+steps:
+  - uses: actions/checkout@v4
+  - uses: ./.github/actions/setup-node-app
+    with:
+      node-version: '20'</code><button class="copy-btn" data-copy="Composite action">COPY</button></pre>
+
+        <h4>Release Automation</h4>
+        <pre><code>name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build artifacts
+        run: |
+          npm ci
+          npm run build
+          zip -r release.zip dist/
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code><button class="copy-btn" data-copy="Release workflow">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>GitHub Projects</h3>
+      <p>Use Projects for flexible project management with Kanban boards, tables, and roadmaps:</p>
+      <div class="step"><span class="n">1</span> Go to repository → "Projects" tab</div>
+      <div class="step"><span class="n">2</span> Click "New project"</div>
+      <div class="step"><span class="n">3</span> Choose template (Board, Table, Roadmap)</div>
+      <div class="step"><span class="n">4</span> Add issues and pull requests</div>
+      <div class="step"><span class="n">5</span> Organize with custom fields and views</div>
+
+      <h3>GitHub Packages</h3>
+      <pre><code># Publish npm package
+npm publish
+
+# Publish Docker image to GHCR
+echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u USERNAME --password-stdin
+docker build -t ghcr.io/username/myapp:latest .
+docker push ghcr.io/username/myapp:latest
+
+# Use in GitHub Actions
+- uses: docker://ghcr.io/username/myapp:latest</code><button class="copy-btn" data-copy="GitHub Packages">COPY</button></pre>
+
+      <h3>GitHub Pages</h3>
+      <pre><code># Deploy static site from gh-pages branch
+# 1. Create gh-pages branch
+git checkout --orphan gh-pages
+git rm -rf .
+
+# 2. Add your static files
+echo "Hello World" > index.html
+git add index.html
+git commit -m "Initial GitHub Pages"
+git push origin gh-pages
+
+# 3. Enable in Settings → Pages → Source: gh-pages
+
+# Automated deployment with Actions
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci && npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist</code><button class="copy-btn" data-copy="GitHub Pages">COPY</button></pre>
+
+      <h3>Branch Protection Rules</h3>
+      <p>Enforce code quality and review requirements:</p>
+      <div class="step"><span class="n">1</span> Go to Settings → Branches</div>
+      <div class="step"><span class="n">2</span> Add branch protection rule for "main"</div>
+      <div class="step"><span class="n">3</span> Enable "Require pull request reviews"</div>
+      <div class="step"><span class="n">4</span> Enable "Require status checks to pass"</div>
+      <div class="step"><span class="n">5</span> Enable "Require branches to be up to date"</div>
+      <div class="step"><span class="n">6</span> Optionally require signed commits</div>
+
+      <h3>GitHub Secrets</h3>
+      <pre><code># Add secrets via web:
+# Settings → Secrets and variables → Actions → New repository secret
+
+# Access in workflows:
+steps:
+  - name: Deploy
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    run: ./deploy.sh
+
+# Organization secrets (available to all repos)
+# Organization Settings → Secrets and variables → Actions</code><button class="copy-btn" data-copy="GitHub Secrets">COPY</button></pre>
+
+      <h3>Dependabot</h3>
+      <pre><code># Enable Dependabot updates
+# Create .github/dependabot.yml:
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"</code><button class="copy-btn" data-copy="Dependabot config">COPY</button></pre>
+
+      <h3>GitHub CLI Extensions</h3>
+      <pre><code># List installed extensions
+gh extension list
+
+# Install extension
+gh extension install github/gh-copilot
+
+# Browse extensions
+gh extension browse
+
+# Create your own extension
+gh extension create my-extension</code><button class="copy-btn" data-copy="gh extension list">COPY</button></pre>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Complete Your Profile</strong> — Add bio, location, and pin your
+        best repos</div>
+      <div class="step"><span class="n">2</span><strong>Create Your First Repo</strong> — Initialize with README and
+        .gitignore</div>
+      <div class="step"><span class="n">3</span><strong>Practice Pull Requests</strong> — Create branches and PRs on a
+        test repo</div>
+      <div class="step"><span class="n">4</span><strong>Set Up GitHub Actions</strong> — Add CI/CD to your projects
+      </div>
+      <div class="step"><span class="n">5</span><strong>Contribute to Open Source</strong> — Find projects on GitHub
+        Explore</div>
+      <div class="step"><span class="n">6</span><strong>Enable Security Features</strong> — Dependabot, code scanning
+      </div>
+      <div class="step"><span class="n">7</span><strong>Master GitHub CLI</strong> — Automate your workflow with gh
+      </div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://docs.github.com/" target="_blank" rel="noopener noreferrer">Official GitHub
+            Documentation</a></li>
+        <li>🎓 <a href="https://skills.github.com/" target="_blank" rel="noopener noreferrer">GitHub Skills (Interactive
+            Courses)</a></li>
+        <li>⚙️ <a href="https://cli.github.com/manual/" target="_blank" rel="noopener noreferrer">GitHub CLI Manual</a>
+        </li>
+        <li>🚀 <a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer">GitHub Actions
+            Documentation</a></li>
+        <li>🌐 <a href="https://github.com/explore" target="_blank" rel="noopener noreferrer">GitHub Explore</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

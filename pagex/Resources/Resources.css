@@ -1,0 +1,226 @@
+     /* Resources Page Specific Styles */
+        .resources-header {
+            text-align: center;
+            margin-bottom: 48px;
+            background: var(--card);
+            padding: 32px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-top: 4px solid var(--primary);
+        }
+
+        .resources-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0 0 12px 0;
+        }
+
+        .resources-header p {
+            font-size: 1.125rem;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .resource-section {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 32px;
+            margin-bottom: 48px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resource-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
+        }
+
+        .resource-section h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0 0 24px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .sub-section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .sub-section-card {
+            padding: 20px;
+            background: var(--card2);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .sub-section-card:hover {
+            background: var(--card);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .sub-section-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0 0 16px 0;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .resource-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: block;
+        }
+
+        .resource-list a:hover {
+            color: var(--primary-hover);
+        }
+
+        .resource-list a[aria-disabled="true"] {
+            color: var(--muted);
+            cursor: default;
+            opacity: 0.6;
+        }
+
+        .roadmap-section {
+            margin-top: 64px;
+            margin-bottom: 48px;
+        }
+
+        .roadmap-section h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--warn);
+        }
+
+        .roadmap-content {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 32px;
+        }
+
+        .roadmap-content>p {
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .roadmap-link-wrapper {
+            display: block;
+        }
+
+        .roadmap-link {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-radius: 8px;
+            background: var(--card2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .roadmap-link:hover {
+            background: var(--card);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .roadmap-link .emoji {
+            margin-right: 12px;
+            font-size: 1.25rem;
+        }
+
+        .tips-footer {
+            margin-top: 48px;
+            padding: 32px;
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        .tips-footer h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            color: #ffffff;
+        }
+
+        .tips-footer ol {
+            list-style: decimal;
+            margin-left: 24px;
+            margin-bottom: 24px;
+        }
+
+        .tips-footer li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .tips-footer li strong {
+            font-weight: 600;
+        }
+
+        .tips-footer .closing {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .tips-footer .closing strong {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .resources-header h1 {
+                font-size: 2rem;
+            }
+
+            .resource-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .sub-section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+            }
+        }

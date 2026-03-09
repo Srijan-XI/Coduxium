@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google Cloud Platform (GCP) — Coduxium XI</title>
+    <meta name="description" content="GCP - Google's cloud computing platform with advanced data analytics and AI.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Google Cloud Platform</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>☁️ Google Cloud Platform (GCP)</h2>
+            <p class="intro">Google's cloud platform with industry-leading data analytics, AI/ML, and Kubernetes expertise.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">CLOUD</span>
+                    <span class="badge">AI/ML</span>
+                    <span class="badge">BIG DATA</span>
+                    <span class="badge">KUBERNETES</span>
+                </div>
+                <p>Google Cloud Platform (GCP) is a suite of cloud computing services running on Google's infrastructure. It excels in big data processing, machine learning, and containerized applications with Kubernetes.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Services</h3>
+                <ul>
+                    <li><strong>Compute Engine</strong> — Virtual machines on Google infrastructure</li>
+                    <li><strong>App Engine</strong> — Fully managed serverless platform</li>
+                    <li><strong>Cloud Functions</strong> — Event-driven serverless compute</li>
+                    <li><strong>Cloud Storage</strong> — Object storage with global edge caching</li>
+                    <li><strong>Cloud SQL</strong> — Managed MySQL, PostgreSQL, SQL Server</li>
+                    <li><strong>Firestore/Datastore</strong> — NoSQL document database</li>
+                    <li><strong>GKE (Google Kubernetes Engine)</strong> — Managed Kubernetes</li>
+                    <li><strong>BigQuery</strong> — Serverless data warehouse</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>gcloud CLI Installation</h3>
+                <pre><code># Linux/macOS
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+
+# Windows (using installer)
+# Download from: https://cloud.google.com/sdk/docs/install
+
+# Initialize gcloud
+gcloud init
+
+# Authenticate
+gcloud auth login
+
+# Set default project
+gcloud config set project PROJECT_ID
+
+# List projects
+gcloud projects list
+
+# Verify installation
+gcloud --version</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Compute Engine Operations</h3>
+                <pre><code># Create VM instance
+gcloud compute instances create my-instance \
+    --zone=us-central1-a \
+    --machine-type=e2-medium \
+    --image-family=ubuntu-2204-lts \
+    --image-project=ubuntu-os-cloud \
+    --boot-disk-size=10GB
+
+# List instances
+gcloud compute instances list
+
+# Start instance
+gcloud compute instances start my-instance --zone=us-central1-a
+
+# Stop instance
+gcloud compute instances stop my-instance --zone=us-central1-a
+
+# SSH into instance
+gcloud compute ssh my-instance --zone=us-central1-a
+
+# Delete instance
+gcloud compute instances delete my-instance --zone=us-central1-a
+
+# Get instance details
+gcloud compute instances describe my-instance --zone=us-central1-a</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Cloud Storage Operations</h3>
+                <pre><code># Create bucket
+gsutil mb gs://my-bucket-name
+
+# List buckets
+gsutil ls
+
+# Upload file
+gsutil cp local-file.txt gs://my-bucket-name/
+
+# Download file
+gsutil cp gs://my-bucket-name/remote-file.txt ./
+
+# Sync directory
+gsutil rsync -r ./local-folder gs://my-bucket-name/folder/
+
+# List objects in bucket
+gsutil ls gs://my-bucket-name/
+
+# Delete object
+gsutil rm gs://my-bucket-name/file.txt
+
+# Delete bucket
+gsutil rb gs://my-bucket-name
+
+# Make object public
+gsutil acl ch -u AllUsers:R gs://my-bucket-name/file.txt</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Cloud Functions Example</h3>
+                <pre><code># Node.js HTTP Function
+exports.helloWorld = (req, res) => {
+    const name = req.query.name || req.body.name || 'World';
+    res.send(`Hello ${name}!`);
+};
+
+# Python HTTP Function
+def hello_world(request):
+    request_json = request.get_json(silent=True)
+    request_args = request.args
+
+    if request_json and 'name' in request_json:
+        name = request_json['name']
+    elif request_args and 'name' in request_args:
+        name = request_args['name']
+    else:
+        name = 'World'
+    
+    return f'Hello {name}!'
+
+# Deploy function
+gcloud functions deploy helloWorld \
+    --runtime nodejs18 \
+    --trigger-http \
+    --allow-unauthenticated \
+    --entry-point helloWorld
+
+# Invoke function
+curl https://REGION-PROJECT_ID.cloudfunctions.net/helloWorld?name=User</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GCP SDK Example (Python)</h3>
+                <pre><code>from google.cloud import storage
+from google.cloud import compute_v1
+
+# Cloud Storage operations
+storage_client = storage.Client()
+
+# Upload blob
+bucket = storage_client.bucket('my-bucket')
+blob = bucket.blob('myfile.txt')
+blob.upload_from_filename('local-file.txt')
+
+# Download blob
+blob.download_to_filename('downloaded-file.txt')
+
+# List blobs
+blobs = storage_client.list_blobs('my-bucket')
+for blob in blobs:
+    print(blob.name)
+
+# Compute Engine operations
+instance_client = compute_v1.InstancesClient()
+
+# List instances
+request = compute_v1.AggregatedListInstancesRequest()
+request.project = "your-project-id"
+
+agg_list = instance_client.aggregated_list(request=request)
+for zone, response in agg_list:
+    if response.instances:
+        for instance in response.instances:
+            print(f"Instance: {instance.name}, Zone: {zone}")
+
+# BigQuery operations
+from google.cloud import bigquery
+
+client = bigquery.Client()
+
+query = """
+    SELECT name, COUNT(*) as count
+    FROM `bigquery-public-data.usa_names.usa_1910_current`
+    WHERE state = 'TX'
+    GROUP BY name
+    ORDER BY count DESC
+    LIMIT 10
+"""
+
+query_job = client.query(query)
+for row in query_job:
+    print(f"{row.name}: {row.count}")</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Deployment Manager Template</h3>
+                <pre><code># deployment.yaml
+resources:
+- name: my-vm
+  type: compute.v1.instance
+  properties:
+    zone: us-central1-a
+    machineType: zones/us-central1-a/machineTypes/e2-medium
+    disks:
+    - deviceName: boot
+      type: PERSISTENT
+      boot: true
+      autoDelete: true
+      initializeParams:
+        sourceImage: projects/ubuntu-os-cloud/global/images/family/ubuntu-2204-lts
+    networkInterfaces:
+    - network: global/networks/default
+      accessConfigs:
+      - name: External NAT
+        type: ONE_TO_ONE_NAT
+
+- name: my-bucket
+  type: storage.v1.bucket
+  properties:
+    location: US
+    storageClass: STANDARD
+
+# Deploy
+gcloud deployment-manager deployments create my-deployment \
+    --config deployment.yaml
+
+# Delete deployment
+gcloud deployment-manager deployments delete my-deployment</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>GKE (Google Kubernetes Engine)</h3>
+                <pre><code># Create GKE cluster
+gcloud container clusters create my-cluster \
+    --num-nodes=3 \
+    --zone=us-central1-a
+
+# Get credentials
+gcloud container clusters get-credentials my-cluster --zone=us-central1-a
+
+# Deploy application
+kubectl create deployment hello-app \
+    --image=gcr.io/google-samples/hello-app:1.0
+
+# Expose deployment
+kubectl expose deployment hello-app --type=LoadBalancer --port 80 --target-port 8080
+
+# List services
+kubectl get services
+
+# Delete cluster
+gcloud container clusters delete my-cluster --zone=us-central1-a</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Pricing Model</h3>
+                <ul>
+                    <li><strong>Pay-as-you-go</strong> — Per-second billing for compute</li>
+                    <li><strong>Sustained Use Discounts</strong> — Automatic discounts for running workloads</li>
+                    <li><strong>Committed Use Discounts</strong> — Up to 57% savings with 1-3 year commitment</li>
+                    <li><strong>Free Tier</strong> — $300 credit for 90 days + always free products</li>
+                    <li><strong>Preemptible VMs</strong> — Up to 80% discount for short-lived workloads</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Global Infrastructure</h3>
+                <ul>
+                    <li><strong>40+ Regions</strong> — Worldwide coverage</li>
+                    <li><strong>121 Zones</strong> — Isolated locations within regions</li>
+                    <li><strong>200+ Edge Locations</strong> — For Cloud CDN</li>
+                    <li><strong>Premium Network</strong> — Google's private fiber network</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Differentiators</h3>
+                <ul>
+                    <li><strong>BigQuery</strong> — Industry-leading serverless data warehouse</li>
+                    <li><strong>AI/ML Services</strong> — TensorFlow, Vertex AI, AutoML</li>
+                    <li><strong>Kubernetes</strong> — Creators of Kubernetes, best GKE</li>
+                    <li><strong>Network Performance</strong> — Google's global fiber network</li>
+                    <li><strong>Open Source</strong> — Strong commitment to open standards</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use service accounts for authentication</li>
+                    <li>Enable Cloud Monitoring and Logging</li>
+                    <li>Implement IAM least privilege</li>
+                    <li>Use Secret Manager for sensitive data</li>
+                    <li>Enable VPC Service Controls for security</li>
+                    <li>Use labels for resource organization</li>
+                    <li>Implement Cloud Armor for DDoS protection</li>
+                    <li>Regular backups with Cloud Storage</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li>🌐 <a href="https://cloud.google.com/" target="_blank">Official Website</a></li>
+                    <li>📚 <a href="https://cloud.google.com/docs" target="_blank">Documentation</a></li>
+                    <li>🎓 <a href="https://cloud.google.com/training" target="_blank">Training & Certification</a></li>
+                    <li>💬 <a href="https://cloud.google.com/support" target="_blank">Community Support</a></li>
+                    <li>📦 <a href="https://github.com/GoogleCloudPlatform" target="_blank">GitHub - GCP</a></li>
+                    <li>🎥 <a href="https://www.youtube.com/user/googlecloudplatform" target="_blank">YouTube Channel</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://cloud.google.com/" target="_blank">Google Cloud</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Coduxium XI - Modern Developer Hub</title>
+	<meta name="description"
+		content="Your comprehensive developer resource hub. Learn, explore, and master 15+ programming languages, 17+ frameworks, and cutting-edge tools." />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="popup message/popup.css" />
+	<!-- Component Styles -->
+	<link rel="stylesheet" href="components/theme-switch/theme-switcher.css" />
+	<link rel="stylesheet" href="components/scroll-to-top/scroll-to-top.css" />
+	<link rel="stylesheet" href="components/code-highlighter/code-highlighter.css" />
+	<link rel="stylesheet" href="components/animations.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<div class="brand">
+				<span class="logo">💻</span>
+				<div>
+					<h1>Coduxium XI</h1>
+					<p class="sub">Your Developer Hub</p>
+				</div>
+			</div>
+
+			<div class="header-actions">
+				<a id="btn-download" class="btn primary" target="_blank" rel="noopener">⬇ Download</a>
+				<button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+			</div>
+		</div>
+	</header>
+
+	<!-- Under Development Popup -->
+	<div id="dev-popup" class="popup-overlay">
+		<div class="popup-modal">
+			<div class="popup-header">
+				<span class="popup-icon">🚧</span>
+				<h2>Site Under Development</h2>
+			</div>
+			<div class="popup-content">
+				<p>This website is still under active development. Some features may not work as expected.</p>
+				<p>We're working hard to improve your experience. Thank you for your patience!</p>
+			</div>
+			<div class="popup-footer">
+				<button id="close-popup" class="btn btn-primary">Got it!</button>
+				<label class="popup-checkbox">
+					<input type="checkbox" id="dont-show-again">
+					<span>Don't show this again</span>
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<main class="container">
+		<!-- Modern Hero Section -->
+		<section class="modern-hero">
+			<div class="hero-content">
+				<div class="hero-badge">
+					<span class="pulse-dot"></span>
+					<span>20 Languages • 25 Frameworks • 9 DevOps Tools • 8 Dev Tools • 100+ Resources</span>
+				</div>
+
+				<h1 class="hero-title">Master Development,<br>One Resource at a Time</h1>
+
+				<p class="hero-description">
+					Your comprehensive developer resource hub. Explore curated learning paths, installation guides,
+					and practice resources for modern programming languages, frameworks, and tools.
+				</p>
+
+				<div class="hero-cta">
+					<a href="pages/Languages/languages.html" class="cta-primary">
+						<span>🚀</span>
+						<span>Explore Languages</span>
+					</a>
+					<a href="pagex/Resources/Resources.html" class="cta-secondary">
+						<span>📚</span>
+						<span>Browse Resources</span>
+					</a>
+					<a href="pagex/tools/tools.html" class="cta-secondary">
+						<span>🛠️</span>
+						<span>Developer Tools</span>
+					</a>
+				</div>
+
+				<!-- Stats Showcase -->
+				<div class="stats-showcase" id="stats"></div>
+			</div>
+		</section>
+
+		<!-- Search & Filter Section -->
+		<section class="search-section">
+			<h2 class="section-title">Find Your Next Technology</h2>
+
+			<div class="search-container">
+				<span class="search-icon">🔍</span>
+				<input id="search" class="search-input" type="search"
+					placeholder="Search languages, frameworks, databases, tools..." />
+			</div>
+
+			<div class="filter-chips">
+				<button class="filter-chip active" data-filter="all">All</button>
+				<button class="filter-chip" data-filter="language">Languages</button>
+				<button class="filter-chip" data-filter="framework">Frameworks</button>
+				<button class="filter-chip" data-filter="database">Databases</button>
+				<button class="filter-chip" data-filter="linux">Linux</button>
+				<button class="filter-chip" data-filter="tool">DevOps</button>
+				<button class="filter-chip" data-filter="dev-tool">Dev Tools</button>
+				<button class="filter-chip" data-filter="testing">Testing</button>
+			</div>
+		</section>
+
+		<!-- Content Section -->
+		<section>
+			<div id="cards" class="content-grid"></div>
+		</section>
+
+		<!-- Quick Links Section -->
+		<section class="quick-links-section">
+			<h2 class="section-title">Quick Access</h2>
+			<div id="links" class="links-grid"></div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<!-- Footer Top: Brand + Columns -->
+		<div class="container footer-top">
+			<div class="footer-brand">
+				<div class="logo-mark">💻</div>
+				<div>
+					<h4>Coduxium XI</h4>
+					<p class="footer-desc">Learn, install, and practice across languages, frameworks, databases, DevOps
+						tools, and testing frameworks — all in one place.</p>
+				</div>
+			</div>
+
+			<div class="footer-col">
+				<h5>Explore</h5>
+				<ul class="footer-list">
+					<li><a href="pages/Languages/languages.html">Languages</a></li>
+					<li><a href="pages/Framework/frameworks.html">Frameworks</a></li>
+					<li><a href="pages/Database/databases.html">Databases</a></li>
+					<li><a href="pages/Linux/linux.html">Linux</a></li>
+					<li><a href="docpages/about/about.html">About</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-col">
+				<h5>Project</h5>
+				<ul class="footer-list">
+					<li><a id="repo-link" target="_blank" rel="noopener">GitHub Repo</a></li>
+					<li><a id="issues-link" target="_blank" rel="noopener">Issues</a></li>
+					<li><a href="docpages/changelog/changelog.html">Changelog</a></li>
+					<li><a href="docpages/Documentation/documentation.html">Docs</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-col footer-social">
+				<h5>Connect</h5>
+				<div class="social-links">
+					<a class="social-link" href="https://github.com/Srijan-XI" target="_blank" rel="noopener"
+						aria-label="GitHub">🐙</a>
+					<a class="social-link" href="docpages/Contact/contact.html" aria-label="Contact">📨</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Bottom: Meta + Credit -->
+
+		<div class="container footer-disclaimer">
+			<p>
+				<strong>⚠️ Disclaimer:</strong> If the site doesn't work properly, please visit the <a
+					id="disclaimer-repo-link" target="_blank" rel="noopener" class="disclaimer-link">GitHub
+					repository</a> directly.
+			</p>
+		</div>
+	</footer>
+
+	<script>
+		window.repoConfig = {
+			repoUrl: "https://github.com/Srijan-XI/RunexisForge",
+			zipUrl: "https://github.com/Srijan-XI/RunexisForge/archive/refs/heads/main.zip"
+		};
+	</script>
+	<!-- Component Scripts -->
+	<script src="components/theme-switch/theme-switcher.js"></script>
+	<!-- Ensure data models exist before search builds index -->
+	<script src="js/app.js"></script>
+	<script src="components/scroll-to-top/scroll-to-top.js"></script>
+	<script src="components/code-highlighter/code-highlighter.js"></script>
+	<script src="popup message/popup.js"></script>
+	<script src="watermark/watermark.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete Go (Golang) guide - Fast, simple, and efficient language for cloud services, microservices, and concurrent programming." />
+  <meta name="keywords" content="Go, Golang, Concurrency, Cloud, Microservices, Backend, Google" />
+  <title>Go (Golang) Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>🐹 Go (Golang) Complete Guide</h1>
+      <p class="subtitle">Fast, simple, and efficient - build scalable cloud services and microservices.</p>
+      <div class="badge-row">
+        <span class="badge">CONCURRENT</span>
+        <span class="badge">SIMPLE</span>
+        <span class="badge">FAST</span>
+        <span class="badge">CLOUD-NATIVE</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Simplicity:</strong> Go prioritizes simplicity and readability. If you can read
+        C, you can read Go.</div>
+    </header>
+
+    <!-- ==================== INTRODUCTION SECTION ==================== -->
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is Go?</h3>
+      <p><strong>Go</strong> (Golang) is an open-source programming language created at Google in 2009. Designed for
+        simplicity, efficiency, and strong support for concurrent programming, Go has become the language of choice for
+        cloud infrastructure, microservices, and DevOps tools.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>⚡ Fast Compilation</strong> — Quick build times</div>
+        <div class="topic"><strong>🔄 Goroutines</strong> — Lightweight concurrency</div>
+        <div class="topic"><strong>📦 Static Typing</strong> — Type safety with inference</div>
+        <div class="topic"><strong>🗑️ Garbage Collection</strong> — Automatic memory management</div>
+        <div class="topic"><strong>📚 Standard Library</strong> — Comprehensive built-in packages</div>
+        <div class="topic"><strong>🔧 Simple Syntax</strong> — Easy to learn and read</div>
+        <div class="topic"><strong>🌐 Cross-Platform</strong> — Compile for any OS</div>
+        <div class="topic"><strong>⚙️ Built-in Tooling</strong> — Testing, formatting, docs</div>
+      </div>
+
+      <h3>Why Choose Go?</h3>
+      <ul>
+        <li><strong>Cloud-Native:</strong> Powers Docker, Kubernetes, Terraform</li>
+        <li><strong>Performance:</strong> Compiled to native code, fast execution</li>
+        <li><strong>Concurrency:</strong> Goroutines and channels make parallelism easy</li>
+        <li><strong>Simple:</strong> Small language spec, easy to master</li>
+        <li><strong>Productive:</strong> Fast compilation, great tooling</li>
+        <li><strong>Scalable:</strong> Built for handling high loads</li>
+      </ul>
+    </section>
+
+    <!-- ==================== INSTALLATION & SETUP SECTION ==================== -->
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+
+      <!-- Windows -->
+      <div id="windows-install" class="subsection">
+        <h3>Windows Installation</h3>
+        <pre><code># Using winget
+winget install -e --id GoLang.Go
+
+# Or download from golang.org
+# Verify
+go version</code><button class="copy-btn" data-copy="winget install -e --id GoLang.Go">COPY</button></pre>
+      </div>
+
+      <!-- macOS -->
+      <div id="macos-install" class="subsection">
+        <h3>macOS Installation</h3>
+        <pre><code># Using Homebrew
+brew install go
+
+# Verify
+go version</code><button class="copy-btn" data-copy="brew install go">COPY</button></pre>
+      </div>
+
+      <!-- Linux -->
+      <div id="linux-install" class="subsection">
+        <h3>Linux Installation</h3>
+        <pre><code># Download and install
+wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
+
+# Add to PATH (~/.bashrc or ~/.zshrc)
+export PATH=$PATH:/usr/local/go/bin
+
+# Verify
+go version</code><button class="copy-btn" data-copy="go version">COPY</button></pre>
+      </div>
+
+      <!-- First Program -->
+      <div id="first-program" class="subsection">
+        <h3>Your First Go Program</h3>
+        <pre><code>// main.go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, Go!")
+}
+
+// Run directly
+go run main.go
+
+// Build executable
+go build main.go
+./main</code><button class="copy-btn" data-copy="go run main.go">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== USER GUIDE SECTION ==================== -->
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Variables & Types</h3>
+        <pre><code>package main
+
+import "fmt"
+
+func main() {
+    // Variable declaration
+    var name string = "Alice"
+    var age int = 30
+    
+    // Short declaration
+    city := "New York"
+    isActive := true
+    
+    // Constants
+    const Pi = 3.14159
+    
+    // Multiple variables
+    var x, y, z int = 1, 2, 3
+    
+    fmt.Println(name, age, city)
+}</code><button class="copy-btn" data-copy='name := "Alice"\nage := 30'>COPY</button></pre>
+
+        <h3>Functions</h3>
+        <pre><code>package main
+
+import "fmt"
+
+// Basic function
+func greet(name string) string {
+    return "Hello, " + name
+}
+
+// Multiple return values
+func swap(a, b int) (int, int) {
+    return b, a
+}
+
+// Named return values
+func divide(a, b float64) (result float64, err error) {
+    if b == 0 {
+        err = fmt.Errorf("division by zero")
+        return
+    }
+    result = a / b
+    return
+}
+
+func main() {
+    fmt.Println(greet("Go"))
+    x, y := swap(5, 10)
+    fmt.Println(x, y)
+}</code><button class="copy-btn" data-copy="func greet(name string) string {\n    return \"Hello, \" + name\n}">COPY</button></pre>
+
+        <h3>Structs</h3>
+        <pre><code>package main
+
+import "fmt"
+
+// Define struct
+type Person struct {
+    Name string
+    Age  int
+}
+
+// Method on struct
+func (p Person) Greet() string {
+    return fmt.Sprintf("Hi, I'm %s", p.Name)
+}
+
+// Pointer receiver (can modify)
+func (p *Person) Birthday() {
+    p.Age++
+}
+
+func main() {
+    person := Person{Name: "Alice", Age: 30}
+    fmt.Println(person.Greet())
+    
+    person.Birthday()
+    fmt.Println(person.Age) // 31
+}</code><button class="copy-btn" data-copy="type Person struct {\n    Name string\n    Age  int\n}">COPY</button></pre>
+
+        <h3>Slices & Maps</h3>
+        <pre><code>package main
+
+import "fmt"
+
+func main() {
+    // Slices (dynamic arrays)
+    numbers := []int{1, 2, 3, 4, 5}
+    numbers = append(numbers, 6)
+    
+    // Slice operations
+    fmt.Println(numbers[0:3])  // [1 2 3]
+    fmt.Println(len(numbers))   // 6
+    
+    // Maps
+    ages := make(map[string]int)
+    ages["Alice"] = 30
+    ages["Bob"] = 25
+    
+    // Check if key exists
+    age, exists := ages["Alice"]
+    if exists {
+        fmt.Println(age)
+    }
+    
+    // Delete
+    delete(ages, "Bob")
+}</code><button class="copy-btn" data-copy="numbers := []int{1, 2, 3}\nages := make(map[string]int)">COPY</button></pre>
+
+        <h3>Goroutines & Channels</h3>
+        <pre><code>package main
+
+import (
+    "fmt"
+    "time"
+)
+
+// Goroutine (lightweight thread)
+func say(s string) {
+    for i := 0; i < 3; i++ {
+        time.Sleep(100 * time.Millisecond)
+        fmt.Println(s)
+    }
+}
+
+func main() {
+    // Run concurrently
+    go say("Hello")
+    say("World")
+    
+    // Channels for communication
+    ch := make(chan string)
+    
+    go func() {
+        ch <- "Message from goroutine"
+    }()
+    
+    msg := <-ch // Receive from channel
+    fmt.Println(msg)
+}</code><button class="copy-btn" data-copy="go say(\"Hello\")\nch := make(chan string)">COPY</button></pre>
+
+        <h3>Interfaces</h3>
+        <pre><code>package main
+
+import "fmt"
+
+// Interface definition
+type Shape interface {
+    Area() float64
+}
+
+// Rectangle implements Shape
+type Rectangle struct {
+    Width, Height float64
+}
+
+func (r Rectangle) Area() float64 {
+    return r.Width * r.Height
+}
+
+// Circle implements Shape
+type Circle struct {
+    Radius float64
+}
+
+func (c Circle) Area() float64 {
+    return 3.14 * c.Radius * c.Radius
+}
+
+func printArea(s Shape) {
+    fmt.Println("Area:", s.Area())
+}
+
+func main() {
+    r := Rectangle{Width: 10, Height: 5}
+    c := Circle{Radius: 7}
+    
+    printArea(r)
+    printArea(c)
+}</code><button class="copy-btn" data-copy="type Shape interface {\n    Area() float64\n}">COPY</button></pre>
+      </div>
+    </section>
+
+    <!-- ==================== ADVANCED TOPICS SECTION ==================== -->
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Error Handling</h3>
+      <pre><code>package main
+
+import (
+    "errors"
+    "fmt"
+)
+
+func divide(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, errors.New("division by zero")
+    }
+    return a / b, nil
+}
+
+func main() {
+    result, err := divide(10, 0)
+    if err != nil {
+        fmt.Println("Error:", err)
+        return
+    }
+    fmt.Println("Result:", result)
+}</code><button class="copy-btn" data-copy="if err != nil {\n    return err\n}">COPY</button></pre>
+
+      <h3>Modules & Packages</h3>
+      <pre><code># Initialize module
+go mod init github.com/username/myproject
+
+# Add dependency
+go get github.com/gin-gonic/gin
+
+# Import in code
+import "github.com/gin-gonic/gin"
+
+# Install dependencies
+go mod tidy
+
+# Vendor dependencies
+go mod vendor</code><button class="copy-btn" data-copy="go mod init github.com/username/project">COPY</button></pre>
+
+      <h3>Popular Frameworks</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>Gin</strong>Fast web framework</div>
+        <div class="package-item"><strong>Echo</strong>High performance HTTP framework</div>
+        <div class="package-item"><strong>Fiber</strong>Express-inspired web framework</div>
+        <div class="package-item"><strong>GORM</strong>ORM library</div>
+      </div>
+    </section>
+
+    <!-- ==================== NEXT STEPS SECTION ==================== -->
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Master Goroutines</strong> — Understand concurrency patterns
+      </div>
+      <div class="step"><span class="n">2</span><strong>Build REST APIs</strong> — Use Gin or Echo</div>
+      <div class="step"><span class="n">3</span><strong>Learning Testing</strong> — Built-in testing framework</div>
+      <div class="step"><span class="n">4</span><strong>Study Standard Library</strong> — Rich, well-documented</div>
+      <div class="step"><span class="n">5</span><strong>Cloud Projects</strong> — Microservices, CLI tools</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://go.dev/doc/" target="_blank">Official Go Documentation</a></li>
+        <li>🎓 <a href="https://tour.golang.org/" target="_blank">A Tour of Go</a></li>
+        <li>📘 <a href="https://gobyexample.com/" target="_blank">Go by Example</a></li>
+        <li>📚 <a href="https://golang.org/ref/spec" target="_blank">Go Language Specification</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

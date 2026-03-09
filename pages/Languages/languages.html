@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Master 16 diverse programming languages with comprehensive guides, installation instructions, and practice resources." />
+  <meta name="keywords"
+    content="Programming Languages, Python, JavaScript, Java, C++, Rust, Go, TypeScript, PHP, SQL, Ruby, R, Kotlin, Swift, Bash, KQL" />
+  <title>Programming Languages — Coduxium XI</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Programming Languages</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../index.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <div style="display: flex; gap: 2rem; align-items: flex-start;">
+      <!-- Sidebar Navigation -->
+      <aside
+        style="width: 250px; position: sticky; top: 20px; background: var(--surface); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border); flex-shrink: 0;">
+        <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem; color: var(--primary);">📚 Languages</h3>
+        <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="#python"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🐍
+            Python</a>
+          <a href="#javascript"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">📜
+            JavaScript</a>
+          <a href="#typescript"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🔷
+            TypeScript</a>
+          <a href="#java"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">☕
+            Java</a>
+          <a href="#c-cpp"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">⚙️
+            C & C++</a>
+          <a href="#go"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🐹
+            Go</a>
+          <a href="#rust"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🦀
+            Rust</a>
+          <a href="#bash"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🖥️
+            Bash</a>
+          <a href="#php"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🐘
+            PHP</a>
+          <a href="#ruby"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">💎
+            Ruby</a>
+          <a href="#sql"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🗄️
+            SQL</a>
+          <a href="#r"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">📊
+            R</a>
+          <a href="#kotlin"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🎯
+            Kotlin</a>
+          <a href="#swift"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🍎
+            Swift</a>
+          <a href="#kql"
+            style="padding: 0.5rem; border-radius: 0.25rem; text-decoration: none; color: var(--text); transition: all 0.2s;">🔍
+            KQL</a>
+        </nav>
+        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+            <strong style="color: var(--primary);">16 Languages</strong><br />
+            Complete guides & examples
+          </p>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <article class="content-page" style="flex: 1; min-width: 0;">
+        <h2>Programming Languages</h2>
+        <p class="intro">Master 16 diverse programming languages with comprehensive installation guides, syntax
+          examples,
+          and best practices. From web development to systems programming, data science to mobile apps.</p>
+
+        <!-- Python -->
+        <section id="python" class="lang-section">
+          <h3>🐍 Python</h3>
+          <p><strong>Use Cases:</strong> Data Science, Machine Learning, Web Development, Automation, Scripting</p>
+          <p>Python's simple syntax and vast ecosystem make it ideal for beginners and experts alike. From data analysis
+            with pandas to web apps with Django/Flask, Python powers everything.</p>
+          <div class="lang-resources">
+            <a href="https://www.python.org/" target="_blank" class="btn primary">Official Website</a>
+            <a href="Python/Python.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/PYTHON/Python%20questions"
+              target="_blank" class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- JavaScript -->
+        <section id="javascript" class="lang-section">
+          <h3>📜 JavaScript</h3>
+          <p><strong>Use Cases:</strong> Web Development, Full-Stack Applications, Mobile Apps, Server-Side Programming
+          </p>
+          <p>JavaScript powers the modern web. Master ES6+, async/await, DOM manipulation, and build interactive
+            applications. Extends to Node.js, React, Angular, and Vue.</p>
+          <div class="lang-resources">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+              class="btn primary">Official
+              Docs</a>
+            <a href="Js/Js.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/JavaScript/questions"
+              target="_blank" class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- TypeScript -->
+        <section id="typescript" class="lang-section">
+          <h3>🔷 TypeScript</h3>
+          <p><strong>Use Cases:</strong> Large-Scale Applications, Type-Safe JavaScript, Angular Development</p>
+          <p>TypeScript adds static typing to JavaScript, catching errors at compile time. Essential for
+            enterprise-grade
+            applications and modern frameworks.</p>
+          <div class="lang-resources">
+            <a href="https://www.typescriptlang.org/" target="_blank" class="btn primary">Official Website</a>
+            <a href="Ts/Ts.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/TypeScript/questions"
+              target="_blank" class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- Java -->
+        <section id="java" class="lang-section">
+          <h3>☕ Java</h3>
+          <p><strong>Use Cases:</strong> Enterprise Applications, Android Development, Backend Systems, Big Data</p>
+          <p>Java's "write once, run anywhere" philosophy and strong typing make it a cornerstone of enterprise
+            software.
+            Learn Spring Boot, Hibernate, and core Java concepts.</p>
+          <div class="lang-resources">
+            <a href="https://www.oracle.com/java/" target="_blank" class="btn primary">Official Website</a>
+            <a href="Java/Java.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/JAVA/Question" target="_blank"
+              class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- C & C++ -->
+        <section id="c-cpp" class="lang-section">
+          <h3>⚙️ C & C++</h3>
+          <p><strong>Use Cases:</strong> System Programming, Game Development, Embedded Systems, High-Performance
+            Computing</p>
+          <p>C provides low-level control and efficiency, while C++ adds OOP features. Essential for
+            performance-critical
+            applications and understanding computer architecture.</p>
+          <div class="lang-resources">
+            <a href="https://isocpp.org/" target="_blank" class="btn primary">C++ Official</a>
+            <a href="C&C++/C&C++.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/C%20%26%20C%2B%2B/questions%20of%20c%20%26%20cpp"
+              target="_blank" class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- Go -->
+        <section id="go" class="lang-section">
+          <h3>🐹 Go (Golang)</h3>
+          <p><strong>Use Cases:</strong> Cloud Services, Microservices, CLI Tools, DevOps, Network Programming</p>
+          <p>Go's simplicity, built-in concurrency, and fast compilation make it perfect for scalable backend services.
+            Used by Docker, Kubernetes, and major cloud platforms.</p>
+          <div class="lang-resources">
+            <a href="https://go.dev/" target="_blank" class="btn primary">Official Website</a>
+            <a href="Golang/Golang.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/Golang/questions" target="_blank"
+              class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- Rust -->
+        <section id="rust" class="lang-section">
+          <h3>🦀 Rust</h3>
+          <p><strong>Use Cases:</strong> System Programming, WebAssembly, CLI Tools, Blockchain, Embedded Systems</p>
+          <p>Rust guarantees memory safety without garbage collection. Modern syntax, powerful type system, and growing
+            ecosystem make it ideal for safe, concurrent systems.</p>
+          <div class="lang-resources">
+            <a href="https://www.rust-lang.org/" target="_blank" class="btn primary">Official Website</a>
+            <a href="Rust/Rust.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/RUST/Qustions" target="_blank"
+              class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- Bash -->
+        <section id="bash" class="lang-section">
+          <h3>�️ Bash</h3>
+          <p><strong>Use Cases:</strong> Shell Scripting, Automation, DevOps, System Administration, CI/CD</p>
+          <p>Bash is the standard shell for Linux and macOS. Master command-line tools, scripting, and automation for
+            efficient DevOps workflows and system management.</p>
+          <div class="lang-resources">
+            <a href="https://www.gnu.org/software/bash/" target="_blank" class="btn primary">Official Website</a>
+            <a href="Bash/Bash.html" class="btn">Complete Guide</a>
+          </div>
+        </section>
+
+        <!-- PHP -->
+        <section id="php" class="lang-section">
+          <h3>🐘 PHP</h3>
+          <p><strong>Use Cases:</strong> Web Development, Content Management Systems, Server-Side Scripting</p>
+          <p>PHP powers over 77% of websites including WordPress, Laravel applications, and e-commerce platforms. Learn
+            modern PHP 8+ features and frameworks.</p>
+          <div class="lang-resources">
+            <a href="https://www.php.net/" target="_blank" class="btn primary">Official Website</a>
+            <a href="php/php.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/PHP/Question" target="_blank"
+              class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- Ruby -->
+        <section id="ruby" class="lang-section">
+          <h3>� Ruby</h3>
+          <p><strong>Use Cases:</strong> Web Development, Ruby on Rails, Scripting, Automation</p>
+          <p>Ruby emphasizes simplicity and productivity with elegant syntax. Ruby on Rails revolutionized web
+            development
+            and remains popular for rapid application development.</p>
+          <div class="lang-resources">
+            <a href="https://www.ruby-lang.org/" target="_blank" class="btn primary">Official Website</a>
+            <a href="ruby/ruby.html" class="btn">Complete Guide</a>
+          </div>
+        </section>
+
+        <!-- SQL -->
+        <section id="sql" class="lang-section">
+          <h3>🗄️ SQL</h3>
+          <p><strong>Use Cases:</strong> Database Management, Data Analysis, Backend Development, Business Intelligence
+          </p>
+          <p>SQL is essential for working with relational databases. Learn queries, joins, transactions, and database
+            design principles.</p>
+          <div class="lang-resources">
+            <a href="https://www.iso.org/standard/63555.html" target="_blank" class="btn primary">SQL Standard</a>
+            <a href="SQL/SQL.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/SQL/questions" target="_blank"
+              class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- R -->
+        <section id="r" class="lang-section">
+          <h3>📊 R</h3>
+          <p><strong>Use Cases:</strong> Statistical Analysis, Data Visualization, Machine Learning, Research</p>
+          <p>R is the language of statisticians and data scientists. Master ggplot2, dplyr, and statistical modeling for
+            advanced data analysis.</p>
+          <div class="lang-resources">
+            <a href="https://www.r-project.org/" target="_blank" class="btn primary">Official Website</a>
+            <a href="R/R.html" class="btn">Complete Guide</a>
+            <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/R/R%20programming%20questions"
+              target="_blank" class="btn">Practice Questions</a>
+          </div>
+        </section>
+
+        <!-- Kotlin -->
+        <section id="kotlin" class="lang-section">
+          <h3>🎯 Kotlin</h3>
+          <p><strong>Use Cases:</strong> Android Development, JVM Applications, Server-Side Development</p>
+          <p>Google's preferred language for Android. Kotlin offers modern features, null safety, and seamless Java
+            interoperability for mobile and backend development.</p>
+          <div class="lang-resources">
+            <a href="https://kotlinlang.org/" target="_blank" class="btn primary">Official Website</a>
+            <a href="kotlin/kotlin.html" class="btn">Complete Guide</a>
+          </div>
+        </section>
+
+        <!-- Swift -->
+        <section id="swift" class="lang-section">
+          <h3>🍎 Swift</h3>
+          <p><strong>Use Cases:</strong> iOS Development, macOS Apps, watchOS, tvOS, Apple Ecosystem</p>
+          <p>Apple's modern programming language for all platforms. Build stunning iOS apps with SwiftUI and master the
+            language powering the Apple ecosystem.</p>
+          <div class="lang-resources">
+            <a href="https://swift.org/" target="_blank" class="btn primary">Official Website</a>
+            <a href="swift/swift.html" class="btn">Complete Guide</a>
+          </div>
+        </section>
+
+        <!-- KQL -->
+        <section id="kql" class="lang-section">
+          <h3>🔍 KQL (Kusto Query Language)</h3>
+          <p><strong>Use Cases:</strong> Azure Log Analytics, Application Insights, Data Explorer, Monitoring</p>
+          <p>Query language for Azure analytics services. Master log analysis, performance monitoring, and security
+            investigations with powerful KQL queries.</p>
+          <div class="lang-resources">
+            <a href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/" target="_blank"
+              class="btn primary">Official Docs</a>
+            <a href="Kql/Kql.html" class="btn">Complete Guide</a>
+          </div>
+        </section>
+
+        <!-- Learning Paths -->
+        <section>
+          <h3>📈 Learning Path Recommendations</h3>
+          <div class="path-grid">
+            <div class="path-card">
+              <h4>Web Development</h4>
+              <p>JavaScript → TypeScript → Node.js → SQL → Docker</p>
+            </div>
+            <div class="path-card">
+              <h4>Data Science</h4>
+              <p>Python → R → SQL → Statistical Analysis</p>
+            </div>
+            <div class="path-card">
+              <h4>System Programming</h4>
+              <p>C → C++ → Rust → Go</p>
+            </div>
+            <div class="path-card">
+              <h4>Full-Stack Development</h4>
+              <p>JavaScript → SQL → PHP/Python/Java → Docker</p>
+            </div>
+            <div class="path-card">
+              <h4>Mobile Development</h4>
+              <p>Swift (iOS) / Kotlin (Android) → Backend APIs</p>
+            </div>
+            <div class="path-card">
+              <h4>Cloud & DevOps</h4>
+              <p>Bash → Python/Go → Docker → Kubernetes → KQL</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Statistics -->
+        <section style="margin-top: 3rem; padding: 2rem; background: var(--surface); border-radius: 0.5rem;">
+          <h3>📚 What You'll Learn</h3>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+            <div>
+              <h4 style="color: var(--primary); margin-bottom: 0.5rem;">16 Languages</h4>
+              <p style="margin: 0; color: var(--text-secondary);">Comprehensive guides for all major programming
+                languages
+              </p>
+            </div>
+            <div>
+              <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Installation Guides</h4>
+              <p style="margin: 0; color: var(--text-secondary);">Step-by-step setup for Windows, macOS, and Linux</p>
+            </div>
+            <div>
+              <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Code Examples</h4>
+              <p style="margin: 0; color: var(--text-secondary);">Practical syntax examples and best practices</p>
+            </div>
+            <div>
+              <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Practice Questions</h4>
+              <p style="margin: 0; color: var(--text-secondary);">130+ questions across multiple languages</p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div><!-- End flex container -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Sidebar navigation styles */
+    aside nav a:hover {
+      background: var(--primary-dim);
+      padding-left: 1rem;
+    }
+
+    aside nav a:active,
+    aside nav a:focus {
+      background: var(--primary-dim);
+      outline: 2px solid var(--primary);
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive sidebar */
+    @media (max-width: 968px) {
+      main .container>div {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100% !important;
+        position: static !important;
+        margin-bottom: 2rem;
+      }
+
+      aside nav {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+      }
+
+      aside nav a {
+        flex: 0 0 auto;
+      }
+    }
+  </style>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

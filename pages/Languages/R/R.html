@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Complete R guide - Statistical programming for data analysis, visualization, and machine learning." />
+  <meta name="keywords" content="R, Statistics, Data Analysis, Data Science, Visualization, ggplot2" />
+  <title>R Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>📊 R Complete Guide</h1>
+      <p class="subtitle">Statistical computing and graphics - powerful data analysis and visualization.</p>
+      <div class="badge-row">
+        <span class="badge">STATISTICS</span>
+        <span class="badge">DATA SCIENCE</span>
+        <span class="badge">VISUALIZATION</span>
+        <span class="badge">RESEARCH</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>💡 Data Analysis:</strong> R is the language of choice for statisticians and data
+        scientists worldwide.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+
+      <h3>What is R?</h3>
+      <p><strong>R</strong> is a programming language and environment for statistical computing and graphics. Created by
+        statisticians for statisticians, R excels at data manipulation, statistical modeling, and creating
+        publication-quality visualizations.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>📈 Statistics</strong> — Built for statistical analysis</div>
+        <div class="topic"><strong>📊 Visualization</strong> — ggplot2, plotly</div>
+        <div class="topic"><strong>📦 CRAN</strong> — 19,000+ packages</div>
+        <div class="topic"><strong>🔬 Research</strong> — Academic standard</div>
+        <div class="topic"><strong>🤖 ML/AI</strong> — Machine learning libraries</div>
+        <div class="topic"><strong>📝 R Markdown</strong> — Reproducible reports</div>
+      </div>
+
+      <h3>Why Choose R?</h3>
+      <ul>
+        <li><strong>Statistics:</strong> Comprehensive statistical functions</li>
+        <li><strong>Visualization:</strong> Beautiful, publication-ready plots</li>
+        <li><strong>Community:</strong> Strong academic and industry support</li>
+        <li><strong>Free & Open Source:</strong> No licensing costs</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Installation & Setup</h2>
+
+      <div class="subsection">
+        <h3>Install R</h3>
+
+        <h4>Windows/macOS/Linux</h4>
+        <pre><code># Download from CRAN
+# https://cran.r-project.org/
+
+# Windows
+winget install RProject.R
+
+# macOS
+brew install r
+
+# Ubuntu/Debian
+sudo apt install r-base
+
+# Verify
+R --version</code><button class="copy-btn" data-copy="R --version">COPY</button></pre>
+
+        <h3>Install RStudio (Recommended IDE)</h3>
+        <pre><code># Download from posit.co
+# https://posit.co/download/rstudio-desktop/
+
+# Or use package managers
+# Windows
+winget install Posit.RStudio
+
+# macOS
+brew install --cask rstudio</code><button class="copy-btn" data-copy="Install RStudio">COPY</button></pre>
+
+        <h3>Your First R Program</h3>
+        <pre><code># hello.R
+print("Hello, R!")
+
+# Run in terminal
+Rscript hello.R
+
+# Or in R console
+R
+> print("Hello, R!")</code><button class="copy-btn" data-copy='print("Hello, R!")'>COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+
+      <div class="subsection">
+        <h3>Basic Syntax</h3>
+        <pre><code># Variables
+name <- "Alice"
+age <- 30
+price <- 99.99
+
+# Vectors
+numbers <- c(1, 2, 3, 4, 5)
+fruits <- c("apple", "banana", "cherry")
+
+# Basic operations
+sum(numbers)
+mean(numbers)
+median(numbers)
+sd(numbers)  # Standard deviation
+
+# Indexing (1-based!)
+numbers[1]  # First element
+numbers[2:4]  # Range</code><button class="copy-btn" data-copy='name <- "Alice"\nnumbers <- c(1, 2, 3)'>COPY</button></pre>
+
+        <h3>Data Frames</h3>
+        <pre><code># Create data frame
+df <- data.frame(
+  name = c("Alice", "Bob", "Charlie"),
+  age = c(30, 25, 35),
+  salary = c(70000, 60000, 80000)
+)
+
+# View data
+head(df)
+str(df)
+summary(df)
+
+# Access columns
+df$name
+df[["age"]]
+
+# Filter rows
+df[df$age > 25, ]
+
+# Add column
+df$bonus <- df$salary * 0.1</code><button class="copy-btn" data-copy="df <- data.frame(name = c('Alice', 'Bob'))">COPY</button></pre>
+
+        <h3>Visualization with ggplot2</h3>
+        <pre><code># Install ggplot2
+install.packages("ggplot2")
+
+library(ggplot2)
+
+# Basic plot
+ggplot(df, aes(x = age, y = salary)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Age vs Salary",
+       x = "Age",
+       y = "Salary") +
+  theme_minimal()
+
+# Bar plot
+ggplot(df, aes(x = name, y = salary, fill = name)) +
+  geom_bar(stat = "identity") +
+  theme_minimal()</code><button class="copy-btn" data-copy="library(ggplot2)\nggplot(df, aes(x, y)) + geom_point()">COPY</button></pre>
+
+        <h3>dplyr for Data Manipulation</h3>
+        <pre><code># Install dplyr
+install.packages("dplyr")
+
+library(dplyr)
+
+# Filter
+df %>% filter(age > 25)
+
+# Select columns
+df %>% select(name, salary)
+
+# Mutate (add/modify columns)
+df %>% mutate(bonus = salary * 0.1)
+
+# Group by and summarize
+df %>%
+  group_by(department) %>%
+  summarize(avg_salary = mean(salary))
+
+# Chain operations
+df %>%
+  filter(age > 25) %>%
+  select(name, salary) %>%
+  arrange(desc(salary))</code><button class="copy-btn" data-copy="df %>% filter(age > 25) %>% select(name, salary)">COPY</button></pre>
+
+        <h3>Statistical Analysis</h3>
+        <pre><code># Linear regression
+model <- lm(salary ~ age, data = df)
+summary(model)
+
+# Predictions
+predict(model, newdata = data.frame(age = 28))
+
+# Correlation
+cor(df$age, df$salary)
+
+# T-test
+t.test(df$salary ~ df$gender)
+
+# ANOVA
+aov_result <- aov(salary ~ department, data = df)
+summary(aov_result)</code><button class="copy-btn" data-copy="model <- lm(y ~ x, data = df)\nsummary(model)">COPY</button></pre>
+      </div>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🚀 Advanced Topics</h2>
+
+      <h3>Popular Packages</h3>
+      <div class="package-list">
+        <div class="package-item"><strong>ggplot2</strong>Data visualization</div>
+        <div class="package-item"><strong>dplyr</strong>Data manipulation</div>
+        <div class="package-item"><strong>tidyr</strong>Data tidying</div>
+        <div class="package-item"><strong>caret</strong>Machine learning</div>
+        <div class="package-item"><strong>shiny</strong>Web applications</div>
+        <div class="package-item"><strong>R Markdown</strong>Reports & documents</div>
+      </div>
+
+      <h3>R Markdown</h3>
+      <pre><code>---
+title: "My Analysis"
+author: "Your Name"
+output: html_document
+---
+
+## Introduction
+
+This is an R Markdown document.
+
+```{r}
+summary(cars)
+plot(cars)
+```
+
+## Conclusion
+
+Results show...</code><button class="copy-btn" data-copy="R Markdown example">COPY</button></pre>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🎯 Next Steps</h2>
+      <div class="step"><span class="n">1</span><strong>Master tidyverse</strong> — dplyr, ggplot2, tidyr</div>
+      <div class="step"><span class="n">2</span><strong>Learn R Markdown</strong> — Reproducible research</div>
+      <div class="step"><span class="n">3</span><strong>Statistical Modeling</strong> — Regression, hypothesis testing
+      </div>
+      <div class="step"><span class="n">4</span><strong>Machine Learning</strong> — caret, randomForest</div>
+
+      <h3>📚 Additional Resources</h3>
+      <ul>
+        <li>📖 <a href="https://www.r-project.org/" target="_blank">R Project</a></li>
+        <li>📘 <a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science (Free Book)</a></li>
+        <li>🎓 <a href="https://www.tidyverse.org/" target="_blank">Tidyverse</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+  <script src="../../Database/database-common.js"></script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

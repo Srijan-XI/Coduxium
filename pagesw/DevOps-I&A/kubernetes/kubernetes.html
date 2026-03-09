@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kubernetes — Coduxium XI</title>
+    <meta name="description"
+        content="Master Kubernetes - Production-grade container orchestration for automating deployment, scaling, and management.">
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Kubernetes Platform</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>☸️ Kubernetes</h2>
+            <p class="intro">Production-grade container orchestration for automating deployment, scaling, and management
+                of containerized applications.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Container Orchestration</span>
+                    <span class="badge">Cloud Native</span>
+                    <span class="badge">DevOps</span>
+                    <span class="badge">Microservices</span>
+                </div>
+                <p>Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of
+                    containerized applications. Originally developed by Google, it's now maintained by the Cloud Native
+                    Computing Foundation (CNCF).</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Auto-Scaling</strong> — Horizontal and vertical pod autoscaling</li>
+                    <li><strong>Self-Healing</strong> — Automatic container restart and replacement</li>
+                    <li><strong>Load Balancing</strong> — Distribute traffic across containers</li>
+                    <li><strong>Rolling Updates</strong> — Zero-downtime deployments</li>
+                    <li><strong>Secret Management</strong> — Secure configuration and credentials</li>
+                    <li><strong>Service Discovery</strong> — Automatic DNS and service routing</li>
+                    <li><strong>Storage Orchestration</strong> — Mount storage systems automatically</li>
+                    <li><strong>Multi-Cloud</strong> — Run anywhere: on-prem, cloud, hybrid</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Microservices architecture deployment</li>
+                    <li>CI/CD pipeline automation</li>
+                    <li>Multi-cloud and hybrid cloud strategies</li>
+                    <li>Auto-scaling applications</li>
+                    <li>Container orchestration at scale</li>
+                    <li>GitOps and declarative infrastructure</li>
+                    <li>Service mesh implementation</li>
+                    <li>Edge computing deployments</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Kubernetes Ecosystem</h3>
+                <ul>
+                    <li><strong>kubectl</strong> — Command-line tool for K8s</li>
+                    <li><strong>Helm</strong> — Package manager for Kubernetes</li>
+                    <li><strong>Istio/Linkerd</strong> — Service mesh solutions</li>
+                    <li><strong>Prometheus</strong> — Monitoring and alerting</li>
+                    <li><strong>Grafana</strong> — Visualization and dashboards</li>
+                    <li><strong>ArgoCD/Flux</strong> — GitOps continuous delivery</li>
+                    <li><strong>Kustomize</strong> — Template-free YAML customization</li>
+                    <li><strong>Rancher/OpenShift</strong> — K8s management platforms</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Core Concepts</h3>
+                <h4>Workloads</h4>
+                <ul>
+                    <li><strong>Pods</strong> — Smallest deployable units</li>
+                    <li><strong>Deployments</strong> — Manage replica sets and updates</li>
+                    <li><strong>StatefulSets</strong> — For stateful applications</li>
+                    <li><strong>DaemonSets</strong> — Run pods on all nodes</li>
+                    <li><strong>Jobs/CronJobs</strong> — Batch processing</li>
+                </ul>
+
+                <h4>Networking & Storage</h4>
+                <ul>
+                    <li><strong>Services</strong> — Expose applications</li>
+                    <li><strong>Ingress</strong> — HTTP/HTTPS routing</li>
+                    <li><strong>ConfigMaps</strong> — Configuration data</li>
+                    <li><strong>Secrets</strong> — Sensitive information</li>
+                    <li><strong>PersistentVolumes</strong> — Storage abstraction</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <p>Install kubectl and create a local cluster:</p>
+                <pre><code># Install kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+# Install minikube for local development
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+# Start cluster
+minikube start</code></pre>
+
+                <p>Deploy an application:</p>
+                <pre><code># Create deployment
+kubectl create deployment nginx --image=nginx
+
+# Expose service
+kubectl expose deployment nginx --port=80 --type=LoadBalancer
+
+# Scale deployment
+kubectl scale deployment nginx --replicas=3
+
+# View resources
+kubectl get pods
+kubectl get services
+kubectl get deployments</code></pre>
+
+                <p>Example Deployment YAML:</p>
+                <pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use namespaces for resource organization</li>
+                    <li>Implement resource requests and limits</li>
+                    <li>Use liveness and readiness probes</li>
+                    <li>Deploy with Helm charts for repeatability</li>
+                    <li>Implement RBAC for security</li>
+                    <li>Use GitOps for declarative deployments</li>
+                    <li>Monitor with Prometheus and Grafana</li>
+                    <li>Implement network policies for security</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://kubernetes.io/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://kubernetes.io/docs/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/kubernetes/kubernetes" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

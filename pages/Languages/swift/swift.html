@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Complete Swift guide - Apple's powerful programming language for iOS, macOS, watchOS, and tvOS development." />
+    <meta name="keywords" content="Swift, iOS, Apple, Mobile, SwiftUI, Xcode, iPhone, iPad" />
+    <title>Swift Complete Guide | Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../Database/database-common.css">
+    <link rel="stylesheet" href="../language-common.css">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h1>🍎 Swift Complete Guide</h1>
+            <p class="subtitle">Powerful and intuitive - build amazing apps for Apple platforms.</p>
+            <div class="badge-row">
+                <span class="badge">iOS</span>
+                <span class="badge">APPLE</span>
+                <span class="badge">MODERN</span>
+                <span class="badge">SAFE</span>
+            </div>
+            <nav class="section-nav">
+                <a href="../../../index.html">🏠 Home</a>
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation & Setup</a>
+                <a href="#user-guide">User Guide</a>
+                <a href="#advanced">Advanced Topics</a>
+                <a href="#next-steps">Next Steps</a>
+            </nav>
+            <div class="info-box"><strong>💡 Apple's Choice:</strong> Swift is the modern way to develop for all Apple
+                platforms - iOS, macOS, watchOS, and tvOS.</div>
+        </header>
+
+        <section id="introduction" class="card accent">
+            <h2>📚 Introduction</h2>
+
+            <h3>What is Swift?</h3>
+            <p><strong>Swift</strong> is a powerful and intuitive programming language developed by Apple for iOS,
+                macOS, watchOS, and tvOS. Introduced in 2014, Swift combines modern language features with safety and
+                performance for building incredible apps.</p>
+
+            <h3>Key Features</h3>
+            <div class="topic-grid">
+                <div class="topic"><strong>📱 iOS Development</strong> — Native Apple platform language</div>
+                <div class="topic"><strong>🛡️ Safe</strong> — Memory safety, type safety</div>
+                <div class="topic"><strong>⚡ Fast</strong> — Performance comparable to C++</div>
+                <div class="topic"><strong>🎨 SwiftUI</strong> — Declarative UI framework</div>
+                <div class="topic"><strong>📝 Modern</strong> — Clean, expressive syntax</div>
+                <div class="topic"><strong>🔄 Playgrounds</strong> — Interactive development</div>
+            </div>
+
+            <h3>Why Choose Swift?</h3>
+            <ul>
+                <li><strong>Apple Ecosystem:</strong> Official language for all Apple platforms</li>
+                <li><strong>Modern:</strong> Designed from scratch for modern development</li>
+                <li><strong>Safe:</strong> Prevents common programming errors</li>
+                <li><strong>SwiftUI:</strong> Build UIs with less code</li>
+            </ul>
+        </section>
+
+        <section id="installation" class="card">
+            <h2>⚙️ Installation & Setup</h2>
+
+            <div class="subsection">
+                <h3>macOS (Required for iOS Development)</h3>
+                <pre><code># Download Xcode from Mac App Store
+# Or from developer.apple.com
+
+# Verify Swift installation
+swift --version
+
+# Create new project
+# Open Xcode > Create a new Xcode project</code><button class="copy-btn" data-copy="swift --version">COPY</button></pre>
+
+                <h3>Your First Swift Program</h3>
+                <pre><code>// main.swift
+print("Hello, Swift!")
+
+// Run
+swift main.swift
+
+// Or use Swift Playgrounds
+// Available on iPad and Mac</code><button class="copy-btn" data-copy='print("Hello, Swift!")'>COPY</button></pre>
+            </div>
+        </section>
+
+        <section id="user-guide" class="card accent">
+            <h2>📖 User Guide</h2>
+
+            <div class="subsection">
+                <h3>Variables & Constants</h3>
+                <pre><code>// Constants (let)
+let name = "Alice"
+let age = 30
+
+// Variables (var)
+var score = 0
+score = 100
+
+// Type annotation
+let price: Double = 99.99
+let isActive: Bool = true
+
+// Optional
+var middleName: String? = nil
+middleName = "Jane"
+
+// Optional binding
+if let name = middleName {
+    print("Middle name is \(name)")
+}</code><button class="copy-btn" data-copy='let name = "Alice"\nvar score = 0'>COPY</button></pre>
+
+                <h3>Functions</h3>
+                <pre><code>// Basic function
+func greet(name: String) -> String {
+    return "Hello, \(name)!"
+}
+
+// Short form
+func add(_ a: Int, _ b: Int) -> Int {
+    a + b
+}
+
+// Default parameters
+func power(base: Int, exponent: Int = 2) -> Int {
+    Int(pow(Double(base), Double(exponent)))
+}
+
+// Multiple return values
+func minMax(numbers: [Int]) -> (min: Int, max: Int) {
+    (numbers.min()!, numbers.max()!)
+}
+
+print(greet(name: "Alice"))</code><button class="copy-btn" data-copy="func greet(name: String) -> String {\n    return \"Hello, \\(name)!\"\n}">COPY</button></pre>
+
+                <h3>Classes & Structs</h3>
+                <pre><code>// Struct (value type)
+struct Person {
+    var name: String
+    var age: Int
+    
+    func greet() -> String {
+        "Hi, I'm \(name)"
+    }
+}
+
+// Class (reference type)
+class Rectangle {
+    var width: Double
+    var height: Double
+    
+    init(width: Double, height: Double) {
+        self.width = width
+        self.height = height
+    }
+    
+    func area() -> Double {
+        width * height
+    }
+}
+
+let person = Person(name: "Alice", age: 30)
+let rect = Rectangle(width: 10, height: 20)</code><button class="copy-btn" data-copy="struct Person { var name: String }">COPY</button></pre>
+
+                <h3>Arrays & Dictionaries</h3>
+                <pre><code>// Arrays
+var fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+
+// Dictionary
+var ages = [
+    "Alice": 30,
+    "Bob": 25
+]
+
+ages["Charlie"] = 35
+
+// Iteration
+for fruit in fruits {
+    print(fruit)
+}
+
+for (name, age) in ages {
+    print("\(name) is \(age)")
+}</code><button class="copy-btn" data-copy='var fruits = ["apple", "banana"]\nfruits.append("cherry")'>COPY</button></pre>
+
+                <h3>Closures</h3>
+                <pre><code>// Closure
+let add = { (a: Int, b: Int) -> Int in
+    return a + b
+}
+
+// Trailing closure
+let numbers = [1, 2, 3, 4, 5]
+
+let doubled = numbers.map { $0 * 2 }
+let evens = numbers.filter { $0 % 2 == 0 }
+let sum = numbers.reduce(0) { $0 + $1 }</code><button class="copy-btn" data-copy="numbers.map { $0 * 2 }">COPY</button></pre>
+            </div>
+        </section>
+
+        <section id="advanced" class="card">
+            <h2>🚀 Advanced Topics</h2>
+
+            <h3>SwiftUI</h3>
+            <pre><code>import SwiftUI
+
+struct ContentView: View {
+    @State private var name = ""
+    
+    var body: some View {
+        VStack {
+            Text("Hello, \(name)!")
+                .font(.title)
+            
+            TextField("Enter name", text: $name)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            Button("Greet") {
+                print("Hello, \(name)!")
+            }
+        }
+        .padding()
+    }
+}</code><button class="copy-btn" data-copy="SwiftUI example">COPY</button></pre>
+
+            <h3>Combine (Reactive Programming)</h3>
+            <pre><code>import Combine
+
+class ViewModel: ObservableObject {
+    @Published var data: [String] = []
+    
+    func loadData() {
+        // Async data loading
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: [String].self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$data)
+    }
+}</code><button class="copy-btn" data-copy="Combine example">COPY</button></pre>
+        </section>
+
+        <section id="next-steps" class="card accent">
+            <h2>🎯 Next Steps</h2>
+            <div class="step"><span class="n">1</span><strong>Master SwiftUI</strong> — Modern UI framework</div>
+            <div class="step"><span class="n">2</span><strong>Learn UIKit</strong> — Traditional iOS UI</div>
+            <div class="step"><span class="n">3</span><strong>Build iOS Apps</strong> — iPhone/iPad development</div>
+            <div class="step"><span class="n">4</span><strong>Publish to App Store</strong> — Share your apps</div>
+
+            <h3>📚 Additional Resources</h3>
+            <ul>
+                <li>📖 <a href="https://swift.org/documentation/" target="_blank">Official Swift Docs</a></li>
+                <li>📱 <a href="https://developer.apple.com/swift/" target="_blank">Apple Swift Guide</a></li>
+                <li>🎓 <a href="https://www.hackingwithswift.com/" target="_blank">Hacking with Swift</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Coduxium XI - Your Gateway to Modern Development</p>
+        </footer>
+    </div>
+
+    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+    <script src="../../Database/database-common.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

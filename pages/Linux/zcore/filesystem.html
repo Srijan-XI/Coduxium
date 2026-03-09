@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linux File System — Coduxium XI</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../components/code-highlighter/code-highlighter.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+    <link rel="stylesheet" href="../zlinux-Style/linux.css">
+    
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">📂</span>
+                <div>
+                    <h1>Coduxium XI</h1>
+                    <p class="sub">Linux File System</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../linux.html" class="btn">← Back to Linux</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>Filesystem Hierarchy Standard (FHS)</h2>
+            <p class="intro">In Linux, everything is a file. The directory structure follows a standard layout known as
+                the FHS. Understanding this is crucial for navigation.</p>
+
+            <section>
+                <h3> The Root Directory (/)</h3>
+                <div class="fs-tree">
+                    <div class="fs-item">/ <span class="fs-desc">The start of the filesystem tree</span></div>
+                    <div class="fs-item">├── bin <span class="fs-desc">Essential command binaries (ls, cp, cat)</span>
+                    </div>
+                    <div class="fs-item">├── boot <span class="fs-desc">Bootloader files (kernel, grub)</span></div>
+                    <div class="fs-item">├── dev <span class="fs-desc">Device nodes (sda, tty, null)</span></div>
+                    <div class="fs-item">├── etc <span class="fs-desc">System configuration files (apt, systemd,
+                            ssh)</span></div>
+                    <div class="fs-item">├── home <span class="fs-desc">User personal directories (Documents,
+                            Downloads)</span></div>
+                    <div class="fs-item">├── lib <span class="fs-desc">Shared libraries for binaries</span></div>
+                    <div class="fs-item">├── mnt <span class="fs-desc">Temporary mount point</span></div>
+                    <div class="fs-item">├── opt <span class="fs-desc">Optional software packages</span></div>
+                    <div class="fs-item">├── proc <span class="fs-desc">Virtual filesystem for process & kernel
+                            info</span></div>
+                    <div class="fs-item">├── root <span class="fs-desc">Home directory for the root superuser</span>
+                    </div>
+                    <div class="fs-item">├── sbin <span class="fs-desc">System binaries (reboot, ip, fdisk)</span></div>
+                    <div class="fs-item">├── tmp <span class="fs-desc">Temporary files (deleted on reboot)</span></div>
+                    <div class="fs-item">├── usr <span class="fs-desc">User utilities and applications (/usr/bin)</span>
+                    </div>
+                    <div class="fs-item">└── var <span class="fs-desc">Variable files (logs, web root, cache)</span>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top: 3rem;">
+                <h3>File Permissions</h3>
+                <p>Linux controls access via permissions for Owner, Group, and Others.</p>
+
+                <div class="perm-grid">
+                    <div class="perm-card">
+                        <span class="perm-symbol">r (4)</span>
+                        <strong>Read</strong>
+                    </div>
+                    <div class="perm-card">
+                        <span class="perm-symbol">w (2)</span>
+                        <strong>Write</strong>
+                    </div>
+                    <div class="perm-card">
+                        <span class="perm-symbol">x (1)</span>
+                        <strong>Execute</strong>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4>Calculations</h4>
+                    <p>Permissions are often represented as 3 numbers (e.g., 755).</p>
+                    <ul>
+                        <li><strong>7</strong> = 4+2+1 (Read/Write/Execute)</li>
+                        <li><strong>5</strong> = 4+0+1 (Read/Execute)</li>
+                        <li><strong>6</strong> = 4+2+0 (Read/Write)</li>
+                    </ul>
+                </div>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <pre><code class="language-bash"># Change owner (user:group)
+sudo chown user:group filename
+
+# Make a file executable
+chmod +x script.sh
+
+# Set specific permissions (rwx for owner, rx for others)
+chmod 755 filename</code></pre>
+                </div>
+            </section>
+
+            <section style="margin-top: 3rem;">
+                <h3>Common Filesystems</h3>
+                <ul>
+                    <li><strong>ext4:</strong> The standard, stable default for most Linux distributions.</li>
+                    <li><strong>Btrfs:</strong> Modern copy-on-write filesystem with snapshot support (default in
+                        Fedora, OpenSUSE).</li>
+                    <li><strong>XFS:</strong> High-performance journaling filesystem (default in RHEL).</li>
+                    <li><strong>FAT32/exFAT:</strong> Used for USB drives for compatibility with Windows/macOS.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/Install-and-Learn-DevLangs" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../components/theme-switch/theme-switcher.js"></script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+    <script src="../../components/code-highlighter/code-highlighter.js"></script>
+</body>
+
+</html>
