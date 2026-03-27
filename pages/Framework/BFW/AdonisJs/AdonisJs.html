@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdonisJS — Coduxium XI</title>
+  <meta name="description" content="AdonisJS backend framework guide with batteries-included architecture, ORM, and validation pipeline." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">AdonisJS Framework</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>AdonisJS</h2>
+      <p class="intro">AdonisJS is a TypeScript-first backend framework that provides a cohesive, batteries-included developer experience for full-featured web applications.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Backend</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">MVC</span>
+          <span class="badge">Batteries Included</span>
+        </div>
+        <p>AdonisJS combines routing, validation, ORM, auth, and CLI tooling into a consistent framework suited for team productivity.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Integrated tooling</strong> — CLI, migrations, and code generation</li>
+          <li><strong>Lucid ORM</strong> — expressive data modeling for SQL backends</li>
+          <li><strong>Validation and auth</strong> — common backend concerns built in</li>
+          <li><strong>Strong conventions</strong> — easier onboarding and consistency</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Monolithic business applications</li>
+          <li>Internal admin portals and APIs</li>
+          <li>Rapid MVPs with production paths</li>
+          <li>TypeScript-first full backend stacks</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>npm init adonisjs@latest adonis-app
+cd adonis-app
+node ace serve --watch</code></pre>
+        <pre><code># generate controller and model
+node ace make:controller Users
+node ace make:model User -m</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Keep domain modules focused by business capability.</li>
+          <li>Use validators for every external payload boundary.</li>
+          <li>Manage schema changes through migrations only.</li>
+          <li>Centralize environment configuration and secrets.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://adonisjs.com/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://docs.adonisjs.com/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/adonisjs/core" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

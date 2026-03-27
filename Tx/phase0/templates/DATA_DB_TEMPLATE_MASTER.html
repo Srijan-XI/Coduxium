@@ -11,23 +11,90 @@
   <link rel="stylesheet" href="[ROOT]components/scroll-to-top/scroll-to-top.css" />
 </head>
 <body>
-  <header class="page-header">
-    <h1>[TECH] Data and Database Guide</h1>
-    <p class="subtitle">[ONE_LINE_VALUE]</p>
-    <div class="badge-row">
-      <span class="badge">DATA</span>
-      <span class="badge">DATABASE</span>
-      <span class="badge">QUERY</span>
-    </div>
-  </header>
-  <main class="page-wrapper">
-    <section class="card accent"><h2>Introduction</h2><p>[OVERVIEW]</p></section>
-    <section class="card"><h2>Installation and Setup</h2><pre><code>[INSTALL_COMMANDS]</code></pre></section>
-    <section class="card accent"><h2>User Guide</h2><pre><code>[QUERY_OR_USAGE_EXAMPLE]</code></pre></section>
-    <section class="card"><h2>Advanced Topics</h2><ul><li>[SCALING_TOPIC]</li><li>[PERFORMANCE_TOPIC]</li><li>[OPERATIONS_TOPIC]</li></ul></section>
-    <section class="card accent"><h2>Ecosystem and Tools</h2><ul><li>[TOOL_1]</li><li>[TOOL_2]</li><li>[TOOL_3]</li></ul></section>
-    <section class="card"><h2>Next Steps</h2><ul><li><a href="[OFFICIAL_DOCS]">Official Docs</a></li><li><a href="[INTERNAL_LINK_1]">Related Internal Page 1</a></li><li><a href="[INTERNAL_LINK_2]">Related Internal Page 2</a></li></ul></section>
-  </main>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>[TECH] Data and Database Guide</h1>
+      <p class="subtitle">[ONE_LINE_VALUE]</p>
+      <div class="badge-row">
+        <span class="badge">DATA</span>
+        <span class="badge">DATABASE</span>
+        <span class="badge">QUERY</span>
+      </div>
+      <nav class="section-nav">
+        <a href="[ROOT]index.html">Home</a>
+        <a href="[CATEGORY_INDEX]">Category Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>Tip:</strong> [QUICK_TIP]</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>Introduction</h2>
+      <p>[OVERVIEW]</p>
+      <div class="topic-grid">
+        <div class="topic">[FEATURE_1]</div>
+        <div class="topic">[FEATURE_2]</div>
+        <div class="topic">[FEATURE_3]</div>
+        <div class="topic">[FEATURE_4]</div>
+      </div>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>Installation and Setup</h2>
+      <pre><code>[INSTALL_COMMANDS]</code><button class="copy-btn" data-copy="[INSTALL_COPY_SNIPPET]">COPY</button></pre>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>User Guide</h2>
+      <pre><code>[QUERY_OR_USAGE_EXAMPLE]</code><button class="copy-btn" data-copy="[QUERY_COPY_SNIPPET]">COPY</button></pre>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>Advanced Topics</h2>
+      <ul>
+        <li>[SCALING_TOPIC]</li>
+        <li>[PERFORMANCE_TOPIC]</li>
+        <li>[OPERATIONS_TOPIC]</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>Next Steps</h2>
+      <div class="next-steps-grid">
+        <a href="[OFFICIAL_DOCS]" target="_blank" class="next-step-card"><h4>Official Docs</h4><p>[DOCS_NOTE]</p></a>
+        <a href="[INTERNAL_LINK_1]" class="next-step-card"><h4>Related Page 1</h4><p>[INTERNAL_NOTE_1]</p></a>
+        <a href="[INTERNAL_LINK_2]" class="next-step-card"><h4>Related Page 2</h4><p>[INTERNAL_NOTE_2]</p></a>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>Coduxium XI © 2025</p>
+      <div class="footer-links">
+        <a href="[ROOT]index.html">Home</a>
+        <a href="[CATEGORY_INDEX]">Category</a>
+      </div>
+    </footer>
+  </div>
+
+  <div id="copyToast" class="copy-feedback">Copied to clipboard!</div>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const text = btn.getAttribute('data-copy') || '';
+        navigator.clipboard.writeText(text).then(() => {
+          const toast = document.getElementById('copyToast');
+          if (!toast) return;
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 1600);
+        });
+      });
+    });
+  </script>
+  <script src="[ROOT]components/theme-switch/theme-switcher.js"></script>
   <script src="[ROOT]components/scroll-to-top/scroll-to-top.js"></script>
 </body>
 </html>

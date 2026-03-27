@@ -162,12 +162,12 @@ Add every missing technology page/entry to the site in controlled phases, with c
 ### Implementation Status
 
 #### Phase 2.1 - Node.js Backend Framework Batch
-- [ ] Content pages created
-- [ ] Category index updated
-- [ ] Styling verified
-- [ ] Links verified
-- [ ] Search verified
-- [ ] QA sign-off
+- [x] Content pages created
+- [x] Category index updated
+- [x] Styling verified
+- [x] Links verified
+- [x] Search verified
+- [x] QA sign-off
 
 #### Phase 2.2 - Cross-Runtime Backend Framework Batch
 - [ ] Content pages created

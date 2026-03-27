@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NestJS — Coduxium XI</title>
+  <meta name="description" content="NestJS backend framework guide with architecture, setup, modules, and production best practices." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">NestJS Framework</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>NestJS</h2>
+      <p class="intro">NestJS is a progressive Node.js backend framework built with TypeScript, dependency injection, and a modular architecture inspired by Angular.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Backend</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">Modular</span>
+          <span class="badge">DI</span>
+        </div>
+        <p>NestJS is ideal for enterprise APIs and microservices where maintainability, testability, and clear architecture are priorities.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Module system</strong> — organize domains and boundaries clearly</li>
+          <li><strong>Dependency injection</strong> — predictable service composition and testing</li>
+          <li><strong>Pipes, guards, interceptors</strong> — strong request lifecycle control</li>
+          <li><strong>Transport flexibility</strong> — HTTP, WebSockets, and microservices patterns</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Enterprise REST APIs and BFF layers</li>
+          <li>Modular monoliths and microservices</li>
+          <li>Authentication-heavy SaaS backends</li>
+          <li>Real-time applications with gateways</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>npm i -g @nestjs/cli
+nest new nest-app
+cd nest-app
+npm run start:dev</code></pre>
+        <pre><code># generate module, controller, service
+nest g module users
+nest g controller users
+nest g service users</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Use feature modules to isolate bounded contexts.</li>
+          <li>Keep DTO validation explicit with class-validator and pipes.</li>
+          <li>Use environment-based configuration and avoid hardcoded secrets.</li>
+          <li>Enforce global exception filters and consistent response shapes.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://nestjs.com/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://docs.nestjs.com/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/nestjs/nest" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
