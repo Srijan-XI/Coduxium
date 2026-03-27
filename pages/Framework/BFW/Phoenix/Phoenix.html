@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phoenix — Coduxium XI</title>
+  <meta name="description" content="Phoenix backend framework guide for Elixir with fault-tolerant architecture, channels, and LiveView." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Phoenix Framework</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Phoenix</h2>
+      <p class="intro">Phoenix is an Elixir framework for building scalable, fault-tolerant web applications and realtime systems on the BEAM runtime.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Backend</span>
+          <span class="badge">Elixir</span>
+          <span class="badge">Realtime</span>
+          <span class="badge">BEAM</span>
+        </div>
+        <p>Phoenix is ideal for highly concurrent applications where reliability, low-latency messaging, and uptime are mission critical.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Channels and PubSub</strong> — realtime messaging primitives</li>
+          <li><strong>LiveView</strong> — interactive server-rendered UI model</li>
+          <li><strong>Fault tolerance</strong> — supervision trees on the BEAM</li>
+          <li><strong>Ecto integration</strong> — database workflows and migrations</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Realtime collaboration and chat systems</li>
+          <li>High-concurrency SaaS platforms</li>
+          <li>Event-heavy backend services</li>
+          <li>Robust API + web app ecosystems</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>mix local.hex
+mix archive.install hex phx_new
+mix phx.new phoenix_app
+cd phoenix_app
+mix phx.server</code></pre>
+        <pre><code># create a LiveView app variant
+mix phx.new phoenix_live --live</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Model boundaries with contexts and clear domain modules.</li>
+          <li>Use supervision trees intentionally for critical processes.</li>
+          <li>Leverage telemetry and tracing from the start.</li>
+          <li>Use LiveView where server-driven UI simplifies complexity.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://www.phoenixframework.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://hexdocs.pm/phoenix/overview.html" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/phoenixframework/phoenix" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

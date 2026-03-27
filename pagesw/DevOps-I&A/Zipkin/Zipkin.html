@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zipkin — Coduxium XI</title>
+  <meta name="description" content="Zipkin distributed tracing guide for request flow analysis, latency diagnostics, and microservice observability." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><div class="brand"><span class="logo">💻</span><div><h1><a href="../../../index.html">Coduxium XI</a></h1><p class="sub">Zipkin</p></div></div><div class="header-actions"><a href="../../../index.html" class="btn">← Back</a><button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button></div></div></header>
+  <main class="container" style="padding: 40px 0;"><article class="content-page">
+    <h2>🧵 Zipkin</h2>
+    <p class="intro">Zipkin is a distributed tracing system used to collect and visualize request latency across microservices.</p>
+    <section class="framework-section"><h3>Overview</h3><div class="badge-group"><span class="badge">Observability</span><span class="badge">Tracing</span><span class="badge">Microservices</span><span class="badge">Latency</span></div><p>Zipkin helps teams understand service dependencies and pinpoint bottlenecks by tracing end-to-end request paths.</p></section>
+    <section class="framework-section"><h3>Common Use Cases</h3><ul><li>Root-cause analysis for latency regressions</li><li>Cross-service dependency mapping</li><li>Performance troubleshooting in distributed systems</li><li>Tracing verification during release rollouts</li></ul></section>
+    <section class="framework-section"><h3>Getting Started</h3><pre><code># Run Zipkin locally
+docker run -d -p 9411:9411 openzipkin/zipkin
+
+# UI
+http://localhost:9411</code></pre></section>
+    <section class="framework-section"><h3>Related Cloud and Observability Tools</h3><ul><li><a href="../Loki/Loki.html">Loki</a></li><li><a href="../CloudWatch/CloudWatch.html">CloudWatch</a></li><li><a href="../n8n/n8n.html">n8n</a></li></ul></section>
+    <div class="lang-resources"><a href="https://zipkin.io/" target="_blank" class="btn primary">Official Website</a><a href="https://zipkin.io/pages/quickstart" target="_blank" class="btn">Documentation</a></div>
+  </article></main>
+  <footer class="site-footer"><div class="container footer-inner"><small>Coduxium XI © 2025</small><div class="footer-links"><a href="../../../index.html">Home</a><a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a></div></div></footer>
+  <script>const btn=document.getElementById('btn-theme');const key='il-devlangs-theme';const set=(val)=>{document.body.classList.toggle('light',val==='light');localStorage.setItem(key,val);};const stored=localStorage.getItem(key);if(stored)set(stored);else set('dark');btn.addEventListener('click',()=>{const cur=document.body.classList.contains('light')?'light':'dark';set(cur==='light'?'dark':'light');});</script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

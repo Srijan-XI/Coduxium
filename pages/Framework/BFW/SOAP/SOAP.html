@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SOAP — Coduxium XI</title>
+  <meta name="description" content="SOAP protocol guide covering XML envelopes, WSDL contracts, and enterprise integration patterns." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">SOAP Standard</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>SOAP</h2>
+      <p class="intro">SOAP (Simple Object Access Protocol) is an XML-based messaging protocol for structured, contract-driven service communication.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Integration Standard</span>
+          <span class="badge">XML</span>
+          <span class="badge">WSDL</span>
+          <span class="badge">Enterprise</span>
+        </div>
+        <p>SOAP is common in enterprise systems that require strong contracts, formal schemas, and standards for security and reliability.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Concepts</h3>
+        <ul>
+          <li><strong>Envelope</strong> — defines message structure</li>
+          <li><strong>WSDL</strong> — machine-readable service contract</li>
+          <li><strong>XSD</strong> — typed message schemas</li>
+          <li><strong>WS-*</strong> — extensions for security and transactions</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Legacy enterprise system integrations</li>
+          <li>B2B partner APIs with strict contracts</li>
+          <li>Regulated environments requiring formal standards</li>
+          <li>Interoperability across heterogeneous stacks</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Example Envelope</h3>
+        <pre><code>&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+  &lt;soap:Header/&gt;
+  &lt;soap:Body&gt;
+    &lt;GetCustomer xmlns="http://example.org/customer"&gt;
+      &lt;CustomerId&gt;123&lt;/CustomerId&gt;
+    &lt;/GetCustomer&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Version WSDL contracts with explicit backward-compatibility rules.</li>
+          <li>Validate envelopes and schemas at service boundaries.</li>
+          <li>Use clear fault contracts for predictable client error handling.</li>
+          <li>Document WS-Security and authentication requirements clearly.</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Backend Frameworks</h3>
+        <ul>
+          <li><a href="../NestJs/NestJs.html">NestJS</a></li>
+          <li><a href="../Fastify/Fastify.html">Fastify</a></li>
+          <li><a href="../Phoenix/Phoenix.html">Phoenix</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://www.w3.org/TR/soap12-part1/" target="_blank" class="btn primary">W3C SOAP Spec</a>
+        <a href="https://www.w3.org/TR/wsdl20/" target="_blank" class="btn">WSDL Spec</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

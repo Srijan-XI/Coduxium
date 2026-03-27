@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deno Runtime — Coduxium XI</title>
+  <meta name="description" content="Deno runtime guide for secure-by-default JavaScript/TypeScript backend services and tooling." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Deno Runtime</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Deno Runtime</h2>
+      <p class="intro">Deno is a modern JavaScript and TypeScript runtime with secure defaults, first-class tooling, and a standards-aligned API surface.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Runtime</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">Secure by Default</span>
+          <span class="badge">Web APIs</span>
+        </div>
+        <p>Deno is a strong choice for backend and edge services where teams want modern tooling without external package managers by default.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Built-in toolchain</strong> — fmt, lint, test, and bundle workflows</li>
+          <li><strong>Permission model</strong> — explicit runtime access controls</li>
+          <li><strong>TypeScript native support</strong> — no separate transpile step required</li>
+          <li><strong>Node compatibility</strong> — improved interoperability paths</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Secure backend scripts and APIs</li>
+          <li>Serverless and edge workloads</li>
+          <li>Tooling and automation pipelines</li>
+          <li>TypeScript-first runtime environments</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Windows (PowerShell)
+irm https://deno.land/install.ps1 | iex
+
+# Verify
+deno --version</code></pre>
+        <pre><code>// main.ts
+Deno.serve((_req) => new Response(JSON.stringify({ ok: true }), {
+  headers: { 'content-type': 'application/json' }
+}))
+
+# Run
+deno run --allow-net main.ts</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Use least-privilege permission flags in run scripts.</li>
+          <li>Pin module versions and lock dependencies.</li>
+          <li>Adopt deno.json for project-wide runtime configuration.</li>
+          <li>Use built-in fmt/lint/test to standardize team workflows.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://deno.com/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://docs.deno.com/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/denoland/deno" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

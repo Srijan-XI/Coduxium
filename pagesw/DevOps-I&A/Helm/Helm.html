@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Helm — Coduxium XI</title>
+  <meta name="description" content="Helm package manager guide for Kubernetes chart templating, release lifecycle, and deployment best practices." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Helm</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../index.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>📦 Helm</h2>
+      <p class="intro">Helm is the package manager for Kubernetes that standardizes app deployment through reusable charts and managed releases.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Kubernetes</span>
+          <span class="badge">Package Manager</span>
+          <span class="badge">Charts</span>
+          <span class="badge">Releases</span>
+        </div>
+        <p>Helm simplifies Kubernetes YAML management by turning infrastructure templates and configuration into versioned, reusable chart packages.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Concepts</h3>
+        <ul>
+          <li><strong>Chart</strong> — package describing Kubernetes resources</li>
+          <li><strong>Values</strong> — environment-specific configuration overrides</li>
+          <li><strong>Release</strong> — deployed chart instance in a cluster</li>
+          <li><strong>Repository</strong> — chart distribution source</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Install helm and verify
+helm version
+
+# Add chart repo and install app
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm install my-nginx bitnami/nginx</code></pre>
+        <pre><code># Upgrade and rollback
+helm upgrade my-nginx bitnami/nginx --set service.type=LoadBalancer
+helm rollback my-nginx 1</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Keep values files per environment for predictable promotion.</li>
+          <li>Pin chart versions in production workflows.</li>
+          <li>Validate templates in CI with <code>helm lint</code> and <code>helm template</code>.</li>
+          <li>Use secrets integrations rather than committing plaintext values.</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Delivery Tools</h3>
+        <ul>
+          <li><a href="../Tekton/Tekton.html">Tekton</a></li>
+          <li><a href="../Kustomize/Kustomize.html">Kustomize</a></li>
+          <li><a href="../Skaffold/Skaffold.html">Skaffold</a></li>
+          <li><a href="../kubernetes/kubernetes.html">Kubernetes</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://helm.sh/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://helm.sh/docs/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/helm/helm" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

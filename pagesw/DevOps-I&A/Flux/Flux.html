@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flux — Coduxium XI</title>
+  <meta name="description" content="Flux GitOps guide for continuous reconciliation, Kubernetes deployment automation, and progressive delivery workflows." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Flux</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../index.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>🔄 Flux</h2>
+      <p class="intro">Flux is a GitOps toolkit for Kubernetes that continuously reconciles cluster state with declarative configuration stored in Git.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">GitOps</span>
+          <span class="badge">Kubernetes</span>
+          <span class="badge">Reconciliation</span>
+          <span class="badge">Automation</span>
+        </div>
+        <p>Flux automates deployment from Git repositories with pull-based reconciliation, improving auditability, drift control, and operational safety.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Components</h3>
+        <ul>
+          <li><strong>Source controllers</strong> — Git, Helm, and OCI source syncing</li>
+          <li><strong>Kustomize controller</strong> — declarative apply/reconcile workflows</li>
+          <li><strong>Helm controller</strong> — Helm release automation</li>
+          <li><strong>Notification controller</strong> — event and alert integrations</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Bootstrap flux into cluster
+flux bootstrap github \
+  --owner=my-org \
+  --repository=platform-gitops \
+  --branch=main \
+  --path=clusters/prod</code></pre>
+        <pre><code># Verify components and reconciliation
+flux check
+flux get all</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>GitOps-based multi-environment deployment pipelines</li>
+          <li>Drift detection and automatic correction</li>
+          <li>Promotion workflows from staging to production</li>
+          <li>Declarative operations with change audit history</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Mesh and IaC Tools</h3>
+        <ul>
+          <li><a href="../Istio/Istio.html">Istio</a></li>
+          <li><a href="../OpenTofu/OpenTofu.html">OpenTofu</a></li>
+          <li><a href="../Pulumi/Pulumi.html">Pulumi</a></li>
+          <li><a href="../kubernetes/kubernetes.html">Kubernetes</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://fluxcd.io/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://fluxcd.io/flux/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/fluxcd/flux2" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

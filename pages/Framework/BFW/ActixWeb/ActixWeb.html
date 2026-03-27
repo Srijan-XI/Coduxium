@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Actix Web — Coduxium XI</title>
+  <meta name="description" content="Actix Web backend framework guide for Rust with high-performance async APIs and actor-inspired architecture." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Actix Web Framework</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Actix Web</h2>
+      <p class="intro">Actix Web is a powerful Rust web framework focused on speed, type safety, and resilient asynchronous service development.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Backend</span>
+          <span class="badge">Rust</span>
+          <span class="badge">Async</span>
+          <span class="badge">High Performance</span>
+        </div>
+        <p>Actix Web is a strong option for high-throughput APIs and systems programming environments needing memory safety and predictable performance.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Async runtime integration</strong> — efficient I/O concurrency</li>
+          <li><strong>Extractor pattern</strong> — typed request parsing and validation</li>
+          <li><strong>Middleware and guards</strong> — request lifecycle control</li>
+          <li><strong>Rust type safety</strong> — compile-time guarantees</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Performance-critical REST APIs</li>
+          <li>Gateway and edge backend services</li>
+          <li>Safety-focused infrastructure services</li>
+          <li>Concurrent systems with strict SLAs</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>cargo new actix-app
+cd actix-app
+cargo add actix-web</code></pre>
+        <pre><code>// src/main.rs
+use actix_web::{get, App, HttpServer, Responder};
+
+#[get("/health")]
+async fn health() -> impl Responder {
+    "ok"
+}
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| App::new().service(health))
+        .bind(("127.0.0.1", 8080))?
+        .run()
+        .await
+}</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Model request/response types explicitly for API contracts.</li>
+          <li>Apply middleware for tracing, auth, and error normalization.</li>
+          <li>Profile allocations and hot paths in production builds.</li>
+          <li>Use structured observability with metrics and tracing.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://actix.rs/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://actix.rs/docs/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/actix/actix-web" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sidekiq — Coduxium XI</title>
+  <meta name="description" content="Sidekiq background job system guide for Ruby applications using Redis-backed queues." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Sidekiq</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Sidekiq</h2>
+      <p class="intro">Sidekiq is a Redis-backed job processor for Ruby used to run asynchronous and scheduled background tasks.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Background Jobs</span>
+          <span class="badge">Redis</span>
+          <span class="badge">Ruby</span>
+          <span class="badge">Queue Processing</span>
+        </div>
+        <p>It provides reliable offloading of long-running or retryable work from request-response paths, improving latency and resilience.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Concepts</h3>
+        <ul>
+          <li><strong>Workers</strong> — classes that process jobs</li>
+          <li><strong>Queues</strong> — priority channels for jobs</li>
+          <li><strong>Retries</strong> — built-in failure backoff</li>
+          <li><strong>Scheduling</strong> — delayed and periodic execution</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Email delivery and notifications</li>
+          <li>Data sync and ETL tasks</li>
+          <li>Webhook processing and retries</li>
+          <li>Batch reporting jobs</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Worker Example</h3>
+        <pre><code>class WelcomeEmailWorker
+  include Sidekiq::Worker
+
+  def perform(user_id)
+    UserMailer.welcome(user_id).deliver_now
+  end
+end</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Ensure jobs are idempotent and safe for retries.</li>
+          <li>Keep job payloads small and pass identifiers, not full objects.</li>
+          <li>Partition queues by priority and workload class.</li>
+          <li>Track queue latency and dead jobs with alerting.</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Backend Frameworks</h3>
+        <ul>
+          <li><a href="../SailsJs/SailsJs.html">Sails.js</a> (comparable queue patterns)</li>
+          <li><a href="../NestJs/NestJs.html">NestJS</a> (job queue alternatives)</li>
+          <li><a href="../Phoenix/Phoenix.html">Phoenix</a> (Oban ecosystem equivalent)</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://sidekiq.org/" target="_blank" class="btn primary">Official Site</a>
+        <a href="https://github.com/sidekiq/sidekiq/wiki" target="_blank" class="btn">Wiki</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

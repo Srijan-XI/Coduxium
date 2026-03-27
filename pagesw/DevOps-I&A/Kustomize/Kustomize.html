@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kustomize — Coduxium XI</title>
+  <meta name="description" content="Kustomize guide for template-free Kubernetes configuration overlays and environment-specific manifest customization." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Kustomize</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../index.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>🧩 Kustomize</h2>
+      <p class="intro">Kustomize customizes Kubernetes manifests using overlays and patches without introducing a templating language.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Kubernetes</span>
+          <span class="badge">Config Management</span>
+          <span class="badge">Overlays</span>
+          <span class="badge">GitOps Friendly</span>
+        </div>
+        <p>Kustomize helps teams keep a clean base manifest set while layering environment-specific changes for dev, staging, and production.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Concepts</h3>
+        <ul>
+          <li><strong>Base</strong> — shared manifests for all environments</li>
+          <li><strong>Overlay</strong> — environment-specific customizations</li>
+          <li><strong>Patches</strong> — targeted resource modifications</li>
+          <li><strong>Transformers</strong> — labels, namespaces, image tags</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Preview output
+kubectl kustomize ./overlays/dev
+
+# Apply overlay
+kubectl apply -k ./overlays/dev</code></pre>
+        <pre><code># kustomization.yaml (example)
+resources:
+  - ../../base
+namespace: myapp-dev
+images:
+  - name: myapp
+    newTag: 1.2.3</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Keep base manifests minimal and reusable.</li>
+          <li>Model overlays by environment and team boundary.</li>
+          <li>Use strategic merge patches for small, auditable changes.</li>
+          <li>Validate rendered output in CI before apply.</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Delivery Tools</h3>
+        <ul>
+          <li><a href="../Tekton/Tekton.html">Tekton</a></li>
+          <li><a href="../Helm/Helm.html">Helm</a></li>
+          <li><a href="../Skaffold/Skaffold.html">Skaffold</a></li>
+          <li><a href="../kubernetes/kubernetes.html">Kubernetes</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://kustomize.io/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://kubectl.docs.kubernetes.io/references/kustomize/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/kubernetes-sigs/kustomize" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

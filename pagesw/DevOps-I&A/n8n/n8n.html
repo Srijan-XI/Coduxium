@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>n8n — Coduxium XI</title>
+  <meta name="description" content="n8n workflow automation guide for low-code orchestration, integrations, and event-driven operational automation." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><div class="brand"><span class="logo">💻</span><div><h1><a href="../../../index.html">Coduxium XI</a></h1><p class="sub">n8n</p></div></div><div class="header-actions"><a href="../../../index.html" class="btn">← Back</a><button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button></div></div></header>
+  <main class="container" style="padding: 40px 0;"><article class="content-page">
+    <h2>🔗 n8n</h2>
+    <p class="intro">n8n is a workflow automation platform for connecting services and building event-driven automation with low-code and code nodes.</p>
+    <section class="framework-section"><h3>Overview</h3><div class="badge-group"><span class="badge">Automation</span><span class="badge">Integrations</span><span class="badge">Workflows</span><span class="badge">Low-code</span></div><p>n8n enables teams to automate operational tasks, data syncs, and business processes with visual workflows and extensible execution logic.</p></section>
+    <section class="framework-section"><h3>Common Use Cases</h3><ul><li>Cross-SaaS data synchronization</li><li>Alerting and incident routing automation</li><li>Ticketing, CRM, and messaging orchestration</li><li>Internal tool process automation</li></ul></section>
+    <section class="framework-section"><h3>Getting Started</h3><pre><code># Run n8n in Docker
+docker run -it --rm -p 5678:5678 n8nio/n8n
+
+# Open UI
+http://localhost:5678</code></pre></section>
+    <section class="framework-section"><h3>Related Cloud and Observability Tools</h3><ul><li><a href="../Loki/Loki.html">Loki</a></li><li><a href="../Zipkin/Zipkin.html">Zipkin</a></li><li><a href="../CloudWatch/CloudWatch.html">CloudWatch</a></li></ul></section>
+    <div class="lang-resources"><a href="https://n8n.io/" target="_blank" class="btn primary">Official Website</a><a href="https://docs.n8n.io/" target="_blank" class="btn">Documentation</a></div>
+  </article></main>
+  <footer class="site-footer"><div class="container footer-inner"><small>Coduxium XI © 2025</small><div class="footer-links"><a href="../../../index.html">Home</a><a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a></div></div></footer>
+  <script>const btn=document.getElementById('btn-theme');const key='il-devlangs-theme';const set=(val)=>{document.body.classList.toggle('light',val==='light');localStorage.setItem(key,val);};const stored=localStorage.getItem(key);if(stored)set(stored);else set('dark');btn.addEventListener('click',()=>{const cur=document.body.classList.contains('light')?'light':'dark';set(cur==='light'?'dark':'light');});</script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

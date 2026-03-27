@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Istio — Coduxium XI</title>
+  <meta name="description" content="Istio service mesh guide for traffic management, mTLS security, observability, and progressive delivery on Kubernetes." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Istio</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../index.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>🕸️ Istio</h2>
+      <p class="intro">Istio is a service mesh for Kubernetes that delivers traffic control, zero-trust security, and deep service observability.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Service Mesh</span>
+          <span class="badge">Kubernetes</span>
+          <span class="badge">mTLS</span>
+          <span class="badge">Traffic Control</span>
+        </div>
+        <p>Istio adds a policy and networking layer across microservices without changing application code, enabling safer and more observable operations.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Capabilities</h3>
+        <ul>
+          <li><strong>Traffic management</strong> — routing, retries, circuit breaking</li>
+          <li><strong>Security</strong> — mTLS, authz policies, workload identity</li>
+          <li><strong>Observability</strong> — traces, metrics, and access logs</li>
+          <li><strong>Progressive delivery</strong> — canary and blue/green patterns</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Install Istio (demo profile)
+istioctl install --set profile=demo -y
+
+# Enable sidecar injection
+kubectl label namespace default istio-injection=enabled</code></pre>
+        <pre><code># Verify
+kubectl get pods -n istio-system
+istioctl proxy-status</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Zero-trust service-to-service communication</li>
+          <li>Canary rollouts with fine-grained traffic splits</li>
+          <li>Policy enforcement across microservice fleets</li>
+          <li>Cross-service observability in production</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Mesh and IaC Tools</h3>
+        <ul>
+          <li><a href="../Flux/Flux.html">Flux</a></li>
+          <li><a href="../OpenTofu/OpenTofu.html">OpenTofu</a></li>
+          <li><a href="../Pulumi/Pulumi.html">Pulumi</a></li>
+          <li><a href="../kubernetes/kubernetes.html">Kubernetes</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://istio.io/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://istio.io/latest/docs/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/istio/istio" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
