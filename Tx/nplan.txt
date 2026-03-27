@@ -1,0 +1,18 @@
+Plan to Improve the site this plan excuted in 2026 *still under review*
+
+Create manifest.json: Enable "Add to Home Screen" functionality
+----------------------------------------------------------------
+App icons: Add favicon and PWA icons (180x180, 192x192, 512x512)
+----------------------------------------------------------------
+API documentation: Document the data structure in app.js
+--------------------------------------------------------------
+Contributing guide: Improve with code style examples
+--------------------------------------------------------------
+Implement error handling
+-------------------------------
+Mobile Optimization
+Touch gestures: Swipe navigation for mobile
+Mobile menu: Hamburger menu for smaller screens
+Viewport optimization: Ensure all pages are mobile-responsive
+Performance budget: Set size limits for mobile
+--------------------------------------------------------------
