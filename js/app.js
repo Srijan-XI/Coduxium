@@ -7,19 +7,19 @@
 
 	// --- Data model ---
 	const languages = [
-		{ type: 'language', name: 'Python', folder: 'Languages/Python', intro: 'Languages/Python/Python.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/PYTHON/Python%20questions' },
-		{ type: 'language', name: 'Java', folder: 'Languages/Java', intro: 'Languages/Java/Java.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/JAVA/Question' },
-		{ type: 'language', name: 'JavaScript', folder: 'Languages/Js', intro: 'Languages/Js/Js.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/JavaScript/questions' },
-		{ type: 'language', name: 'TypeScript', folder: 'Languages/Ts', intro: 'Languages/Ts/Ts.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/TypeScript/questions' },
-		{ type: 'language', name: 'C & C++', folder: 'Languages/C&C++', intro: 'Languages/C&C++/C&C++.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/C%20%26%20C%2B%2B/questions%20of%20c%20%26%20cpp' },
+		{ type: 'language', name: 'Python', folder: 'Languages/Python', intro: 'Languages/Python/Python.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/PYTHON/Python%20questions' },
+		{ type: 'language', name: 'Java', folder: 'Languages/Java', intro: 'Languages/Java/Java.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/JAVA/Question' },
+		{ type: 'language', name: 'JavaScript', folder: 'Languages/Js', intro: 'Languages/Js/Js.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/JavaScript/questions' },
+		{ type: 'language', name: 'TypeScript', folder: 'Languages/Ts', intro: 'Languages/Ts/Ts.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/TypeScript/questions' },
+		{ type: 'language', name: 'C & C++', folder: 'Languages/C&C++', intro: 'Languages/C&C++/C&C++.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/C%20%26%20C%2B%2B/questions%20of%20c%20%26%20cpp' },
 		{ type: 'language', name: 'C#', folder: 'Languages/CSharp', intro: 'Languages/CSharp/CSharp.html' },
-		{ type: 'language', name: 'Rust', folder: 'Languages/Rust', intro: 'Languages/Rust/Rust.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/RUST/Qustions' },
-		{ type: 'language', name: 'Go', folder: 'Languages/Golang', intro: 'Languages/Golang/Golang.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/Golang/questions' },
-		{ type: 'language', name: 'PHP', folder: 'Languages/php', intro: 'Languages/php/php.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/PHP/Question' },
-		{ type: 'language', name: 'R', folder: 'Languages/R', intro: 'Languages/R/R.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/R/R%20programming%20questions' },
-		{ type: 'language', name: 'SQL', folder: 'Languages/SQL', intro: 'Languages/SQL/SQL.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/SQL/questions' },
-		{ type: 'language', name: 'KQL', folder: 'Languages/Kql', intro: 'Languages/Kql/Kql.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/Kql/Questions' },
-		{ type: 'language', name: 'Bash', folder: 'Languages/Bash', intro: 'Languages/Bash/Bash.html', questions: 'https://github.com/Srijan-XI/Install-and-Learn-DevLangs/tree/main/Bash/Questions' },
+		{ type: 'language', name: 'Rust', folder: 'Languages/Rust', intro: 'Languages/Rust/Rust.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/RUST/Qustions' },
+		{ type: 'language', name: 'Go', folder: 'Languages/Golang', intro: 'Languages/Golang/Golang.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/Golang/questions' },
+		{ type: 'language', name: 'PHP', folder: 'Languages/php', intro: 'Languages/php/php.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/PHP/Question' },
+		{ type: 'language', name: 'R', folder: 'Languages/R', intro: 'Languages/R/R.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/R/R%20programming%20questions' },
+		{ type: 'language', name: 'SQL', folder: 'Languages/SQL', intro: 'Languages/SQL/SQL.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/SQL/questions' },
+		{ type: 'language', name: 'KQL', folder: 'Languages/Kql', intro: 'Languages/Kql/Kql.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/Kql/Questions' },
+		{ type: 'language', name: 'Bash', folder: 'Languages/Bash', intro: 'Languages/Bash/Bash.html', questions: 'https://github.com/Srijan-XI/RunexisForge/tree/main/Bash/Questions' },
 		{ type: 'language', name: 'Swift', folder: 'Languages/swift', intro: 'Languages/swift/swift.html' },
 		{ type: 'language', name: 'Ruby', folder: 'Languages/ruby', intro: 'Languages/ruby/ruby.html' },
 		{ type: 'language', name: 'Kotlin', folder: 'Languages/kotlin', intro: 'Languages/kotlin/kotlin.html' },
@@ -30,31 +30,28 @@
 	];
 
 	const frameworks = [
-		{ type: 'framework', name: 'Node.js', intro: 'Framework/NodeJs/NodeJs.html', folder: 'Framework/NodeJs' },
-		{ type: 'framework', name: 'Express.js', intro: 'Framework/ExpressJs/ExpressJs.html', folder: 'Framework/ExpressJs' },
-		{ type: 'framework', name: 'Next.js', intro: 'Framework/NextJs/NextJs.html', folder: 'Framework/NextJs' },
-		{ type: 'framework', name: 'Nuxt.js', intro: 'Framework/NuxtJs/NuxtJs.html', folder: 'Framework/NuxtJs' },
-		{ type: 'framework', name: 'Remix', intro: 'Framework/Remix/Remix.html', folder: 'Framework/Remix' },
-		{ type: 'framework', name: 'Astro', intro: 'Framework/Astro/Astro.html', folder: 'Framework/Astro' },
-		{ type: 'framework', name: 'Django', intro: 'Framework/Django/Django.html', folder: 'Framework/Django' },
-		{ type: 'framework', name: 'Flask', intro: 'Framework/Flask/Flask.html', folder: 'Framework/Flask' },
-		{ type: 'framework', name: 'FastAPI', intro: 'Framework/FastAPI/FastAPI.html', folder: 'Framework/FastAPI' },
-		{ type: 'framework', name: 'Laravel', intro: 'Framework/Laravel/Laravel.html', folder: 'Framework/Laravel' },
-		{ type: 'framework', name: 'Spring Boot', intro: 'Framework/Spring Boot/Spring Boot.html', folder: 'Framework/Spring Boot' },
-		{ type: 'framework', name: 'Gin', intro: 'Framework/Gin/Gin.html', folder: 'Framework/Gin' },
-		{ type: 'framework', name: 'React', intro: 'Framework/react/react.html', folder: 'Framework/react' },
-		{ type: 'framework', name: 'Vue', intro: 'Framework/vue/vue.html', folder: 'Framework/vue' },
-		{ type: 'framework', name: 'Angular', intro: 'Framework/angular/angular.html', folder: 'Framework/angular' },
-		{ type: 'framework', name: 'Svelte', intro: 'Framework/svelte/svelte.html', folder: 'Framework/svelte' },
-		{ type: 'framework', name: 'Solid.js', intro: 'Framework/SolidJs/SolidJs.html', folder: 'Framework/SolidJs' },
-		{ type: 'framework', name: 'Tauri', intro: 'Framework/tauri/tauri.html', folder: 'Framework/tauri' },
-		{ type: 'framework', name: 'Electron', intro: 'Framework/Electron/Electron.html', folder: 'Framework/Electron' },
-		{ type: 'framework', name: 'Streamlit', intro: 'Framework/streamlit/streamlit.html', folder: 'Framework/streamlit' },
-		{ type: 'framework', name: 'Ruby on Rails', intro: 'Framework/ruby-on-rails/ruby-on-rails.html', folder: 'Framework/ruby-on-rails' },
-		{ type: 'framework', name: 'ASP.NET Core', intro: 'Framework/aspnet-core/aspnet-core.html', folder: 'Framework/aspnet-core' },
-		{ type: 'framework', name: 'Apache Spark', intro: 'Framework/apache-spark/apache-spark.html', folder: 'Framework/apache-spark' },
-		{ type: 'framework', name: 'Apache Kafka', intro: 'Framework/apache-kafka/apache-kafka.html', folder: 'Framework/apache-kafka' },
-		{ type: 'framework', name: 'Ansible', intro: 'Framework/ansible/ansible.html', folder: 'Framework/ansible' }
+		{ type: 'framework', name: 'Node.js', intro: 'Framework/BFW/NodeJs/NodeJs.html', folder: 'Framework/BFW/NodeJs' },
+		{ type: 'framework', name: 'Express.js', intro: 'Framework/BFW/ExpressJs/ExpressJs.html', folder: 'Framework/BFW/ExpressJs' },
+		{ type: 'framework', name: 'Next.js', intro: 'Framework/FFW/NextJs/NextJs.html', folder: 'Framework/FFW/NextJs' },
+		{ type: 'framework', name: 'Nuxt.js', intro: 'Framework/FFW/NuxtJs/NuxtJs.html', folder: 'Framework/FFW/NuxtJs' },
+		{ type: 'framework', name: 'Remix', intro: 'Framework/FFW/Remix/Remix.html', folder: 'Framework/FFW/Remix' },
+		{ type: 'framework', name: 'Astro', intro: 'Framework/FFW/Astro/Astro.html', folder: 'Framework/FFW/Astro' },
+		{ type: 'framework', name: 'Django', intro: 'Framework/BFW/Django/Django.html', folder: 'Framework/BFW/Django' },
+		{ type: 'framework', name: 'Flask', intro: 'Framework/BFW/Flask/Flask.html', folder: 'Framework/BFW/Flask' },
+		{ type: 'framework', name: 'FastAPI', intro: 'Framework/BFW/FastAPI/FastAPI.html', folder: 'Framework/BFW/FastAPI' },
+		{ type: 'framework', name: 'Laravel', intro: 'Framework/BFW/Laravel/Laravel.html', folder: 'Framework/BFW/Laravel' },
+		{ type: 'framework', name: 'Spring Boot', intro: 'Framework/BFW/Spring Boot/Spring Boot.html', folder: 'Framework/BFW/Spring Boot' },
+		{ type: 'framework', name: 'Gin', intro: 'Framework/BFW/Gin/Gin.html', folder: 'Framework/BFW/Gin' },
+		{ type: 'framework', name: 'React', intro: 'Framework/FFW/react/react.html', folder: 'Framework/FFW/react' },
+		{ type: 'framework', name: 'Vue', intro: 'Framework/FFW/vue/vue.html', folder: 'Framework/FFW/vue' },
+		{ type: 'framework', name: 'Angular', intro: 'Framework/FFW/angular/angular.html', folder: 'Framework/FFW/angular' },
+		{ type: 'framework', name: 'Svelte', intro: 'Framework/FFW/svelte/svelte.html', folder: 'Framework/FFW/svelte' },
+		{ type: 'framework', name: 'Solid.js', intro: 'Framework/FFW/SolidJs/SolidJs.html', folder: 'Framework/FFW/SolidJs' },
+		{ type: 'framework', name: 'Tauri', intro: 'Framework/AFW/tauri/tauri.html', folder: 'Framework/AFW/tauri' },
+		{ type: 'framework', name: 'Electron', intro: 'Framework/AFW/Electron/Electron.html', folder: 'Framework/AFW/Electron' },
+		{ type: 'framework', name: 'Streamlit', intro: 'Framework/FFW/streamlit/streamlit.html', folder: 'Framework/FFW/streamlit' },
+		{ type: 'framework', name: 'Ruby on Rails', intro: 'Framework/BFW/ruby-on-rails/ruby-on-rails.html', folder: 'Framework/BFW/ruby-on-rails' },
+		{ type: 'framework', name: 'ASP.NET Core', intro: 'Framework/BFW/aspnet-core/aspnet-core.html', folder: 'Framework/BFW/aspnet-core' }
 	];
 
 	const databases = [
@@ -124,7 +121,7 @@
 	const securityTools = [
 		{ type: 'security', name: 'AquaSecurity', intro: 'DevSecOps&SecurityTools/AquaSecurity/AquaSecurity.html', folder: 'DevSecOps&SecurityTools/AquaSecurity' },
 		{ type: 'security', name: 'SonarQube', intro: 'DevSecOps&SecurityTools/SonarQube/SonarQube.html', folder: 'DevSecOps&SecurityTools/SonarQube' },
-		{ type: 'security', name: 'Snyk', intro: 'DevSecOps&SecurityTools/Snuk/Snuk.html', folder: 'DevSecOps&SecurityTools/Snuk' },
+		{ type: 'security', name: 'Snyk', intro: 'DevSecOps&SecurityTools/Snuk/Snyk.html', folder: 'DevSecOps&SecurityTools/Snuk' },
 		{ type: 'security', name: 'HashiCorp Vault', intro: 'DevSecOps&SecurityTools/HashiCorpVault/HashiCorpVault.html', folder: 'DevSecOps&SecurityTools/HashiCorpVault' },
 		{ type: 'security', name: 'Metasploit', intro: 'DevSecOps&SecurityTools/metasploit/metasploit.html', folder: 'DevSecOps&SecurityTools/metasploit' },
 		{ type: 'security', name: 'Security Tools', intro: 'DevSecOps&SecurityTools/security-tools/security-tools.html', folder: 'DevSecOps&SecurityTools/security-tools' }
@@ -531,3 +528,4 @@ if (typeof window !== 'undefined') {
 		}
 	});
 }
+

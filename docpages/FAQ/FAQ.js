@@ -137,6 +137,55 @@
             }
         ];
 
+        function sanitizeFAQHtml(rawHtml) {
+            const template = document.createElement('template');
+            template.innerHTML = rawHtml;
+
+            const allowedTags = new Set(['A', 'UL', 'OL', 'LI', 'STRONG', 'EM', 'CODE', 'P', 'BR']);
+            const allowedAttrsByTag = {
+                A: new Set(['href', 'target', 'rel']),
+                UL: new Set(['class']),
+                OL: new Set(['class']),
+                LI: new Set(['class'])
+            };
+
+            const walk = (node) => {
+                if (node.nodeType !== Node.ELEMENT_NODE) return;
+
+                const tag = node.tagName;
+                if (!allowedTags.has(tag)) {
+                    const parent = node.parentNode;
+                    while (node.firstChild) {
+                        parent.insertBefore(node.firstChild, node);
+                    }
+                    parent.removeChild(node);
+                    return;
+                }
+
+                const allowedAttrs = allowedAttrsByTag[tag] || new Set();
+                Array.from(node.attributes).forEach((attr) => {
+                    if (!allowedAttrs.has(attr.name)) {
+                        node.removeAttribute(attr.name);
+                    }
+                });
+
+                if (tag === 'A') {
+                    const href = node.getAttribute('href') || '';
+                    if (/^\s*javascript:/i.test(href)) {
+                        node.removeAttribute('href');
+                    }
+                    if (node.getAttribute('target') === '_blank') {
+                        node.setAttribute('rel', 'noopener noreferrer');
+                    }
+                }
+
+                Array.from(node.children).forEach(walk);
+            };
+
+            Array.from(template.content.children).forEach(walk);
+            return template.innerHTML;
+        }
+
         // Function to render the FAQ sections and questions
         function renderFAQ() {
             const faqList = document.getElementById('faq-list');
@@ -169,13 +218,27 @@
                     headerButton.className = 'faq-header';
                     headerButton.setAttribute('aria-expanded', 'false');
                     headerButton.setAttribute('aria-controls', id + '-body');
-                    headerButton.setAttribute('onclick', `toggleAccordion('${id}')`);
-                    headerButton.innerHTML = `
-                        <span>${item.q}</span>
-                        <svg id="${id}-icon" class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
-                    `;
+                    headerButton.addEventListener('click', () => toggleAccordion(id));
+
+                    const headerText = document.createElement('span');
+                    headerText.textContent = item.q;
+
+                    const iconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    iconSvg.id = id + '-icon';
+                    iconSvg.setAttribute('class', 'faq-icon');
+                    iconSvg.setAttribute('viewBox', '0 0 24 24');
+                    iconSvg.setAttribute('fill', 'none');
+                    iconSvg.setAttribute('stroke', 'currentColor');
+                    iconSvg.setAttribute('stroke-width', '2');
+                    iconSvg.setAttribute('stroke-linecap', 'round');
+                    iconSvg.setAttribute('stroke-linejoin', 'round');
+
+                    const iconPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    iconPath.setAttribute('d', 'M6 9l6 6 6-6');
+                    iconSvg.appendChild(iconPath);
+
+                    headerButton.appendChild(headerText);
+                    headerButton.appendChild(iconSvg);
                     questionCard.appendChild(headerButton);
 
                     // Accordion Body (Answer)
@@ -186,7 +249,7 @@
                     
                     const answerContent = document.createElement('div');
                     answerContent.className = 'faq-answer';
-                    answerContent.innerHTML = item.a;
+                    answerContent.innerHTML = sanitizeFAQHtml(item.a);
                     
                     answerBody.appendChild(answerContent);
                     questionCard.appendChild(answerBody);
@@ -230,14 +293,12 @@
             }
         }
 
-        // Run rendering function when the window loads
-        window.onload = renderFAQ;
+        document.addEventListener('DOMContentLoaded', renderFAQ);
 
         // Theme Toggle (placeholder for future implementation)
         const btn = document.getElementById('btn-theme');
         if (btn) {
             btn.addEventListener('click', () => {
-                // Theme toggle functionality can be added here
-                console.log('Theme toggle clicked');
+                // Theme toggle handled by shared component on pages where it is loaded.
             });
         }

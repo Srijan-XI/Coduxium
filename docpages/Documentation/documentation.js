@@ -33,14 +33,14 @@ Coduxium XI provides comprehensive resources for learning and mastering:
 - **[FAQ](FAQ.html)** - Frequently asked questions and answers
 
 ### Project Information
-- **[CHANGELOG](../pages/changelog.html)** - Version history and changes
+- **[CHANGELOG](../changelog/changelog.html)** - Version history and changes
 
 ### Community
 - **[CONTRIBUTING](../Guidelines/community.html)** - How to contribute to the project
 - **[SECURITY](../Guidelines/SecurityPolicy.html)** - Security policy and vulnerability reporting
 
 ### Learning Resources
-- **[RESOURCES](../pages/Resources/Resources.html)** - Curated learning materials for all languages
+- **[RESOURCES](../../pagex/Resources/Resources.html)** - Curated learning materials for all languages
 
 ---
 
@@ -474,7 +474,7 @@ Comprehensive guides for major cloud service providers:
 1. [README.md](../README.md) - Start here
 2. [QUICKSTART.md](quickstart.html) - Get coding fast
 3. [CONTRIBUTING.md](../Guidelines/community.html) - Join the project
-4. [RESOURCES.md](../pages/Resources/Resources.html) - Learn more
+4. [RESOURCES.md](../../pagex/Resources/Resources.html) - Learn more
 5. [FAQ.md](FAQ.html) - Get answers
 
 ### For Contributors
@@ -483,7 +483,7 @@ Comprehensive guides for major cloud service providers:
 
 ### For Learners
 1. [QUICKSTART.md](quickstart.html)
-2. [RESOURCES.md](../pages/Resources/Resources.html)
+2. [RESOURCES.md](../../pagex/Resources/Resources.html)
 3. [FAQ.md](FAQ.html)
 4. Language-specific installation guides
 
@@ -512,7 +512,7 @@ Documentation is updated when:
 - Best practices evolve
 - Issues are resolved
 
-See [CHANGELOG.md](../pages/changelog.html) for update history.
+See [CHANGELOG.md](../changelog/changelog.html) for update history.
 
 ---
 
@@ -531,13 +531,13 @@ Found something unclear? Documentation improvements are always welcome!
 
 - Open an issue with the "documentation" label
 - Suggest improvements via pull request
-- Ask in [GitHub Discussions](https://github.com/Srijan-XI/Install-and-Learn-DevLangs/discussions)
+- Ask in [GitHub Discussions](https://github.com/Srijan-XI/RunexisForge/discussions)
 
 ---
 
 **Last Updated**: December 24, 2025
 
-[⬆ Back to README](../README.md)
+[⬆ Back to README](../../README.md)
 `;
 
 // --- Helper Function for Link Replacements ---
@@ -546,13 +546,13 @@ function replaceLinks(htmlString) {
     const fileMap = {
         'index.html': '../index.html',
         'quickstart.html': 'quickstart.html',
-        'resources.html': '../pages/Resources/Resources.html',
-        'changelog.html': '../pages/changelog.html',
-        'README.md': '../README.md',
+        'resources.html': '../../pagex/Resources/Resources.html',
+        'changelog.html': '../changelog/changelog.html',
+        'README.md': '../../README.md',
         'FAQ.md': 'FAQ.html',
         'QUICKSTART.md': 'quickstart.html',
-        'RESOURCES.md': '../pages/Resources/Resources.html',
-        'CHANGELOG.md': '../pages/changelog.html'
+        'RESOURCES.md': '../../pagex/Resources/Resources.html',
+        'CHANGELOG.md': '../changelog/changelog.html'
     };
 
     // Regular expression to find Markdown links: [Text](Target)

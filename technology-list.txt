@@ -1,0 +1,333 @@
+# Runexis Forge - Technology List from main Repo. for Coduxium XI
+
+## 1. Programming Languages
+- Python
+- Java
+- C
+- C++
+- PHP
+- R
+- Rust
+- Go (Golang)
+- JavaScript
+- TypeScript
+- Kotlin
+- Swift
+- Ruby
+- C#
+- MATLAB
+- Dart (with Flutter)
+- Assembly
+- Scala
+- Bash
+- KQL
+- SQL
+- Zig  [TODO: missing-on-site]
+- Elixir
+- Lua  [TODO: missing-on-site]
+- Haskell  [TODO: missing-on-site]
+- Julia  [TODO: missing-on-site]
+- Perl
+- PowerShell
+
+## 2. Frontend Frameworks & Libraries
+- Angular
+- React
+- Vue.js
+- Svelte
+- Nuxt.js
+- Remix
+- Astro
+- SolidJS
+- Qwik  [TODO: missing-on-site]
+- htmx  [TODO: missing-on-site]
+- Alpine.js  [TODO: missing-on-site]
+- Lit
+- FAST
+- Stencil  [TODO: missing-on-site]
+- Web-Components  [TODO: missing-on-site]
+- Material-Design
+- Vite
+- Electron
+- Tauri
+
+## 3. Backend Web Frameworks
+- Django (Python)
+- Flask (Python)
+- FastAPI (Python)
+- Spring Boot (Java)
+- ASP.NET Core (C#)
+- Laravel (PHP)
+- Ruby on Rails (Ruby)
+- Express.js (Node.js)
+- NestJS (TypeScript)  [TODO: missing-on-site]
+- Fastify (Node.js)  [TODO: missing-on-site]
+- Koa (Node.js)  [TODO: missing-on-site]
+- Hapi (Node.js)  [TODO: missing-on-site]
+- Adonis (Node.js)  [TODO: missing-on-site]
+- Sails.js (Node.js)  [TODO: missing-on-site]
+- Hono (Multi-runtime)  [TODO: missing-on-site]
+- Elysia (Bun)  [TODO: missing-on-site]
+- Oak (Deno)  [TODO: missing-on-site]
+- Fresh (Deno)
+- Gin (Go)
+- Actix-web (Rust)  [TODO: missing-on-site]
+- Axum (Rust)  [TODO: missing-on-site]
+- Rocket (Rust)
+- Leptos (Rust)  [TODO: missing-on-site]
+- Vert.x (Java)
+- Micronaut (Java)
+- Quarkus (Java)
+- Play Framework (Scala/Java)
+- Vapor (Swift)
+- Kitura (Swift)
+- Phoenix (Elixir)  [TODO: missing-on-site]
+- Harpoon (Elixir)
+- Node.js (Runtime)
+- Deno (Runtime)  [TODO: missing-on-site]
+- Bun (Runtime)
+- REST API
+- GraphQL
+- gRPC
+- SOAP  [TODO: missing-on-site]
+- OpenAPI / Swagger
+- AsyncAPI  [TODO: missing-on-site]
+- JSON:API
+- OAuth 2.0 / OIDC  [TODO: missing-on-site]
+- SAML  [TODO: missing-on-site]
+- Firebase (BaaS)
+- Hasura (BaaS)
+- Strapi (BaaS)
+- Celery (Background Jobs)
+- Sidekiq (Background Jobs)  [TODO: missing-on-site]
+- Webhooks  [TODO: missing-on-site]
+## 4. Cloud & DevOps
+- Git
+- GitHub
+- GitLab
+- Bitbucket
+- Jenkins
+- GitHub Actions
+- GitLab CI/CD
+- Azure DevOps Pipelines
+- CircleCI
+- Travis CI
+- Drone CI
+- Tekton  [TODO: missing-on-site]
+- Spinnaker
+- Docker
+- Podman  [TODO: missing-on-site]
+- Kubernetes
+- Helm  [TODO: missing-on-site]
+- Nomad  [TODO: missing-on-site]
+- Kustomize  [TODO: missing-on-site]
+- Skaffold  [TODO: missing-on-site]
+- Istio  [TODO: missing-on-site]
+- Linkerd
+- Terraform
+- OpenTofu  [TODO: missing-on-site]
+- Pulumi  [TODO: missing-on-site]
+- Ansible
+- Packer
+- Vagrant
+- AWS (Amazon Web Services)
+- Azure
+- GCP (Google Cloud Platform)
+- DigitalOcean
+- Linode  [TODO: missing-on-site]
+- Oracle Cloud
+- IBM Cloud  [TODO: missing-on-site]
+- Cloudflare
+- Prometheus
+- Grafana
+- AlertManager
+- ELK/OpenSearch
+- Loki  [TODO: missing-on-site]
+- Zipkin  [TODO: missing-on-site]
+- OpenTelemetry
+- CloudWatch  [TODO: missing-on-site]
+- Azure Monitor
+- Google Cloud Monitoring
+- ArgoCD
+- Flux  [TODO: missing-on-site]
+- Argo Workflows
+- n8n  [TODO: missing-on-site]
+- Consul  [TODO: missing-on-site]
+- HashiCorp Vault
+
+## 5. Data Analytics & Science
+- Pandas
+- NumPy
+- Apache Spark
+- TensorFlow
+- PyTorch
+- Apache Kafka
+- Matplotlib  [TODO: missing-on-site]
+- Streamlit
+- dbt  [TODO: missing-on-site]
+- Airflow
+- Make
+- Bazel  [TODO: missing-on-site]
+- CMake  [TODO: missing-on-site]
+- Maven  [TODO: missing-on-site]
+- Gradle
+
+## 6. Security Testing
+- Aqua Security / Trivy
+- SonarQube
+- Snyk
+- HashiCorp Vault
+- Burp Suite
+- Metasploit
+- OpenVAS  [TODO: missing-on-site]
+- Scapy  [TODO: missing-on-site]
+- Postman
+- Jest
+- Vitest
+
+## 7. Game Engines
+- Cocos2d
+- CryEngine
+- GameMaker Studio
+- Godot
+- Panda3D
+- Rage Engine
+- Spring Engine
+- Unity
+- Unreal Engine
+
+## 8. Game Development Frameworks & Libraries
+- Amethyst (Rust)  [TODO: missing-on-site]
+- Babylon.js (3D web)  [TODO: missing-on-site]
+- Bevy (Rust ECS)  [TODO: missing-on-site]
+- Defold  [TODO: missing-on-site]
+- FNA (.NET)  [TODO: missing-on-site]
+- LibGDX (Java)  [TODO: missing-on-site]
+- Love2D (Lua)  [TODO: missing-on-site]
+- MonoGame (.NET)  [TODO: missing-on-site]
+- Phaser (HTML5)
+- PlayCanvas (WebGL)  [TODO: missing-on-site]
+- Pygame (Python)  [TODO: missing-on-site]
+- Raylib (C)
+- Three.js (3D web)
+
+## 9. Mobile Development
+- React Native
+- Flutter
+- Expo  [TODO: missing-on-site]
+- Ionic  [TODO: missing-on-site]
+- SwiftUI
+- Jetpack Compose  [TODO: missing-on-site]
+- Kotlin Multiplatform (KMP)
+- NativeScript
+- Kivy  [TODO: missing-on-site]
+- PWA (Progressive Web Apps)  [TODO: missing-on-site]
+## 10. Web3 & Blockchain
+- Solidity  [TODO: missing-on-site]
+- Ethereum
+- Bitcoin  [TODO: missing-on-site]
+- Solana  [TODO: missing-on-site]
+- Polkadot  [TODO: missing-on-site]
+- Hardhat
+- Foundry
+- Truffle
+- Web3JS  [TODO: missing-on-site]
+- MetaMask  [TODO: missing-on-site]
+- DeFi Protocols
+- NFT Standards
+
+## 11. CMS (Content Management Systems)
+- WordPress
+- Strapi
+- Sanity.io  [TODO: missing-on-site]
+- Contentful  [TODO: missing-on-site]
+- Directus
+- Ghost  [TODO: missing-on-site]
+- Payload  [TODO: missing-on-site]
+## 12. Network Tools
+- Wireshark
+- Nmap  [TODO: missing-on-site]
+- tcpdump  [TODO: missing-on-site]
+## 13. Search & Indexing
+- Elasticsearch
+- Algolia
+- Meilisearch
+
+## 14. Utilities & Tools
+- Package Managers (npm, yarn, pnpm, bun)
+- Version Managers (nvm, pyenv, rbenv)
+- Code Editors (VS Code, Vim, Eclipse)
+- Terminal Tools (tmux, zsh, oh-my-zsh)
+- Version Control (Git, GitHub, GitLab, Bitbucket)
+- VPN Tools  [TODO: missing-on-site]
+- SSH & SSL Tools  [TODO: missing-on-site]
+## 15. Development Tools (Data & Config Formats)
+- CSV
+- JSON
+- TOML
+- XML
+- YAML
+
+## 16. SQL & Databases
+- PostgreSQL
+- MySQL
+- MongoDB
+- Redis
+- MariaDB
+- SQLite
+- DynamoDB
+- Neo4j
+- BigQuery
+- IBM Db2
+- Snowflake
+- ArangoDB
+- Cassandra
+- ClickHouse  [TODO: missing-on-site]
+- Couchbase  [TODO: missing-on-site]
+- Druid
+- Memcached  [TODO: missing-on-site]
+- Milvus  [TODO: missing-on-site]
+- MinIO  [TODO: missing-on-site]
+- Pinecone  [TODO: missing-on-site]
+- TimescaleDB  [TODO: missing-on-site]
+- Trino
+- VictoriaMetrics
+- Weaviate  [TODO: missing-on-site]
+- etcd  [TODO: missing-on-site]
+- Elasticsearch (DB/Search)
+- Meilisearch (Search)
+- Algolia (Search)
+
+## 17. Operating Systems & Linux Distributions
+- Windows
+- macOS
+- iOS
+- Android
+- WSL (Windows Subsystem for Linux)
+- Alpine Linux
+- Arch Linux
+- BlackArch
+- Garuda Linux
+- RedArch
+- SteamOS
+- Debian
+- Ubuntu
+- Kali Linux
+- Mint Linux
+- MX Linux
+- ParrotSec
+- Pop!_OS
+- Tails
+- Zorin
+- CentOS (deprecated)
+- Fedora Linux
+- Oracle Linux
+- RedHat Enterprise Linux
+- Rocky Linux
+- Gentoo
+- ChromeOS Flex
+- NixOS  [TODO: missing-on-site]
+- Qubes OS
+- Slackware
+
+

@@ -79,7 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-**Note**: For detailed commit history, see the [Git log](https://github.com/Srijan-XI/Install-and-Learn-DevLangs/commits/).
+**Note**: For detailed commit history, see the [Git log](https://github.com/Srijan-XI/RunexisForge/commits/).
 
 ## Contributing
 
@@ -93,3 +93,4 @@ If you'd like to contribute to Coduxium XI, please:
 ---
 
 **Created by [Srijan-XI](https://github.com/Srijan-XI)** 🛡️
+

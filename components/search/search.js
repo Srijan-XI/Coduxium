@@ -5,7 +5,7 @@
 
 class SearchEngine {
 	constructor(options = {}) {
-		this.searchInput = options.input || document.getElementById('search-input');
+		this.searchInput = options.input || document.getElementById('search-input') || document.getElementById('search');
 		this.searchResults = options.results || document.getElementById('search-results');
 		this.minChars = options.minChars || 2;
 		this.debounceDelay = options.debounceDelay || 300;
@@ -13,6 +13,12 @@ class SearchEngine {
 		this.searchIndex = [];
 		this.debounceTimer = null;
 		
+		if (this.searchInput && !this.searchResults) {
+			this.searchResults = document.createElement('div');
+			this.searchResults.id = 'search-results';
+			this.searchInput.insertAdjacentElement('afterend', this.searchResults);
+		}
+
 		if (this.searchInput) {
 			this.init();
 		}
@@ -44,7 +50,7 @@ class SearchEngine {
 				this.searchIndex.push({
 					title: lang.name,
 					type: 'Language',
-					url: `pages/Languages/${lang.folder}/${lang.folder}.html`,
+					url: `pages/${lang.intro}`,
 					keywords: [lang.name.toLowerCase(), 'programming', 'language']
 				});
 			});
