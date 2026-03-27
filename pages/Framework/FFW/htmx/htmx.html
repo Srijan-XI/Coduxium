@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>htmx — Coduxium XI</title>
+  <meta name="description" content="Master htmx for hypermedia-driven UI patterns in server-rendered applications with minimal JavaScript overhead." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">htmx</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>htmx</h2>
+      <p class="intro">htmx enables AJAX, WebSocket, and server-driven UI updates directly from HTML attributes, making hypermedia-first apps practical at scale.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Frontend</span>
+          <span class="badge">Hypermedia</span>
+          <span class="badge">Progressive Enhancement</span>
+          <span class="badge">Server-Rendered</span>
+        </div>
+        <p>htmx is ideal when your application architecture prefers server-rendered HTML but still needs modern interaction patterns. It keeps complexity lower by reducing custom client state and JavaScript orchestration.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Declarative AJAX</strong> — use <code>hx-get</code>, <code>hx-post</code>, and target swaps</li>
+          <li><strong>Incremental UI Updates</strong> — replace parts of the DOM, not whole pages</li>
+          <li><strong>SSE/WebSocket Support</strong> — event-driven updates with minimal glue code</li>
+          <li><strong>Progressive Enhancement</strong> — graceful fallback for basic navigation flows</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>CRUD dashboards backed by server templates</li>
+          <li>Search/filter interfaces with partial refreshes</li>
+          <li>Inline validation and asynchronous form flows</li>
+          <li>Admin tools where fast delivery beats SPA complexity</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Example</h3>
+        <pre><code>&lt;button hx-get="/users/summary" hx-target="#summary" hx-swap="innerHTML"&gt;
+  Load Summary
+&lt;/button&gt;
+
+&lt;div id="summary"&gt;&lt;/div&gt;</code></pre>
+        <pre><code>&lt;form hx-post="/users" hx-target="#result" hx-swap="outerHTML"&gt;
+  &lt;input name="name" /&gt;
+  &lt;button type="submit"&gt;Create&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Design endpoints to return composable HTML fragments.</li>
+          <li>Keep server-side templates consistent and reusable.</li>
+          <li>Use <code>hx-indicator</code> for loading feedback states.</li>
+          <li>Centralize auth and CSRF handling for partial requests.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://htmx.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://htmx.org/docs/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/bigskysoftware/htmx" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

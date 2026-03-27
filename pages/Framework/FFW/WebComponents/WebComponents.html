@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Components — Coduxium XI</title>
+  <meta name="description" content="Master Web Components fundamentals including Custom Elements, Shadow DOM, templates, and framework interoperability." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Web Components</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Web Components</h2>
+      <p class="intro">Web Components are browser-native standards for building reusable UI elements that work across frameworks and stacks.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Frontend</span>
+          <span class="badge">Standards</span>
+          <span class="badge">Reusable UI</span>
+          <span class="badge">Framework Agnostic</span>
+        </div>
+        <p>Web Components allow teams to ship platform-level UI primitives with clear encapsulation. They are ideal for design systems, cross-team component sharing, and long-lived interface contracts.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Standards</h3>
+        <ul>
+          <li><strong>Custom Elements</strong> — define new HTML tags</li>
+          <li><strong>Shadow DOM</strong> — style and DOM encapsulation</li>
+          <li><strong>HTML Templates</strong> — cloneable inert markup</li>
+          <li><strong>ES Modules</strong> — native browser module loading</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Cross-framework design system components</li>
+          <li>Micro-frontend shared UI primitives</li>
+          <li>Embeddable widgets for partner platforms</li>
+          <li>Long-term component contracts independent of framework churn</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Example</h3>
+        <pre><code>class HelloCard extends HTMLElement {
+  connectedCallback() {
+  const root = this.attachShadow({ mode: 'open' });
+  root.innerHTML = `
+    &lt;style&gt;
+    p { color: #8b5cf6; font-weight: 600; }
+    &lt;/style&gt;
+    &lt;p&gt;Hello Web Components&lt;/p&gt;
+  `;
+  }
+}
+
+customElements.define('hello-card', HelloCard);</code></pre>
+        <pre><code>&lt;hello-card&gt;&lt;/hello-card&gt;</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Define stable public APIs through attributes, properties, and events.</li>
+          <li>Use Shadow DOM when style isolation is required.</li>
+          <li>Document accessibility and keyboard behavior as part of the component contract.</li>
+          <li>Version components carefully to avoid integration breakage across teams.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_blank" class="btn primary">MDN Docs</a>
+        <a href="https://webcomponents.dev/" target="_blank" class="btn">Playground</a>
+        <a href="https://github.com/webcomponents" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

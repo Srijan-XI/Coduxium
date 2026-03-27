@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qwik — Coduxium XI</title>
+  <meta name="description" content="Master Qwik for instant-loading web apps using resumability, lazy execution, and edge-ready rendering patterns." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Qwik Framework</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Qwik</h2>
+      <p class="intro">Qwik is a performance-first frontend framework built around resumability so applications become interactive without full hydration.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Frontend</span>
+          <span class="badge">Resumability</span>
+          <span class="badge">Edge-Ready</span>
+          <span class="badge">Fine-Grained Loading</span>
+        </div>
+        <p>Instead of hydrating an entire app on the client, Qwik serializes application state and resumes execution precisely where user interaction happens. This enables strong Core Web Vitals on content-heavy and commerce experiences.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Resumability</strong> — avoid expensive hydration bootstraps</li>
+          <li><strong>QRL Lazy Loading</strong> — download code only when required</li>
+          <li><strong>Qwik City</strong> — routing, middleware, and server features</li>
+          <li><strong>Edge Delivery</strong> — deploy near users with fast cold starts</li>
+          <li><strong>Streaming HTML</strong> — faster first render for SEO pages</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>SEO-sensitive websites with heavy interaction points</li>
+          <li>E-commerce storefronts with strict performance budgets</li>
+          <li>Landing pages that need fast Time to Interactive</li>
+          <li>Edge-rendered apps with distributed traffic</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>npm create qwik@latest
+cd my-qwik-app
+npm install
+npm run dev</code></pre>
+        <pre><code># production build
+npm run build
+npm run preview</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Use route-level and interaction-level code splitting intentionally.</li>
+          <li>Keep UI state serializable for efficient resume behavior.</li>
+          <li>Prefer server-rendered content for initial page critical path.</li>
+          <li>Measure Web Vitals continuously after each feature rollout.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://qwik.dev/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://qwik.dev/docs/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/QwikDev/qwik" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

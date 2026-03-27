@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete Haskell guide - pure functional fundamentals, type system patterns, tooling, and production workflows." />
+  <meta name="keywords" content="Haskell, functional programming, GHC, Cabal, Stack, monads" />
+  <title>Haskell Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Haskell Complete Guide</h1>
+      <p class="subtitle">A pure functional language with strong types and powerful abstractions for correctness-first software.</p>
+      <div class="badge-row">
+        <span class="badge">FUNCTIONAL</span>
+        <span class="badge">STATIC TYPES</span>
+        <span class="badge">LAZY EVALUATION</span>
+        <span class="badge">CORRECTNESS</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../languages.html">Languages</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>Great for:</strong> DSLs, compilers, backend services, and mathematically clean domain logic.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>Introduction</h2>
+
+      <h3>What is Haskell?</h3>
+      <p>Haskell is a statically typed and purely functional language that emphasizes immutable data, composable abstractions, and high confidence through compile-time verification.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>Purity</strong> - predictable function behavior</div>
+        <div class="topic"><strong>Type Inference</strong> - expressive code with fewer annotations</div>
+        <div class="topic"><strong>ADTs</strong> - robust domain modeling</div>
+        <div class="topic"><strong>Type Classes</strong> - ad-hoc polymorphism</div>
+        <div class="topic"><strong>Laziness</strong> - demand-driven evaluation</div>
+        <div class="topic"><strong>Strong Tooling</strong> - GHC, Cabal, Stack, HLS</div>
+      </div>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>Installation & Setup</h2>
+
+      <h3>Install via GHCup</h3>
+      <p>Use the official installer to manage compiler, build tools, and language server in one flow.</p>
+      <pre><code># Visit https://www.haskell.org/ghcup/
+# Install GHCup and select GHC + Cabal + HLS
+
+ghc --version
+cabal --version
+haskell-language-server-wrapper --version</code></pre>
+
+      <h3>Create a New Project</h3>
+      <pre><code>mkdir haskell-demo
+cd haskell-demo
+cabal init
+cabal build
+cabal run</code></pre>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>User Guide</h2>
+
+      <h3>Hello World</h3>
+      <pre><code>module Main where
+
+main :: IO ()
+main = putStrLn "Hello from Haskell!"</code></pre>
+
+      <h3>Functions and Pattern Matching</h3>
+      <pre><code>factorial :: Integer -> Integer
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
+describe :: Int -> String
+describe 0 = "zero"
+describe _ = "non-zero"</code></pre>
+
+      <h3>Algebraic Data Types</h3>
+      <pre><code>data Role = Admin | Editor | Viewer
+
+canWrite :: Role -> Bool
+canWrite Admin = True
+canWrite Editor = True
+canWrite Viewer = False</code></pre>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>Advanced Topics</h2>
+      <ul>
+        <li><strong>Type classes:</strong> reusable interfaces for polymorphic behavior.</li>
+        <li><strong>Monad stacks:</strong> structure effects in larger applications.</li>
+        <li><strong>Performance:</strong> analyze laziness and profile with RTS flags.</li>
+        <li><strong>Architecture:</strong> separate pure domain logic from IO boundaries.</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card">
+      <h2>Next Steps</h2>
+      <ul>
+        <li><a href="https://www.haskell.org/documentation/" target="_blank">Official Documentation</a></li>
+        <li><a href="https://downloads.haskell.org/~ghc/latest/docs/users_guide/" target="_blank">GHC User Guide</a></li>
+        <li><a href="../Scala/Scala.html">Related: Scala</a></li>
+        <li><a href="../Python/Python.html">Related: Python</a></li>
+      </ul>
+    </section>
+  </div>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

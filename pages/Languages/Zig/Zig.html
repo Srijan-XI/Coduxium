@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete Zig guide - installation, syntax, memory management, tooling, and production systems programming workflows." />
+  <meta name="keywords" content="Zig, systems programming, memory management, comptime, build.zig" />
+  <title>Zig Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Zig Complete Guide</h1>
+      <p class="subtitle">A modern systems language focused on explicit control, predictable performance, and excellent tooling.</p>
+      <div class="badge-row">
+        <span class="badge">SYSTEMS</span>
+        <span class="badge">PERFORMANCE</span>
+        <span class="badge">C INTEROP</span>
+        <span class="badge">EXPLICIT</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../languages.html">Languages</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>Why Zig:</strong> build high-performance native software with a simpler mental model than traditional systems stacks.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>Introduction</h2>
+
+      <h3>What is Zig?</h3>
+      <p>Zig is a general-purpose systems programming language designed around explicitness and reliability. It avoids hidden control flow, hidden allocations, and hidden preprocessor behavior while still delivering low-level control.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>Explicit Errors</strong> - no hidden exceptions</div>
+        <div class="topic"><strong>comptime</strong> - compile-time metaprogramming</div>
+        <div class="topic"><strong>C Interop</strong> - easy integration with existing libraries</div>
+        <div class="topic"><strong>Cross Compile</strong> - targets from one toolchain</div>
+        <div class="topic"><strong>Single Binary Tooling</strong> - build, test, format, docs</div>
+        <div class="topic"><strong>Allocator APIs</strong> - deliberate memory strategy</div>
+      </div>
+
+      <h3>Where Zig Fits Best</h3>
+      <ul>
+        <li>CLI tools and native developer tooling</li>
+        <li>Latency-sensitive network services</li>
+        <li>Embedded and cross-platform runtime components</li>
+        <li>Incremental migration of C/C++ codebases</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>Installation & Setup</h2>
+
+      <h3>Install Zig</h3>
+      <pre><code># Windows
+winget install zig.zig
+
+# macOS
+brew install zig
+
+# Linux (example)
+sudo snap install zig --classic</code></pre>
+
+      <h3>Verify Installation</h3>
+      <pre><code>zig version
+zig env</code></pre>
+
+      <h3>Project Bootstrap</h3>
+      <pre><code>mkdir zig-demo
+cd zig-demo
+zig init
+zig build run
+zig test src/root.zig</code></pre>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>User Guide</h2>
+
+      <h3>Hello World</h3>
+      <pre><code>const std = @import("std");
+
+pub fn main() !void {
+    const out = std.io.getStdOut().writer();
+    try out.print("Hello from Zig!\n", .{});
+}</code></pre>
+
+      <h3>Error Handling Pattern</h3>
+      <pre><code>fn divide(a: i32, b: i32) !i32 {
+    if (b == 0) return error.DivideByZero;
+    return @divTrunc(a, b);
+}
+
+pub fn main() !void {
+    const result = try divide(12, 3);
+    _ = result;
+}</code></pre>
+
+      <h3>Allocator-based Dynamic Memory</h3>
+      <pre><code>const std = @import("std");
+
+pub fn main() !void {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    defer _ = gpa.deinit();
+    const allocator = gpa.allocator();
+
+    var list = std.ArrayList(u8).init(allocator);
+    defer list.deinit();
+
+    try list.appendSlice("zig");
+}</code></pre>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>Advanced Topics</h2>
+      <ul>
+        <li><strong>comptime:</strong> generate types, lookup tables, and APIs at compile time.</li>
+        <li><strong>Build scripts:</strong> use <code>build.zig</code> to define target matrices and artifacts.</li>
+        <li><strong>FFI strategy:</strong> wrap C headers with <code>@cImport</code> for migration.</li>
+        <li><strong>Testing:</strong> keep fast unit coverage with <code>zig test</code> in CI.</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card">
+      <h2>Next Steps</h2>
+      <ul>
+        <li><a href="https://ziglang.org/documentation/master/" target="_blank">Official Documentation</a></li>
+        <li><a href="https://ziglang.org/learn/" target="_blank">Zig Learning Resources</a></li>
+        <li><a href="../Rust/Rust.html">Related: Rust</a></li>
+        <li><a href="../C&C++/C&C++.html">Related: C and C++</a></li>
+      </ul>
+    </section>
+  </div>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

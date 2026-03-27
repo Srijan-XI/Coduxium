@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alpine.js — Coduxium XI</title>
+  <meta name="description" content="Master Alpine.js for lightweight reactive UI behavior in server-rendered and multi-page applications." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Alpine.js</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Alpine.js</h2>
+      <p class="intro">Alpine.js brings reactive behavior directly into HTML, making it perfect for interaction-rich pages that do not need a full SPA framework.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Frontend</span>
+          <span class="badge">Lightweight</span>
+          <span class="badge">Reactive</span>
+          <span class="badge">Progressive Enhancement</span>
+        </div>
+        <p>Alpine provides a concise directive system inspired by modern reactive frameworks while keeping setup and build requirements low. It excels in classic server-rendered stacks where teams want interactivity without large bundles.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Minimal Runtime</strong> — small payload and straightforward setup</li>
+          <li><strong>Declarative Directives</strong> — <code>x-data</code>, <code>x-show</code>, <code>x-model</code>, <code>x-bind</code></li>
+          <li><strong>Component-like Islands</strong> — isolate behavior to local DOM regions</li>
+          <li><strong>Framework Friendly</strong> — works with Laravel, Rails, Django, and static HTML</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Dropdown menus, modals, accordions, and tabs</li>
+          <li>Form interactivity and client-side validation hints</li>
+          <li>Interactive admin screens in server-rendered apps</li>
+          <li>Progressive enhancement of legacy UIs</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Example</h3>
+        <pre><code>&lt;div x-data="{ open: false }"&gt;
+  &lt;button @click="open = !open"&gt;Toggle&lt;/button&gt;
+  &lt;p x-show="open" x-transition&gt;Hello Alpine&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+        <pre><code>&lt;form x-data="{ email: '' }"&gt;
+  &lt;input x-model="email" type="email" /&gt;
+  &lt;p x-show="email.includes('@')"&gt;Looks valid&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Keep Alpine components small and focused per page region.</li>
+          <li>Avoid complex global state; push heavy logic to the server.</li>
+          <li>Use transitions selectively for meaningful feedback only.</li>
+          <li>Audit accessibility for keyboard and focus states.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://alpinejs.dev/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://alpinejs.dev/start-here" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/alpinejs/alpine" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

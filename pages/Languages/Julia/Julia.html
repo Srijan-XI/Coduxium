@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete Julia guide - installation, package management, multiple dispatch, and practical scientific computing workflows." />
+  <meta name="keywords" content="Julia, scientific computing, data science, multiple dispatch, performance" />
+  <title>Julia Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Julia Complete Guide</h1>
+      <p class="subtitle">A high-performance language for technical computing, simulation, machine learning, and data workflows.</p>
+      <div class="badge-row">
+        <span class="badge">NUMERICAL</span>
+        <span class="badge">MULTIPLE DISPATCH</span>
+        <span class="badge">JIT</span>
+        <span class="badge">SCIENTIFIC</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../languages.html">Languages</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>Core advantage:</strong> prototype quickly with dynamic syntax while keeping near-native speed for many workloads.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>Introduction</h2>
+
+      <h3>What is Julia?</h3>
+      <p>Julia is a dynamic language created for scientific and technical computing. It combines expressive syntax with a JIT-compiled execution model and multiple dispatch, making it a strong choice for research and production pipelines.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>Multiple Dispatch</strong> - flexible method specialization</div>
+        <div class="topic"><strong>JIT Compilation</strong> - high runtime performance</div>
+        <div class="topic"><strong>Array-first Design</strong> - natural numerical computing</div>
+        <div class="topic"><strong>Package Manager</strong> - reproducible project environments</div>
+        <div class="topic"><strong>Interoperability</strong> - call C, Python, and more</div>
+        <div class="topic"><strong>Parallelism</strong> - multi-threading and distributed support</div>
+      </div>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>Installation & Setup</h2>
+
+      <pre><code># Windows
+winget install julia -s winget
+
+# macOS
+brew install julia
+
+# Linux
+sudo snap install julia --classic</code></pre>
+
+      <pre><code>julia --version
+julia</code></pre>
+
+      <h3>Create a Project Environment</h3>
+      <pre><code>mkdir julia-demo
+cd julia-demo
+julia --project=.
+
+using Pkg
+Pkg.activate(".")
+Pkg.add("DataFrames")
+Pkg.add("Plots")</code></pre>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>User Guide</h2>
+
+      <h3>Hello Julia</h3>
+      <pre><code>println("Hello from Julia!")
+
+x = [1, 2, 3, 4]
+println(sum(x))</code></pre>
+
+      <h3>Functions and Multiple Dispatch</h3>
+      <pre><code>area(r::Float64) = pi * r^2
+area(w::Int, h::Int) = w * h
+
+println(area(3.0))
+println(area(5, 2))</code></pre>
+
+      <h3>DataFrames Quick Start</h3>
+      <pre><code>using DataFrames
+
+df = DataFrame(name=["A", "B"], score=[90, 95])
+println(df)
+println(mean(df.score))</code></pre>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>Advanced Topics</h2>
+      <ul>
+        <li><strong>Type stability:</strong> inspect hot functions with <code>@code_warntype</code>.</li>
+        <li><strong>Parallel computing:</strong> scale with threads and distributed workers.</li>
+        <li><strong>Package design:</strong> build reusable modules and tested project environments.</li>
+        <li><strong>Interoperability:</strong> integrate with Python or C where needed.</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card">
+      <h2>Next Steps</h2>
+      <ul>
+        <li><a href="https://docs.julialang.org/" target="_blank">Official Documentation</a></li>
+        <li><a href="https://julialang.org/learning/" target="_blank">Julia Learning Resources</a></li>
+        <li><a href="../Python/Python.html">Related: Python</a></li>
+        <li><a href="../R/R.html">Related: R</a></li>
+      </ul>
+    </section>
+  </div>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

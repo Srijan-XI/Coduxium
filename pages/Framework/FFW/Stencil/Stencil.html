@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stencil — Coduxium XI</title>
+  <meta name="description" content="Master Stencil for building standards-based Web Components and cross-framework design systems." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Stencil</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../../pages/Framework/frameworks.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Stencil</h2>
+      <p class="intro">Stencil is a compiler for generating standards-based Web Components with a TypeScript-first authoring experience.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Frontend</span>
+          <span class="badge">Web Components</span>
+          <span class="badge">Compiler</span>
+          <span class="badge">Design Systems</span>
+        </div>
+        <p>Stencil helps teams build reusable component libraries that work with React, Vue, Angular, and plain HTML. It compiles modern authoring patterns into standards-compliant custom elements.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>TypeScript-first</strong> — robust tooling and IDE integration</li>
+          <li><strong>Output targets</strong> — adapters for multiple framework consumers</li>
+          <li><strong>Lazy-loading</strong> — optimized runtime delivery per component</li>
+          <li><strong>Testing support</strong> — unit and end-to-end component testing</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Enterprise design systems shared by multiple product teams</li>
+          <li>Cross-framework UI kits with one source of truth</li>
+          <li>Micro-frontend platforms requiring standards-based components</li>
+          <li>Long-lived component libraries with minimal framework lock-in</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>npm init stencil
+cd my-component-lib
+npm install
+npm run start</code></pre>
+        <pre><code># build
+npm run build
+
+# test
+npm test</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Design components with clear API contracts and accessibility defaults.</li>
+          <li>Version components semantically and publish migration notes.</li>
+          <li>Generate framework wrappers only when consumers need them.</li>
+          <li>Automate visual and behavioral regression tests in CI.</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://stenciljs.com/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://stenciljs.com/docs/introduction" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/ionic-team/stencil" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

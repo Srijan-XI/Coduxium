@@ -5,6 +5,17 @@ Source: `technology-list.txt` (all entries tagged `[TODO: missing-on-site]`).
 ## Goal
 Add every missing technology page/entry to the site in controlled phases, with consistent structure, navigation, and QA.
 
+## Phase Status
+- [x] Phase 0 - Foundation and Template Lock
+- [x] Phase 1 - Core Language and Frontend Gaps
+- [ ] Phase 2 - Backend and API Platform Gaps
+- [ ] Phase 3 - DevOps and Platform Ops Gaps
+- [ ] Phase 4 - Data, Build, and Security Tooling Gaps
+- [ ] Phase 5 - Game and Mobile Ecosystem Gaps
+- [ ] Phase 6 - Web3, CMS, and Network Tools Gaps
+- [ ] Phase 7 - Database and Infra Data Gaps
+- [ ] Phase 8 - Utilities and OS Final Sweep
+
 ## Execution Rules (apply to all phases)
 - Use existing section conventions and shared CSS/JS patterns.
 - For each new technology page: add metadata, short overview, use-cases, ecosystem/tools, and quick links.
@@ -32,6 +43,22 @@ Add every missing technology page/entry to the site in controlled phases, with c
 ### Exit Criteria
 - Team can generate new pages with the same layout and quality bar.
 
+### Implementation Status
+- [x] Content schema/checklist finalized:
+	- `Tx/phase0/CONTENT_SCHEMA_CHECKLIST.md`
+- [x] Definition of Done finalized:
+	- `Tx/phase0/PHASE_0_DEFINITION_OF_DONE.md`
+- [x] Reusable templates locked for all domains:
+	- `Tx/phase0/templates/LANGUAGE_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/FRAMEWORK_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/DEVOPS_CLOUD_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/DATA_DB_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/SECURITY_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/MOBILE_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/WEB3_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/GAME_FRAMEWORK_TEMPLATE_MASTER.html`
+	- `Tx/phase0/templates/UTILITIES_OS_TEMPLATE_MASTER.html`
+
 ## Phase 1 - Core Language and Frontend Gaps
 ### Items
 - Languages: Zig, Lua, Haskell, Julia.
@@ -42,6 +69,34 @@ Add every missing technology page/entry to the site in controlled phases, with c
 
 ### Exit Criteria
 - All items live in language/framework sections and searchable.
+
+### Implementation Status
+
+#### Phase 1.1 - Language Core Expansion (Detailed Guides)
+- [x] Language batch created and linked:
+	- `pages/Languages/Zig/Zig.html`
+	- `pages/Languages/Lua/Lua.html`
+	- `pages/Languages/Haskell/Haskell.html`
+	- `pages/Languages/Julia/Julia.html`
+- [x] Language pages rewritten in detailed legacy style (intro, setup, user guide, advanced, next-steps).
+- [x] Languages index updated with new entries:
+	- `pages/Languages/languages.html`
+
+#### Phase 1.2 - Frontend Framework Coverage (Detailed Guides)
+- [x] Frontend framework batch created and linked:
+	- `pages/Framework/FFW/Qwik/Qwik.html`
+	- `pages/Framework/FFW/htmx/htmx.html`
+	- `pages/Framework/FFW/AlpineJs/AlpineJs.html`
+	- `pages/Framework/FFW/Stencil/Stencil.html`
+	- `pages/Framework/FFW/WebComponents/WebComponents.html`
+- [x] Frontend pages rewritten in detailed framework-guide style (overview, features, use-cases, getting-started, best-practices, resources).
+- [x] Framework index updated with new entries:
+	- `pages/Framework/frameworks.html`
+
+#### Phase 1.3 - Quality and Consistency Gate
+- [x] Naming/path consistency aligned with existing section conventions.
+- [x] Metadata and section hierarchy normalized across all 9 Phase 1 pages.
+- [x] Phase 1 split into sub-phases for finer execution and QA tracking.
 
 ## Phase 2 - Backend and API Platform Gaps
 ### Items
@@ -92,7 +147,7 @@ Add every missing technology page/entry to the site in controlled phases, with c
 	- Solidity, Bitcoin, Solana, Polkadot, Web3JS, MetaMask
 - CMS:
 	- Sanity.io, Contentful, Ghost, Payload
-- Network:
+- Network:  <----- in detail.
 	- Nmap, tcpdump
 
 ### Exit Criteria
@@ -108,7 +163,7 @@ Add every missing technology page/entry to the site in controlled phases, with c
 
 ## Phase 8 - Utilities and OS Final Sweep
 ### Items
-- Utilities: VPN Tools, SSH & SSL Tools
+- Utilities: VPN Tools, SSH & SSL Tools  <--------------in detail.
 - OS: NixOS
 
 ### Exit Criteria

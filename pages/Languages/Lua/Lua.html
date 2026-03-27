@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete Lua guide - installation, syntax, modules, coroutines, and embedding Lua into host applications." />
+  <meta name="keywords" content="Lua, scripting, game scripting, embedded language, coroutine" />
+  <title>Lua Complete Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../language-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Lua Complete Guide</h1>
+      <p class="subtitle">A lightweight embeddable scripting language for games, automation, and extensible software.</p>
+      <div class="badge-row">
+        <span class="badge">SCRIPTING</span>
+        <span class="badge">EMBEDDABLE</span>
+        <span class="badge">LIGHTWEIGHT</span>
+        <span class="badge">FAST STARTUP</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../languages.html">Languages</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation & Setup</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+      <div class="info-box"><strong>Best use:</strong> add customizable logic to applications without shipping a heavy runtime.</div>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>Introduction</h2>
+
+      <h3>What is Lua?</h3>
+      <p>Lua is a compact and embeddable scripting language designed for extension. It is widely used in game engines, plugin systems, and embedded platforms because it is easy to integrate and simple to reason about.</p>
+
+      <h3>Key Features</h3>
+      <div class="topic-grid">
+        <div class="topic"><strong>Small Runtime</strong> - excellent for constrained environments</div>
+        <div class="topic"><strong>Simple Syntax</strong> - fast ramp-up for teams</div>
+        <div class="topic"><strong>Tables</strong> - unified data structure</div>
+        <div class="topic"><strong>Coroutines</strong> - cooperative concurrency</div>
+        <div class="topic"><strong>C API</strong> - straightforward host integration</div>
+        <div class="topic"><strong>Portable</strong> - runs across major platforms</div>
+      </div>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>Installation & Setup</h2>
+
+      <pre><code># Windows (scoop)
+scoop install lua
+
+# macOS
+brew install lua
+
+# Debian/Ubuntu
+sudo apt update
+sudo apt install lua5.4</code></pre>
+
+      <pre><code>lua -v
+lua</code></pre>
+
+      <h3>Project Structure</h3>
+      <pre><code>lua-app/
+  main.lua
+  modules/
+    config.lua
+    utils.lua</code></pre>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>User Guide</h2>
+
+      <h3>Basics</h3>
+      <pre><code>local name = "Lua"
+print("Hello from " .. name)
+
+for i = 1, 3 do
+  print("Tick", i)
+end</code></pre>
+
+      <h3>Tables and Functions</h3>
+      <pre><code>local user = { name = "Ada", level = 5 }
+
+local function promote(u)
+  u.level = u.level + 1
+end
+
+promote(user)
+print(user.level)</code></pre>
+
+      <h3>Modules</h3>
+      <pre><code>-- modules/mathx.lua
+local M = {}
+
+function M.square(x)
+  return x * x
+end
+
+return M</code></pre>
+      <pre><code>-- main.lua
+local mathx = require("modules.mathx")
+print(mathx.square(9))</code></pre>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>Advanced Topics</h2>
+      <ul>
+        <li><strong>Metatables:</strong> customize object behavior and operator semantics.</li>
+        <li><strong>Coroutines:</strong> implement cooperative task scheduling patterns.</li>
+        <li><strong>Embedding:</strong> expose host APIs to Lua for plugins and scriptable workflows.</li>
+        <li><strong>Performance:</strong> optimize hot paths and use LuaJIT when compatible.</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card">
+      <h2>Next Steps</h2>
+      <ul>
+        <li><a href="https://www.lua.org/manual/5.4/" target="_blank">Official Manual</a></li>
+        <li><a href="https://www.lua.org/pil/" target="_blank">Programming in Lua</a></li>
+        <li><a href="../Python/Python.html">Related: Python</a></li>
+        <li><a href="../Js/Js.html">Related: JavaScript</a></li>
+      </ul>
+    </section>
+  </div>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>
