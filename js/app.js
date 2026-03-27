@@ -91,7 +91,13 @@
 		{ type: 'framework', name: 'MetaMask', intro: 'Framework/AFW/MetaMask/MetaMask.html', folder: 'Framework/AFW/MetaMask' },
 		{ type: 'framework', name: 'Bitcoin', intro: 'Framework/AFW/Bitcoin/Bitcoin.html', folder: 'Framework/AFW/Bitcoin' },
 		{ type: 'framework', name: 'Solana', intro: 'Framework/AFW/Solana/Solana.html', folder: 'Framework/AFW/Solana' },
-		{ type: 'framework', name: 'Polkadot', intro: 'Framework/AFW/Polkadot/Polkadot.html', folder: 'Framework/AFW/Polkadot' }
+		{ type: 'framework', name: 'Polkadot', intro: 'Framework/AFW/Polkadot/Polkadot.html', folder: 'Framework/AFW/Polkadot' },
+		{ type: 'framework', name: 'Sanity.io', intro: 'Framework/AFW/Sanity/Sanity.html', folder: 'Framework/AFW/Sanity' },
+		{ type: 'framework', name: 'Contentful', intro: 'Framework/AFW/Contentful/Contentful.html', folder: 'Framework/AFW/Contentful' },
+		{ type: 'framework', name: 'Ghost', intro: 'Framework/AFW/Ghost/Ghost.html', folder: 'Framework/AFW/Ghost' },
+		{ type: 'framework', name: 'Payload', intro: 'Framework/AFW/Payload/Payload.html', folder: 'Framework/AFW/Payload' },
+		{ type: 'framework', name: 'Nmap', intro: 'Framework/AFW/Nmap/Nmap.html', folder: 'Framework/AFW/Nmap' },
+		{ type: 'framework', name: 'tcpdump', intro: 'Framework/AFW/Tcpdump/Tcpdump.html', folder: 'Framework/AFW/Tcpdump' }
 	];
 
 	const databases = [
@@ -105,7 +111,16 @@
 		{ type: 'database', name: 'Neo4j', intro: 'Database/Neo4j/Neo4j.html', folder: 'Database/Neo4j' },
 		{ type: 'database', name: 'IBM Db2', intro: 'Database/IBMDb2/IBMDb2.html', folder: 'Database/IBMDb2' },
 		{ type: 'database', name: 'Snowflake', intro: 'Database/Snowflake/Snowflake.html', folder: 'Database/Snowflake' },
-		{ type: 'database', name: 'BigQuery', intro: 'Database/BigQuery/BigQuery.html', folder: 'Database/BigQuery' }
+		{ type: 'database', name: 'BigQuery', intro: 'Database/BigQuery/BigQuery.html', folder: 'Database/BigQuery' },
+		{ type: 'database', name: 'ClickHouse', intro: 'Database/ClickHouse/ClickHouse.html', folder: 'Database/ClickHouse' },
+		{ type: 'database', name: 'TimescaleDB', intro: 'Database/TimescaleDB/TimescaleDB.html', folder: 'Database/TimescaleDB' },
+		{ type: 'database', name: 'Memcached', intro: 'Database/Memcached/Memcached.html', folder: 'Database/Memcached' },
+		{ type: 'database', name: 'etcd', intro: 'Database/Etcd/Etcd.html', folder: 'Database/Etcd' },
+		{ type: 'database', name: 'Couchbase', intro: 'Database/Couchbase/Couchbase.html', folder: 'Database/Couchbase' },
+		{ type: 'database', name: 'Milvus', intro: 'Database/Milvus/Milvus.html', folder: 'Database/Milvus' },
+		{ type: 'database', name: 'Pinecone', intro: 'Database/Pinecone/Pinecone.html', folder: 'Database/Pinecone' },
+		{ type: 'database', name: 'Weaviate', intro: 'Database/Weaviate/Weaviate.html', folder: 'Database/Weaviate' },
+		{ type: 'database', name: 'MinIO', intro: 'Database/MinIO/MinIO.html', folder: 'Database/MinIO' }
 	];
 
 	const tools = [
@@ -194,6 +209,8 @@
 		{ type: 'security', name: 'AquaSecurity', intro: 'DevSecOps&SecurityTools/AquaSecurity/AquaSecurity.html', folder: 'DevSecOps&SecurityTools/AquaSecurity' },
 		{ type: 'security', name: 'Scapy', intro: 'DevSecOps&SecurityTools/Scapy/Scapy.html', folder: 'DevSecOps&SecurityTools/Scapy' },
 		{ type: 'security', name: 'OpenVAS', intro: 'DevSecOps&SecurityTools/OpenVAS/OpenVAS.html', folder: 'DevSecOps&SecurityTools/OpenVAS' },
+		{ type: 'security', name: 'VPN Tools', intro: 'DevSecOps&SecurityTools/VPNTools/VPNTools.html', folder: 'DevSecOps&SecurityTools/VPNTools' },
+		{ type: 'security', name: 'SSH & SSL Tools', intro: 'DevSecOps&SecurityTools/SSHSSLTools/SSHSSLTools.html', folder: 'DevSecOps&SecurityTools/SSHSSLTools' },
 		{ type: 'security', name: 'SonarQube', intro: 'DevSecOps&SecurityTools/SonarQube/SonarQube.html', folder: 'DevSecOps&SecurityTools/SonarQube' },
 		{ type: 'security', name: 'Snyk', intro: 'DevSecOps&SecurityTools/Snuk/Snyk.html', folder: 'DevSecOps&SecurityTools/Snuk' },
 		{ type: 'security', name: 'HashiCorp Vault', intro: 'DevSecOps&SecurityTools/HashiCorpVault/HashiCorpVault.html', folder: 'DevSecOps&SecurityTools/HashiCorpVault' },
@@ -223,6 +240,7 @@
 		{ type: 'linux', name: 'Rocky Linux', intro: 'Linux/RedHat/RockyLinux/RockyLinux.html', folder: 'Linux/RedHat/RockyLinux' },
 		{ type: 'linux', name: 'Gentoo', intro: 'Linux/Gentoo/gentoo.html', folder: 'Linux/Gentoo' },
 		{ type: 'linux', name: 'ChromeOS Flex', intro: 'Linux/Gentoo/ChromeOSFlex/ChromeOSFlex.html', folder: 'Linux/Gentoo/ChromeOSFlex' },
+		{ type: 'linux', name: 'NixOS', intro: 'Linux/NixOS/NixOS.html', folder: 'Linux/NixOS' },
 		{ type: 'linux', name: 'Slackware', intro: 'Linux/Slackware/slackware.html', folder: 'Linux/Slackware' },
 		{ type: 'linux', name: 'Alpine Linux', intro: 'Linux/Alpine/Alpine.html', folder: 'Linux/Alpine' },
 		{ type: 'linux', name: 'Qubes OS', intro: 'Linux/Qubes/Qubes.html', folder: 'Linux/Qubes' }

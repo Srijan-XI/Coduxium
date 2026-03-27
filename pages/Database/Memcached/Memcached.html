@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memcached - Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Memcached Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../databases.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container container-padded">
+    <article class="content-page">
+      <h2>Memcached</h2>
+      <p class="intro">Memcached is a high-performance distributed in-memory key-value cache designed to reduce database load and improve response latency.</p>
+
+      <section>
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Caching</span>
+          <span class="badge">In-Memory</span>
+          <span class="badge">Distributed</span>
+          <span class="badge">KV Store</span>
+        </div>
+        <p>Memcached is best used as a simple ephemeral cache layer for computed results, hot query responses, and session-adjacent workloads.</p>
+      </section>
+
+      <section>
+        <h3>Key Features</h3>
+        <ul>
+          <li>Very low-latency key-value operations</li>
+          <li>Simple protocol and broad client support</li>
+          <li>Horizontal scaling by sharding keys</li>
+          <li>Ideal for read-heavy traffic acceleration</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Getting Started</h3>
+        <pre><code># Docker quick start
+docker run -d --name memcached -p 11211:11211 memcached:latest
+
+# Health check
+docker exec memcached sh -c "echo stats | nc 127.0.0.1 11211"</code></pre>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://memcached.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://github.com/memcached/memcached/wiki" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/memcached/memcached" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

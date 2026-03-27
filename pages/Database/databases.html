@@ -215,6 +215,196 @@
         </div>
       </section>
 
+      <section class="db-section">
+        <h3>🟡 ClickHouse</h3>
+        <div class="badge-group">
+          <span class="badge">Analytics</span>
+          <span class="badge">Columnar</span>
+          <span class="badge">OLAP</span>
+        </div>
+        <p>ClickHouse is a column-oriented analytical database built for high-volume events and ultra-fast aggregate queries at scale.</p>
+
+        <h4>Key Features</h4>
+        <ul>
+          <li><strong>Columnar Storage</strong> — Fast scans with efficient compression</li>
+          <li><strong>Parallel Execution</strong> — High-performance analytical queries</li>
+          <li><strong>Materialized Views</strong> — Pre-aggregations for rapid dashboards</li>
+          <li><strong>Streaming Friendly</strong> — Works well with event pipelines</li>
+        </ul>
+
+        <h4>Best Use Cases</h4>
+        <ul>
+          <li>Product analytics and BI workloads</li>
+          <li>Log/trace analytics and observability</li>
+          <li>Ad-tech and clickstream analysis</li>
+        </ul>
+
+        <div class="lang-resources">
+          <a href="https://clickhouse.com/" target="_blank" class="btn primary">Official Website</a>
+          <a href="ClickHouse/ClickHouse.html" class="btn">Browse ClickHouse Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>⏱️ TimescaleDB</h3>
+        <div class="badge-group">
+          <span class="badge">Time Series</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">SQL</span>
+        </div>
+        <p>TimescaleDB extends PostgreSQL for time-series workloads using hypertables, retention policies, compression, and continuous aggregates.</p>
+
+        <h4>Key Features</h4>
+        <ul>
+          <li><strong>Hypertables</strong> — Automatic time-based partitioning</li>
+          <li><strong>Continuous Aggregates</strong> — Incremental rollups for dashboards</li>
+          <li><strong>Data Lifecycle</strong> — Built-in compression and retention policies</li>
+          <li><strong>Postgres Ecosystem</strong> — Full SQL compatibility and tooling</li>
+        </ul>
+
+        <h4>Best Use Cases</h4>
+        <ul>
+          <li>Infrastructure and application metrics</li>
+          <li>IoT and telemetry data platforms</li>
+          <li>Financial and event time-series analysis</li>
+        </ul>
+
+        <div class="lang-resources">
+          <a href="https://www.timescale.com/" target="_blank" class="btn primary">Official Website</a>
+          <a href="TimescaleDB/TimescaleDB.html" class="btn">Browse TimescaleDB Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>🚀 Memcached</h3>
+        <div class="badge-group">
+          <span class="badge">Cache</span>
+          <span class="badge">In-Memory</span>
+          <span class="badge">Distributed KV</span>
+        </div>
+        <p>Memcached is a lightweight in-memory cache used to reduce latency and offload repetitive reads from primary databases.</p>
+
+        <h4>Key Features</h4>
+        <ul>
+          <li><strong>Low Latency</strong> — Fast key-value lookups in memory</li>
+          <li><strong>Simple Protocol</strong> — Easy integration across languages</li>
+          <li><strong>Horizontal Scale</strong> — Sharding across cache nodes</li>
+          <li><strong>Read Offloading</strong> — Reduces pressure on backing stores</li>
+        </ul>
+
+        <h4>Best Use Cases</h4>
+        <ul>
+          <li>Application-side query result caching</li>
+          <li>Hot object and session-adjacent data caching</li>
+          <li>API response acceleration</li>
+        </ul>
+
+        <div class="lang-resources">
+          <a href="https://memcached.org/" target="_blank" class="btn primary">Official Website</a>
+          <a href="Memcached/Memcached.html" class="btn">Browse Memcached Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>🧭 etcd</h3>
+        <div class="badge-group">
+          <span class="badge">KV Store</span>
+          <span class="badge">Distributed</span>
+          <span class="badge">Coordination</span>
+        </div>
+        <p>etcd is a strongly consistent distributed key-value store used for service discovery, configuration state, and cluster coordination.</p>
+
+        <h4>Key Features</h4>
+        <ul>
+          <li><strong>Strong Consistency</strong> — Raft consensus for reliable coordination</li>
+          <li><strong>Watch API</strong> — Reactive state change notifications</li>
+          <li><strong>Leases/TTL</strong> — Ephemeral keys for distributed systems</li>
+          <li><strong>Control Plane Fit</strong> — Foundation for Kubernetes metadata</li>
+        </ul>
+
+        <h4>Best Use Cases</h4>
+        <ul>
+          <li>Service registry and leader election patterns</li>
+          <li>Cluster configuration and control-plane state</li>
+          <li>Distributed lock and coordination workflows</li>
+        </ul>
+
+        <div class="lang-resources">
+          <a href="https://etcd.io/" target="_blank" class="btn primary">Official Website</a>
+          <a href="Etcd/Etcd.html" class="btn">Browse etcd Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>🛋️ Couchbase</h3>
+        <div class="badge-group">
+          <span class="badge">NoSQL</span>
+          <span class="badge">Document</span>
+          <span class="badge">Distributed</span>
+        </div>
+        <p>Couchbase combines high-speed key-value access with flexible document modeling and SQL-like querying through N1QL.</p>
+        <div class="lang-resources">
+          <a href="https://www.couchbase.com/" target="_blank" class="btn primary">Official Website</a>
+          <a href="Couchbase/Couchbase.html" class="btn">Browse Couchbase Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>🧠 Milvus</h3>
+        <div class="badge-group">
+          <span class="badge">Vector DB</span>
+          <span class="badge">AI/ML</span>
+          <span class="badge">Similarity Search</span>
+        </div>
+        <p>Milvus is an open-source vector database optimized for nearest-neighbor retrieval and embedding-centric AI applications.</p>
+        <div class="lang-resources">
+          <a href="https://milvus.io/" target="_blank" class="btn primary">Official Website</a>
+          <a href="Milvus/Milvus.html" class="btn">Browse Milvus Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>🌲 Pinecone</h3>
+        <div class="badge-group">
+          <span class="badge">Vector DB</span>
+          <span class="badge">Managed</span>
+          <span class="badge">Semantic Search</span>
+        </div>
+        <p>Pinecone is a managed vector platform used for production semantic retrieval and low-latency AI search workflows.</p>
+        <div class="lang-resources">
+          <a href="https://www.pinecone.io/" target="_blank" class="btn primary">Official Website</a>
+          <a href="Pinecone/Pinecone.html" class="btn">Browse Pinecone Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>🧬 Weaviate</h3>
+        <div class="badge-group">
+          <span class="badge">Vector DB</span>
+          <span class="badge">Hybrid Search</span>
+          <span class="badge">Open Source</span>
+        </div>
+        <p>Weaviate supports vector similarity, keyword ranking, and metadata filtering in a unified retrieval engine.</p>
+        <div class="lang-resources">
+          <a href="https://weaviate.io/" target="_blank" class="btn primary">Official Website</a>
+          <a href="Weaviate/Weaviate.html" class="btn">Browse Weaviate Resources</a>
+        </div>
+      </section>
+
+      <section class="db-section">
+        <h3>🪣 MinIO</h3>
+        <div class="badge-group">
+          <span class="badge">Object Storage</span>
+          <span class="badge">S3 Compatible</span>
+          <span class="badge">Self-Hosted</span>
+        </div>
+        <p>MinIO provides high-performance object storage for data lake, backup, and AI artifact workflows using an S3-compatible API.</p>
+        <div class="lang-resources">
+          <a href="https://min.io/" target="_blank" class="btn primary">Official Website</a>
+          <a href="MinIO/MinIO.html" class="btn">Browse MinIO Resources</a>
+        </div>
+      </section>
+
       <section>
         <h3>🎯 Database Selection Matrix</h3>
         <table class="selection-table">
@@ -255,6 +445,46 @@
               <td>Real-time analytics</td>
               <td>MongoDB / Redis</td>
               <td>High write throughput, flexible queries</td>
+            </tr>
+            <tr>
+              <td>Columnar analytical workloads</td>
+              <td>ClickHouse</td>
+              <td>Fast aggregates and high-volume event analytics</td>
+            </tr>
+            <tr>
+              <td>Metrics and telemetry time-series</td>
+              <td>TimescaleDB</td>
+              <td>PostgreSQL-compatible time-series optimization</td>
+            </tr>
+            <tr>
+              <td>Read-heavy API performance caching</td>
+              <td>Memcached</td>
+              <td>Simple and very fast in-memory key-value cache</td>
+            </tr>
+            <tr>
+              <td>Service coordination and control-plane state</td>
+              <td>etcd</td>
+              <td>Strongly consistent distributed key-value coordination</td>
+            </tr>
+            <tr>
+              <td>Distributed document + key-value workloads</td>
+              <td>Couchbase</td>
+              <td>Flexible NoSQL model with SQL-like query support</td>
+            </tr>
+            <tr>
+              <td>Open-source vector similarity retrieval</td>
+              <td>Milvus / Weaviate</td>
+              <td>Embedding search with ANN indexing and filtering</td>
+            </tr>
+            <tr>
+              <td>Managed vector search for production AI apps</td>
+              <td>Pinecone</td>
+              <td>Operational simplicity and scalable vector serving</td>
+            </tr>
+            <tr>
+              <td>S3-compatible object storage platform</td>
+              <td>MinIO</td>
+              <td>Cloud-native object storage for data and artifacts</td>
             </tr>
           </tbody>
         </table>

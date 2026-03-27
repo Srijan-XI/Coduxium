@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nmap - Coduxium XI</title>
+  <meta name="description" content="Learn Nmap network discovery and security auditing basics, safe usage patterns, and practical command workflows." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Nmap Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Nmap</h2> 
+       
+      <p class="intro"> Nmap is a powerful network discovery and security auditing tool used to identify hosts, open ports, services, and vulnerabilities. </p>
+
+      <!-- Overview --> 
+       <section class="framework-section"> <h3>Overview</h3> <div class="badge-group"> 
+
+        <span class="badge">Network</span> <span class="badge">Security</span> 
+
+        <span class="badge">Port Scanning</span> <span class="badge">Diagnostics</span> 
+    
+       </div> 
+
+        <p> Nmap provides a wide range of scanning techniques and options, making it a staple for network administrators and security professionals to assess exposure and validate configurations. </p>
+        <p> Nmap helps security professionals and developers understand network exposure, validate firewall rules, and detect misconfigurations. </p> </section>
+
+<!-- Use Cases --> 
+ <section class="framework-section"> 
+    <h3>Common Use Cases</h3> <ul> 
+        <li>Network inventory and host discovery</li> 
+        <li>Security auditing and vulnerability scanning</li> 
+        <li>Firewall and segmentation validation</li> </ul> 
+    </section>
+
+<!-- Scan Types -->
+  <section class="framework-section">
+    <h3>Scan Types</h3>
+    <ul>
+      <li><strong>-sS:</strong> SYN scan (stealthy and fast)</li>
+      <li><strong>-sT:</strong> TCP connect scan</li>
+      <li><strong>-sU:</strong> UDP scan</li>
+      <li><strong>-sn:</strong> Host discovery only</li>
+    </ul>
+  </section>
+
+  <!-- Important Flags -->
+  <section class="framework-section">
+    <h3>Important Flags</h3>
+    <ul>
+      <li><code>-p</code> → Select ports</li>
+      <li><code>-A</code> → Aggressive scan</li>
+      <li><code>-O</code> → OS detection</li>
+      <li><code>-T0 - T5</code> → Speed control</li>
+      <li><code>--open</code> → Show only open ports</li>
+      <li><code>-oN</code> → Save output</li>
+    </ul>
+  </section>
+
+  <!-- Workflow -->
+  <section class="framework-section">
+    <h3>Basic Workflow</h3>
+    <ol>
+      <li>Discover hosts → <code>nmap -sn 192.168.1.0/24</code></li>
+      <li>Scan ports → <code>nmap -sS 192.168.1.10</code></li>
+      <li>Detect services → <code>nmap -sV 192.168.1.10</code></li>
+      <li>Run scripts → <code>nmap --script vuln 192.168.1.10</code></li>
+    </ol>
+  </section>
+
+  <!-- Commands -->
+  <section class="framework-section">
+    <h3>Common Commands</h3>
+
+    <div class="code-block">
+      <button class="copy-btn" onclick="copy(this)">Copy</button>
+      <pre><code>nmap 192.168.1.0/24</code></pre>
+    </div>
+
+    <div class="code-block">
+      <button class="copy-btn" onclick="copy(this)">Copy</button>
+      <pre><code>nmap -sV 10.0.0.15</code></pre>
+    </div>
+
+    <div class="code-block">
+      <button class="copy-btn" onclick="copy(this)">Copy</button>
+      <pre><code>nmap -A target.com</code></pre>
+    </div>
+
+  </section>
+
+  <!-- Output -->
+  <section class="framework-section">
+    <h3>Understanding Output</h3>
+    <ul>
+      <li><strong>PORT:</strong> Port number</li>
+      <li><strong>STATE:</strong> open / closed / filtered</li>
+      <li><strong>SERVICE:</strong> Running service</li>
+      <li><strong>VERSION:</strong> Service version</li>
+    </ul>
+  </section>
+
+  <!-- Example -->
+  <section class="framework-section">
+    <h3>Example Output</h3>
+    <pre><code>PORT    STATE SERVICE VERSION
+
+22/tcp open ssh OpenSSH 8.2
+80/tcp open http Apache 2.4.41
+443/tcp open https Apache
+
+
+
+  <!-- Advanced -->
+  <section class="framework-section">
+    <h3>Advanced Usage</h3>
+    <ul>
+      <li>Specific ports → <code>nmap -p 22,80,443 target</code></li>
+      <li>Fast scan → <code>nmap -F target</code></li>
+      <li>Save output → <code>nmap -oN scan.txt target</code></li>
+    </ul>
+  </section>
+
+  <!-- Tips -->
+  <section class="framework-section">
+    <h3>Pro Tips</h3>
+    <ul>
+      <li>Start simple, then go advanced</li>
+      <li>Use <code>-T4</code> for faster scans</li>
+      <li>Combine flags smartly</li>
+      <li>Always analyze results carefully</li>
+    </ul>
+  </section>
+
+  <!-- Safety -->
+  <section class="framework-section">
+    <h3>Safety Note</h3>
+    <p>
+      Only scan systems you have permission to test. Unauthorized scanning can be illegal.
+    </p>
+  </section>
+
+  <!-- Links -->
+  <div class="lang-resources">
+    <a href="https://nmap.org/" target="_blank" class="btn primary">Official Website</a>
+    <a href="https://nmap.org/book/man.html" target="_blank" class="btn">Docs</a>
+    <a href="https://github.com/nmap/nmap" target="_blank" class="btn">GitHub</a>
+  </div>
+
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

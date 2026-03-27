@@ -22,11 +22,11 @@
 - Bash
 - KQL
 - SQL
-- Zig  [TODO: missing-on-site]
+- Zig
 - Elixir
-- Lua  [TODO: missing-on-site]
-- Haskell  [TODO: missing-on-site]
-- Julia  [TODO: missing-on-site]
+- Lua
+- Haskell
+- Julia
 - Perl
 - PowerShell
 
@@ -39,13 +39,13 @@
 - Remix
 - Astro
 - SolidJS
-- Qwik  [TODO: missing-on-site]
-- htmx  [TODO: missing-on-site]
-- Alpine.js  [TODO: missing-on-site]
+- Qwik
+- htmx
+- Alpine.js
 - Lit
 - FAST
-- Stencil  [TODO: missing-on-site]
-- Web-Components  [TODO: missing-on-site]
+- Stencil
+- Web-Components
 - Material-Design
 - Vite
 - Electron
@@ -60,47 +60,47 @@
 - Laravel (PHP)
 - Ruby on Rails (Ruby)
 - Express.js (Node.js)
-- NestJS (TypeScript)  [TODO: missing-on-site]
-- Fastify (Node.js)  [TODO: missing-on-site]
-- Koa (Node.js)  [TODO: missing-on-site]
-- Hapi (Node.js)  [TODO: missing-on-site]
-- Adonis (Node.js)  [TODO: missing-on-site]
-- Sails.js (Node.js)  [TODO: missing-on-site]
-- Hono (Multi-runtime)  [TODO: missing-on-site]
-- Elysia (Bun)  [TODO: missing-on-site]
-- Oak (Deno)  [TODO: missing-on-site]
+- NestJS (TypeScript)
+- Fastify (Node.js)
+- Koa (Node.js)
+- Hapi (Node.js)
+- Adonis (Node.js)
+- Sails.js (Node.js)
+- Hono (Multi-runtime)
+- Elysia (Bun)
+- Oak (Deno)
 - Fresh (Deno)
 - Gin (Go)
-- Actix-web (Rust)  [TODO: missing-on-site]
-- Axum (Rust)  [TODO: missing-on-site]
+- Actix-web (Rust)
+- Axum (Rust)
 - Rocket (Rust)
-- Leptos (Rust)  [TODO: missing-on-site]
+- Leptos (Rust)
 - Vert.x (Java)
 - Micronaut (Java)
 - Quarkus (Java)
 - Play Framework (Scala/Java)
 - Vapor (Swift)
 - Kitura (Swift)
-- Phoenix (Elixir)  [TODO: missing-on-site]
+- Phoenix (Elixir)
 - Harpoon (Elixir)
 - Node.js (Runtime)
-- Deno (Runtime)  [TODO: missing-on-site]
+- Deno (Runtime)
 - Bun (Runtime)
 - REST API
 - GraphQL
 - gRPC
-- SOAP  [TODO: missing-on-site]
+- SOAP
 - OpenAPI / Swagger
-- AsyncAPI  [TODO: missing-on-site]
+- AsyncAPI
 - JSON:API
-- OAuth 2.0 / OIDC  [TODO: missing-on-site]
-- SAML  [TODO: missing-on-site]
+- OAuth 2.0 / OIDC
+- SAML
 - Firebase (BaaS)
 - Hasura (BaaS)
 - Strapi (BaaS)
 - Celery (Background Jobs)
-- Sidekiq (Background Jobs)  [TODO: missing-on-site]
-- Webhooks  [TODO: missing-on-site]
+- Sidekiq (Background Jobs)
+- Webhooks
 ## 4. Cloud & DevOps
 - Git
 - GitHub
@@ -113,20 +113,20 @@
 - CircleCI
 - Travis CI
 - Drone CI
-- Tekton  [TODO: missing-on-site]
+- Tekton
 - Spinnaker
 - Docker
-- Podman  [TODO: missing-on-site]
+- Podman
 - Kubernetes
-- Helm  [TODO: missing-on-site]
-- Nomad  [TODO: missing-on-site]
-- Kustomize  [TODO: missing-on-site]
-- Skaffold  [TODO: missing-on-site]
-- Istio  [TODO: missing-on-site]
+- Helm
+- Nomad
+- Kustomize
+- Skaffold
+- Istio
 - Linkerd
 - Terraform
-- OpenTofu  [TODO: missing-on-site]
-- Pulumi  [TODO: missing-on-site]
+- OpenTofu
+- Pulumi
 - Ansible
 - Packer
 - Vagrant
@@ -134,25 +134,25 @@
 - Azure
 - GCP (Google Cloud Platform)
 - DigitalOcean
-- Linode  [TODO: missing-on-site]
+- Linode
 - Oracle Cloud
-- IBM Cloud  [TODO: missing-on-site]
+- IBM Cloud
 - Cloudflare
 - Prometheus
 - Grafana
 - AlertManager
 - ELK/OpenSearch
-- Loki  [TODO: missing-on-site]
-- Zipkin  [TODO: missing-on-site]
+- Loki
+- Zipkin
 - OpenTelemetry
-- CloudWatch  [TODO: missing-on-site]
+- CloudWatch
 - Azure Monitor
 - Google Cloud Monitoring
 - ArgoCD
-- Flux  [TODO: missing-on-site]
+- Flux
 - Argo Workflows
-- n8n  [TODO: missing-on-site]
-- Consul  [TODO: missing-on-site]
+- n8n
+- Consul
 - HashiCorp Vault
 
 ## 5. Data Analytics & Science
@@ -162,14 +162,14 @@
 - TensorFlow
 - PyTorch
 - Apache Kafka
-- Matplotlib  [TODO: missing-on-site]
+- Matplotlib
 - Streamlit
-- dbt  [TODO: missing-on-site]
+- dbt
 - Airflow
 - Make
-- Bazel  [TODO: missing-on-site]
-- CMake  [TODO: missing-on-site]
-- Maven  [TODO: missing-on-site]
+- Bazel
+- CMake
+- Maven
 - Gradle
 
 ## 6. Security Testing
@@ -179,8 +179,8 @@
 - HashiCorp Vault
 - Burp Suite
 - Metasploit
-- OpenVAS  [TODO: missing-on-site]
-- Scapy  [TODO: missing-on-site]
+- OpenVAS
+- Scapy
 - Postman
 - Jest
 - Vitest
@@ -197,57 +197,57 @@
 - Unreal Engine
 
 ## 8. Game Development Frameworks & Libraries
-- Amethyst (Rust)  [TODO: missing-on-site]
-- Babylon.js (3D web)  [TODO: missing-on-site]
-- Bevy (Rust ECS)  [TODO: missing-on-site]
-- Defold  [TODO: missing-on-site]
-- FNA (.NET)  [TODO: missing-on-site]
-- LibGDX (Java)  [TODO: missing-on-site]
-- Love2D (Lua)  [TODO: missing-on-site]
-- MonoGame (.NET)  [TODO: missing-on-site]
+- Amethyst (Rust)
+- Babylon.js (3D web)
+- Bevy (Rust ECS)
+- Defold
+- FNA (.NET)
+- LibGDX (Java)
+- Love2D (Lua)
+- MonoGame (.NET)
 - Phaser (HTML5)
-- PlayCanvas (WebGL)  [TODO: missing-on-site]
-- Pygame (Python)  [TODO: missing-on-site]
+- PlayCanvas (WebGL)
+- Pygame (Python)
 - Raylib (C)
 - Three.js (3D web)
 
 ## 9. Mobile Development
 - React Native
 - Flutter
-- Expo  [TODO: missing-on-site]
-- Ionic  [TODO: missing-on-site]
+- Expo
+- Ionic
 - SwiftUI
-- Jetpack Compose  [TODO: missing-on-site]
+- Jetpack Compose
 - Kotlin Multiplatform (KMP)
 - NativeScript
-- Kivy  [TODO: missing-on-site]
-- PWA (Progressive Web Apps)  [TODO: missing-on-site]
+- Kivy
+- PWA (Progressive Web Apps)
 ## 10. Web3 & Blockchain
-- Solidity  [TODO: missing-on-site]
+- Solidity
 - Ethereum
-- Bitcoin  [TODO: missing-on-site]
-- Solana  [TODO: missing-on-site]
-- Polkadot  [TODO: missing-on-site]
+- Bitcoin
+- Solana
+- Polkadot
 - Hardhat
 - Foundry
 - Truffle
-- Web3JS  [TODO: missing-on-site]
-- MetaMask  [TODO: missing-on-site]
+- Web3JS
+- MetaMask
 - DeFi Protocols
 - NFT Standards
 
 ## 11. CMS (Content Management Systems)
 - WordPress
 - Strapi
-- Sanity.io  [TODO: missing-on-site]
-- Contentful  [TODO: missing-on-site]
+- Sanity.io
+- Contentful
 - Directus
-- Ghost  [TODO: missing-on-site]
-- Payload  [TODO: missing-on-site]
+- Ghost
+- Payload
 ## 12. Network Tools
 - Wireshark
-- Nmap  [TODO: missing-on-site]
-- tcpdump  [TODO: missing-on-site]
+- Nmap
+- tcpdump
 ## 13. Search & Indexing
 - Elasticsearch
 - Algolia
@@ -259,8 +259,8 @@
 - Code Editors (VS Code, Vim, Eclipse)
 - Terminal Tools (tmux, zsh, oh-my-zsh)
 - Version Control (Git, GitHub, GitLab, Bitbucket)
-- VPN Tools  [TODO: missing-on-site]
-- SSH & SSL Tools  [TODO: missing-on-site]
+- VPN Tools
+- SSH & SSL Tools
 ## 15. Development Tools (Data & Config Formats)
 - CSV
 - JSON
@@ -282,18 +282,18 @@
 - Snowflake
 - ArangoDB
 - Cassandra
-- ClickHouse  [TODO: missing-on-site]
-- Couchbase  [TODO: missing-on-site]
+- ClickHouse
+- Couchbase
 - Druid
-- Memcached  [TODO: missing-on-site]
-- Milvus  [TODO: missing-on-site]
-- MinIO  [TODO: missing-on-site]
-- Pinecone  [TODO: missing-on-site]
-- TimescaleDB  [TODO: missing-on-site]
+- Memcached
+- Milvus
+- MinIO
+- Pinecone
+- TimescaleDB
 - Trino
 - VictoriaMetrics
-- Weaviate  [TODO: missing-on-site]
-- etcd  [TODO: missing-on-site]
+- Weaviate
+- etcd
 - Elasticsearch (DB/Search)
 - Meilisearch (Search)
 - Algolia (Search)
@@ -326,7 +326,7 @@
 - Rocky Linux
 - Gentoo
 - ChromeOS Flex
-- NixOS  [TODO: missing-on-site]
+- NixOS
 - Qubes OS
 - Slackware
 

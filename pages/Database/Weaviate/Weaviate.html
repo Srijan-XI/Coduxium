@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weaviate - Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Weaviate Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../databases.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container container-padded">
+    <article class="content-page">
+      <h2>Weaviate</h2>
+      <p class="intro">Weaviate is an open-source vector database with hybrid search, filtering, and module-based AI integrations.</p>
+
+      <section>
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Vector DB</span>
+          <span class="badge">Hybrid Search</span>
+          <span class="badge">Open Source</span>
+          <span class="badge">Metadata Filtering</span>
+        </div>
+        <p>Weaviate supports combining vector similarity with keyword and metadata filtering for production retrieval applications.</p>
+      </section>
+
+      <section>
+        <h3>Key Features</h3>
+        <ul>
+          <li>Hybrid retrieval with vector and lexical ranking</li>
+          <li>Schema-driven objects with rich metadata filters</li>
+          <li>Module ecosystem for embeddings and rerankers</li>
+          <li>Horizontal scaling for large retrieval workloads</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Getting Started</h3>
+        <pre><code># Docker quick start
+docker run -d --name weaviate -p 8080:8080 semitechnologies/weaviate:latest
+
+# Inspect API root
+curl http://localhost:8080/v1/.well-known/ready</code></pre>
+      </section>
+
+      <section>
+        <h3>Use Cases</h3>
+        <ul>
+          <li>Enterprise knowledge search with metadata constraints</li>
+          <li>RAG systems with hybrid relevance tuning</li>
+          <li>Semantic catalogs for product and media discovery</li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://weaviate.io/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://weaviate.io/developers/weaviate" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/weaviate/weaviate" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (v) => {
+      document.body.classList.toggle('light', v === 'light');
+      localStorage.setItem(key, v);
+    };
+    const s = localStorage.getItem(key);
+    if (s) set(s); else set('dark');
+    btn.addEventListener('click', () => {
+      const c = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(c === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

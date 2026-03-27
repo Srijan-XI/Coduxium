@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ghost - Coduxium XI</title>
+  <meta name="description" content="Learn Ghost architecture, content publishing workflows, and deployment options for modern content platforms." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Ghost CMS Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Ghost</h2>
+      <p class="intro">Ghost is a publishing-focused open-source CMS optimized for editorial speed, memberships, newsletters, and modern content monetization.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">CMS</span>
+          <span class="badge">Publishing</span>
+          <span class="badge">Newsletter</span>
+          <span class="badge">Membership</span>
+        </div>
+        <p>Ghost is widely used for blogs, knowledge platforms, and creator-led businesses where writing workflows and audience growth features are central.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Common Use Cases</h3>
+        <ul>
+          <li>Editorial blogs and technical publishing hubs</li>
+          <li>Subscriber and membership-based content products</li>
+          <li>SEO-friendly company publication sites</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Install Ghost CLI
+npm install -g ghost-cli
+
+# Create a local Ghost site
+ghost install local</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths</h3>
+        <ul>
+          <li><a href="../Payload/Payload.html">Payload guide</a></li>
+          <li><a href="../Contentful/Contentful.html">Contentful guide</a></li>
+          <li><a href="../../FFW/Remix/Remix.html">Remix guide</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://ghost.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://ghost.org/docs/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/TryGhost/Ghost" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

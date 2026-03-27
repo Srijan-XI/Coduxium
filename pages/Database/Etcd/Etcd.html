@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>etcd - Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">etcd Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../databases.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container container-padded">
+    <article class="content-page">
+      <h2>etcd</h2>
+      <p class="intro">etcd is a distributed key-value store that provides strong consistency and is widely used for service discovery and cluster coordination.</p>
+
+      <section>
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">KV Store</span>
+          <span class="badge">Distributed</span>
+          <span class="badge">Strong Consistency</span>
+          <span class="badge">Coordination</span>
+        </div>
+        <p>etcd powers critical control planes, including Kubernetes, where reliable state coordination and leader election are required.</p>
+      </section>
+
+      <section>
+        <h3>Key Features</h3>
+        <ul>
+          <li>Raft-based consensus for consistent writes</li>
+          <li>Watch API for change notifications</li>
+          <li>Leases and TTLs for ephemeral coordination data</li>
+          <li>Snapshot and backup support for recovery</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Getting Started</h3>
+        <pre><code># Docker quick start
+docker run -d --name etcd -p 2379:2379 -p 2380:2380 \
+  quay.io/coreos/etcd:v3.5.16 \
+  /usr/local/bin/etcd --advertise-client-urls=http://0.0.0.0:2379 \
+  --listen-client-urls=http://0.0.0.0:2379
+
+# Set and get a key
+docker exec etcd etcdctl put app/config "enabled"
+docker exec etcd etcdctl get app/config</code></pre>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://etcd.io/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://etcd.io/docs/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/etcd-io/etcd" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

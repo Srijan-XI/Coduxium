@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Couchbase - Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><div class="brand"><span class="logo">CX</span><div><h1><a href="../../../index.html">Coduxium XI</a></h1><p class="sub">Couchbase Guide</p></div></div><div class="header-actions"><a href="../databases.html" class="btn">Back</a><button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button></div></div></header>
+  <main class="container container-padded"><article class="content-page"><h2>Couchbase</h2><p class="intro">Couchbase is a distributed NoSQL database combining key-value performance with SQL-like querying through N1QL.</p><section><h3>Overview</h3><div class="badge-group"><span class="badge">NoSQL</span><span class="badge">Document</span><span class="badge">Distributed</span><span class="badge">KV + Query</span></div><p>Couchbase is designed for low-latency operations at scale with built-in caching, replication, and flexible data modeling.</p></section><section><h3>Getting Started</h3><pre><code># Docker quick start
+docker run -d --name couchbase -p 8091-8096:8091-8096 -p 11210:11210 couchbase
+</code></pre></section><div class="lang-resources"><a href="https://www.couchbase.com/" target="_blank" class="btn primary">Official Website</a><a href="https://docs.couchbase.com/" target="_blank" class="btn">Documentation</a><a href="https://github.com/couchbase" target="_blank" class="btn">GitHub</a></div></article></main>
+  <footer class="site-footer"><div class="container footer-inner"><small>Coduxium XI © 2025</small><div class="footer-links"><a href="../../../index.html">Home</a></div></div></footer>
+  <script>const btn=document.getElementById('btn-theme');const key='il-devlangs-theme';const set=(v)=>{document.body.classList.toggle('light',v==='light');localStorage.setItem(key,v);};const s=localStorage.getItem(key);if(s)set(s);else set('dark');btn.addEventListener('click',()=>{const c=document.body.classList.contains('light')?'light':'dark';set(c==='light'?'dark':'light');});</script><script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>
