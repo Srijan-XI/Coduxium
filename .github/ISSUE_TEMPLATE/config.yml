@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "🛡️ Security vulnerability report"
+    url: https://github.com/Srijan-XI/Coduxium/security/advisories/new
+    about: "Report security issues privately through GitHub Security Advisories."
+  - name: "📘 Contributing guide"
+    url: https://github.com/Srijan-XI/Coduxium/blob/main/CONTRIBUTING.md
+    about: "Not sure which form to use? Start here for beginner-friendly contribution help."

@@ -1,0 +1,118 @@
+name: "🐛 Bug report"
+description: "Report something that is broken or not working as expected"
+title: "[🐛 Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 👋 Thanks for reporting a bug
+        No coding knowledge needed.
+        Just tell us what you clicked, what you expected, and what happened.
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: "📝 What went wrong?"
+      description: "Describe the issue in simple words."
+      placeholder: "Example: On the QuickStart page, the install button does nothing when clicked."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "🚨 How serious is it?"
+      options:
+        - "🔴 Critical (site broken / major area unusable)"
+        - "🟠 High (important feature not working)"
+        - "🟡 Medium (workaround exists)"
+        - "🟢 Low (small issue, typo, visual glitch)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "🔁 Steps to reproduce"
+      description: "Write exact steps so we can see the same issue."
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. Scroll to ...
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: "✅ What should have happened?"
+      placeholder: "Describe expected behavior."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: "❌ What actually happened?"
+      placeholder: "Describe actual behavior."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: "📌 How often does it happen?"
+      options:
+        - "Always"
+        - "Sometimes"
+        - "Rarely"
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "🖼️ Screenshots or recordings (optional)"
+      description: "Drag and drop images/videos if available."
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "📄 Error messages or logs (optional)"
+      description: "Paste any console errors or visible messages."
+      render: text
+
+  - type: input
+    id: os
+    attributes:
+      label: "💻 OS"
+      placeholder: "Example: Windows 11"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: "🌐 Browser"
+      placeholder: "Example: Chrome 134"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "📎 Extra details (optional)"
+      placeholder: "Anything else that can help us understand the issue."
+
+  - type: checkboxes
+    id: final-checklist
+    attributes:
+      label: "✅ Final checklist"
+      options:
+        - label: "I searched existing issues and did not find a duplicate."
+          required: true
+        - label: "I included clear step-by-step reproduction instructions."
+          required: true

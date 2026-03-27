@@ -1,0 +1,88 @@
+name: "📝 Information update"
+description: "Report incorrect, outdated, or missing information"
+title: "[📝 Info Update]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 👋 Help us keep information accurate
+        Use this form for outdated docs, typos, broken links, or missing explanations.
+
+  - type: textarea
+    id: what-to-update
+    attributes:
+      label: "🔍 What needs to be updated?"
+      description: "Describe what is wrong or missing."
+      placeholder: "Example: The command in QuickStart uses an outdated flag."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: update-type
+    attributes:
+      label: "🧭 Update type"
+      options:
+        - "❌ Incorrect information"
+        - "🕒 Outdated information"
+        - "➕ Missing information"
+        - "🔗 Broken link or reference"
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: "📍 Where is it?"
+      description: "Add page/file path and section if possible."
+      placeholder: "Example: pages/Languages/languages.html - JavaScript section"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-info
+    attributes:
+      label: "📄 Current information"
+      description: "Paste the current text or summarize it."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-update
+    attributes:
+      label: "✨ Suggested update"
+      description: "Provide corrected or improved information."
+    validations:
+      required: true
+
+  - type: textarea
+    id: replacement-text
+    attributes:
+      label: "🧩 Ready-to-use replacement text (optional)"
+      description: "If you have exact final wording, paste it here."
+      render: text
+
+  - type: textarea
+    id: why-it-matters
+    attributes:
+      label: "🎯 Why this change matters"
+      description: "Explain the impact (confusion, broken setup, outdated versions, etc.)."
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: "📚 References (optional)"
+      description: "Add links/sources that confirm the update."
+
+  - type: checkboxes
+    id: final-checklist
+    attributes:
+      label: "✅ Final checklist"
+      options:
+        - label: "I provided the exact location of the content."
+          required: true
+        - label: "I included corrected or improved information."
+          required: true
