@@ -25,14 +25,19 @@ A lightweight, modern, and feature-rich web interface to explore the **Coduxium 
 
 ### 📊 Live Stats
 - **Dashboard**: Overview of available languages, frameworks, databases, DevOps tools, development tools, testing frameworks, AI/ML libraries, game engines, security tools, and Linux distros.
-- **20 Programming Languages**: Python, Java, JavaScript, TypeScript, Rust, Go, C/C++, C#, PHP, Ruby, Swift, Kotlin, R, SQL, KQL, Bash, Scala, Dart, MATLAB, Assembly
-- **25 Frameworks**: React, Vue, Angular, Node.js, Express, Next.js, Django, Flask, FastAPI, Laravel, Spring Boot, and more
+- **24 Programming Languages**: Python, Java, JavaScript, TypeScript, Rust, Go, C/C++, C#, PHP, Ruby, Swift, Kotlin, R, SQL, KQL, Bash, Scala, Dart, MATLAB, Assembly, Zig, Lua, Haskell, Julia
+- **27 Frameworks**: React, Vue, Angular, Node.js, Express, Next.js, Django, Flask, FastAPI, Laravel, Spring Boot, Qwik, htmx, Alpine.js, Stencil, Web Components, and more
 - **11 Databases**: MySQL, PostgreSQL, MongoDB, Redis, DynamoDB, MariaDB, SQLite, Neo4j, IBM Db2, Snowflake, BigQuery
 - **9 DevOps Tools**: Docker, Git, GitHub, GitLab, BitBucket, Jenkins, Kubernetes, Terraform, Ansible
 - **8 Development Tools**: Postman, Vite, Vitest, YAML, TOML, JSON, XML, CSV
 - **8 AI/ML Libraries**: TensorFlow, PyTorch, Scikit-learn, CUDA, HuggingFace, LangChain, Apache Spark, Apache Kafka
 - **6 Security Tools**: AquaSecurity, SonarQube, Snyk, HashiCorp Vault, Metasploit, Security Tools
 - **24 Linux Distributions**: Comprehensive guides for Arch, Debian, Red Hat families, and more
+
+### 🆕 Latest Content Updates
+- Added detailed language guides for **Zig**, **Lua**, **Haskell**, and **Julia**.
+- Added detailed frontend framework guides for **Qwik**, **htmx**, **Alpine.js**, **Stencil**, and **Web Components**.
+- Home page catalog and search now include all Phase 1 additions.
 
 ### 🎨 Design Elements
 - **Brutalist Watermark**: Interactive shield-icon watermark on all pages.

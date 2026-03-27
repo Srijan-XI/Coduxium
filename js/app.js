@@ -26,7 +26,11 @@
 		{ type: 'language', name: 'MATLAB', folder: 'Languages/MATLAB', intro: 'Languages/MATLAB/MATLAB.html' },
 		{ type: 'language', name: 'Dart', folder: 'Languages/Dart', intro: 'Languages/Dart/Dart.html' },
 		{ type: 'language', name: 'Assembly', folder: 'Languages/Assembly', intro: 'Languages/Assembly/Assembly.html' },
-		{ type: 'language', name: 'Scala', folder: 'Languages/Scala', intro: 'Languages/Scala/Scala.html' }
+		{ type: 'language', name: 'Scala', folder: 'Languages/Scala', intro: 'Languages/Scala/Scala.html' },
+		{ type: 'language', name: 'Zig', folder: 'Languages/Zig', intro: 'Languages/Zig/Zig.html' },
+		{ type: 'language', name: 'Lua', folder: 'Languages/Lua', intro: 'Languages/Lua/Lua.html' },
+		{ type: 'language', name: 'Haskell', folder: 'Languages/Haskell', intro: 'Languages/Haskell/Haskell.html' },
+		{ type: 'language', name: 'Julia', folder: 'Languages/Julia', intro: 'Languages/Julia/Julia.html' }
 	];
 
 	const frameworks = [
@@ -51,7 +55,12 @@
 		{ type: 'framework', name: 'Electron', intro: 'Framework/AFW/Electron/Electron.html', folder: 'Framework/AFW/Electron' },
 		{ type: 'framework', name: 'Streamlit', intro: 'Framework/FFW/streamlit/streamlit.html', folder: 'Framework/FFW/streamlit' },
 		{ type: 'framework', name: 'Ruby on Rails', intro: 'Framework/BFW/ruby-on-rails/ruby-on-rails.html', folder: 'Framework/BFW/ruby-on-rails' },
-		{ type: 'framework', name: 'ASP.NET Core', intro: 'Framework/BFW/aspnet-core/aspnet-core.html', folder: 'Framework/BFW/aspnet-core' }
+		{ type: 'framework', name: 'ASP.NET Core', intro: 'Framework/BFW/aspnet-core/aspnet-core.html', folder: 'Framework/BFW/aspnet-core' },
+		{ type: 'framework', name: 'Qwik', intro: 'Framework/FFW/Qwik/Qwik.html', folder: 'Framework/FFW/Qwik' },
+		{ type: 'framework', name: 'htmx', intro: 'Framework/FFW/htmx/htmx.html', folder: 'Framework/FFW/htmx' },
+		{ type: 'framework', name: 'Alpine.js', intro: 'Framework/FFW/AlpineJs/AlpineJs.html', folder: 'Framework/FFW/AlpineJs' },
+		{ type: 'framework', name: 'Stencil', intro: 'Framework/FFW/Stencil/Stencil.html', folder: 'Framework/FFW/Stencil' },
+		{ type: 'framework', name: 'Web Components', intro: 'Framework/FFW/WebComponents/WebComponents.html', folder: 'Framework/FFW/WebComponents' }
 	];
 
 	const databases = [
@@ -424,13 +433,26 @@ function renderEnhancedStats() {
 	s.innerHTML = '';
 	s.className = 'stats-showcase';
 
+	const langCount = (window.languages || []).length;
+	const frameworkCount = (window.frameworks || []).length;
+	const dbCount = (window.databases || []).length;
+	const devopsCount = (window.tools || []).length;
+	const devToolsCount = (window.developmentTools || []).length;
+	const testingCount = (window.testingTools || []).length;
+	const linuxCount = (window.linuxDistros || []).length;
+	const aiCount = (window.aiLibraries || []).length;
+	const securityCount = (window.securityTools || []).length;
+
 	const stats = [
-		{ label: 'Languages', num: '15' },
-		{ label: 'Frameworks', num: '17' },
-		{ label: 'Databases', num: '5' },
-		{ label: 'DevOps Tools', num: '8' },
-		{ label: 'Testing', num: '2' },
-		{ label: 'Linux Distros', num: '15' }
+		{ label: 'Languages', num: String(langCount) },
+		{ label: 'Frameworks', num: String(frameworkCount) },
+		{ label: 'Databases', num: String(dbCount) },
+		{ label: 'DevOps Tools', num: String(devopsCount) },
+		{ label: 'Dev Tools', num: String(devToolsCount) },
+		{ label: 'Testing', num: String(testingCount) },
+		{ label: 'Linux Distros', num: String(linuxCount) },
+		{ label: 'AI/ML Libraries', num: String(aiCount) },
+		{ label: 'Security Tools', num: String(securityCount) }
 	];
 
 	stats.forEach(st => {

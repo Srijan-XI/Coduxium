@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added Phase 1 technologies to home page catalog and search:
+  - Languages: Zig, Lua, Haskell, Julia
+  - Frameworks: Qwik, htmx, Alpine.js, Stencil, Web Components
+
+### Changed
+- Updated home page enhanced stats to render dynamic counts from the live data model instead of hardcoded values.
+- Updated README technology totals and added a "Latest Content Updates" section for recently published Phase 1 pages.
+
 ### Planned
 - Vendor Highlight.js assets locally for fully offline usage
 - Expand Linux distro coverage and cross-links
