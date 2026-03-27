@@ -80,7 +80,18 @@
 		{ type: 'framework', name: 'htmx', intro: 'Framework/FFW/htmx/htmx.html', folder: 'Framework/FFW/htmx' },
 		{ type: 'framework', name: 'Alpine.js', intro: 'Framework/FFW/AlpineJs/AlpineJs.html', folder: 'Framework/FFW/AlpineJs' },
 		{ type: 'framework', name: 'Stencil', intro: 'Framework/FFW/Stencil/Stencil.html', folder: 'Framework/FFW/Stencil' },
-		{ type: 'framework', name: 'Web Components', intro: 'Framework/FFW/WebComponents/WebComponents.html', folder: 'Framework/FFW/WebComponents' }
+		{ type: 'framework', name: 'Web Components', intro: 'Framework/FFW/WebComponents/WebComponents.html', folder: 'Framework/FFW/WebComponents' },
+		{ type: 'framework', name: 'Expo', intro: 'Framework/FFW/Expo/Expo.html', folder: 'Framework/FFW/Expo' },
+		{ type: 'framework', name: 'Ionic', intro: 'Framework/FFW/Ionic/Ionic.html', folder: 'Framework/FFW/Ionic' },
+		{ type: 'framework', name: 'PWA', intro: 'Framework/FFW/PWA/PWA.html', folder: 'Framework/FFW/PWA' },
+		{ type: 'framework', name: 'Jetpack Compose', intro: 'Framework/AFW/JetpackCompose/JetpackCompose.html', folder: 'Framework/AFW/JetpackCompose' },
+		{ type: 'framework', name: 'Kivy', intro: 'Framework/AFW/Kivy/Kivy.html', folder: 'Framework/AFW/Kivy' },
+		{ type: 'framework', name: 'Solidity', intro: 'Framework/AFW/Solidity/Solidity.html', folder: 'Framework/AFW/Solidity' },
+		{ type: 'framework', name: 'Web3JS', intro: 'Framework/AFW/Web3JS/Web3JS.html', folder: 'Framework/AFW/Web3JS' },
+		{ type: 'framework', name: 'MetaMask', intro: 'Framework/AFW/MetaMask/MetaMask.html', folder: 'Framework/AFW/MetaMask' },
+		{ type: 'framework', name: 'Bitcoin', intro: 'Framework/AFW/Bitcoin/Bitcoin.html', folder: 'Framework/AFW/Bitcoin' },
+		{ type: 'framework', name: 'Solana', intro: 'Framework/AFW/Solana/Solana.html', folder: 'Framework/AFW/Solana' },
+		{ type: 'framework', name: 'Polkadot', intro: 'Framework/AFW/Polkadot/Polkadot.html', folder: 'Framework/AFW/Polkadot' }
 	];
 
 	const databases = [
@@ -130,6 +141,9 @@
 		{ type: 'dev-tool', name: 'Postman', intro: 'DevelopmentTools/Postman/Postman.html', folder: 'DevelopmentTools/Postman' },
 		{ type: 'dev-tool', name: 'Vite', intro: 'DevelopmentTools/Vite/Vite.html', folder: 'DevelopmentTools/Vite' },
 		{ type: 'dev-tool', name: 'Vitest', intro: 'DevelopmentTools/Vitest/Vitest.html', folder: 'DevelopmentTools/Vitest' },
+		{ type: 'dev-tool', name: 'Bazel', intro: 'DevelopmentTools/Bazel/Bazel.html', folder: 'DevelopmentTools/Bazel' },
+		{ type: 'dev-tool', name: 'CMake', intro: 'DevelopmentTools/CMake/CMake.html', folder: 'DevelopmentTools/CMake' },
+		{ type: 'dev-tool', name: 'Maven', intro: 'DevelopmentTools/Maven/Maven.html', folder: 'DevelopmentTools/Maven' },
 		{ type: 'dev-tool', name: 'YAML', intro: 'DevelopmentTools/YAML/YAML.html', folder: 'DevelopmentTools/YAML' },
 		{ type: 'dev-tool', name: 'TOML', intro: 'DevelopmentTools/TOML/TOML.html', folder: 'DevelopmentTools/TOML' },
 		{ type: 'dev-tool', name: 'JSON', intro: 'DevelopmentTools/JSON/JSON.html', folder: 'DevelopmentTools/JSON' },
@@ -155,17 +169,31 @@
 
 	const dataProcessing = [
 		{ type: 'data-processing', name: 'NumPy', intro: 'DE-AI-ML/numpy/numpy.html', folder: 'DE-AI-ML/numpy' },
-		{ type: 'data-processing', name: 'Pandas', intro: 'DE-AI-ML/pandas/pandas.html', folder: 'DE-AI-ML/pandas' }
+		{ type: 'data-processing', name: 'Pandas', intro: 'DE-AI-ML/pandas/pandas.html', folder: 'DE-AI-ML/pandas' },
+		{ type: 'data-processing', name: 'Matplotlib', intro: 'DE-AI-ML/matplotlib/matplotlib.html', folder: 'DE-AI-ML/matplotlib' },
+		{ type: 'data-processing', name: 'dbt', intro: 'DE-AI-ML/dbt/dbt.html', folder: 'DE-AI-ML/dbt' }
 	];
 
 	const gameEngines = [
 		{ type: 'game-engine', name: 'Godot', intro: 'GameEngines/godot/godot.html', folder: 'GameEngines/godot' },
 		{ type: 'game-engine', name: 'Unity', intro: 'GameEngines/unity/unity.html', folder: 'GameEngines/unity' },
-		{ type: 'game-engine', name: 'Unreal Engine', intro: 'GameEngines/unreal-engine/unreal-engine.html', folder: 'GameEngines/unreal-engine' }
+		{ type: 'game-engine', name: 'Unreal Engine', intro: 'GameEngines/unreal-engine/unreal-engine.html', folder: 'GameEngines/unreal-engine' },
+		{ type: 'game-engine', name: 'Amethyst', intro: 'GameEngines/Amethyst/Amethyst.html', folder: 'GameEngines/Amethyst' },
+		{ type: 'game-engine', name: 'Bevy', intro: 'GameEngines/Bevy/Bevy.html', folder: 'GameEngines/Bevy' },
+		{ type: 'game-engine', name: 'Defold', intro: 'GameEngines/Defold/Defold.html', folder: 'GameEngines/Defold' },
+		{ type: 'game-engine', name: 'FNA', intro: 'GameEngines/FNA/FNA.html', folder: 'GameEngines/FNA' },
+		{ type: 'game-engine', name: 'MonoGame', intro: 'GameEngines/MonoGame/MonoGame.html', folder: 'GameEngines/MonoGame' },
+		{ type: 'game-engine', name: 'Babylon.js', intro: 'GameEngines/BabylonJs/BabylonJs.html', folder: 'GameEngines/BabylonJs' },
+		{ type: 'game-engine', name: 'LibGDX', intro: 'GameEngines/LibGDX/LibGDX.html', folder: 'GameEngines/LibGDX' },
+		{ type: 'game-engine', name: 'Love2D', intro: 'GameEngines/Love2D/Love2D.html', folder: 'GameEngines/Love2D' },
+		{ type: 'game-engine', name: 'PlayCanvas', intro: 'GameEngines/PlayCanvas/PlayCanvas.html', folder: 'GameEngines/PlayCanvas' },
+		{ type: 'game-engine', name: 'Pygame', intro: 'GameEngines/Pygame/Pygame.html', folder: 'GameEngines/Pygame' }
 	];
 
 	const securityTools = [
 		{ type: 'security', name: 'AquaSecurity', intro: 'DevSecOps&SecurityTools/AquaSecurity/AquaSecurity.html', folder: 'DevSecOps&SecurityTools/AquaSecurity' },
+		{ type: 'security', name: 'Scapy', intro: 'DevSecOps&SecurityTools/Scapy/Scapy.html', folder: 'DevSecOps&SecurityTools/Scapy' },
+		{ type: 'security', name: 'OpenVAS', intro: 'DevSecOps&SecurityTools/OpenVAS/OpenVAS.html', folder: 'DevSecOps&SecurityTools/OpenVAS' },
 		{ type: 'security', name: 'SonarQube', intro: 'DevSecOps&SecurityTools/SonarQube/SonarQube.html', folder: 'DevSecOps&SecurityTools/SonarQube' },
 		{ type: 'security', name: 'Snyk', intro: 'DevSecOps&SecurityTools/Snuk/Snyk.html', folder: 'DevSecOps&SecurityTools/Snuk' },
 		{ type: 'security', name: 'HashiCorp Vault', intro: 'DevSecOps&SecurityTools/HashiCorpVault/HashiCorpVault.html', folder: 'DevSecOps&SecurityTools/HashiCorpVault' },

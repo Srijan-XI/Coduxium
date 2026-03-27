@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Defold - Coduxium XI</title>
+    <meta name="description" content="Defold guide for lightweight cross-platform 2D game development and Lua-based workflows." />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Defold Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎲 Defold</h2>
+            <p class="intro">Defold is a lightweight, production-ready game engine focused on fast iteration and cross-platform delivery.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Engine</span>
+                    <span class="badge">Lua</span>
+                    <span class="badge">2D/3D</span>
+                    <span class="badge">Cross-platform</span>
+                </div>
+                <p>Defold emphasizes efficient workflows for indie and mobile teams. It includes editor tooling, asset pipelines, and straightforward build/export flows.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Lua scripting with editor integration</li>
+                    <li>Efficient 2D-focused runtime</li>
+                    <li>One-click exports to desktop/mobile/web</li>
+                    <li>Asset and scene management workflows</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Mobile games and casual experiences</li>
+                    <li>2D gameplay prototypes and production titles</li>
+                    <li>Small team cross-platform releases</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code># Typical flow
+# 1) Install Defold editor
+# 2) Create new project template
+# 3) Add scripts and game objects
+# 4) Build and run target platform</code></pre>
+                <pre><code>-- script example (player.script)
+function init(self)
+    msg.post(".", "acquire_input_focus")
+end
+
+function on_input(self, action_id, action)
+    if action_id == hash("jump") and action.pressed then
+        print("jump")
+    end
+end</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Keep gameplay logic modular by collection</li>
+                    <li>Use atlases and batching for render performance</li>
+                    <li>Separate config values from script logic</li>
+                    <li>Test exports early across target platforms</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://defold.com/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://defold.com/learn/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/defold/defold" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

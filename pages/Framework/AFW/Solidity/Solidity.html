@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solidity - Coduxium XI</title>
+  <meta name="description" content="Learn Solidity for EVM smart contracts, secure token standards, and production Web3 development workflows." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Solidity Web3 Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Solidity</h2>
+      <p class="intro">Solidity is the primary programming language for writing smart contracts on Ethereum and other EVM-compatible chains.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Web3</span>
+          <span class="badge">Smart Contracts</span>
+          <span class="badge">EVM</span>
+          <span class="badge">Security Critical</span>
+        </div>
+        <p>Solidity contracts are immutable by default and run in adversarial environments, so architecture, testing, and audits are essential from day one.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Building Blocks</h3>
+        <ul>
+          <li><strong>Contracts</strong> - state + callable functions on-chain</li>
+          <li><strong>Events</strong> - indexed logs for off-chain processing</li>
+          <li><strong>Modifiers</strong> - reusable access and invariant checks</li>
+          <li><strong>Interfaces</strong> - standard contract interaction boundaries</li>
+          <li><strong>Libraries</strong> - shared logic and safe math patterns</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Foundry workflow
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+forge init my-solidity-project
+cd my-solidity-project
+forge test</code></pre>
+        <pre><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+contract Counter {
+    uint256 public value;
+
+    function increment() external {
+        value += 1;
+    }
+}</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Safety Practices</h3>
+        <ul>
+          <li>Use checks-effects-interactions pattern</li>
+          <li>Apply role-based access controls</li>
+          <li>Write unit, fuzz, and invariant tests</li>
+          <li>Avoid unbounded loops over dynamic storage arrays</li>
+          <li>Audit upgrade and proxy behavior before mainnet deploy</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths in Coduxium XI</h3>
+        <ul>
+          <li><a href="../Web3JS/Web3JS.html">Web3JS guide</a></li>
+          <li><a href="../MetaMask/MetaMask.html">MetaMask guide</a></li>
+          <li><a href="../../../../pages/Languages/Js/Js.html">JavaScript language page</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://soliditylang.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://docs.soliditylang.org/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/ethereum/solidity" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

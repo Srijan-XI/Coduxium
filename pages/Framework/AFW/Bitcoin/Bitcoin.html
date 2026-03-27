@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bitcoin - Coduxium XI</title>
+  <meta name="description" content="Learn Bitcoin architecture, UTXO workflows, node and wallet concepts, and practical developer entry points." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Bitcoin Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Bitcoin</h2>
+      <p class="intro">Bitcoin is a decentralized digital monetary network that uses proof-of-work consensus and a UTXO transaction model.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Blockchain</span>
+          <span class="badge">UTXO</span>
+          <span class="badge">Proof of Work</span>
+          <span class="badge">Settlement Network</span>
+        </div>
+        <p>Bitcoin engineering work commonly spans node operations, wallet integrations, transaction lifecycle handling, and chain data analytics.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Developer Foundations</h3>
+        <ul>
+          <li>UTXO model and transaction inputs/outputs</li>
+          <li>Fee markets and mempool behavior</li>
+          <li>Address formats and script types</li>
+          <li>Node synchronization and RPC interfaces</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Run a local regtest node
+bitcoind -regtest -daemon
+bitcoin-cli -regtest getblockchaininfo</code></pre>
+        <pre><code># Create wallet and generate a block
+bitcoin-cli -regtest createwallet devwallet
+bitcoin-cli -regtest -generate 1</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths</h3>
+        <ul>
+          <li><a href="../Solidity/Solidity.html">Solidity guide</a></li>
+          <li><a href="../Web3JS/Web3JS.html">Web3JS guide</a></li>
+          <li><a href="../MetaMask/MetaMask.html">MetaMask guide</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://bitcoin.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://developer.bitcoin.org/" target="_blank" class="btn">Developer Docs</a>
+        <a href="https://github.com/bitcoin/bitcoin" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

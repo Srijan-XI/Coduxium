@@ -8,6 +8,8 @@ This foler contain pages related to Data Engineering
 - Cuda
 - Numpy
 - Pandas
+- Matplotlib
+- dbt
 - LangChain
 - HuggingFace
 - Scikit-learn

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web3JS - Coduxium XI</title>
+  <meta name="description" content="Learn Web3JS to connect JavaScript applications to blockchain networks, contracts, and event streams." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Web3JS Integration Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Web3JS</h2>
+      <p class="intro">Web3.js is a JavaScript SDK for interacting with EVM-compatible chains, contracts, and wallet providers.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Web3</span>
+          <span class="badge">JavaScript SDK</span>
+          <span class="badge">RPC</span>
+          <span class="badge">Event Subscriptions</span>
+        </div>
+        <p>Web3.js is commonly used in dApps and backend automations to query chain state, send signed transactions, and consume contract logs.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Workflows</h3>
+        <ul>
+          <li>Instantiate provider (HTTP/WebSocket/Injected wallet)</li>
+          <li>Load contract ABI and create contract instances</li>
+          <li>Read on-chain state with call operations</li>
+          <li>Submit signed transactions with send operations</li>
+          <li>Listen to events for off-chain handlers</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>npm install web3</code></pre>
+        <pre><code>import Web3 from 'web3';
+
+const web3 = new Web3('https://rpc.ankr.com/eth');
+const latest = await web3.eth.getBlockNumber();
+console.log('Latest block:', latest);</code></pre>
+        <pre><code>// Contract read example
+const contract = new web3.eth.Contract(abi, contractAddress);
+const totalSupply = await contract.methods.totalSupply().call();</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Rate-limit RPC requests and implement retry policies</li>
+          <li>Decode and validate event data before processing</li>
+          <li>Separate read-only providers from signing flows</li>
+          <li>Use testnets and forked chains before production release</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths in Coduxium XI</h3>
+        <ul>
+          <li><a href="../Solidity/Solidity.html">Solidity guide</a></li>
+          <li><a href="../MetaMask/MetaMask.html">MetaMask guide</a></li>
+          <li><a href="../../../../pages/Languages/Js/Js.html">JavaScript language page</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://docs.web3js.org/" target="_blank" class="btn primary">Official Docs</a>
+        <a href="https://github.com/web3/web3.js" target="_blank" class="btn">GitHub</a>
+        <a href="https://ethereum.org/en/developers/docs/" target="_blank" class="btn">Ethereum Dev Docs</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

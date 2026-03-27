@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jetpack Compose - Coduxium XI</title>
+  <meta name="description" content="Learn Jetpack Compose for native Android UI with Kotlin, state-driven architecture, and modern declarative patterns." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Jetpack Compose</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Jetpack Compose</h2>
+      <p class="intro">Jetpack Compose is Android's declarative UI toolkit for building native interfaces with Kotlin and unidirectional state patterns.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Android Native</span>
+          <span class="badge">Kotlin</span>
+          <span class="badge">Declarative</span>
+          <span class="badge">Material 3</span>
+        </div>
+        <p>Compose improves UI productivity by replacing verbose XML layout management with composable functions and reactive state handling.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Composable Functions</strong> - reusable UI blocks in Kotlin</li>
+          <li><strong>State-driven Rendering</strong> - predictable updates with immutable models</li>
+          <li><strong>Material Design</strong> - first-class support for Material 3</li>
+          <li><strong>Interoperability</strong> - gradual migration from XML views</li>
+          <li><strong>Tooling</strong> - previews, inspection, and performance profilers</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>// build.gradle (module)
+android {
+  buildFeatures {
+    compose true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion "1.5.15"
+  }
+}</code></pre>
+        <pre><code>// MainActivity.kt
+setContent {
+  MaterialTheme {
+    Text("Hello Compose")
+  }
+}</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths in Coduxium XI</h3>
+        <ul>
+          <li><a href="../../../../pages/Languages/kotlin/kotlin.html">Kotlin language page</a></li>
+          <li><a href="../../FFW/Expo/Expo.html">Expo guide</a></li>
+          <li><a href="../../FFW/Ionic/Ionic.html">Ionic guide</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://developer.android.com/jetpack/compose" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://developer.android.com/jetpack/compose/tutorial" target="_blank" class="btn">Tutorial</a>
+        <a href="https://github.com/android/compose-samples" target="_blank" class="btn">Samples</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

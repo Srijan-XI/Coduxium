@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MonoGame - Coduxium XI</title>
+    <meta name="description" content="MonoGame guide for cross-platform C# game development with XNA-style APIs and modern deployment targets." />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">MonoGame Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🕹️ MonoGame</h2>
+            <p class="intro">MonoGame is an open-source framework for building cross-platform games with a familiar XNA-style C# workflow.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Framework</span>
+                    <span class="badge">C#</span>
+                    <span class="badge">XNA Style</span>
+                    <span class="badge">Cross-platform</span>
+                </div>
+                <p>MonoGame helps teams build desktop, mobile, and console-ready projects while retaining direct control over game loops, rendering, and asset management.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Familiar Game/Update/Draw architecture</li>
+                    <li>Cross-platform rendering and input support</li>
+                    <li>Content pipeline tooling</li>
+                    <li>Strong C# ecosystem integration</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>2D and 2.5D gameplay projects</li>
+                    <li>C# teams shipping multi-platform titles</li>
+                    <li>Educational and indie game development</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code># Install .NET SDK then create project
+# (template commands can vary by MonoGame version)
+dotnet new console -n MonoGameDemo
+cd MonoGameDemo
+
+# Add MonoGame package references and build
+dotnet build</code></pre>
+                <pre><code>// Core loop concept
+protected override void Update(GameTime gameTime)
+{
+    // input + game logic
+    base.Update(gameTime);
+}
+
+protected override void Draw(GameTime gameTime)
+{
+    GraphicsDevice.Clear(Color.Black);
+    // render sprites/scene
+    base.Draw(gameTime);
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Keep game state transitions explicit</li>
+                    <li>Batch sprite draw calls for performance</li>
+                    <li>Separate content loading from update logic</li>
+                    <li>Automate build and packaging scripts</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.monogame.net/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.monogame.net/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/MonoGame/MonoGame" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

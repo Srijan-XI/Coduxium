@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bazel build system guide for fast, reproducible, and scalable polyglot builds with remote caching and CI optimization." />
+  <meta name="keywords" content="Bazel, build system, monorepo, remote cache, CI, reproducible builds" />
+  <title>Bazel Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Bazel Build System Guide</h1>
+      <p class="subtitle">Scale large codebases with deterministic builds, caching, and multi-language workflows.</p>
+      <div class="badge-row">
+        <span class="badge">BUILD SYSTEM</span>
+        <span class="badge">MONOREPO</span>
+        <span class="badge">CI/CD</span>
+        <span class="badge">REMOTE CACHE</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+      <p>Bazel is a high-performance build system designed for large, multi-language repositories. It emphasizes reproducibility, hermeticity, and incremental builds for developer velocity and reliable CI pipelines.</p>
+      <h3>Why Teams Use Bazel</h3>
+      <ul>
+        <li><strong>Fast Incremental Builds</strong> - rebuild only changed targets</li>
+        <li><strong>Reproducibility</strong> - consistent outputs across machines</li>
+        <li><strong>Polyglot Support</strong> - Java, C++, Python, Go, JS, and more</li>
+        <li><strong>Remote Cache/Execution</strong> - accelerate team and CI workflows</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Installation</h2>
+      <pre><code># Windows (Chocolatey)
+choco install bazel
+
+# macOS
+brew install bazelisk
+
+# Linux (Bazelisk)
+curl -L https://github.com/bazelbuild/bazelisk/releases/latest/download/bazelisk-linux-amd64 -o bazel
+chmod +x bazel
+sudo mv bazel /usr/local/bin/bazel</code></pre>
+      <p>Tip: Bazelisk is commonly preferred because it auto-selects the Bazel version defined by your repository.</p>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <h3>Minimal Example</h3>
+      <pre><code># BUILD
+cc_binary(
+    name = "hello",
+    srcs = ["hello.cc"],
+)</code></pre>
+      <pre><code># Build target
+bazel build //:hello
+
+# Run target
+bazel run //:hello
+
+# Run tests
+bazel test //...</code></pre>
+      <h3>Typical Commands</h3>
+      <ul>
+        <li><code>bazel query</code> for dependency graph exploration</li>
+        <li><code>bazel clean</code> for cache cleanup when needed</li>
+        <li><code>bazel test --test_output=errors //...</code> for debugging failing tests</li>
+      </ul>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🧠 Advanced Topics</h2>
+      <h3>Remote Cache in CI</h3>
+      <pre><code>build --remote_cache=https://your-cache-endpoint
+build --remote_timeout=60
+test --remote_cache=https://your-cache-endpoint</code></pre>
+      <h3>Best Practices</h3>
+      <ul>
+        <li>Keep BUILD targets small and composable</li>
+        <li>Prefer explicit dependencies to avoid hidden coupling</li>
+        <li>Use shared rule sets to standardize language builds</li>
+        <li>Pin external deps for deterministic outputs</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🚀 Next Steps</h2>
+      <ul>
+        <li>Set up remote caching for your CI runners</li>
+        <li>Add lint/test targets for each language package</li>
+        <li>Profile slow targets with <code>bazel aquery</code></li>
+      </ul>
+      <div class="lang-resources">
+        <a href="https://bazel.build/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://bazel.build/start" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/bazelbuild/bazel" target="_blank" class="btn">GitHub</a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

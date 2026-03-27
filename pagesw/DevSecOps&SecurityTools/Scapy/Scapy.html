@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scapy - Coduxium XI</title>
+  <meta name="description" content="Scapy guide for packet crafting, sniffing, protocol testing, and network security workflows in Python." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Scapy</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../index.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>🐍 Scapy</h2>
+      <p class="intro">Scapy is a Python packet manipulation toolkit used for crafting, sniffing, and analyzing network traffic in security and diagnostics workflows.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Network Security</span>
+          <span class="badge">Packet Analysis</span>
+          <span class="badge">Python</span>
+          <span class="badge">Pentesting</span>
+        </div>
+        <p>Scapy gives fine-grained control over network packets and protocols, making it useful for protocol testing, custom packet generation, and network behavior analysis.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Capabilities</h3>
+        <ul>
+          <li>Craft and send custom packets</li>
+          <li>Sniff and filter live traffic</li>
+          <li>Discover hosts with ARP/ICMP probing</li>
+          <li>Build protocol fuzzing and test scripts</li>
+          <li>Automate repeatable network checks</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>pip install scapy</code></pre>
+        <pre><code>from scapy.all import IP, ICMP, send, sniff, Ether, ARP, srp
+
+# Ping test
+send(IP(dst="8.8.8.8") / ICMP())
+
+# Capture 5 packets
+pkts = sniff(count=5)
+print(pkts.summary())
+
+# ARP scan
+ans, _ = srp(
+    Ether(dst="ff:ff:ff:ff:ff:ff") / ARP(pdst="192.168.1.0/24"),
+    timeout=2,
+    verbose=False,
+)
+for _, rcv in ans:
+    print(rcv.psrc, rcv.hwsrc)</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Run only in authorized environments and scopes</li>
+          <li>Use isolated lab networks for protocol experimentation</li>
+          <li>Throttle scans to avoid network disruption</li>
+          <li>Log findings and timestamps for reproducibility</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Security Content</h3>
+        <ul>
+          <li><a href="../OpenVAS/OpenVAS.html">OpenVAS</a></li>
+          <li><a href="../security-tools/security-tools.html">Security Tools Hub</a></li>
+          <li><a href="../../DevOps-I&A/CloudWatch/CloudWatch.html">CloudWatch</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://scapy.net/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://scapy.readthedocs.io/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/secdev/scapy" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

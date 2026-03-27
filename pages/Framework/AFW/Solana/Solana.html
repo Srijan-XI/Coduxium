@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solana - Coduxium XI</title>
+  <meta name="description" content="Learn Solana development fundamentals, account model basics, and practical setup paths for Web3 applications." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Solana Guide</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Solana</h2>
+      <p class="intro">Solana is a high-throughput blockchain optimized for low-latency transactions and scalable on-chain application workloads.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Blockchain</span>
+          <span class="badge">High Throughput</span>
+          <span class="badge">Accounts Model</span>
+          <span class="badge">Web3</span>
+        </div>
+        <p>Solana development spans account-state design, transaction composition, and integration with JavaScript or Rust tooling across testnet and mainnet environments.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Developer Foundations</h3>
+        <ul>
+          <li>Account-based runtime and program ownership</li>
+          <li>Transaction instructions and signer model</li>
+          <li>RPC queries and websocket subscriptions</li>
+          <li>Program deployment and upgrade lifecycle</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Install Solana CLI
+sh -c "$(curl -sSfL https://release.anza.xyz/stable/install)"
+
+# Configure devnet
+solana config set --url https://api.devnet.solana.com
+solana address</code></pre>
+        <pre><code># Create keypair and request test tokens
+solana-keygen new
+solana airdrop 1</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths</h3>
+        <ul>
+          <li><a href="../Web3JS/Web3JS.html">Web3JS guide</a></li>
+          <li><a href="../MetaMask/MetaMask.html">MetaMask guide</a></li>
+          <li><a href="../Polkadot/Polkadot.html">Polkadot guide</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://solana.com/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://solana.com/docs" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/solana-labs/solana" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expo - Coduxium XI</title>
+  <meta name="description" content="Learn Expo for cross-platform React Native apps with managed workflows, OTA updates, and production mobile delivery." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Expo Framework</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Expo</h2>
+      <p class="intro">Expo is a productivity layer for React Native that helps teams build, ship, and maintain mobile apps faster with a managed workflow.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Mobile</span>
+          <span class="badge">React Native</span>
+          <span class="badge">Managed Workflow</span>
+          <span class="badge">OTA Updates</span>
+        </div>
+        <p>Expo combines development tooling, cloud services, and runtime APIs so teams can focus on product features instead of native build complexity.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Managed Projects</strong> - build mobile apps without full native setup</li>
+          <li><strong>EAS Build</strong> - cloud builds for Android and iOS</li>
+          <li><strong>EAS Update</strong> - over-the-air JavaScript updates</li>
+          <li><strong>Expo SDK</strong> - camera, notifications, sensors, and device APIs</li>
+          <li><strong>Dev Client</strong> - custom native modules when needed</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code>npx create-expo-app@latest my-expo-app
+cd my-expo-app
+npm install
+npx expo start</code></pre>
+        <pre><code># Optional cloud build setup
+npx expo login
+npx eas init</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths in Coduxium XI</h3>
+        <ul>
+          <li><a href="../../FFW/react/react.html">React guide</a></li>
+          <li><a href="../../FFW/NextJs/NextJs.html">Next.js guide</a></li>
+          <li><a href="../../../Languages/Js/Js.html">JavaScript language page</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://expo.dev/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://docs.expo.dev/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/expo/expo" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

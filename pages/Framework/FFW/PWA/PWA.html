@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PWA - Coduxium XI</title>
+  <meta name="description" content="Learn Progressive Web App architecture with service workers, manifests, offline strategies, and installable web UX." />
+  <link rel="stylesheet" href="../../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">CX</span>
+        <div>
+          <h1><a href="../../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">Progressive Web Apps</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../frameworks.html" class="btn">Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>Progressive Web Apps (PWA)</h2>
+      <p class="intro">PWAs provide app-like behavior on the web through installability, offline support, push notifications, and resilient loading.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Mobile Web</span>
+          <span class="badge">Offline-first</span>
+          <span class="badge">Installable</span>
+          <span class="badge">Service Workers</span>
+        </div>
+        <p>PWA architecture helps teams deliver reliable UX across devices without requiring native app store distribution for every release.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Core Capabilities</h3>
+        <ul>
+          <li><strong>Web App Manifest</strong> - app metadata, icons, and install prompts</li>
+          <li><strong>Service Workers</strong> - request interception and cache control</li>
+          <li><strong>Offline Patterns</strong> - cache-first, network-first, stale-while-revalidate</li>
+          <li><strong>Push Notifications</strong> - browser-based engagement channel</li>
+          <li><strong>Background Sync</strong> - deferred operations for poor networks</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Example with Vite + PWA plugin
+npm create vite@latest my-pwa
+cd my-pwa
+npm install
+npm install vite-plugin-pwa -D
+npm run dev</code></pre>
+        <pre><code># Validate baseline quality
+npx lighthouse http://localhost:5173 --view</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Paths in Coduxium XI</h3>
+        <ul>
+          <li><a href="../../FFW/NextJs/NextJs.html">Next.js guide</a></li>
+          <li><a href="../../FFW/NuxtJs/NuxtJs.html">Nuxt.js guide</a></li>
+          <li><a href="../../../DevelopmentTools/Vite/Vite.html">Vite tooling page</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://web.dev/progressive-web-apps/" target="_blank" class="btn primary">Official Guide</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank" class="btn">MDN Docs</a>
+        <a href="https://w3c.github.io/manifest/" target="_blank" class="btn">Web App Manifest Spec</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI 2025</small>
+      <div class="footer-links">
+        <a href="../../../../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

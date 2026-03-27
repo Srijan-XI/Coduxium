@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maven guide for Java build lifecycle, dependency management, plugin automation, and CI-friendly project structures." />
+  <meta name="keywords" content="Maven, Java, build, dependency management, pom.xml, CI" />
+  <title>Maven Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>Maven Build Guide</h1>
+      <p class="subtitle">Manage Java dependencies and repeatable builds with standardized lifecycle phases and plugins.</p>
+      <div class="badge-row">
+        <span class="badge">BUILD TOOL</span>
+        <span class="badge">JAVA</span>
+        <span class="badge">DEPENDENCY MANAGEMENT</span>
+        <span class="badge">CI/CD</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+      <p>Apache Maven is a project management and build automation tool centered on the POM (Project Object Model). It standardizes Java project structure, dependency resolution, test/build packaging, and release workflows.</p>
+      <h3>Why Maven</h3>
+      <ul>
+        <li><strong>Convention Over Configuration</strong> - predictable defaults for project layout</li>
+        <li><strong>Dependency Management</strong> - transitive dependency resolution and version control</li>
+        <li><strong>Lifecycle Phases</strong> - clean, compile, test, package, verify, install, deploy</li>
+        <li><strong>Plugin Ecosystem</strong> - extensible tasks for quality, testing, and deployment</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Installation</h2>
+      <pre><code># Windows (winget)
+winget install -e --id Apache.Maven
+
+# macOS
+brew install maven
+
+# Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install -y maven</code></pre>
+      <pre><code># Verify
+mvn -version</code></pre>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <h3>Create a Project</h3>
+      <pre><code>mvn archetype:generate \
+  -DgroupId=com.example \
+  -DartifactId=demo-app \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DinteractiveMode=false</code></pre>
+      <h3>Basic pom.xml</h3>
+      <pre><code>&lt;project xmlns="http://maven.apache.org/POM/4.0.0"&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.example&lt;/groupId&gt;
+  &lt;artifactId&gt;demo-app&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0&lt;/version&gt;
+
+  &lt;properties&gt;
+    &lt;maven.compiler.source&gt;21&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;21&lt;/maven.compiler.target&gt;
+  &lt;/properties&gt;
+&lt;/project&gt;</code></pre>
+      <h3>Common Commands</h3>
+      <pre><code>mvn clean
+mvn test
+mvn package
+mvn verify
+mvn dependency:tree</code></pre>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🧠 Advanced Topics</h2>
+      <h3>Surefire + Failsafe Split</h3>
+      <p>Use Surefire for unit tests and Failsafe for integration tests to keep CI stages clean and predictable.</p>
+      <h3>Best Practices</h3>
+      <ul>
+        <li>Pin plugin versions explicitly in <code>pluginManagement</code></li>
+        <li>Use dependencyManagement in parent POMs for consistent versions</li>
+        <li>Keep modules focused in multi-module builds</li>
+        <li>Use Maven Wrapper for team-wide version consistency</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🚀 Next Steps</h2>
+      <ul>
+        <li>Add code quality plugins (SpotBugs, Checkstyle)</li>
+        <li>Enable test coverage reporting in CI</li>
+        <li>Publish artifacts to internal or public repositories</li>
+      </ul>
+      <div class="lang-resources">
+        <a href="https://maven.apache.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://maven.apache.org/guides/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/apache/maven" target="_blank" class="btn">GitHub</a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

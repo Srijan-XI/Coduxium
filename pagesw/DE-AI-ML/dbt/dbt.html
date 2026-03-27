@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dbt - Coduxium XI</title>
+    <meta name="description" content="dbt guide for analytics engineering, SQL data transformations, testing, and lineage-driven data workflows." />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">dbt</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🧱 dbt</h2>
+            <p class="intro">dbt (data build tool) is an analytics engineering framework for transforming warehouse data with modular SQL models, tests, and documentation.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Data Transformation</span>
+                    <span class="badge">SQL</span>
+                    <span class="badge">Analytics Engineering</span>
+                    <span class="badge">Data Quality</span>
+                </div>
+                <p>dbt helps teams version, test, and document analytical data pipelines. It compiles SQL models with dependency-aware execution and makes warehouse transformations maintainable at scale.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Modular Models</strong> - build layered SQL transformations with reusable refs</li>
+                    <li><strong>Automated Testing</strong> - schema and data tests for quality enforcement</li>
+                    <li><strong>Lineage Graph</strong> - dependency graph for impact analysis and debugging</li>
+                    <li><strong>Documentation Site</strong> - auto-generated docs for models and columns</li>
+                    <li><strong>Package Ecosystem</strong> - shared macros and modeling patterns</li>
+                    <li><strong>CI Integration</strong> - validate models before deployment in pull requests</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Warehouse transformation pipelines</li>
+                    <li>Standardized KPI and metric layers</li>
+                    <li>Data quality gates in CI/CD</li>
+                    <li>Documentation and governance for analytics teams</li>
+                    <li>Migrating ad-hoc SQL into reusable model architecture</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code>pip install dbt-core dbt-postgres
+
+# Initialize project
+dbt init analytics_project
+cd analytics_project
+
+# Build models + tests
+dbt run
+dbt test
+
+# Generate docs
+dbt docs generate
+dbt docs serve</code></pre>
+                <pre><code>-- models/staging/stg_orders.sql
+select
+  order_id,
+  customer_id,
+  order_total,
+  order_timestamp
+from {{ source('raw', 'orders') }}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Adopt staging, intermediate, and marts layer conventions</li>
+                    <li>Write tests for primary keys, relationships, and accepted values</li>
+                    <li>Use sources and freshness checks for upstream visibility</li>
+                    <li>Keep models small and composable with clear naming</li>
+                    <li>Run slim CI checks on modified models before merge</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Related Data Tools</h3>
+                <ul>
+                    <li><a href="../apache-spark/apache-spark.html">Apache Spark</a></li>
+                    <li><a href="../pandas/pandas.html">Pandas</a></li>
+                    <li><a href="../matplotlib/matplotlib.html">Matplotlib</a></li>
+                    <li><a href="../../../pages/Languages/SQL/SQL.html">SQL</a></li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://www.getdbt.com/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://docs.getdbt.com/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/dbt-labs/dbt-core" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

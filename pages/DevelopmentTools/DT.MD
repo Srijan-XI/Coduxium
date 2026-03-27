@@ -3,6 +3,9 @@
 - Vite
 - Vitest
 - Postman
+- Bazel
+- CMake
+- Maven
 - YAML
 - TOML
 - JSON

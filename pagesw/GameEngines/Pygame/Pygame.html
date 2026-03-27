@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pygame - Coduxium XI</title>
+  <meta name="description" content="Pygame guide for Python-based 2D game development, prototyping, and educational projects." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><div class="brand"><span class="logo">💻</span><div><h1><a href="../../../index.html">Coduxium XI</a></h1><p class="sub">Pygame</p></div></div><div class="header-actions"><a href="../../../index.html" class="btn">← Back</a><button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button></div></div></header>
+  <main class="container" style="padding: 40px 0;"><article class="content-page">
+    <h2>🐍 Pygame</h2>
+    <p class="intro">Pygame is a Python library for creating 2D games and multimedia applications with straightforward APIs.</p>
+    <section class="framework-section"><h3>Overview</h3><div class="badge-group"><span class="badge">Game Framework</span><span class="badge">Python</span><span class="badge">2D</span><span class="badge">Education</span></div><p>Pygame is widely used for learning game development fundamentals, building prototypes, and shipping simple 2D titles.</p></section>
+    <section class="framework-section"><h3>Key Features</h3><ul><li>Simple event loop and rendering APIs</li><li>Sprite and collision primitives</li><li>Audio and input handling</li><li>Strong beginner ecosystem</li></ul></section>
+    <section class="framework-section"><h3>Getting Started</h3><pre><code>pip install pygame</code></pre><pre><code>import pygame
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+clock = pygame.time.Clock()
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    screen.fill((20, 20, 30))
+    pygame.display.flip()
+    clock.tick(60)
+pygame.quit()</code></pre></section>
+    <section class="framework-section"><h3>Common Use Cases</h3><ul><li>Beginner-friendly game projects</li><li>Rapid gameplay prototyping</li><li>Classroom coding/game labs</li></ul></section>
+    <div class="lang-resources"><a href="https://www.pygame.org/" target="_blank" class="btn primary">Official Website</a><a href="https://www.pygame.org/docs/" target="_blank" class="btn">Documentation</a><a href="https://github.com/pygame/pygame" target="_blank" class="btn">GitHub</a></div>
+  </article></main>
+  <footer class="site-footer"><div class="container footer-inner"><small>Coduxium XI © 2025</small><div class="footer-links"><a href="../../../index.html">Home</a><a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a></div></div></footer>
+  <script>const btn=document.getElementById('btn-theme');const key='il-devlangs-theme';const set=(v)=>{document.body.classList.toggle('light',v==='light');localStorage.setItem(key,v)};const stored=localStorage.getItem(key);if(stored)set(stored);else set('dark');btn.addEventListener('click',()=>{const cur=document.body.classList.contains('light')?'light':'dark';set(cur==='light'?'dark':'light');});</script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bevy - Coduxium XI</title>
+    <meta name="description" content="Bevy guide for modern Rust game development with ECS, schedules, and plugin-based architecture." />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Bevy Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🦀 Bevy</h2>
+            <p class="intro">Bevy is a data-driven, modular Rust game engine with strong ECS fundamentals and modern rendering.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Engine</span>
+                    <span class="badge">Rust</span>
+                    <span class="badge">ECS</span>
+                    <span class="badge">Plugin Architecture</span>
+                </div>
+                <p>Bevy provides a clean API for game logic, scheduling, and rendering pipelines. It has become a leading option for teams building Rust-first game stacks.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>High-performance ECS and scheduler</li>
+                    <li>Plugin-based extensibility model</li>
+                    <li>2D and 3D workflows</li>
+                    <li>Cross-platform build support</li>
+                    <li>Large and active ecosystem</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Rust-native game production</li>
+                    <li>Simulation and visualization projects</li>
+                    <li>Rapid prototyping with ECS patterns</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code># New Bevy project
+cargo new bevy_demo
+cd bevy_demo
+
+# Add Bevy
+cargo add bevy
+
+# Run
+cargo run</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Organize systems by schedule stage</li>
+                    <li>Prefer resources for shared global state</li>
+                    <li>Use events for decoupled gameplay logic</li>
+                    <li>Keep plugins focused and reusable</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://bevyengine.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://bevyengine.org/learn/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/bevyengine/bevy" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

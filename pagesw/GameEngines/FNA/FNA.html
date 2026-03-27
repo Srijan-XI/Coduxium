@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FNA - Coduxium XI</title>
+    <meta name="description" content="FNA guide for XNA-compatible C# game development and cross-platform rendering/input/audio support." />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">FNA Framework</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>🎮 FNA</h2>
+            <p class="intro">FNA is an open-source reimplementation of XNA for modern cross-platform C# game development.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Framework</span>
+                    <span class="badge">C#</span>
+                    <span class="badge">XNA Compatible</span>
+                    <span class="badge">Cross-platform</span>
+                </div>
+                <p>FNA targets compatibility and stable runtime behavior for existing XNA-style codebases while supporting modern platforms.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>XNA API compatibility focus</li>
+                    <li>Rendering, input, and audio runtime layers</li>
+                    <li>Strong support for desktop game shipping</li>
+                    <li>Useful migration path for legacy XNA projects</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Maintaining and porting XNA-era projects</li>
+                    <li>Building lightweight 2D C# games</li>
+                    <li>Cross-platform desktop game releases</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code># Typical setup
+# 1) Create C# project
+# 2) Add FNA framework references
+# 3) Implement Game class loop
+# 4) Build and test on target platforms</code></pre>
+                <pre><code>// Game skeleton
+public class MyGame : Game
+{
+    GraphicsDeviceManager graphics;
+
+    public MyGame()
+    {
+        graphics = new GraphicsDeviceManager(this);
+    }
+
+    protected override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+    }
+
+    protected override void Draw(GameTime gameTime)
+    {
+        GraphicsDevice.Clear(Color.CornflowerBlue);
+        base.Draw(gameTime);
+    }
+}</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Keep asset pipeline predictable by environment</li>
+                    <li>Validate platform-specific runtime dependencies early</li>
+                    <li>Separate engine abstraction from gameplay code</li>
+                    <li>Automate builds for each target OS</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://fna-xna.github.io/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://github.com/FNA-XNA/FNA" target="_blank" class="btn">GitHub</a>
+                <a href="https://fna-xna.github.io/docs/" target="_blank" class="btn">Documentation</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Babylon.js - Coduxium XI</title>
+  <meta name="description" content="Babylon.js guide for WebGL-powered 3D games and interactive browser experiences." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><div class="brand"><span class="logo">💻</span><div><h1><a href="../../../index.html">Coduxium XI</a></h1><p class="sub">Babylon.js</p></div></div><div class="header-actions"><a href="../../../index.html" class="btn">← Back</a><button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button></div></div></header>
+  <main class="container" style="padding: 40px 0;"><article class="content-page">
+    <h2>🌐 Babylon.js</h2>
+    <p class="intro">Babylon.js is a powerful JavaScript 3D engine for browser-based games, simulation, and immersive web apps.</p>
+    <section class="framework-section"><h3>Overview</h3><div class="badge-group"><span class="badge">Game Engine</span><span class="badge">JavaScript</span><span class="badge">WebGL</span><span class="badge">3D</span></div><p>Babylon.js provides rendering, physics integration, asset loading, and scene tooling for real-time 3D content on the web.</p></section>
+    <section class="framework-section"><h3>Key Features</h3><ul><li>High-level 3D scene API</li><li>glTF asset pipeline support</li><li>Post-processing and lighting systems</li><li>Inspector and playground tooling</li></ul></section>
+    <section class="framework-section"><h3>Getting Started</h3><pre><code>npm install @babylonjs/core @babylonjs/loaders</code></pre><pre><code>import { Engine, Scene } from "@babylonjs/core";
+const canvas = document.getElementById("app");
+const engine = new Engine(canvas, true);
+const scene = new Scene(engine);
+engine.runRenderLoop(() =&gt; scene.render());</code></pre></section>
+    <section class="framework-section"><h3>Common Use Cases</h3><ul><li>Web-based 3D games</li><li>Interactive product demos</li><li>Training simulators</li></ul></section>
+    <div class="lang-resources"><a href="https://www.babylonjs.com/" target="_blank" class="btn primary">Official Website</a><a href="https://doc.babylonjs.com/" target="_blank" class="btn">Documentation</a><a href="https://github.com/BabylonJS/Babylon.js" target="_blank" class="btn">GitHub</a></div>
+  </article></main>
+  <footer class="site-footer"><div class="container footer-inner"><small>Coduxium XI © 2025</small><div class="footer-links"><a href="../../../index.html">Home</a><a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a></div></div></footer>
+  <script>const btn=document.getElementById('btn-theme');const key='il-devlangs-theme';const set=(v)=>{document.body.classList.toggle('light',v==='light');localStorage.setItem(key,v)};const stored=localStorage.getItem(key);if(stored)set(stored);else set('dark');btn.addEventListener('click',()=>{const cur=document.body.classList.contains('light')?'light':'dark';set(cur==='light'?'dark':'light');});</script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

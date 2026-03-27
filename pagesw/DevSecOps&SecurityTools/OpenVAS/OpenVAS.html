@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenVAS - Coduxium XI</title>
+  <meta name="description" content="OpenVAS guide for vulnerability scanning, risk prioritization, and ongoing security assessment workflows." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">💻</span>
+        <div>
+          <h1><a href="../../../index.html">Coduxium XI</a></h1>
+          <p class="sub">OpenVAS</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../../../index.html" class="btn">← Back</a>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0;">
+    <article class="content-page">
+      <h2>🔍 OpenVAS</h2>
+      <p class="intro">OpenVAS is an open-source vulnerability scanning platform used to identify security weaknesses and prioritize remediation across infrastructure.</p>
+
+      <section class="framework-section">
+        <h3>Overview</h3>
+        <div class="badge-group">
+          <span class="badge">Vulnerability Scanner</span>
+          <span class="badge">Risk Assessment</span>
+          <span class="badge">Network Security</span>
+          <span class="badge">DevSecOps</span>
+        </div>
+        <p>OpenVAS includes an extensive vulnerability test feed and reporting capabilities, enabling regular security baselines and patch verification workflows.</p>
+      </section>
+
+      <section class="framework-section">
+        <h3>Key Capabilities</h3>
+        <ul>
+          <li>Large vulnerability test catalog</li>
+          <li>Configurable scan policies and schedules</li>
+          <li>Asset-based risk reporting</li>
+          <li>Remediation-oriented findings output</li>
+          <li>Ongoing security posture tracking</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Getting Started</h3>
+        <pre><code># Example with Greenbone Community Edition (containerized)
+docker run -d --name openvas --publish 9392:9392 immauss/openvas
+
+# Access web UI
+# https://localhost:9392
+
+# Workflow
+# 1) Create target
+# 2) Create task and choose scan config
+# 3) Start scan
+# 4) Review report and prioritize fixes</code></pre>
+      </section>
+
+      <section class="framework-section">
+        <h3>Operational Best Practices</h3>
+        <ul>
+          <li>Run authenticated scans when possible for deeper findings</li>
+          <li>Schedule periodic scans and compare trends</li>
+          <li>Validate critical findings to reduce false positives</li>
+          <li>Track remediation SLA by severity</li>
+          <li>Limit scans to approved assets and change windows</li>
+        </ul>
+      </section>
+
+      <section class="framework-section">
+        <h3>Related Security Content</h3>
+        <ul>
+          <li><a href="../Scapy/Scapy.html">Scapy</a></li>
+          <li><a href="../security-tools/security-tools.html">Security Tools Hub</a></li>
+          <li><a href="../SonarQube/SonarQube.html">SonarQube</a></li>
+        </ul>
+      </section>
+
+      <div class="lang-resources">
+        <a href="https://www.openvas.org/" target="_blank" class="btn primary">OpenVAS Website</a>
+        <a href="https://greenbone.github.io/docs/latest/" target="_blank" class="btn">Documentation</a>
+        <a href="https://github.com/greenbone" target="_blank" class="btn">GitHub</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btn-theme');
+    const key = 'il-devlangs-theme';
+    const set = (val) => {
+      document.body.classList.toggle('light', val === 'light');
+      localStorage.setItem(key, val);
+    };
+    const stored = localStorage.getItem(key);
+    if (stored) set(stored); else set('dark');
+    btn.addEventListener('click', () => {
+      const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+      set(cur === 'light' ? 'dark' : 'light');
+    });
+  </script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

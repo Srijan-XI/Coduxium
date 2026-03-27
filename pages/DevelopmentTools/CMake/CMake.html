@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CMake guide for cross-platform C/C++ build configuration, target management, and reproducible project setup." />
+  <meta name="keywords" content="CMake, C++, C, build tool, cross-platform, toolchain" />
+  <title>CMake Guide | Coduxium XI</title>
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../Database/database-common.css">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <h1>CMake Build Guide</h1>
+      <p class="subtitle">Configure and generate cross-platform C/C++ builds with modern target-based workflows.</p>
+      <div class="badge-row">
+        <span class="badge">BUILD SYSTEM</span>
+        <span class="badge">C/C++</span>
+        <span class="badge">CROSS-PLATFORM</span>
+        <span class="badge">TOOLCHAINS</span>
+      </div>
+      <nav class="section-nav">
+        <a href="../../../index.html">🏠 Home</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation</a>
+        <a href="#user-guide">User Guide</a>
+        <a href="#advanced">Advanced</a>
+        <a href="#next-steps">Next Steps</a>
+      </nav>
+    </header>
+
+    <section id="introduction" class="card accent">
+      <h2>📚 Introduction</h2>
+      <p>CMake is a meta build system that generates native build files (Ninja, Makefiles, Visual Studio projects). It is the standard way to configure portable C/C++ projects and is widely used in embedded, desktop, and backend systems.</p>
+      <h3>Core Benefits</h3>
+      <ul>
+        <li><strong>Cross-Platform</strong> - same build definition across OS/toolchains</li>
+        <li><strong>Target-Based Design</strong> - explicit include/link/interface dependencies</li>
+        <li><strong>Toolchain Flexibility</strong> - GCC, Clang, MSVC, cross-compilers</li>
+        <li><strong>Ecosystem Support</strong> - integrates with IDEs, package managers, CI</li>
+      </ul>
+    </section>
+
+    <section id="installation" class="card">
+      <h2>⚙️ Installation</h2>
+      <pre><code># Windows (winget)
+winget install Kitware.CMake
+
+# macOS
+brew install cmake
+
+# Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install -y cmake</code></pre>
+    </section>
+
+    <section id="user-guide" class="card accent">
+      <h2>📖 User Guide</h2>
+      <h3>Minimal CMakeLists.txt</h3>
+      <pre><code>cmake_minimum_required(VERSION 3.20)
+project(hello LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(hello src/main.cpp)</code></pre>
+      <h3>Build and Run</h3>
+      <pre><code># Configure
+cmake -S . -B build
+
+# Build
+cmake --build build
+
+# Run (depends on generator/platform)
+./build/hello</code></pre>
+      <h3>Modern Target Practice</h3>
+      <pre><code>add_library(core src/core.cpp)
+target_include_directories(core PUBLIC include)
+
+target_compile_definitions(core PRIVATE CORE_IMPL=1)
+
+target_link_libraries(hello PRIVATE core)</code></pre>
+    </section>
+
+    <section id="advanced" class="card">
+      <h2>🧠 Advanced Topics</h2>
+      <h3>Build Types and Generators</h3>
+      <pre><code># Debug
+cmake -S . -B build-debug -DCMAKE_BUILD_TYPE=Debug
+
+# Release with Ninja
+cmake -S . -B build-release -G Ninja -DCMAKE_BUILD_TYPE=Release</code></pre>
+      <h3>Best Practices</h3>
+      <ul>
+        <li>Prefer target-level commands over global flags</li>
+        <li>Keep third-party dependencies isolated and versioned</li>
+        <li>Use presets for team-wide consistent builds</li>
+        <li>Separate source and build directories</li>
+      </ul>
+    </section>
+
+    <section id="next-steps" class="card accent">
+      <h2>🚀 Next Steps</h2>
+      <ul>
+        <li>Add CTest and sanitizer builds to CI</li>
+        <li>Create CMake presets for developer and CI profiles</li>
+        <li>Introduce package exports for reusable components</li>
+      </ul>
+      <div class="lang-resources">
+        <a href="https://cmake.org/" target="_blank" class="btn primary">Official Website</a>
+        <a href="https://cmake.org/cmake/help/latest/" target="_blank" class="btn">Documentation</a>
+        <a href="https://gitlab.kitware.com/cmake/cmake" target="_blank" class="btn">Source</a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>Coduxium XI © 2025</small>
+      <div class="footer-links">
+        <a href="../../../index.html">Home</a>
+        <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

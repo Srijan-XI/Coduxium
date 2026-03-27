@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Matplotlib - Coduxium XI</title>
+    <meta name="description" content="Matplotlib guide for Python data visualization, charting workflows, and publication-ready plots." />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Matplotlib</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>📊 Matplotlib</h2>
+            <p class="intro">Matplotlib is the core Python plotting library used to create static, animated, and interactive visualizations for analysis and reporting.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Data Visualization</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Charting</span>
+                    <span class="badge">Scientific Computing</span>
+                </div>
+                <p>Matplotlib provides full control over charts, styling, figure layouts, and export formats. It integrates tightly with NumPy and Pandas, and is commonly used in notebooks, scripts, and production reporting pipelines.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Wide Chart Support</strong> - line, bar, scatter, histogram, heatmap, and more</li>
+                    <li><strong>Flexible API</strong> - quick plotting with pyplot or object-oriented figure control</li>
+                    <li><strong>Publication Output</strong> - export to PNG, SVG, PDF, and high-DPI assets</li>
+                    <li><strong>Styling System</strong> - themes, custom colors, labels, legends, and annotations</li>
+                    <li><strong>Subplots</strong> - build dashboard-style multi-panel visual layouts</li>
+                    <li><strong>Interoperability</strong> - works with Pandas, Seaborn, and Jupyter ecosystems</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Exploratory data analysis in notebooks</li>
+                    <li>KPI and trend reporting</li>
+                    <li>Scientific and engineering plots</li>
+                    <li>Model diagnostics and experiment tracking visuals</li>
+                    <li>Exporting charts for docs and presentations</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code>pip install matplotlib</code></pre>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.plot(x, y, label="sin(x)", color="#3b82f6")
+ax.set_title("Sine Wave")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.grid(True, alpha=0.3)
+ax.legend()
+
+plt.tight_layout()
+plt.show()</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use the object-oriented API for reusable plotting code</li>
+                    <li>Apply consistent labels, units, and titles for readability</li>
+                    <li>Keep color choices accessible and contrast-safe</li>
+                    <li>Limit chart clutter and annotate only key points</li>
+                    <li>Use figure sizing and tight_layout for clean exports</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Related Data Tools</h3>
+                <ul>
+                    <li><a href="../numpy/numpy.html">NumPy</a></li>
+                    <li><a href="../pandas/pandas.html">Pandas</a></li>
+                    <li><a href="../scikit-learn/scikit-learn.html">Scikit-learn</a></li>
+                    <li><a href="../dbt/dbt.html">dbt</a></li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://matplotlib.org/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://matplotlib.org/stable/users/index.html" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/matplotlib/matplotlib" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Love2D - Coduxium XI</title>
+  <meta name="description" content="Love2D guide for Lua-powered 2D game development and fast prototyping workflows." />
+  <link rel="stylesheet" href="../../../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><div class="brand"><span class="logo">💻</span><div><h1><a href="../../../index.html">Coduxium XI</a></h1><p class="sub">Love2D</p></div></div><div class="header-actions"><a href="../../../index.html" class="btn">← Back</a><button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button></div></div></header>
+  <main class="container" style="padding: 40px 0;"><article class="content-page">
+    <h2>❤️ Love2D</h2>
+    <p class="intro">Love2D is a lightweight Lua framework for building 2D games with fast iteration and simple project structure.</p>
+    <section class="framework-section"><h3>Overview</h3><div class="badge-group"><span class="badge">Game Framework</span><span class="badge">Lua</span><span class="badge">2D</span><span class="badge">Indie</span></div><p>Love2D uses a callback-style architecture that makes it ideal for prototypes, game jams, and small-to-medium 2D productions.</p></section>
+    <section class="framework-section"><h3>Key Features</h3><ul><li>Minimal setup and API surface</li><li>Rapid prototyping loops</li><li>Simple rendering and input handling</li><li>Strong community package ecosystem</li></ul></section>
+    <section class="framework-section"><h3>Getting Started</h3><pre><code>-- main.lua
+function love.update(dt)
+end
+
+function love.draw()
+  love.graphics.print("Hello Love2D", 100, 100)
+end</code></pre></section>
+    <section class="framework-section"><h3>Common Use Cases</h3><ul><li>2D indie games</li><li>Game jam prototypes</li><li>Learning game loop fundamentals</li></ul></section>
+    <div class="lang-resources"><a href="https://love2d.org/" target="_blank" class="btn primary">Official Website</a><a href="https://love2d.org/wiki/Main_Page" target="_blank" class="btn">Documentation</a><a href="https://github.com/love2d/love" target="_blank" class="btn">GitHub</a></div>
+  </article></main>
+  <footer class="site-footer"><div class="container footer-inner"><small>Coduxium XI © 2025</small><div class="footer-links"><a href="../../../index.html">Home</a><a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a></div></div></footer>
+  <script>const btn=document.getElementById('btn-theme');const key='il-devlangs-theme';const set=(v)=>{document.body.classList.toggle('light',v==='light');localStorage.setItem(key,v)};const stored=localStorage.getItem(key);if(stored)set(stored);else set('dark');btn.addEventListener('click',()=>{const cur=document.body.classList.contains('light')?'light':'dark';set(cur==='light'?'dark':'light');});</script>
+  <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+</html>

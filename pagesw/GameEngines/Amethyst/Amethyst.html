@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amethyst - Coduxium XI</title>
+    <meta name="description" content="Amethyst guide for Rust game development using ECS architecture and modular engine systems." />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../components/scroll-to-top/scroll-to-top.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">💻</span>
+                <div>
+                    <h1><a href="../../../index.html">Coduxium XI</a></h1>
+                    <p class="sub">Amethyst Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../../../index.html" class="btn">← Back</a>
+                <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+        <article class="content-page">
+            <h2>💠 Amethyst</h2>
+            <p class="intro">Amethyst is a Rust game engine built around ECS architecture and data-oriented design principles.</p>
+
+            <section class="framework-section">
+                <h3>Overview</h3>
+                <div class="badge-group">
+                    <span class="badge">Game Engine</span>
+                    <span class="badge">Rust</span>
+                    <span class="badge">ECS</span>
+                    <span class="badge">Data Oriented</span>
+                </div>
+                <p>Amethyst focuses on modular systems, performance, and maintainability. It is well-suited for developers exploring modern Rust-based engine architecture.</p>
+            </section>
+
+            <section class="framework-section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Entity component system architecture</li>
+                    <li>Modular rendering and input systems</li>
+                    <li>Rust safety and performance model</li>
+                    <li>Data-driven game state workflows</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Learning ECS game architecture</li>
+                    <li>Prototyping systems-heavy gameplay loops</li>
+                    <li>Rust-native game tooling experiments</li>
+                </ul>
+            </section>
+
+            <section class="framework-section">
+                <h3>Getting Started</h3>
+                <pre><code># Install Rust toolchain
+rustup update
+
+# Create and run project
+cargo new amethyst_demo
+cd amethyst_demo
+cargo run</code></pre>
+            </section>
+
+            <section class="framework-section">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Keep systems small and composable</li>
+                    <li>Separate data from behavior cleanly</li>
+                    <li>Profile bottlenecks before micro-optimizing</li>
+                    <li>Use feature flags for incremental complexity</li>
+                </ul>
+            </section>
+
+            <div class="lang-resources">
+                <a href="https://amethyst.rs/" target="_blank" class="btn primary">Official Website</a>
+                <a href="https://book.amethyst.rs/" target="_blank" class="btn">Documentation</a>
+                <a href="https://github.com/amethyst/amethyst" target="_blank" class="btn">GitHub</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>Coduxium XI © 2025</small>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="https://github.com/Srijan-XI/RunexisForge" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn-theme');
+        const key = 'il-devlangs-theme';
+        const set = (val) => {
+            document.body.classList.toggle('light', val === 'light');
+            localStorage.setItem(key, val);
+        };
+        const stored = localStorage.getItem(key);
+        if (stored) set(stored); else set('dark');
+        btn.addEventListener('click', () => {
+            const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+            set(cur === 'light' ? 'dark' : 'light');
+        });
+    </script>
+    <script src="../../../components/scroll-to-top/scroll-to-top.js"></script>
+</body>
+
+</html>
