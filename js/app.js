@@ -555,12 +555,30 @@ function renderEnhancedCards(list) {
 	wrap.innerHTML = '';
 	wrap.className = 'content-grid';
 
+	const escapeHtml = (value) => String(value)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/\"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+
+	const getCardIconMarkup = (name) => {
+		if (typeof createIcon === 'function') {
+			return createIcon(name, null, 'medium').trim();
+		}
+
+		const fallback = escapeHtml(String(name || '?').trim().charAt(0).toUpperCase() || '?');
+		return `<span class="card-tech-fallback">${fallback}</span>`;
+	};
+
 	list.forEach(item => {
 		const card = document.createElement('div');
 		card.className = 'tech-card';
 		card.dataset.type = item.type;
 
 		const typeName = item.type.charAt(0).toUpperCase() + item.type.slice(1);
+		const safeName = escapeHtml(item.name);
+		const iconMarkup = getCardIconMarkup(item.name);
 
 		let linksHTML = '';
 		if (item.type === 'language' && item.intro) {
@@ -576,7 +594,10 @@ function renderEnhancedCards(list) {
 
 		card.innerHTML = `
 			<div class="card-header">
-				<h3 class="card-title">${item.name}</h3>
+				<div class="card-heading">
+					<div class="card-tech-logo" aria-hidden="true">${iconMarkup}</div>
+					<h3 class="card-title">${safeName}</h3>
+				</div>
 				<span class="card-badge">${typeName}</span>
 			</div>
 			<div class="card-actions">

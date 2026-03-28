@@ -229,8 +229,6 @@ oracle-auto.svg
 oracle-cloud.svg
 pandas-auto.svg
 perl.svg
-php-auto.svg
-php-light.svg
 php.svg
 phpmyadmin.svg
 pnpm-auto.svg
@@ -292,8 +290,6 @@ solana-auto.svg
 solidity.svg
 solidjs-auto.svg
 sonarqube-auto.svg
-sonarqube-dark.svg
-sonarqube.svg
 spark-auto.svg
 sparksql-auto.svg
 springboot.svg

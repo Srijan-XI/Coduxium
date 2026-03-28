@@ -48,6 +48,16 @@
 
         .logo {
             font-size: 1.875rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0;
+        }
+
+        .logo .brand-logo-svg {
+            display: block;
+            width: 28px;
+            height: 28px;
         }
 
         .brand h1 {
