@@ -280,4 +280,15 @@
             setupLanguageTabs();
             setupLevelFilters();
             renderProjects(); // Initial render for Java / All
+
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.add('show');
+                    } else {
+                        backToTop.classList.remove('show');
+                    }
+                });
+            }
         });

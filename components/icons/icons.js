@@ -1,136 +1,429 @@
 /**
  * Coduxium XI Icon Library
- * Extended icon set for all technologies
+ * SVG-first icon system with emoji fallback and broad technology coverage.
  */
 
-const Coduxium XIIcons = {
-	// Programming Languages
-	languages: {
-		python: { emoji: '🐍', color: '#3776AB', name: 'Python' },
-		java: { emoji: '☕', color: '#007396', name: 'Java' },
-		javascript: { emoji: '🟨', color: '#F7DF1E', name: 'JavaScript' },
-		typescript: { emoji: '📘', color: '#3178C6', name: 'TypeScript' },
-		rust: { emoji: '🦀', color: '#CE422B', name: 'Rust' },
-		go: { emoji: '🐹', color: '#00ADD8', name: 'Go' },
-		golang: { emoji: '🐹', color: '#00ADD8', name: 'Golang' },
-		php: { emoji: '🐘', color: '#777BB4', name: 'PHP' },
-		'c-cpp': { emoji: '⚡', color: '#00599C', name: 'C/C++' },
-		'c&c++': { emoji: '⚡', color: '#00599C', name: 'C & C++' },
-		r: { emoji: '📊', color: '#276DC3', name: 'R' },
-		bash: { emoji: '💲', color: '#4EAA25', name: 'Bash' },
-		kql: { emoji: '🔍', color: '#0078D4', name: 'KQL' },
-		sql: { emoji: '🗄️', color: '#CC2927', name: 'SQL' }
-	},
+const DEFAULT_ICON = { emoji: '📄', color: '#6B7280' };
+const DEFAULT_CATEGORY = 'catalog';
 
-	// Frameworks
-	frameworks: {
-		nodejs: { emoji: '🟢', color: '#339933', name: 'Node.js' },
-		expressjs: { emoji: '⚡', color: '#000000', name: 'Express.js' },
-		nextjs: { emoji: '▲', color: '#000000', name: 'Next.js' },
-		django: { emoji: '🎸', color: '#092E20', name: 'Django' },
-		flask: { emoji: '🌶️', color: '#000000', name: 'Flask' },
-		'spring-boot': { emoji: '🍃', color: '#6DB33F', name: 'Spring Boot' },
-		react: { emoji: '⚛️', color: '#61DAFB', name: 'React' },
-		vue: { emoji: '💚', color: '#42B883', name: 'Vue.js' },
-		angular: { emoji: '🅰️', color: '#DD0031', name: 'Angular' },
-		laravel: { emoji: '🔺', color: '#FF2D20', name: 'Laravel' },
-		rails: { emoji: '💎', color: '#CC0000', name: 'Ruby on Rails' },
-		aspnet: { emoji: '🔷', color: '#512BD4', name: 'ASP.NET' }
-	},
-
-	// Databases
-	databases: {
-		mysql: { emoji: '🐬', color: '#4479A1', name: 'MySQL' },
-		postgresql: { emoji: '🐘', color: '#336791', name: 'PostgreSQL' },
-		mongodb: { emoji: '🍃', color: '#47A248', name: 'MongoDB' },
-		redis: { emoji: '🔴', color: '#DC382D', name: 'Redis' },
-		dynamodb: { emoji: '⚡', color: '#4053D6', name: 'DynamoDB' },
-		sqlite: { emoji: '💾', color: '#003B57', name: 'SQLite' },
-		mariadb: { emoji: '🌊', color: '#003545', name: 'MariaDB' },
-		cassandra: { emoji: '🔷', color: '#1287B1', name: 'Cassandra' },
-		elasticsearch: { emoji: '🔍', color: '#005571', name: 'Elasticsearch' },
-		firebase: { emoji: '🔥', color: '#FFCA28', name: 'Firebase' }
-	},
-
-	// DevOps & Tools
-	devops: {
-		docker: { emoji: '🐳', color: '#2496ED', name: 'Docker' },
-		kubernetes: { emoji: '☸️', color: '#326CE5', name: 'Kubernetes' },
-		git: { emoji: '📦', color: '#F05032', name: 'Git' },
-		github: { emoji: '🐙', color: '#181717', name: 'GitHub' },
-		gitlab: { emoji: '🦊', color: '#FC6D26', name: 'GitLab' },
-		jenkins: { emoji: '🔨', color: '#D24939', name: 'Jenkins' },
-		circleci: { emoji: '⭕', color: '#343434', name: 'CircleCI' },
-		travis: { emoji: '🔧', color: '#3EAAAF', name: 'Travis CI' },
-		ansible: { emoji: '🅰️', color: '#EE0000', name: 'Ansible' },
-		terraform: { emoji: '☁️', color: '#7B42BC', name: 'Terraform' },
-		postman: { emoji: '📮', color: '#FF6C37', name: 'Postman' },
-		nginx: { emoji: '🟢', color: '#009639', name: 'Nginx' },
-		apache: { emoji: '🪶', color: '#D22128', name: 'Apache' },
-		aws: { emoji: '☁️', color: '#FF9900', name: 'AWS' },
-		azure: { emoji: '☁️', color: '#0078D4', name: 'Azure' },
-		gcp: { emoji: '☁️', color: '#4285F4', name: 'Google Cloud' }
-	},
-
-	// Testing Tools
-	testing: {
-		jest: { emoji: '🃏', color: '#C21325', name: 'Jest' },
-		jtest: { emoji: '✅', color: '#25A162', name: 'JTest' },
-		mocha: { emoji: '☕', color: '#8D6748', name: 'Mocha' },
-		jasmine: { emoji: '🌸', color: '#8A4182', name: 'Jasmine' },
-		pytest: { emoji: '🧪', color: '#0A9EDC', name: 'Pytest' },
-		selenium: { emoji: '🌐', color: '#43B02A', name: 'Selenium' },
-		cypress: { emoji: '🌲', color: '#17202C', name: 'Cypress' },
-		junit: { emoji: '☕', color: '#25A162', name: 'JUnit' }
-	},
-
-	// Documentation & Pages
-	pages: {
-		documentation: { emoji: '📚', color: '#8B5CF6', name: 'Documentation' },
-		faq: { emoji: '❓', color: '#F59E0B', name: 'FAQ' },
-		quickstart: { emoji: '🚀', color: '#10B981', name: 'Quick Start' },
-		changelog: { emoji: '📝', color: '#6366F1', name: 'Changelog' },
-		about: { emoji: 'ℹ️', color: '#3B82F6', name: 'About' },
-		contact: { emoji: '📧', color: '#EC4899', name: 'Contact' },
-		community: { emoji: '👥', color: '#8B5CF6', name: 'Community' },
-		security: { emoji: '🔒', color: '#EF4444', name: 'Security' },
-		resources: { emoji: '📚', color: '#8B5CF6', name: 'Resources' },
-		'install-guide': { emoji: '⚙️', color: '#6366F1', name: 'Install Guide' },
-		intro: { emoji: '📖', color: '#8B5CF6', name: 'Introduction' }
-	}
+const CoduxiumXIIcons = {
+	languages: {},
+	frameworks: {},
+	databases: {},
+	devops: {},
+	testing: {},
+	pages: {},
+	catalog: {}
 };
 
-/**
- * Get icon for a technology
- * @param {string} tech - Technology name (lowercase)
- * @param {string} category - Category (languages, frameworks, databases, devops, testing, pages)
- * @returns {object} Icon object with emoji, color, and name
- */
-function getIcon(tech, category = null) {
-	const normalizedTech = tech.toLowerCase().replace(/\s+/g, '-');
-	
-	// If category is specified, search only in that category
-	if (category && Coduxium XIIcons[category]) {
-		return Coduxium XIIcons[category][normalizedTech] || { emoji: '📄', color: '#6B7280', name: tech };
+const SVG_FILE_ALIASES = {
+	javascript: ['javascript.svg', 'javascript-light.svg'],
+	typescript: ['typescript.svg'],
+	python: ['python.svg', 'python-auto.svg', 'python-dark.svg'],
+	java: ['java.svg', 'java-auto.svg'],
+	rust: ['rust.svg', 'rust-auto.svg', 'rust-dark.svg'],
+	go: ['go.svg', 'golang.svg'],
+	golang: ['golang.svg', 'go.svg'],
+	php: ['php.svg', 'php-auto.svg', 'php-light.svg'],
+	bash: ['bash-auto.svg'],
+	csharp: ['csharp.svg', 'cs.svg'],
+	'c-and-c-plus-plus': ['c.svg'],
+	'c-c-plus-plus': ['c.svg'],
+	r: ['r.svg'],
+	sql: ['sqlite.svg', 'sqlserver-auto.svg'],
+	kql: ['sqlserver-auto.svg'],
+	'scikit-learn': ['scikitlearn-auto.svg'],
+	'hugging-face': ['huggingface-auto.svg'],
+	'linux-overview': ['linux.svg'],
+	ubuntu: ['ubuntu.svg', 'ubuntu-linux.svg'],
+	'arch-linux': ['arch-linux.svg'],
+	'linux-mint': ['linux-mint.svg'],
+	'kali-linux': ['kali-linux.svg'],
+	'asp-net-core': ['dotnet.svg'],
+
+	nodejs: ['nodejs.svg', 'nodejs-auto.svg'],
+	'node-js': ['nodejs.svg', 'nodejs-auto.svg'],
+	expressjs: ['expressjs-auto.svg'],
+	'express-js': ['expressjs-auto.svg'],
+	nextjs: ['nextjs-auto.svg'],
+	'next-js': ['nextjs-auto.svg'],
+	vue: ['vue-js.svg'],
+	angular: ['angular.svg'],
+	svelte: ['svelte.svg'],
+	laravel: ['laravel.svg', 'laravel-auto.svg'],
+	django: ['django.svg'],
+	flask: ['flask.svg'],
+	fastapi: ['fastapi.svg'],
+	springboot: ['springboot.svg'],
+	'spring-boot': ['springboot.svg'],
+	rails: ['ruby-on-rails.svg', 'rails.svg'],
+	'ruby-on-rails': ['ruby-on-rails.svg', 'rails.svg'],
+	remix: ['remix-auto.svg'],
+	nuxtjs: ['nuxtjs-auto.svg'],
+	'nuxt-js': ['nuxtjs-auto.svg'],
+	astro: ['astro.svg'],
+	htmx: ['htmx-auto.svg'],
+	solidjs: ['solidjs-auto.svg'],
+	'solid-js': ['solidjs-auto.svg'],
+	stencil: ['webcomponents-auto.svg'],
+	'tauri': ['tauri.svg'],
+	electron: ['electron.svg'],
+	ionic: ['ionic.svg'],
+	expo: ['expo.svg'],
+	'jetpack-compose': ['android.svg'],
+	kivy: ['python.svg'],
+	metamask: ['metamask.svg'],
+	bitcoin: ['bitcoin.svg'],
+	solana: ['solana-auto.svg'],
+	polkadot: ['polkadot.svg'],
+	contentful: ['contentful.svg'],
+	ghost: ['ghost.svg'],
+	payload: ['payload.svg'],
+
+	mongodb: ['mongodb.svg'],
+	mysql: ['mysql-auto.svg'],
+	postgresql: ['postgresql.svg', 'postgres.svg'],
+	redis: ['redis.svg', 'redis-auto.svg'],
+	mariadb: ['mariadb.svg'],
+	sqlite: ['sqlite.svg'],
+	dynamodb: ['dynamodb-auto.svg'],
+	neo4j: ['neo4j-auto.svg'],
+	cassandra: ['cassandra-auto.svg', 'apache-cassandra.svg'],
+	snowflake: ['snowflake-auto.svg'],
+	clickhouse: ['clickhouse.svg'],
+	bigquery: ['google-cloud-platform.svg'],
+	memcached: ['memcached.svg'],
+	minio: ['minio.svg'],
+	milvus: ['milvus.svg'],
+	pinecone: ['pinecone.svg'],
+	weaviate: ['weaviate.svg'],
+	etcd: ['etcd.svg'],
+
+	docker: ['docker.svg', 'docker-engine.svg'],
+	kubernetes: ['kubernetes.svg'],
+	git: ['git.svg', 'git-auto.svg'],
+	github: ['github.svg', 'github-light.svg'],
+	gitlab: ['gitlab.svg'],
+	bitbucket: ['bitbucket.svg', 'bitbucket-auto.svg'],
+	jenkins: ['jenkins.svg'],
+	ansible: ['ansible.svg'],
+	terraform: ['terraform.svg', 'terraform-auto.svg'],
+	postman: ['postman.svg'],
+	azure: ['azure.svg', 'azure-auto.svg'],
+	aws: ['aws.svg', 'aws-light.svg'],
+	gcp: ['gcp-auto.svg', 'google-cloud-platform.svg'],
+	podman: ['podman.svg'],
+	nomad: ['nomad.svg'],
+	consul: ['consul.svg'],
+	istio: ['istio.svg'],
+	opentofu: ['opentofu.svg'],
+	pulumi: ['pulumi.svg'],
+	flux: ['flux-cd.svg', 'flux-operator.svg'],
+	loki: ['loki.svg'],
+	zipkin: ['zipkin.svg'],
+	'n8n': ['n8n.svg'],
+	linode: ['linode.svg'],
+	'ibm-cloud': ['ibm-cloud.svg'],
+
+	jest: ['jest.svg'],
+	jtest: ['junit.svg'],
+	mocha: ['mocha-auto.svg'],
+	pytest: ['python.svg'],
+	cypress: ['cypress.svg', 'cypress-auto.svg'],
+	selenium: ['selenium.svg'],
+
+	documentation: ['markdown.svg'],
+	faq: ['faq.svg'],
+	quickstart: ['rocket.svg'],
+	changelog: ['changelog.svg'],
+	about: ['info.svg'],
+	contact: ['email.svg'],
+	community: ['community.svg'],
+	security: ['security.svg'],
+	resources: ['resources.svg']
+};
+
+const CATALOG_TECHNOLOGIES = [
+	'Actix Web', 'AdonisJS', 'Alpine Linux', 'Alpine.js', 'Amethyst', 'Angular', 'Ansible',
+	'Apache Kafka', 'Apache Spark', 'AquaSecurity', 'Arch Linux', 'ASP.NET Core', 'Assembly',
+	'Astro', 'AsyncAPI', 'Axum', 'Babylon.js', 'Bash', 'Bazel', 'Bevy', 'BigQuery', 'BitBucket',
+	'Bitcoin', 'BlackArch', 'C & C++', 'C#', 'CentOS', 'ChromeOS Flex', 'ClickHouse',
+	'CloudWatch', 'CMake', 'Consul', 'Contentful', 'Couchbase', 'CSV', 'CUDA', 'Dart', 'dbt',
+	'Defold', 'Deno Runtime', 'Django', 'Docker', 'DynamoDB', 'Electron', 'Elysia', 'etcd',
+	'Expo', 'Express.js', 'FastAPI', 'Fastify', 'Fedora', 'Flask', 'Flux', 'FNA', 'Garuda Linux',
+	'Gentoo', 'Ghost', 'Gin', 'Git', 'GitHub', 'GitLab', 'Go', 'Godot', 'hapi', 'HashiCorp Vault',
+	'Haskell', 'Helm', 'Hono', 'htmx', 'Hugging Face', 'IBM Cloud', 'IBM Db2', 'Ionic', 'Istio',
+	'Java', 'JavaScript', 'Jenkins', 'Jest', 'Jetpack Compose', 'JSON', 'JTest', 'Julia',
+	'Kali Linux', 'Kivy', 'Koa', 'Kotlin', 'KQL', 'Kubernetes', 'Kustomize', 'LangChain',
+	'Laravel', 'Leptos', 'LibGDX', 'Linode', 'Linux Mint', 'Linux Overview', 'Loki', 'Love2D',
+	'Lua', 'MariaDB', 'MATLAB', 'Matplotlib', 'Maven', 'Memcached', 'MetaMask', 'Metasploit',
+	'Milvus', 'MinIO', 'MongoDB', 'MonoGame', 'MX Linux', 'MySQL', 'n8n', 'Neo4j', 'NestJS',
+	'Next.js', 'NixOS', 'Nmap', 'Node.js', 'Nomad', 'NumPy', 'Nuxt.js', 'Oak',
+	'OAuth 2.0 / OIDC', 'OpenTofu', 'OpenVAS', 'Oracle Linux', 'Pandas', 'ParrotSec', 'Payload',
+	'Phoenix', 'PHP', 'Pinecone', 'PlayCanvas', 'Podman', 'Polkadot', 'Pop!_OS', 'PostgreSQL',
+	'Postman', 'Pulumi', 'PWA', 'Pygame', 'Python', 'PyTorch', 'Qubes OS', 'Qwik', 'R', 'React',
+	'RedArch', 'Redis', 'Remix', 'RHEL', 'Rocky Linux', 'Ruby', 'Ruby on Rails', 'Rust',
+	'Sails.js', 'SAML', 'Sanity.io', 'Scala', 'Scapy', 'Scikit-learn', 'Security Tools',
+	'Sidekiq', 'Skaffold', 'Slackware', 'Snowflake', 'Snyk', 'SOAP', 'Solana', 'Solid.js',
+	'Solidity', 'SonarQube', 'Spring Boot', 'SQL', 'SQLite', 'SSH & SSL Tools', 'SteamOS',
+	'Stencil', 'Streamlit', 'Svelte', 'Swift', 'Tails', 'Tauri', 'tcpdump', 'Tekton',
+	'TensorFlow', 'Terraform', 'TimescaleDB', 'TOML', 'TypeScript', 'Ubuntu', 'Unity',
+	'Unreal Engine', 'Vite', 'Vitest', 'VPN Tools', 'Vue', 'Weaviate', 'Web Components',
+	'Web3JS', 'Webhooks', 'XML', 'YAML', 'Zig', 'Zipkin', 'Zorin OS'
+];
+
+let svgManifest = null;
+
+function normalizeKey(value) {
+	return String(value || '')
+		.toLowerCase()
+		.replace(/&/g, ' and ')
+		.replace(/\+/g, ' plus ')
+		.replace(/#/g, ' sharp ')
+		.replace(/\./g, ' ')
+		.replace(/\//g, ' ')
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '');
+}
+
+function escapeHtml(value) {
+	return String(value)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+}
+
+function detectAssetBasePath() {
+	if (typeof window === 'undefined') return 'assets/';
+	if (window.CoduxiumIconConfig && window.CoduxiumIconConfig.assetBasePath) {
+		const p = String(window.CoduxiumIconConfig.assetBasePath);
+		return p.endsWith('/') ? p : `${p}/`;
 	}
-	
-	// Search across all categories
-	for (const cat of Object.values(Coduxium XIIcons)) {
-		if (cat[normalizedTech]) {
-			return cat[normalizedTech];
+
+	if (typeof document !== 'undefined' && document.currentScript && document.currentScript.src) {
+		try {
+			const url = new URL(document.currentScript.src, window.location.href);
+			const marker = '/components/icons/icons.js';
+			if (url.pathname.endsWith(marker)) {
+				return `${url.origin}${url.pathname.slice(0, -marker.length)}/assets/`;
+			}
+		} catch (_) {
+			// Ignore URL parsing issues and fall back.
 		}
 	}
-	
-	// Default fallback
-	return { emoji: '📄', color: '#6B7280', name: tech };
+
+	return 'assets/';
+}
+
+function preloadSvgManifest() {
+	if (typeof window === 'undefined' || typeof fetch === 'undefined') return;
+	if (svgManifest !== null) return;
+
+	svgManifest = new Set();
+	const listUrl = `${detectAssetBasePath()}zicons-list.txt`;
+	fetch(listUrl)
+		.then((res) => (res.ok ? res.text() : ''))
+		.then((text) => {
+			text.split(/\r?\n/)
+				.map((line) => line.trim())
+				.filter((line) => line.endsWith('.svg'))
+				.forEach((line) => svgManifest.add(line));
+		})
+		.catch(() => {
+			// Keep an empty manifest if loading fails.
+		});
+}
+
+function registerIcon(category, name, options = {}) {
+	if (!CoduxiumXIIcons[category]) {
+		CoduxiumXIIcons[category] = {};
+	}
+
+	const key = normalizeKey(name);
+	CoduxiumXIIcons[category][key] = {
+		name,
+		emoji: options.emoji || DEFAULT_ICON.emoji,
+		color: options.color || DEFAULT_ICON.color,
+		svg: options.svg || null
+	};
+}
+
+function seedCoreIcons() {
+	[
+		['languages', 'Python', '🐍', '#3776AB'],
+		['languages', 'Java', '☕', '#007396'],
+		['languages', 'JavaScript', '🟨', '#F7DF1E'],
+		['languages', 'TypeScript', '📘', '#3178C6'],
+		['languages', 'Rust', '🦀', '#CE422B'],
+		['languages', 'Go', '🐹', '#00ADD8'],
+		['languages', 'PHP', '🐘', '#777BB4'],
+		['languages', 'C & C++', '⚡', '#00599C'],
+		['languages', 'C#', '🔷', '#512BD4'],
+		['languages', 'Ruby', '💎', '#CC0000'],
+		['languages', 'Swift', '🕊️', '#F05138'],
+		['languages', 'Kotlin', '🧩', '#7F52FF'],
+		['languages', 'Bash', '💲', '#4EAA25'],
+		['languages', 'R', '📊', '#276DC3'],
+		['languages', 'SQL', '🗄️', '#CC2927'],
+		['languages', 'KQL', '🔍', '#0078D4'],
+
+		['frameworks', 'Node.js', '🟢', '#339933'],
+		['frameworks', 'Express.js', '⚡', '#2F2F2F'],
+		['frameworks', 'Next.js', '▲', '#111827'],
+		['frameworks', 'React', '⚛️', '#61DAFB'],
+		['frameworks', 'Vue', '💚', '#42B883'],
+		['frameworks', 'Angular', '🅰️', '#DD0031'],
+		['frameworks', 'Django', '🎸', '#092E20'],
+		['frameworks', 'Flask', '🌶️', '#111827'],
+		['frameworks', 'FastAPI', '⚡', '#05998B'],
+		['frameworks', 'Laravel', '🔺', '#FF2D20'],
+		['frameworks', 'Ruby on Rails', '💎', '#CC0000'],
+		['frameworks', 'Spring Boot', '🍃', '#6DB33F'],
+		['frameworks', 'Svelte', '🔥', '#FF3E00'],
+		['frameworks', 'Nuxt.js', '💚', '#00DC82'],
+		['frameworks', 'Remix', '🌀', '#0F172A'],
+
+		['databases', 'MongoDB', '🍃', '#47A248'],
+		['databases', 'MySQL', '🐬', '#4479A1'],
+		['databases', 'PostgreSQL', '🐘', '#336791'],
+		['databases', 'Redis', '🔴', '#DC382D'],
+		['databases', 'MariaDB', '🌊', '#003545'],
+		['databases', 'SQLite', '💾', '#003B57'],
+		['databases', 'DynamoDB', '⚡', '#4053D6'],
+		['databases', 'Snowflake', '❄️', '#29B5E8'],
+
+		['devops', 'Docker', '🐳', '#2496ED'],
+		['devops', 'Kubernetes', '☸️', '#326CE5'],
+		['devops', 'Git', '📦', '#F05032'],
+		['devops', 'GitHub', '🐙', '#181717'],
+		['devops', 'GitLab', '🦊', '#FC6D26'],
+		['devops', 'Jenkins', '🔨', '#D24939'],
+		['devops', 'Ansible', '🅰️', '#EE0000'],
+		['devops', 'Terraform', '☁️', '#7B42BC'],
+		['devops', 'Azure', '☁️', '#0078D4'],
+		['devops', 'AWS', '☁️', '#FF9900'],
+		['devops', 'GCP', '☁️', '#4285F4'],
+		['devops', 'Postman', '📮', '#FF6C37'],
+
+		['testing', 'Jest', '🃏', '#C21325'],
+		['testing', 'JTest', '✅', '#25A162'],
+		['testing', 'Mocha', '☕', '#8D6748'],
+		['testing', 'Pytest', '🧪', '#0A9EDC'],
+		['testing', 'Cypress', '🌲', '#17202C'],
+		['testing', 'Selenium', '🌐', '#43B02A'],
+
+		['pages', 'Documentation', '📚', '#8B5CF6'],
+		['pages', 'FAQ', '❓', '#F59E0B'],
+		['pages', 'Quick Start', '🚀', '#10B981'],
+		['pages', 'Changelog', '📝', '#6366F1'],
+		['pages', 'About', 'ℹ️', '#3B82F6'],
+		['pages', 'Contact', '📧', '#EC4899'],
+		['pages', 'Community', '👥', '#8B5CF6'],
+		['pages', 'Security', '🔒', '#EF4444'],
+		['pages', 'Resources', '📚', '#8B5CF6']
+	].forEach(([category, name, emoji, color]) => registerIcon(category, name, { emoji, color }));
+}
+
+function findIconByKey(key, category = null) {
+	if (category && CoduxiumXIIcons[category] && CoduxiumXIIcons[category][key]) {
+		return { icon: CoduxiumXIIcons[category][key], category };
+	}
+
+	for (const [catName, icons] of Object.entries(CoduxiumXIIcons)) {
+		if (icons[key]) return { icon: icons[key], category: catName };
+	}
+
+	return null;
+}
+
+function getSvgCandidates(key, name) {
+	const candidates = new Set();
+	const alias = SVG_FILE_ALIASES[key] || [];
+	alias.forEach((entry) => candidates.add(entry));
+
+	const baseVariants = new Set([
+		key,
+		key.replace(/-and-/g, '-'),
+		key.replace(/-plus/g, ''),
+		key.replace(/-/g, ''),
+		key.replace(/-js$/g, 'js'),
+		key.replace(/-os$/g, 'os'),
+		key.replace(/-tool(s)?$/g, ''),
+		key.replace(/-overview$/g, ''),
+		normalizeKey(name).replace(/-js$/g, 'js')
+	]);
+
+	for (const base of baseVariants) {
+		if (!base) continue;
+		candidates.add(`${base}.svg`);
+		candidates.add(`${base}-auto.svg`);
+		candidates.add(`${base}-dark.svg`);
+		candidates.add(`${base}-light.svg`);
+		candidates.add(`${base}-linux.svg`);
+	}
+
+	return Array.from(candidates);
+}
+
+function resolveSvgFile(key, name, explicitSvg = null) {
+	if (explicitSvg) return explicitSvg;
+
+	const candidates = getSvgCandidates(key, name);
+	if (svgManifest && svgManifest.size > 0) {
+		const hit = candidates.find((file) => svgManifest.has(file));
+		if (hit) return hit;
+	}
+
+	return candidates[0] || null;
+}
+
+function registerCatalogCoverage() {
+	for (const name of CATALOG_TECHNOLOGIES) {
+		const key = normalizeKey(name);
+		if (!findIconByKey(key)) {
+			registerIcon(DEFAULT_CATEGORY, name, { emoji: '🧩', color: '#64748B' });
+		}
+	}
+}
+
+seedCoreIcons();
+registerCatalogCoverage();
+preloadSvgManifest();
+
+/**
+ * Get icon metadata for a technology.
+ * @param {string} tech - Technology name
+ * @param {string|null} category - Optional category filter
+ * @returns {{name:string,emoji:string,color:string,svg:string|null,svgPath:string|null,key:string,category:string}}
+ */
+function getIcon(tech, category = null) {
+	const name = String(tech || '').trim() || 'Unknown';
+	const key = normalizeKey(name);
+	const found = findIconByKey(key, category);
+	const icon = found ? found.icon : { ...DEFAULT_ICON, name };
+	const iconCategory = found ? found.category : DEFAULT_CATEGORY;
+	const svgFile = resolveSvgFile(key, icon.name, icon.svg || null);
+	const basePath = detectAssetBasePath();
+
+	return {
+		name: icon.name,
+		emoji: icon.emoji,
+		color: icon.color,
+		svg: svgFile,
+		svgPath: svgFile ? `${basePath}${svgFile}` : null,
+		key,
+		category: iconCategory
+	};
 }
 
 /**
- * Create an icon element
+ * Create an icon element.
  * @param {string} tech - Technology name
- * @param {string} category - Category (optional)
- * @param {string} size - Size (small, medium, large)
- * @returns {string} HTML string for icon
+ * @param {string|null} category - Optional category
+ * @param {'small'|'medium'|'large'} size - Size variant
+ * @returns {string}
  */
 function createIcon(tech, category = null, size = 'medium') {
 	const icon = getIcon(tech, category);
@@ -139,70 +432,85 @@ function createIcon(tech, category = null, size = 'medium') {
 		medium: '2rem',
 		large: '3rem'
 	};
-	
+	const iconSize = sizeMap[size] || sizeMap.medium;
+	const safeName = escapeHtml(icon.name);
+
+	if (icon.svgPath) {
+		return `
+			<span class="tech-icon tech-icon-${size}" style="display:inline-flex;align-items:center;justify-content:center;width:${iconSize};height:${iconSize};" title="${safeName}">
+				<img class="tech-icon-svg" src="${escapeHtml(icon.svgPath)}" alt="${safeName} icon" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';" />
+				<span class="tech-icon-fallback" style="display:none;font-size:${iconSize};color:${icon.color};">${icon.emoji}</span>
+			</span>
+		`;
+	}
+
 	return `
-		<span class="tech-icon tech-icon-${size}" 
-		      style="font-size: ${sizeMap[size]}; color: ${icon.color};" 
-		      title="${icon.name}">
+		<span class="tech-icon tech-icon-${size}" style="font-size:${iconSize};color:${icon.color};" title="${safeName}">
 			${icon.emoji}
 		</span>
 	`;
 }
 
 /**
- * Create an icon with label
+ * Create an icon with label.
  * @param {string} tech - Technology name
- * @param {string} category - Category (optional)
- * @returns {string} HTML string for icon with label
+ * @param {string|null} category - Optional category
+ * @returns {string}
  */
 function createIconWithLabel(tech, category = null) {
 	const icon = getIcon(tech, category);
-	
+	const iconMarkup = createIcon(tech, category, 'small');
+
 	return `
 		<div class="tech-icon-label">
-			<span class="tech-icon" style="color: ${icon.color};">${icon.emoji}</span>
-			<span class="tech-name">${icon.name}</span>
+			${iconMarkup}
+			<span class="tech-name">${escapeHtml(icon.name)}</span>
 		</div>
 	`;
 }
 
 /**
- * Get all icons in a category
+ * Get all icons in a category.
  * @param {string} category - Category name
- * @returns {object} Object of all icons in category
+ * @returns {Record<string, {name:string,emoji:string,color:string,svg:string|null}>}
  */
 function getIconsByCategory(category) {
-	return Coduxium XIIcons[category] || {};
+	return CoduxiumXIIcons[category] || {};
 }
 
 /**
- * Search icons by name
- * @param {string} query - Search query
- * @returns {array} Array of matching icons
+ * Search icons by name or key.
+ * @param {string} query - Search text
+ * @returns {Array}
  */
 function searchIcons(query) {
+	const q = String(query || '').toLowerCase();
 	const results = [];
-	const lowerQuery = query.toLowerCase();
-	
-	for (const [category, icons] of Object.entries(Coduxium XIIcons)) {
+
+	for (const [category, icons] of Object.entries(CoduxiumXIIcons)) {
 		for (const [key, icon] of Object.entries(icons)) {
-			if (icon.name.toLowerCase().includes(lowerQuery) || key.includes(lowerQuery)) {
-				results.push({ ...icon, key, category });
+			if (!q || icon.name.toLowerCase().includes(q) || key.includes(q)) {
+				results.push({
+					...getIcon(icon.name, category),
+					category,
+					key
+				});
 			}
 		}
 	}
-	
+
 	return results;
 }
 
-// Export for use in other modules
+// Export for use in other modules.
 if (typeof module !== 'undefined' && module.exports) {
 	module.exports = {
-		Coduxium XIIcons,
+		CoduxiumXIIcons,
 		getIcon,
 		createIcon,
 		createIconWithLabel,
 		getIconsByCategory,
-		searchIcons
+		searchIcons,
+		normalizeKey
 	};
 }
