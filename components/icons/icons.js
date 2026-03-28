@@ -131,6 +131,11 @@ const SVG_FILE_ALIASES = {
 	pytest: ['python-auto.svg'],
 	cypress: ['cypress.svg', 'cypress-auto.svg'],
 	selenium: ['cypress.svg'],
+	'apache-kafka': ['kafka.svg'],
+	'apache-spark': ['spark-auto.svg', 'pyspark-auto.svg'],
+	scapy: ['python-auto.svg'],
+	pygame: ['python-auto.svg'],
+	next: ['nextjs-auto.svg'],
 
 	documentation: ['html.svg'],
 	faq: ['duckduckgo.svg'],
