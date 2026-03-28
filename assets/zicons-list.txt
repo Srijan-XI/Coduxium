@@ -170,7 +170,6 @@ jest.svg
 jetstream.svg
 jquery.svg
 json-auto.svg
-json.svg
 julia-auto.svg
 julia.svg
 kafka.svg

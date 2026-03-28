@@ -17,13 +17,13 @@ const CoduxiumXIIcons = {
 };
 
 const SVG_FILE_ALIASES = {
-	javascript: ['javascript.svg', 'javascript-light.svg'],
+	javascript: ['javascript.svg', 'javascript.svg'],
 	typescript: ['typescript.svg'],
-	python: ['python.svg', 'python-auto.svg', 'python-dark.svg'],
+	python: ['python-auto.svg', 'python-auto.svg', 'python-auto.svg'],
 	java: ['java.svg', 'java-auto.svg'],
-	rust: ['rust.svg', 'rust-auto.svg', 'rust-dark.svg'],
-	go: ['go.svg', 'golang.svg'],
-	golang: ['golang.svg', 'go.svg'],
+	rust: ['rust.svg', 'rust-auto.svg', 'rust.svg'],
+	go: ['golang.svg', 'golang.svg'],
+	golang: ['golang.svg', 'golang.svg'],
 	php: ['php.svg', 'php-auto.svg', 'php-light.svg'],
 	bash: ['bash-auto.svg'],
 	csharp: ['csharp.svg', 'cs.svg'],
@@ -34,15 +34,15 @@ const SVG_FILE_ALIASES = {
 	kql: ['sqlserver-auto.svg'],
 	'scikit-learn': ['scikitlearn-auto.svg'],
 	'hugging-face': ['huggingface-auto.svg'],
-	'linux-overview': ['linux.svg'],
-	ubuntu: ['ubuntu.svg', 'ubuntu-linux.svg'],
+	'linux-overview': ['linux-auto.svg'],
+	ubuntu: ['ubuntu.svg', 'ubuntu.svg'],
 	'arch-linux': ['arch-linux.svg'],
 	'linux-mint': ['linux-mint.svg'],
 	'kali-linux': ['kali-linux.svg'],
 	'asp-net-core': ['dotnet.svg'],
 
-	nodejs: ['nodejs.svg', 'nodejs-auto.svg'],
-	'node-js': ['nodejs.svg', 'nodejs-auto.svg'],
+	nodejs: ['nodejs-auto.svg', 'nodejs-auto.svg'],
+	'node-js': ['nodejs-auto.svg', 'nodejs-auto.svg'],
 	expressjs: ['expressjs-auto.svg'],
 	'express-js': ['expressjs-auto.svg'],
 	nextjs: ['nextjs-auto.svg'],
@@ -50,7 +50,7 @@ const SVG_FILE_ALIASES = {
 	vue: ['vue-js.svg'],
 	angular: ['angular.svg'],
 	svelte: ['svelte.svg'],
-	laravel: ['laravel.svg', 'laravel-auto.svg'],
+	laravel: ['laravel-auto.svg', 'laravel-auto.svg'],
 	django: ['django.svg'],
 	flask: ['flask.svg'],
 	fastapi: ['fastapi.svg'],
@@ -65,20 +65,20 @@ const SVG_FILE_ALIASES = {
 	htmx: ['htmx-auto.svg'],
 	solidjs: ['solidjs-auto.svg'],
 	'solid-js': ['solidjs-auto.svg'],
-	stencil: ['webcomponents-auto.svg'],
-	'tauri': ['tauri.svg'],
+	stencil: ['webassembly.svg'],
+	'tauri': ['electron.svg'],
 	electron: ['electron.svg'],
-	ionic: ['ionic.svg'],
-	expo: ['expo.svg'],
+	ionic: ['android.svg'],
+	expo: ['reactjs.svg'],
 	'jetpack-compose': ['android.svg'],
-	kivy: ['python.svg'],
-	metamask: ['metamask.svg'],
+	kivy: ['python-auto.svg'],
+	metamask: ['ethereum-auto.svg'],
 	bitcoin: ['bitcoin.svg'],
 	solana: ['solana-auto.svg'],
-	polkadot: ['polkadot.svg'],
-	contentful: ['contentful.svg'],
-	ghost: ['ghost.svg'],
-	payload: ['payload.svg'],
+	polkadot: ['bitcoin.svg'],
+	contentful: ['strapi.svg'],
+	ghost: ['ghostty-auto.svg'],
+	payload: ['strapi.svg'],
 
 	mongodb: ['mongodb.svg'],
 	mysql: ['mysql-auto.svg'],
@@ -90,57 +90,57 @@ const SVG_FILE_ALIASES = {
 	neo4j: ['neo4j-auto.svg'],
 	cassandra: ['cassandra-auto.svg', 'apache-cassandra.svg'],
 	snowflake: ['snowflake-auto.svg'],
-	clickhouse: ['clickhouse.svg'],
+	clickhouse: ['duckdb.svg'],
 	bigquery: ['google-cloud-platform.svg'],
-	memcached: ['memcached.svg'],
-	minio: ['minio.svg'],
-	milvus: ['milvus.svg'],
-	pinecone: ['pinecone.svg'],
-	weaviate: ['weaviate.svg'],
-	etcd: ['etcd.svg'],
+	memcached: ['redis.svg'],
+	minio: ['aws.svg'],
+	milvus: ['mongodb.svg'],
+	pinecone: ['mongodb.svg'],
+	weaviate: ['mongodb.svg'],
+	etcd: ['consul.svg'],
 
-	docker: ['docker.svg', 'docker-engine.svg'],
+	docker: ['docker.svg', 'docker.svg'],
 	kubernetes: ['kubernetes.svg'],
 	git: ['git.svg', 'git-auto.svg'],
-	github: ['github.svg', 'github-light.svg'],
+	github: ['github-light.svg', 'github-light.svg'],
 	gitlab: ['gitlab.svg'],
-	bitbucket: ['bitbucket.svg', 'bitbucket-auto.svg'],
+	bitbucket: ['bitbucket-auto.svg', 'bitbucket-auto.svg'],
 	jenkins: ['jenkins.svg'],
 	ansible: ['ansible.svg'],
-	terraform: ['terraform.svg', 'terraform-auto.svg'],
-	postman: ['postman.svg'],
+	terraform: ['terraform-auto.svg', 'terraform-auto.svg'],
+	postman: ['api-auto.svg'],
 	azure: ['azure.svg', 'azure-auto.svg'],
 	aws: ['aws.svg', 'aws-light.svg'],
 	gcp: ['gcp-auto.svg', 'google-cloud-platform.svg'],
 	podman: ['podman.svg'],
 	nomad: ['nomad.svg'],
 	consul: ['consul.svg'],
-	istio: ['istio.svg'],
+	istio: ['kubernetes.svg'],
 	opentofu: ['opentofu.svg'],
-	pulumi: ['pulumi.svg'],
+	pulumi: ['terraform-auto.svg'],
 	flux: ['flux-cd.svg', 'flux-operator.svg'],
 	loki: ['loki.svg'],
-	zipkin: ['zipkin.svg'],
+	zipkin: ['grafana.svg'],
 	'n8n': ['n8n.svg'],
 	linode: ['linode.svg'],
-	'ibm-cloud': ['ibm-cloud.svg'],
+	'ibm-cloud': ['oracle-cloud.svg'],
 
 	jest: ['jest.svg'],
-	jtest: ['junit.svg'],
+	jtest: ['jest.svg'],
 	mocha: ['mocha-auto.svg'],
-	pytest: ['python.svg'],
+	pytest: ['python-auto.svg'],
 	cypress: ['cypress.svg', 'cypress-auto.svg'],
-	selenium: ['selenium.svg'],
+	selenium: ['cypress.svg'],
 
-	documentation: ['markdown.svg'],
-	faq: ['faq.svg'],
-	quickstart: ['rocket.svg'],
-	changelog: ['changelog.svg'],
-	about: ['info.svg'],
-	contact: ['email.svg'],
-	community: ['community.svg'],
-	security: ['security.svg'],
-	resources: ['resources.svg']
+	documentation: ['html.svg'],
+	faq: ['duckduckgo.svg'],
+	quickstart: ['forge.svg'],
+	changelog: ['git.svg'],
+	about: ['api-auto.svg'],
+	contact: ['discord.svg'],
+	community: ['discord.svg'],
+	security: ['openvas.svg'],
+	resources: ['forge.svg']
 };
 
 const CATALOG_TECHNOLOGIES = [
@@ -212,6 +212,45 @@ function detectAssetBasePath() {
 		} catch (_) {
 			// Ignore URL parsing issues and fall back.
 		}
+	}
+
+	// Fallback for pages where currentScript is unavailable (bundlers, dynamic loaders).
+	// Detect the project root from known top-level route markers.
+	try {
+		const pathname = String(window.location && window.location.pathname ? window.location.pathname : '');
+		const routeMarkers = [
+			'/pages/',
+			'/docpages/',
+			'/pagex/',
+			'/pagesw/',
+			'/Guidelines/',
+			'/components/',
+			'/Tx/',
+			'/css/',
+			'/js/',
+			'/popup-message/',
+			'/watermark/'
+		];
+
+		let rootPrefix = '';
+		for (const marker of routeMarkers) {
+			const idx = pathname.indexOf(marker);
+			if (idx > -1) {
+				rootPrefix = pathname.slice(0, idx);
+				break;
+			}
+		}
+
+		if (!rootPrefix) {
+			const clean = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+			const lastSlash = clean.lastIndexOf('/');
+			rootPrefix = lastSlash > 0 ? clean.slice(0, lastSlash) : '';
+		}
+
+		const origin = window.location.origin && window.location.origin !== 'null' ? window.location.origin : '';
+		return `${origin}${rootPrefix}/assets/`;
+	} catch (_) {
+		// Ignore fallback parsing issues.
 	}
 
 	return 'assets/';
@@ -514,3 +553,4 @@ if (typeof module !== 'undefined' && module.exports) {
 		normalizeKey
 	};
 }
+
